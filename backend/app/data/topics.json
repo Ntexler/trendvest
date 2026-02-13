@@ -1,0 +1,275 @@
+{
+  "topics": [
+    {
+      "slug": "ai",
+      "name_en": "Artificial Intelligence",
+      "name_he": "בינה מלאכותית",
+      "sector": "טכנולוגיה",
+      "sector_en": "Technology",
+      "keywords": ["artificial intelligence", "AI", "machine learning", "deep learning", "neural network", "LLM", "GPT", "generative AI", "ChatGPT", "copilot"],
+      "subreddits": ["artificial", "MachineLearning", "OpenAI", "LocalLLaMA", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "NVDA", "name": "Nvidia", "note": "שבבי AI מובילים", "priority": 1},
+        {"ticker": "MSFT", "name": "Microsoft", "note": "Azure AI + Copilot", "priority": 2},
+        {"ticker": "GOOGL", "name": "Alphabet", "note": "Gemini AI + DeepMind", "priority": 3},
+        {"ticker": "PLTR", "name": "Palantir", "note": "פלטפורמת AI לארגונים", "priority": 4},
+        {"ticker": "AMD", "name": "AMD", "note": "שבבי AI מתחרים", "priority": 5}
+      ]
+    },
+    {
+      "slug": "nuclear",
+      "name_en": "Nuclear Energy",
+      "name_he": "אנרגיה גרעינית",
+      "sector": "אנרגיה",
+      "sector_en": "Energy",
+      "keywords": ["nuclear energy", "nuclear power", "uranium", "reactor", "SMR", "small modular reactor", "fission", "nuclear plant", "atomic energy"],
+      "subreddits": ["nuclear", "NuclearPower", "energy", "wallstreetbets", "stocks", "investing", "UraniumSqueeze"],
+      "stocks": [
+        {"ticker": "CCJ", "name": "Cameco", "note": "יצרן אורניום מוביל", "priority": 1},
+        {"ticker": "LEU", "name": "Centrus Energy", "note": "העשרת אורניום", "priority": 2},
+        {"ticker": "SMR", "name": "NuScale Power", "note": "כורים מודולריים קטנים", "priority": 3},
+        {"ticker": "NNE", "name": "Nano Nuclear", "note": "מיקרו-כורים", "priority": 4},
+        {"ticker": "UEC", "name": "Uranium Energy", "note": "כריית אורניום", "priority": 5}
+      ]
+    },
+    {
+      "slug": "glp1",
+      "name_en": "GLP-1 / Weight Loss",
+      "name_he": "תרופות GLP-1",
+      "sector": "בריאות",
+      "sector_en": "Healthcare",
+      "keywords": ["GLP-1", "Ozempic", "Wegovy", "Mounjaro", "Zepbound", "semaglutide", "tirzepatide", "weight loss drug", "obesity drug"],
+      "subreddits": ["Ozempic", "Semaglutide", "loseit", "wallstreetbets", "stocks", "investing", "biotech"],
+      "stocks": [
+        {"ticker": "LLY", "name": "Eli Lilly", "note": "Mounjaro / Zepbound", "priority": 1},
+        {"ticker": "NVO", "name": "Novo Nordisk", "note": "Ozempic / Wegovy", "priority": 2},
+        {"ticker": "AMGN", "name": "Amgen", "note": "MariTide בפיתוח", "priority": 3},
+        {"ticker": "VKTX", "name": "Viking Therapeutics", "note": "VK2735 בניסויים", "priority": 4}
+      ]
+    },
+    {
+      "slug": "quantum",
+      "name_en": "Quantum Computing",
+      "name_he": "מחשוב קוונטי",
+      "sector": "טכנולוגיה",
+      "sector_en": "Technology",
+      "keywords": ["quantum computing", "quantum computer", "qubit", "quantum supremacy", "quantum advantage", "quantum processor"],
+      "subreddits": ["QuantumComputing", "quantum", "technology", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "IONQ", "name": "IonQ", "note": "מחשב קוונטי מסחרי", "priority": 1},
+        {"ticker": "RGTI", "name": "Rigetti", "note": "ענן קוונטי", "priority": 2},
+        {"ticker": "QBTS", "name": "D-Wave", "note": "Quantum annealing", "priority": 3}
+      ]
+    },
+    {
+      "slug": "ev",
+      "name_en": "Electric Vehicles",
+      "name_he": "רכבים חשמליים",
+      "sector": "רכב",
+      "sector_en": "Automotive",
+      "keywords": ["electric vehicle", "EV", "electric car", "Tesla", "EV charging", "battery electric", "BEV", "plug-in hybrid"],
+      "subreddits": ["electricvehicles", "teslamotors", "Rivian", "NIO", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "TSLA", "name": "Tesla", "note": "מובילת EV עולמית", "priority": 1},
+        {"ticker": "RIVN", "name": "Rivian", "note": "טנדרים חשמליים", "priority": 2},
+        {"ticker": "NIO", "name": "NIO", "note": "EV סינית פרימיום", "priority": 3},
+        {"ticker": "LI", "name": "Li Auto", "note": "רכבי פלאג-אין", "priority": 4}
+      ]
+    },
+    {
+      "slug": "cyber",
+      "name_en": "Cybersecurity",
+      "name_he": "סייבר",
+      "sector": "טכנולוגיה",
+      "sector_en": "Technology",
+      "keywords": ["cybersecurity", "cyber attack", "data breach", "ransomware", "zero trust", "endpoint security", "firewall", "SIEM"],
+      "subreddits": ["cybersecurity", "netsec", "hacking", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "CRWD", "name": "CrowdStrike", "note": "הגנת endpoints", "priority": 1},
+        {"ticker": "PANW", "name": "Palo Alto Networks", "note": "חומות אש מתקדמות", "priority": 2},
+        {"ticker": "ZS", "name": "Zscaler", "note": "Zero Trust", "priority": 3}
+      ]
+    },
+    {
+      "slug": "space",
+      "name_en": "Space & Satellites",
+      "name_he": "חלל ולוויינים",
+      "sector": "תעופה וחלל",
+      "sector_en": "Aerospace",
+      "keywords": ["space", "satellite", "rocket launch", "SpaceX", "orbit", "space station", "lunar", "Mars mission"],
+      "subreddits": ["space", "SpaceX", "spaceflight", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "RKLB", "name": "Rocket Lab", "note": "שיגור לוויינים", "priority": 1},
+        {"ticker": "ASTS", "name": "AST SpaceMobile", "note": "סלולר מהחלל", "priority": 2}
+      ]
+    },
+    {
+      "slug": "crypto",
+      "name_en": "Bitcoin / Crypto",
+      "name_he": "קריפטו וביטקוין",
+      "sector": "פיננסים",
+      "sector_en": "Finance",
+      "keywords": ["bitcoin", "crypto", "cryptocurrency", "BTC", "ethereum", "blockchain", "bitcoin ETF", "altcoin", "DeFi"],
+      "subreddits": ["Bitcoin", "CryptoCurrency", "ethereum", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "MSTR", "name": "MicroStrategy", "note": "אוצר ביטקוין", "priority": 1},
+        {"ticker": "COIN", "name": "Coinbase", "note": "בורסת קריפטו", "priority": 2},
+        {"ticker": "MARA", "name": "Marathon Digital", "note": "כריית ביטקוין", "priority": 3}
+      ]
+    },
+    {
+      "slug": "solar",
+      "name_en": "Solar Energy",
+      "name_he": "אנרגיה סולארית",
+      "sector": "אנרגיה",
+      "sector_en": "Energy",
+      "keywords": ["solar energy", "solar panel", "solar power", "photovoltaic", "solar farm", "renewable solar", "solar inverter"],
+      "subreddits": ["solar", "renewableenergy", "energy", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "ENPH", "name": "Enphase", "note": "מהפכי סולאריים", "priority": 1},
+        {"ticker": "FSLR", "name": "First Solar", "note": "פאנלים סולאריים", "priority": 2}
+      ]
+    },
+    {
+      "slug": "semi",
+      "name_en": "Semiconductors",
+      "name_he": "מוליכים למחצה",
+      "sector": "טכנולוגיה",
+      "sector_en": "Technology",
+      "keywords": ["semiconductor", "chip", "chipmaker", "foundry", "TSMC", "fab", "wafer", "process node", "EUV"],
+      "subreddits": ["hardware", "semiconductors", "chipdesign", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "TSM", "name": "TSMC", "note": "ייצור שבבים מוביל", "priority": 1},
+        {"ticker": "AVGO", "name": "Broadcom", "note": "שבבים ותשתיות", "priority": 2},
+        {"ticker": "INTC", "name": "Intel", "note": "שבבים ומעבדים", "priority": 3}
+      ]
+    },
+    {
+      "slug": "robotics",
+      "name_en": "Robotics & Automation",
+      "name_he": "רובוטיקה",
+      "sector": "טכנולוגיה",
+      "sector_en": "Technology",
+      "keywords": ["robotics", "robot", "automation", "humanoid robot", "industrial robot", "surgical robot", "cobot"],
+      "subreddits": ["robotics", "Automate", "technology", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "ISRG", "name": "Intuitive Surgical", "note": "רובוטים רפואיים", "priority": 1}
+      ]
+    },
+    {
+      "slug": "defense",
+      "name_en": "Defense / Military",
+      "name_he": "ביטחון וצבא",
+      "sector": "ביטחון",
+      "sector_en": "Defense",
+      "keywords": ["defense", "military", "missile", "fighter jet", "defense contract", "Pentagon", "NATO", "arms deal", "drone strike"],
+      "subreddits": ["defense", "Military", "geopolitics", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "LMT", "name": "Lockheed Martin", "note": "מטוסי קרב ומשילים", "priority": 1},
+        {"ticker": "RTX", "name": "RTX", "note": "מערכות ביטחוניות", "priority": 2}
+      ]
+    },
+    {
+      "slug": "lithium",
+      "name_en": "Lithium & Batteries",
+      "name_he": "ליתיום וסוללות",
+      "sector": "חומרים",
+      "sector_en": "Materials",
+      "keywords": ["lithium", "battery", "solid state battery", "lithium mining", "EV battery", "battery technology", "cathode", "anode"],
+      "subreddits": ["batteries", "lithium", "electricvehicles", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "ALB", "name": "Albemarle", "note": "הפקת ליתיום", "priority": 1},
+        {"ticker": "QS", "name": "QuantumScape", "note": "סוללות מוצקות", "priority": 2}
+      ]
+    },
+    {
+      "slug": "crispr",
+      "name_en": "CRISPR / Gene Editing",
+      "name_he": "עריכת גנים",
+      "sector": "ביוטק",
+      "sector_en": "Biotech",
+      "keywords": ["CRISPR", "gene editing", "gene therapy", "genome", "genetic engineering", "base editing", "Casgevy"],
+      "subreddits": ["biotech", "genetics", "CRISPR", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "CRSP", "name": "CRISPR Therapeutics", "note": "עריכת גנים CRISPR", "priority": 1},
+        {"ticker": "NTLA", "name": "Intellia Therapeutics", "note": "טיפולי גנים in-vivo", "priority": 2}
+      ]
+    },
+    {
+      "slug": "fintech",
+      "name_en": "Fintech",
+      "name_he": "פינטק",
+      "sector": "פיננסים",
+      "sector_en": "Finance",
+      "keywords": ["fintech", "digital payment", "neobank", "buy now pay later", "BNPL", "digital wallet", "mobile payment"],
+      "subreddits": ["fintech", "FinancialPlanning", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "SQ", "name": "Block (Square)", "note": "תשלומים דיגיטליים", "priority": 1},
+        {"ticker": "SOFI", "name": "SoFi", "note": "בנקאות דיגיטלית", "priority": 2}
+      ]
+    },
+    {
+      "slug": "cannabis",
+      "name_en": "Cannabis",
+      "name_he": "קנאביס",
+      "sector": "צרכנות",
+      "sector_en": "Consumer",
+      "keywords": ["cannabis", "marijuana", "weed", "legalization", "THC", "CBD", "dispensary", "cannabis stock"],
+      "subreddits": ["weedstocks", "cannabis", "marijuana", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "TLRY", "name": "Tilray", "note": "קנאביס קנדה", "priority": 1}
+      ]
+    },
+    {
+      "slug": "cloud",
+      "name_en": "Cloud Computing",
+      "name_he": "מחשוב ענן",
+      "sector": "טכנולוגיה",
+      "sector_en": "Technology",
+      "keywords": ["cloud computing", "AWS", "Azure", "Google Cloud", "SaaS", "cloud infrastructure", "data center", "cloud migration"],
+      "subreddits": ["aws", "cloudcomputing", "sysadmin", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "AMZN", "name": "Amazon", "note": "AWS", "priority": 1},
+        {"ticker": "SNOW", "name": "Snowflake", "note": "Data Cloud", "priority": 2}
+      ]
+    },
+    {
+      "slug": "streaming",
+      "name_en": "Streaming & Media",
+      "name_he": "סטרימינג ומדיה",
+      "sector": "מדיה",
+      "sector_en": "Media",
+      "keywords": ["streaming", "Netflix", "Disney+", "subscriber", "streaming wars", "content spending", "ad-supported"],
+      "subreddits": ["cordcutters", "netflix", "television", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "NFLX", "name": "Netflix", "note": "סטרימינג מוביל", "priority": 1},
+        {"ticker": "DIS", "name": "Disney", "note": "Disney+", "priority": 2}
+      ]
+    },
+    {
+      "slug": "realestate",
+      "name_en": "Real Estate",
+      "name_he": "נדל\"ן",
+      "sector": "נדל\"ן",
+      "sector_en": "Real Estate",
+      "keywords": ["real estate", "housing market", "mortgage rate", "home prices", "REIT", "housing bubble", "rent prices"],
+      "subreddits": ["RealEstate", "REBubble", "realestateinvesting", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "Z", "name": "Zillow", "note": "פלטפורמת נדל\"ן", "priority": 1}
+      ]
+    },
+    {
+      "slug": "agri",
+      "name_en": "Agriculture & FoodTech",
+      "name_he": "חקלאות וטכנולוגיית מזון",
+      "sector": "חקלאות",
+      "sector_en": "Agriculture",
+      "keywords": ["agriculture", "farming technology", "precision agriculture", "plant-based meat", "food tech", "vertical farming", "agtech"],
+      "subreddits": ["agriculture", "farming", "foodtech", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "DE", "name": "Deere & Co", "note": "ציוד חקלאי חכם", "priority": 1},
+        {"ticker": "BYND", "name": "Beyond Meat", "note": "בשר תחליפי", "priority": 2}
+      ]
+    }
+  ]
+}

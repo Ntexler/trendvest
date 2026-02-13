@@ -1,0 +1,26 @@
+# TrendVest Backend & Pipeline Dependencies
+# Install: pip install -r requirements.txt
+
+# ── Web Framework ──
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+
+# ── Database ──
+asyncpg==0.30.0
+
+# ── Data Sources ──
+praw==7.8.1          # Reddit API
+requests==2.32.3     # NewsAPI + HTTP
+yfinance==0.2.51     # Stock prices
+
+# ── AI ──
+anthropic==0.42.0    # Claude API
+
+# ── Utilities ──
+pydantic==2.10.4
+python-dotenv==1.0.1
+
+# ── Dev/Testing ──
+pytest==8.3.4
+pytest-asyncio==0.25.0
+httpx==0.28.1        # For testing FastAPI
