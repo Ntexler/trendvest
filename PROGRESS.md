@@ -105,6 +105,18 @@ npm run dev
 - [x] Added insight translations to `frontend/src/i18n/translations.ts`
 - [x] Added `getTopicInsight()` and `getStockInsight()` API helpers to `frontend/src/lib/api.ts`
 
+### Stock Prices on Dashboard + Enriched Company Profiles
+- [x] Injected `StockPriceService` into `trends.py` — `get_trends()` and `get_trend_by_slug()` now fetch live prices via batch call
+- [x] Dashboard TopicCards now show `current_price`, `daily_change_pct`, and `previous_close`
+- [x] Added `CompanyOfficer` model and expanded `StockProfileResponse` with 15+ new fields (management, financials, growth, analyst)
+- [x] Expanded `GET /api/stocks/{ticker}/profile` — returns officers (top 5), margins, ROE, cashflow, debt, beta, revenue/earnings growth, recommendation, target price, analyst count
+- [x] Added `CompanyOfficer` interface and expanded `StockProfile` TS interface with all new fields
+- [x] Added ~30 new translation keys (HE/EN) for profile tabs, management, financials, analyst, company news
+- [x] Redesigned `StockProfile.tsx` with tabbed layout: Overview | Management | Financials | Analyst
+- [x] Added Company News section at bottom of profile modal (fetches via existing `getNews({ ticker })`)
+- [x] Analyst tab: color-coded recommendation badge, target price, analyst count
+- [x] Financials tab: financial health metrics, growth indicators (green/red), valuation with 52-week range bar
+
 ## Next Steps
 - [ ] Add Reddit/NewsAPI/Anthropic/X API keys for live data
 - [ ] Run pipeline to collect real mention data
