@@ -14,9 +14,39 @@ try:
 except ImportError:
     anthropic = None
 
-# ── Curated insights (used when no API key, and as base context for AI) ──
+# ── Curated insights (lazy-loaded to save ~200KB when not used) ──
 
-TOPIC_INSIGHTS: dict[str, dict] = {
+_TOPIC_INSIGHTS: dict[str, dict] | None = None
+_RELATED_TOPICS: dict[str, list[dict]] | None = None
+_HIDDEN_CONNECTIONS: dict[str, list[dict]] | None = None
+
+
+def _load_insights():
+    """Load all insight data on first access."""
+    global _TOPIC_INSIGHTS, _RELATED_TOPICS, _HIDDEN_CONNECTIONS
+    if _TOPIC_INSIGHTS is not None:
+        return
+    _TOPIC_INSIGHTS, _RELATED_TOPICS, _HIDDEN_CONNECTIONS = _build_insights()
+
+
+def _get_topic_insights() -> dict[str, dict]:
+    _load_insights()
+    return _TOPIC_INSIGHTS
+
+
+def _get_related_topics() -> dict[str, list[dict]]:
+    _load_insights()
+    return _RELATED_TOPICS
+
+
+def _get_hidden_connections() -> dict[str, list[dict]]:
+    _load_insights()
+    return _HIDDEN_CONNECTIONS
+
+
+def _build_insights():
+    """Build all insight data structures. Called once on first access."""
+    topic_insights: dict[str, dict] = {
     "ai": {
         "why_trending_en": "AI is the dominant tech trend of the decade. The explosive growth of large language models (ChatGPT, Gemini, Claude), enterprise AI adoption, and the AI chip arms race are driving massive investment. Companies are racing to integrate AI into every product, creating unprecedented demand for GPU computing power and AI infrastructure.",
         "why_trending_he": "בינה מלאכותית היא הטרנד הטכנולוגי המוביל של העשור. הצמיחה המטאורית של מודלי שפה גדולים (ChatGPT, Gemini, Claude), אימוץ AI בארגונים ומרוץ החימוש בשבבי AI מניעים השקעות עצומות. חברות מתחרות על שילוב AI בכל מוצר, ויוצרות ביקוש חסר תקדים לכוח עיבוד GPU ותשתיות AI.",
@@ -165,13 +195,9 @@ TOPIC_INSIGHTS: dict[str, dict] = {
             "INTC": "אינטל משקיעה $100+ מיליארד לבנות מחדש ייצור שבבים בארה\"ב. עסקי המפעל שלהם מכוונים להתחרות ב-TSMC.",
         },
     },
-}
+    }
 
-
-# ── Related Topics & Hidden Connections ──
-# These show cross-sector relationships users might not think of
-
-RELATED_TOPICS: dict[str, list[dict]] = {
+    related_topics: dict[str, list[dict]] = {
     "ai": [
         {"slug": "semi", "name": "Semiconductors", "connection": "AI runs on chips — every AI advance drives chip demand"},
         {"slug": "nuclear", "name": "Nuclear Energy", "connection": "AI data centers need massive power — nuclear is the solution"},
@@ -221,10 +247,9 @@ RELATED_TOPICS: dict[str, list[dict]] = {
         {"slug": "ev", "name": "Electric Vehicles", "connection": "Each EV uses thousands of semiconductors"},
         {"slug": "defense", "name": "Defense", "connection": "Military systems depend on advanced chips — CHIPS Act is partly about security"},
     ],
-}
+    }
 
-# Hidden connections: stocks from OTHER sectors that benefit from a trend
-HIDDEN_CONNECTIONS: dict[str, list[dict]] = {
+    hidden_connections: dict[str, list[dict]] = {
     "ai": [
         {"ticker": "VRT", "company": "Vertiv Holdings", "connection_en": "Makes cooling systems and power infrastructure for AI data centers. Data centers overheat without Vertiv's thermal management.", "connection_he": "מייצרת מערכות קירור ותשתיות חשמל למרכזי נתונים של AI. מרכזי נתונים מתחממים ללא ניהול התרמי של Vertiv."},
         {"ticker": "EQIX", "company": "Equinix", "connection_en": "Largest data center REIT — owns the physical buildings where AI models run. More AI = more data center demand.", "connection_he": "קרן הנדל\"ן הגדולה למרכזי נתונים — בעלת המבנים הפיזיים שבהם מודלי AI רצים."},
@@ -262,22 +287,24 @@ HIDDEN_CONNECTIONS: dict[str, list[dict]] = {
     "solar": [
         {"ticker": "SEDG", "company": "SolarEdge", "connection_en": "Israeli company making solar inverters and optimizers. Competes with Enphase for the residential solar market.", "connection_he": "חברה ישראלית שמייצרת ממירים ואופטימייזרים סולאריים. מתחרה ב-Enphase בשוק הסולארי הביתי."},
     ],
-}
+    }
+
+    return topic_insights, related_topics, hidden_connections
 
 
 def get_topic_insight(slug: str, language: str = "en") -> Optional[dict]:
     """Get curated insight for a topic, including related topics and hidden connections."""
-    insight = TOPIC_INSIGHTS.get(slug)
+    insight = _get_topic_insights().get(slug)
     if not insight:
         return None
 
     lang_key = "he" if language == "he" else "en"
 
     # Build related topics
-    related = RELATED_TOPICS.get(slug, [])
+    related = _get_related_topics().get(slug, [])
 
     # Build hidden connections with language-appropriate text
-    raw_hidden = HIDDEN_CONNECTIONS.get(slug, [])
+    raw_hidden = _get_hidden_connections().get(slug, [])
     hidden = []
     for hc in raw_hidden:
         hidden.append({
@@ -298,7 +325,7 @@ def get_topic_insight(slug: str, language: str = "en") -> Optional[dict]:
 def get_all_insights(language: str = "en") -> list[dict]:
     """Get all available topic insights."""
     results = []
-    for slug in TOPIC_INSIGHTS:
+    for slug in _get_topic_insights():
         insight = get_topic_insight(slug, language)
         if insight:
             results.append(insight)

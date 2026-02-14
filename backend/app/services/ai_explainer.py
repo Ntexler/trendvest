@@ -110,12 +110,28 @@ FALLBACK_EN = (
 
 
 class AIExplainer:
+    MAX_CACHE_SIZE = 500
+
     def __init__(self):
         self.api_key = os.getenv("ANTHROPIC_API_KEY", "")
         self._client = None
         self._daily_usage: dict[str, dict] = defaultdict(lambda: {"date": date.today(), "count": 0})
         self.free_daily_limit = 3
         self._cache: dict[str, str] = {}
+        self._cache_order: list[str] = []  # tracks insertion order for eviction
+
+    def _cache_set(self, key: str, value: str):
+        """Add to cache with LRU-style eviction when over limit."""
+        if key in self._cache:
+            self._cache[key] = value
+            return
+        if len(self._cache) >= self.MAX_CACHE_SIZE:
+            evict_count = len(self._cache) - self.MAX_CACHE_SIZE + 1
+            for old_key in self._cache_order[:evict_count]:
+                self._cache.pop(old_key, None)
+            self._cache_order = self._cache_order[evict_count:]
+        self._cache[key] = value
+        self._cache_order.append(key)
 
     @property
     def client(self):
@@ -128,9 +144,19 @@ class AIExplainer:
         return self._client
 
     def check_rate_limit(self, user_id: str) -> tuple[bool, int]:
+        today = date.today()
+        # Clean stale entries from previous days
+        stale_users = [
+            uid for uid, u in self._daily_usage.items()
+            if u["date"] != today
+        ]
+        for uid in stale_users:
+            if uid != user_id:
+                del self._daily_usage[uid]
+
         usage = self._daily_usage[user_id]
-        if usage["date"] != date.today():
-            usage["date"] = date.today()
+        if usage["date"] != today:
+            usage["date"] = today
             usage["count"] = 0
         remaining = max(0, self.free_daily_limit - usage["count"])
         return remaining > 0, remaining
@@ -233,7 +259,7 @@ class AIExplainer:
                 messages=[{"role": "user", "content": text}],
             )
             translated = response.content[0].text
-            self._cache[cache_key] = translated
+            self._cache_set(cache_key, translated)
             return translated
         except Exception as e:
             print(f"Translation error: {e}")
@@ -255,7 +281,7 @@ class AIExplainer:
                 messages=[{"role": "user", "content": f"Define: {term}"}],
             )
             explanation = response.content[0].text
-            self._cache[cache_key] = explanation
+            self._cache_set(cache_key, explanation)
             return explanation
         except Exception as e:
             print(f"Explain term error: {e}")
@@ -283,7 +309,7 @@ class AIExplainer:
                 messages=[{"role": "user", "content": f"Explain {ticker}'s {section} data:\n{data_str}"}],
             )
             explanation = response.content[0].text
-            self._cache[cache_key] = explanation
+            self._cache_set(cache_key, explanation)
             return explanation
         except Exception as e:
             print(f"Explain section error: {e}")
@@ -310,7 +336,7 @@ class AIExplainer:
                 messages=[{"role": "user", "content": f"Write a short bio for {name}, {title} at {company}."}],
             )
             bio = response.content[0].text
-            self._cache[cache_key] = bio
+            self._cache_set(cache_key, bio)
             return bio
         except Exception as e:
             print(f"Officer bio error: {e}")

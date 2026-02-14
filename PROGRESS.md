@@ -158,6 +158,17 @@ GET  /api/recommendations
 - [x] **Deep Research (Perplexity)**: `POST /api/stocks/{ticker}/research` — Perplexity sonar API with yfinance fallback. Purple "Deep Research" button in profile modal, citations display
 - [x] Added ~10 new i18n keys (peers, research, watchlist tabs)
 
+### RAM Optimizations
+- [x] **StockPriceService cache limits**: Max 200 entries, evicts oldest by `fetched_at`, auto-cleans entries >15min old
+- [x] **Chunked batch downloads**: yfinance batches split into chunks of 30 tickers (down from 140+ in one call), reduces peak RAM
+- [x] **AIExplainer cache limits**: Max 500 entries with insertion-order eviction; stale `_daily_usage` entries auto-cleaned on next rate-limit check
+- [x] **Lazy-loaded topic insights**: `TOPIC_INSIGHTS`, `RELATED_TOPICS`, `HIDDEN_CONNECTIONS` loaded on first access instead of module import (~200KB saved)
+
+### Workflow Notes
+- Use `/compact` periodically in Claude Code to compress context
+- Keep sessions to 1-2 features max to prevent RAM/context buildup
+- Commit after each feature, save plans to PROGRESS.md for crash recovery
+
 ## Operational Next Steps
 - [ ] Add Reddit/NewsAPI/Anthropic/X/Perplexity API keys for live data
 - [ ] Run pipeline to collect real mention data

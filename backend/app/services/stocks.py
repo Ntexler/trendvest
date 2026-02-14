@@ -30,9 +30,31 @@ class StockPriceService:
     """Fetches and caches stock prices."""
 
     CACHE_TTL = 300  # 5 minutes
+    MAX_CACHE_SIZE = 200
+    STALE_TTL = 900  # 15 min — evict entries older than 3x TTL
+    BATCH_CHUNK_SIZE = 30
 
     def __init__(self):
         self._cache: dict[str, StockPrice] = {}
+
+    def _evict_stale(self):
+        """Remove cache entries older than STALE_TTL."""
+        now = datetime.now(timezone.utc)
+        stale_keys = [
+            k for k, v in self._cache.items()
+            if (now - v.fetched_at).total_seconds() > self.STALE_TTL
+        ]
+        for k in stale_keys:
+            del self._cache[k]
+
+    def _enforce_cache_limit(self):
+        """Evict oldest entries if cache exceeds MAX_CACHE_SIZE."""
+        if len(self._cache) <= self.MAX_CACHE_SIZE:
+            return
+        sorted_entries = sorted(self._cache.items(), key=lambda x: x[1].fetched_at)
+        to_remove = len(self._cache) - self.MAX_CACHE_SIZE
+        for k, _ in sorted_entries[:to_remove]:
+            del self._cache[k]
 
     def get_price(self, ticker: str) -> Optional[StockPrice]:
         """Get current stock price with caching."""
@@ -70,6 +92,7 @@ class StockPriceService:
             )
 
             self._cache[ticker] = result
+            self._enforce_cache_limit()
             return result
 
         except Exception as e:
@@ -99,50 +122,54 @@ class StockPriceService:
         if not uncached or not yf:
             return results
 
-        # Batch download — single HTTP request for all tickers
-        try:
-            tickers_str = " ".join(uncached)
-            data = yf.download(tickers_str, period="2d", progress=False, threads=True)
+        # Batch download in chunks to limit peak RAM usage
+        for i in range(0, len(uncached), self.BATCH_CHUNK_SIZE):
+            chunk = uncached[i : i + self.BATCH_CHUNK_SIZE]
+            try:
+                tickers_str = " ".join(chunk)
+                data = yf.download(tickers_str, period="2d", progress=False, threads=True)
 
-            if data.empty:
-                logger.warning("Batch download returned empty data")
-                return results
+                if data.empty:
+                    logger.warning("Batch download returned empty data for chunk %d", i)
+                    continue
 
-            for ticker in uncached:
-                try:
-                    # yfinance 1.1.0+ always uses MultiIndex columns
-                    close_data = data["Close"][ticker]
+                for ticker in chunk:
+                    try:
+                        # yfinance 1.1.0+ always uses MultiIndex columns
+                        close_data = data["Close"][ticker]
 
-                    if len(close_data.dropna()) >= 2:
-                        price = float(close_data.dropna().iloc[-1])
-                        prev_close = float(close_data.dropna().iloc[-2])
-                        change = price - prev_close
-                        change_pct = (change / prev_close) * 100 if prev_close else 0
-                    elif len(close_data.dropna()) == 1:
-                        price = float(close_data.dropna().iloc[-1])
-                        prev_close = price
-                        change = 0
-                        change_pct = 0
-                    else:
-                        continue
+                        if len(close_data.dropna()) >= 2:
+                            price = float(close_data.dropna().iloc[-1])
+                            prev_close = float(close_data.dropna().iloc[-2])
+                            change = price - prev_close
+                            change_pct = (change / prev_close) * 100 if prev_close else 0
+                        elif len(close_data.dropna()) == 1:
+                            price = float(close_data.dropna().iloc[-1])
+                            prev_close = price
+                            change = 0
+                            change_pct = 0
+                        else:
+                            continue
 
-                    sp = StockPrice(
-                        ticker=ticker,
-                        price=round(price, 2),
-                        change=round(change, 2),
-                        change_pct=round(change_pct, 2),
-                        previous_close=round(prev_close, 2),
-                        fetched_at=datetime.now(timezone.utc),
-                    )
-                    self._cache[ticker] = sp
-                    results[ticker] = sp
+                        sp = StockPrice(
+                            ticker=ticker,
+                            price=round(price, 2),
+                            change=round(change, 2),
+                            change_pct=round(change_pct, 2),
+                            previous_close=round(prev_close, 2),
+                            fetched_at=datetime.now(timezone.utc),
+                        )
+                        self._cache[ticker] = sp
+                        results[ticker] = sp
 
-                except Exception as e:
-                    logger.warning("Error parsing price for %s: %s", ticker, e)
+                    except Exception as e:
+                        logger.warning("Error parsing price for %s: %s", ticker, e)
 
-        except Exception as e:
-            logger.warning("Batch download failed: %s", e)
+            except Exception as e:
+                logger.warning("Batch download failed for chunk %d: %s", i, e)
 
+        self._evict_stale()
+        self._enforce_cache_limit()
         return results
 
     def clear_cache(self):
