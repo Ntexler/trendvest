@@ -2,16 +2,18 @@
 Stock price service for TrendVest.
 Uses yfinance for free stock data with in-memory caching.
 """
-import time
+import logging
 from datetime import datetime, timezone
 from typing import Optional
 from dataclasses import dataclass
+
+logger = logging.getLogger(__name__)
 
 try:
     import yfinance as yf
 except ImportError:
     yf = None
-    print("⚠️  yfinance not installed. Run: pip install yfinance")
+    logger.warning("yfinance not installed. Run: pip install yfinance")
 
 
 @dataclass
@@ -33,15 +35,7 @@ class StockPriceService:
         self._cache: dict[str, StockPrice] = {}
 
     def get_price(self, ticker: str) -> Optional[StockPrice]:
-        """
-        Get current stock price with caching.
-
-        Args:
-            ticker: Stock ticker symbol (e.g., 'NVDA')
-
-        Returns:
-            StockPrice or None if fetch fails
-        """
+        """Get current stock price with caching."""
         # Check cache
         if ticker in self._cache:
             cached = self._cache[ticker]
@@ -49,7 +43,6 @@ class StockPriceService:
             if age < self.CACHE_TTL:
                 return cached
 
-        # Fetch from yfinance
         if not yf:
             return None
 
@@ -80,8 +73,7 @@ class StockPriceService:
             return result
 
         except Exception as e:
-            print(f"  ⚠️  yfinance error for {ticker}: {e}")
-            # Return stale cache if available
+            logger.warning("yfinance error for %s: %s", ticker, e)
             if ticker in self._cache:
                 return self._cache[ticker]
             return None
@@ -104,51 +96,52 @@ class StockPriceService:
                     continue
             uncached.append(ticker)
 
-        # Batch fetch uncached
-        if uncached and yf:
-            try:
-                tickers_str = " ".join(uncached)
-                data = yf.download(tickers_str, period="2d", progress=False, threads=True)
+        if not uncached or not yf:
+            return results
 
-                for ticker in uncached:
-                    try:
-                        if len(uncached) == 1:
-                            close_data = data["Close"]
-                        else:
-                            close_data = data["Close"][ticker]
+        # Batch download — single HTTP request for all tickers
+        try:
+            tickers_str = " ".join(uncached)
+            data = yf.download(tickers_str, period="2d", progress=False, threads=True)
 
-                        if len(close_data) >= 2:
-                            price = float(close_data.iloc[-1])
-                            prev_close = float(close_data.iloc[-2])
-                            change = price - prev_close
-                            change_pct = (change / prev_close) * 100 if prev_close else 0
-                        elif len(close_data) == 1:
-                            price = float(close_data.iloc[-1])
-                            prev_close = price
-                            change = 0
-                            change_pct = 0
-                        else:
-                            results[ticker] = None
-                            continue
+            if data.empty:
+                logger.warning("Batch download returned empty data")
+                return results
 
-                        sp = StockPrice(
-                            ticker=ticker,
-                            price=round(price, 2),
-                            change=round(change, 2),
-                            change_pct=round(change_pct, 2),
-                            previous_close=round(prev_close, 2),
-                            fetched_at=datetime.now(timezone.utc),
-                        )
-                        self._cache[ticker] = sp
-                        results[ticker] = sp
+            for ticker in uncached:
+                try:
+                    # yfinance 1.1.0+ always uses MultiIndex columns
+                    close_data = data["Close"][ticker]
 
-                    except Exception:
-                        results[ticker] = self.get_price(ticker)  # Fallback to individual
+                    if len(close_data.dropna()) >= 2:
+                        price = float(close_data.dropna().iloc[-1])
+                        prev_close = float(close_data.dropna().iloc[-2])
+                        change = price - prev_close
+                        change_pct = (change / prev_close) * 100 if prev_close else 0
+                    elif len(close_data.dropna()) == 1:
+                        price = float(close_data.dropna().iloc[-1])
+                        prev_close = price
+                        change = 0
+                        change_pct = 0
+                    else:
+                        continue
 
-            except Exception as e:
-                print(f"  ⚠️  Batch download failed: {e}")
-                for ticker in uncached:
-                    results[ticker] = self.get_price(ticker)
+                    sp = StockPrice(
+                        ticker=ticker,
+                        price=round(price, 2),
+                        change=round(change, 2),
+                        change_pct=round(change_pct, 2),
+                        previous_close=round(prev_close, 2),
+                        fetched_at=datetime.now(timezone.utc),
+                    )
+                    self._cache[ticker] = sp
+                    results[ticker] = sp
+
+                except Exception as e:
+                    logger.warning("Error parsing price for %s: %s", ticker, e)
+
+        except Exception as e:
+            logger.warning("Batch download failed: %s", e)
 
         return results
 
