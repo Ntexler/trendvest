@@ -204,7 +204,7 @@
       "keywords": ["fintech", "digital payment", "neobank", "buy now pay later", "BNPL", "digital wallet", "mobile payment"],
       "subreddits": ["fintech", "FinancialPlanning", "wallstreetbets", "stocks", "investing"],
       "stocks": [
-        {"ticker": "SQ", "name": "Block (Square)", "note": "תשלומים דיגיטליים", "priority": 1},
+        {"ticker": "XYZ", "name": "Block Inc", "note": "תשלומים דיגיטליים", "priority": 1},
         {"ticker": "SOFI", "name": "SoFi", "note": "בנקאות דיגיטלית", "priority": 2}
       ]
     },

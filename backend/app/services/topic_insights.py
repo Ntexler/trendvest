@@ -252,7 +252,7 @@ HIDDEN_CONNECTIONS: dict[str, list[dict]] = {
         {"ticker": "WST", "company": "West Pharmaceutical", "connection_en": "Makes drug delivery systems (syringes, vials, injection pens). GLP-1 drugs are injected weekly — massive demand for delivery devices.", "connection_he": "מייצרת מערכות משלוח תרופות (מזרקים, בקבוקונים, עטי הזרקה). תרופות GLP-1 מוזרקות שבועית — ביקוש עצום."},
     ],
     "crypto": [
-        {"ticker": "SQ", "company": "Block (Square)", "connection_en": "Block's Cash App lets users buy Bitcoin. They also mine Bitcoin and are building Bitcoin-focused products.", "connection_he": "Cash App של Block מאפשרת למשתמשים לקנות ביטקוין. גם כורים ביטקוין ובונים מוצרים מבוססי ביטקוין."},
+        {"ticker": "XYZ", "company": "Block Inc", "connection_en": "Block's Cash App lets users buy Bitcoin. They also mine Bitcoin and are building Bitcoin-focused products.", "connection_he": "Cash App של Block מאפשרת למשתמשים לקנות ביטקוין. גם כורים ביטקוין ובונים מוצרים מבוססי ביטקוין."},
     ],
     "semi": [
         {"ticker": "ASML", "company": "ASML Holding", "connection_en": "Makes EUV lithography machines — the ONLY company that can manufacture the equipment needed to make advanced chips. Global monopoly.", "connection_he": "מייצרת מכונות ליתוגרפיה EUV — החברה היחידה שיכולה לייצר ציוד לשבבים מתקדמים. מונופול עולמי."},
