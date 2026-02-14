@@ -112,6 +112,10 @@ const translations = {
     he: 'לחץ על ⭐ ליד מניה כדי להוסיף למעקב',
     en: 'Click ⭐ next to a stock to add to watchlist',
   },
+  "watchlist.stocksTab": { he: "מניות", en: "Stocks" },
+  "watchlist.newsTab": { he: "חדשות", en: "News" },
+  "watchlist.noNews": { he: "אין חדשות למניות שלך", en: "No news for your stocks" },
+  "watchlist.justNow": { he: "עכשיו", en: "Just now" },
 
   // Chat
   "chat.title": { he: "עוזר AI", en: "AI Assistant" },
