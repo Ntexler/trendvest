@@ -164,6 +164,18 @@ GET  /api/recommendations
 - [x] **AIExplainer cache limits**: Max 500 entries with insertion-order eviction; stale `_daily_usage` entries auto-cleaned on next rate-limit check
 - [x] **Lazy-loaded topic insights**: `TOPIC_INSIGHTS`, `RELATED_TOPICS`, `HIDDEN_CONNECTIONS` loaded on first access instead of module import (~200KB saved)
 
+### Phase 4: UI Enhancements (8 Features)
+- [x] **Feature 1 — Beginner/Expert Mode**: ModeContext with localStorage persistence, pill toggle in TopBar, conditional rendering across TopicCard (3 vs all stocks), Screener (hide price filters), StockProfile (hide Financials/Analyst tabs), Watchlist (show/hide P/E)
+- [x] **Feature 2 — Glossary Tooltips**: `<Term>` component with 7 financial terms (Heat Score, Momentum, Sentiment, P/E, Market Cap, ETF, Paper Trading), hover tooltips with HE/EN definitions, cyan dotted underline
+- [x] **Feature 3 — Market Ticker Bar**: 28px slim bar above TopBar with mock S&P 500, VIX, Bitcoin, Fear/Greed data, green/red coloring, demo disclaimer
+- [x] **Feature 4 — Sparkline Charts**: Pure SVG polyline (80x28px), 12 data points with last-point dot, deterministic mock data from topic slug, used in TopicCard and Watchlist
+- [x] **Feature 5 — Heat Score Gauge**: SVG 270-degree arc gauge with color bands (red 80+, orange 60-79, yellow 40-59, gray <40), md/lg sizes, replaces plain momentum numbers
+- [x] **Feature 6 — Enhanced Paper Trading**: Recharts pie chart for portfolio allocation, quick buy grid (6 hot stocks from top trends), improved amber disclaimer banner, TradeModal with estimated total, available cash, insufficient funds warning, sell shares held info, footer disclaimer
+- [x] **Feature 7 — Screener Enhancements**: Clear (X) button in search input, 300ms debounce on search API calls, beginner mode hides price range filters
+- [x] **Feature 8 — Watchlist Enhancements**: Trend badges (colored by direction), HeatGauge per stock, Sparkline from parent trend, buy button navigates to trade page, expert mode P/E display
+- New files: `ModeContext.tsx`, `Term.tsx`, `MarketTicker.tsx`, `Sparkline.tsx`, `HeatGauge.tsx`
+- ~33 new i18n keys added to translations.ts
+
 ### Workflow Notes
 - Use `/compact` periodically in Claude Code to compress context
 - Keep sessions to 1-2 features max to prevent RAM/context buildup
