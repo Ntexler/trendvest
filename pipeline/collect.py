@@ -1,6 +1,18 @@
 #!/usr/bin/env python3
 """
 TrendVest Data Collection Pipeline
+====================================
+Collects mention data from Reddit, News, Google Trends, and X (Twitter),
+then calculates momentum scores.
+
+Usage:
+    python collect.py                         # Collect all sources + calculate momentum
+    python collect.py --source reddit         # Reddit only
+    python collect.py --source news           # News only
+    python collect.py --source google_trends  # Google Trends only
+    python collect.py --source x              # X/Twitter only
+    python collect.py --momentum-only         # Only recalculate momentum
+    python collect.py --seed-only             # Only seed DB from topics.json
 """
 import os
 import sys
@@ -19,6 +31,8 @@ import asyncpg
 
 from backend.app.services.reddit import RedditCollector
 from backend.app.services.news import NewsCollector
+from backend.app.services.google_trends import GoogleTrendsCollector
+from backend.app.services.x_twitter import XTwitterCollector
 from backend.app.services.momentum import MomentumCalculator
 
 DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/trendvest")
@@ -65,6 +79,7 @@ async def run_pipeline(args):
         all_mentions = []
 
         if not args.momentum_only:
+            # Reddit
             if args.source in (None, "reddit"):
                 reddit = RedditCollector()
                 try:
@@ -73,6 +88,7 @@ async def run_pipeline(args):
                 except Exception as e:
                     print(f"Reddit collection failed: {e}")
 
+            # NewsAPI
             if args.source in (None, "news"):
                 news = NewsCollector()
                 try:
@@ -80,6 +96,24 @@ async def run_pipeline(args):
                     all_mentions.extend(news_mentions)
                 except Exception as e:
                     print(f"News collection failed: {e}")
+
+            # Google Trends
+            if args.source in (None, "google_trends"):
+                gtrends = GoogleTrendsCollector()
+                try:
+                    gtrends_mentions = gtrends.collect_all(topics)
+                    all_mentions.extend(gtrends_mentions)
+                except Exception as e:
+                    print(f"Google Trends collection failed: {e}")
+
+            # X (Twitter)
+            if args.source in (None, "x"):
+                x_collector = XTwitterCollector()
+                try:
+                    x_mentions = x_collector.collect_all(topics)
+                    all_mentions.extend(x_mentions)
+                except Exception as e:
+                    print(f"X/Twitter collection failed: {e}")
 
             if all_mentions:
                 await save_mentions(pool, all_mentions)
@@ -97,9 +131,12 @@ async def run_pipeline(args):
 
 def main():
     parser = argparse.ArgumentParser(description="TrendVest Data Pipeline")
-    parser.add_argument("--source", choices=["reddit", "news"], default=None)
-    parser.add_argument("--momentum-only", action="store_true")
-    parser.add_argument("--seed-only", action="store_true")
+    parser.add_argument("--source", choices=["reddit", "news", "google_trends", "x"], default=None,
+                        help="Collect from specific source only")
+    parser.add_argument("--momentum-only", action="store_true",
+                        help="Only recalculate momentum scores")
+    parser.add_argument("--seed-only", action="store_true",
+                        help="Only seed database from topics.json")
     args = parser.parse_args()
     asyncio.run(run_pipeline(args))
 

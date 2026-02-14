@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS topic_stocks (
 CREATE TABLE IF NOT EXISTS topic_mentions (
     id SERIAL PRIMARY KEY,
     topic_id INT NOT NULL REFERENCES topics(id) ON DELETE CASCADE,
-    source VARCHAR(20) NOT NULL CHECK (source IN ('reddit', 'news', 'google_trends')),
+    source VARCHAR(20) NOT NULL CHECK (source IN ('reddit', 'news', 'google_trends', 'x')),
     mention_count INT NOT NULL DEFAULT 0,
     collected_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     period_start TIMESTAMPTZ NOT NULL,

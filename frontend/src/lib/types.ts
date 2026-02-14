@@ -59,10 +59,13 @@ export interface NewsItem {
   title: string;
   url: string;
   source: string;
+  source_type?: "news" | "x" | "google_trends";
   published_at: string;
   image_url: string;
   related_ticker: string | null;
   related_topic: string | null;
+  likes?: number;
+  retweets?: number;
 }
 
 export interface ChatResponse {

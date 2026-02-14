@@ -83,7 +83,18 @@ cd trendvest/frontend
 npm run dev
 ```
 
+### Data Sources: Google Trends & X (Twitter)
+- [x] Created `backend/app/services/google_trends.py` — pytrends-based interest scoring + related queries
+- [x] Created `backend/app/services/x_twitter.py` — X API v2 mention counts + recent tweets
+- [x] Updated `pipeline/collect.py` — added Google Trends and X as collection sources
+- [x] Updated `database/001_schema.sql` — source CHECK includes 'x'
+- [x] Created `database/002_add_x_source.sql` — migration for existing databases
+- [x] Updated `backend/app/routers/news.py` — news feed now includes X tweets and Google Trends related queries
+- [x] Updated `frontend/src/components/NewsFeed.tsx` — source filter chips (All/News/X/Trends) + badges + tweet engagement (likes/retweets)
+- [x] Added `pytrends` to requirements.txt, `X_BEARER_TOKEN` to `.env`
+- [x] Pipeline supports: `--source reddit`, `--source news`, `--source google_trends`, `--source x`
+
 ## Next Steps
-- [ ] Add Reddit/NewsAPI/Anthropic API keys for live data
+- [ ] Add Reddit/NewsAPI/Anthropic/X API keys for live data
 - [ ] Run pipeline to collect real mention data
 - [ ] Deploy to cloud (Vercel frontend + Railway/Render backend)
