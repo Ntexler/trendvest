@@ -3,7 +3,7 @@ Stocks API endpoints for TrendVest — search, screener, prices, history, profil
 """
 from fastapi import APIRouter, Depends, Query, HTTPException
 from typing import Optional
-from ..models.schemas import StockDetail
+from ..models.schemas import StockDetail, StockProfileResponse, CompanyOfficer
 from ..deps import get_db_pool, get_stock_service
 
 router = APIRouter(prefix="/api/stocks", tags=["stocks"])
@@ -185,9 +185,9 @@ async def get_stock_history(
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@router.get("/{ticker}/profile")
+@router.get("/{ticker}/profile", response_model=StockProfileResponse)
 async def get_stock_profile(ticker: str):
-    """Get company profile info for 'Read More'."""
+    """Get enriched company profile: overview, management, financials, analyst data."""
     try:
         import yfinance as yf
     except ImportError:
@@ -198,21 +198,46 @@ async def get_stock_profile(ticker: str):
         stock = yf.Ticker(ticker)
         info = stock.info
 
-        return {
-            "ticker": ticker,
-            "name": info.get("longName") or info.get("shortName", ticker),
-            "summary": info.get("longBusinessSummary", ""),
-            "sector": info.get("sector", ""),
-            "industry": info.get("industry", ""),
-            "employees": info.get("fullTimeEmployees"),
-            "website": info.get("website", ""),
-            "market_cap": info.get("marketCap"),
-            "pe_ratio": info.get("trailingPE"),
-            "dividend_yield": info.get("dividendYield"),
-            "fifty_two_week_high": info.get("fiftyTwoWeekHigh"),
-            "fifty_two_week_low": info.get("fiftyTwoWeekLow"),
-            "country": info.get("country", ""),
-            "city": info.get("city", ""),
-        }
+        # Extract top 5 officers
+        officers = []
+        for officer in (info.get("companyOfficers") or [])[:5]:
+            officers.append(CompanyOfficer(
+                name=officer.get("name", ""),
+                title=officer.get("title", ""),
+                age=officer.get("age"),
+                total_pay=officer.get("totalPay"),
+            ))
+
+        return StockProfileResponse(
+            ticker=ticker,
+            name=info.get("longName") or info.get("shortName", ticker),
+            summary=info.get("longBusinessSummary", ""),
+            sector=info.get("sector", ""),
+            industry=info.get("industry", ""),
+            employees=info.get("fullTimeEmployees"),
+            website=info.get("website", ""),
+            market_cap=info.get("marketCap"),
+            pe_ratio=info.get("trailingPE"),
+            dividend_yield=info.get("dividendYield"),
+            fifty_two_week_high=info.get("fiftyTwoWeekHigh"),
+            fifty_two_week_low=info.get("fiftyTwoWeekLow"),
+            country=info.get("country", ""),
+            city=info.get("city", ""),
+            exchange=info.get("exchange", ""),
+            quote_type=info.get("quoteType", ""),
+            officers=officers,
+            profit_margins=info.get("profitMargins"),
+            operating_margins=info.get("operatingMargins"),
+            return_on_equity=info.get("returnOnEquity"),
+            free_cashflow=info.get("freeCashflow"),
+            total_debt=info.get("totalDebt"),
+            total_cash=info.get("totalCash"),
+            beta=info.get("beta"),
+            revenue_growth=info.get("revenueGrowth"),
+            earnings_growth=info.get("earningsGrowth"),
+            recommendation_key=info.get("recommendationKey"),
+            target_mean_price=info.get("targetMeanPrice"),
+            number_of_analysts=info.get("numberOfAnalystOpinions"),
+        )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

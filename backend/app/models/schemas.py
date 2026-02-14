@@ -144,6 +144,48 @@ class TradeHistoryItem(BaseModel):
     executed_at: datetime
 
 
+# ── Stock Profile Models ──
+
+class CompanyOfficer(BaseModel):
+    name: str
+    title: str
+    age: int | None = None
+    total_pay: float | None = None
+
+
+class StockProfileResponse(BaseModel):
+    ticker: str
+    name: str
+    summary: str = ""
+    sector: str = ""
+    industry: str = ""
+    employees: int | None = None
+    website: str = ""
+    market_cap: float | None = None
+    pe_ratio: float | None = None
+    dividend_yield: float | None = None
+    fifty_two_week_high: float | None = None
+    fifty_two_week_low: float | None = None
+    country: str = ""
+    city: str = ""
+    # New fields
+    exchange: str = ""
+    quote_type: str = ""
+    officers: list[CompanyOfficer] = []
+    profit_margins: float | None = None
+    operating_margins: float | None = None
+    return_on_equity: float | None = None
+    free_cashflow: float | None = None
+    total_debt: float | None = None
+    total_cash: float | None = None
+    beta: float | None = None
+    revenue_growth: float | None = None
+    earnings_growth: float | None = None
+    recommendation_key: str | None = None
+    target_mean_price: float | None = None
+    number_of_analysts: int | None = None
+
+
 # ── Tracking Models ──
 
 class TrackRequest(BaseModel):

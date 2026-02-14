@@ -23,6 +23,44 @@ const translations = {
   "stock.website": { he: "אתר", en: "Website" },
   "stock.addWatchlist": { he: "הוסף למעקב", en: "Add to Watchlist" },
   "stock.removeWatchlist": { he: "הסר ממעקב", en: "Remove from Watchlist" },
+  "stock.exchange": { he: "בורסה", en: "Exchange" },
+
+  // Profile Tabs
+  "profile.overview": { he: "סקירה", en: "Overview" },
+  "profile.management": { he: "הנהלה", en: "Management" },
+  "profile.financials": { he: "פיננסים", en: "Financials" },
+  "profile.analyst": { he: "אנליסטים", en: "Analyst" },
+
+  // Management
+  "profile.age": { he: "גיל", en: "Age" },
+  "profile.noOfficers": { he: "אין מידע על הנהלה", en: "No management data available" },
+
+  // Financials
+  "profile.financialHealth": { he: "בריאות פיננסית", en: "Financial Health" },
+  "profile.profitMargins": { he: "שולי רווח", en: "Profit Margins" },
+  "profile.operatingMargins": { he: "שולי תפעול", en: "Operating Margins" },
+  "profile.roe": { he: "תשואה על ההון", en: "Return on Equity" },
+  "profile.freeCashflow": { he: "תזרים חופשי", en: "Free Cashflow" },
+  "profile.totalDebt": { he: "חוב כולל", en: "Total Debt" },
+  "profile.totalCash": { he: "מזומנים", en: "Total Cash" },
+  "profile.beta": { he: "בטא", en: "Beta" },
+  "profile.growth": { he: "צמיחה", en: "Growth" },
+  "profile.revenueGrowth": { he: "צמיחת הכנסות", en: "Revenue Growth" },
+  "profile.earningsGrowth": { he: "צמיחת רווחים", en: "Earnings Growth" },
+  "profile.valuation": { he: "הערכת שווי", en: "Valuation" },
+  "profile.peRatio": { he: "P/E", en: "P/E Ratio" },
+  "profile.dividendYield": { he: "תשואת דיבידנד", en: "Dividend Yield" },
+  "profile.52wRange": { he: "טווח 52 שבועות", en: "52-Week Range" },
+
+  // Analyst
+  "profile.recommendation": { he: "המלצה", en: "Recommendation" },
+  "profile.targetPrice": { he: "מחיר יעד", en: "Target Price" },
+  "profile.analystCount": { he: "מספר אנליסטים", en: "Analysts" },
+  "profile.noAnalyst": { he: "אין נתוני אנליסטים", en: "No analyst data available" },
+
+  // Company News
+  "profile.companyNews": { he: "חדשות החברה", en: "Company News" },
+  "profile.noNews": { he: "אין חדשות להצגה", en: "No news available" },
 
   // Insights
   "insight.whyTrending": { he: "למה זה טרנדי?", en: "Why is this trending?" },

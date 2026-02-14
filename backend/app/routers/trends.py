@@ -4,7 +4,7 @@ Trends API endpoints for TrendVest.
 from fastapi import APIRouter, Depends, Query, HTTPException
 from typing import Optional
 from ..models.schemas import TrendTopic, TopicStock
-from ..deps import get_db_pool
+from ..deps import get_db_pool, get_stock_service
 from ..services.topic_insights import get_topic_insight, get_all_insights, generate_ai_insight
 
 router = APIRouter(prefix="/api/trends", tags=["trends"])
@@ -15,6 +15,7 @@ async def get_trends(
     sector: Optional[str] = Query(None, description="Filter by sector"),
     limit: int = Query(20, le=50),
     pool=Depends(get_db_pool),
+    stock_service=Depends(get_stock_service),
 ):
     """Get all topics sorted by momentum score."""
     async with pool.acquire() as conn:
@@ -40,6 +41,7 @@ async def get_trends(
         topics = await conn.fetch(query, *params)
 
         results = []
+        all_stocks_raw = []
         for topic in topics:
             stocks = await conn.fetch("""
                 SELECT ticker, company_name, relevance_note
@@ -57,6 +59,7 @@ async def get_trends(
                 )
                 for s in stocks
             ]
+            all_stocks_raw.extend(stock_list)
 
             results.append(TrendTopic(
                 slug=topic["slug"],
@@ -71,11 +74,27 @@ async def get_trends(
                 stocks=stock_list,
             ))
 
+        # Fetch prices for all tickers in one batch
+        all_tickers = list(set(s.ticker for s in all_stocks_raw))
+        if all_tickers:
+            prices = stock_service.get_prices_batch(all_tickers)
+            for topic_result in results:
+                for stock in topic_result.stocks:
+                    price_data = prices.get(stock.ticker)
+                    if price_data:
+                        stock.current_price = price_data.price
+                        stock.daily_change_pct = price_data.change_pct
+                        stock.previous_close = price_data.previous_close
+
         return results
 
 
 @router.get("/{slug}", response_model=TrendTopic)
-async def get_trend_by_slug(slug: str, pool=Depends(get_db_pool)):
+async def get_trend_by_slug(
+    slug: str,
+    pool=Depends(get_db_pool),
+    stock_service=Depends(get_stock_service),
+):
     """Get a single topic by slug with full details."""
     async with pool.acquire() as conn:
         topic = await conn.fetchrow("""
@@ -100,6 +119,23 @@ async def get_trend_by_slug(slug: str, pool=Depends(get_db_pool)):
             ORDER BY ts.priority
         """, slug)
 
+        stock_list = [TopicStock(
+            ticker=s["ticker"],
+            company_name=s["company_name"],
+            relevance_note=s["relevance_note"] or "",
+        ) for s in stocks]
+
+        # Fetch prices
+        tickers = [s.ticker for s in stock_list]
+        if tickers:
+            prices = stock_service.get_prices_batch(tickers)
+            for stock in stock_list:
+                price_data = prices.get(stock.ticker)
+                if price_data:
+                    stock.current_price = price_data.price
+                    stock.daily_change_pct = price_data.change_pct
+                    stock.previous_close = price_data.previous_close
+
         return TrendTopic(
             slug=topic["slug"],
             name_en=topic["name_en"],
@@ -110,11 +146,7 @@ async def get_trend_by_slug(slug: str, pool=Depends(get_db_pool)):
             direction=topic["direction"],
             mention_count_today=topic["mention_count_today"],
             mention_avg_7d=topic["mention_avg_7d"],
-            stocks=[TopicStock(
-                ticker=s["ticker"],
-                company_name=s["company_name"],
-                relevance_note=s["relevance_note"] or "",
-            ) for s in stocks],
+            stocks=stock_list,
         )
 
 

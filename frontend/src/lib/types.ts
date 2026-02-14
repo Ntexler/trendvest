@@ -38,6 +38,13 @@ export interface StockHistory {
   data: { date: string; close: number; volume: number }[];
 }
 
+export interface CompanyOfficer {
+  name: string;
+  title: string;
+  age: number | null;
+  total_pay: number | null;
+}
+
 export interface StockProfile {
   ticker: string;
   name: string;
@@ -53,6 +60,21 @@ export interface StockProfile {
   fifty_two_week_low: number | null;
   country: string;
   city: string;
+  exchange: string;
+  quote_type: string;
+  officers: CompanyOfficer[];
+  profit_margins: number | null;
+  operating_margins: number | null;
+  return_on_equity: number | null;
+  free_cashflow: number | null;
+  total_debt: number | null;
+  total_cash: number | null;
+  beta: number | null;
+  revenue_growth: number | null;
+  earnings_growth: number | null;
+  recommendation_key: string | null;
+  target_mean_price: number | null;
+  number_of_analysts: number | null;
 }
 
 export interface NewsItem {
