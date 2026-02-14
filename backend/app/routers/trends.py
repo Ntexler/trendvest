@@ -4,6 +4,7 @@ Trends API endpoints for TrendVest.
 from fastapi import APIRouter, Depends, Query, HTTPException
 from typing import Optional
 from ..models.schemas import TrendTopic, TopicStock
+from ..deps import get_db_pool
 
 router = APIRouter(prefix="/api/trends", tags=["trends"])
 
@@ -12,7 +13,7 @@ router = APIRouter(prefix="/api/trends", tags=["trends"])
 async def get_trends(
     sector: Optional[str] = Query(None, description="Filter by sector"),
     limit: int = Query(20, le=50),
-    pool=Depends(),
+    pool=Depends(get_db_pool),
 ):
     """Get all topics sorted by momentum score."""
     async with pool.acquire() as conn:
@@ -39,7 +40,6 @@ async def get_trends(
 
         results = []
         for topic in topics:
-            # Get stocks for this topic
             stocks = await conn.fetch("""
                 SELECT ticker, company_name, relevance_note
                 FROM topic_stocks ts
@@ -74,7 +74,7 @@ async def get_trends(
 
 
 @router.get("/{slug}", response_model=TrendTopic)
-async def get_trend_by_slug(slug: str, pool=Depends()):
+async def get_trend_by_slug(slug: str, pool=Depends(get_db_pool)):
     """Get a single topic by slug with full details."""
     async with pool.acquire() as conn:
         topic = await conn.fetchrow("""

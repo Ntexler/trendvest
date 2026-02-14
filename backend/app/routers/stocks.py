@@ -1,9 +1,10 @@
 """
-Stocks API endpoints for TrendVest — search, screener, prices.
+Stocks API endpoints for TrendVest — search, screener, prices, history, profile.
 """
 from fastapi import APIRouter, Depends, Query, HTTPException
 from typing import Optional
 from ..models.schemas import StockDetail
+from ..deps import get_db_pool, get_stock_service
 
 router = APIRouter(prefix="/api/stocks", tags=["stocks"])
 
@@ -12,17 +13,14 @@ router = APIRouter(prefix="/api/stocks", tags=["stocks"])
 async def screener(
     sector: Optional[str] = Query(None),
     max_price: Optional[float] = Query(None),
-    sort_by: str = Query("change", regex="^(change|price|name)$"),
+    sort_by: str = Query("change", pattern="^(change|price|name)$"),
     search: Optional[str] = Query(None),
     limit: int = Query(50, le=100),
     offset: int = Query(0),
-    pool=Depends(),
-    stock_service=Depends(),
+    pool=Depends(get_db_pool),
+    stock_service=Depends(get_stock_service),
 ):
-    """
-    Stock screener — filter and sort stocks.
-    Prices are fetched live from yfinance with caching.
-    """
+    """Stock screener — filter and sort stocks."""
     async with pool.acquire() as conn:
         stocks = await conn.fetch("""
             SELECT ts.ticker, ts.company_name, ts.relevance_note,
@@ -33,7 +31,6 @@ async def screener(
             ORDER BY ts.priority
         """)
 
-    # Deduplicate by ticker (some stocks appear in multiple topics)
     seen = set()
     unique_stocks = []
     for s in stocks:
@@ -41,21 +38,17 @@ async def screener(
             seen.add(s["ticker"])
             unique_stocks.append(s)
 
-    # Filter by sector
     if sector:
         unique_stocks = [s for s in unique_stocks if s["sector"] == sector or s["sector_en"] == sector]
 
-    # Filter by search
     if search:
         q = search.lower()
         unique_stocks = [s for s in unique_stocks
                          if q in s["ticker"].lower() or q in s["company_name"].lower()]
 
-    # Fetch prices for all filtered stocks
     tickers = [s["ticker"] for s in unique_stocks]
     prices = stock_service.get_prices_batch(tickers)
 
-    # Build results with prices
     results = []
     for s in unique_stocks:
         price_data = prices.get(s["ticker"])
@@ -63,7 +56,6 @@ async def screener(
         change_pct = price_data.change_pct if price_data else None
         prev_close = price_data.previous_close if price_data else None
 
-        # Filter by max price
         if max_price and price and price > max_price:
             continue
 
@@ -79,7 +71,6 @@ async def screener(
             previous_close=prev_close,
         ))
 
-    # Sort
     if sort_by == "change":
         results.sort(key=lambda x: x.daily_change_pct or 0, reverse=True)
     elif sort_by == "price":
@@ -91,10 +82,13 @@ async def screener(
 
 
 @router.get("/{ticker}", response_model=StockDetail)
-async def get_stock(ticker: str, pool=Depends(), stock_service=Depends()):
+async def get_stock(
+    ticker: str,
+    pool=Depends(get_db_pool),
+    stock_service=Depends(get_stock_service),
+):
     """Get a single stock's details and current price."""
     ticker = ticker.upper()
-
     async with pool.acquire() as conn:
         stock = await conn.fetchrow("""
             SELECT ts.ticker, ts.company_name, ts.relevance_note,
@@ -124,7 +118,11 @@ async def get_stock(ticker: str, pool=Depends(), stock_service=Depends()):
 
 
 @router.get("/sector/{sector_name}", response_model=list[StockDetail])
-async def get_stocks_by_sector(sector_name: str, pool=Depends(), stock_service=Depends()):
+async def get_stocks_by_sector(
+    sector_name: str,
+    pool=Depends(get_db_pool),
+    stock_service=Depends(get_stock_service),
+):
     """Get all stocks in a sector."""
     async with pool.acquire() as conn:
         stocks = await conn.fetch("""
@@ -152,3 +150,69 @@ async def get_stocks_by_sector(sector_name: str, pool=Depends(), stock_service=D
         )
         for s in stocks
     ]
+
+
+@router.get("/{ticker}/history")
+async def get_stock_history(
+    ticker: str,
+    period: str = Query("1mo", pattern="^(1mo|3mo|6mo|1y)$"),
+):
+    """Get stock price history for charts."""
+    try:
+        import yfinance as yf
+    except ImportError:
+        raise HTTPException(status_code=503, detail="yfinance not available")
+
+    ticker = ticker.upper()
+    try:
+        stock = yf.Ticker(ticker)
+        hist = stock.history(period=period)
+        if hist.empty:
+            raise HTTPException(status_code=404, detail=f"No history for {ticker}")
+
+        data = []
+        for date_idx, row in hist.iterrows():
+            data.append({
+                "date": date_idx.strftime("%Y-%m-%d"),
+                "close": round(float(row["Close"]), 2),
+                "volume": int(row["Volume"]) if row["Volume"] else 0,
+            })
+        return {"ticker": ticker, "period": period, "data": data}
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/{ticker}/profile")
+async def get_stock_profile(ticker: str):
+    """Get company profile info for 'Read More'."""
+    try:
+        import yfinance as yf
+    except ImportError:
+        raise HTTPException(status_code=503, detail="yfinance not available")
+
+    ticker = ticker.upper()
+    try:
+        stock = yf.Ticker(ticker)
+        info = stock.info
+
+        return {
+            "ticker": ticker,
+            "name": info.get("longName") or info.get("shortName", ticker),
+            "summary": info.get("longBusinessSummary", ""),
+            "sector": info.get("sector", ""),
+            "industry": info.get("industry", ""),
+            "employees": info.get("fullTimeEmployees"),
+            "website": info.get("website", ""),
+            "market_cap": info.get("marketCap"),
+            "pe_ratio": info.get("trailingPE"),
+            "dividend_yield": info.get("dividendYield"),
+            "fifty_two_week_high": info.get("fiftyTwoWeekHigh"),
+            "fifty_two_week_low": info.get("fiftyTwoWeekLow"),
+            "country": info.get("country", ""),
+            "city": info.get("city", ""),
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

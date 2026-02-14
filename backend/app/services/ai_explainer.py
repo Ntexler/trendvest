@@ -1,6 +1,6 @@
 """
 AI Explainer service for TrendVest.
-Uses Claude Haiku to answer financial questions in simple Hebrew.
+Uses Claude to answer financial questions in Hebrew or English.
 """
 import os
 from datetime import datetime, timezone, date
@@ -11,10 +11,8 @@ try:
     import anthropic
 except ImportError:
     anthropic = None
-    print("⚠️  anthropic not installed. Run: pip install anthropic")
 
-
-SYSTEM_PROMPT = """אתה העוזר הדיגיטלי של TrendVest — פלטפורמה ישראלית למעקב מגמות בשוק ההון.
+SYSTEM_PROMPT_HE = """אתה העוזר הדיגיטלי של TrendVest — פלטפורמה ישראלית למעקב מגמות בשוק ההון.
 
 התפקיד שלך:
 - להסביר מושגים פיננסיים בעברית פשוטה וברורה
@@ -33,12 +31,33 @@ SYSTEM_PROMPT = """אתה העוזר הדיגיטלי של TrendVest — פלט�
 
 פורמט תשובה:
 - תשובות קצרות וברורות
-- שימוש באימוג'ים ממוקד (לא יותר מדי)
 - פסקאות קצרות
 - דוגמאות מהחיים כשרלוונטי
 """
 
-SUGGESTED_QUESTIONS_GENERAL = [
+SYSTEM_PROMPT_EN = """You are the digital assistant of TrendVest — a trend-tracking stock discovery platform.
+
+Your role:
+- Explain financial concepts in simple, clear English
+- Help beginners understand the stock market
+- Explain why certain topics are trending right now
+- Answer questions about stocks, sectors, and trends
+
+Critical rules:
+- NEVER give investment advice or price predictions
+- NEVER say "buy" or "sell" for any stock
+- Always add a disclaimer when discussing specific stocks
+- Keep answers short — under 200 words
+- Use simple language, avoid professional jargon
+- If asked for advice — redirect to educational content
+
+Response format:
+- Short, clear answers
+- Short paragraphs
+- Real-life examples when relevant
+"""
+
+SUGGESTED_QUESTIONS_HE = [
     "מה זה ETF?",
     "מה זה שווי שוק?",
     "איך שוק המניות עובד?",
@@ -47,17 +66,50 @@ SUGGESTED_QUESTIONS_GENERAL = [
     "מה ההבדל בין מניה לאגרת חוב?",
 ]
 
-SUGGESTED_QUESTIONS_TOPIC = [
+SUGGESTED_QUESTIONS_EN = [
+    "What is an ETF?",
+    "What is market cap?",
+    "How does the stock market work?",
+    "What is a dividend?",
+    "What is the S&P 500 index?",
+    "What's the difference between a stock and a bond?",
+]
+
+SUGGESTED_QUESTIONS_TOPIC_HE = [
     "למה {topic} טרנדי עכשיו?",
     "אילו חברות קשורות ל{topic}?",
     "מה הסיכונים בסקטור {topic}?",
     "האם {topic} מגמה ארוכת טווח?",
 ]
 
+SUGGESTED_QUESTIONS_TOPIC_EN = [
+    "Why is {topic} trending right now?",
+    "Which companies are related to {topic}?",
+    "What are the risks in the {topic} sector?",
+    "Is {topic} a long-term trend?",
+]
+
+# Fallback responses when no API key
+FALLBACK_HE = (
+    "שירות ה-AI לא פעיל כרגע (חסר API key).\n\n"
+    "בינתיים, הנה כמה טיפים:\n"
+    "- עקוב אחרי הטרנדים בדשבורד\n"
+    "- בדוק מניות בסקרינר\n"
+    "- קרא חדשות בפיד החדשות\n\n"
+    "השירות יהיה זמין ברגע שיוגדר API key."
+)
+
+FALLBACK_EN = (
+    "AI service is currently unavailable (API key not configured).\n\n"
+    "In the meantime, here are some tips:\n"
+    "- Follow the trends on the dashboard\n"
+    "- Check stocks in the screener\n"
+    "- Read news in the news feed\n\n"
+    "The service will be available once an API key is configured."
+)
+
 
 class AIExplainer:
-    """Handles AI-powered financial explanations in Hebrew."""
-
     def __init__(self):
         self.api_key = os.getenv("ANTHROPIC_API_KEY", "")
         self._client = None
@@ -66,32 +118,23 @@ class AIExplainer:
 
     @property
     def client(self):
-        """Lazy init Anthropic client."""
         if self._client is None:
             if not anthropic:
-                raise RuntimeError("anthropic package not installed")
+                return None
             if not self.api_key:
-                raise RuntimeError("ANTHROPIC_API_KEY not set")
+                return None
             self._client = anthropic.Anthropic(api_key=self.api_key)
         return self._client
 
     def check_rate_limit(self, user_id: str) -> tuple[bool, int]:
-        """
-        Check if user has remaining questions.
-
-        Returns:
-            (allowed: bool, remaining: int)
-        """
         usage = self._daily_usage[user_id]
         if usage["date"] != date.today():
             usage["date"] = date.today()
             usage["count"] = 0
-
         remaining = max(0, self.free_daily_limit - usage["count"])
         return remaining > 0, remaining
 
     def record_usage(self, user_id: str):
-        """Record that a user asked a question."""
         usage = self._daily_usage[user_id]
         if usage["date"] != date.today():
             usage["date"] = date.today()
@@ -99,38 +142,45 @@ class AIExplainer:
         usage["count"] += 1
 
     async def ask(self, question: str, context: str | None = None,
-                  user_id: str = "anonymous") -> dict:
-        """
-        Ask the AI explainer a question.
-
-        Args:
-            question: User's question in Hebrew
-            context: Optional topic slug for context
-            user_id: User identifier for rate limiting
-
-        Returns:
-            Dict with 'answer', 'suggested_questions', 'questions_remaining'
-        """
-        # Check rate limit
+                  user_id: str = "anonymous", language: str = "he") -> dict:
         allowed, remaining = self.check_rate_limit(user_id)
         if not allowed:
+            msg = ("הגעת למגבלת השאלות היומית (3 שאלות ביום בחינם)."
+                   if language == "he"
+                   else "You've reached the daily question limit (3 questions/day free).")
             return {
-                "answer": "הגעת למגבלת השאלות היומית (3 שאלות ביום בחינם). שדרג ל-Pro לשאלות ללא הגבלה! 🔒",
+                "answer": msg,
                 "suggested_questions": [],
                 "questions_remaining": 0,
+            }
+
+        # Select language-specific content
+        system_prompt = SYSTEM_PROMPT_HE if language == "he" else SYSTEM_PROMPT_EN
+        general_suggestions = SUGGESTED_QUESTIONS_HE if language == "he" else SUGGESTED_QUESTIONS_EN
+        topic_suggestions = SUGGESTED_QUESTIONS_TOPIC_HE if language == "he" else SUGGESTED_QUESTIONS_TOPIC_EN
+
+        # Graceful fallback when no API key
+        if self.client is None:
+            self.record_usage(user_id)
+            _, remaining_after = self.check_rate_limit(user_id)
+            fallback = FALLBACK_HE if language == "he" else FALLBACK_EN
+            return {
+                "answer": fallback,
+                "suggested_questions": general_suggestions[:3],
+                "questions_remaining": remaining_after,
             }
 
         # Build messages
         messages = []
         if context:
-            messages.append({
-                "role": "user",
-                "content": f"הקשר: המשתמש צופה כרגע בנושא: {context}"
-            })
-            messages.append({
-                "role": "assistant",
-                "content": "הבנתי, אענה בהקשר של הנושא הזה."
-            })
+            ctx_msg = (f"הקשר: המשתמש צופה כרגע בנושא: {context}"
+                       if language == "he"
+                       else f"Context: The user is currently viewing the topic: {context}")
+            ack_msg = ("הבנתי, אענה בהקשר של הנושא הזה."
+                       if language == "he"
+                       else "Got it, I'll answer in the context of this topic.")
+            messages.append({"role": "user", "content": ctx_msg})
+            messages.append({"role": "assistant", "content": ack_msg})
 
         messages.append({"role": "user", "content": question})
 
@@ -138,28 +188,26 @@ class AIExplainer:
             response = self.client.messages.create(
                 model="claude-haiku-4-5-20251001",
                 max_tokens=500,
-                system=SYSTEM_PROMPT,
+                system=system_prompt,
                 messages=messages,
             )
             answer = response.content[0].text
-
         except Exception as e:
-            print(f"❌ Claude API error: {e}")
+            print(f"Claude API error: {e}")
             answer = (
-                "מצטער, נתקלתי בבעיה טכנית. 😔\n"
-                "נסה שוב בעוד כמה שניות, או שאל שאלה אחרת."
+                "מצטער, נתקלתי בבעיה טכנית. נסה שוב בעוד כמה שניות."
+                if language == "he"
+                else "Sorry, I encountered a technical issue. Please try again in a few seconds."
             )
 
-        # Record usage
         self.record_usage(user_id)
         _, remaining_after = self.check_rate_limit(user_id)
 
-        # Generate suggested questions
         if context:
-            suggestions = [q.format(topic=context) for q in SUGGESTED_QUESTIONS_TOPIC[:3]]
+            suggestions = [q.format(topic=context) for q in topic_suggestions[:3]]
         else:
             import random
-            suggestions = random.sample(SUGGESTED_QUESTIONS_GENERAL, min(3, len(SUGGESTED_QUESTIONS_GENERAL)))
+            suggestions = random.sample(general_suggestions, min(3, len(general_suggestions)))
 
         return {
             "answer": answer,

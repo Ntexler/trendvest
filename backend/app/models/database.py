@@ -7,18 +7,19 @@ import json
 import asyncpg
 from pathlib import Path
 from contextlib import asynccontextmanager
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).parent.parent.parent.parent / ".env")
 
 DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/trendvest")
 
 
 async def get_pool():
-    """Create and return a connection pool."""
     return await asyncpg.create_pool(DATABASE_URL, min_size=2, max_size=10)
 
 
 @asynccontextmanager
 async def get_connection(pool):
-    """Get a connection from the pool."""
     conn = await pool.acquire()
     try:
         yield conn
@@ -31,26 +32,22 @@ async def init_db(pool):
     schema_path = Path(__file__).parent.parent.parent.parent / "database" / "001_schema.sql"
 
     async with get_connection(pool) as conn:
-        # Run schema
         if schema_path.exists():
-            schema_sql = schema_path.read_text()
+            schema_sql = schema_path.read_text(encoding="utf-8")
             await conn.execute(schema_sql)
-            print("✅ Schema created/updated")
+            print("Schema created/updated")
 
-        # Seed topics from JSON
         await seed_topics(conn)
 
-        # Init momentum scores
         await conn.execute("SELECT init_momentum_scores()")
-        print("✅ Momentum scores initialized")
+        print("Momentum scores initialized")
 
 
 async def seed_topics(conn):
-    """Seed topics and stocks from topics.json."""
     topics_path = Path(__file__).parent.parent / "data" / "topics.json"
 
     if not topics_path.exists():
-        print("⚠️  topics.json not found, skipping seed")
+        print("topics.json not found, skipping seed")
         return
 
     with open(topics_path, "r", encoding="utf-8") as f:
@@ -58,7 +55,6 @@ async def seed_topics(conn):
 
     count = 0
     for topic in data["topics"]:
-        # Upsert topic
         topic_id = await conn.fetchval("""
             INSERT INTO topics (slug, name_en, name_he, sector, sector_en, keywords, subreddits)
             VALUES ($1, $2, $3, $4, $5, $6, $7)
@@ -74,7 +70,6 @@ async def seed_topics(conn):
            topic["sector"], topic["sector_en"],
            topic["keywords"], topic.get("subreddits", []))
 
-        # Upsert stocks
         for stock in topic["stocks"]:
             await conn.execute("""
                 INSERT INTO topic_stocks (topic_id, ticker, company_name, relevance_note, priority)
@@ -87,4 +82,4 @@ async def seed_topics(conn):
 
         count += 1
 
-    print(f"✅ Seeded {count} topics with stocks")
+    print(f"Seeded {count} topics with stocks")

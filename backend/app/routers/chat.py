@@ -7,30 +7,23 @@ from ..services.ai_explainer import AIExplainer
 
 router = APIRouter(prefix="/api/chat", tags=["chat"])
 
-# Singleton explainer instance
 explainer = AIExplainer()
 
 
 @router.post("", response_model=ChatResponse)
 async def ask_ai(request: Request, body: ChatRequest):
-    """
-    Ask the AI explainer a financial question in Hebrew.
-
-    Rate limited: 3 questions/day for free tier (by IP).
-    """
-    # Use IP for rate limiting (replace with user_id when auth is added)
+    """Ask the AI explainer a financial question."""
     client_ip = request.client.host if request.client else "unknown"
     user_id = client_ip
 
-    # Check rate limit
     allowed, remaining = explainer.check_rate_limit(user_id)
     if not allowed:
         raise HTTPException(
             status_code=429,
             detail={
-                "error": "הגעת למגבלת השאלות היומית",
+                "error": "Daily question limit reached",
                 "remaining": 0,
-                "message": "3 שאלות ביום בחינם. שדרג ל-Pro לגישה ללא הגבלה.",
+                "message": "3 questions per day for free. Upgrade to Pro for unlimited access.",
             }
         )
 
@@ -38,6 +31,7 @@ async def ask_ai(request: Request, body: ChatRequest):
         question=body.question,
         context=body.context,
         user_id=user_id,
+        language=body.language,
     )
 
     return ChatResponse(

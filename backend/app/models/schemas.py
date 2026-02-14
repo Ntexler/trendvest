@@ -3,6 +3,7 @@ Pydantic models for TrendVest API request/response schemas.
 """
 from pydantic import BaseModel, Field
 from datetime import datetime
+from typing import Optional
 
 
 # ── Stock Models ──
@@ -37,14 +38,13 @@ class TrendTopic(BaseModel):
     sector: str
     sector_en: str = ""
     momentum_score: float = 0
-    direction: str = "stable"  # rising | stable | falling
+    direction: str = "stable"
     mention_count_today: int = 0
     mention_avg_7d: float = 0
     stocks: list[TopicStock] = []
 
 
 class TrendTopicBrief(BaseModel):
-    """Lightweight version for list views."""
     slug: str
     name_he: str
     sector: str
@@ -59,7 +59,8 @@ class TrendTopicBrief(BaseModel):
 
 class ChatRequest(BaseModel):
     question: str = Field(..., min_length=2, max_length=500)
-    context: str | None = None  # optional topic slug for context
+    context: str | None = None
+    language: str = "he"
 
 
 class ChatResponse(BaseModel):
@@ -74,10 +75,81 @@ class ScreenerParams(BaseModel):
     sector: str | None = None
     max_price: float | None = None
     min_change: float | None = None
-    sort_by: str = "change"  # change | price | name
+    sort_by: str = "change"
     search: str | None = None
     limit: int = Field(default=50, le=100)
     offset: int = 0
+
+
+# ── Auth Models ──
+
+class RegisterRequest(BaseModel):
+    email: str = Field(..., min_length=5, max_length=255)
+    password: str = Field(..., min_length=8, max_length=128)
+    display_name: str = Field(default="", max_length=100)
+
+
+class LoginRequest(BaseModel):
+    email: str
+    password: str
+
+
+class TokenResponse(BaseModel):
+    access_token: str
+    refresh_token: str
+    token_type: str = "bearer"
+
+
+class UserProfile(BaseModel):
+    id: str
+    email: str
+    display_name: str
+    tier: str
+    created_at: datetime
+
+
+# ── Paper Trading Models ──
+
+class TradeRequest(BaseModel):
+    session_id: str = Field(..., min_length=1, max_length=64)
+    ticker: str = Field(..., min_length=1, max_length=10)
+    action: str = Field(..., pattern="^(buy|sell)$")
+    quantity: int = Field(..., gt=0)
+
+
+class HoldingResponse(BaseModel):
+    ticker: str
+    quantity: int
+    avg_cost: float
+    current_price: float | None = None
+    market_value: float | None = None
+    pnl: float | None = None
+    pnl_pct: float | None = None
+
+
+class PortfolioResponse(BaseModel):
+    session_id: str
+    cash_balance: float
+    total_value: float
+    total_pnl: float
+    holdings: list[HoldingResponse] = []
+
+
+class TradeHistoryItem(BaseModel):
+    ticker: str
+    action: str
+    quantity: int
+    price: float
+    total: float
+    executed_at: datetime
+
+
+# ── Tracking Models ──
+
+class TrackRequest(BaseModel):
+    interaction_type: str = Field(..., pattern="^(topic_view|stock_click|search|news_click|watchlist_add|chat_ask)$")
+    target_slug: str | None = None
+    metadata: dict | None = None
 
 
 # ── General ──
