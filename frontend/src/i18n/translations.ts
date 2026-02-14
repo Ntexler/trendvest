@@ -62,6 +62,14 @@ const translations = {
   "profile.companyNews": { he: "חדשות החברה", en: "Company News" },
   "profile.noNews": { he: "אין חדשות להצגה", en: "No news available" },
 
+  // Peers & Research
+  "profile.peers": { he: "עמיתים", en: "Peers" },
+  "profile.noPeers": { he: "אין עמיתים בסקטור", en: "No sector peers found" },
+  "profile.peerTicker": { he: "מניה", en: "Ticker" },
+  "profile.peerMetrics": { he: "מדדים נוספים", en: "Additional Metrics" },
+  "profile.deepResearch": { he: "מחקר מעמיק", en: "Deep Research" },
+  "profile.sources": { he: "מקורות", en: "Sources" },
+
   // Insights
   "insight.whyTrending": { he: "למה זה טרנדי?", en: "Why is this trending?" },
   "insight.stockConnection": { he: "למה הקשר?", en: "Why connected?" },

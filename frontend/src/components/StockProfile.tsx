@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useI18n } from "@/i18n/context";
-import { getStockProfile, getNews, getRelatedStocks, explainSection } from "@/lib/api";
-import type { StockProfile as StockProfileType, NewsItem, RelatedStock } from "@/lib/types";
+import { getStockProfile, getNews, getRelatedStocks, getPeerStocks, getResearch, explainSection } from "@/lib/api";
+import type { StockProfile as StockProfileType, NewsItem, RelatedStock, PeerStock, ResearchResult } from "@/lib/types";
 import ExplainTooltip from "./ExplainTooltip";
 import StockChart from "./StockChart";
 import {
@@ -20,6 +20,8 @@ import {
   Loader2,
   Sparkles,
   ArrowRight,
+  Search,
+  GitCompareArrows,
 } from "lucide-react";
 
 interface Props {
@@ -31,7 +33,7 @@ interface Props {
   onStockClick?: (ticker: string) => void;
 }
 
-type TabKey = "overview" | "management" | "financials" | "analyst";
+type TabKey = "overview" | "management" | "financials" | "analyst" | "peers";
 
 function formatMarketCap(n: number | null): string {
   if (!n) return "N/A";
@@ -78,6 +80,8 @@ export default function StockProfile({ ticker, onClose, isWatched, toggleWatch, 
   const [news, setNews] = useState<NewsItem[]>([]);
   const [newsLoading, setNewsLoading] = useState(false);
   const [relatedStocks, setRelatedStocks] = useState<RelatedStock[]>([]);
+  const [research, setResearch] = useState<ResearchResult | null>(null);
+  const [researchLoading, setResearchLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -102,7 +106,21 @@ export default function StockProfile({ ticker, onClose, isWatched, toggleWatch, 
     { key: "management", label: t("profile.management"), icon: <Briefcase className="w-3.5 h-3.5" /> },
     { key: "financials", label: t("profile.financials"), icon: <BarChart3 className="w-3.5 h-3.5" /> },
     { key: "analyst", label: t("profile.analyst"), icon: <TrendingUp className="w-3.5 h-3.5" /> },
+    { key: "peers", label: t("profile.peers"), icon: <GitCompareArrows className="w-3.5 h-3.5" /> },
   ];
+
+  const handleResearch = async () => {
+    if (research) return;
+    setResearchLoading(true);
+    try {
+      const res = await getResearch(ticker, locale);
+      setResearch(res);
+    } catch {
+      setResearch({ ticker, analysis: locale === "he" ? "שגיאה בטעינת מחקר" : "Error loading research", citations: [], generated_at: "" });
+    } finally {
+      setResearchLoading(false);
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 flex items-end md:items-center justify-center">
@@ -154,6 +172,31 @@ export default function StockProfile({ ticker, onClose, isWatched, toggleWatch, 
             </button>
           </div>
 
+          {/* Deep Research Button */}
+          <button
+            onClick={handleResearch}
+            disabled={researchLoading || !!research}
+            className="w-full flex items-center justify-center gap-2 py-2 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-purple-400 font-medium rounded-lg transition text-sm disabled:opacity-50"
+          >
+            {researchLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}
+            {t("profile.deepResearch")}
+          </button>
+          {research && (
+            <div className="bg-purple-500/5 border border-purple-500/20 rounded-xl p-4 space-y-3">
+              <div className="text-sm text-[#cbd5e1] leading-relaxed whitespace-pre-wrap">{research.analysis}</div>
+              {research.citations.length > 0 && (
+                <div className="space-y-1">
+                  <div className="text-xs text-[#64748b] font-semibold">{t("profile.sources")}</div>
+                  {research.citations.map((c, i) => (
+                    <a key={i} href={c.url} target="_blank" rel="noopener noreferrer" className="block text-xs text-cyan-400 truncate hover:underline">
+                      {c.url}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
           {loading ? (
             <div className="text-center py-6 text-[#94a3b8]">{t("general.loading")}</div>
           ) : profile ? (
@@ -182,6 +225,7 @@ export default function StockProfile({ ticker, onClose, isWatched, toggleWatch, 
                 {activeTab === "management" && <ManagementTab profile={profile} t={t} locale={locale} />}
                 {activeTab === "financials" && <FinancialsTab profile={profile} t={t} ticker={ticker} locale={locale} />}
                 {activeTab === "analyst" && <AnalystTab profile={profile} t={t} locale={locale} ticker={ticker} />}
+                {activeTab === "peers" && <PeersTab ticker={ticker} t={t} onStockClick={onStockClick} />}
               </div>
 
               {/* Related Stocks */}
@@ -314,15 +358,22 @@ function ManagementTab({
   return (
     <div className="space-y-2">
       {profile.officers.map((officer, i) => (
-        <div key={i} className="bg-[#1e293b] rounded-lg p-3 flex items-center justify-between">
-          <div>
-            <div className="text-sm font-medium text-white">{officer.name}</div>
-            <div className="text-xs text-[#94a3b8]">{officer.title}</div>
-          </div>
-          {officer.age && (
-            <div className="text-xs text-[#64748b]">
-              {t("profile.age")}: {officer.age}
+        <div key={i} className="bg-[#1e293b] rounded-lg p-3">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="text-sm font-medium text-white">{officer.name}</div>
+              <div className="text-xs text-[#94a3b8]">{officer.title}</div>
             </div>
+            {officer.age && (
+              <div className="text-xs text-[#64748b]">
+                {t("profile.age")}: {officer.age}
+              </div>
+            )}
+          </div>
+          {officer.bio && (
+            <p className="text-xs text-[#cbd5e1] mt-2 leading-relaxed border-t border-[#334155] pt-2">
+              {officer.bio}
+            </p>
           )}
         </div>
       ))}
@@ -551,6 +602,96 @@ function AnalystTab({
           </div>
         )}
       </div>
+    </div>
+  );
+}
+
+/* ── Peers Tab ── */
+function PeersTab({
+  ticker,
+  t,
+  onStockClick,
+}: {
+  ticker: string;
+  t: (k: any) => string;
+  onStockClick?: (ticker: string) => void;
+}) {
+  const [peers, setPeers] = useState<PeerStock[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    getPeerStocks(ticker)
+      .then(setPeers)
+      .catch(() => setPeers([]))
+      .finally(() => setLoading(false));
+  }, [ticker]);
+
+  if (loading) return <div className="text-center py-6 text-[#94a3b8]">{t("general.loading")}</div>;
+  if (peers.length === 0) return <div className="text-sm text-[#64748b] py-4 text-center">{t("profile.noPeers")}</div>;
+
+  return (
+    <div className="space-y-2">
+      {/* Header row */}
+      <div className="grid grid-cols-4 gap-2 text-[10px] text-[#64748b] uppercase tracking-wider px-3 pb-1">
+        <div>{t("profile.peerTicker")}</div>
+        <div className="text-end">{t("stock.price")}</div>
+        <div className="text-end">P/E</div>
+        <div className="text-end">{t("stock.change")}</div>
+      </div>
+      {peers.map((peer) => (
+        <button
+          key={peer.ticker}
+          onClick={() => onStockClick?.(peer.ticker)}
+          className="w-full grid grid-cols-4 gap-2 items-center bg-[#1e293b] rounded-lg p-3 hover:bg-[#263548] transition text-start"
+        >
+          <div>
+            <div className="font-mono text-sm font-bold text-cyan-400">{peer.ticker}</div>
+            <div className="text-[10px] text-[#94a3b8] truncate">{peer.company_name}</div>
+          </div>
+          <div className="text-end text-sm text-white tabular-nums">
+            {peer.current_price != null ? `$${peer.current_price.toFixed(2)}` : "N/A"}
+          </div>
+          <div className="text-end text-sm text-white tabular-nums">
+            {peer.pe_ratio != null ? peer.pe_ratio.toFixed(1) : "N/A"}
+          </div>
+          <div className={`text-end text-sm tabular-nums ${
+            peer.daily_change_pct != null && peer.daily_change_pct >= 0 ? "text-green-400" : "text-red-400"
+          }`}>
+            {peer.daily_change_pct != null ? `${peer.daily_change_pct >= 0 ? "+" : ""}${peer.daily_change_pct.toFixed(2)}%` : "N/A"}
+          </div>
+        </button>
+      ))}
+
+      {/* Additional metrics for first 3 peers */}
+      {peers.filter(p => p.market_cap || p.institutional_pct || p.revenue_growth).length > 0 && (
+        <div className="border-t border-[#334155] pt-3 mt-3">
+          <h4 className="text-xs font-semibold text-[#94a3b8] mb-2">{t("profile.peerMetrics")}</h4>
+          <div className="space-y-2">
+            {peers.slice(0, 5).map((peer) => (
+              <div key={`metrics-${peer.ticker}`} className="bg-[#0f172a] rounded-lg p-3">
+                <div className="font-mono text-xs text-cyan-400 mb-2">{peer.ticker}</div>
+                <div className="grid grid-cols-3 gap-2 text-xs">
+                  <div>
+                    <div className="text-[#64748b]">{t("stock.marketCap")}</div>
+                    <div className="text-white tabular-nums">{formatMarketCap(peer.market_cap)}</div>
+                  </div>
+                  <div>
+                    <div className="text-[#64748b]">{t("profile.profitMargins")}</div>
+                    <div className="text-white tabular-nums">{peer.profit_margins != null ? `${(peer.profit_margins * 100).toFixed(1)}%` : "N/A"}</div>
+                  </div>
+                  <div>
+                    <div className="text-[#64748b]">{t("profile.revenueGrowth")}</div>
+                    <div className={`tabular-nums ${peer.revenue_growth != null && peer.revenue_growth >= 0 ? "text-green-400" : "text-red-400"}`}>
+                      {peer.revenue_growth != null ? `${(peer.revenue_growth * 100).toFixed(1)}%` : "N/A"}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

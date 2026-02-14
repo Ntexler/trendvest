@@ -289,3 +289,29 @@ class AIExplainer:
             print(f"Explain section error: {e}")
             fallback = "Could not generate explanation." if language == "en" else "לא ניתן ליצור הסבר."
             return fallback
+
+    async def generate_officer_bio(self, name: str, title: str, company: str, language: str = "en") -> str:
+        """Generate a 1-2 sentence professional bio for a company officer."""
+        cache_key = f"bio:{name}:{company}:{language}"
+        if cache_key in self._cache:
+            return self._cache[cache_key]
+        if self.client is None:
+            return ""
+        lang_instruction = "Answer in Hebrew." if language == "he" else "Answer in English."
+        try:
+            response = self.client.messages.create(
+                model="claude-haiku-4-5-20251001",
+                max_tokens=150,
+                system=(
+                    f"You are a professional bio writer. {lang_instruction} "
+                    "Write a concise 1-2 sentence professional summary. "
+                    "Focus on their role and what they oversee. No speculation."
+                ),
+                messages=[{"role": "user", "content": f"Write a short bio for {name}, {title} at {company}."}],
+            )
+            bio = response.content[0].text
+            self._cache[cache_key] = bio
+            return bio
+        except Exception as e:
+            print(f"Officer bio error: {e}")
+            return ""

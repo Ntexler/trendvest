@@ -1,9 +1,10 @@
 """
-Stocks API endpoints for TrendVest — search, screener, prices, history, profile.
+Stocks API endpoints for TrendVest — search, screener, prices, history, profile, peers, research.
 """
 from fastapi import APIRouter, Depends, Query, HTTPException
 from typing import Optional
-from ..models.schemas import StockDetail, StockProfileResponse, CompanyOfficer
+from datetime import datetime, timezone
+from ..models.schemas import StockDetail, StockProfileResponse, CompanyOfficer, PeerStock, ResearchResponse
 from ..deps import get_db_pool, get_stock_service
 from ..services.ai_explainer import AIExplainer
 
@@ -211,14 +212,21 @@ async def get_stock_profile(
         stock = yf.Ticker(ticker)
         info = stock.info
 
-        # Extract top 5 officers
+        # Extract top 5 officers with AI-generated bios
+        company_name = info.get("longName") or info.get("shortName", ticker)
         officers = []
         for officer in (info.get("companyOfficers") or [])[:5]:
+            oname = officer.get("name", "")
+            otitle = officer.get("title", "")
+            bio = await _explainer.generate_officer_bio(
+                oname, otitle, company_name, language or "en"
+            )
             officers.append(CompanyOfficer(
-                name=officer.get("name", ""),
-                title=officer.get("title", ""),
+                name=oname,
+                title=otitle,
                 age=officer.get("age"),
                 total_pay=officer.get("totalPay"),
+                bio=bio,
             ))
 
         summary = info.get("longBusinessSummary", "")
@@ -307,3 +315,142 @@ async def get_related_stocks(
         })
 
     return results
+
+
+@router.get("/{ticker}/peers", response_model=list[PeerStock])
+async def get_peer_stocks(
+    ticker: str,
+    pool=Depends(get_db_pool),
+    stock_service=Depends(get_stock_service),
+):
+    """Get peer stocks from the same sector with comparison metrics."""
+    try:
+        import yfinance as yf
+    except ImportError:
+        raise HTTPException(status_code=503, detail="yfinance not available")
+
+    ticker = ticker.upper()
+
+    # Find the sector of the target stock
+    async with pool.acquire() as conn:
+        target = await conn.fetchrow("""
+            SELECT t.sector_en FROM topic_stocks ts
+            JOIN topics t ON ts.topic_id = t.id
+            WHERE ts.ticker = $1 LIMIT 1
+        """, ticker)
+
+        if not target:
+            raise HTTPException(status_code=404, detail=f"Stock {ticker} not found")
+
+        # Find other stocks in same sector
+        peers = await conn.fetch("""
+            SELECT DISTINCT ts.ticker, ts.company_name
+            FROM topic_stocks ts
+            JOIN topics t ON ts.topic_id = t.id
+            WHERE t.sector_en = $1 AND ts.ticker != $2
+            ORDER BY ts.ticker
+            LIMIT 10
+        """, target["sector_en"], ticker)
+
+    if not peers:
+        return []
+
+    peer_tickers = [p["ticker"] for p in peers]
+    prices = stock_service.get_prices_batch(peer_tickers)
+
+    results = []
+    for p in peers:
+        pd = prices.get(p["ticker"])
+        try:
+            info = yf.Ticker(p["ticker"]).info
+        except Exception:
+            info = {}
+
+        results.append(PeerStock(
+            ticker=p["ticker"],
+            company_name=p["company_name"],
+            current_price=pd.price if pd else None,
+            daily_change_pct=pd.change_pct if pd else None,
+            market_cap=info.get("marketCap"),
+            pe_ratio=info.get("trailingPE"),
+            beta=info.get("beta"),
+            dividend_yield=info.get("dividendYield"),
+            profit_margins=info.get("profitMargins"),
+            revenue_growth=info.get("revenueGrowth"),
+            institutional_pct=info.get("heldPercentInstitutions"),
+            short_ratio=info.get("shortRatio"),
+        ))
+
+    return results
+
+
+@router.post("/{ticker}/research", response_model=ResearchResponse)
+async def deep_research(ticker: str, language: str = Query("en")):
+    """Deep research via Perplexity API — real-time web-searched analysis."""
+    import os
+    import httpx
+
+    api_key = os.getenv("PERPLEXITY_API_KEY")
+    if not api_key:
+        try:
+            import yfinance as yf
+            info = yf.Ticker(ticker.upper()).info
+            name = info.get("longName", ticker)
+            sector = info.get("sector", "")
+            industry = info.get("industry", "")
+            summary = info.get("longBusinessSummary", "")
+            rec = info.get("recommendationKey", "N/A")
+            target_price = info.get("targetMeanPrice", "N/A")
+            analysts = info.get("numberOfAnalystOpinions", "N/A")
+
+            analysis = (
+                f"**{name} ({ticker.upper()})** - {sector} / {industry}\n\n"
+                f"{summary[:500]}{'...' if len(summary) > 500 else ''}\n\n"
+                f"**Analyst Consensus:** {rec} | **Target Price:** ${target_price} | **Analysts:** {analysts}\n\n"
+                f"_Note: Connect a Perplexity API key for real-time web-searched deep research._"
+            )
+        except Exception:
+            analysis = f"Deep research for {ticker.upper()} requires a Perplexity API key. Add PERPLEXITY_API_KEY to your .env file."
+
+        return ResearchResponse(
+            ticker=ticker.upper(),
+            analysis=analysis,
+            citations=[],
+            generated_at=datetime.now(timezone.utc),
+        )
+
+    prompt = (
+        f"Provide a comprehensive investment research analysis for the stock {ticker.upper()}. "
+        f"Include: 1) Recent news and developments, 2) Financial performance, "
+        f"3) Competitive position, 4) Key risks, 5) Analyst outlook. "
+        f"Be concise but thorough."
+    )
+    if language == "he":
+        prompt += " Respond in Hebrew."
+
+    try:
+        async with httpx.AsyncClient(timeout=30) as client:
+            resp = await client.post(
+                "https://api.perplexity.ai/chat/completions",
+                headers={
+                    "Authorization": f"Bearer {api_key}",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "model": "sonar",
+                    "messages": [{"role": "user", "content": prompt}],
+                },
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            content = data["choices"][0]["message"]["content"]
+            citations = [{"url": c} for c in data.get("citations", [])]
+
+            return ResearchResponse(
+                ticker=ticker.upper(),
+                analysis=content,
+                citations=citations,
+                generated_at=datetime.now(timezone.utc),
+            )
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Research API error: {str(e)}")

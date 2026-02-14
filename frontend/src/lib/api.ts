@@ -8,6 +8,8 @@ import type {
   Portfolio,
   TradeHistoryItem,
   RelatedStock,
+  PeerStock,
+  ResearchResult,
 } from "./types";
 
 const BASE = "/api";
@@ -115,6 +117,16 @@ export const explainSection = (
 // Related Stocks
 export const getRelatedStocks = (ticker: string) =>
   fetchJSON<RelatedStock[]>(`/stocks/${ticker}/related`);
+
+// Peer Comparison
+export const getPeerStocks = (ticker: string) =>
+  fetchJSON<PeerStock[]>(`/stocks/${ticker}/peers`);
+
+// Deep Research
+export const getResearch = (ticker: string, language: string) =>
+  fetchJSON<ResearchResult>(`/stocks/${ticker}/research?language=${language}`, {
+    method: "POST",
+  });
 
 // Paper Trading
 export const getPortfolio = (sessionId: string) =>

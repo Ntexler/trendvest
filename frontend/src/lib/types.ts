@@ -43,6 +43,29 @@ export interface CompanyOfficer {
   title: string;
   age: number | null;
   total_pay: number | null;
+  bio: string;
+}
+
+export interface PeerStock {
+  ticker: string;
+  company_name: string;
+  current_price: number | null;
+  daily_change_pct: number | null;
+  market_cap: number | null;
+  pe_ratio: number | null;
+  beta: number | null;
+  dividend_yield: number | null;
+  profit_margins: number | null;
+  revenue_growth: number | null;
+  institutional_pct: number | null;
+  short_ratio: number | null;
+}
+
+export interface ResearchResult {
+  ticker: string;
+  analysis: string;
+  citations: { url: string }[];
+  generated_at: string;
 }
 
 export interface StockProfile {

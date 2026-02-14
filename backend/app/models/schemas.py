@@ -151,6 +151,7 @@ class CompanyOfficer(BaseModel):
     title: str
     age: int | None = None
     total_pay: float | None = None
+    bio: str = ""
 
 
 class StockProfileResponse(BaseModel):
@@ -209,6 +210,37 @@ class ExplainSectionResponse(BaseModel):
     ticker: str
     section: str
     explanation: str
+
+
+# ── Peer Comparison Models ──
+
+class PeerStock(BaseModel):
+    ticker: str
+    company_name: str
+    current_price: float | None = None
+    daily_change_pct: float | None = None
+    market_cap: float | None = None
+    pe_ratio: float | None = None
+    beta: float | None = None
+    dividend_yield: float | None = None
+    profit_margins: float | None = None
+    revenue_growth: float | None = None
+    institutional_pct: float | None = None
+    short_ratio: float | None = None
+
+
+# ── Research Models ──
+
+class ResearchRequest(BaseModel):
+    ticker: str = Field(..., min_length=1, max_length=10)
+    language: str = "en"
+
+
+class ResearchResponse(BaseModel):
+    ticker: str
+    analysis: str
+    citations: list[dict] = []
+    generated_at: datetime
 
 
 # ── Tracking Models ──
