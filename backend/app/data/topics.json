@@ -13,7 +13,10 @@
         {"ticker": "MSFT", "name": "Microsoft", "note": "Azure AI + Copilot", "priority": 2},
         {"ticker": "GOOGL", "name": "Alphabet", "note": "Gemini AI + DeepMind", "priority": 3},
         {"ticker": "PLTR", "name": "Palantir", "note": "פלטפורמת AI לארגונים", "priority": 4},
-        {"ticker": "AMD", "name": "AMD", "note": "שבבי AI מתחרים", "priority": 5}
+        {"ticker": "AMD", "name": "AMD", "note": "שבבי AI מתחרים", "priority": 5},
+        {"ticker": "AAPL", "name": "Apple", "note": "Apple Intelligence", "priority": 6},
+        {"ticker": "META", "name": "Meta Platforms", "note": "Llama AI + מטא AI", "priority": 7},
+        {"ticker": "CRM", "name": "Salesforce", "note": "Einstein AI + Agentforce", "priority": 8}
       ]
     },
     {
@@ -73,7 +76,11 @@
         {"ticker": "TSLA", "name": "Tesla", "note": "מובילת EV עולמית", "priority": 1},
         {"ticker": "RIVN", "name": "Rivian", "note": "טנדרים חשמליים", "priority": 2},
         {"ticker": "NIO", "name": "NIO", "note": "EV סינית פרימיום", "priority": 3},
-        {"ticker": "LI", "name": "Li Auto", "note": "רכבי פלאג-אין", "priority": 4}
+        {"ticker": "LI", "name": "Li Auto", "note": "רכבי פלאג-אין", "priority": 4},
+        {"ticker": "XPEV", "name": "XPeng", "note": "EV סינית + נהיגה אוטונומית", "priority": 5},
+        {"ticker": "LCID", "name": "Lucid Group", "note": "EV יוקרתית אמריקאית", "priority": 6},
+        {"ticker": "GM", "name": "General Motors", "note": "Ultium EV platform", "priority": 7},
+        {"ticker": "F", "name": "Ford", "note": "F-150 Lightning + Mustang Mach-E", "priority": 8}
       ]
     },
     {
@@ -87,7 +94,9 @@
       "stocks": [
         {"ticker": "CRWD", "name": "CrowdStrike", "note": "הגנת endpoints", "priority": 1},
         {"ticker": "PANW", "name": "Palo Alto Networks", "note": "חומות אש מתקדמות", "priority": 2},
-        {"ticker": "ZS", "name": "Zscaler", "note": "Zero Trust", "priority": 3}
+        {"ticker": "ZS", "name": "Zscaler", "note": "Zero Trust", "priority": 3},
+        {"ticker": "FTNT", "name": "Fortinet", "note": "אבטחת רשתות", "priority": 4},
+        {"ticker": "S", "name": "SentinelOne", "note": "AI לאבטחת סייבר", "priority": 5}
       ]
     },
     {
@@ -100,7 +109,9 @@
       "subreddits": ["space", "SpaceX", "spaceflight", "wallstreetbets", "stocks", "investing"],
       "stocks": [
         {"ticker": "RKLB", "name": "Rocket Lab", "note": "שיגור לוויינים", "priority": 1},
-        {"ticker": "ASTS", "name": "AST SpaceMobile", "note": "סלולר מהחלל", "priority": 2}
+        {"ticker": "ASTS", "name": "AST SpaceMobile", "note": "סלולר מהחלל", "priority": 2},
+        {"ticker": "LUNR", "name": "Intuitive Machines", "note": "נחיתה על הירח", "priority": 3},
+        {"ticker": "BA", "name": "Boeing", "note": "חלל + תעופה", "priority": 4}
       ]
     },
     {
@@ -114,7 +125,9 @@
       "stocks": [
         {"ticker": "MSTR", "name": "MicroStrategy", "note": "אוצר ביטקוין", "priority": 1},
         {"ticker": "COIN", "name": "Coinbase", "note": "בורסת קריפטו", "priority": 2},
-        {"ticker": "MARA", "name": "Marathon Digital", "note": "כריית ביטקוין", "priority": 3}
+        {"ticker": "MARA", "name": "Marathon Digital", "note": "כריית ביטקוין", "priority": 3},
+        {"ticker": "RIOT", "name": "Riot Platforms", "note": "כריית קריפטו", "priority": 4},
+        {"ticker": "HOOD", "name": "Robinhood", "note": "מסחר קריפטו + מניות", "priority": 5}
       ]
     },
     {
@@ -127,7 +140,9 @@
       "subreddits": ["solar", "renewableenergy", "energy", "wallstreetbets", "stocks", "investing"],
       "stocks": [
         {"ticker": "ENPH", "name": "Enphase", "note": "מהפכי סולאריים", "priority": 1},
-        {"ticker": "FSLR", "name": "First Solar", "note": "פאנלים סולאריים", "priority": 2}
+        {"ticker": "FSLR", "name": "First Solar", "note": "פאנלים סולאריים", "priority": 2},
+        {"ticker": "RUN", "name": "Sunrun", "note": "סולארי ביתי", "priority": 3},
+        {"ticker": "SEDG", "name": "SolarEdge", "note": "אופטימיזציית סולארי", "priority": 4}
       ]
     },
     {
@@ -141,7 +156,11 @@
       "stocks": [
         {"ticker": "TSM", "name": "TSMC", "note": "ייצור שבבים מוביל", "priority": 1},
         {"ticker": "AVGO", "name": "Broadcom", "note": "שבבים ותשתיות", "priority": 2},
-        {"ticker": "INTC", "name": "Intel", "note": "שבבים ומעבדים", "priority": 3}
+        {"ticker": "INTC", "name": "Intel", "note": "שבבים ומעבדים", "priority": 3},
+        {"ticker": "MRVL", "name": "Marvell Technology", "note": "שבבי תשתית", "priority": 4},
+        {"ticker": "KLAC", "name": "KLA Corp", "note": "בדיקת שבבים", "priority": 5},
+        {"ticker": "LRCX", "name": "Lam Research", "note": "ציוד ייצור שבבים", "priority": 6},
+        {"ticker": "ASML", "name": "ASML", "note": "מכונות ליתוגרפיה EUV", "priority": 7}
       ]
     },
     {
@@ -153,7 +172,9 @@
       "keywords": ["robotics", "robot", "automation", "humanoid robot", "industrial robot", "surgical robot", "cobot"],
       "subreddits": ["robotics", "Automate", "technology", "wallstreetbets", "stocks", "investing"],
       "stocks": [
-        {"ticker": "ISRG", "name": "Intuitive Surgical", "note": "רובוטים רפואיים", "priority": 1}
+        {"ticker": "ISRG", "name": "Intuitive Surgical", "note": "רובוטים רפואיים", "priority": 1},
+        {"ticker": "ROK", "name": "Rockwell Automation", "note": "אוטומציה תעשייתית", "priority": 2},
+        {"ticker": "TER", "name": "Teradyne", "note": "רובוטים שיתופיים (Universal Robots)", "priority": 3}
       ]
     },
     {
@@ -166,7 +187,10 @@
       "subreddits": ["defense", "Military", "geopolitics", "wallstreetbets", "stocks", "investing"],
       "stocks": [
         {"ticker": "LMT", "name": "Lockheed Martin", "note": "מטוסי קרב ומשילים", "priority": 1},
-        {"ticker": "RTX", "name": "RTX", "note": "מערכות ביטחוניות", "priority": 2}
+        {"ticker": "RTX", "name": "RTX", "note": "מערכות ביטחוניות", "priority": 2},
+        {"ticker": "NOC", "name": "Northrop Grumman", "note": "מפציצי B-21 + חלל", "priority": 3},
+        {"ticker": "GD", "name": "General Dynamics", "note": "צוללות + כלי רכב משוריינים", "priority": 4},
+        {"ticker": "HII", "name": "HII", "note": "בניית ספינות צבאיות", "priority": 5}
       ]
     },
     {
@@ -179,7 +203,8 @@
       "subreddits": ["batteries", "lithium", "electricvehicles", "wallstreetbets", "stocks", "investing"],
       "stocks": [
         {"ticker": "ALB", "name": "Albemarle", "note": "הפקת ליתיום", "priority": 1},
-        {"ticker": "QS", "name": "QuantumScape", "note": "סוללות מוצקות", "priority": 2}
+        {"ticker": "QS", "name": "QuantumScape", "note": "סוללות מוצקות", "priority": 2},
+        {"ticker": "LAC", "name": "Lithium Americas", "note": "כריית ליתיום בנבאדה", "priority": 3}
       ]
     },
     {
@@ -205,7 +230,11 @@
       "subreddits": ["fintech", "FinancialPlanning", "wallstreetbets", "stocks", "investing"],
       "stocks": [
         {"ticker": "XYZ", "name": "Block Inc", "note": "תשלומים דיגיטליים", "priority": 1},
-        {"ticker": "SOFI", "name": "SoFi", "note": "בנקאות דיגיטלית", "priority": 2}
+        {"ticker": "SOFI", "name": "SoFi", "note": "בנקאות דיגיטלית", "priority": 2},
+        {"ticker": "PYPL", "name": "PayPal", "note": "תשלומים אונליין", "priority": 3},
+        {"ticker": "AFRM", "name": "Affirm", "note": "קנה עכשיו שלם אחר כך", "priority": 4},
+        {"ticker": "V", "name": "Visa", "note": "רשת תשלומים גלובלית", "priority": 5},
+        {"ticker": "MA", "name": "Mastercard", "note": "רשת תשלומים גלובלית", "priority": 6}
       ]
     },
     {
@@ -217,7 +246,8 @@
       "keywords": ["cannabis", "marijuana", "weed", "legalization", "THC", "CBD", "dispensary", "cannabis stock"],
       "subreddits": ["weedstocks", "cannabis", "marijuana", "wallstreetbets", "stocks", "investing"],
       "stocks": [
-        {"ticker": "TLRY", "name": "Tilray", "note": "קנאביס קנדה", "priority": 1}
+        {"ticker": "TLRY", "name": "Tilray", "note": "קנאביס קנדה", "priority": 1},
+        {"ticker": "CGC", "name": "Canopy Growth", "note": "קנאביס + משקאות", "priority": 2}
       ]
     },
     {
@@ -230,7 +260,10 @@
       "subreddits": ["aws", "cloudcomputing", "sysadmin", "wallstreetbets", "stocks", "investing"],
       "stocks": [
         {"ticker": "AMZN", "name": "Amazon", "note": "AWS", "priority": 1},
-        {"ticker": "SNOW", "name": "Snowflake", "note": "Data Cloud", "priority": 2}
+        {"ticker": "SNOW", "name": "Snowflake", "note": "Data Cloud", "priority": 2},
+        {"ticker": "ORCL", "name": "Oracle", "note": "Oracle Cloud + בסיסי נתונים", "priority": 3},
+        {"ticker": "DDOG", "name": "Datadog", "note": "ניטור ענן", "priority": 4},
+        {"ticker": "NET", "name": "Cloudflare", "note": "תשתית אינטרנט + CDN", "priority": 5}
       ]
     },
     {
@@ -239,11 +272,14 @@
       "name_he": "סטרימינג ומדיה",
       "sector": "מדיה",
       "sector_en": "Media",
-      "keywords": ["streaming", "Netflix", "Disney+", "subscriber", "streaming wars", "content spending", "ad-supported"],
+      "keywords": ["streaming", "Netflix", "Disney+", "subscriber", "streaming wars", "content spending", "ad-supported", "podcast"],
       "subreddits": ["cordcutters", "netflix", "television", "wallstreetbets", "stocks", "investing"],
       "stocks": [
         {"ticker": "NFLX", "name": "Netflix", "note": "סטרימינג מוביל", "priority": 1},
-        {"ticker": "DIS", "name": "Disney", "note": "Disney+", "priority": 2}
+        {"ticker": "DIS", "name": "Disney", "note": "Disney+", "priority": 2},
+        {"ticker": "ROKU", "name": "Roku", "note": "פלטפורמת סטרימינג", "priority": 3},
+        {"ticker": "SPOT", "name": "Spotify", "note": "סטרימינג מוזיקה + פודקאסטים", "priority": 4},
+        {"ticker": "WBD", "name": "Warner Bros Discovery", "note": "Max סטרימינג", "priority": 5}
       ]
     },
     {
@@ -255,7 +291,10 @@
       "keywords": ["real estate", "housing market", "mortgage rate", "home prices", "REIT", "housing bubble", "rent prices"],
       "subreddits": ["RealEstate", "REBubble", "realestateinvesting", "wallstreetbets", "stocks", "investing"],
       "stocks": [
-        {"ticker": "Z", "name": "Zillow", "note": "פלטפורמת נדל\"ן", "priority": 1}
+        {"ticker": "Z", "name": "Zillow", "note": "פלטפורמת נדל\"ן", "priority": 1},
+        {"ticker": "RDFN", "name": "Redfin", "note": "תיווך נדל\"ן טכנולוגי", "priority": 2},
+        {"ticker": "O", "name": "Realty Income", "note": "REIT דיבידנד חודשי", "priority": 3},
+        {"ticker": "AMT", "name": "American Tower", "note": "REIT אנטנות סלולר", "priority": 4}
       ]
     },
     {
@@ -268,7 +307,215 @@
       "subreddits": ["agriculture", "farming", "foodtech", "wallstreetbets", "stocks", "investing"],
       "stocks": [
         {"ticker": "DE", "name": "Deere & Co", "note": "ציוד חקלאי חכם", "priority": 1},
-        {"ticker": "BYND", "name": "Beyond Meat", "note": "בשר תחליפי", "priority": 2}
+        {"ticker": "BYND", "name": "Beyond Meat", "note": "בשר תחליפי", "priority": 2},
+        {"ticker": "ADM", "name": "Archer-Daniels-Midland", "note": "עיבוד מזון חקלאי", "priority": 3},
+        {"ticker": "CTVA", "name": "Corteva", "note": "זרעים + הגנת יבולים", "priority": 4}
+      ]
+    },
+    {
+      "slug": "banking",
+      "name_en": "Banking & Finance",
+      "name_he": "בנקאות ופיננסים",
+      "sector": "פיננסים",
+      "sector_en": "Finance",
+      "keywords": ["bank", "banking", "interest rate", "Fed", "JPMorgan", "Goldman", "investment banking", "mortgage", "credit"],
+      "subreddits": ["banking", "finance", "personalfinance", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "JPM", "name": "JPMorgan Chase", "note": "הבנק הגדול בארה\"ב", "priority": 1},
+        {"ticker": "GS", "name": "Goldman Sachs", "note": "בנק השקעות מוביל", "priority": 2},
+        {"ticker": "BAC", "name": "Bank of America", "note": "בנק צרכני ומסחרי", "priority": 3},
+        {"ticker": "MS", "name": "Morgan Stanley", "note": "ניהול הון + השקעות", "priority": 4},
+        {"ticker": "WFC", "name": "Wells Fargo", "note": "בנקאות צרכנית", "priority": 5},
+        {"ticker": "C", "name": "Citigroup", "note": "בנקאות גלובלית", "priority": 6},
+        {"ticker": "SCHW", "name": "Charles Schwab", "note": "ברוקר + ניהול עושר", "priority": 7}
+      ]
+    },
+    {
+      "slug": "healthcare",
+      "name_en": "Healthcare & Pharma",
+      "name_he": "בריאות ופרמצבטיקה",
+      "sector": "בריאות",
+      "sector_en": "Healthcare",
+      "keywords": ["healthcare", "pharma", "pharmaceutical", "drug approval", "FDA", "clinical trial", "hospital", "medical device"],
+      "subreddits": ["healthcare", "pharmacy", "medicine", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "JNJ", "name": "Johnson & Johnson", "note": "פרמה + מכשור רפואי", "priority": 1},
+        {"ticker": "UNH", "name": "UnitedHealth", "note": "ביטוח בריאות מוביל", "priority": 2},
+        {"ticker": "PFE", "name": "Pfizer", "note": "תרופות + חיסונים", "priority": 3},
+        {"ticker": "ABT", "name": "Abbott Labs", "note": "אבחון + מכשור רפואי", "priority": 4},
+        {"ticker": "MRK", "name": "Merck", "note": "Keytruda אונקולוגיה", "priority": 5},
+        {"ticker": "TMO", "name": "Thermo Fisher", "note": "מכשור מעבדה מדעית", "priority": 6}
+      ]
+    },
+    {
+      "slug": "biotech",
+      "name_en": "Biotech & mRNA",
+      "name_he": "ביוטכנולוגיה",
+      "sector": "ביוטק",
+      "sector_en": "Biotech",
+      "keywords": ["biotech", "mRNA", "immunotherapy", "biologics", "clinical trial", "gene therapy", "CAR-T", "antibody"],
+      "subreddits": ["biotech", "biology", "science", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "MRNA", "name": "Moderna", "note": "mRNA + חיסונים", "priority": 1},
+        {"ticker": "REGN", "name": "Regeneron", "note": "נוגדנים + Dupixent", "priority": 2},
+        {"ticker": "VRTX", "name": "Vertex Pharma", "note": "תרופות CF + עריכת גנים", "priority": 3},
+        {"ticker": "BIIB", "name": "Biogen", "note": "נוירולוגיה + אלצהיימר", "priority": 4},
+        {"ticker": "GILD", "name": "Gilead Sciences", "note": "אנטי-ויראלי + אונקולוגיה", "priority": 5}
+      ]
+    },
+    {
+      "slug": "retail",
+      "name_en": "Retail & E-Commerce",
+      "name_he": "קמעונאות",
+      "sector": "צרכנות",
+      "sector_en": "Consumer",
+      "keywords": ["retail", "e-commerce", "online shopping", "consumer spending", "store", "same-store sales", "Black Friday"],
+      "subreddits": ["retail", "ecommerce", "shopping", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "WMT", "name": "Walmart", "note": "קמעונאי מוביל בעולם", "priority": 1},
+        {"ticker": "COST", "name": "Costco", "note": "מועדון קניות סיטונאי", "priority": 2},
+        {"ticker": "TGT", "name": "Target", "note": "רשת חנויות צרכניות", "priority": 3},
+        {"ticker": "HD", "name": "Home Depot", "note": "שיפוצים ובנייה", "priority": 4},
+        {"ticker": "LOW", "name": "Lowe's", "note": "שיפוצים ובית", "priority": 5},
+        {"ticker": "SHOP", "name": "Shopify", "note": "פלטפורמת מסחר אלקטרוני", "priority": 6},
+        {"ticker": "ETSY", "name": "Etsy", "note": "שוק מוצרים ייחודיים", "priority": 7},
+        {"ticker": "MELI", "name": "MercadoLibre", "note": "אמזון של דרום אמריקה", "priority": 8}
+      ]
+    },
+    {
+      "slug": "oil_gas",
+      "name_en": "Oil & Gas",
+      "name_he": "נפט וגז",
+      "sector": "אנרגיה",
+      "sector_en": "Energy",
+      "keywords": ["oil", "gas", "crude oil", "OPEC", "drilling", "refinery", "natural gas", "LNG", "petroleum", "Brent"],
+      "subreddits": ["oil", "energy", "oilandgas", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "XOM", "name": "Exxon Mobil", "note": "ענקית נפט אמריקאית", "priority": 1},
+        {"ticker": "CVX", "name": "Chevron", "note": "נפט + גז טבעי", "priority": 2},
+        {"ticker": "COP", "name": "ConocoPhillips", "note": "חיפוש והפקת נפט", "priority": 3},
+        {"ticker": "SLB", "name": "Schlumberger", "note": "שירותי שדה נפט", "priority": 4},
+        {"ticker": "OXY", "name": "Occidental Petroleum", "note": "נפט + לכידת פחמן", "priority": 5}
+      ]
+    },
+    {
+      "slug": "consumer",
+      "name_en": "Consumer Brands",
+      "name_he": "מותגים צרכניים",
+      "sector": "צרכנות",
+      "sector_en": "Consumer",
+      "keywords": ["consumer staples", "consumer goods", "brand", "CPG", "food", "beverage", "personal care"],
+      "subreddits": ["consumer", "brands", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "PG", "name": "Procter & Gamble", "note": "מוצרי צריכה מובילים", "priority": 1},
+        {"ticker": "KO", "name": "Coca-Cola", "note": "משקאות גלובלי", "priority": 2},
+        {"ticker": "PEP", "name": "PepsiCo", "note": "משקאות + חטיפים", "priority": 3},
+        {"ticker": "NKE", "name": "Nike", "note": "ספורט + אופנה", "priority": 4},
+        {"ticker": "MCD", "name": "McDonald's", "note": "מסעדות מהירות גלובלי", "priority": 5},
+        {"ticker": "SBUX", "name": "Starbucks", "note": "רשת בתי קפה", "priority": 6}
+      ]
+    },
+    {
+      "slug": "industrial",
+      "name_en": "Industrials",
+      "name_he": "תעשייה",
+      "sector": "תעשייה",
+      "sector_en": "Industrials",
+      "keywords": ["industrial", "manufacturing", "infrastructure", "construction", "logistics", "supply chain", "heavy equipment"],
+      "subreddits": ["engineering", "manufacturing", "construction", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "CAT", "name": "Caterpillar", "note": "ציוד בנייה כבד", "priority": 1},
+        {"ticker": "GE", "name": "GE Aerospace", "note": "מנועי סילון + תעופה", "priority": 2},
+        {"ticker": "HON", "name": "Honeywell", "note": "אוטומציה + תעופה", "priority": 3},
+        {"ticker": "UPS", "name": "UPS", "note": "לוגיסטיקה ומשלוחים", "priority": 4},
+        {"ticker": "MMM", "name": "3M", "note": "מוצרים תעשייתיים מגוונים", "priority": 5}
+      ]
+    },
+    {
+      "slug": "gaming",
+      "name_en": "Gaming & Metaverse",
+      "name_he": "גיימינג ומטאוורס",
+      "sector": "טכנולוגיה",
+      "sector_en": "Technology",
+      "keywords": ["gaming", "video game", "esports", "metaverse", "VR", "AR", "game console", "mobile gaming"],
+      "subreddits": ["gaming", "Games", "pcgaming", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "RBLX", "name": "Roblox", "note": "פלטפורמת גיימינג + מטאוורס", "priority": 1},
+        {"ticker": "EA", "name": "Electronic Arts", "note": "FIFA + משחקי ספורט", "priority": 2},
+        {"ticker": "TTWO", "name": "Take-Two", "note": "GTA + Rockstar", "priority": 3},
+        {"ticker": "U", "name": "Unity Software", "note": "מנוע משחקים + 3D", "priority": 4}
+      ]
+    },
+    {
+      "slug": "social",
+      "name_en": "Social Media",
+      "name_he": "רשתות חברתיות",
+      "sector": "טכנולוגיה",
+      "sector_en": "Technology",
+      "keywords": ["social media", "Facebook", "Instagram", "TikTok", "Snapchat", "advertising", "influencer", "user engagement"],
+      "subreddits": ["socialmedia", "marketing", "technology", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "META", "name": "Meta Platforms", "note": "Facebook + Instagram + WhatsApp", "priority": 1},
+        {"ticker": "SNAP", "name": "Snap Inc", "note": "Snapchat + AR", "priority": 2},
+        {"ticker": "PINS", "name": "Pinterest", "note": "גילוי ויזואלי + קניות", "priority": 3},
+        {"ticker": "RDDT", "name": "Reddit", "note": "קהילות ודיונים", "priority": 4}
+      ]
+    },
+    {
+      "slug": "european",
+      "name_en": "European Markets",
+      "name_he": "שווקים אירופיים",
+      "sector": "גלובלי",
+      "sector_en": "Global",
+      "keywords": ["Europe", "European stocks", "FTSE", "DAX", "CAC", "Euronext", "ASML", "SAP", "European market"],
+      "subreddits": ["eupersonalfinance", "eurostocks", "investing", "stocks", "wallstreetbets"],
+      "stocks": [
+        {"ticker": "ASML", "name": "ASML", "note": "ליתוגרפיה הולנדית - מונופול EUV", "priority": 1},
+        {"ticker": "SAP", "name": "SAP SE", "note": "תוכנה ארגונית גרמנית", "priority": 2},
+        {"ticker": "AZN", "name": "AstraZeneca", "note": "פרמה בריטית - אונקולוגיה", "priority": 3},
+        {"ticker": "SHEL", "name": "Shell", "note": "אנרגיה הולנדית-בריטית", "priority": 4},
+        {"ticker": "NVS", "name": "Novartis", "note": "פרמה שוויצרית", "priority": 5},
+        {"ticker": "UL", "name": "Unilever", "note": "מוצרי צריכה בריטית", "priority": 6},
+        {"ticker": "DEO", "name": "Diageo", "note": "משקאות חריפים בריטית", "priority": 7},
+        {"ticker": "RACE", "name": "Ferrari", "note": "רכב יוקרה איטלקי", "priority": 8}
+      ]
+    },
+    {
+      "slug": "asian",
+      "name_en": "Asian Markets",
+      "name_he": "שווקים אסייתיים",
+      "sector": "גלובלי",
+      "sector_en": "Global",
+      "keywords": ["Asia", "China stocks", "Japan stocks", "India stocks", "Nikkei", "Hang Seng", "emerging markets"],
+      "subreddits": ["ChinaStocks", "asianfinance", "investing", "stocks", "wallstreetbets"],
+      "stocks": [
+        {"ticker": "BABA", "name": "Alibaba", "note": "ענקית מסחר סינית", "priority": 1},
+        {"ticker": "SONY", "name": "Sony", "note": "אלקטרוניקה + גיימינג יפנית", "priority": 2},
+        {"ticker": "TM", "name": "Toyota", "note": "יצרנית רכב יפנית מובילה", "priority": 3},
+        {"ticker": "BIDU", "name": "Baidu", "note": "חיפוש + AI סיני", "priority": 4},
+        {"ticker": "INFY", "name": "Infosys", "note": "IT הודית", "priority": 5},
+        {"ticker": "HDB", "name": "HDFC Bank", "note": "בנק הודי מוביל", "priority": 6},
+        {"ticker": "SE", "name": "Sea Limited", "note": "גיימינג + מסחר דרום-מזרח אסיה", "priority": 7},
+        {"ticker": "GRAB", "name": "Grab Holdings", "note": "סופר-אפ דרום-מזרח אסיה", "priority": 8}
+      ]
+    },
+    {
+      "slug": "midcap",
+      "name_en": "Rising Mid-Caps",
+      "name_he": "חברות צומחות",
+      "sector": "מעורב",
+      "sector_en": "Mixed",
+      "keywords": ["mid cap", "small cap", "growth stock", "momentum", "breakout", "under the radar", "hidden gem"],
+      "subreddits": ["smallcapstocks", "pennystocks", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "DKNG", "name": "DraftKings", "note": "הימורים אונליין", "priority": 1},
+        {"ticker": "ABNB", "name": "Airbnb", "note": "השכרה קצרת טווח", "priority": 2},
+        {"ticker": "DUOL", "name": "Duolingo", "note": "לימוד שפות + AI", "priority": 3},
+        {"ticker": "HIMS", "name": "Hims & Hers", "note": "טלרפואה + בריאות", "priority": 4},
+        {"ticker": "APP", "name": "AppLovin", "note": "פרסום מובייל + AI", "priority": 5},
+        {"ticker": "CELH", "name": "Celsius Holdings", "note": "משקאות אנרגיה", "priority": 6},
+        {"ticker": "AXON", "name": "Axon Enterprise", "note": "טייזרים + מצלמות גוף", "priority": 7},
+        {"ticker": "MNDY", "name": "Monday.com", "note": "ניהול פרויקטים ישראלי", "priority": 8}
       ]
     }
   ]
