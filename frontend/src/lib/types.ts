@@ -90,6 +90,15 @@ export interface NewsItem {
   retweets?: number;
 }
 
+export interface RelatedStock {
+  ticker: string;
+  company_name: string;
+  topic: string;
+  relevance_note: string;
+  current_price: number | null;
+  daily_change_pct: number | null;
+}
+
 export interface ChatResponse {
   answer: string;
   suggested_questions: string[];

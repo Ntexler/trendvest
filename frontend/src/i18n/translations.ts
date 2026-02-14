@@ -83,6 +83,9 @@ const translations = {
   "screener.search": { he: "חפש מניה...", en: "Search stock..." },
   "screener.sortBy": { he: "מיין לפי", en: "Sort by" },
   "screener.maxPrice": { he: "מחיר מקסימלי", en: "Max Price" },
+  "screener.minPrice": { he: "מחיר מינימלי", en: "Min Price" },
+  "screener.topic": { he: "נושא", en: "Topic" },
+  "screener.allTopics": { he: "כל הנושאים", en: "All Topics" },
 
   // Trading
   "trade.title": { he: "תרגול מסחר", en: "Practice Trading" },
@@ -115,6 +118,20 @@ const translations = {
   "chat.placeholder": { he: "שאל שאלה...", en: "Ask a question..." },
   "chat.remaining": { he: "שאלות נותרו", en: "questions remaining" },
   "chat.send": { he: "שלח", en: "Send" },
+
+  // Explain
+  "explain.tapToLearn": { he: "לחץ ללמוד עוד", en: "Click to learn more" },
+  "explain.loading": { he: "טוען הסבר...", en: "Loading explanation..." },
+  "explain.error": { he: "שגיאה בטעינת ההסבר", en: "Error loading explanation" },
+  "explain.explainSection": { he: "הסבר AI", en: "AI Explain" },
+  "explain.aiDisclaimer": {
+    he: "הסבר AI — למטרות לימוד בלבד, אינו מהווה ייעוץ השקעות",
+    en: "AI explanation — for educational purposes only, not investment advice",
+  },
+
+  // Related Stocks
+  "profile.relatedStocks": { he: "מניות קשורות", en: "Related Stocks" },
+  "profile.noRelated": { he: "אין מניות קשורות", en: "No related stocks" },
 
   // General
   "general.loading": { he: "טוען...", en: "Loading..." },

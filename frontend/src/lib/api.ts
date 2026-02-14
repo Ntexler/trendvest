@@ -7,6 +7,7 @@ import type {
   ChatResponse,
   Portfolio,
   TradeHistoryItem,
+  RelatedStock,
 } from "./types";
 
 const BASE = "/api";
@@ -32,21 +33,25 @@ export const getStocks = (params?: {
   sector?: string;
   search?: string;
   sort_by?: string;
+  min_price?: number;
   max_price?: number;
+  topic?: string;
 }) => {
   const sp = new URLSearchParams();
   if (params?.sector) sp.set("sector", params.sector);
   if (params?.search) sp.set("search", params.search);
   if (params?.sort_by) sp.set("sort_by", params.sort_by);
+  if (params?.min_price) sp.set("min_price", String(params.min_price));
   if (params?.max_price) sp.set("max_price", String(params.max_price));
+  if (params?.topic) sp.set("topic", params.topic);
   return fetchJSON<StockDetail[]>(`/stocks?${sp}`);
 };
 
 export const getStockHistory = (ticker: string, period = "1mo") =>
   fetchJSON<StockHistory>(`/stocks/${ticker}/history?period=${period}`);
 
-export const getStockProfile = (ticker: string) =>
-  fetchJSON<StockProfile>(`/stocks/${ticker}/profile`);
+export const getStockProfile = (ticker: string, language?: string) =>
+  fetchJSON<StockProfile>(`/stocks/${ticker}/profile${language ? `?language=${language}` : ""}`);
 
 // News
 export const getNews = (params?: { topic?: string; ticker?: string }) => {
@@ -83,6 +88,33 @@ export const askAI = (question: string, language: string, context?: string) =>
 
 export const getChatRemaining = () =>
   fetchJSON<{ remaining: number; daily_limit: number }>("/chat/remaining");
+
+// Explain
+export const explainTerm = (term: string, language: string) =>
+  fetchJSON<{ term: string; explanation: string }>("/chat/explain-term", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ term, language }),
+  });
+
+export const explainSection = (
+  ticker: string,
+  section: string,
+  data: Record<string, unknown>,
+  language: string
+) =>
+  fetchJSON<{ ticker: string; section: string; explanation: string }>(
+    "/chat/explain-section",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ticker, section, data, language }),
+    }
+  );
+
+// Related Stocks
+export const getRelatedStocks = (ticker: string) =>
+  fetchJSON<RelatedStock[]>(`/stocks/${ticker}/related`);
 
 // Paper Trading
 export const getPortfolio = (sessionId: string) =>

@@ -122,6 +122,7 @@ function AppContent() {
             setSelectedStock(null);
             setPage("trade");
           }}
+          onStockClick={(t) => setSelectedStock(t)}
         />
       )}
 

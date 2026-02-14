@@ -48,30 +48,6 @@
 - [x] Dark theme (#0a0e17 background)
 - [x] RTL support for Hebrew
 
-## All 24 API Routes
-```
-GET  /api/health
-GET  /api/trends
-GET  /api/trends/{slug}
-GET  /api/stocks
-GET  /api/stocks/{ticker}
-GET  /api/stocks/sector/{sector_name}
-GET  /api/stocks/{ticker}/history
-GET  /api/stocks/{ticker}/profile
-POST /api/chat
-GET  /api/chat/remaining
-POST /api/paper/trade
-GET  /api/paper/portfolio/{session_id}
-GET  /api/paper/history/{session_id}
-GET  /api/news
-POST /api/auth/register
-POST /api/auth/login
-POST /api/auth/refresh
-GET  /api/auth/me
-POST /api/track
-GET  /api/recommendations
-```
-
 ## How to Run
 ```bash
 # Backend
@@ -116,6 +92,47 @@ npm run dev
 - [x] Added Company News section at bottom of profile modal (fetches via existing `getNews({ ticker })`)
 - [x] Analyst tab: color-coded recommendation badge, target price, analyst count
 - [x] Financials tab: financial health metrics, growth indicators (green/red), valuation with 52-week range bar
+
+### Hebrew Summaries + AI Explain Mode + Screener Enhancements + Related Stocks
+- [x] **Hebrew Company Summary**: Profile endpoint accepts `?language=he`, translates summary via Claude API (cached)
+- [x] **AI Explain Mode — Backend**: `POST /api/chat/explain-term` and `POST /api/chat/explain-section` endpoints (don't count against daily chat limit)
+- [x] **AI Explain Mode — Frontend**: `ExplainTooltip` component wraps financial metric labels (P/E, Beta, etc.) with tap-to-explain popovers
+- [x] **AI Explain — Section Summaries**: "AI Explain" button on Financials and Analyst tabs sends actual data for contextual AI summary
+- [x] **Screener — Price Range Filter**: Min/max price inputs in filter bar, backend `min_price` query param
+- [x] **Screener — Topic Filter**: Topic dropdown populated from trends, backend `topic` query param filters by topic_slug
+- [x] **Screener — Search Autocomplete**: Client-side autocomplete dropdown with keyboard navigation (arrow keys + Enter/Escape)
+- [x] **Related Stocks**: `GET /api/stocks/{ticker}/related` returns stocks sharing same topics; horizontal scrollable cards in profile modal
+- [x] Added ~15 new i18n keys (explain, screener, related stocks)
+- [x] Added `RelatedStock` TypeScript interface
+
+## All 27 API Routes
+```
+GET  /api/health
+GET  /api/trends
+GET  /api/trends/{slug}
+GET  /api/trends/{slug}/insight
+GET  /api/trends/{slug}/stock-insight/{ticker}
+GET  /api/stocks
+GET  /api/stocks/{ticker}
+GET  /api/stocks/sector/{sector_name}
+GET  /api/stocks/{ticker}/history
+GET  /api/stocks/{ticker}/profile
+GET  /api/stocks/{ticker}/related
+POST /api/chat
+GET  /api/chat/remaining
+POST /api/chat/explain-term
+POST /api/chat/explain-section
+POST /api/paper/trade
+GET  /api/paper/portfolio/{session_id}
+GET  /api/paper/history/{session_id}
+GET  /api/news
+POST /api/auth/register
+POST /api/auth/login
+POST /api/auth/refresh
+GET  /api/auth/me
+POST /api/track
+GET  /api/recommendations
+```
 
 ## Next Steps
 - [ ] Add Reddit/NewsAPI/Anthropic/X API keys for live data

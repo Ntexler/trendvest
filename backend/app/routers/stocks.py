@@ -5,6 +5,9 @@ from fastapi import APIRouter, Depends, Query, HTTPException
 from typing import Optional
 from ..models.schemas import StockDetail, StockProfileResponse, CompanyOfficer
 from ..deps import get_db_pool, get_stock_service
+from ..services.ai_explainer import AIExplainer
+
+_explainer = AIExplainer()
 
 router = APIRouter(prefix="/api/stocks", tags=["stocks"])
 
@@ -12,7 +15,9 @@ router = APIRouter(prefix="/api/stocks", tags=["stocks"])
 @router.get("", response_model=list[StockDetail])
 async def screener(
     sector: Optional[str] = Query(None),
+    min_price: Optional[float] = Query(None),
     max_price: Optional[float] = Query(None),
+    topic: Optional[str] = Query(None),
     sort_by: str = Query("change", pattern="^(change|price|name)$"),
     search: Optional[str] = Query(None),
     limit: int = Query(50, le=100),
@@ -41,6 +46,9 @@ async def screener(
     if sector:
         unique_stocks = [s for s in unique_stocks if s["sector"] == sector or s["sector_en"] == sector]
 
+    if topic:
+        unique_stocks = [s for s in unique_stocks if s["topic_slug"] == topic]
+
     if search:
         q = search.lower()
         unique_stocks = [s for s in unique_stocks
@@ -56,6 +64,8 @@ async def screener(
         change_pct = price_data.change_pct if price_data else None
         prev_close = price_data.previous_close if price_data else None
 
+        if min_price and price and price < min_price:
+            continue
         if max_price and price and price > max_price:
             continue
 
@@ -186,7 +196,10 @@ async def get_stock_history(
 
 
 @router.get("/{ticker}/profile", response_model=StockProfileResponse)
-async def get_stock_profile(ticker: str):
+async def get_stock_profile(
+    ticker: str,
+    language: Optional[str] = Query(None),
+):
     """Get enriched company profile: overview, management, financials, analyst data."""
     try:
         import yfinance as yf
@@ -208,10 +221,14 @@ async def get_stock_profile(ticker: str):
                 total_pay=officer.get("totalPay"),
             ))
 
+        summary = info.get("longBusinessSummary", "")
+        if language == "he" and summary:
+            summary = await _explainer.translate_text(summary, "he", ticker)
+
         return StockProfileResponse(
             ticker=ticker,
             name=info.get("longName") or info.get("shortName", ticker),
-            summary=info.get("longBusinessSummary", ""),
+            summary=summary,
             sector=info.get("sector", ""),
             industry=info.get("industry", ""),
             employees=info.get("fullTimeEmployees"),
@@ -241,3 +258,52 @@ async def get_stock_profile(ticker: str):
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/{ticker}/related")
+async def get_related_stocks(
+    ticker: str,
+    pool=Depends(get_db_pool),
+    stock_service=Depends(get_stock_service),
+):
+    """Get stocks related to this ticker via shared topics."""
+    ticker = ticker.upper()
+    async with pool.acquire() as conn:
+        rows = await conn.fetch("""
+            SELECT DISTINCT ts2.ticker, ts2.company_name, t.name_he as topic,
+                   t.slug as topic_slug, ts2.relevance_note
+            FROM topic_stocks ts1
+            JOIN topics t ON ts1.topic_id = t.id
+            JOIN topic_stocks ts2 ON ts2.topic_id = t.id
+            WHERE ts1.ticker = $1
+              AND ts2.ticker != $1
+              AND t.is_active = true
+            ORDER BY ts2.ticker
+        """, ticker)
+
+    if not rows:
+        return []
+
+    seen = set()
+    unique = []
+    for r in rows:
+        if r["ticker"] not in seen:
+            seen.add(r["ticker"])
+            unique.append(r)
+
+    tickers = [r["ticker"] for r in unique]
+    prices = stock_service.get_prices_batch(tickers)
+
+    results = []
+    for r in unique:
+        pd = prices.get(r["ticker"])
+        results.append({
+            "ticker": r["ticker"],
+            "company_name": r["company_name"],
+            "topic": r["topic"],
+            "relevance_note": r["relevance_note"] or "",
+            "current_price": pd.price if pd else None,
+            "daily_change_pct": pd.change_pct if pd else None,
+        })
+
+    return results

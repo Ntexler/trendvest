@@ -115,6 +115,7 @@ class AIExplainer:
         self._client = None
         self._daily_usage: dict[str, dict] = defaultdict(lambda: {"date": date.today(), "count": 0})
         self.free_daily_limit = 3
+        self._cache: dict[str, str] = {}
 
     @property
     def client(self):
@@ -214,3 +215,77 @@ class AIExplainer:
             "suggested_questions": suggestions,
             "questions_remaining": remaining_after,
         }
+
+    async def translate_text(self, text: str, target_language: str, ticker: str) -> str:
+        """Translate text (e.g. company summary) to target language."""
+        if target_language != "he":
+            return text
+        cache_key = f"translate:{ticker}:{target_language}"
+        if cache_key in self._cache:
+            return self._cache[cache_key]
+        if self.client is None:
+            return text
+        try:
+            response = self.client.messages.create(
+                model="claude-haiku-4-5-20251001",
+                max_tokens=800,
+                system="You are a professional translator. Translate the given company description to Hebrew. Output ONLY the translation, nothing else.",
+                messages=[{"role": "user", "content": text}],
+            )
+            translated = response.content[0].text
+            self._cache[cache_key] = translated
+            return translated
+        except Exception as e:
+            print(f"Translation error: {e}")
+            return text
+
+    async def explain_term(self, term: str, language: str = "he") -> str:
+        """Return a 1-2 sentence definition of a financial term."""
+        cache_key = f"term:{term.lower()}:{language}"
+        if cache_key in self._cache:
+            return self._cache[cache_key]
+        if self.client is None:
+            return term
+        lang_instruction = "Answer in Hebrew." if language == "he" else "Answer in English."
+        try:
+            response = self.client.messages.create(
+                model="claude-haiku-4-5-20251001",
+                max_tokens=200,
+                system=f"You are a financial education assistant. {lang_instruction} Give a concise 1-2 sentence definition. No disclaimers needed.",
+                messages=[{"role": "user", "content": f"Define: {term}"}],
+            )
+            explanation = response.content[0].text
+            self._cache[cache_key] = explanation
+            return explanation
+        except Exception as e:
+            print(f"Explain term error: {e}")
+            return term
+
+    async def explain_section(self, ticker: str, section: str, data: dict, language: str = "he") -> str:
+        """Return a contextual AI summary of a stock's financial section with actual numbers."""
+        cache_key = f"section:{ticker}:{section}:{language}"
+        if cache_key in self._cache:
+            return self._cache[cache_key]
+        if self.client is None:
+            fallback = "AI service unavailable." if language == "en" else "שירות ה-AI לא זמין כרגע."
+            return fallback
+        lang_instruction = "Answer in Hebrew." if language == "he" else "Answer in English."
+        data_str = "\n".join(f"- {k}: {v}" for k, v in data.items() if v is not None)
+        try:
+            response = self.client.messages.create(
+                model="claude-haiku-4-5-20251001",
+                max_tokens=400,
+                system=(
+                    f"You are a financial education assistant. {lang_instruction} "
+                    "Summarize the data in 2-3 sentences for a beginner investor. "
+                    "Do NOT give investment advice. Educational only."
+                ),
+                messages=[{"role": "user", "content": f"Explain {ticker}'s {section} data:\n{data_str}"}],
+            )
+            explanation = response.content[0].text
+            self._cache[cache_key] = explanation
+            return explanation
+        except Exception as e:
+            print(f"Explain section error: {e}")
+            fallback = "Could not generate explanation." if language == "en" else "לא ניתן ליצור הסבר."
+            return fallback

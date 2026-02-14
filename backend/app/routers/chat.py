@@ -2,7 +2,11 @@
 Chat API endpoint for TrendVest AI Explainer.
 """
 from fastapi import APIRouter, Request, HTTPException
-from ..models.schemas import ChatRequest, ChatResponse
+from ..models.schemas import (
+    ChatRequest, ChatResponse,
+    ExplainTermRequest, ExplainTermResponse,
+    ExplainSectionRequest, ExplainSectionResponse,
+)
 from ..services.ai_explainer import AIExplainer
 
 router = APIRouter(prefix="/api/chat", tags=["chat"])
@@ -47,3 +51,21 @@ async def get_remaining(request: Request):
     client_ip = request.client.host if request.client else "unknown"
     _, remaining = explainer.check_rate_limit(client_ip)
     return {"remaining": remaining, "daily_limit": explainer.free_daily_limit}
+
+
+@router.post("/explain-term", response_model=ExplainTermResponse)
+async def explain_term(body: ExplainTermRequest):
+    """Explain a financial term. Does NOT count against daily chat limit."""
+    explanation = await explainer.explain_term(body.term, body.language)
+    return ExplainTermResponse(term=body.term, explanation=explanation)
+
+
+@router.post("/explain-section", response_model=ExplainSectionResponse)
+async def explain_section(body: ExplainSectionRequest):
+    """Explain a stock's financial section with context. Does NOT count against daily chat limit."""
+    explanation = await explainer.explain_section(
+        body.ticker, body.section, body.data, body.language
+    )
+    return ExplainSectionResponse(
+        ticker=body.ticker, section=body.section, explanation=explanation
+    )

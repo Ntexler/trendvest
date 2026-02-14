@@ -186,6 +186,31 @@ class StockProfileResponse(BaseModel):
     number_of_analysts: int | None = None
 
 
+# ── Explain Models ──
+
+class ExplainTermRequest(BaseModel):
+    term: str = Field(..., min_length=1, max_length=200)
+    language: str = "he"
+
+
+class ExplainTermResponse(BaseModel):
+    term: str
+    explanation: str
+
+
+class ExplainSectionRequest(BaseModel):
+    ticker: str = Field(..., min_length=1, max_length=10)
+    section: str = Field(..., min_length=1, max_length=50)
+    data: dict
+    language: str = "he"
+
+
+class ExplainSectionResponse(BaseModel):
+    ticker: str
+    section: str
+    explanation: str
+
+
 # ── Tracking Models ──
 
 class TrackRequest(BaseModel):

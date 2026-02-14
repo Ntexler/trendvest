@@ -1,8 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useI18n } from "@/i18n/context";
-import { getStockProfile, getNews } from "@/lib/api";
-import type { StockProfile as StockProfileType, NewsItem } from "@/lib/types";
+import { getStockProfile, getNews, getRelatedStocks, explainSection } from "@/lib/api";
+import type { StockProfile as StockProfileType, NewsItem, RelatedStock } from "@/lib/types";
+import ExplainTooltip from "./ExplainTooltip";
 import StockChart from "./StockChart";
 import {
   X,
@@ -16,6 +17,9 @@ import {
   DollarSign,
   Briefcase,
   Newspaper,
+  Loader2,
+  Sparkles,
+  ArrowRight,
 } from "lucide-react";
 
 interface Props {
@@ -24,6 +28,7 @@ interface Props {
   isWatched: boolean;
   toggleWatch: () => void;
   onTrade: () => void;
+  onStockClick?: (ticker: string) => void;
 }
 
 type TabKey = "overview" | "management" | "financials" | "analyst";
@@ -65,17 +70,18 @@ const recLabels: Record<string, { en: string; he: string }> = {
   strong_sell: { en: "Strong Sell", he: "מכירה חזקה" },
 };
 
-export default function StockProfile({ ticker, onClose, isWatched, toggleWatch, onTrade }: Props) {
+export default function StockProfile({ ticker, onClose, isWatched, toggleWatch, onTrade, onStockClick }: Props) {
   const { t, locale } = useI18n();
   const [profile, setProfile] = useState<StockProfileType | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<TabKey>("overview");
   const [news, setNews] = useState<NewsItem[]>([]);
   const [newsLoading, setNewsLoading] = useState(false);
+  const [relatedStocks, setRelatedStocks] = useState<RelatedStock[]>([]);
 
   useEffect(() => {
     setLoading(true);
-    getStockProfile(ticker)
+    getStockProfile(ticker, locale)
       .then(setProfile)
       .catch(console.error)
       .finally(() => setLoading(false));
@@ -85,7 +91,11 @@ export default function StockProfile({ ticker, onClose, isWatched, toggleWatch, 
       .then((items) => setNews(items.slice(0, 5)))
       .catch(() => setNews([]))
       .finally(() => setNewsLoading(false));
-  }, [ticker]);
+
+    getRelatedStocks(ticker)
+      .then(setRelatedStocks)
+      .catch(() => setRelatedStocks([]));
+  }, [ticker, locale]);
 
   const tabs: { key: TabKey; label: string; icon: React.ReactNode }[] = [
     { key: "overview", label: t("profile.overview"), icon: <Building2 className="w-3.5 h-3.5" /> },
@@ -170,9 +180,38 @@ export default function StockProfile({ ticker, onClose, isWatched, toggleWatch, 
               <div className="space-y-4">
                 {activeTab === "overview" && <OverviewTab profile={profile} t={t} />}
                 {activeTab === "management" && <ManagementTab profile={profile} t={t} locale={locale} />}
-                {activeTab === "financials" && <FinancialsTab profile={profile} t={t} />}
-                {activeTab === "analyst" && <AnalystTab profile={profile} t={t} locale={locale} />}
+                {activeTab === "financials" && <FinancialsTab profile={profile} t={t} ticker={ticker} locale={locale} />}
+                {activeTab === "analyst" && <AnalystTab profile={profile} t={t} locale={locale} ticker={ticker} />}
               </div>
+
+              {/* Related Stocks */}
+              {relatedStocks.length > 0 && (
+                <div className="border-t border-[#334155] pt-4">
+                  <h3 className="text-sm font-semibold text-[#94a3b8] mb-3 flex items-center gap-2">
+                    <ArrowRight className="w-4 h-4" />
+                    {t("profile.relatedStocks")}
+                  </h3>
+                  <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1">
+                    {relatedStocks.map((rs) => (
+                      <button
+                        key={rs.ticker}
+                        onClick={() => onStockClick?.(rs.ticker)}
+                        className="flex-shrink-0 bg-[#1e293b] hover:bg-[#263548] rounded-lg p-3 text-start transition min-w-[120px]"
+                      >
+                        <div className="font-mono text-sm font-bold text-cyan-400">{rs.ticker}</div>
+                        {rs.current_price != null && (
+                          <div className="text-xs text-white tabular-nums mt-1">${rs.current_price.toFixed(2)}</div>
+                        )}
+                        {rs.daily_change_pct != null && (
+                          <div className={`text-xs tabular-nums ${rs.daily_change_pct >= 0 ? "text-green-400" : "text-red-400"}`}>
+                            {rs.daily_change_pct >= 0 ? "+" : ""}{rs.daily_change_pct.toFixed(2)}%
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Company News */}
               <div className="border-t border-[#334155] pt-4">
@@ -292,22 +331,80 @@ function ManagementTab({
 }
 
 /* ── Financials Tab ── */
-function FinancialsTab({ profile, t }: { profile: StockProfileType; t: (k: any) => string }) {
+function FinancialsTab({
+  profile,
+  t,
+  ticker,
+  locale,
+}: {
+  profile: StockProfileType;
+  t: (k: any) => string;
+  ticker: string;
+  locale: string;
+}) {
+  const [aiExplanation, setAiExplanation] = useState<string | null>(null);
+  const [aiLoading, setAiLoading] = useState(false);
+
+  const handleExplain = async () => {
+    if (aiExplanation) {
+      setAiExplanation(null);
+      return;
+    }
+    setAiLoading(true);
+    try {
+      const data: Record<string, unknown> = {
+        profit_margins: profile.profit_margins,
+        operating_margins: profile.operating_margins,
+        return_on_equity: profile.return_on_equity,
+        beta: profile.beta,
+        free_cashflow: profile.free_cashflow,
+        total_debt: profile.total_debt,
+        total_cash: profile.total_cash,
+        revenue_growth: profile.revenue_growth,
+        earnings_growth: profile.earnings_growth,
+        pe_ratio: profile.pe_ratio,
+        dividend_yield: profile.dividend_yield,
+      };
+      const res = await explainSection(ticker, "financials", data, locale);
+      setAiExplanation(res.explanation);
+    } catch {
+      setAiExplanation(locale === "he" ? "שגיאה בטעינת ההסבר" : "Error loading explanation");
+    } finally {
+      setAiLoading(false);
+    }
+  };
+
   return (
     <div className="space-y-4">
+      {/* AI Explain button */}
+      <button
+        onClick={handleExplain}
+        disabled={aiLoading}
+        className="flex items-center gap-2 px-3 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 rounded-lg text-xs text-cyan-400 transition disabled:opacity-50"
+      >
+        {aiLoading ? <Loader2 className="w-3 h-3 animate-spin" /> : <Sparkles className="w-3 h-3" />}
+        {t("explain.explainSection")}
+      </button>
+      {aiExplanation && (
+        <div className="bg-cyan-500/5 border border-cyan-500/20 rounded-lg p-3 space-y-2">
+          <p className="text-xs text-[#cbd5e1] leading-relaxed">{aiExplanation}</p>
+          <p className="text-[10px] text-[#64748b]">{t("explain.aiDisclaimer")}</p>
+        </div>
+      )}
+
       {/* Financial Health */}
       <div>
         <h4 className="text-xs font-semibold text-[#94a3b8] mb-2 uppercase tracking-wider">
           {t("profile.financialHealth")}
         </h4>
         <div className="grid grid-cols-2 gap-2">
-          <MetricCard label={t("profile.profitMargins")} value={formatPct(profile.profit_margins)} />
-          <MetricCard label={t("profile.operatingMargins")} value={formatPct(profile.operating_margins)} />
-          <MetricCard label={t("profile.roe")} value={formatPct(profile.return_on_equity)} />
-          <MetricCard label={t("profile.beta")} value={profile.beta != null ? profile.beta.toFixed(2) : "N/A"} />
-          <MetricCard label={t("profile.freeCashflow")} value={formatLargeNumber(profile.free_cashflow)} />
-          <MetricCard label={t("profile.totalDebt")} value={formatLargeNumber(profile.total_debt)} />
-          <MetricCard label={t("profile.totalCash")} value={formatLargeNumber(profile.total_cash)} />
+          <MetricCard label={<ExplainTooltip term="Profit Margins">{t("profile.profitMargins")}</ExplainTooltip>} value={formatPct(profile.profit_margins)} />
+          <MetricCard label={<ExplainTooltip term="Operating Margins">{t("profile.operatingMargins")}</ExplainTooltip>} value={formatPct(profile.operating_margins)} />
+          <MetricCard label={<ExplainTooltip term="Return on Equity">{t("profile.roe")}</ExplainTooltip>} value={formatPct(profile.return_on_equity)} />
+          <MetricCard label={<ExplainTooltip term="Beta">{t("profile.beta")}</ExplainTooltip>} value={profile.beta != null ? profile.beta.toFixed(2) : "N/A"} />
+          <MetricCard label={<ExplainTooltip term="Free Cashflow">{t("profile.freeCashflow")}</ExplainTooltip>} value={formatLargeNumber(profile.free_cashflow)} />
+          <MetricCard label={<ExplainTooltip term="Total Debt">{t("profile.totalDebt")}</ExplainTooltip>} value={formatLargeNumber(profile.total_debt)} />
+          <MetricCard label={<ExplainTooltip term="Total Cash">{t("profile.totalCash")}</ExplainTooltip>} value={formatLargeNumber(profile.total_cash)} />
         </div>
       </div>
 
@@ -318,12 +415,12 @@ function FinancialsTab({ profile, t }: { profile: StockProfileType; t: (k: any) 
         </h4>
         <div className="grid grid-cols-2 gap-2">
           <MetricCard
-            label={t("profile.revenueGrowth")}
+            label={<ExplainTooltip term="Revenue Growth">{t("profile.revenueGrowth")}</ExplainTooltip>}
             value={formatPct(profile.revenue_growth)}
             color={profile.revenue_growth != null ? (profile.revenue_growth >= 0 ? "text-green-400" : "text-red-400") : undefined}
           />
           <MetricCard
-            label={t("profile.earningsGrowth")}
+            label={<ExplainTooltip term="Earnings Growth">{t("profile.earningsGrowth")}</ExplainTooltip>}
             value={formatPct(profile.earnings_growth)}
             color={profile.earnings_growth != null ? (profile.earnings_growth >= 0 ? "text-green-400" : "text-red-400") : undefined}
           />
@@ -336,8 +433,8 @@ function FinancialsTab({ profile, t }: { profile: StockProfileType; t: (k: any) 
           {t("profile.valuation")}
         </h4>
         <div className="grid grid-cols-2 gap-2">
-          <MetricCard label={t("profile.peRatio")} value={profile.pe_ratio != null ? profile.pe_ratio.toFixed(2) : "N/A"} />
-          <MetricCard label={t("profile.dividendYield")} value={formatPct(profile.dividend_yield)} />
+          <MetricCard label={<ExplainTooltip term="P/E Ratio">{t("profile.peRatio")}</ExplainTooltip>} value={profile.pe_ratio != null ? profile.pe_ratio.toFixed(2) : "N/A"} />
+          <MetricCard label={<ExplainTooltip term="Dividend Yield">{t("profile.dividendYield")}</ExplainTooltip>} value={formatPct(profile.dividend_yield)} />
           <div className="col-span-2 bg-[#0f172a] rounded-lg p-3">
             <div className="text-xs text-[#64748b] mb-1">{t("profile.52wRange")}</div>
             <div className="flex items-center justify-between text-sm">
@@ -361,11 +458,16 @@ function AnalystTab({
   profile,
   t,
   locale,
+  ticker,
 }: {
   profile: StockProfileType;
   t: (k: any) => string;
   locale: string;
+  ticker: string;
 }) {
+  const [aiExplanation, setAiExplanation] = useState<string | null>(null);
+  const [aiLoading, setAiLoading] = useState(false);
+
   if (!profile.recommendation_key && profile.target_mean_price == null && profile.number_of_analysts == null) {
     return <div className="text-sm text-[#64748b] py-4 text-center">{t("profile.noAnalyst")}</div>;
   }
@@ -374,8 +476,45 @@ function AnalystTab({
   const recColor = recColors[recKey] || "bg-[#334155]";
   const recLabel = recLabels[recKey]?.[locale as "en" | "he"] || recKey.replace("_", " ");
 
+  const handleExplain = async () => {
+    if (aiExplanation) {
+      setAiExplanation(null);
+      return;
+    }
+    setAiLoading(true);
+    try {
+      const data: Record<string, unknown> = {
+        recommendation: profile.recommendation_key,
+        target_mean_price: profile.target_mean_price,
+        number_of_analysts: profile.number_of_analysts,
+      };
+      const res = await explainSection(ticker, "analyst", data, locale);
+      setAiExplanation(res.explanation);
+    } catch {
+      setAiExplanation(locale === "he" ? "שגיאה בטעינת ההסבר" : "Error loading explanation");
+    } finally {
+      setAiLoading(false);
+    }
+  };
+
   return (
     <div className="space-y-3">
+      {/* AI Explain button */}
+      <button
+        onClick={handleExplain}
+        disabled={aiLoading}
+        className="flex items-center gap-2 px-3 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 rounded-lg text-xs text-cyan-400 transition disabled:opacity-50"
+      >
+        {aiLoading ? <Loader2 className="w-3 h-3 animate-spin" /> : <Sparkles className="w-3 h-3" />}
+        {t("explain.explainSection")}
+      </button>
+      {aiExplanation && (
+        <div className="bg-cyan-500/5 border border-cyan-500/20 rounded-lg p-3 space-y-2">
+          <p className="text-xs text-[#cbd5e1] leading-relaxed">{aiExplanation}</p>
+          <p className="text-[10px] text-[#64748b]">{t("explain.aiDisclaimer")}</p>
+        </div>
+      )}
+
       {/* Recommendation badge */}
       {profile.recommendation_key && (
         <div className="flex items-center gap-3 bg-[#1e293b] rounded-lg p-4">
@@ -444,7 +583,7 @@ function MetricCard({
   value,
   color,
 }: {
-  label: string;
+  label: React.ReactNode;
   value: string;
   color?: string;
 }) {
