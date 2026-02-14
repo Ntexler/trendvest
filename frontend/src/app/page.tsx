@@ -1,7 +1,9 @@
 "use client";
 import { useState, useCallback } from "react";
 import { I18nProvider, useI18n } from "@/i18n/context";
+import { ModeProvider } from "@/contexts/ModeContext";
 import { useWatchlist } from "@/hooks/useWatchlist";
+import MarketTicker from "@/components/MarketTicker";
 import TopBar from "@/components/TopBar";
 import MobileMenu from "@/components/MobileMenu";
 import Dashboard from "@/components/Dashboard";
@@ -33,8 +35,14 @@ function AppContent() {
     setSelectedStock(ticker);
   }, []);
 
+  const handleBuy = useCallback((ticker: string) => {
+    setSelectedStock(null);
+    setPage("trade");
+  }, []);
+
   return (
     <div className="min-h-screen pb-20 md:pb-0">
+      <MarketTicker />
       <TopBar />
 
       {/* Desktop Sidebar Nav */}
@@ -77,6 +85,7 @@ function AppContent() {
               watchlist={watchlist}
               removeTicker={removeTicker}
               onStockClick={handleStockClick}
+              onBuy={handleBuy}
             />
           )}
         </main>
@@ -105,6 +114,7 @@ function AppContent() {
             watchlist={watchlist}
             removeTicker={removeTicker}
             onStockClick={handleStockClick}
+            onBuy={handleBuy}
           />
         )}
       </main>
@@ -135,7 +145,9 @@ function AppContent() {
 export default function Home() {
   return (
     <I18nProvider>
-      <AppContent />
+      <ModeProvider>
+        <AppContent />
+      </ModeProvider>
     </I18nProvider>
   );
 }

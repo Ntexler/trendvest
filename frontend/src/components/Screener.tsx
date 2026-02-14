@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useI18n } from "@/i18n/context";
+import { useMode } from "@/contexts/ModeContext";
 import { getStocks, getTrends } from "@/lib/api";
 import type { StockDetail, TrendTopic } from "@/lib/types";
 import { Search, Star, ChevronRight, X } from "lucide-react";
@@ -13,8 +14,10 @@ interface Props {
 
 export default function Screener({ onStockClick, isWatched, toggleWatch }: Props) {
   const { locale, t } = useI18n();
+  const { isBeginner } = useMode();
   const [stocks, setStocks] = useState<StockDetail[]>([]);
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [sortBy, setSortBy] = useState("change");
   const [loading, setLoading] = useState(true);
   const [minPrice, setMinPrice] = useState("");
@@ -31,10 +34,16 @@ export default function Screener({ onStockClick, isWatched, toggleWatch }: Props
     getTrends().then(setTopics).catch(() => {});
   }, []);
 
+  // Debounce search input (300ms)
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedSearch(search), 300);
+    return () => clearTimeout(timer);
+  }, [search]);
+
   useEffect(() => {
     setLoading(true);
     getStocks({
-      search: search || undefined,
+      search: debouncedSearch || undefined,
       sort_by: sortBy,
       min_price: minPrice ? parseFloat(minPrice) : undefined,
       max_price: maxPrice ? parseFloat(maxPrice) : undefined,
@@ -43,7 +52,7 @@ export default function Screener({ onStockClick, isWatched, toggleWatch }: Props
       .then(setStocks)
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, [search, sortBy, minPrice, maxPrice, selectedTopic]);
+  }, [debouncedSearch, sortBy, minPrice, maxPrice, selectedTopic]);
 
   // Autocomplete suggestions
   const acQuery = search.trim().toLowerCase();
@@ -114,8 +123,20 @@ export default function Screener({ onStockClick, isWatched, toggleWatch }: Props
             onChange={handleSearchChange}
             onFocus={() => setShowAutocomplete(true)}
             onKeyDown={handleSearchKeyDown}
-            className="w-full ps-10 pe-4 py-2 bg-[#1e293b] border border-[#334155] rounded-lg text-white placeholder-[#94a3b8] focus:outline-none focus:border-cyan-500"
+            className="w-full ps-10 pe-9 py-2 bg-[#1e293b] border border-[#334155] rounded-lg text-white placeholder-[#94a3b8] focus:outline-none focus:border-cyan-500"
           />
+          {/* Clear button */}
+          {search && (
+            <button
+              onClick={() => {
+                setSearch("");
+                setShowAutocomplete(false);
+              }}
+              className="absolute end-3 top-1/2 -translate-y-1/2 p-0.5 text-[#94a3b8] hover:text-white transition"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
           {/* Autocomplete dropdown */}
           {showAutocomplete && suggestions.length > 0 && acQuery.length >= 1 && (
             <div className="absolute z-50 top-full mt-1 w-full bg-[#1e293b] border border-[#334155] rounded-lg shadow-xl overflow-hidden">
@@ -145,49 +166,51 @@ export default function Screener({ onStockClick, isWatched, toggleWatch }: Props
         </select>
       </div>
 
-      {/* Filters row: price range + topic */}
-      <div className="flex gap-3 flex-wrap items-center">
-        <input
-          type="number"
-          placeholder={t("screener.minPrice")}
-          value={minPrice}
-          onChange={(e) => setMinPrice(e.target.value)}
-          className="w-28 px-3 py-2 bg-[#1e293b] border border-[#334155] rounded-lg text-white placeholder-[#94a3b8] text-sm focus:outline-none focus:border-cyan-500"
-        />
-        <span className="text-[#64748b] text-sm">—</span>
-        <input
-          type="number"
-          placeholder={t("screener.maxPrice")}
-          value={maxPrice}
-          onChange={(e) => setMaxPrice(e.target.value)}
-          className="w-28 px-3 py-2 bg-[#1e293b] border border-[#334155] rounded-lg text-white placeholder-[#94a3b8] text-sm focus:outline-none focus:border-cyan-500"
-        />
-        <select
-          value={selectedTopic}
-          onChange={(e) => setSelectedTopic(e.target.value)}
-          className="px-3 py-2 bg-[#1e293b] border border-[#334155] rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500"
-        >
-          <option value="">{t("screener.allTopics")}</option>
-          {topics.map((topic) => (
-            <option key={topic.slug} value={topic.slug}>
-              {locale === "he" ? topic.name_he : topic.name_en}
-            </option>
-          ))}
-        </select>
-        {(minPrice || maxPrice || selectedTopic) && (
-          <button
-            onClick={() => {
-              setMinPrice("");
-              setMaxPrice("");
-              setSelectedTopic("");
-            }}
-            className="p-2 text-[#94a3b8] hover:text-white transition"
-            title="Clear filters"
+      {/* Filters row: price range + topic (hidden for beginners) */}
+      {!isBeginner && (
+        <div className="flex gap-3 flex-wrap items-center">
+          <input
+            type="number"
+            placeholder={t("screener.minPrice")}
+            value={minPrice}
+            onChange={(e) => setMinPrice(e.target.value)}
+            className="w-28 px-3 py-2 bg-[#1e293b] border border-[#334155] rounded-lg text-white placeholder-[#94a3b8] text-sm focus:outline-none focus:border-cyan-500"
+          />
+          <span className="text-[#64748b] text-sm">&mdash;</span>
+          <input
+            type="number"
+            placeholder={t("screener.maxPrice")}
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(e.target.value)}
+            className="w-28 px-3 py-2 bg-[#1e293b] border border-[#334155] rounded-lg text-white placeholder-[#94a3b8] text-sm focus:outline-none focus:border-cyan-500"
+          />
+          <select
+            value={selectedTopic}
+            onChange={(e) => setSelectedTopic(e.target.value)}
+            className="px-3 py-2 bg-[#1e293b] border border-[#334155] rounded-lg text-white text-sm focus:outline-none focus:border-cyan-500"
           >
-            <X className="w-4 h-4" />
-          </button>
-        )}
-      </div>
+            <option value="">{t("screener.allTopics")}</option>
+            {topics.map((topic) => (
+              <option key={topic.slug} value={topic.slug}>
+                {locale === "he" ? topic.name_he : topic.name_en}
+              </option>
+            ))}
+          </select>
+          {(minPrice || maxPrice || selectedTopic) && (
+            <button
+              onClick={() => {
+                setMinPrice("");
+                setMaxPrice("");
+                setSelectedTopic("");
+              }}
+              className="p-2 text-[#94a3b8] hover:text-white transition"
+              title="Clear filters"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+      )}
 
       {loading ? (
         <div className="text-center py-12 text-[#94a3b8]">{t("general.loading")}</div>

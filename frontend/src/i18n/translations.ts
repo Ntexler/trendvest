@@ -145,6 +145,43 @@ const translations = {
   "profile.relatedStocks": { he: "מניות קשורות", en: "Related Stocks" },
   "profile.noRelated": { he: "אין מניות קשורות", en: "No related stocks" },
 
+  // Mode (Feature 1)
+  "mode.beginner": { he: "מתחיל", en: "Beginner" },
+  "mode.expert": { he: "מומחה", en: "Expert" },
+  "mode.toggle": { he: "מצב תצוגה", en: "Display Mode" },
+  "mode.beginnerTip": { he: "תצוגה מפושטת למתחילים", en: "Simplified view for beginners" },
+  "mode.expertTip": { he: "תצוגה מתקדמת עם כל הנתונים", en: "Advanced view with all data" },
+  "mode.stocks": { he: "מניות", en: "stocks" },
+
+  // Ticker (Feature 3)
+  "ticker.disclaimer": { he: "נתונים להדגמה בלבד", en: "Demo data only" },
+  "ticker.sp500": { he: "S&P 500", en: "S&P 500" },
+  "ticker.vix": { he: "VIX", en: "VIX" },
+  "ticker.bitcoin": { he: "ביטקוין", en: "Bitcoin" },
+
+  // Paper Trading Enhancements (Feature 6)
+  "trade.allocation": { he: "הקצאת תיק", en: "Portfolio Allocation" },
+  "trade.quickBuy": { he: "קנייה מהירה", en: "Quick Buy" },
+  "trade.hotStocks": { he: "מניות חמות מטרנדים", en: "Hot Stocks from Trends" },
+  "trade.estimatedTotal": { he: "עלות משוערת", en: "Estimated Total" },
+  "trade.insufficientFunds": { he: "אין מספיק מזומן לעסקה זו", en: "Insufficient cash for this trade" },
+  "trade.currentShares": { he: "מניות בהחזקה", en: "Shares Held" },
+  "trade.paperDisclaimer": { he: "מסחר דמה בלבד · ללא כסף אמיתי", en: "Paper trading only · No real money" },
+  "trade.cashSlice": { he: "מזומן", en: "Cash" },
+  "trade.disclaimerStrong": {
+    he: "מסחר דמה ≠ מסחר אמיתי — רווחים מדומים אינם מבטיחים תוצאות אמיתיות",
+    en: "Paper trading ≠ Real trading — simulated gains do not guarantee real results",
+  },
+  "trade.noTrendsAvailable": { he: "אין טרנדים זמינים", en: "No trends available" },
+  "trade.viewMore": { he: "עוד", en: "More" },
+  "trade.availableCash": { he: "מזומן זמין", en: "Available Cash" },
+
+  // Watchlist Enhancements (Feature 8)
+  "watchlist.trendLabel": { he: "טרנד", en: "Trend" },
+  "watchlist.buyAction": { he: "קנה", en: "Buy" },
+  "watchlist.noTrend": { he: "ללא טרנד", en: "No trend" },
+  "watchlist.score": { he: "ציון", en: "Score" },
+
   // General
   "general.loading": { he: "טוען...", en: "Loading..." },
   "general.error": { he: "שגיאה", en: "Error" },

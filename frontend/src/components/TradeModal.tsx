@@ -1,22 +1,49 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useI18n } from "@/i18n/context";
 import { X, AlertTriangle } from "lucide-react";
+import type { Holding } from "@/lib/types";
 
 interface Props {
   initialTicker: string;
   onExecute: (ticker: string, action: "buy" | "sell", quantity: number) => Promise<void>;
   onClose: () => void;
   cashBalance: number;
+  holdings: Holding[];
 }
 
-export default function TradeModal({ initialTicker, onExecute, onClose, cashBalance }: Props) {
+export default function TradeModal({ initialTicker, onExecute, onClose, cashBalance, holdings }: Props) {
   const { t } = useI18n();
   const [ticker, setTicker] = useState(initialTicker);
   const [action, setAction] = useState<"buy" | "sell">("buy");
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [estimatedPrice, setEstimatedPrice] = useState<number | null>(null);
+
+  // Fetch current price for estimate
+  useEffect(() => {
+    if (!ticker.trim()) {
+      setEstimatedPrice(null);
+      return;
+    }
+    const timer = setTimeout(() => {
+      fetch(`/api/stocks/${ticker.toUpperCase()}`)
+        .then((r) => (r.ok ? r.json() : null))
+        .then((data) => {
+          if (data?.current_price) setEstimatedPrice(data.current_price);
+          else setEstimatedPrice(null);
+        })
+        .catch(() => setEstimatedPrice(null));
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [ticker]);
+
+  const estimatedTotal = estimatedPrice ? estimatedPrice * quantity : null;
+  const insufficientFunds = action === "buy" && estimatedTotal !== null && estimatedTotal > cashBalance;
+
+  // Find holding for sell info
+  const currentHolding = holdings.find((h) => h.ticker === ticker.toUpperCase());
 
   const handleSubmit = async () => {
     if (!ticker.trim()) return;
@@ -39,12 +66,6 @@ export default function TradeModal({ initialTicker, onExecute, onClose, cashBala
           <button onClick={onClose} className="p-2 rounded-lg hover:bg-[#1e293b]">
             <X className="w-5 h-5 text-[#94a3b8]" />
           </button>
-        </div>
-
-        {/* Disclaimer */}
-        <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-3 mb-4 flex gap-2">
-          <AlertTriangle className="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5" />
-          <p className="text-xs text-yellow-200">{t("trade.disclaimer")}</p>
         </div>
 
         <div className="space-y-4">
@@ -96,9 +117,49 @@ export default function TradeModal({ initialTicker, onExecute, onClose, cashBala
             />
           </div>
 
-          <div className="text-sm text-[#94a3b8]">
-            {t("trade.cash")}: <span className="text-white font-mono tabular-nums">${cashBalance.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
-          </div>
+          {/* Estimated Total */}
+          {estimatedTotal !== null && (
+            <div className="bg-[#0f172a] rounded-lg p-3 space-y-1">
+              <div className="flex justify-between text-sm">
+                <span className="text-[#94a3b8]">{t("trade.estimatedTotal" as any)}</span>
+                <span className="font-mono text-white tabular-nums">
+                  ${estimatedTotal.toFixed(2)}
+                </span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-[#94a3b8]">{t("trade.availableCash" as any)}</span>
+                <span className="font-mono text-white tabular-nums">
+                  ${cashBalance.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                </span>
+              </div>
+            </div>
+          )}
+
+          {/* Insufficient funds warning */}
+          {insufficientFunds && (
+            <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-3 flex gap-2">
+              <AlertTriangle className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
+              <p className="text-xs text-red-300">{t("trade.insufficientFunds" as any)}</p>
+            </div>
+          )}
+
+          {/* Current shares held (for sell) */}
+          {action === "sell" && currentHolding && (
+            <div className="text-sm text-[#94a3b8]">
+              {t("trade.currentShares" as any)}:{" "}
+              <span className="text-white font-mono">{currentHolding.quantity}</span>
+            </div>
+          )}
+
+          {/* Cash display (when no estimated total) */}
+          {estimatedTotal === null && (
+            <div className="text-sm text-[#94a3b8]">
+              {t("trade.cash")}:{" "}
+              <span className="text-white font-mono tabular-nums">
+                ${cashBalance.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+              </span>
+            </div>
+          )}
 
           {error && (
             <div className="text-sm text-red-400 bg-red-400/10 rounded-lg p-2">{error}</div>
@@ -106,11 +167,16 @@ export default function TradeModal({ initialTicker, onExecute, onClose, cashBala
 
           <button
             onClick={handleSubmit}
-            disabled={loading || !ticker.trim()}
+            disabled={loading || !ticker.trim() || insufficientFunds}
             className="w-full py-3 bg-cyan-500 hover:bg-cyan-600 disabled:opacity-50 text-white font-semibold rounded-xl transition"
           >
             {loading ? "..." : `${action === "buy" ? t("trade.buy") : t("trade.sell")} ${quantity}x ${ticker || "..."}`}
           </button>
+
+          {/* Footer disclaimer */}
+          <p className="text-[10px] text-[#64748b] text-center">
+            {t("trade.paperDisclaimer" as any)}
+          </p>
         </div>
       </div>
     </div>

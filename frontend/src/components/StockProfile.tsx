@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useI18n } from "@/i18n/context";
 import { getStockProfile, getNews, getRelatedStocks, getPeerStocks, getResearch, explainSection } from "@/lib/api";
 import type { StockProfile as StockProfileType, NewsItem, RelatedStock, PeerStock, ResearchResult } from "@/lib/types";
+import { useMode } from "@/contexts/ModeContext";
 import ExplainTooltip from "./ExplainTooltip";
 import StockChart from "./StockChart";
 import {
@@ -74,6 +75,7 @@ const recLabels: Record<string, { en: string; he: string }> = {
 
 export default function StockProfile({ ticker, onClose, isWatched, toggleWatch, onTrade, onStockClick }: Props) {
   const { t, locale } = useI18n();
+  const { isBeginner } = useMode();
   const [profile, setProfile] = useState<StockProfileType | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<TabKey>("overview");
@@ -101,13 +103,14 @@ export default function StockProfile({ ticker, onClose, isWatched, toggleWatch, 
       .catch(() => setRelatedStocks([]));
   }, [ticker, locale]);
 
-  const tabs: { key: TabKey; label: string; icon: React.ReactNode }[] = [
+  const allTabs: { key: TabKey; label: string; icon: React.ReactNode; expertOnly?: boolean }[] = [
     { key: "overview", label: t("profile.overview"), icon: <Building2 className="w-3.5 h-3.5" /> },
     { key: "management", label: t("profile.management"), icon: <Briefcase className="w-3.5 h-3.5" /> },
-    { key: "financials", label: t("profile.financials"), icon: <BarChart3 className="w-3.5 h-3.5" /> },
-    { key: "analyst", label: t("profile.analyst"), icon: <TrendingUp className="w-3.5 h-3.5" /> },
+    { key: "financials", label: t("profile.financials"), icon: <BarChart3 className="w-3.5 h-3.5" />, expertOnly: true },
+    { key: "analyst", label: t("profile.analyst"), icon: <TrendingUp className="w-3.5 h-3.5" />, expertOnly: true },
     { key: "peers", label: t("profile.peers"), icon: <GitCompareArrows className="w-3.5 h-3.5" /> },
   ];
+  const tabs = isBeginner ? allTabs.filter((t) => !t.expertOnly) : allTabs;
 
   const handleResearch = async () => {
     if (research) return;

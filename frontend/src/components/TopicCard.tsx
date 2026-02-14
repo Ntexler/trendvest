@@ -1,8 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useI18n } from "@/i18n/context";
+import { useMode } from "@/contexts/ModeContext";
 import { getTopicInsight } from "@/lib/api";
 import type { TrendTopic } from "@/lib/types";
+import HeatGauge from "./HeatGauge";
+import Sparkline from "./Sparkline";
+import Term from "./Term";
 import {
   ChevronDown,
   ChevronUp,
@@ -31,12 +35,45 @@ interface InsightData {
   hidden_connections?: { ticker: string; company: string; connection: string }[];
 }
 
+function generateSparklineData(slug: string, score: number, direction: string): number[] {
+  // Deterministic seed from slug
+  let seed = 0;
+  for (let i = 0; i < slug.length; i++) seed = (seed * 31 + slug.charCodeAt(i)) & 0x7fffffff;
+  const rand = () => {
+    seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+    return (seed % 1000) / 1000;
+  };
+
+  const points: number[] = [];
+  let val = score * 0.6;
+  for (let i = 0; i < 12; i++) {
+    const drift = direction === "rising" ? 0.5 : direction === "falling" ? -0.5 : 0;
+    val += (rand() - 0.5 + drift) * 4;
+    val = Math.max(5, Math.min(100, val));
+    points.push(val);
+  }
+  return points;
+}
+
 export default function TopicCard({ topic, onStockClick, isWatched, toggleWatch }: Props) {
   const { locale, t } = useI18n();
+  const { isBeginner } = useMode();
   const [expanded, setExpanded] = useState(false);
   const [insight, setInsight] = useState<InsightData | null>(null);
   const [insightLoading, setInsightLoading] = useState(false);
   const [showInsight, setShowInsight] = useState(false);
+
+  const sparklineData = useMemo(
+    () => generateSparklineData(topic.slug, topic.momentum_score, topic.direction),
+    [topic.slug, topic.momentum_score, topic.direction]
+  );
+
+  const sparkColor =
+    topic.direction === "rising"
+      ? "#4ade80"
+      : topic.direction === "falling"
+      ? "#f87171"
+      : "#facc15";
 
   const dirIcon =
     topic.direction === "rising" ? (
@@ -46,13 +83,6 @@ export default function TopicCard({ topic, onStockClick, isWatched, toggleWatch 
     ) : (
       <Minus className="w-4 h-4 text-yellow-400" />
     );
-
-  const dirColor =
-    topic.direction === "rising"
-      ? "text-green-400"
-      : topic.direction === "falling"
-      ? "text-red-400"
-      : "text-yellow-400";
 
   const handleInsightClick = async (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -72,6 +102,9 @@ export default function TopicCard({ topic, onStockClick, isWatched, toggleWatch 
     }
   };
 
+  // Beginner mode: show max 3 stocks
+  const displayStocks = isBeginner ? topic.stocks.slice(0, 3) : topic.stocks;
+
   return (
     <div className="bg-[#111827] rounded-xl border border-[#334155] overflow-hidden hover:border-cyan-500/30 transition">
       <button
@@ -88,10 +121,8 @@ export default function TopicCard({ topic, onStockClick, isWatched, toggleWatch 
             </p>
           </div>
           <div className="flex items-center gap-2">
-            {dirIcon}
-            <span className={`text-sm font-medium ${dirColor}`}>
-              {topic.momentum_score.toFixed(0)}
-            </span>
+            <Sparkline data={sparklineData} color={sparkColor} width={64} height={24} />
+            <HeatGauge score={topic.momentum_score} size="md" />
             {expanded ? (
               <ChevronUp className="w-4 h-4 text-[#94a3b8]" />
             ) : (
@@ -238,7 +269,20 @@ export default function TopicCard({ topic, onStockClick, isWatched, toggleWatch 
 
           {/* Stock list */}
           <div className="p-4 space-y-2 border-t border-[#1e293b]">
-            {topic.stocks.map((stock) => (
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs text-[#64748b]">
+                {displayStocks.length} / {topic.stocks.length} {t("mode.stocks" as any)}
+              </span>
+              <div className="flex items-center gap-1.5 text-xs text-[#64748b]">
+                {dirIcon}
+                <Term termKey="momentum">
+                  <span className="text-[#94a3b8]">
+                    <Term termKey="heat-score">{topic.momentum_score.toFixed(0)}</Term>
+                  </span>
+                </Term>
+              </div>
+            </div>
+            {displayStocks.map((stock) => (
               <div
                 key={stock.ticker}
                 className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-[#1e293b] transition cursor-pointer"
