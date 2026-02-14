@@ -105,7 +105,7 @@ npm run dev
 - [x] Added ~15 new i18n keys (explain, screener, related stocks)
 - [x] Added `RelatedStock` TypeScript interface
 
-## All 27 API Routes
+## All 29 API Routes
 ```
 GET  /api/health
 GET  /api/trends
@@ -118,6 +118,8 @@ GET  /api/stocks/sector/{sector_name}
 GET  /api/stocks/{ticker}/history
 GET  /api/stocks/{ticker}/profile
 GET  /api/stocks/{ticker}/related
+GET  /api/stocks/{ticker}/peers          ← NEW
+POST /api/stocks/{ticker}/research       ← NEW
 POST /api/chat
 GET  /api/chat/remaining
 POST /api/chat/explain-term
@@ -134,58 +136,29 @@ POST /api/track
 GET  /api/recommendations
 ```
 
-## Phase 3: Expansion & Deep Research (Planned)
-
-### Feature 1: Expand Stock Coverage (100+ stocks, US + Global)
-- [ ] **More US sectors**: Big banks (JPM, GS, BAC, MS), Healthcare (JNJ, PFE, UNH, ABT, MRK), Retail (WMT, COST, TGT, HD), Energy (XOM, CVX, COP, SLB), Tech megacaps (META, ORCL, CRM, ADBE, INTC), Consumer (PG, KO, PEP, NKE, MCD), Industrials (CAT, DE, GE, HON, UPS)
-- [ ] **Lesser-known / mid-cap US stocks**: PLTR, DKNG, RBLX, CRWD, ZS, NET, SNOW, MELI, SE, SHOP, SQ, ABNB, RIVN, LCID, SOFI, HOOD, COIN, MARA, RIOT, AFRM
-- [ ] **European stocks** (via ADRs or exchange suffixes): ASML, SAP, NOVO-B (Novo Nordisk), NESN (Nestle), AZN (AstraZeneca), SHEL (Shell), TTE (TotalEnergies), SIEGY (Siemens)
-- [ ] **Asian stocks** (via ADRs): BABA, TSM, SONY, TM (Toyota), BIDU, NIO, LI, XPEV, INFY, HDB
-- [ ] Add new topic categories for new sectors (Banking, Healthcare, Energy, Consumer, etc.)
-- [ ] Update `topics.json` and `stock_topics.json` with new tickers + topic mappings
-- [ ] yfinance already supports international tickers
-
-### Feature 2: Staff Member AI Summaries
-- [ ] Management tab currently shows officers with just name + title
-- [ ] Use Claude API to generate 1-2 sentence professional bio from name + title + company
-- [ ] Add `generate_officer_bio()` to `ai_explainer.py`
-- [ ] Cache generated bios per officer name
-- [ ] Show bios in Management tab of `StockProfile.tsx`
-- [ ] Support bilingual (HE/EN)
-
-### Feature 3: Watchlist News Feed
-- [ ] Watchlist page (`Watchlist.tsx`) currently shows just prices
-- [ ] Add a "News" tab/section to the Watchlist page
-- [ ] Fetch news for all watched tickers via existing `/api/news?ticker=X`
-- [ ] Aggregate, deduplicate, and sort by date
-- [ ] Show ticker badge per news item
-- [ ] i18n support
-
-### Feature 4: Peer Comparison + Richer Financial Data
-- [ ] New endpoint: `GET /api/stocks/{ticker}/peers` — returns same-sector stocks with key metrics
-- [ ] New yfinance data fields: institutional ownership %, short interest, insider transactions, earnings date
-- [ ] Frontend: "Peers" tab in StockProfile with comparison table
-- [ ] Color-coded metrics (better/worse than peers)
-- [ ] i18n support
-
-### Feature 5: AI Deep Research (Perplexity Integration)
-- [ ] Integrate Perplexity API (sonar model) for web-searched real-time analysis
-- [ ] New endpoint: `POST /api/stocks/{ticker}/research` — calls Perplexity for latest analysis
-- [ ] Show results with source citations and links
-- [ ] "Deep Research" button per stock in profile modal
-- [ ] Rate-limit (expensive API) — e.g., 5/day per session
-- [ ] Add `PERPLEXITY_API_KEY` to `.env`
-
-### Implementation Priority
-1. Expand Stock Coverage (most visible impact)
-2. Watchlist News Feed
-3. Peer Comparison + Richer Data
-4. Staff Member AI Bios
-5. Perplexity Deep Research
-
----
+### Phase 3: Expansion & Deep Research
+- [x] **Stock Coverage Expansion**: 48 → 140+ stocks across 33 topics (12 new categories)
+  - Banking (JPM, GS, BAC, MS, WFC, C, SCHW)
+  - Healthcare & Pharma (JNJ, UNH, PFE, ABT, MRK, TMO)
+  - Biotech & mRNA (MRNA, REGN, VRTX, BIIB, GILD)
+  - Retail & E-Commerce (WMT, COST, TGT, HD, LOW, SHOP, ETSY, MELI)
+  - Oil & Gas (XOM, CVX, COP, SLB, OXY)
+  - Consumer Brands (PG, KO, PEP, NKE, MCD, SBUX)
+  - Industrials (CAT, GE, HON, UPS, MMM)
+  - Gaming & Metaverse (RBLX, EA, TTWO, U)
+  - Social Media (META, SNAP, PINS, RDDT)
+  - European Markets (ASML, SAP, AZN, SHEL, NVS, UL, DEO, RACE)
+  - Asian Markets (BABA, SONY, TM, BIDU, INFY, HDB, SE, GRAB)
+  - Israeli Tech (CHKP, MNDY, TEVA, WIX, CYBR, NICE, SEDG, GLBE, INMD, RSKD, LUMI.TA, ICL)
+  - Rising Mid-Caps (DKNG, ABNB, DUOL, HIMS, APP, CELH, AXON, MNDY)
+  - Expanded existing topics (EV, cyber, defense, fintech, cloud, streaming, etc.)
+- [x] **Watchlist News Feed**: Stocks/News tab toggle, aggregated news for all watched tickers with dedup, ticker badges, time ago
+- [x] **Peer Comparison**: `GET /api/stocks/{ticker}/peers` — sector peers with market cap, P/E, beta, margins, institutional %, short ratio, revenue growth. Peers tab in StockProfile
+- [x] **Staff AI Bios**: `generate_officer_bio()` in ai_explainer.py — Claude-powered 1-2 sentence bios, cached, bilingual. Shown in Management tab
+- [x] **Deep Research (Perplexity)**: `POST /api/stocks/{ticker}/research` — Perplexity sonar API with yfinance fallback. Purple "Deep Research" button in profile modal, citations display
+- [x] Added ~10 new i18n keys (peers, research, watchlist tabs)
 
 ## Operational Next Steps
-- [ ] Add Reddit/NewsAPI/Anthropic/X API keys for live data
+- [ ] Add Reddit/NewsAPI/Anthropic/X/Perplexity API keys for live data
 - [ ] Run pipeline to collect real mention data
 - [ ] Deploy to cloud (Vercel frontend + Railway/Render backend)
