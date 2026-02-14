@@ -94,6 +94,17 @@ npm run dev
 - [x] Added `pytrends` to requirements.txt, `X_BEARER_TOKEN` to `.env`
 - [x] Pipeline supports: `--source reddit`, `--source news`, `--source google_trends`, `--source x`
 
+### Topic Insights System
+- [x] Created `backend/app/services/topic_insights.py` — curated insights for 10 topics (AI, nuclear, GLP-1, quantum, EV, cyber, crypto, space, solar, semiconductors)
+- [x] Bilingual insights (EN/HE): why trending, stock connections, related topics, hidden cross-sector connections
+- [x] AI-powered insight generation via Claude API (with curated fallback when no API key)
+- [x] Added `GET /api/trends/{slug}/insight` — topic insight endpoint
+- [x] Added `GET /api/trends/{slug}/stock-insight/{ticker}` — stock-topic connection endpoint
+- [x] Refactored `backend/app/routers/news.py` — dynamic topic loading from topics.json, NewsAPI integration
+- [x] Expanded `frontend/src/components/TopicCard.tsx` — "Why is this trending?" button, insight panel with AI analysis, stock connections, related topics, hidden connections
+- [x] Added insight translations to `frontend/src/i18n/translations.ts`
+- [x] Added `getTopicInsight()` and `getStockInsight()` API helpers to `frontend/src/lib/api.ts`
+
 ## Next Steps
 - [ ] Add Reddit/NewsAPI/Anthropic/X API keys for live data
 - [ ] Run pipeline to collect real mention data

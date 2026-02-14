@@ -56,6 +56,23 @@ export const getNews = (params?: { topic?: string; ticker?: string }) => {
   return fetchJSON<NewsItem[]>(`/news?${sp}`);
 };
 
+// Topic Insights
+export const getTopicInsight = (slug: string, language: string) =>
+  fetchJSON<{
+    slug: string;
+    why_trending: string;
+    stock_connections: Record<string, string>;
+    ai_analysis?: string;
+    generated?: boolean;
+    related_topics?: { slug: string; name: string; connection: string }[];
+    hidden_connections?: { ticker: string; company: string; connection: string }[];
+  }>(`/trends/${slug}/insight?language=${language}`);
+
+export const getStockInsight = (slug: string, ticker: string, language: string) =>
+  fetchJSON<{ slug: string; ticker: string; connection: string }>(
+    `/trends/${slug}/stock-insight/${ticker}?language=${language}`
+  );
+
 // Chat
 export const askAI = (question: string, language: string, context?: string) =>
   fetchJSON<ChatResponse>("/chat", {

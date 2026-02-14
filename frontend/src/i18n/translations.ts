@@ -24,6 +24,17 @@ const translations = {
   "stock.addWatchlist": { he: "הוסף למעקב", en: "Add to Watchlist" },
   "stock.removeWatchlist": { he: "הסר ממעקב", en: "Remove from Watchlist" },
 
+  // Insights
+  "insight.whyTrending": { he: "למה זה טרנדי?", en: "Why is this trending?" },
+  "insight.stockConnection": { he: "למה הקשר?", en: "Why connected?" },
+  "insight.relatedTopics": { he: "נושאים קשורים", en: "Related Topics" },
+  "insight.hiddenConnections": { he: "קשרים נסתרים", en: "Hidden Connections" },
+  "insight.loading": { he: "טוען תובנות...", en: "Loading insights..." },
+  "insight.disclaimer": {
+    he: "מידע חינוכי בלבד — אינו מהווה ייעוץ השקעות",
+    en: "Educational information only — not investment advice",
+  },
+
   // News
   "news.title": { he: "חדשות", en: "News" },
   "news.latest": { he: "חדשות אחרונות", en: "Latest News" },

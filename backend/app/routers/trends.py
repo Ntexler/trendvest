@@ -5,6 +5,7 @@ from fastapi import APIRouter, Depends, Query, HTTPException
 from typing import Optional
 from ..models.schemas import TrendTopic, TopicStock
 from ..deps import get_db_pool
+from ..services.topic_insights import get_topic_insight, get_all_insights, generate_ai_insight
 
 router = APIRouter(prefix="/api/trends", tags=["trends"])
 
@@ -115,3 +116,80 @@ async def get_trend_by_slug(slug: str, pool=Depends(get_db_pool)):
                 relevance_note=s["relevance_note"] or "",
             ) for s in stocks],
         )
+
+
+@router.get("/{slug}/insight")
+async def get_trend_insight(
+    slug: str,
+    language: str = Query("en", description="Language: en or he"),
+    pool=Depends(get_db_pool),
+):
+    """Get AI-powered insight for a topic: why it's trending and stock connections."""
+    # First try to generate a fresh AI insight if API key is available
+    async with pool.acquire() as conn:
+        topic = await conn.fetchrow(
+            "SELECT name_en FROM topics WHERE slug = $1 AND is_active = true", slug
+        )
+        if not topic:
+            raise HTTPException(status_code=404, detail="Topic not found")
+
+        stocks = await conn.fetch("""
+            SELECT ticker, company_name FROM topic_stocks ts
+            JOIN topics t ON ts.topic_id = t.id
+            WHERE t.slug = $1 ORDER BY ts.priority LIMIT 5
+        """, slug)
+
+        momentum = await conn.fetchrow(
+            "SELECT score FROM momentum_scores ms JOIN topics t ON ms.topic_id = t.id WHERE t.slug = $1",
+            slug,
+        )
+
+    # Try AI generation first
+    ai_result = await generate_ai_insight(
+        slug=slug,
+        topic_name=topic["name_en"],
+        stocks=[dict(s) for s in stocks],
+        language=language,
+        momentum_score=momentum["score"] if momentum else 0,
+    )
+    if ai_result:
+        return ai_result
+
+    # Fall back to curated insights
+    curated = get_topic_insight(slug, language)
+    if curated:
+        return curated
+
+    # No insight available
+    return {
+        "slug": slug,
+        "why_trending": "No insight available for this topic yet." if language == "en" else "אין מידע זמין על נושא זה עדיין.",
+        "stock_connections": {},
+    }
+
+
+@router.get("/{slug}/stock-insight/{ticker}")
+async def get_stock_insight(
+    slug: str,
+    ticker: str,
+    language: str = Query("en", description="Language: en or he"),
+):
+    """Get insight about how a specific stock connects to a trending topic."""
+    curated = get_topic_insight(slug, language)
+    if curated and ticker.upper() in curated.get("stock_connections", {}):
+        return {
+            "slug": slug,
+            "ticker": ticker.upper(),
+            "connection": curated["stock_connections"][ticker.upper()],
+        }
+
+    fallback = (
+        f"No specific insight available for {ticker.upper()} in this trend."
+        if language == "en"
+        else f"אין מידע ספציפי על {ticker.upper()} בטרנד הזה."
+    )
+    return {
+        "slug": slug,
+        "ticker": ticker.upper(),
+        "connection": fallback,
+    }
