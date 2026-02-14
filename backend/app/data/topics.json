@@ -517,6 +517,29 @@
         {"ticker": "AXON", "name": "Axon Enterprise", "note": "טייזרים + מצלמות גוף", "priority": 7},
         {"ticker": "MNDY", "name": "Monday.com", "note": "ניהול פרויקטים ישראלי", "priority": 8}
       ]
+    },
+    {
+      "slug": "israeli",
+      "name_en": "Israeli Tech & Industry",
+      "name_he": "טכנולוגיה ותעשייה ישראלית",
+      "sector": "ישראל",
+      "sector_en": "Israel",
+      "keywords": ["Israel", "Israeli tech", "TASE", "Tel Aviv", "startup nation", "Israeli stocks", "הייטק ישראלי"],
+      "subreddits": ["Israel", "israeltech", "wallstreetbets", "stocks", "investing"],
+      "stocks": [
+        {"ticker": "CHKP", "name": "Check Point Software", "note": "סייבר ישראלי - חומות אש", "priority": 1},
+        {"ticker": "MNDY", "name": "Monday.com", "note": "ניהול פרויקטים SaaS", "priority": 2},
+        {"ticker": "TEVA", "name": "Teva Pharmaceutical", "note": "פרמה ישראלית - גנרי", "priority": 3},
+        {"ticker": "WIX", "name": "Wix.com", "note": "בניית אתרים ישראלית", "priority": 4},
+        {"ticker": "CYBR", "name": "CyberArk", "note": "ניהול זהויות וסייבר", "priority": 5},
+        {"ticker": "NICE", "name": "NICE Ltd", "note": "תוכנה ארגונית + AI", "priority": 6},
+        {"ticker": "SEDG", "name": "SolarEdge", "note": "אנרגיה סולארית ישראלית", "priority": 7},
+        {"ticker": "GLBE", "name": "Global-E Online", "note": "מסחר אלקטרוני בינלאומי", "priority": 8},
+        {"ticker": "INMD", "name": "InMode", "note": "מכשור רפואי אסתטי", "priority": 9},
+        {"ticker": "RSKD", "name": "Riskified", "note": "מניעת הונאה AI", "priority": 10},
+        {"ticker": "LUMI.TA", "name": "Bank Leumi", "note": "בנק לאומי", "priority": 11},
+        {"ticker": "ICL", "name": "ICL Group", "note": "כימיקלים + דשנים", "priority": 12}
+      ]
     }
   ]
 }
