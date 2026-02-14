@@ -24,6 +24,20 @@ from .services.stocks import StockPriceService
 from . import deps
 
 
+async def _warmup_cache(pool, stock_service: StockPriceService):
+    """Pre-fetch all stock prices in background so first page load is fast."""
+    try:
+        async with pool.acquire() as conn:
+            rows = await conn.fetch("SELECT DISTINCT ticker FROM topic_stocks")
+        tickers = [r["ticker"] for r in rows]
+        if tickers:
+            print(f"  Warming price cache for {len(tickers)} tickers...")
+            stock_service.get_prices_batch(tickers)
+            print(f"  Cache warm: {len(stock_service._cache)} prices loaded")
+    except Exception as e:
+        print(f"  Cache warmup failed (non-fatal): {e}")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Startup: init DB pool and seed data. Shutdown: close pool."""
@@ -31,11 +45,13 @@ async def lifespan(app: FastAPI):
     pool = await get_pool()
     await init_db(pool)
     deps.set_db_pool(pool)
-    deps.set_stock_service(StockPriceService())
+    stock_service = StockPriceService()
+    deps.set_stock_service(stock_service)
     print("Database ready")
+    await _warmup_cache(pool, stock_service)
     print("TrendVest API is running!\n")
     yield
-    pool.close()
+    await pool.close()
     print("\nTrendVest API shutting down")
 
 

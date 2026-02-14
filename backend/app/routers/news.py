@@ -5,6 +5,7 @@ and Google Trends related queries.
 import os
 import json
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from datetime import datetime, timezone
 from fastapi import APIRouter, Query
@@ -222,9 +223,17 @@ async def get_news(
         keywords = _get_topic_keywords(topic)
 
         if source_type in (None, "news"):
-            # Try yfinance for stock-specific news
-            for t in tickers[:3]:
-                results.extend(_get_stock_news_combined(t, topic_slug=topic))
+            # Try yfinance for stock-specific news — parallel
+            with ThreadPoolExecutor(max_workers=4) as executor:
+                futures = [
+                    executor.submit(_get_stock_news_combined, t, topic_slug=topic)
+                    for t in tickers[:3]
+                ]
+                for future in as_completed(futures):
+                    try:
+                        results.extend(future.result())
+                    except Exception:
+                        pass
             # Also try NewsAPI for broader topic news
             if keywords:
                 results.extend(_get_newsapi_articles(keywords, topic_slug=topic))
@@ -235,14 +244,22 @@ async def get_news(
     else:
         # General feed: mix news from multiple topics for variety
         if source_type in (None, "news"):
-            # Get news from top tickers across different topics
+            # Get news from top tickers across different topics — parallel
             featured_tickers = [
                 ("NVDA", "ai"), ("TSLA", "ev"), ("MSFT", "ai"),
                 ("CCJ", "nuclear"), ("LLY", "glp1"), ("CRWD", "cyber"),
                 ("IONQ", "quantum"), ("COIN", "crypto"),
             ]
-            for ticker_slug, slug in featured_tickers:
-                results.extend(_get_stock_news_combined(ticker_slug, topic_slug=slug))
+            with ThreadPoolExecutor(max_workers=8) as executor:
+                futures = {
+                    executor.submit(_get_stock_news_combined, t, topic_slug=s): t
+                    for t, s in featured_tickers
+                }
+                for future in as_completed(futures):
+                    try:
+                        results.extend(future.result())
+                    except Exception:
+                        pass
             # Broad market news via NewsAPI
             results.extend(_get_newsapi_articles(["stock market", "investing", "wall street"]))
 

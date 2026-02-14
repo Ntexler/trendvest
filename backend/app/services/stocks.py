@@ -29,10 +29,10 @@ class StockPrice:
 class StockPriceService:
     """Fetches and caches stock prices."""
 
-    CACHE_TTL = 300  # 5 minutes
+    CACHE_TTL = 600  # 10 minutes
     MAX_CACHE_SIZE = 200
-    STALE_TTL = 900  # 15 min — evict entries older than 3x TTL
-    BATCH_CHUNK_SIZE = 30
+    STALE_TTL = 1800  # 30 min — evict entries older than 3x TTL
+    BATCH_CHUNK_SIZE = 50
 
     def __init__(self):
         self._cache: dict[str, StockPrice] = {}
