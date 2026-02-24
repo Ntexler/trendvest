@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { useI18n } from "@/i18n/context";
-import { getCommodities, getCommodityImpact, getSupplyChain } from "@/lib/api";
-import type { CommodityPrice, CommodityImpact, SupplyChain, SupplyChainStage } from "@/lib/types";
+import { getCommodities, getCommodityImpact, getSupplyChain, getSupplyChainTips } from "@/lib/api";
+import type { CommodityPrice, CommodityImpact, SupplyChain, SupplyChainStage, SupplyChainTip } from "@/lib/types";
 import {
   ChevronRight,
   ChevronDown,
@@ -20,6 +20,8 @@ import {
   Shield,
   FlaskConical,
   CloudCog,
+  Lightbulb,
+  RefreshCw,
 } from "lucide-react";
 
 // Icons per category
@@ -66,6 +68,28 @@ export default function SupplyChainExplorer({ onStockClick }: Props) {
   const [chainData, setChainData] = useState<SupplyChain | null>(null);
   const [expandedStage, setExpandedStage] = useState<string | null>(null);
 
+  // Tips
+  const [tips, setTips] = useState<SupplyChainTip[]>([]);
+  const [tipIdx, setTipIdx] = useState(0);
+  const [tipsLoading, setTipsLoading] = useState(false);
+
+  const loadTips = async (params?: { commodity?: string; chain?: string; category?: string }) => {
+    setTipsLoading(true);
+    try {
+      const data = await getSupplyChainTips({ ...params, limit: 5 });
+      setTips(data.tips);
+      setTipIdx(0);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setTipsLoading(false);
+    }
+  };
+
+  const nextTip = () => {
+    if (tips.length > 0) setTipIdx((prev) => (prev + 1) % tips.length);
+  };
+
   // 1. Load commodities list
   const loadCommodities = async () => {
     if (commodities) return;
@@ -73,6 +97,7 @@ export default function SupplyChainExplorer({ onStockClick }: Props) {
     try {
       const data = await getCommodities();
       setCommodities(data.commodities);
+      if (tips.length === 0) loadTips();
     } catch (e) {
       console.error(e);
     } finally {
@@ -88,6 +113,7 @@ export default function SupplyChainExplorer({ onStockClick }: Props) {
       const data = await getCommodityImpact(commodity.key);
       setImpacts(data.impacts);
       setView("impacts");
+      loadTips({ commodity: commodity.key, category: commodity.category });
     } catch (e) {
       console.error(e);
     } finally {
@@ -103,6 +129,7 @@ export default function SupplyChainExplorer({ onStockClick }: Props) {
       const data = await getSupplyChain(chainKey) as SupplyChain;
       setChainData(data);
       setView("chain");
+      loadTips({ chain: chainKey });
     } catch (e) {
       console.error(e);
     } finally {
@@ -561,6 +588,52 @@ export default function SupplyChainExplorer({ onStockClick }: Props) {
           {view === "impacts" && renderImpacts()}
           {view === "chain" && renderChain()}
         </>
+      )}
+
+      {/* "Did you know?" tip card */}
+      {tips.length > 0 && !loading && (
+        <div className="mt-3 p-3 rounded-lg bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20">
+          <div className="flex items-center justify-between mb-1.5">
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-amber-400">
+              <Lightbulb className="w-3.5 h-3.5" />
+              {locale === "he" ? "הידעת?" : "Did you know?"}
+            </div>
+            <button
+              onClick={nextTip}
+              className="p-1 rounded hover:bg-amber-500/15 transition text-amber-400/60 hover:text-amber-400"
+              title={locale === "he" ? "טיפ הבא" : "Next tip"}
+            >
+              <RefreshCw className="w-3 h-3" />
+            </button>
+          </div>
+          <p className="text-xs text-[#e2e8f0] leading-relaxed">
+            {locale === "he" ? tips[tipIdx].tip_he : tips[tipIdx].tip_en}
+          </p>
+          {tips[tipIdx].companies && tips[tipIdx].companies!.length > 0 && (
+            <div className="flex flex-wrap gap-1 mt-2">
+              {tips[tipIdx].companies!.map((ticker) => (
+                <button
+                  key={ticker}
+                  onClick={() => onStockClick?.(ticker)}
+                  className="px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-300 text-[10px] font-mono font-medium hover:bg-amber-500/25 transition cursor-pointer"
+                >
+                  {ticker}
+                </button>
+              ))}
+            </div>
+          )}
+          {tips.length > 1 && (
+            <div className="flex gap-1 mt-2 justify-center">
+              {tips.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setTipIdx(i)}
+                  className={`w-1.5 h-1.5 rounded-full transition ${i === tipIdx ? "bg-amber-400" : "bg-amber-500/30"}`}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       )}
     </section>
   );

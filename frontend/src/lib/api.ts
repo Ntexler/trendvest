@@ -246,6 +246,15 @@ export const getCommodityImpact = (commodity: string) =>
 export const getIsraeliSupplyChain = () =>
   fetchJSON<{ connections: CommodityImpact[] }>("/feed/supply-chain/israel");
 
+export const getSupplyChainTips = (params?: { commodity?: string; chain?: string; category?: string; limit?: number }) => {
+  const sp = new URLSearchParams();
+  if (params?.commodity) sp.set("commodity", params.commodity);
+  if (params?.chain) sp.set("chain", params.chain);
+  if (params?.category) sp.set("category", params.category);
+  if (params?.limit) sp.set("limit", String(params.limit));
+  return fetchJSON<{ tips: import("./types").SupplyChainTip[] }>(`/feed/supply-chain/tips?${sp}`);
+};
+
 // Tracking
 export const trackInteraction = (data: {
   interaction_type: string;

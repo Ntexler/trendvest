@@ -330,6 +330,16 @@ export interface CommodityImpact {
   israeli_companies: string[];
 }
 
+export interface SupplyChainTip {
+  id: string;
+  tip_he: string;
+  tip_en: string;
+  commodities: string[];
+  chains: string[];
+  companies?: string[];
+  category: string;
+}
+
 export interface RelatedStock {
   ticker: string;
   company_name: string;

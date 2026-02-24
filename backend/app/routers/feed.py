@@ -669,6 +669,19 @@ async def get_supply_chain_risks(
     return {"risks": risks}
 
 
+@router.get("/supply-chain/tips")
+async def get_supply_chain_tips(
+    commodity: Optional[str] = Query(None, description="Filter tips by commodity"),
+    chain: Optional[str] = Query(None, description="Filter tips by supply chain"),
+    category: Optional[str] = Query(None, description="Filter tips by category"),
+    limit: int = Query(3, ge=1, le=10, description="Number of tips to return"),
+):
+    """Get 'Did you know?' educational tips about commodity correlations."""
+    from ..services.supply_chain_insights import get_supply_chain_tips as _get_tips
+    tips = _get_tips(commodity=commodity, chain=chain, category=category, limit=limit)
+    return {"tips": tips}
+
+
 @router.post("/translate-batch")
 async def translate_articles_batch(
     articles: list[dict],
