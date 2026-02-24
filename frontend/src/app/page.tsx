@@ -13,6 +13,7 @@ import Watchlist from "@/components/Watchlist";
 import StockProfile from "@/components/StockProfile";
 import ChatBot from "@/components/ChatBot";
 import AgentDashboard from "@/components/AgentDashboard";
+import AdminDashboard from "@/components/AdminDashboard";
 
 function AppContent() {
   const { t } = useI18n();
@@ -48,7 +49,7 @@ function AppContent() {
       {/* Desktop Sidebar Nav */}
       <div className="hidden md:flex max-w-7xl mx-auto">
         <nav className="w-48 shrink-0 p-4 space-y-1 sticky top-14 h-[calc(100vh-3.5rem)]">
-          {["trends", "screener", "trade", "watchlist", "agent"].map((p) => (
+          {["trends", "screener", "trade", "watchlist", "agent", "admin"].map((p) => (
             <button
               key={p}
               onClick={() => setPage(p)}
@@ -88,6 +89,7 @@ function AppContent() {
             />
           )}
           {page === "agent" && <AgentDashboard onStockClick={handleStockClick} />}
+          {page === "admin" && <AdminDashboard />}
         </main>
       </div>
 
@@ -117,6 +119,7 @@ function AppContent() {
           />
         )}
         {page === "agent" && <AgentDashboard onStockClick={handleStockClick} />}
+        {page === "admin" && <AdminDashboard />}
       </main>
 
       <MobileMenu activePage={page} onNavigate={setPage} />

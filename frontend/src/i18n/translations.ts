@@ -6,6 +6,7 @@ const translations = {
   "nav.trade": { he: "תרגול", en: "Practice" },
   "nav.watchlist": { he: "מעקב", en: "Watchlist" },
   "nav.agent": { he: "סוכן AI", en: "AI Agent" },
+  "nav.admin": { he: "ניהול", en: "Admin" },
 
   // Dashboard
   "dashboard.title": { he: "מגמות חמות", en: "Hot Trends" },

@@ -1,6 +1,6 @@
 "use client";
 import { useI18n } from "@/i18n/context";
-import { TrendingUp, Search, BarChart3, Star, Brain } from "lucide-react";
+import { TrendingUp, Search, BarChart3, Star, Brain, Shield } from "lucide-react";
 
 interface Props {
   activePage: string;
@@ -13,6 +13,7 @@ const tabs = [
   { id: "trade", icon: BarChart3, labelKey: "nav.trade" as const },
   { id: "watchlist", icon: Star, labelKey: "nav.watchlist" as const },
   { id: "agent", icon: Brain, labelKey: "nav.agent" as const },
+  { id: "admin", icon: Shield, labelKey: "nav.admin" as const },
 ];
 
 export default function MobileMenu({ activePage, onNavigate }: Props) {
