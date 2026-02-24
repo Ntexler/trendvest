@@ -10,6 +10,7 @@ import type {
   RelatedStock,
   PeerStock,
   ResearchResult,
+  UnifiedFeed,
 } from "./types";
 
 const BASE = "/api";
@@ -146,6 +147,15 @@ export const executeTrade = (data: {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
+
+// Unified Feed
+export const getFeed = (params?: { sector?: string; include_il?: boolean; include_podcasts?: boolean }) => {
+  const sp = new URLSearchParams();
+  if (params?.sector) sp.set("sector", params.sector);
+  if (params?.include_il !== undefined) sp.set("include_il", String(params.include_il));
+  if (params?.include_podcasts !== undefined) sp.set("include_podcasts", String(params.include_podcasts));
+  return fetchJSON<UnifiedFeed>(`/feed?${sp}`);
+};
 
 // Tracking
 export const trackInteraction = (data: {

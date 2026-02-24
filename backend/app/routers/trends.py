@@ -150,6 +150,60 @@ async def get_trend_by_slug(
         )
 
 
+@router.get("/{slug}/history")
+async def get_trend_history(
+    slug: str,
+    days: int = Query(14, le=30, description="Number of days of history"),
+    pool=Depends(get_db_pool),
+):
+    """Get historical momentum data for a topic (real mention counts over time)."""
+    async with pool.acquire() as conn:
+        topic = await conn.fetchrow(
+            "SELECT id, name_en, name_he FROM topics WHERE slug = $1 AND is_active = true", slug
+        )
+        if not topic:
+            raise HTTPException(status_code=404, detail="Topic not found")
+
+        rows = await conn.fetch("""
+            SELECT DATE(collected_at) as day,
+                   SUM(mention_count) as mentions,
+                   json_object_agg(source, mention_count) as by_source
+            FROM topic_mentions
+            WHERE topic_id = $1 AND collected_at >= NOW() - make_interval(days => $2)
+            GROUP BY DATE(collected_at)
+            ORDER BY day
+        """, topic["id"], days)
+
+        data = []
+        for row in rows:
+            data.append({
+                "date": row["day"].isoformat(),
+                "mentions": row["mentions"],
+                "by_source": dict(row["by_source"]) if row["by_source"] else {},
+            })
+
+        # Also get current momentum score
+        momentum = await conn.fetchrow(
+            "SELECT score, direction, mention_count_today, mention_avg_7d, updated_at FROM momentum_scores WHERE topic_id = $1",
+            topic["id"],
+        )
+
+        return {
+            "slug": slug,
+            "name_en": topic["name_en"],
+            "name_he": topic["name_he"],
+            "days": days,
+            "data": data,
+            "current_momentum": {
+                "score": momentum["score"] if momentum else 0,
+                "direction": momentum["direction"] if momentum else "stable",
+                "mention_count_today": momentum["mention_count_today"] if momentum else 0,
+                "mention_avg_7d": float(momentum["mention_avg_7d"]) if momentum else 0,
+                "updated_at": momentum["updated_at"].isoformat() if momentum and momentum["updated_at"] else None,
+            } if momentum else None,
+        }
+
+
 @router.get("/{slug}/insight")
 async def get_trend_insight(
     slug: str,

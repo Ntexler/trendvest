@@ -6,8 +6,7 @@ import { useWatchlist } from "@/hooks/useWatchlist";
 import MarketTicker from "@/components/MarketTicker";
 import TopBar from "@/components/TopBar";
 import MobileMenu from "@/components/MobileMenu";
-import Dashboard from "@/components/Dashboard";
-import NewsFeed from "@/components/NewsFeed";
+import TrendFeed from "@/components/TrendFeed";
 import Screener from "@/components/Screener";
 import PaperTrading from "@/components/PaperTrading";
 import Watchlist from "@/components/Watchlist";
@@ -48,7 +47,7 @@ function AppContent() {
       {/* Desktop Sidebar Nav */}
       <div className="hidden md:flex max-w-7xl mx-auto">
         <nav className="w-48 shrink-0 p-4 space-y-1 sticky top-14 h-[calc(100vh-3.5rem)]">
-          {["trends", "news", "screener", "trade", "watchlist"].map((p) => (
+          {["trends", "screener", "trade", "watchlist"].map((p) => (
             <button
               key={p}
               onClick={() => setPage(p)}
@@ -65,13 +64,12 @@ function AppContent() {
 
         <main className="flex-1 p-6 min-w-0">
           {page === "trends" && (
-            <Dashboard
+            <TrendFeed
               onStockClick={handleStockClick}
               isWatched={isWatched}
               toggleWatch={toggleWatch}
             />
           )}
-          {page === "news" && <NewsFeed />}
           {page === "screener" && (
             <Screener
               onStockClick={handleStockClick}
@@ -94,13 +92,12 @@ function AppContent() {
       {/* Mobile Content */}
       <main className="md:hidden p-4">
         {page === "trends" && (
-          <Dashboard
+          <TrendFeed
             onStockClick={handleStockClick}
             isWatched={isWatched}
             toggleWatch={toggleWatch}
           />
         )}
-        {page === "news" && <NewsFeed />}
         {page === "screener" && (
           <Screener
             onStockClick={handleStockClick}

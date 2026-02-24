@@ -75,7 +75,7 @@ app.add_middleware(
 
 # Register routers
 from .routers import trends, stocks, chat
-from .routers import paper_trading, news as news_router, auth, recommendations
+from .routers import paper_trading, news as news_router, auth, recommendations, feed
 
 app.include_router(trends.router)
 app.include_router(stocks.router)
@@ -84,6 +84,7 @@ app.include_router(paper_trading.router)
 app.include_router(news_router.router)
 app.include_router(auth.router)
 app.include_router(recommendations.router)
+app.include_router(feed.router)
 
 
 @app.get("/api/health", response_model=HealthResponse)

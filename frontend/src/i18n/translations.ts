@@ -1,6 +1,6 @@
 const translations = {
   // Navigation
-  "nav.trends": { he: "טרנדים", en: "Trends" },
+  "nav.trends": { he: "פיד", en: "Feed" },
   "nav.news": { he: "חדשות", en: "News" },
   "nav.screener": { he: "סקרינר", en: "Screener" },
   "nav.trade": { he: "תרגול", en: "Practice" },
@@ -181,6 +181,17 @@ const translations = {
   "watchlist.buyAction": { he: "קנה", en: "Buy" },
   "watchlist.noTrend": { he: "ללא טרנד", en: "No trend" },
   "watchlist.score": { he: "ציון", en: "Score" },
+
+  // Feed
+  "feed.title": { he: "פיד מגמות", en: "Trend Feed" },
+  "feed.mentionsToday": { he: "אזכורים היום", en: "mentions today" },
+  "feed.relatedStocks": { he: "מניות קשורות", en: "Related Stocks" },
+  "feed.israelNews": { he: "חדשות ישראל", en: "Israel News" },
+  "feed.podcasts": { he: "פודקאסטים", en: "Podcasts" },
+  "feed.rising": { he: "עולה", en: "Rising" },
+  "feed.falling": { he: "יורד", en: "Falling" },
+  "feed.stable": { he: "יציב", en: "Stable" },
+  "feed.hot": { he: "חם", en: "HOT" },
 
   // General
   "general.loading": { he: "טוען...", en: "Loading..." },

@@ -104,13 +104,72 @@ export interface NewsItem {
   title: string;
   url: string;
   source: string;
-  source_type?: "news" | "x" | "google_trends";
+  source_type?: "news" | "x" | "google_trends" | "il_news";
+  source_key?: string;
   published_at: string;
   image_url: string;
+  description?: string;
   related_ticker: string | null;
   related_topic: string | null;
+  language?: string;
   likes?: number;
   retweets?: number;
+}
+
+// ── Feed Types ──
+
+export interface MomentumHistoryPoint {
+  date: string;
+  mentions: number;
+}
+
+export interface FeedTopicInfo {
+  slug: string;
+  name_en: string;
+  name_he: string;
+  sector: string;
+  sector_en: string;
+  momentum_score: number;
+  direction: "rising" | "stable" | "falling";
+  mention_count_today: number;
+  mention_avg_7d: number;
+  updated_at: string | null;
+}
+
+export interface FeedStock {
+  ticker: string;
+  company_name: string;
+  relevance_note: string;
+  current_price: number | null;
+  daily_change_pct: number | null;
+}
+
+export interface FeedItem {
+  topic: FeedTopicInfo;
+  momentum_history: MomentumHistoryPoint[];
+  stocks: FeedStock[];
+  top_article: NewsItem | null;
+  articles: NewsItem[];
+  il_news: NewsItem[];
+}
+
+export interface PodcastEpisode {
+  podcast_key: string;
+  podcast_name: string;
+  title: string;
+  url: string;
+  audio_url: string;
+  published_at: string;
+  description: string;
+  duration: string;
+  image_url: string;
+}
+
+export interface UnifiedFeed {
+  feed: FeedItem[];
+  il_news_general: NewsItem[];
+  podcasts: PodcastEpisode[];
+  generated_at: string;
 }
 
 export interface RelatedStock {

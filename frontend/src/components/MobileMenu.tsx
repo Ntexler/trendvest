@@ -1,6 +1,6 @@
 "use client";
 import { useI18n } from "@/i18n/context";
-import { TrendingUp, Newspaper, Search, BarChart3, Star } from "lucide-react";
+import { TrendingUp, Search, BarChart3, Star } from "lucide-react";
 
 interface Props {
   activePage: string;
@@ -9,7 +9,6 @@ interface Props {
 
 const tabs = [
   { id: "trends", icon: TrendingUp, labelKey: "nav.trends" as const },
-  { id: "news", icon: Newspaper, labelKey: "nav.news" as const },
   { id: "screener", icon: Search, labelKey: "nav.screener" as const },
   { id: "trade", icon: BarChart3, labelKey: "nav.trade" as const },
   { id: "watchlist", icon: Star, labelKey: "nav.watchlist" as const },
