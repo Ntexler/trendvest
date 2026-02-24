@@ -362,6 +362,9 @@ export interface AgentTrade {
   opened_at: string | null;
   closed_at: string | null;
   pnl_pct: number | null;
+  outcome_1d: number | null;
+  outcome_7d: number | null;
+  outcome_30d: number | null;
 }
 
 export interface AgentPerformance {
@@ -418,6 +421,7 @@ export interface AgentAnalysis {
     direction: string;
     reason: string;
     regime: string;
+    earnings_warning?: { is_blackout: boolean; days_until_earnings: number; reason: string } | null;
   };
 }
 

@@ -30,6 +30,7 @@ const SIGNAL_LABELS: Record<string, { he: string; en: string; icon: string }> = 
   macro: { he: "מאקרו", en: "Macro", icon: "🏛️" },
   supply_chain: { he: "שרשרת אספקה", en: "Supply Chain", icon: "🔗" },
   cross_reference: { he: "הצלבה", en: "Cross-Ref", icon: "🔀" },
+  nlp_sentiment: { he: "NLP סנטימנט", en: "NLP Sentiment", icon: "🧠" },
 };
 
 export default function AgentDashboard({ onStockClick }: Props) {
@@ -272,6 +273,13 @@ export default function AgentDashboard({ onStockClick }: Props) {
                         {t.pnl_pct >= 0 ? "+" : ""}{t.pnl_pct.toFixed(1)}%
                       </span>
                     )}
+                    {(t.outcome_1d !== null || t.outcome_7d !== null || t.outcome_30d !== null) && (
+                      <span className="text-[9px] text-[#475569]">
+                        {t.outcome_1d !== null && <span className={t.outcome_1d >= 0 ? "text-green-600" : "text-red-600"}>1d:{t.outcome_1d > 0 ? "+" : ""}{t.outcome_1d.toFixed(1)}% </span>}
+                        {t.outcome_7d !== null && <span className={t.outcome_7d >= 0 ? "text-green-600" : "text-red-600"}>7d:{t.outcome_7d > 0 ? "+" : ""}{t.outcome_7d.toFixed(1)}% </span>}
+                        {t.outcome_30d !== null && <span className={t.outcome_30d >= 0 ? "text-green-600" : "text-red-600"}>30d:{t.outcome_30d > 0 ? "+" : ""}{t.outcome_30d.toFixed(1)}%</span>}
+                      </span>
+                    )}
                     <span className={`w-1.5 h-1.5 rounded-full ${t.is_open ? "bg-green-400" : "bg-[#475569]"}`} />
                   </div>
                 </div>
@@ -373,6 +381,15 @@ export default function AgentDashboard({ onStockClick }: Props) {
                 <span className="text-white font-medium">
                   {locale === "he" ? "ביטחון" : "Conf"}: {(analysis.decision.confidence * 100).toFixed(0)}%
                 </span>
+              </div>
+              {analysis.decision.earnings_warning && (
+                <div className="mt-1 flex items-center gap-1.5 text-[10px] text-amber-400">
+                  <AlertTriangle className="w-3 h-3" />
+                  {locale === "he"
+                    ? `אזהרת דוחות — ${analysis.decision.earnings_warning.days_until_earnings} ימים לדוחות`
+                    : analysis.decision.earnings_warning.reason}
+                </div>
+              )
               </div>
             </div>
 

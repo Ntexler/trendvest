@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS agent_signals (
     id SERIAL PRIMARY KEY,
     signal_type VARCHAR(30) NOT NULL CHECK (signal_type IN (
         'momentum', 'sentiment', 'user_herd', 'technical',
-        'macro', 'supply_chain', 'cross_reference'
+        'macro', 'supply_chain', 'cross_reference', 'nlp_sentiment'
     )),
     ticker VARCHAR(10),
     topic_slug VARCHAR(50),
@@ -83,7 +83,8 @@ INSERT INTO agent_signal_weights (signal_type, weight) VALUES
     ('technical', 1.0),
     ('macro', 1.0),
     ('supply_chain', 1.0),
-    ('cross_reference', 1.0)
+    ('cross_reference', 1.0),
+    ('nlp_sentiment', 0.8)
 ON CONFLICT (signal_type) DO NOTHING;
 
 -- ══════════════════════════════════════

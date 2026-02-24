@@ -1,11 +1,12 @@
 """
-TrendVest AI Agent Brain.
+TrendVest AI Agent Brain — v2.
 
-The core decision engine that:
-1. Fuses signals into a confidence score
-2. Decides buy/sell/hold with risk management
-3. Executes paper trades
-4. Tracks performance and adjusts signal weights
+v2 additions:
+  - Regime-specific signal weights (bull/bear/volatile have different weights)
+  - Signal decay integration (older signals matter less)
+  - Earnings blackout check (don't trade near earnings)
+  - Outcome tracking for 1d/7d/30d periods
+  - Improved self-correction with regime context
 
 HONEST DISCLAIMER:
 This is a weighted scoring system, NOT machine learning.
@@ -33,7 +34,48 @@ MIN_CONFIDENCE = 0.55          # Don't trade below this confidence
 STOP_LOSS_PCT = -8.0           # Sell if down 8%
 TAKE_PROFIT_PCT = 15.0         # Sell if up 15%
 DAILY_LOSS_LIMIT_PCT = -3.0    # Stop trading if portfolio drops 3% in a day
-POSITION_SIZE_SHARES = 10      # Base quantity per trade (adjusted by confidence)
+
+# Regime-specific confidence multipliers
+# In volatile markets, require more confidence to act
+REGIME_MULTIPLIERS = {
+    "bull": 1.0,       # Normal confidence threshold
+    "normal": 1.0,
+    "bear": 0.8,       # Harder to buy in bear market
+    "volatile": 0.65,  # Much harder — VIX > 30
+}
+
+# Regime-specific signal trust adjustments
+# e.g., technical signals work better in bull markets
+REGIME_SIGNAL_ADJUSTMENTS: dict[str, dict[str, float]] = {
+    "bull": {
+        "technical": 1.2,    # RSI oversold bounces work well
+        "momentum": 1.1,     # Momentum follows trend
+        "user_herd": 0.8,    # FOMO risk higher in bull
+        "sentiment": 1.0,
+        "nlp_sentiment": 0.9,  # NLP less trusted than API sentiment
+        "macro": 0.8,        # Macro less relevant when VIX is low
+        "cross_reference": 1.0,
+    },
+    "bear": {
+        "technical": 0.8,    # Oversold can keep falling
+        "momentum": 0.7,     # Momentum is unreliable in bear
+        "user_herd": 0.6,    # Users are wrong more often
+        "sentiment": 1.2,    # Sentiment extremes = potential bottoms
+        "nlp_sentiment": 1.0,  # NLP can catch bottom sentiment
+        "macro": 1.3,        # Macro drives bear markets
+        "cross_reference": 0.9,
+    },
+    "volatile": {
+        "technical": 0.7,    # Whipsaws kill technical signals
+        "momentum": 0.6,     # Noise dominates
+        "user_herd": 0.5,    # Panic behavior
+        "sentiment": 0.8,    # Sentiment swings wildly
+        "nlp_sentiment": 0.6,  # NLP too noisy in volatile markets
+        "macro": 1.4,        # VIX and macro are king
+        "cross_reference": 0.7,
+    },
+    "normal": {},  # No adjustments
+}
 
 
 class AgentBrain:
@@ -44,21 +86,39 @@ class AgentBrain:
         self.stock_service = stock_service
 
     # ──────────────────────────────────────
-    # SIGNAL FUSION
+    # SIGNAL FUSION (v2: regime-aware + decay)
     # ──────────────────────────────────────
 
-    async def fuse_signals(self, signals: list[dict]) -> dict:
+    async def fuse_signals(
+        self,
+        signals: list[dict],
+        ticker: Optional[str] = None,
+    ) -> dict:
         """
         Combine multiple signals into a single confidence score.
 
-        Uses learned weights from agent_signal_weights table.
-        Returns { direction, confidence, signals_used, regime }.
+        v2 improvements:
+        - Apply time decay to signal strength
+        - Use regime-specific weight adjustments
+        - Check earnings blackout
         """
         if not signals:
-            return {"direction": "neutral", "confidence": 0.0, "signals_used": 0}
+            return {"direction": "neutral", "confidence": 0.0, "signals_used": 0, "regime": "normal"}
 
-        # Load current weights
+        # Apply signal decay
+        from .agent_signals import apply_signal_decay
+        signals = [apply_signal_decay(s) for s in signals]
+
+        # Detect regime from macro signal
+        regime = "normal"
+        for s in signals:
+            if s["signal_type"] == "macro" and s.get("raw_data", {}).get("regime"):
+                regime = s["raw_data"]["regime"]
+                break
+
+        # Load learned weights
         weights = await self._get_signal_weights()
+        regime_adj = REGIME_SIGNAL_ADJUSTMENTS.get(regime, {})
 
         weighted_score = 0.0
         total_weight = 0.0
@@ -66,9 +126,10 @@ class AgentBrain:
 
         for signal in signals:
             stype = signal["signal_type"]
-            weight = weights.get(stype, 1.0)
+            base_weight = weights.get(stype, 1.0)
+            regime_factor = regime_adj.get(stype, 1.0)
+            weight = base_weight * regime_factor
 
-            # Convert direction to numeric
             if signal["direction"] == "bullish":
                 dir_score = 1.0
             elif signal["direction"] == "bearish":
@@ -81,13 +142,11 @@ class AgentBrain:
             total_weight += weight * signal["strength"]
             signals_used += 1
 
-        # Normalize to -1..+1 range
         if total_weight > 0:
             normalized = weighted_score / total_weight
         else:
             normalized = 0.0
 
-        # Convert to confidence (0..1) and direction
         confidence = abs(normalized)
         if normalized > 0.05:
             direction = "bullish"
@@ -97,16 +156,17 @@ class AgentBrain:
             direction = "neutral"
             confidence = 0.0
 
-        # Extract regime from macro signal if present
-        regime = "normal"
-        for s in signals:
-            if s["signal_type"] == "macro" and s.get("raw_data", {}).get("regime"):
-                regime = s["raw_data"]["regime"]
-                break
+        # Apply regime confidence multiplier
+        confidence *= REGIME_MULTIPLIERS.get(regime, 1.0)
 
-        # Dampen confidence in volatile regime
-        if regime == "volatile":
-            confidence *= 0.7
+        # Earnings blackout check
+        earnings_warning = None
+        if ticker:
+            from .agent_signals import detect_earnings_blackout
+            blackout = detect_earnings_blackout(ticker)
+            if blackout and blackout.get("is_blackout"):
+                confidence *= 0.3  # Dramatically reduce confidence near earnings
+                earnings_warning = blackout
 
         return {
             "direction": direction,
@@ -114,6 +174,7 @@ class AgentBrain:
             "signals_used": signals_used,
             "regime": regime,
             "raw_score": round(normalized, 4),
+            "earnings_warning": earnings_warning,
         }
 
     # ──────────────────────────────────────
@@ -126,7 +187,7 @@ class AgentBrain:
 
         Returns { action, confidence, reason, signals_snapshot }.
         """
-        fusion = await self.fuse_signals(signals)
+        fusion = await self.fuse_signals(signals, ticker=ticker)
 
         # Check if we already hold this
         holding = await self._get_holding(ticker)
@@ -392,6 +453,87 @@ class AgentBrain:
             return {"updated": len(updates), "details": updates}
 
     # ──────────────────────────────────────
+    # OUTCOME TRACKING (1d / 7d / 30d)
+    # ──────────────────────────────────────
+
+    async def update_trade_outcomes(self) -> dict:
+        """
+        Update outcome_1d, outcome_7d, outcome_30d for open and recently closed trades.
+
+        For each buy trade, check what the current price is vs entry price at
+        the 1-day, 7-day, and 30-day marks. This lets us see which signals
+        actually predicted correct moves over different time horizons.
+        """
+        now = datetime.now(timezone.utc)
+        updated = {"outcome_1d": 0, "outcome_7d": 0, "outcome_30d": 0}
+
+        async with self.pool.acquire() as conn:
+            # Get trades that need outcome updates
+            trades = await conn.fetch("""
+                SELECT id, ticker, entry_price, opened_at,
+                       outcome_1d, outcome_7d, outcome_30d
+                FROM agent_trades
+                WHERE entry_price IS NOT NULL
+                  AND opened_at IS NOT NULL
+                  AND (
+                      (outcome_1d IS NULL AND opened_at <= NOW() - INTERVAL '1 day')
+                      OR (outcome_7d IS NULL AND opened_at <= NOW() - INTERVAL '7 days')
+                      OR (outcome_30d IS NULL AND opened_at <= NOW() - INTERVAL '30 days')
+                  )
+                ORDER BY opened_at DESC
+                LIMIT 100
+            """)
+
+            if not trades:
+                return {"updated": updated, "total_checked": 0}
+
+            # Gather unique tickers for batch price fetch
+            tickers = list({t["ticker"] for t in trades})
+            prices = self.stock_service.get_prices_batch(tickers) if tickers else {}
+
+            for trade in trades:
+                ticker = trade["ticker"]
+                entry = float(trade["entry_price"])
+                opened = trade["opened_at"]
+                if not opened or entry <= 0:
+                    continue
+
+                # Get current price for this ticker
+                pd = prices.get(ticker)
+                current_price = pd.price if pd else None
+                if not current_price:
+                    continue
+
+                pnl_pct = round((current_price / entry - 1) * 100, 2)
+                age = now - opened
+
+                # 1-day outcome
+                if trade["outcome_1d"] is None and age >= timedelta(days=1):
+                    await conn.execute(
+                        "UPDATE agent_trades SET outcome_1d = $1 WHERE id = $2",
+                        pnl_pct, trade["id"],
+                    )
+                    updated["outcome_1d"] += 1
+
+                # 7-day outcome
+                if trade["outcome_7d"] is None and age >= timedelta(days=7):
+                    await conn.execute(
+                        "UPDATE agent_trades SET outcome_7d = $1 WHERE id = $2",
+                        pnl_pct, trade["id"],
+                    )
+                    updated["outcome_7d"] += 1
+
+                # 30-day outcome
+                if trade["outcome_30d"] is None and age >= timedelta(days=30):
+                    await conn.execute(
+                        "UPDATE agent_trades SET outcome_30d = $1 WHERE id = $2",
+                        pnl_pct, trade["id"],
+                    )
+                    updated["outcome_30d"] += 1
+
+        return {"updated": updated, "total_checked": len(trades)}
+
+    # ──────────────────────────────────────
     # PERFORMANCE TRACKING
     # ──────────────────────────────────────
 
@@ -556,7 +698,8 @@ class AgentBrain:
             # Recent trades
             trades = await conn.fetch("""
                 SELECT ticker, action, quantity, entry_price, exit_price,
-                       confidence, is_open, opened_at, closed_at
+                       confidence, is_open, opened_at, closed_at,
+                       outcome_1d, outcome_7d, outcome_30d
                 FROM agent_trades
                 ORDER BY opened_at DESC
                 LIMIT 20
@@ -604,6 +747,9 @@ class AgentBrain:
                     "opened_at": t["opened_at"].isoformat() if t["opened_at"] else None,
                     "closed_at": t["closed_at"].isoformat() if t["closed_at"] else None,
                     "pnl_pct": round((t["exit_price"] / t["entry_price"] - 1) * 100, 2) if t["exit_price"] and t["entry_price"] else None,
+                    "outcome_1d": t["outcome_1d"],
+                    "outcome_7d": t["outcome_7d"],
+                    "outcome_30d": t["outcome_30d"],
                 }
                 for t in trades
             ],
