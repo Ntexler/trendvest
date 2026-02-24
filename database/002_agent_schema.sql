@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS agent_signals (
     id SERIAL PRIMARY KEY,
     signal_type VARCHAR(30) NOT NULL CHECK (signal_type IN (
         'momentum', 'sentiment', 'user_herd', 'technical',
-        'macro', 'supply_chain', 'cross_reference', 'nlp_sentiment'
+        'macro', 'supply_chain', 'cross_reference', 'nlp_sentiment', 'user_ml'
     )),
     ticker VARCHAR(10),
     topic_slug VARCHAR(50),
@@ -84,7 +84,8 @@ INSERT INTO agent_signal_weights (signal_type, weight) VALUES
     ('macro', 1.0),
     ('supply_chain', 1.0),
     ('cross_reference', 1.0),
-    ('nlp_sentiment', 0.8)
+    ('nlp_sentiment', 0.8),
+    ('user_ml', 1.2)
 ON CONFLICT (signal_type) DO NOTHING;
 
 -- ══════════════════════════════════════
@@ -118,6 +119,35 @@ CREATE INDEX IF NOT EXISTS idx_agent_signals_ticker ON agent_signals(ticker, cre
 CREATE INDEX IF NOT EXISTS idx_agent_trades_open ON agent_trades(is_open, opened_at DESC);
 CREATE INDEX IF NOT EXISTS idx_agent_trades_ticker ON agent_trades(ticker, opened_at DESC);
 CREATE INDEX IF NOT EXISTS idx_agent_perf_date ON agent_performance(date DESC);
+
+-- ══════════════════════════════════════
+-- ML MODEL STORAGE
+-- ══════════════════════════════════════
+
+-- Stores trained ML models as pickled bytes
+CREATE TABLE IF NOT EXISTS agent_ml_models (
+    id SERIAL PRIMARY KEY,
+    model_key VARCHAR(50) NOT NULL UNIQUE,
+    model_data BYTEA NOT NULL,
+    metadata JSONB,
+    trained_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+-- ══════════════════════════════════════
+-- BREAKING NEWS ALERTS LOG
+-- ══════════════════════════════════════
+
+CREATE TABLE IF NOT EXISTS agent_breaking_alerts (
+    id SERIAL PRIMARY KEY,
+    ticker VARCHAR(10) NOT NULL,
+    headline TEXT NOT NULL,
+    velocity_ratio FLOAT NOT NULL DEFAULT 0,
+    urgency_score FLOAT NOT NULL DEFAULT 0,
+    scan_triggered BOOLEAN NOT NULL DEFAULT false,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_agent_breaking_created ON agent_breaking_alerts(created_at DESC);
 
 -- Initialize agent portfolio if not exists
 INSERT INTO agent_portfolio (cash_balance) VALUES (100000)

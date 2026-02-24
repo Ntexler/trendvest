@@ -30,6 +30,7 @@ async def _collect_signals(ticker: str, pool, stock_service) -> dict:
         extract_macro_signal,
         extract_user_herd_signal,
         extract_nlp_sentiment_signal,
+        extract_user_ml_signal,
     )
     from ..services.alpha_vantage import AlphaVantageCollector
     from ..services.finnhub import FinnhubCollector
@@ -81,7 +82,7 @@ async def _collect_signals(ticker: str, pool, stock_service) -> dict:
             nlp_sig["signal_type"] = "nlp_sentiment"
             signals.append(nlp_sig)
 
-    # 6. Momentum + User herd — need topic for this ticker
+    # 6. Momentum + User herd + ML — need topic for this ticker
     async with pool.acquire() as conn:
         topic_row = await conn.fetchrow("""
             SELECT t.slug FROM topics t
@@ -100,6 +101,11 @@ async def _collect_signals(ticker: str, pool, stock_service) -> dict:
         user_herd = await extract_user_herd_signal(pool, topic_slug, stock_service=stock_service)
         if user_herd:
             signals.append(user_herd)
+
+        # 7. User Behavior ML (real scikit-learn model)
+        ml_sig = await extract_user_ml_signal(pool, topic_slug, stock_service=stock_service)
+        if ml_sig:
+            signals.append(ml_sig)
 
     return {"all": signals, "topic_slug": topic_slug}
 
@@ -210,3 +216,100 @@ async def get_signal_weights(pool=Depends(get_db_pool)):
             for r in rows
         ]
     }
+
+
+@router.get("/breaking")
+async def get_breaking_news(
+    pool=Depends(get_db_pool),
+    stock_service=Depends(get_stock_service),
+):
+    """
+    Scan for breaking news across the agent's watchlist.
+    Returns urgent alerts sorted by urgency × velocity.
+    """
+    from ..services.agent_breaking import detect_breaking_news, get_agent_watchlist
+    from ..services.finnhub import FinnhubCollector
+
+    watchlist = await get_agent_watchlist(pool)
+    if not watchlist:
+        return {"has_breaking": False, "alerts": [], "tickers_scanned": 0}
+
+    finnhub = FinnhubCollector()
+    result = detect_breaking_news(watchlist, finnhub_collector=finnhub)
+
+    # Log alerts to DB for audit
+    if result["has_breaking"]:
+        async with pool.acquire() as conn:
+            for alert in result["alerts"][:5]:
+                await conn.execute("""
+                    INSERT INTO agent_breaking_alerts
+                        (ticker, headline, velocity_ratio, urgency_score)
+                    VALUES ($1, $2, $3, $4)
+                """, alert["ticker"], alert["headline"],
+                   alert["velocity_ratio"], alert["urgency_score"])
+
+    return result
+
+
+@router.post("/breaking/scan")
+async def trigger_breaking_scan(
+    pool=Depends(get_db_pool),
+    stock_service=Depends(get_stock_service),
+):
+    """
+    Scan for breaking news AND auto-analyze any tickers with alerts.
+    This is the "hot news rapid response" endpoint.
+    """
+    from ..services.agent_breaking import detect_breaking_news, get_agent_watchlist
+    from ..services.finnhub import FinnhubCollector
+
+    watchlist = await get_agent_watchlist(pool)
+    finnhub = FinnhubCollector()
+    breaking = detect_breaking_news(watchlist, finnhub_collector=finnhub)
+
+    analyses = []
+    if breaking["has_breaking"]:
+        brain = _get_brain(pool, stock_service)
+        # Auto-analyze the top 3 most urgent tickers
+        for alert in breaking["alerts"][:3]:
+            ticker = alert["ticker"]
+            signals = await _collect_signals(ticker, pool, stock_service)
+            decision = await brain.evaluate_ticker(ticker, signals["all"])
+            analyses.append({
+                "ticker": ticker,
+                "headline": alert["headline"],
+                "urgency": alert["urgency_score"],
+                "decision": decision["action"],
+                "confidence": decision["confidence"],
+                "reason": decision["reason"],
+            })
+
+    return {
+        "breaking": breaking,
+        "auto_analyses": analyses,
+    }
+
+
+@router.post("/ml/retrain")
+async def retrain_ml_model(
+    pool=Depends(get_db_pool),
+    stock_service=Depends(get_stock_service),
+):
+    """
+    Retrain the user behavior ML model on historical data.
+    Should be called weekly or when significant new data is available.
+    """
+    from ..services.agent_user_ml import UserBehaviorML
+    ml = UserBehaviorML(pool, stock_service)
+    return await ml.retrain()
+
+
+@router.get("/ml/info")
+async def get_ml_model_info(
+    pool=Depends(get_db_pool),
+    stock_service=Depends(get_stock_service),
+):
+    """Get info about the current ML model status and accuracy."""
+    from ..services.agent_user_ml import UserBehaviorML
+    ml = UserBehaviorML(pool, stock_service)
+    return await ml.get_model_info()

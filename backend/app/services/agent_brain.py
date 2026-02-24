@@ -55,6 +55,7 @@ REGIME_SIGNAL_ADJUSTMENTS: dict[str, dict[str, float]] = {
         "nlp_sentiment": 0.9,  # NLP less trusted than API sentiment
         "macro": 0.8,        # Macro less relevant when VIX is low
         "cross_reference": 1.0,
+        "user_ml": 1.2,      # ML shines in stable bull markets
     },
     "bear": {
         "technical": 0.8,    # Oversold can keep falling
@@ -64,6 +65,7 @@ REGIME_SIGNAL_ADJUSTMENTS: dict[str, dict[str, float]] = {
         "nlp_sentiment": 1.0,  # NLP can catch bottom sentiment
         "macro": 1.3,        # Macro drives bear markets
         "cross_reference": 0.9,
+        "user_ml": 0.7,      # User patterns less reliable in panic
     },
     "volatile": {
         "technical": 0.7,    # Whipsaws kill technical signals
@@ -73,6 +75,7 @@ REGIME_SIGNAL_ADJUSTMENTS: dict[str, dict[str, float]] = {
         "nlp_sentiment": 0.6,  # NLP too noisy in volatile markets
         "macro": 1.4,        # VIX and macro are king
         "cross_reference": 0.7,
+        "user_ml": 0.5,      # ML trained on normal data fails in chaos
     },
     "normal": {},  # No adjustments
 }

@@ -268,6 +268,18 @@ export const executeTickerAgent = (ticker: string) =>
 export const triggerAgentLearning = () =>
   fetchJSON<{ weight_update: unknown; performance: unknown }>("/agent/learn", { method: "POST" });
 
+export const getBreakingNews = () =>
+  fetchJSON<import("./types").BreakingNewsResult>("/agent/breaking");
+
+export const triggerBreakingScan = () =>
+  fetchJSON<{ breaking: import("./types").BreakingNewsResult; auto_analyses: import("./types").BreakingAnalysis[] }>("/agent/breaking/scan", { method: "POST" });
+
+export const retrainAgentML = () =>
+  fetchJSON<import("./types").MLModelInfo>("/agent/ml/retrain", { method: "POST" });
+
+export const getAgentMLInfo = () =>
+  fetchJSON<import("./types").MLModelInfo>("/agent/ml/info");
+
 // Tracking
 export const trackInteraction = (data: {
   interaction_type: string;

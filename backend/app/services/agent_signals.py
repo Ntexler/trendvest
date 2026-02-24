@@ -451,6 +451,50 @@ def extract_nlp_sentiment_signal(texts: list[str], source_label: str = "mixed") 
     })
 
 
+# ── 9. User Behavior ML Signal ──
+
+async def extract_user_ml_signal(pool, topic_slug: str, stock_service=None) -> Optional[dict]:
+    """
+    ML-based signal from user behavior patterns.
+
+    Uses a trained scikit-learn model to predict price movement
+    based on how users interact with a topic.
+
+    This is the ONLY real ML signal in the system.
+    """
+    try:
+        from .agent_user_ml import UserBehaviorML
+        ml = UserBehaviorML(pool, stock_service)
+        prediction = await ml.predict(topic_slug)
+
+        if not prediction:
+            return None
+
+        if prediction["prediction"] == "bullish":
+            direction = "bullish"
+        elif prediction["prediction"] == "bearish":
+            direction = "bearish"
+        else:
+            direction = "neutral"
+
+        # ML confidence is scaled by model accuracy
+        accuracy = prediction.get("training_accuracy") or 0.5
+        # Raw ML confidence × model accuracy = effective strength
+        effective_strength = prediction["confidence"] * min(accuracy * 1.5, 1.0)
+
+        return _make_signal("user_ml", direction, min(0.85, effective_strength), {
+            "probability": prediction["probability"],
+            "confidence": prediction["confidence"],
+            "model_type": prediction["model_type"],
+            "training_accuracy": accuracy,
+            "features": prediction["features"],
+        })
+
+    except Exception as e:
+        logger.debug("User ML signal failed for %s: %s", topic_slug, e)
+        return None
+
+
 # ── Signal Decay ──
 
 def apply_signal_decay(signal: dict, half_life_hours: float = 48.0) -> dict:

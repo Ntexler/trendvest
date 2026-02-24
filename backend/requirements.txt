@@ -14,8 +14,11 @@ requests==2.32.3     # NewsAPI + HTTP
 yfinance==0.2.51     # Stock prices
 pytrends==4.9.2      # Google Trends (unofficial)
 
-# ── AI ──
+# ── AI / ML ──
 anthropic==0.42.0    # Claude API
+scikit-learn>=1.5.0  # User behavior ML model
+numpy>=2.0.0         # Numerical computing
+pandas>=2.2.0        # Data manipulation
 
 # ── Auth ──
 passlib[bcrypt]>=1.7.4

@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useI18n } from "@/i18n/context";
-import { getAgentDashboard, analyzeTickerAgent, triggerAgentLearning } from "@/lib/api";
-import type { AgentDashboard as AgentDashboardType, AgentAnalysis } from "@/lib/types";
+import { getAgentDashboard, analyzeTickerAgent, triggerAgentLearning, getBreakingNews, triggerBreakingScan } from "@/lib/api";
+import type { AgentDashboard as AgentDashboardType, AgentAnalysis, BreakingNewsResult, BreakingAnalysis } from "@/lib/types";
 import {
   Brain,
   TrendingUp,
@@ -16,6 +16,8 @@ import {
   ChevronUp,
   AlertTriangle,
   Search,
+  Zap,
+  Radio,
 } from "lucide-react";
 
 interface Props {
@@ -31,6 +33,7 @@ const SIGNAL_LABELS: Record<string, { he: string; en: string; icon: string }> = 
   supply_chain: { he: "שרשרת אספקה", en: "Supply Chain", icon: "🔗" },
   cross_reference: { he: "הצלבה", en: "Cross-Ref", icon: "🔀" },
   nlp_sentiment: { he: "NLP סנטימנט", en: "NLP Sentiment", icon: "🧠" },
+  user_ml: { he: "ML משתמשים", en: "User ML", icon: "🤖" },
 };
 
 export default function AgentDashboard({ onStockClick }: Props) {
@@ -42,12 +45,20 @@ export default function AgentDashboard({ onStockClick }: Props) {
   const [analyzing, setAnalyzing] = useState(false);
   const [showWeights, setShowWeights] = useState(false);
   const [showTrades, setShowTrades] = useState(false);
+  const [breaking, setBreaking] = useState<BreakingNewsResult | null>(null);
+  const [breakingAnalyses, setBreakingAnalyses] = useState<BreakingAnalysis[]>([]);
+  const [scanningBreaking, setScanningBreaking] = useState(false);
 
   const load = async () => {
     setLoading(true);
     try {
       const d = await getAgentDashboard();
       setData(d);
+      // Also load breaking news
+      try {
+        const b = await getBreakingNews();
+        setBreaking(b);
+      } catch { /* breaking news is optional */ }
     } catch (e) {
       console.error(e);
     } finally {
@@ -77,6 +88,19 @@ export default function AgentDashboard({ onStockClick }: Props) {
       await load();
     } catch (e) {
       console.error(e);
+    }
+  };
+
+  const handleBreakingScan = async () => {
+    setScanningBreaking(true);
+    try {
+      const result = await triggerBreakingScan();
+      setBreaking(result.breaking);
+      setBreakingAnalyses(result.auto_analyses || []);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setScanningBreaking(false);
     }
   };
 
@@ -128,6 +152,82 @@ export default function AgentDashboard({ onStockClick }: Props) {
           </p>
         </div>
       </div>
+
+      {/* Breaking News Alerts */}
+      <section className="bg-[#111827] rounded-xl border border-red-500/20 overflow-hidden">
+        <div className="flex items-center justify-between p-3">
+          <h3 className="text-xs font-semibold text-red-400 uppercase flex items-center gap-1.5">
+            <Zap className="w-3.5 h-3.5" />
+            {locale === "he" ? "חדשות חמות" : "Breaking News Scanner"}
+            {breaking?.has_breaking && (
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
+              </span>
+            )}
+          </h3>
+          <button
+            onClick={handleBreakingScan}
+            disabled={scanningBreaking}
+            className="flex items-center gap-1 px-2 py-1 rounded-lg bg-red-500/10 text-red-400 text-[10px] font-medium hover:bg-red-500/20 transition disabled:opacity-40"
+          >
+            {scanningBreaking ? <Loader2 className="w-3 h-3 animate-spin" /> : <Radio className="w-3 h-3" />}
+            {locale === "he" ? "סרוק עכשיו" : "Scan Now"}
+          </button>
+        </div>
+        {breaking?.has_breaking && breaking.alerts.length > 0 ? (
+          <div className="px-3 pb-3 space-y-1.5">
+            {breaking.alerts.map((alert, i) => (
+              <div key={i} className="p-2 rounded-lg bg-red-500/5 border border-red-500/10">
+                <div className="flex items-center justify-between mb-0.5">
+                  <button onClick={() => onStockClick?.(alert.ticker)} className="font-mono text-sm font-bold text-red-400 hover:underline">
+                    {alert.ticker}
+                  </button>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] text-[#64748b]">
+                      {alert.articles_2h} {locale === "he" ? "כתבות ב-2 שע'" : "articles in 2h"}
+                    </span>
+                    <span className={`px-1 py-0.5 rounded text-[9px] font-bold ${
+                      alert.urgency_score >= 0.7 ? "bg-red-500/20 text-red-400" :
+                      alert.urgency_score >= 0.4 ? "bg-amber-500/20 text-amber-400" :
+                      "bg-[#1e293b] text-[#64748b]"
+                    }`}>
+                      {alert.velocity_ratio}x
+                    </span>
+                  </div>
+                </div>
+                <p className="text-[10px] text-[#94a3b8] line-clamp-1">{alert.headline}</p>
+              </div>
+            ))}
+            {/* Auto-analysis results from scan */}
+            {breakingAnalyses.length > 0 && (
+              <div className="mt-2 pt-2 border-t border-red-500/10">
+                <p className="text-[9px] text-red-300 font-medium mb-1">
+                  {locale === "he" ? "ניתוח מהיר:" : "Rapid analysis:"}
+                </p>
+                {breakingAnalyses.map((a, i) => (
+                  <div key={i} className="flex items-center justify-between text-[10px] py-0.5">
+                    <span className="text-white font-mono">{a.ticker}</span>
+                    <span className={`font-medium ${
+                      a.decision === "buy" ? "text-green-400" :
+                      a.decision === "sell" ? "text-red-400" :
+                      "text-[#64748b]"
+                    }`}>
+                      {a.decision.toUpperCase()} ({(a.confidence * 100).toFixed(0)}%)
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="px-3 pb-3">
+            <p className="text-[10px] text-[#475569] text-center">
+              {locale === "he" ? "אין חדשות חמות כרגע. לחץ ״סרוק עכשיו״ לבדיקה." : "No breaking news detected. Click \"Scan Now\" to check."}
+            </p>
+          </div>
+        )}
+      </section>
 
       {/* Portfolio Summary */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
@@ -389,8 +489,7 @@ export default function AgentDashboard({ onStockClick }: Props) {
                     ? `אזהרת דוחות — ${analysis.decision.earnings_warning.days_until_earnings} ימים לדוחות`
                     : analysis.decision.earnings_warning.reason}
                 </div>
-              )
-              </div>
+              )}
             </div>
 
             {/* Signals breakdown */}

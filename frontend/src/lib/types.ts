@@ -425,6 +425,49 @@ export interface AgentAnalysis {
   };
 }
 
+// ── Breaking News Types ──
+
+export interface BreakingAlert {
+  ticker: string;
+  headline: string;
+  source: string;
+  articles_2h: number;
+  articles_24h: number;
+  velocity_ratio: number;
+  urgency_score: number;
+}
+
+export interface BreakingNewsResult {
+  has_breaking: boolean;
+  alerts: BreakingAlert[];
+  scanned_at: string;
+  tickers_scanned: number;
+  articles_analyzed: number;
+}
+
+export interface BreakingAnalysis {
+  ticker: string;
+  headline: string;
+  urgency: number;
+  decision: string;
+  confidence: number;
+  reason: string;
+}
+
+// ── ML Model Types ──
+
+export interface MLModelInfo {
+  status: string;
+  model_type?: string;
+  samples?: number;
+  cv_accuracy?: number;
+  cv_std?: number;
+  feature_importance?: Record<string, number>;
+  trained_at?: string;
+  message?: string;
+  training_stats?: Record<string, unknown>;
+}
+
 export interface RelatedStock {
   ticker: string;
   company_name: string;
