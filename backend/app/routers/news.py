@@ -1,6 +1,6 @@
 """
-News feed router for TrendVest — aggregates news from yfinance, X (Twitter),
-and Google Trends related queries.
+News feed router for TrendVest — aggregates news from yfinance, Finnhub,
+global RSS (Economist, FT, etc.), X (Twitter), and Google Trends.
 """
 import os
 import json
@@ -132,11 +132,48 @@ def _get_newsapi_articles(keywords: list[str], topic_slug: str | None = None) ->
         return []
 
 
+def _get_finnhub_news(ticker: str, topic_slug: str | None = None) -> list[dict]:
+    """Get company news from Finnhub API."""
+    try:
+        from ..services.finnhub import FinnhubCollector
+        collector = FinnhubCollector()
+        if not collector.api_key:
+            return []
+        items = collector.get_company_news(ticker, days_back=3, limit=5)
+        for item in items:
+            item["related_topic"] = topic_slug
+        return items
+    except Exception as e:
+        print(f"Finnhub news error for {ticker}: {e}")
+        return []
+
+
+def _get_global_rss_news(keywords: list[str], topic_slug: str | None = None) -> list[dict]:
+    """Get news from global RSS feeds (Economist, FT, etc.) matching keywords."""
+    try:
+        from ..services.global_rss import get_global_news, match_global_news_to_topics
+        items = get_global_news(limit=20)
+        # Filter by keywords
+        matched = []
+        for item in items:
+            text = (item.get("title", "") + " " + item.get("description", "")).lower()
+            for kw in keywords:
+                if kw.lower() in text:
+                    item["related_topic"] = topic_slug
+                    matched.append(item)
+                    break
+        return matched[:5]
+    except Exception as e:
+        print(f"Global RSS news error: {e}")
+        return []
+
+
 def _get_stock_news_combined(ticker: str, topic_slug: str | None = None) -> list[dict]:
-    """Try yfinance first, fall back to NewsAPI for a stock."""
+    """Try yfinance first, then Finnhub, then NewsAPI for a stock."""
     results = _get_yfinance_news(ticker, topic_slug)
     if not results:
-        # yfinance failed, try NewsAPI with the ticker as keyword
+        results = _get_finnhub_news(ticker, topic_slug)
+    if not results:
         results = _get_newsapi_articles([ticker], topic_slug)
     return results
 
@@ -197,7 +234,7 @@ def _get_google_trends_queries(keywords: list[str], topic_slug: str | None = Non
 async def get_news(
     topic: Optional[str] = Query(None),
     ticker: Optional[str] = Query(None),
-    source_type: Optional[str] = Query(None, description="Filter by source: news, x, google_trends"),
+    source_type: Optional[str] = Query(None, description="Filter by source: news, finnhub, global_rss, x, google_trends"),
     limit: int = Query(30, le=50),
 ):
     """Get latest news headlines. Filter by topic, ticker, or source type."""
@@ -212,9 +249,11 @@ async def get_news(
     results = []
 
     if ticker:
-        # Single stock: get news + X tweets about that ticker
+        # Single stock: get news from all sources
         if source_type in (None, "news"):
             results.extend(_get_stock_news_combined(ticker.upper()))
+        if source_type in (None, "finnhub"):
+            results.extend(_get_finnhub_news(ticker.upper()))
         if source_type in (None, "x"):
             results.extend(_get_x_tweets([ticker.upper()], max_results=5))
     elif topic:
@@ -223,12 +262,11 @@ async def get_news(
         keywords = _get_topic_keywords(topic)
 
         if source_type in (None, "news"):
-            # Try yfinance for stock-specific news — parallel
-            with ThreadPoolExecutor(max_workers=4) as executor:
-                futures = [
-                    executor.submit(_get_stock_news_combined, t, topic_slug=topic)
-                    for t in tickers[:3]
-                ]
+            # Try yfinance + Finnhub for stock-specific news — parallel
+            with ThreadPoolExecutor(max_workers=6) as executor:
+                futures = []
+                for t in tickers[:3]:
+                    futures.append(executor.submit(_get_stock_news_combined, t, topic_slug=topic))
                 for future in as_completed(futures):
                     try:
                         results.extend(future.result())
@@ -237,6 +275,8 @@ async def get_news(
             # Also try NewsAPI for broader topic news
             if keywords:
                 results.extend(_get_newsapi_articles(keywords, topic_slug=topic))
+        if source_type in (None, "global_rss") and keywords:
+            results.extend(_get_global_rss_news(keywords, topic_slug=topic))
         if source_type in (None, "x") and keywords:
             results.extend(_get_x_tweets(keywords[:3], topic_slug=topic, max_results=5))
         if source_type in (None, "google_trends") and keywords:
@@ -263,8 +303,22 @@ async def get_news(
             # Broad market news via NewsAPI
             results.extend(_get_newsapi_articles(["stock market", "investing", "wall street"]))
 
+        if source_type in (None, "global_rss"):
+            # Global financial news from Economist, FT, etc.
+            results.extend(_get_global_rss_news(
+                ["market", "stocks", "economy", "investment"],
+            ))
+
+        if source_type in (None, "finnhub"):
+            try:
+                from ..services.finnhub import FinnhubCollector
+                collector = FinnhubCollector()
+                if collector.api_key:
+                    results.extend(collector.get_market_news(limit=10))
+            except Exception:
+                pass
+
         if source_type in (None, "x"):
-            # Get tweets about specific trending topics, not generic "stocks"
             results.extend(_get_x_tweets(
                 ["artificial intelligence stocks", "NVDA", "Tesla"],
                 topic_slug="ai", max_results=3
@@ -275,7 +329,6 @@ async def get_news(
             ))
 
         if source_type in (None, "google_trends"):
-            # Get trends for specific topics, not generic "stock market"
             for slug in ["ai", "nuclear", "ev"]:
                 kw = _get_topic_keywords(slug)
                 if kw:

@@ -1,6 +1,6 @@
 """
 Israeli news sources for TrendVest — aggregates financial news
-from Globes, Calcalist, Geektime, and TheMarker via RSS feeds.
+from Globes, Calcalist, Geektime, TheMarker, Bizportal, Ice, Ynet, and TASE via RSS feeds.
 """
 import time
 import xml.etree.ElementTree as ET
@@ -45,6 +45,40 @@ ISRAELI_FEEDS = {
             "https://www.themarker.com/cmlink/1.145",   # שוק ההון
         ],
         "logo": "https://www.themarker.com/images/themarker-logo.svg",
+    },
+    "bizportal": {
+        "name": "ביזפורטל",
+        "name_en": "Bizportal",
+        "feeds": [
+            "https://www.bizportal.co.il/rss/bizportalrss.xml",         # כללי
+            "https://www.bizportal.co.il/rss/capitalmarket.xml",        # שוק ההון
+        ],
+        "logo": "https://www.bizportal.co.il/favicon.ico",
+    },
+    "ice": {
+        "name": "Ice",
+        "name_en": "Ice (Maariv Finance)",
+        "feeds": [
+            "https://www.ice.co.il/rss/finance",       # פיננסים
+            "https://www.ice.co.il/rss/realestate",    # נדל"ן
+        ],
+        "logo": "https://www.ice.co.il/favicon.ico",
+    },
+    "ynet_calcala": {
+        "name": "Ynet כלכלה",
+        "name_en": "Ynet Finance",
+        "feeds": [
+            "https://www.ynet.co.il/Integration/StoryRss6.xml",     # כלכלה
+        ],
+        "logo": "https://www.ynet.co.il/favicon.ico",
+    },
+    "tase": {
+        "name": "הבורסה לני\"ע",
+        "name_en": "TASE",
+        "feeds": [
+            "https://maya.tase.co.il/rss/news",        # הודעות בורסה
+        ],
+        "logo": "https://maya.tase.co.il/favicon.ico",
     },
 }
 
@@ -156,7 +190,7 @@ def get_israeli_news(
             feeds_to_fetch.append((feed_url, key, config["name"]))
 
     all_items = []
-    with ThreadPoolExecutor(max_workers=6) as executor:
+    with ThreadPoolExecutor(max_workers=10) as executor:
         futures = {
             executor.submit(_parse_rss_feed, url, key, name): key
             for url, key, name in feeds_to_fetch

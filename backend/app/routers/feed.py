@@ -1,8 +1,10 @@
 """
 Unified Feed API for TrendVest — combines trends, news (global + Israeli),
-podcasts, and stock data into a single feed endpoint.
+podcasts, SEC filings, macro data, institutional data, and stock data
+into a single feed endpoint.
 """
 import json
+import os
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -13,6 +15,13 @@ from typing import Optional
 from ..deps import get_db_pool, get_stock_service
 from ..services.israeli_news import get_israeli_news, match_israeli_news_to_topics
 from ..services.podcasts import get_podcast_episodes, transcribe_episode, analyze_transcript
+from ..services.global_rss import get_global_news, match_global_news_to_topics
+from ..services.finnhub import FinnhubCollector
+from ..services.sec_edgar import get_company_filings, get_latest_filings
+from ..services.fred import FredCollector
+from ..services.israeli_institutional import get_institutional_data
+from ..services.us_government import get_us_gov_data
+from ..services.international_institutional import get_international_data
 
 router = APIRouter(prefix="/api/feed", tags=["feed"])
 
@@ -79,16 +88,18 @@ def _get_yfinance_news_for_topic(ticker: str, topic_slug: str) -> list[dict]:
 async def get_unified_feed(
     sector: Optional[str] = Query(None, description="Filter by sector"),
     include_il: bool = Query(True, description="Include Israeli news"),
+    include_global: bool = Query(True, description="Include global financial news (Economist, FT, etc.)"),
     include_podcasts: bool = Query(True, description="Include podcast episodes"),
+    include_sec: bool = Query(True, description="Include SEC filings"),
     limit: int = Query(20, le=50),
     pool=Depends(get_db_pool),
     stock_service=Depends(get_stock_service),
 ):
     """
     Get unified trend feed — each item is a topic with its top article,
-    related stocks, and mention data combined.
+    related stocks, SEC filings, and mention data combined.
     """
-    cache_key = f"feed:{sector or 'all'}:{include_il}:{include_podcasts}:{limit}"
+    cache_key = f"feed:{sector or 'all'}:{include_il}:{include_global}:{include_podcasts}:{include_sec}:{limit}"
     now = time.time()
 
     if cache_key in _feed_cache:
@@ -160,14 +171,18 @@ async def get_unified_feed(
                 stock["current_price"] = None
                 stock["daily_change_pct"] = None
 
-    # 5. Fetch news per topic (parallel)
+    # 5. Fetch news per topic (parallel) — yfinance + Finnhub
     news_map: dict[str, list] = {}
-    with ThreadPoolExecutor(max_workers=8) as executor:
+    finnhub = FinnhubCollector()
+    with ThreadPoolExecutor(max_workers=10) as executor:
         futures = {}
         for topic in topics:
             top_tickers = [s["ticker"] for s in stocks_map.get(topic["slug"], [])[:2]]
             for ticker in top_tickers:
                 futures[executor.submit(_get_yfinance_news_for_topic, ticker, topic["slug"])] = topic["slug"]
+                # Also fetch Finnhub company news
+                if finnhub.api_key:
+                    futures[executor.submit(finnhub.get_company_news, ticker, 3, 5)] = topic["slug"]
 
         for future in as_completed(futures):
             slug = futures[future]
@@ -184,16 +199,17 @@ async def get_unified_feed(
         seen = set()
         unique = []
         for item in news_map[slug]:
-            if item["title"] and item["title"] not in seen:
-                seen.add(item["title"])
+            title = item.get("title", "")
+            if title and title not in seen:
+                seen.add(title)
                 unique.append(item)
-        news_map[slug] = unique[:3]  # Top 3 articles per topic
+        news_map[slug] = unique[:5]  # Top 5 articles per topic (more sources now)
 
     # 6. Israeli news (optional)
     il_news_items = []
     if include_il:
         try:
-            il_news_items = get_israeli_news(limit=20)
+            il_news_items = get_israeli_news(limit=30)
             keyword_map = _get_topic_keywords_map()
             il_news_items = match_israeli_news_to_topics(il_news_items, keyword_map)
         except Exception as e:
@@ -211,25 +227,76 @@ async def get_unified_feed(
         else:
             il_news_general.append(item)
 
-    # 7. Podcast episodes (optional)
+    # 7. Global financial news (Economist, FT, Seeking Alpha, etc.)
+    global_news_items = []
+    global_news_by_topic: dict[str, list] = {}
+    global_news_general: list = []
+    if include_global:
+        try:
+            global_news_items = get_global_news(limit=30)
+            keyword_map = _get_topic_keywords_map()
+            global_news_items = match_global_news_to_topics(global_news_items, keyword_map)
+        except Exception as e:
+            print(f"Global news fetch error: {e}")
+
+    for item in global_news_items:
+        topic_slug = item.get("related_topic")
+        if topic_slug:
+            if topic_slug not in global_news_by_topic:
+                global_news_by_topic[topic_slug] = []
+            global_news_by_topic[topic_slug].append(item)
+        else:
+            global_news_general.append(item)
+
+    # 8. SEC filings (optional)
+    sec_by_topic: dict[str, list] = {}
+    sec_general: list = []
+    if include_sec:
+        try:
+            sec_general = get_latest_filings(filing_types=["10-K", "10-Q", "8-K"], limit=10)
+        except Exception as e:
+            print(f"SEC filings fetch error: {e}")
+
+        # Fetch SEC filings for top tickers per topic
+        with ThreadPoolExecutor(max_workers=6) as executor:
+            sec_futures = {}
+            for topic in topics:
+                top_tickers = [s["ticker"] for s in stocks_map.get(topic["slug"], [])[:2]]
+                for ticker in top_tickers:
+                    sec_futures[executor.submit(get_company_filings, ticker, "", 3)] = topic["slug"]
+
+            for future in as_completed(sec_futures):
+                slug = sec_futures[future]
+                try:
+                    filings = future.result()
+                    if filings:
+                        if slug not in sec_by_topic:
+                            sec_by_topic[slug] = []
+                        sec_by_topic[slug].extend(filings[:2])
+                except Exception:
+                    pass
+
+    # 9. Podcast episodes (optional)
     podcast_items = []
     if include_podcasts:
         try:
-            podcast_items = get_podcast_episodes(limit=10)
+            podcast_items = get_podcast_episodes(limit=15)
         except Exception as e:
             print(f"Podcast fetch error: {e}")
 
-    # 8. Build the unified feed
+    # 10. Build the unified feed
     feed = []
     for topic in topics:
         slug = topic["slug"]
 
-        # Combine global + Israeli news for this topic
+        # Combine all news sources for this topic
         topic_news = news_map.get(slug, [])
         topic_il_news = il_news_by_topic.get(slug, [])
+        topic_global_news = global_news_by_topic.get(slug, [])
+        topic_sec = sec_by_topic.get(slug, [])
 
         # Pick the best article (prefer one with an image)
-        all_articles = topic_news + topic_il_news
+        all_articles = topic_news + topic_global_news + topic_il_news
         top_article = None
         for article in all_articles:
             if article.get("image_url"):
@@ -254,15 +321,19 @@ async def get_unified_feed(
             "momentum_history": history_map.get(topic["id"], []),
             "stocks": stocks_map.get(slug, [])[:5],
             "top_article": top_article,
-            "articles": all_articles[:5],
+            "articles": all_articles[:7],
             "il_news": topic_il_news[:3],
+            "global_news": topic_global_news[:3],
+            "sec_filings": topic_sec[:3],
         }
         feed.append(feed_item)
 
     result = {
         "feed": feed,
         "il_news_general": il_news_general[:10],
-        "podcasts": podcast_items[:6],
+        "global_news_general": global_news_general[:10],
+        "sec_filings_latest": sec_general[:5],
+        "podcasts": podcast_items[:8],
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
 
@@ -272,13 +343,90 @@ async def get_unified_feed(
 
 @router.get("/il-news")
 async def get_il_news_feed(
-    source: Optional[str] = Query(None, description="Source key: globes, calcalist, geektime, themarker"),
+    source: Optional[str] = Query(None, description="Source key: globes, calcalist, geektime, themarker, bizportal, ice, ynet_calcala, tase"),
     limit: int = Query(30, le=50),
 ):
     """Get Israeli financial news from RSS feeds."""
     from ..services.israeli_news import ISRAELI_FEEDS
     items = get_israeli_news(source=source, limit=limit)
     return {"items": items, "sources": list(ISRAELI_FEEDS.keys())}
+
+
+@router.get("/global-news")
+async def get_global_news_feed(
+    source: Optional[str] = Query(None, description="Source key: economist, ft, seeking_alpha, benzinga, reuters, cnbc"),
+    limit: int = Query(30, le=50),
+):
+    """Get global financial news from major publications."""
+    from ..services.global_rss import GLOBAL_FEEDS
+    items = get_global_news(source=source, limit=limit)
+    return {"items": items, "sources": list(GLOBAL_FEEDS.keys())}
+
+
+@router.get("/sec-filings")
+async def get_sec_filings_feed(
+    ticker: Optional[str] = Query(None, description="Filter by stock ticker"),
+    filing_type: Optional[str] = Query(None, description="Filing type: 10-K, 10-Q, 8-K, S-1"),
+    limit: int = Query(20, le=50),
+):
+    """Get SEC EDGAR filings."""
+    if ticker:
+        items = get_company_filings(ticker, filing_type or "", limit)
+    else:
+        types = [filing_type] if filing_type else ["10-K", "10-Q", "8-K"]
+        items = get_latest_filings(filing_types=types, limit=limit)
+    return {"items": items}
+
+
+@router.get("/macro")
+async def get_macro_dashboard(
+    series: Optional[str] = Query(None, description="Specific FRED series ID (e.g. GDP, FEDFUNDS, VIXCLS)"),
+):
+    """Get macroeconomic indicators from FRED (Federal Reserve)."""
+    fred = FredCollector()
+    if not fred.api_key:
+        raise HTTPException(status_code=503, detail="FRED_API_KEY not configured")
+
+    if series:
+        data = fred.get_series_latest(series.upper(), count=10)
+        if not data:
+            raise HTTPException(status_code=404, detail=f"Series {series} not found")
+        return data
+
+    return {"indicators": fred.get_macro_dashboard()}
+
+
+@router.get("/sentiment")
+async def get_sentiment(
+    ticker: Optional[str] = Query(None, description="Stock ticker for sentiment"),
+    topic: Optional[str] = Query(None, description="Topic slug for aggregated sentiment"),
+):
+    """Get news sentiment analysis from Finnhub and Alpha Vantage."""
+    finnhub = FinnhubCollector()
+    results = {}
+
+    if ticker:
+        if finnhub.api_key:
+            results["finnhub"] = finnhub.get_news_sentiment(ticker.upper())
+
+        try:
+            from ..services.alpha_vantage import AlphaVantageCollector
+            av = AlphaVantageCollector()
+            av_articles = av.get_news_sentiment(tickers=[ticker.upper()], limit=10)
+            if av_articles:
+                scores = [a["sentiment_score"] for a in av_articles if a.get("sentiment_score")]
+                results["alpha_vantage"] = {
+                    "articles": av_articles[:5],
+                    "avg_sentiment": round(sum(scores) / len(scores), 3) if scores else 0,
+                    "article_count": len(av_articles),
+                }
+        except Exception as e:
+            print(f"Alpha Vantage sentiment error: {e}")
+
+    if not ticker and not topic:
+        raise HTTPException(status_code=400, detail="Provide ticker or topic parameter")
+
+    return results
 
 
 @router.get("/podcasts")
@@ -318,4 +466,74 @@ async def transcribe_podcast_episode(
             "segment_count": len(transcript.get("segments", [])),
         },
         "analysis": analysis,
+    }
+
+
+@router.get("/il-institutional")
+async def get_il_institutional_feed(
+    source: Optional[str] = Query(None, description="Source: boi, cbs, isa, tase_institutional, aaron_institute, taub_center, sp_maalot"),
+    category: Optional[str] = Query(None, description="Category: monetary, macro, regulation, market, research, ratings"),
+    limit: int = Query(30, le=50),
+):
+    """Get Israeli institutional data (Bank of Israel, CBS, ISA, etc.)."""
+    from ..services.israeli_institutional import INSTITUTIONAL_FEEDS
+    items = get_institutional_data(source=source, category=category, limit=limit)
+    return {"items": items, "sources": list(INSTITUTIONAL_FEEDS.keys())}
+
+
+@router.get("/us-gov")
+async def get_us_gov_feed(
+    source: Optional[str] = Query(None, description="Source: bea, bls, nber, treasury"),
+    category: Optional[str] = Query(None, description="Category: macro, employment, research, fiscal"),
+    limit: int = Query(30, le=50),
+):
+    """Get US government economic data (BEA, BLS, NBER, Treasury)."""
+    from ..services.us_government import US_GOV_FEEDS
+    items = get_us_gov_data(source=source, category=category, limit=limit)
+    return {"items": items, "sources": list(US_GOV_FEEDS.keys())}
+
+
+@router.get("/international")
+async def get_international_feed(
+    source: Optional[str] = Query(None, description="Source: ecb, eurostat, boe, oecd, boj, pboc, nikkei_asia, etc."),
+    region: Optional[str] = Query(None, description="Region: europe, asia, international"),
+    category: Optional[str] = Query(None, description="Category: monetary, macro, research, development, news"),
+    limit: int = Query(30, le=50),
+):
+    """Get international institutional data (ECB, BOJ, OECD, IMF, etc.)."""
+    from ..services.international_institutional import INTL_INSTITUTIONAL_FEEDS
+    items = get_international_data(source=source, region=region, category=category, limit=limit)
+    return {"items": items, "sources": list(INTL_INSTITUTIONAL_FEEDS.keys())}
+
+
+@router.get("/sources")
+async def get_all_sources():
+    """List all available data sources and their status."""
+    from ..services.israeli_news import ISRAELI_FEEDS
+    from ..services.global_rss import GLOBAL_FEEDS
+    from ..services.podcasts import PODCAST_FEEDS
+    from ..services.israeli_institutional import INSTITUTIONAL_FEEDS
+    from ..services.us_government import US_GOV_FEEDS
+    from ..services.international_institutional import INTL_INSTITUTIONAL_FEEDS
+
+    finnhub = FinnhubCollector()
+    from ..services.alpha_vantage import AlphaVantageCollector
+    av = AlphaVantageCollector()
+    fred = FredCollector()
+
+    return {
+        "israeli_news": {"count": len(ISRAELI_FEEDS), "sources": list(ISRAELI_FEEDS.keys())},
+        "global_news": {"count": len(GLOBAL_FEEDS), "sources": list(GLOBAL_FEEDS.keys())},
+        "podcasts": {"count": len(PODCAST_FEEDS), "sources": list(PODCAST_FEEDS.keys())},
+        "israeli_institutional": {"count": len(INSTITUTIONAL_FEEDS), "sources": list(INSTITUTIONAL_FEEDS.keys())},
+        "us_government": {"count": len(US_GOV_FEEDS), "sources": list(US_GOV_FEEDS.keys())},
+        "international": {"count": len(INTL_INSTITUTIONAL_FEEDS), "sources": list(INTL_INSTITUTIONAL_FEEDS.keys())},
+        "api_services": {
+            "finnhub": {"configured": bool(finnhub.api_key)},
+            "alpha_vantage": {"configured": bool(av.api_key)},
+            "fred": {"configured": bool(fred.api_key)},
+            "sec_edgar": {"configured": True, "note": "No API key needed"},
+            "newsapi": {"configured": bool(os.getenv("NEWS_API_KEY", ""))},
+            "x_twitter": {"configured": bool(os.getenv("X_BEARER_TOKEN", ""))},
+        },
     }

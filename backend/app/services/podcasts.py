@@ -43,6 +43,27 @@ PODCAST_FEEDS = {
         "rss": "https://feeds.megaphone.fm/ROOST5765883743",
         "category": "finance",
     },
+    "hashkaot_laatzlanim": {
+        "name": "השקעות לעצלנים",
+        "name_en": "Investments for the Lazy",
+        "description": "פודקאסט על השקעות פסיביות וחיסכון לטווח ארוך",
+        "rss": "https://feeds.feedburner.com/hashkaot",
+        "category": "finance",
+    },
+    "hasolidit": {
+        "name": "הסולידית",
+        "name_en": "The Solidit",
+        "description": "פודקאסט על חיסכון, השקעות ועצמאות כלכלית",
+        "rss": "https://www.hasolidit.com/feed/podcast",
+        "category": "finance",
+    },
+    "shulchan4": {
+        "name": "שולחן 4",
+        "name_en": "Shulchan 4",
+        "description": "פודקאסט כלכלי על שוק ההון והכלכלה הישראלית",
+        "rss": "https://feeds.megaphone.fm/shulchan4",
+        "category": "finance",
+    },
 }
 
 # Cache for podcast episodes
@@ -141,7 +162,7 @@ def get_podcast_episodes(
         feeds_to_fetch.append((config["rss"], key, config["name"]))
 
     all_episodes = []
-    with ThreadPoolExecutor(max_workers=4) as executor:
+    with ThreadPoolExecutor(max_workers=7) as executor:
         futures = {
             executor.submit(_parse_podcast_feed, rss, key, name): key
             for rss, key, name in feeds_to_fetch
