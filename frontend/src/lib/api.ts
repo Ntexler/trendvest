@@ -255,6 +255,19 @@ export const getSupplyChainTips = (params?: { commodity?: string; chain?: string
   return fetchJSON<{ tips: import("./types").SupplyChainTip[] }>(`/feed/supply-chain/tips?${sp}`);
 };
 
+// AI Agent
+export const getAgentDashboard = () =>
+  fetchJSON<import("./types").AgentDashboard>("/agent/dashboard");
+
+export const analyzeTickerAgent = (ticker: string) =>
+  fetchJSON<import("./types").AgentAnalysis>(`/agent/analyze/${ticker}`, { method: "POST" });
+
+export const executeTickerAgent = (ticker: string) =>
+  fetchJSON<{ ticker: string; decision: string; confidence: number; reason: string; trade: unknown }>(`/agent/execute/${ticker}`, { method: "POST" });
+
+export const triggerAgentLearning = () =>
+  fetchJSON<{ weight_update: unknown; performance: unknown }>("/agent/learn", { method: "POST" });
+
 // Tracking
 export const trackInteraction = (data: {
   interaction_type: string;

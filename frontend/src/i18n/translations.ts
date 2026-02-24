@@ -5,6 +5,7 @@ const translations = {
   "nav.screener": { he: "סקרינר", en: "Screener" },
   "nav.trade": { he: "תרגול", en: "Practice" },
   "nav.watchlist": { he: "מעקב", en: "Watchlist" },
+  "nav.agent": { he: "סוכן AI", en: "AI Agent" },
 
   // Dashboard
   "dashboard.title": { he: "מגמות חמות", en: "Hot Trends" },

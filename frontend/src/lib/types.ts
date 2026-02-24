@@ -340,6 +340,87 @@ export interface SupplyChainTip {
   category: string;
 }
 
+// ── AI Agent Types ──
+
+export interface AgentHolding {
+  ticker: string;
+  quantity: number;
+  avg_cost: number;
+  current_price: number;
+  pnl_pct: number;
+  entered_at: string | null;
+}
+
+export interface AgentTrade {
+  ticker: string;
+  action: string;
+  quantity: number;
+  entry_price: number;
+  exit_price: number | null;
+  confidence: number;
+  is_open: boolean;
+  opened_at: string | null;
+  closed_at: string | null;
+  pnl_pct: number | null;
+}
+
+export interface AgentPerformance {
+  date: string;
+  value: number;
+  daily_pnl_pct: number;
+  cumulative_pnl_pct: number;
+  benchmark_pnl_pct: number | null;
+  win_rate: number;
+  regime: string;
+}
+
+export interface AgentSignalWeight {
+  type: string;
+  weight: number;
+  accuracy: number;
+  predictions: number;
+  correct: number;
+}
+
+export interface AgentDashboard {
+  portfolio: {
+    cash: number;
+    total_value: number;
+    market_value: number;
+    open_positions: number;
+  };
+  holdings: AgentHolding[];
+  recent_trades: AgentTrade[];
+  performance: AgentPerformance[];
+  signal_weights: AgentSignalWeight[];
+  stats: {
+    total_trades: number;
+    wins: number;
+    losses: number;
+    win_rate: number;
+    cumulative_pnl: number;
+    cumulative_pnl_pct: number;
+  };
+}
+
+export interface AgentAnalysis {
+  ticker: string;
+  topic: string | null;
+  signals: {
+    signal_type: string;
+    direction: string;
+    strength: number;
+    raw_data: Record<string, unknown>;
+  }[];
+  decision: {
+    action: string;
+    confidence: number;
+    direction: string;
+    reason: string;
+    regime: string;
+  };
+}
+
 export interface RelatedStock {
   ticker: string;
   company_name: string;
