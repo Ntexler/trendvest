@@ -83,11 +83,82 @@ COMMODITIES = {
         "category": "agriculture", "unit": "cents/lb",
         "supply_chain": ["consumer_goods", "restaurants", "retail"],
     },
-    # Industrial / Battery
+    "cocoa": {
+        "ticker": "CC=F", "name": "Cocoa", "name_he": "קקאו",
+        "category": "agriculture", "unit": "$/ton",
+        "supply_chain": ["chocolate", "consumer_goods", "confectionery"],
+    },
+    "sugar": {
+        "ticker": "SB=F", "name": "Sugar", "name_he": "סוכר",
+        "category": "agriculture", "unit": "cents/lb",
+        "supply_chain": ["food_production", "ethanol", "consumer_goods"],
+    },
+    "cotton": {
+        "ticker": "CT=F", "name": "Cotton", "name_he": "כותנה",
+        "category": "agriculture", "unit": "cents/lb",
+        "supply_chain": ["textiles", "apparel", "fashion"],
+    },
+    "orange_juice": {
+        "ticker": "OJ=F", "name": "Orange Juice", "name_he": "מיץ תפוזים",
+        "category": "agriculture", "unit": "cents/lb",
+        "supply_chain": ["beverages", "food_production"],
+    },
+    "live_cattle": {
+        "ticker": "LE=F", "name": "Live Cattle", "name_he": "בקר",
+        "category": "agriculture", "unit": "cents/lb",
+        "supply_chain": ["meat_production", "restaurants", "retail"],
+    },
+    "lumber": {
+        "ticker": "LBS=F", "name": "Lumber", "name_he": "עצים",
+        "category": "agriculture", "unit": "$/mbf",
+        "supply_chain": ["construction", "housing", "furniture"],
+    },
+    # Industrial / Battery / Metals
     "lithium": {
         "ticker": "LIT", "name": "Lithium (ETF)", "name_he": "ליתיום",
         "category": "industrial", "unit": "ETF price",
         "supply_chain": ["ev_batteries", "smartphones", "energy_storage"],
+    },
+    "palladium": {
+        "ticker": "PA=F", "name": "Palladium", "name_he": "פלדיום",
+        "category": "metals", "unit": "$/oz",
+        "supply_chain": ["automotive_catalysts", "electronics", "dentistry"],
+    },
+    "nickel": {
+        "ticker": "NICK.L", "name": "Nickel (ETF)", "name_he": "ניקל",
+        "category": "industrial", "unit": "ETF price",
+        "supply_chain": ["ev_batteries", "stainless_steel", "aerospace"],
+    },
+    "cobalt": {
+        "ticker": "LIT", "name": "Cobalt (via Lithium ETF)", "name_he": "קובלט",
+        "category": "industrial", "unit": "ETF proxy",
+        "supply_chain": ["ev_batteries", "superalloys", "magnets"],
+    },
+    "tin": {
+        "ticker": "JJT", "name": "Tin (ETN)", "name_he": "בדיל",
+        "category": "metals", "unit": "ETN price",
+        "supply_chain": ["soldering", "electronics", "semiconductors", "canning"],
+    },
+    "aluminum": {
+        "ticker": "JJU", "name": "Aluminum (ETN)", "name_he": "אלומיניום",
+        "category": "metals", "unit": "ETN price",
+        "supply_chain": ["automotive", "aerospace", "packaging", "construction"],
+    },
+    # Energy additions
+    "gasoline": {
+        "ticker": "RB=F", "name": "Gasoline (RBOB)", "name_he": "בנזין",
+        "category": "energy", "unit": "$/gal",
+        "supply_chain": ["transportation", "consumer", "refining"],
+    },
+    "heating_oil": {
+        "ticker": "HO=F", "name": "Heating Oil", "name_he": "סולר",
+        "category": "energy", "unit": "$/gal",
+        "supply_chain": ["heating", "diesel", "transportation"],
+    },
+    "carbon": {
+        "ticker": "KRBN", "name": "Carbon Credits (ETF)", "name_he": "קרדיט פחמן",
+        "category": "energy", "unit": "ETF price",
+        "supply_chain": ["emissions_trading", "esg", "industrial_regulation"],
     },
 }
 
