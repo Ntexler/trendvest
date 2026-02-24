@@ -580,6 +580,95 @@ async def translate_article(
     return result
 
 
+@router.get("/crypto")
+async def get_crypto_feed(
+    vs_currency: str = Query("usd", description="Quote currency: usd, eur, ils"),
+):
+    """Get crypto market data: prices, market overview, trending coins."""
+    from ..services.crypto import get_crypto_prices, get_crypto_market_overview, get_trending_coins
+    return {
+        "prices": get_crypto_prices(vs_currency),
+        "market_overview": get_crypto_market_overview(),
+        "trending": get_trending_coins(),
+    }
+
+
+@router.get("/crypto/{coin_id}/history")
+async def get_crypto_history(
+    coin_id: str,
+    days: int = Query(30, le=365),
+    vs_currency: str = Query("usd"),
+):
+    """Get price history for a specific cryptocurrency."""
+    from ..services.crypto import get_coin_history
+    data = get_coin_history(coin_id, days, vs_currency)
+    return {"coin_id": coin_id, "days": days, "data": data}
+
+
+@router.get("/commodities")
+async def get_commodities_feed(
+    category: Optional[str] = Query(None, description="Category: metals, energy, agriculture, industrial"),
+):
+    """Get commodity prices (gold, copper, oil, wheat, lithium, etc.)."""
+    from ..services.commodities import get_commodity_prices
+    items = get_commodity_prices(category=category)
+    return {"commodities": items}
+
+
+@router.get("/forex")
+async def get_forex_feed(
+    category: Optional[str] = Query(None, description="Category: major, israel, crypto"),
+):
+    """Get forex rates (USD/ILS, EUR/USD, etc.)."""
+    from ..services.commodities import get_forex_rates
+    rates = get_forex_rates(category=category)
+    return {"forex": rates}
+
+
+@router.get("/bonds")
+async def get_bonds_feed():
+    """Get US Treasury bond yields across the curve."""
+    from ..services.commodities import get_bond_yields
+    yields = get_bond_yields()
+    return {"yields": yields}
+
+
+@router.get("/supply-chain")
+async def get_supply_chain_feed(
+    chain: Optional[str] = Query(None, description="Chain: semiconductors, ev_batteries, energy, food, cybersecurity, ai_cloud, pharma"),
+):
+    """Get supply chain mapping data showing cross-market relationships."""
+    from ..services.supply_chain import get_supply_chains
+    data = get_supply_chains(chain=chain)
+    return {"supply_chains": data} if isinstance(data, list) else data
+
+
+@router.get("/supply-chain/commodity-impact/{commodity}")
+async def get_commodity_impact(commodity: str):
+    """Show which supply chains are affected by a specific commodity."""
+    from ..services.supply_chain import get_cross_domain_impacts
+    impacts = get_cross_domain_impacts(commodity)
+    return {"commodity": commodity, "impacts": impacts}
+
+
+@router.get("/supply-chain/israel")
+async def get_israeli_supply_chain():
+    """Get all Israeli connections across global supply chains."""
+    from ..services.supply_chain import get_israeli_connections
+    connections = get_israeli_connections()
+    return {"connections": connections}
+
+
+@router.get("/supply-chain/risks")
+async def get_supply_chain_risks(
+    chain: Optional[str] = Query(None, description="Filter by specific chain"),
+):
+    """Get supply chain risk factors sorted by severity."""
+    from ..services.supply_chain import get_risk_analysis
+    risks = get_risk_analysis(chain=chain)
+    return {"risks": risks}
+
+
 @router.post("/translate-batch")
 async def translate_articles_batch(
     articles: list[dict],

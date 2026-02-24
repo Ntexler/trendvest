@@ -14,6 +14,12 @@ import type {
   TrendingTopic,
   TranslatedArticle,
   Newsletter,
+  CryptoFeed,
+  CommodityPrice,
+  ForexRate,
+  BondYield,
+  SupplyChain,
+  CommodityImpact,
 } from "./types";
 
 const BASE = "/api";
@@ -204,6 +210,41 @@ export const generateNewsletter = (params?: { language?: string; market?: string
   if (params?.market) sp.set("market", params.market);
   return fetchJSON<Newsletter>(`/feed/newsletter?${sp}`, { method: "POST" });
 };
+
+// Crypto
+export const getCryptoFeed = (vs_currency = "usd") =>
+  fetchJSON<CryptoFeed>(`/feed/crypto?vs_currency=${vs_currency}`);
+
+// Commodities
+export const getCommodities = (category?: string) => {
+  const sp = new URLSearchParams();
+  if (category) sp.set("category", category);
+  return fetchJSON<{ commodities: CommodityPrice[] }>(`/feed/commodities?${sp}`);
+};
+
+// Forex
+export const getForexRates = (category?: string) => {
+  const sp = new URLSearchParams();
+  if (category) sp.set("category", category);
+  return fetchJSON<{ forex: ForexRate[] }>(`/feed/forex?${sp}`);
+};
+
+// Bonds
+export const getBondYields = () =>
+  fetchJSON<{ yields: BondYield[] }>("/feed/bonds");
+
+// Supply Chain
+export const getSupplyChain = (chain?: string) => {
+  const sp = new URLSearchParams();
+  if (chain) sp.set("chain", chain);
+  return fetchJSON<SupplyChain | { supply_chains: { key: string; name: string; name_he: string; stages: number }[] }>(`/feed/supply-chain?${sp}`);
+};
+
+export const getCommodityImpact = (commodity: string) =>
+  fetchJSON<{ commodity: string; impacts: CommodityImpact[] }>(`/feed/supply-chain/commodity-impact/${commodity}`);
+
+export const getIsraeliSupplyChain = () =>
+  fetchJSON<{ connections: CommodityImpact[] }>("/feed/supply-chain/israel");
 
 // Tracking
 export const trackInteraction = (data: {

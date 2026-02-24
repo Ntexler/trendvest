@@ -202,7 +202,24 @@ GET  /api/recommendations
 - [x] **Feature 3 — Cross-Referencing Algorithm**: Identify trending topics across all data sources
 - [x] **Feature 4 — Weekly Newsletter**: Auto-generated weekly digest after cross-referencing all sources
 
-### New API Routes (Phase 6-7)
+### Phase 8: Crypto, Commodities & Supply Chain Mapping
+- [x] **Crypto Market Data (CoinGecko API)**: 12 coins + 3 stablecoins, market overview, trending coins, price history
+- [x] **Commodities**: 13 tracked (gold, silver, copper, platinum, oil/brent/gas, uranium, wheat, corn, soybeans, coffee, lithium)
+- [x] **Forex**: 9 pairs (USD/ILS, EUR/USD, GBP/USD, USD/JPY, USD/CNY, EUR/ILS, GBP/ILS, BTC/USD, ETH/USD)
+- [x] **Bond Yields**: US Treasury curve (3m, 5y, 10y, 30y)
+- [x] **Supply Chain Knowledge Graph**: 7 chains mapped across 40+ stages
+  - Semiconductors: copper → wafer → design (Israel) → fab (Taiwan/Israel) → equipment → products
+  - EV Batteries: lithium → processing (China) → cells → packs → EVs → recycling
+  - Energy: oil/gas (Israel Leviathan) → refining → renewables (SolarEdge) → nuclear → distribution
+  - Food: fertilizers (ICL Israel) → crops → processing → retail
+  - Cybersecurity: infrastructure → platforms (Check Point, CyberArk Israel) → identity → defense (Elbit)
+  - AI & Cloud: GPUs → networking (Mellanox/Israel) → data centers → cloud → AI software (Israel 500+ startups)
+  - Pharma: research (Teva Israel) → trials → API manufacturing → formulation → distribution
+- [x] **Cross-Domain Impact Analysis**: `GET /supply-chain/commodity-impact/{commodity}` — shows all chains affected by a commodity
+- [x] **Israeli Connections**: 15 Israeli touchpoints across all supply chains
+- [x] **Risk Analysis**: Risk factors per chain sorted by severity
+
+### New API Routes (Phase 6-8) — 26 Total
 ```
 GET  /api/feed                          ← Unified trend feed
 GET  /api/feed/il-news                  ← Israeli news
@@ -218,8 +235,18 @@ GET  /api/feed/international            ← International institutional
 GET  /api/feed/blogs                    ← Financial blogs
 GET  /api/feed/sources                  ← All source status
 POST /api/feed/translate                ← Translate & summarize article
+POST /api/feed/translate-batch          ← Batch translate articles
 GET  /api/feed/trending-topics          ← Cross-referenced trending topics
 POST /api/feed/newsletter               ← Generate weekly newsletter
+GET  /api/feed/crypto                   ← Crypto market data
+GET  /api/feed/crypto/{coin_id}/history ← Crypto price history
+GET  /api/feed/commodities              ← Commodity prices
+GET  /api/feed/forex                    ← Forex rates
+GET  /api/feed/bonds                    ← Bond yields
+GET  /api/feed/supply-chain             ← Supply chain mapping
+GET  /api/feed/supply-chain/commodity-impact/{commodity} ← Cross-domain impact
+GET  /api/feed/supply-chain/israel      ← Israeli connections
+GET  /api/feed/supply-chain/risks       ← Risk analysis
 ```
 
 ### Workflow Notes

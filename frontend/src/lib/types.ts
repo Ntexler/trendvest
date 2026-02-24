@@ -233,6 +233,103 @@ export interface UnifiedFeed {
   generated_at: string;
 }
 
+// ── Crypto Types ──
+
+export interface CryptoPrice {
+  id: string;
+  symbol: string;
+  name: string;
+  name_he: string;
+  price: number;
+  change_24h_pct: number;
+  market_cap: number;
+  volume_24h: number;
+  is_stablecoin: boolean;
+}
+
+export interface CryptoMarketOverview {
+  total_market_cap_usd: number;
+  total_volume_24h_usd: number;
+  bitcoin_dominance: number;
+  ethereum_dominance: number;
+  active_cryptocurrencies: number;
+  market_cap_change_24h_pct: number;
+}
+
+export interface CryptoFeed {
+  prices: CryptoPrice[];
+  market_overview: CryptoMarketOverview;
+  trending: { id: string; symbol: string; name: string; market_cap_rank: number | null; score: number }[];
+}
+
+// ── Commodity Types ──
+
+export interface CommodityPrice {
+  key: string;
+  name: string;
+  name_he: string;
+  category: string;
+  unit: string;
+  supply_chain: string[];
+  price: number | null;
+  change: number | null;
+  change_pct: number | null;
+}
+
+export interface ForexRate {
+  pair: string;
+  name: string;
+  name_he: string;
+  category: string;
+  rate: number | null;
+  change: number | null;
+  change_pct: number | null;
+}
+
+export interface BondYield {
+  key: string;
+  name: string;
+  name_he: string;
+  maturity: string;
+  yield_pct: number | null;
+  change: number | null;
+  change_pct: number | null;
+}
+
+// ── Supply Chain Types ──
+
+export interface SupplyChainStage {
+  stage: string;
+  name: string;
+  name_he: string;
+  commodities?: string[];
+  regions?: string[];
+  countries?: string[];
+  companies?: string[];
+  israeli_companies?: string[];
+  israeli_connection?: string;
+  notes?: string;
+}
+
+export interface SupplyChain {
+  name: string;
+  name_he: string;
+  stages: SupplyChainStage[];
+  risk_factors: { factor: string; impact: string; affects: string[] }[];
+}
+
+export interface CommodityImpact {
+  chain: string;
+  chain_name: string;
+  chain_name_he: string;
+  stage: string;
+  stage_name: string;
+  stage_name_he: string;
+  regions: string[];
+  companies: string[];
+  israeli_companies: string[];
+}
+
 export interface RelatedStock {
   ticker: string;
   company_name: string;

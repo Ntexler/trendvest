@@ -227,6 +227,36 @@ const translations = {
   "feed.blogs": { he: "בלוגים", en: "Blogs" },
   "feed.globalNews": { he: "חדשות גלובליות", en: "Global News" },
 
+  // Crypto
+  "crypto.title": { he: "קריפטו", en: "Crypto" },
+  "crypto.marketCap": { he: "שווי שוק", en: "Market Cap" },
+  "crypto.volume": { he: "נפח 24ש׳", en: "24h Volume" },
+  "crypto.dominance": { he: "דומיננטיות", en: "Dominance" },
+  "crypto.trending": { he: "מטבעות טרנדיים", en: "Trending Coins" },
+
+  // Commodities
+  "commodities.title": { he: "סחורות", en: "Commodities" },
+  "commodities.metals": { he: "מתכות", en: "Metals" },
+  "commodities.energy": { he: "אנרגיה", en: "Energy" },
+  "commodities.agriculture": { he: "חקלאות", en: "Agriculture" },
+  "commodities.industrial": { he: "תעשייתי", en: "Industrial" },
+
+  // Forex
+  "forex.title": { he: "מטבעות", en: "Forex" },
+  "forex.rate": { he: "שער", en: "Rate" },
+
+  // Bonds
+  "bonds.title": { he: "אג״ח", en: "Bonds" },
+  "bonds.yield": { he: "תשואה", en: "Yield" },
+
+  // Supply Chain
+  "supply.title": { he: "שרשרת אספקה", en: "Supply Chain" },
+  "supply.stages": { he: "שלבים", en: "Stages" },
+  "supply.impact": { he: "השפעה", en: "Impact" },
+  "supply.risks": { he: "סיכונים", en: "Risks" },
+  "supply.israelConnection": { he: "הקשר לישראל", en: "Israel Connection" },
+  "supply.crossDomain": { he: "הצלבת שווקים", en: "Cross-Domain" },
+
   // General
   "general.loading": { he: "טוען...", en: "Loading..." },
   "general.error": { he: "שגיאה", en: "Error" },
