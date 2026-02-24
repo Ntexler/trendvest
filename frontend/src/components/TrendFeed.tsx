@@ -8,6 +8,7 @@ import type {
 } from "@/lib/types";
 import Sparkline from "./Sparkline";
 import HeatGauge from "./HeatGauge";
+import SupplyChainExplorer from "./SupplyChainExplorer";
 import {
   TrendingUp,
   TrendingDown,
@@ -827,6 +828,9 @@ export default function TrendFeed({ onStockClick, isWatched, toggleWatch }: Prop
 
           {/* Sidebar (desktop only) */}
           <aside className="hidden lg:block w-72 shrink-0 space-y-4">
+            {/* Supply Chain Explorer */}
+            <SupplyChainExplorer onStockClick={onStockClick} />
+
             {/* Trending Topics — cross-referenced */}
             <TrendingTopicsSidebar market={market} locale={locale} />
 
@@ -845,6 +849,7 @@ export default function TrendFeed({ onStockClick, isWatched, toggleWatch }: Prop
       {/* Mobile: Sidebars below feed */}
       {!loading && feed && (
         <div className="lg:hidden space-y-4">
+          <SupplyChainExplorer onStockClick={onStockClick} />
           <TrendingTopicsSidebar market={market} locale={locale} />
           <NewsletterPanel market={market} locale={locale} />
           <IsraeliNewsSidebar items={feed.il_news_general} locale={locale} />
