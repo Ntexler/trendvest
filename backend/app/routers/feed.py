@@ -276,8 +276,9 @@ async def get_il_news_feed(
     limit: int = Query(30, le=50),
 ):
     """Get Israeli financial news from RSS feeds."""
+    from ..services.israeli_news import ISRAELI_FEEDS
     items = get_israeli_news(source=source, limit=limit)
-    return {"items": items, "sources": list(PODCAST_FEEDS.keys())}
+    return {"items": items, "sources": list(ISRAELI_FEEDS.keys())}
 
 
 @router.get("/podcasts")
