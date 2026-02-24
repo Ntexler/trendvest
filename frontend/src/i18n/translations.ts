@@ -193,6 +193,40 @@ const translations = {
   "feed.stable": { he: "יציב", en: "Stable" },
   "feed.hot": { he: "חם", en: "HOT" },
 
+  // Market Filter
+  "market.all": { he: "כל השווקים", en: "All Markets" },
+  "market.israel": { he: "ישראל", en: "Israel" },
+  "market.us": { he: "ארה״ב", en: "US" },
+  "market.europe": { he: "אירופה", en: "Europe" },
+  "market.asia": { he: "אסיה", en: "Asia" },
+  "market.filter": { he: "שוק", en: "Market" },
+
+  // Translate
+  "translate.button": { he: "תרגם", en: "Translate" },
+  "translate.summary": { he: "סיכום", en: "Summary" },
+  "translate.keyPoints": { he: "נקודות מפתח", en: "Key Points" },
+  "translate.translating": { he: "מתרגם...", en: "Translating..." },
+  "translate.aiPowered": { he: "תרגום AI", en: "AI Translation" },
+
+  // Trending
+  "trending.title": { he: "נושאים טרנדיים", en: "Trending Topics" },
+  "trending.crossRef": { he: "הצלבת מקורות", en: "Cross-Referenced" },
+  "trending.mentions": { he: "אזכורים", en: "mentions" },
+  "trending.sources": { he: "מקורות", en: "sources" },
+  "trending.score": { he: "ציון", en: "Score" },
+
+  // Newsletter
+  "newsletter.title": { he: "ניוזלטר שבועי", en: "Weekly Newsletter" },
+  "newsletter.generate": { he: "צור ניוזלטר", en: "Generate Newsletter" },
+  "newsletter.generating": { he: "מייצר ניוזלטר...", en: "Generating newsletter..." },
+  "newsletter.aiGenerated": { he: "נוצר ע״י AI", en: "AI Generated" },
+  "newsletter.basedOn": { he: "מבוסס על", en: "Based on" },
+
+  // Institutional & Blogs
+  "feed.institutional": { he: "מוסדי", en: "Institutional" },
+  "feed.blogs": { he: "בלוגים", en: "Blogs" },
+  "feed.globalNews": { he: "חדשות גלובליות", en: "Global News" },
+
   // General
   "general.loading": { he: "טוען...", en: "Loading..." },
   "general.error": { he: "שגיאה", en: "Error" },

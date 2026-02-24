@@ -1,8 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useI18n } from "@/i18n/context";
-import { getFeed, trackInteraction } from "@/lib/api";
-import type { UnifiedFeed, FeedItem, NewsItem, PodcastEpisode } from "@/lib/types";
+import { getFeed, translateArticle, getTrendingTopics, generateNewsletter, trackInteraction } from "@/lib/api";
+import type {
+  UnifiedFeed, FeedItem, NewsItem, PodcastEpisode, InstitutionalItem,
+  BlogPost, TrendingTopic, TranslatedArticle, Newsletter,
+} from "@/lib/types";
 import Sparkline from "./Sparkline";
 import HeatGauge from "./HeatGauge";
 import {
@@ -19,6 +22,14 @@ import {
   ChevronDown,
   ChevronUp,
   Globe,
+  Languages,
+  Flame,
+  ScrollText,
+  Building2,
+  BookOpen,
+  Loader2,
+  X,
+  MapPin,
 } from "lucide-react";
 
 interface Props {
@@ -37,6 +48,14 @@ const SECTORS = [
   { key: "Defense", he: "ביטחון", en: "Defense" },
   { key: "Aerospace", he: "חלל", en: "Aerospace" },
   { key: "Biotech", he: "ביוטק", en: "Biotech" },
+];
+
+const MARKETS = [
+  { key: "", he: "כל השווקים", en: "All Markets", icon: "🌍" },
+  { key: "israel", he: "ישראל", en: "Israel", icon: "🇮🇱" },
+  { key: "us", he: "ארה״ב", en: "US", icon: "🇺🇸" },
+  { key: "europe", he: "אירופה", en: "Europe", icon: "🇪🇺" },
+  { key: "asia", he: "אסיה", en: "Asia", icon: "🌏" },
 ];
 
 function timeAgo(dateStr: string, locale: string): string {
@@ -93,6 +112,85 @@ function DirectionBadge({ direction, locale }: { direction: string; locale: stri
   );
 }
 
+function TranslateButton({ article, locale }: { article: NewsItem; locale: string }) {
+  const [translation, setTranslation] = useState<TranslatedArticle | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const targetLang = locale === "he" ? "he" : "en";
+  // Don't show translate button if article is already in target language
+  const articleLang = article.language || (article.source_type === "il_news" ? "he" : "en");
+  if (articleLang === targetLang) return null;
+
+  const handleTranslate = async () => {
+    if (translation) {
+      setShow(!show);
+      return;
+    }
+    setLoading(true);
+    try {
+      const result = await translateArticle({
+        title: article.title,
+        description: article.description || "",
+        source: article.source,
+        url: article.url,
+        target_language: targetLang,
+      });
+      setTranslation(result);
+      setShow(true);
+    } catch (e) {
+      console.error("Translation error:", e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          handleTranslate();
+        }}
+        className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-violet-500/15 text-violet-400 text-[10px] font-medium hover:bg-violet-500/25 transition"
+      >
+        {loading ? (
+          <Loader2 className="w-2.5 h-2.5 animate-spin" />
+        ) : (
+          <Languages className="w-2.5 h-2.5" />
+        )}
+        {loading ? (locale === "he" ? "מתרגם..." : "...") : (locale === "he" ? "תרגם" : "Translate")}
+      </button>
+      {show && translation && (
+        <div className="mt-2 p-2 rounded-lg bg-violet-500/10 border border-violet-500/20 text-xs">
+          <div className="flex items-center justify-between mb-1">
+            <span className="text-violet-400 font-medium flex items-center gap-1">
+              <Languages className="w-3 h-3" />
+              {translation.ai_generated ? "AI" : ""} {locale === "he" ? "תרגום" : "Translation"}
+            </span>
+            <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShow(false); }}>
+              <X className="w-3 h-3 text-[#64748b]" />
+            </button>
+          </div>
+          <p className="text-white font-medium mb-1">{translation.translated_title}</p>
+          <p className="text-[#94a3b8]">{translation.summary}</p>
+          {translation.key_points.length > 0 && (
+            <ul className="mt-1 space-y-0.5">
+              {translation.key_points.map((kp, i) => (
+                <li key={i} className="text-[#94a3b8] flex items-start gap-1">
+                  <span className="text-violet-400 mt-0.5">•</span>
+                  {kp}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function FeedCard({
   item,
   onStockClick,
@@ -114,7 +212,7 @@ function FeedCard({
   const sparkData = momentum_history.map((p) => p.mentions);
   const sparkColor = topic.direction === "rising" ? "#4ade80" : topic.direction === "falling" ? "#f87171" : "#facc15";
 
-  const allArticles = [...articles, ...il_news];
+  const allArticles = [...articles, ...il_news, ...(item.global_news || [])];
 
   return (
     <article
@@ -253,6 +351,13 @@ function FeedCard({
             </a>
           )}
 
+          {/* Translate button for top article */}
+          {top_article && (
+            <div className="px-4 pb-2">
+              <TranslateButton article={top_article} locale={locale} />
+            </div>
+          )}
+
           {/* More articles */}
           {allArticles.length > 1 && (
             <div className="px-4 pb-3 space-y-1.5">
@@ -365,6 +470,40 @@ function IsraeliNewsSidebar({ items, locale }: { items: NewsItem[]; locale: stri
   );
 }
 
+function GlobalNewsSidebar({ items, locale }: { items: NewsItem[]; locale: string }) {
+  if (!items || items.length === 0) return null;
+
+  return (
+    <section className="bg-[#111827] rounded-xl border border-[#334155] p-4">
+      <h3 className="text-sm font-semibold text-white flex items-center gap-2 mb-3">
+        <Newspaper className="w-4 h-4 text-emerald-400" />
+        {locale === "he" ? "חדשות גלובליות" : "Global News"}
+      </h3>
+      <div className="space-y-3">
+        {items.map((item, i) => (
+          <div key={i}>
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <p className="text-sm text-[#e2e8f0] group-hover:text-emerald-400 transition line-clamp-2 leading-snug">
+                {item.title}
+              </p>
+              <div className="flex items-center gap-2 mt-1 text-[10px] text-[#64748b]">
+                <span className="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-medium">{item.source}</span>
+                {item.published_at && <span>{timeAgo(item.published_at, locale)}</span>}
+              </div>
+            </a>
+            <TranslateButton article={item} locale={locale} />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function PodcastsSidebar({ episodes, locale }: { episodes: PodcastEpisode[]; locale: string }) {
   if (episodes.length === 0) return null;
 
@@ -407,22 +546,247 @@ function PodcastsSidebar({ episodes, locale }: { episodes: PodcastEpisode[]; loc
   );
 }
 
+function InstitutionalSidebar({ items, locale }: { items: InstitutionalItem[]; locale: string }) {
+  if (!items || items.length === 0) return null;
+
+  return (
+    <section className="bg-[#111827] rounded-xl border border-[#334155] p-4">
+      <h3 className="text-sm font-semibold text-white flex items-center gap-2 mb-3">
+        <Building2 className="w-4 h-4 text-amber-400" />
+        {locale === "he" ? "מוסדי" : "Institutional"}
+      </h3>
+      <div className="space-y-3">
+        {items.slice(0, 6).map((item, i) => (
+          <div key={i}>
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <p className="text-sm text-[#e2e8f0] group-hover:text-amber-400 transition line-clamp-2 leading-snug">
+                {item.title}
+              </p>
+              <div className="flex items-center gap-2 mt-1 text-[10px] text-[#64748b]">
+                <span className="px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-400 font-medium">{item.source}</span>
+                {item.category && <span className="capitalize">{item.category}</span>}
+                {item.published_at && <span>{timeAgo(item.published_at, locale)}</span>}
+              </div>
+            </a>
+            <TranslateButton article={{ title: item.title, url: item.url, source: item.source, description: item.description, language: item.language } as NewsItem} locale={locale} />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function BlogsSidebar({ items, locale }: { items: BlogPost[]; locale: string }) {
+  if (!items || items.length === 0) return null;
+
+  return (
+    <section className="bg-[#111827] rounded-xl border border-[#334155] p-4">
+      <h3 className="text-sm font-semibold text-white flex items-center gap-2 mb-3">
+        <BookOpen className="w-4 h-4 text-rose-400" />
+        {locale === "he" ? "בלוגים" : "Blogs"}
+      </h3>
+      <div className="space-y-3">
+        {items.slice(0, 6).map((item, i) => (
+          <div key={i}>
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <p className="text-sm text-[#e2e8f0] group-hover:text-rose-400 transition line-clamp-2 leading-snug">
+                {item.title}
+              </p>
+              <div className="flex items-center gap-2 mt-1 text-[10px] text-[#64748b]">
+                <span className="px-1.5 py-0.5 rounded bg-rose-500/15 text-rose-400 font-medium">{item.source}</span>
+                {item.published_at && <span>{timeAgo(item.published_at, locale)}</span>}
+              </div>
+            </a>
+            <TranslateButton article={{ title: item.title, url: item.url, source: item.source, description: item.description, language: item.language } as NewsItem} locale={locale} />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function TrendingTopicsSidebar({ market, locale }: { market: string; locale: string }) {
+  const [topics, setTopics] = useState<TrendingTopic[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+
+  const load = () => {
+    if (topics.length > 0) {
+      setExpanded(!expanded);
+      return;
+    }
+    setLoading(true);
+    getTrendingTopics({ market: market || undefined, limit: 10 })
+      .then((data) => {
+        setTopics(data.trending_topics);
+        setExpanded(true);
+      })
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  };
+
+  return (
+    <section className="bg-[#111827] rounded-xl border border-[#334155] p-4">
+      <button
+        onClick={load}
+        className="w-full flex items-center justify-between text-sm font-semibold text-white"
+      >
+        <span className="flex items-center gap-2">
+          <Flame className="w-4 h-4 text-orange-400" />
+          {locale === "he" ? "נושאים טרנדיים (הצלבת מקורות)" : "Trending Topics (Cross-Referenced)"}
+        </span>
+        {loading ? (
+          <Loader2 className="w-4 h-4 animate-spin text-[#64748b]" />
+        ) : expanded ? (
+          <ChevronUp className="w-4 h-4 text-[#64748b]" />
+        ) : (
+          <ChevronDown className="w-4 h-4 text-[#64748b]" />
+        )}
+      </button>
+
+      {expanded && topics.length > 0 && (
+        <div className="mt-3 space-y-2">
+          {topics.map((topic, i) => (
+            <div
+              key={i}
+              className="p-2 rounded-lg bg-[#0f172a] border border-[#1e293b]"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium text-white capitalize">{topic.topic}</span>
+                <span className="text-xs font-mono text-orange-400">{topic.score}</span>
+              </div>
+              <div className="flex items-center gap-2 mt-1 text-[10px] text-[#64748b]">
+                <span>{topic.mention_count} {locale === "he" ? "אזכורים" : "mentions"}</span>
+                <span>•</span>
+                <span>{topic.source_count} {locale === "he" ? "מקורות" : "sources"}</span>
+              </div>
+              {topic.articles.length > 0 && (
+                <a
+                  href={topic.articles[0].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 text-[10px] text-[#94a3b8] hover:text-orange-400 line-clamp-1 block transition"
+                >
+                  {topic.articles[0].title}
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
+function NewsletterPanel({ market, locale }: { market: string; locale: string }) {
+  const [newsletter, setNewsletter] = useState<Newsletter | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleGenerate = () => {
+    if (newsletter) {
+      setShow(!show);
+      return;
+    }
+    setLoading(true);
+    generateNewsletter({ language: locale, market: market || undefined })
+      .then((data) => {
+        setNewsletter(data);
+        setShow(true);
+      })
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  };
+
+  return (
+    <section className="bg-[#111827] rounded-xl border border-[#334155] p-4">
+      <button
+        onClick={handleGenerate}
+        className="w-full flex items-center justify-between text-sm font-semibold text-white"
+      >
+        <span className="flex items-center gap-2">
+          <ScrollText className="w-4 h-4 text-cyan-400" />
+          {locale === "he" ? "ניוזלטר שבועי" : "Weekly Newsletter"}
+        </span>
+        {loading ? (
+          <Loader2 className="w-4 h-4 animate-spin text-cyan-400" />
+        ) : show ? (
+          <ChevronUp className="w-4 h-4 text-[#64748b]" />
+        ) : (
+          <span className="text-xs text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded">
+            {locale === "he" ? "צור" : "Generate"}
+          </span>
+        )}
+      </button>
+
+      {show && newsletter && (
+        <div className="mt-3">
+          {newsletter.ai_generated && (
+            <div className="flex items-center gap-2 mb-2 text-[10px] text-[#64748b]">
+              <span className="px-1.5 py-0.5 rounded bg-cyan-500/15 text-cyan-400 font-medium">AI</span>
+              <span>
+                {locale === "he" ? "מבוסס על" : "Based on"} {newsletter.source_count} {locale === "he" ? "מקורות" : "sources"},
+                {" "}{newsletter.total_mentions} {locale === "he" ? "אזכורים" : "mentions"}
+              </span>
+            </div>
+          )}
+          <div className="prose prose-sm prose-invert max-w-none text-sm text-[#e2e8f0] leading-relaxed whitespace-pre-wrap">
+            {newsletter.newsletter}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
 export default function TrendFeed({ onStockClick, isWatched, toggleWatch }: Props) {
   const { locale, t } = useI18n();
   const [feed, setFeed] = useState<UnifiedFeed | null>(null);
   const [sector, setSector] = useState("");
+  const [market, setMarket] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    getFeed({ sector: sector || undefined })
+    getFeed({
+      sector: sector || undefined,
+      market: market || undefined,
+    })
       .then(setFeed)
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, [sector]);
+  }, [sector, market]);
 
   return (
     <div className="space-y-4">
+      {/* Market Region Filter */}
+      <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+        {MARKETS.map((m) => (
+          <button
+            key={m.key}
+            onClick={() => setMarket(m.key)}
+            className={`whitespace-nowrap px-3 py-1.5 rounded-full text-sm font-medium transition flex items-center gap-1.5 ${
+              market === m.key
+                ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-md shadow-cyan-500/20"
+                : "bg-[#1e293b] text-[#94a3b8] hover:bg-[#334155]"
+            }`}
+          >
+            <span>{m.icon}</span>
+            {locale === "he" ? m.he : m.en}
+          </button>
+        ))}
+      </div>
+
       {/* Sector Filter */}
       <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
         {SECTORS.map((s) => (
@@ -463,16 +827,30 @@ export default function TrendFeed({ onStockClick, isWatched, toggleWatch }: Prop
 
           {/* Sidebar (desktop only) */}
           <aside className="hidden lg:block w-72 shrink-0 space-y-4">
+            {/* Trending Topics — cross-referenced */}
+            <TrendingTopicsSidebar market={market} locale={locale} />
+
+            {/* Newsletter */}
+            <NewsletterPanel market={market} locale={locale} />
+
             <IsraeliNewsSidebar items={feed.il_news_general} locale={locale} />
+            <GlobalNewsSidebar items={feed.global_news_general || []} locale={locale} />
+            <InstitutionalSidebar items={feed.institutional || []} locale={locale} />
+            <BlogsSidebar items={feed.blogs || []} locale={locale} />
             <PodcastsSidebar episodes={feed.podcasts} locale={locale} />
           </aside>
         </div>
       )}
 
-      {/* Mobile: Israeli news + Podcasts below feed */}
+      {/* Mobile: Sidebars below feed */}
       {!loading && feed && (
         <div className="lg:hidden space-y-4">
+          <TrendingTopicsSidebar market={market} locale={locale} />
+          <NewsletterPanel market={market} locale={locale} />
           <IsraeliNewsSidebar items={feed.il_news_general} locale={locale} />
+          <GlobalNewsSidebar items={feed.global_news_general || []} locale={locale} />
+          <InstitutionalSidebar items={feed.institutional || []} locale={locale} />
+          <BlogsSidebar items={feed.blogs || []} locale={locale} />
           <PodcastsSidebar episodes={feed.podcasts} locale={locale} />
         </div>
       )}

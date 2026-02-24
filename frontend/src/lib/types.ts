@@ -151,6 +151,8 @@ export interface FeedItem {
   top_article: NewsItem | null;
   articles: NewsItem[];
   il_news: NewsItem[];
+  global_news?: NewsItem[];
+  sec_filings?: { title: string; url: string; filing_type?: string; ticker?: string }[];
 }
 
 export interface PodcastEpisode {
@@ -165,10 +167,69 @@ export interface PodcastEpisode {
   image_url: string;
 }
 
+export interface InstitutionalItem {
+  title: string;
+  url: string;
+  source: string;
+  source_type: string;
+  category?: string;
+  region?: string;
+  published_at?: string;
+  description?: string;
+  language?: string;
+}
+
+export interface BlogPost {
+  title: string;
+  url: string;
+  source: string;
+  source_type: string;
+  source_key?: string;
+  published_at?: string;
+  description?: string;
+  language?: string;
+}
+
+export interface TrendingTopic {
+  topic: string;
+  type: "term" | "phrase";
+  mention_count: number;
+  source_count: number;
+  sources: string[];
+  score: number;
+  articles: { title: string; url: string; source: string; source_type: string; published_at?: string }[];
+}
+
+export interface TranslatedArticle {
+  translated_title: string;
+  summary: string;
+  key_points: string[];
+  language: string;
+  source: string;
+  url: string;
+  ai_generated: boolean;
+}
+
+export interface Newsletter {
+  newsletter: string;
+  trending_topics: TrendingTopic[];
+  top_articles: { title: string; url: string; source: string }[];
+  market: string;
+  language: string;
+  generated_at: string;
+  ai_generated: boolean;
+  source_count: number;
+  total_mentions: number;
+}
+
 export interface UnifiedFeed {
   feed: FeedItem[];
   il_news_general: NewsItem[];
+  global_news_general?: NewsItem[];
   podcasts: PodcastEpisode[];
+  institutional?: InstitutionalItem[];
+  blogs?: BlogPost[];
+  market_filter?: string;
   generated_at: string;
 }
 

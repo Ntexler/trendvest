@@ -11,6 +11,9 @@ import type {
   PeerStock,
   ResearchResult,
   UnifiedFeed,
+  TrendingTopic,
+  TranslatedArticle,
+  Newsletter,
 } from "./types";
 
 const BASE = "/api";
@@ -149,12 +152,57 @@ export const executeTrade = (data: {
   });
 
 // Unified Feed
-export const getFeed = (params?: { sector?: string; include_il?: boolean; include_podcasts?: boolean }) => {
+export const getFeed = (params?: {
+  sector?: string;
+  market?: string;
+  include_il?: boolean;
+  include_global?: boolean;
+  include_podcasts?: boolean;
+  include_institutional?: boolean;
+  include_blogs?: boolean;
+}) => {
   const sp = new URLSearchParams();
   if (params?.sector) sp.set("sector", params.sector);
+  if (params?.market) sp.set("market", params.market);
   if (params?.include_il !== undefined) sp.set("include_il", String(params.include_il));
+  if (params?.include_global !== undefined) sp.set("include_global", String(params.include_global));
   if (params?.include_podcasts !== undefined) sp.set("include_podcasts", String(params.include_podcasts));
+  if (params?.include_institutional !== undefined) sp.set("include_institutional", String(params.include_institutional));
+  if (params?.include_blogs !== undefined) sp.set("include_blogs", String(params.include_blogs));
   return fetchJSON<UnifiedFeed>(`/feed?${sp}`);
+};
+
+// Translate article
+export const translateArticle = (params: {
+  title: string;
+  description?: string;
+  source?: string;
+  url?: string;
+  target_language?: string;
+}) => {
+  const sp = new URLSearchParams();
+  sp.set("title", params.title);
+  if (params.description) sp.set("description", params.description);
+  if (params.source) sp.set("source", params.source);
+  if (params.url) sp.set("url", params.url);
+  sp.set("target_language", params.target_language || "he");
+  return fetchJSON<TranslatedArticle>(`/feed/translate?${sp}`, { method: "POST" });
+};
+
+// Trending topics (cross-referenced)
+export const getTrendingTopics = (params?: { market?: string; limit?: number }) => {
+  const sp = new URLSearchParams();
+  if (params?.market) sp.set("market", params.market);
+  if (params?.limit) sp.set("limit", String(params.limit));
+  return fetchJSON<{ trending_topics: TrendingTopic[]; market: string }>(`/feed/trending-topics?${sp}`);
+};
+
+// Newsletter
+export const generateNewsletter = (params?: { language?: string; market?: string }) => {
+  const sp = new URLSearchParams();
+  sp.set("language", params?.language || "he");
+  if (params?.market) sp.set("market", params.market);
+  return fetchJSON<Newsletter>(`/feed/newsletter?${sp}`, { method: "POST" });
 };
 
 // Tracking

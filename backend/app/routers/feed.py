@@ -23,6 +23,9 @@ from ..services.israeli_institutional import get_institutional_data
 from ..services.us_government import get_us_gov_data
 from ..services.international_institutional import get_international_data
 from ..services.blogs import get_blog_posts
+from ..services.translator import translate_and_summarize, batch_translate
+from ..services.cross_reference import get_trending_topics
+from ..services.newsletter import generate_newsletter
 
 router = APIRouter(prefix="/api/feed", tags=["feed"])
 
@@ -88,10 +91,13 @@ def _get_yfinance_news_for_topic(ticker: str, topic_slug: str) -> list[dict]:
 @router.get("")
 async def get_unified_feed(
     sector: Optional[str] = Query(None, description="Filter by sector"),
+    market: Optional[str] = Query(None, description="Filter by market region: israel, us, europe, asia, all"),
     include_il: bool = Query(True, description="Include Israeli news"),
     include_global: bool = Query(True, description="Include global financial news (Economist, FT, etc.)"),
     include_podcasts: bool = Query(True, description="Include podcast episodes"),
     include_sec: bool = Query(True, description="Include SEC filings"),
+    include_institutional: bool = Query(True, description="Include institutional data"),
+    include_blogs: bool = Query(True, description="Include blog posts"),
     limit: int = Query(20, le=50),
     pool=Depends(get_db_pool),
     stock_service=Depends(get_stock_service),
@@ -100,7 +106,7 @@ async def get_unified_feed(
     Get unified trend feed — each item is a topic with its top article,
     related stocks, SEC filings, and mention data combined.
     """
-    cache_key = f"feed:{sector or 'all'}:{include_il}:{include_global}:{include_podcasts}:{include_sec}:{limit}"
+    cache_key = f"feed:{sector or 'all'}:{market or 'all'}:{include_il}:{include_global}:{include_podcasts}:{include_sec}:{include_institutional}:{include_blogs}:{limit}"
     now = time.time()
 
     if cache_key in _feed_cache:
@@ -285,7 +291,39 @@ async def get_unified_feed(
         except Exception as e:
             print(f"Podcast fetch error: {e}")
 
-    # 10. Build the unified feed
+    # 10. Institutional data by market region (optional)
+    institutional_items = []
+    if include_institutional:
+        try:
+            if market == "israel" or market is None:
+                il_inst = get_institutional_data(limit=10)
+                institutional_items.extend(il_inst)
+            if market == "us" or market is None:
+                us_gov = get_us_gov_data(limit=10)
+                institutional_items.extend(us_gov)
+            if market == "europe" or market is None or market == "all":
+                eu_inst = get_international_data(region="europe", limit=10)
+                institutional_items.extend(eu_inst)
+            if market == "asia" or market is None or market == "all":
+                asia_inst = get_international_data(region="asia", limit=10)
+                institutional_items.extend(asia_inst)
+        except Exception as e:
+            print(f"Institutional fetch error: {e}")
+
+    # 11. Blog posts (optional)
+    blog_items = []
+    if include_blogs:
+        try:
+            if market == "israel":
+                blog_items = get_blog_posts(language="he", limit=10)
+            elif market:
+                blog_items = get_blog_posts(language="en", limit=10)
+            else:
+                blog_items = get_blog_posts(limit=15)
+        except Exception as e:
+            print(f"Blog fetch error: {e}")
+
+    # 12. Build the unified feed
     feed = []
     for topic in topics:
         slug = topic["slug"]
@@ -335,6 +373,9 @@ async def get_unified_feed(
         "global_news_general": global_news_general[:10],
         "sec_filings_latest": sec_general[:5],
         "podcasts": podcast_items[:8],
+        "institutional": institutional_items[:10],
+        "blogs": blog_items[:8],
+        "market_filter": market or "all",
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
 
@@ -518,6 +559,65 @@ async def get_blogs_feed(
     from ..services.blogs import BLOG_FEEDS
     items = get_blog_posts(blog=blog, category=category, language=language, limit=limit)
     return {"items": items, "sources": list(BLOG_FEEDS.keys())}
+
+
+@router.post("/translate")
+async def translate_article(
+    title: str = Query(..., description="Article title"),
+    description: str = Query("", description="Article description/content"),
+    source: str = Query("", description="Source name"),
+    url: str = Query("", description="Article URL"),
+    target_language: str = Query("he", description="Target language: he or en"),
+):
+    """Translate and summarize a financial article using Claude AI."""
+    result = translate_and_summarize(
+        title=title,
+        description=description,
+        source=source,
+        target_language=target_language,
+        url=url,
+    )
+    return result
+
+
+@router.post("/translate-batch")
+async def translate_articles_batch(
+    articles: list[dict],
+    target_language: str = Query("he", description="Target language: he or en"),
+    max_articles: int = Query(10, le=20, description="Max articles to translate"),
+):
+    """Translate a batch of articles."""
+    results = batch_translate(articles, target_language, max_articles)
+    return {"translations": results}
+
+
+@router.get("/trending-topics")
+async def get_trending_topics_feed(
+    market: Optional[str] = Query(None, description="Market: israel, us, europe, asia, all"),
+    limit: int = Query(15, le=30),
+):
+    """
+    Cross-reference all sources to identify trending topics in economic discourse.
+    Analyzes 70+ sources and scores topics by frequency and source diversity.
+    """
+    topics = get_trending_topics(market=market, limit=limit)
+    return {
+        "trending_topics": topics,
+        "market": market or "all",
+    }
+
+
+@router.post("/newsletter")
+async def generate_weekly_newsletter(
+    language: str = Query("he", description="Newsletter language: he or en"),
+    market: Optional[str] = Query(None, description="Market focus: israel, us, europe, asia, all"),
+):
+    """
+    Generate a weekly newsletter summarizing hot events after cross-referencing all sources.
+    Uses Claude AI to write an editorial-quality digest.
+    """
+    result = generate_newsletter(language=language, market=market)
+    return result
 
 
 @router.get("/sources")

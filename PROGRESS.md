@@ -176,12 +176,59 @@ GET  /api/recommendations
 - New files: `ModeContext.tsx`, `Term.tsx`, `MarketTicker.tsx`, `Sparkline.tsx`, `HeatGauge.tsx`
 - ~33 new i18n keys added to translations.ts
 
+### Phase 5: Unified Feed Redesign + Homepage
+- [x] Created `backend/app/routers/feed.py` — unified feed endpoint combining all sources
+- [x] Redesigned homepage as `TrendFeed.tsx` — topic cards with momentum bars, sparklines, heat gauges
+- [x] Feed cards: expandable with top article (image), related stocks, Israeli news per topic
+- [x] Sidebar: Israeli news general + podcast episodes (desktop only)
+- [x] Sector filter chips (All, Technology, Energy, Healthcare, Finance, etc.)
+
+### Phase 6: Comprehensive Data Sources (70+ Sources)
+- [x] **Israeli News RSS (8 sources)**: Globes, Calcalist, TheMarker, GeekTime, Bizportal, Ice, Ynet Finance, TASE
+- [x] **Global News RSS (10 sources)**: Economist, FT, Seeking Alpha, Benzinga, Reuters, CNBC, WSJ, Bloomberg, Handelsblatt, Les Echos
+- [x] **Israeli Institutional (7 sources)**: Bank of Israel, CBS, ISA, TASE, Aaron Institute, Taub Center, S&P Maalot
+- [x] **US Government (4 sources)**: BEA, BLS, NBER, Treasury
+- [x] **International Institutional (17 sources)**: ECB, Eurostat, Bundesbank, BoE, OECD, Bruegel, BOJ, PBOC, Nikkei Asia, Caixin, SCMP, RBI, Economic Times, ADB, Straits Times, World Bank, IMF
+- [x] **Financial Blogs (10)**: Calculated Risk, Marginal Revolution, Money Stuff, Noahpinion, Macro Compass, Kyla Scanlon, Doomberg, Mauldin, הסולידית, פנסיוני
+- [x] **Podcasts (19)**: 7 Israeli + 12 International
+- [x] **Reddit (20+ subreddits)**: 8 categories (macro, stocks, personal finance, Israel, crypto, tech, energy, biotech)
+- [x] **API Services**: Finnhub (company news + sentiment), Alpha Vantage (news sentiment), FRED (macro indicators), SEC EDGAR (filings)
+- [x] Created 9 new backend service files + expanded feed router with 11 endpoints
+- [x] All sources endpoint: `GET /api/feed/sources` — lists all configured sources and API key status
+
+### Phase 7: Interface Features (Market Filter, Translation, Cross-Reference, Newsletter)
+- [x] **Feature 1 — Market-Filtered View**: Filter by Israel/US/Europe/Asia/All market regions
+- [x] **Feature 2 — Translation & Summary**: Claude API article translation and summary (HE/EN)
+- [x] **Feature 3 — Cross-Referencing Algorithm**: Identify trending topics across all data sources
+- [x] **Feature 4 — Weekly Newsletter**: Auto-generated weekly digest after cross-referencing all sources
+
+### New API Routes (Phase 6-7)
+```
+GET  /api/feed                          ← Unified trend feed
+GET  /api/feed/il-news                  ← Israeli news
+GET  /api/feed/global-news              ← Global financial news
+GET  /api/feed/sec-filings              ← SEC EDGAR filings
+GET  /api/feed/macro                    ← FRED macro indicators
+GET  /api/feed/sentiment                ← News sentiment (Finnhub + Alpha Vantage)
+GET  /api/feed/podcasts                 ← Podcast episodes
+POST /api/feed/podcasts/transcribe      ← Podcast transcription
+GET  /api/feed/il-institutional         ← Israeli institutional
+GET  /api/feed/us-gov                   ← US government data
+GET  /api/feed/international            ← International institutional
+GET  /api/feed/blogs                    ← Financial blogs
+GET  /api/feed/sources                  ← All source status
+POST /api/feed/translate                ← Translate & summarize article
+GET  /api/feed/trending-topics          ← Cross-referenced trending topics
+POST /api/feed/newsletter               ← Generate weekly newsletter
+```
+
 ### Workflow Notes
 - Use `/compact` periodically in Claude Code to compress context
 - Keep sessions to 1-2 features max to prevent RAM/context buildup
 - Commit after each feature, save plans to PROGRESS.md for crash recovery
 
 ## Operational Next Steps
-- [ ] Add Reddit/NewsAPI/Anthropic/X/Perplexity API keys for live data
+- [ ] Add API keys: Finnhub, Alpha Vantage, FRED, NewsAPI, Reddit, X/Twitter (all free)
+- [ ] Add paid API keys: Anthropic (Claude), Perplexity
 - [ ] Run pipeline to collect real mention data
 - [ ] Deploy to cloud (Vercel frontend + Railway/Render backend)
