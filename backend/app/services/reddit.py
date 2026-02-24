@@ -1,6 +1,7 @@
 """
 Reddit data collector for TrendVest.
-Uses PRAW (Python Reddit API Wrapper) to count keyword mentions.
+Uses PRAW (Python Reddit API Wrapper) to count keyword mentions
+across financial, economic, and investment subreddits.
 """
 import os
 import asyncio
@@ -13,6 +14,59 @@ try:
 except ImportError:
     praw = None
     print("⚠️  praw not installed. Run: pip install praw")
+
+# Curated subreddit categories for financial monitoring
+SUBREDDIT_CATEGORIES = {
+    "macro_economics": [
+        "economics",          # Economic policy, academic articles, macro analysis
+        "econmonitor",        # High-quality posts from central banks and research institutions
+        "geopolitics",        # Geopolitics with strong economic angle
+    ],
+    "stock_market": [
+        "investing",          # Balanced investment discussions, long-term
+        "stocks",             # Stock analysis, quarterly reports, trends
+        "ValueInvesting",     # Value investing, fundamental analysis, Buffett-style
+        "SecurityAnalysis",   # Deep analysis, DCF, financial statements — most academic
+        "wallstreetbets",     # Noisy but catches trends early. Take with grain of salt
+    ],
+    "personal_finance": [
+        "personalfinance",    # Personal money management (US-focused)
+        "financialindependence",  # FIRE — financial independence, early retirement
+        "EuropeFIRE",         # European version of FIRE
+    ],
+    "israel": [
+        "IsraelFinance",      # Israeli finance — pension, taxes, local market
+    ],
+    "crypto": [
+        "CryptoCurrency",
+        "Bitcoin",
+        "ethereum",
+    ],
+    "tech": [
+        "technology",
+        "Futurology",
+    ],
+    "energy": [
+        "energy",
+        "RenewableEnergy",
+        "UraniumSqueeze",
+    ],
+    "biotech": [
+        "biotech",
+        "Pharmaceuticals",
+    ],
+}
+
+# Default subreddits for general topic monitoring (covers core financial subs)
+DEFAULT_SUBREDDITS = [
+    "wallstreetbets", "stocks", "investing", "economics",
+    "ValueInvesting", "SecurityAnalysis", "econmonitor",
+]
+
+# All subreddits flattened
+ALL_SUBREDDITS = sorted(set(
+    sub for subs in SUBREDDIT_CATEGORIES.values() for sub in subs
+))
 
 
 class RedditCollector:
@@ -93,7 +147,7 @@ class RedditCollector:
         try:
             count = self.count_mentions(
                 keywords=topic["keywords"],
-                subreddits=topic.get("subreddits", ["wallstreetbets", "stocks", "investing"]),
+                subreddits=topic.get("subreddits", DEFAULT_SUBREDDITS),
                 time_filter="day",
                 limit=100
             )

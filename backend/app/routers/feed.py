@@ -22,6 +22,7 @@ from ..services.fred import FredCollector
 from ..services.israeli_institutional import get_institutional_data
 from ..services.us_government import get_us_gov_data
 from ..services.international_institutional import get_international_data
+from ..services.blogs import get_blog_posts
 
 router = APIRouter(prefix="/api/feed", tags=["feed"])
 
@@ -506,6 +507,19 @@ async def get_international_feed(
     return {"items": items, "sources": list(INTL_INSTITUTIONAL_FEEDS.keys())}
 
 
+@router.get("/blogs")
+async def get_blogs_feed(
+    blog: Optional[str] = Query(None, description="Blog key: calculated_risk, marginal_revolution, money_stuff, etc."),
+    category: Optional[str] = Query(None, description="Category: macro, markets, energy, personal_finance"),
+    language: Optional[str] = Query(None, description="Language: en, he"),
+    limit: int = Query(30, le=50),
+):
+    """Get latest posts from financial blogs and newsletters."""
+    from ..services.blogs import BLOG_FEEDS
+    items = get_blog_posts(blog=blog, category=category, language=language, limit=limit)
+    return {"items": items, "sources": list(BLOG_FEEDS.keys())}
+
+
 @router.get("/sources")
 async def get_all_sources():
     """List all available data sources and their status."""
@@ -515,6 +529,8 @@ async def get_all_sources():
     from ..services.israeli_institutional import INSTITUTIONAL_FEEDS
     from ..services.us_government import US_GOV_FEEDS
     from ..services.international_institutional import INTL_INSTITUTIONAL_FEEDS
+    from ..services.blogs import BLOG_FEEDS
+    from ..services.reddit import SUBREDDIT_CATEGORIES, ALL_SUBREDDITS
 
     finnhub = FinnhubCollector()
     from ..services.alpha_vantage import AlphaVantageCollector
@@ -525,9 +541,11 @@ async def get_all_sources():
         "israeli_news": {"count": len(ISRAELI_FEEDS), "sources": list(ISRAELI_FEEDS.keys())},
         "global_news": {"count": len(GLOBAL_FEEDS), "sources": list(GLOBAL_FEEDS.keys())},
         "podcasts": {"count": len(PODCAST_FEEDS), "sources": list(PODCAST_FEEDS.keys())},
+        "blogs": {"count": len(BLOG_FEEDS), "sources": list(BLOG_FEEDS.keys())},
         "israeli_institutional": {"count": len(INSTITUTIONAL_FEEDS), "sources": list(INSTITUTIONAL_FEEDS.keys())},
         "us_government": {"count": len(US_GOV_FEEDS), "sources": list(US_GOV_FEEDS.keys())},
         "international": {"count": len(INTL_INSTITUTIONAL_FEEDS), "sources": list(INTL_INSTITUTIONAL_FEEDS.keys())},
+        "reddit": {"subreddit_count": len(ALL_SUBREDDITS), "categories": list(SUBREDDIT_CATEGORIES.keys())},
         "api_services": {
             "finnhub": {"configured": bool(finnhub.api_key)},
             "alpha_vantage": {"configured": bool(av.api_key)},
@@ -535,5 +553,6 @@ async def get_all_sources():
             "sec_edgar": {"configured": True, "note": "No API key needed"},
             "newsapi": {"configured": bool(os.getenv("NEWS_API_KEY", ""))},
             "x_twitter": {"configured": bool(os.getenv("X_BEARER_TOKEN", ""))},
+            "reddit": {"configured": bool(os.getenv("REDDIT_CLIENT_ID", ""))},
         },
     }

@@ -1,6 +1,7 @@
 """
 Podcast discovery & transcription service for TrendVest.
-Discovers Israeli financial podcasts, transcribes episodes, and extracts insights.
+Discovers Israeli and international financial podcasts, transcribes episodes,
+and extracts insights.
 """
 import os
 import time
@@ -13,7 +14,7 @@ from typing import Optional
 
 import requests
 
-# Israeli financial podcast RSS feeds
+# Financial podcast RSS feeds (Israeli + International)
 PODCAST_FEEDS = {
     "hamaslul": {
         "name": "המסלול",
@@ -63,6 +64,100 @@ PODCAST_FEEDS = {
         "description": "פודקאסט כלכלי על שוק ההון והכלכלה הישראלית",
         "rss": "https://feeds.megaphone.fm/shulchan4",
         "category": "finance",
+    },
+    "hakesef": {
+        "name": "הכסף",
+        "name_en": "HaKesef (TheMarker)",
+        "description": "פודקאסט כלכלי של דה מרקר על כלכלה ושוק ההון",
+        "rss": "https://feeds.megaphone.fm/hakesef",
+        "category": "finance",
+    },
+    # ── International — Macro & Big Picture ──
+    "odd_lots": {
+        "name": "Odd Lots",
+        "name_en": "Odd Lots (Bloomberg)",
+        "description": "Joe Weisenthal & Tracy Alloway — macro, markets, unexpected topics",
+        "rss": "https://feeds.megaphone.fm/oddlots",
+        "category": "macro",
+    },
+    "planet_money": {
+        "name": "Planet Money",
+        "name_en": "Planet Money (NPR)",
+        "description": "Economics at eye level — short and brilliant",
+        "rss": "https://feeds.npr.org/510289/podcast.xml",
+        "category": "macro",
+    },
+    "the_indicator": {
+        "name": "The Indicator",
+        "name_en": "The Indicator (NPR)",
+        "description": "Daily economics indicator from Planet Money",
+        "rss": "https://feeds.npr.org/510325/podcast.xml",
+        "category": "macro",
+    },
+    "macro_voices": {
+        "name": "Macro Voices",
+        "name_en": "Macro Voices",
+        "description": "Deep interviews with fund managers and analysts",
+        "rss": "https://feeds.megaphone.fm/macrovoices",
+        "category": "macro",
+    },
+    "real_vision": {
+        "name": "Real Vision",
+        "name_en": "Real Vision (Raoul Pal)",
+        "description": "Interviews with major market players",
+        "rss": "https://feeds.megaphone.fm/realvision",
+        "category": "macro",
+    },
+    "prof_g": {
+        "name": "Prof G Pod",
+        "name_en": "The Prof G Pod (Scott Galloway)",
+        "description": "Tech, business, economy — opinionated and entertaining",
+        "rss": "https://feeds.megaphone.fm/WWO3519750118",
+        "category": "macro",
+    },
+    # ── International — Stock Market & Investing ──
+    "rational_reminder": {
+        "name": "Rational Reminder",
+        "name_en": "Rational Reminder (Ben Felix)",
+        "description": "Research-based investing, academic and calm approach",
+        "rss": "https://rationalreminder.libsyn.com/rss",
+        "category": "investing",
+    },
+    "we_study_billionaires": {
+        "name": "We Study Billionaires",
+        "name_en": "We Study Billionaires",
+        "description": "Value analysis, Buffett, Munger",
+        "rss": "https://feeds.megaphone.fm/TIP",
+        "category": "investing",
+    },
+    "animal_spirits": {
+        "name": "Animal Spirits",
+        "name_en": "Animal Spirits",
+        "description": "Markets with a sober and humorous approach",
+        "rss": "https://animalspiritspod.libsyn.com/rss",
+        "category": "investing",
+    },
+    "invest_like_best": {
+        "name": "Invest Like the Best",
+        "name_en": "Invest Like the Best",
+        "description": "High-level interviews with entrepreneurs and investors",
+        "rss": "https://investlikethebest.libsyn.com/rss",
+        "category": "investing",
+    },
+    # ── International — Geopolitics & Economy ──
+    "ezra_klein": {
+        "name": "Ezra Klein Show",
+        "name_en": "The Ezra Klein Show",
+        "description": "Excellent economic episodes, broad perspective",
+        "rss": "https://feeds.simplecast.com/82FI35Px",
+        "category": "macro",
+    },
+    "capitalisnt": {
+        "name": "Capitalisn't",
+        "name_en": "Capitalisn't",
+        "description": "Free market critique, regulation, concentration",
+        "rss": "https://feeds.simplecast.com/gSXBqBv2",
+        "category": "macro",
     },
 }
 
@@ -162,7 +257,7 @@ def get_podcast_episodes(
         feeds_to_fetch.append((config["rss"], key, config["name"]))
 
     all_episodes = []
-    with ThreadPoolExecutor(max_workers=7) as executor:
+    with ThreadPoolExecutor(max_workers=12) as executor:
         futures = {
             executor.submit(_parse_podcast_feed, rss, key, name): key
             for rss, key, name in feeds_to_fetch
