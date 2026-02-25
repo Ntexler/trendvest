@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useI18n } from "@/i18n/context";
 import {
   Shield,
@@ -17,7 +17,14 @@ import {
   Target,
   AlertTriangle,
   Database,
+  Clock,
+  CheckCircle,
+  XCircle,
+  Play,
+  Search,
 } from "lucide-react";
+
+// ── Types ──
 
 interface AdminData {
   platform: {
@@ -26,6 +33,8 @@ interface AdminData {
     active_users_7d: number;
     interactions_24h: number;
     interactions_7d: number;
+    prev_active_users_24h: number;
+    prev_interactions_24h: number;
     interaction_breakdown: { type: string; count: number }[];
   };
   agent: {
@@ -69,6 +78,7 @@ interface AdminData {
       confidence: number;
       is_open: boolean;
       opened_at: string | null;
+      closed_at: string | null;
       pnl_pct: number | null;
       outcome_1d: number | null;
       outcome_7d: number | null;
@@ -82,6 +92,7 @@ interface AdminData {
       accuracy: number;
       predictions: number;
       correct: number;
+      updated_at: string | null;
     }[];
   };
   performance: {
@@ -120,6 +131,21 @@ interface AdminData {
     interactions: number;
     unique_sessions: number;
   }[];
+  health: {
+    last_trade_at: string | null;
+    last_alert_at: string | null;
+    last_weight_update: string | null;
+    ml_freshness_hours: number | null;
+    data_pipeline_ok: boolean;
+    agent_active: boolean;
+  };
+  timeline: {
+    event_type: string;
+    ticker: string;
+    detail: string | null;
+    confidence: number | null;
+    event_time: string | null;
+  }[];
   generated_at: string;
 }
 
@@ -133,9 +159,32 @@ const SIGNAL_LABELS: Record<string, string> = {
   cross_reference: "Cross-Ref",
   nlp_sentiment: "NLP",
   user_ml: "User ML",
+  earnings_blackout: "Earnings",
 };
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const AUTO_REFRESH_MS = 30_000;
+
+// ── Helpers ──
+
+function calcDelta(current: number, previous: number): { pct: number; direction: "up" | "down" | "flat" } {
+  if (previous === 0) return { pct: 0, direction: "flat" };
+  const pct = ((current - previous) / previous) * 100;
+  return { pct: Math.round(pct), direction: pct > 0 ? "up" : pct < 0 ? "down" : "flat" };
+}
+
+function timeAgo(iso: string | null): string {
+  if (!iso) return "—";
+  const diff = Date.now() - new Date(iso).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return "just now";
+  if (mins < 60) return `${mins}m ago`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs}h ago`;
+  return `${Math.floor(hrs / 24)}d ago`;
+}
+
+// ── Main Component ──
 
 export default function AdminDashboard() {
   const { locale } = useI18n();
@@ -144,31 +193,62 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [section, setSection] = useState<string>("overview");
   const [retraining, setRetraining] = useState(false);
+  const [scanning, setScanning] = useState(false);
+  const [learning, setLearning] = useState(false);
+  const [autoRefresh, setAutoRefresh] = useState(true);
+  const [expandedTrade, setExpandedTrade] = useState<number | null>(null);
+  const refreshTimer = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const load = async () => {
-    setLoading(true);
+  const load = useCallback(async (silent = false) => {
+    if (!silent) setLoading(true);
     try {
       const resp = await fetch(`${API_BASE}/api/admin/overview`);
       if (resp.ok) setData(await resp.json());
     } catch (e) {
       console.error(e);
     } finally {
-      setLoading(false);
+      if (!silent) setLoading(false);
     }
-  };
+  }, []);
 
-  useEffect(() => { load(); }, []);
+  // Initial load
+  useEffect(() => { load(); }, [load]);
+
+  // Auto-refresh
+  useEffect(() => {
+    if (autoRefresh) {
+      refreshTimer.current = setInterval(() => load(true), AUTO_REFRESH_MS);
+    }
+    return () => {
+      if (refreshTimer.current) clearInterval(refreshTimer.current);
+    };
+  }, [autoRefresh, load]);
 
   const handleRetrain = async () => {
     setRetraining(true);
     try {
       await fetch(`${API_BASE}/api/agent/ml/retrain`, { method: "POST" });
       await load();
-    } catch (e) {
-      console.error(e);
-    } finally {
-      setRetraining(false);
-    }
+    } catch (e) { console.error(e); }
+    finally { setRetraining(false); }
+  };
+
+  const handleScan = async () => {
+    setScanning(true);
+    try {
+      await fetch(`${API_BASE}/api/agent/breaking/scan`, { method: "POST" });
+      await load();
+    } catch (e) { console.error(e); }
+    finally { setScanning(false); }
+  };
+
+  const handleLearn = async () => {
+    setLearning(true);
+    try {
+      await fetch(`${API_BASE}/api/agent/learn`, { method: "POST" });
+      await load();
+    } catch (e) { console.error(e); }
+    finally { setLearning(false); }
   };
 
   if (loading) {
@@ -196,9 +276,31 @@ export default function AdminDashboard() {
     { id: "breaking", label: isHe ? "התראות" : "Alerts", icon: Zap },
   ];
 
+  // Compute deltas
+  const usersDelta = calcDelta(data.platform.active_users_24h, data.platform.prev_active_users_24h);
+  const interactionsDelta = calcDelta(data.platform.interactions_24h, data.platform.prev_interactions_24h);
+
+  // Health status
+  const healthChecks = [
+    { label: isHe ? "סוכן פעיל" : "Agent Active", ok: data.health.agent_active },
+    { label: isHe ? "צנרת נתונים" : "Data Pipeline", ok: data.health.data_pipeline_ok },
+    { label: "ML Model", ok: data.ml_model.status === "trained" && (data.health.ml_freshness_hours === null || data.health.ml_freshness_hours < 168) },
+  ];
+  const overallHealth = healthChecks.every(h => h.ok) ? "green" : healthChecks.some(h => h.ok) ? "amber" : "red";
+
+  // ML feature importance from metadata
+  const featureImportance: { name: string; importance: number }[] = [];
+  if (data.ml_model.metadata && (data.ml_model.metadata as Record<string, unknown>).feature_importance) {
+    const fi = (data.ml_model.metadata as Record<string, unknown>).feature_importance as Record<string, number>;
+    Object.entries(fi).forEach(([name, importance]) => {
+      featureImportance.push({ name, importance });
+    });
+    featureImportance.sort((a, b) => b.importance - a.importance);
+  }
+
   return (
-    <div className="space-y-4">
-      {/* Header */}
+    <div className="space-y-3">
+      {/* ═══ HEADER ═══ */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Shield className="w-5 h-5 text-amber-400" />
@@ -210,13 +312,81 @@ export default function AdminDashboard() {
           </span>
         </div>
         <div className="flex items-center gap-2">
+          {/* Auto-refresh toggle */}
+          <button
+            onClick={() => setAutoRefresh(!autoRefresh)}
+            className={`flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-medium transition ${
+              autoRefresh
+                ? "bg-green-500/20 text-green-400"
+                : "bg-[#1e293b] text-[#475569]"
+            }`}
+          >
+            <div className={`w-1.5 h-1.5 rounded-full ${autoRefresh ? "bg-green-400 animate-pulse" : "bg-[#475569]"}`} />
+            {autoRefresh ? "LIVE" : "PAUSED"}
+          </button>
           <span className="text-[9px] text-[#475569]">
             {new Date(data.generated_at).toLocaleTimeString()}
           </span>
-          <button onClick={load} className="p-1.5 rounded-lg hover:bg-[#1e293b] transition text-[#64748b] hover:text-amber-400">
+          <button onClick={() => load()} className="p-1.5 rounded-lg hover:bg-[#1e293b] transition text-[#64748b] hover:text-amber-400">
             <RefreshCw className="w-4 h-4" />
           </button>
         </div>
+      </div>
+
+      {/* ═══ FIX 1: SYSTEM HEALTH STATUS BAR ═══ */}
+      <div className={`flex items-center gap-3 p-2.5 rounded-xl border ${
+        overallHealth === "green"
+          ? "bg-green-500/5 border-green-500/20"
+          : overallHealth === "amber"
+          ? "bg-amber-500/5 border-amber-500/20"
+          : "bg-red-500/5 border-red-500/20"
+      }`}>
+        <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${
+          overallHealth === "green" ? "bg-green-400" :
+          overallHealth === "amber" ? "bg-amber-400 animate-pulse" :
+          "bg-red-400 animate-pulse"
+        }`} />
+        <div className="flex items-center gap-4 flex-1 overflow-x-auto">
+          {healthChecks.map((h) => (
+            <div key={h.label} className="flex items-center gap-1.5 whitespace-nowrap">
+              {h.ok
+                ? <CheckCircle className="w-3 h-3 text-green-400" />
+                : <XCircle className="w-3 h-3 text-red-400" />
+              }
+              <span className={`text-[10px] font-medium ${h.ok ? "text-green-400" : "text-red-400"}`}>
+                {h.label}
+              </span>
+            </div>
+          ))}
+        </div>
+        <span className="text-[9px] text-[#475569] whitespace-nowrap">
+          {isHe ? "עסקה אחרונה" : "Last trade"}: {timeAgo(data.health.last_trade_at)}
+        </span>
+      </div>
+
+      {/* ═══ FIX 6: QUICK ACTIONS PANEL ═══ */}
+      <div className="flex gap-2 overflow-x-auto pb-0.5">
+        <QuickAction
+          label={isHe ? "למידה" : "Learn"}
+          icon={<Brain className="w-3.5 h-3.5" />}
+          loading={learning}
+          onClick={handleLearn}
+          color="violet"
+        />
+        <QuickAction
+          label={isHe ? "אימון ML" : "Retrain ML"}
+          icon={<Database className="w-3.5 h-3.5" />}
+          loading={retraining}
+          onClick={handleRetrain}
+          color="cyan"
+        />
+        <QuickAction
+          label={isHe ? "סריקת חדשות" : "Scan News"}
+          icon={<Search className="w-3.5 h-3.5" />}
+          loading={scanning}
+          onClick={handleScan}
+          color="amber"
+        />
       </div>
 
       {/* Tab Navigation */}
@@ -240,7 +410,7 @@ export default function AdminDashboard() {
       {/* ═══ OVERVIEW TAB ═══ */}
       {section === "overview" && (
         <div className="space-y-4">
-          {/* Key Metrics */}
+          {/* FIX 2: Key Metrics with Delta Indicators */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             <MetricCard
               label={isHe ? "משתמשים" : "Total Users"}
@@ -251,6 +421,7 @@ export default function AdminDashboard() {
               label={isHe ? "פעילים 24h" : "Active 24h"}
               value={data.platform.active_users_24h.toString()}
               sub={`${data.platform.active_users_7d} / 7d`}
+              delta={usersDelta}
               icon={<Activity className="w-4 h-4 text-green-400" />}
             />
             <MetricCard
@@ -268,6 +439,13 @@ export default function AdminDashboard() {
             />
           </div>
 
+          {/* FIX 4: Performance Sparkline Chart */}
+          {data.performance.length > 0 && (
+            <Section title={isHe ? "ביצועים (60 יום)" : "Performance (60d)"} icon={<TrendingUp className="w-3.5 h-3.5" />}>
+              <PerformanceChart data={data.performance} isHe={isHe} />
+            </Section>
+          )}
+
           {/* Outcome Averages */}
           <Section title={isHe ? "ממוצע תוצאות עסקאות" : "Avg Trade Outcomes"} icon={<BarChart3 className="w-3.5 h-3.5" />}>
             <div className="grid grid-cols-3 gap-2">
@@ -277,70 +455,104 @@ export default function AdminDashboard() {
             </div>
           </Section>
 
-          {/* ML Model Status */}
+          {/* ML Model + Feature Importance */}
           <Section title={isHe ? "מודל ML" : "ML Model Status"} icon={<Database className="w-3.5 h-3.5" />}>
-            <div className="flex items-center justify-between p-3 rounded-lg bg-[#0f172a]">
-              <div>
-                <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
-                  data.ml_model.status === "trained"
-                    ? "bg-green-500/20 text-green-400"
-                    : "bg-amber-500/20 text-amber-400"
-                }`}>
-                  {data.ml_model.status === "trained" ? (isHe ? "מאומן" : "TRAINED") : (isHe ? "לא מאומן" : "NOT TRAINED")}
-                </span>
-                {data.ml_model.trained_at && (
-                  <span className="text-[10px] text-[#64748b] ms-2">
-                    {new Date(data.ml_model.trained_at).toLocaleDateString()}
+            <div className="p-3 rounded-lg bg-[#0f172a]">
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                    data.ml_model.status === "trained"
+                      ? "bg-green-500/20 text-green-400"
+                      : "bg-amber-500/20 text-amber-400"
+                  }`}>
+                    {data.ml_model.status === "trained" ? (isHe ? "מאומן" : "TRAINED") : (isHe ? "לא מאומן" : "NOT TRAINED")}
                   </span>
-                )}
-                {data.ml_model.metadata && (
-                  <div className="mt-1 text-[10px] text-[#94a3b8]">
-                    {isHe ? "סוג:" : "Type:"} {(data.ml_model.metadata as Record<string, unknown>).model_type as string || "—"}
-                    {" | "}
-                    {isHe ? "דיוק:" : "Accuracy:"} {((data.ml_model.metadata as Record<string, unknown>).cv_accuracy as number * 100)?.toFixed(1) || "—"}%
-                    {" | "}
-                    {isHe ? "דוגמאות:" : "Samples:"} {(data.ml_model.metadata as Record<string, unknown>).samples as number || "—"}
-                  </div>
-                )}
+                  {data.ml_model.trained_at && (
+                    <span className="text-[10px] text-[#64748b] ms-2">
+                      {new Date(data.ml_model.trained_at).toLocaleDateString()}
+                      {data.health.ml_freshness_hours !== null && (
+                        <span className="ms-1">({Math.round(data.health.ml_freshness_hours)}h ago)</span>
+                      )}
+                    </span>
+                  )}
+                  {data.ml_model.metadata && (
+                    <div className="mt-1 text-[10px] text-[#94a3b8]">
+                      {isHe ? "סוג:" : "Type:"} {(data.ml_model.metadata as Record<string, unknown>).model_type as string || "—"}
+                      {" | "}
+                      {isHe ? "דיוק:" : "Accuracy:"} {((data.ml_model.metadata as Record<string, unknown>).cv_accuracy as number * 100)?.toFixed(1) || "—"}%
+                      {" | "}
+                      {isHe ? "דוגמאות:" : "Samples:"} {(data.ml_model.metadata as Record<string, unknown>).samples as number || "—"}
+                    </div>
+                  )}
+                </div>
               </div>
-              <button
-                onClick={handleRetrain}
-                disabled={retraining}
-                className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-violet-500/20 text-violet-400 text-xs font-medium hover:bg-violet-500/30 transition disabled:opacity-40"
-              >
-                {retraining ? <Loader2 className="w-3 h-3 animate-spin" /> : <RefreshCw className="w-3 h-3" />}
-                {isHe ? "אמן מחדש" : "Retrain"}
-              </button>
+
+              {/* FIX 8: ML Feature Importance Visualization */}
+              {featureImportance.length > 0 && (
+                <div className="mt-3 pt-3 border-t border-[#1e293b]">
+                  <h4 className="text-[10px] text-[#475569] uppercase font-medium mb-2">
+                    {isHe ? "חשיבות פיצ'רים" : "Feature Importance"}
+                  </h4>
+                  <div className="space-y-1">
+                    {featureImportance.slice(0, 8).map((f) => {
+                      const maxImp = featureImportance[0]?.importance || 1;
+                      const pct = Math.round((f.importance / maxImp) * 100);
+                      return (
+                        <div key={f.name} className="flex items-center gap-2">
+                          <span className="text-[9px] text-[#94a3b8] w-28 truncate font-mono">{f.name}</span>
+                          <div className="flex-1 h-1.5 rounded-full bg-[#1e293b] overflow-hidden">
+                            <div
+                              className="h-full rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500"
+                              style={{ width: `${pct}%` }}
+                            />
+                          </div>
+                          <span className="text-[9px] text-[#64748b] w-10 text-end">{(f.importance * 100).toFixed(1)}%</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
           </Section>
 
-          {/* Performance vs Benchmark (condensed) */}
-          {data.performance.length > 0 && (
-            <Section title={isHe ? "ביצועים מול SPY" : "Performance vs SPY"} icon={<TrendingUp className="w-3.5 h-3.5" />}>
-              <div className="space-y-1 max-h-64 overflow-y-auto">
-                {data.performance.slice(0, 20).map((p) => (
-                  <div key={p.date} className="flex items-center justify-between text-xs py-1 border-b border-[#1e293b] last:border-0">
-                    <span className="text-[#64748b] w-20">{p.date}</span>
-                    <span className="text-[#94a3b8] w-20 text-end">${p.value.toLocaleString()}</span>
-                    <span className={`w-16 text-end font-medium ${p.daily_pnl_pct >= 0 ? "text-green-400" : "text-red-400"}`}>
-                      {p.daily_pnl_pct >= 0 ? "+" : ""}{p.daily_pnl_pct.toFixed(2)}%
-                    </span>
-                    <span className={`w-16 text-end font-medium ${p.cumulative_pnl_pct >= 0 ? "text-green-400" : "text-red-400"}`}>
-                      {p.cumulative_pnl_pct >= 0 ? "+" : ""}{p.cumulative_pnl_pct.toFixed(2)}%
-                    </span>
-                    {p.benchmark_pnl_pct !== null && (
-                      <span className="text-[#64748b] w-16 text-end">
-                        SPY {p.benchmark_pnl_pct >= 0 ? "+" : ""}{p.benchmark_pnl_pct.toFixed(2)}%
-                      </span>
-                    )}
-                    <span className={`px-1 py-0.5 rounded text-[8px] w-14 text-center ${
-                      p.regime === "volatile" ? "bg-red-500/20 text-red-400" :
-                      p.regime === "bull" ? "bg-green-500/20 text-green-400" :
-                      p.regime === "bear" ? "bg-red-500/20 text-red-400" :
-                      "bg-[#1e293b] text-[#64748b]"
-                    }`}>
-                      {p.regime}
-                    </span>
+          {/* FIX 7: Agent Activity Timeline */}
+          {data.timeline.length > 0 && (
+            <Section title={isHe ? "ציר זמן פעילות" : "Activity Timeline"} icon={<Clock className="w-3.5 h-3.5" />}>
+              <div className="space-y-0.5 max-h-64 overflow-y-auto">
+                {data.timeline.map((ev, i) => (
+                  <div key={i} className="flex items-start gap-2.5 py-1.5 border-b border-[#1e293b]/50 last:border-0">
+                    <div className="mt-0.5">
+                      {ev.event_type === "trade" ? (
+                        <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold ${
+                          ev.detail === "buy" ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"
+                        }`}>
+                          {ev.detail === "buy" ? "B" : "S"}
+                        </div>
+                      ) : ev.event_type === "breaking" ? (
+                        <div className="w-5 h-5 rounded-full flex items-center justify-center bg-amber-500/20">
+                          <Zap className="w-3 h-3 text-amber-400" />
+                        </div>
+                      ) : (
+                        <div className="w-5 h-5 rounded-full flex items-center justify-center bg-violet-500/20">
+                          <Activity className="w-3 h-3 text-violet-400" />
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-mono font-bold text-cyan-400">{ev.ticker}</span>
+                        <span className="text-[10px] text-[#94a3b8]">
+                          {ev.event_type === "trade"
+                            ? `${ev.detail?.toUpperCase()} — ${ev.confidence ? `${(ev.confidence * 100).toFixed(0)}% conf` : ""}`
+                            : ev.event_type === "breaking"
+                            ? (ev.detail ? ev.detail.slice(0, 50) : "Alert")
+                            : `Weight → ${ev.detail}`
+                          }
+                        </span>
+                      </div>
+                      <span className="text-[9px] text-[#475569]">{timeAgo(ev.event_time)}</span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -352,55 +564,137 @@ export default function AdminDashboard() {
       {/* ═══ AGENT TAB ═══ */}
       {section === "agent" && (
         <div className="space-y-4">
+          {/* Portfolio Summary */}
+          <div className="grid grid-cols-3 gap-2">
+            <MetricCard
+              label={isHe ? "מזומן" : "Cash"}
+              value={`$${data.agent.portfolio.cash.toLocaleString()}`}
+              icon={<Target className="w-4 h-4 text-green-400" />}
+            />
+            <MetricCard
+              label={isHe ? "שווי שוק" : "Market Value"}
+              value={`$${data.agent.portfolio.market_value.toLocaleString()}`}
+              icon={<BarChart3 className="w-4 h-4 text-cyan-400" />}
+            />
+            <MetricCard
+              label={isHe ? "רווח/הפסד" : "Total P&L"}
+              value={`${data.agent.portfolio.pnl >= 0 ? "+" : ""}$${data.agent.portfolio.pnl.toLocaleString()}`}
+              subColor={data.agent.portfolio.pnl >= 0 ? "text-green-400" : "text-red-400"}
+              icon={data.agent.portfolio.pnl >= 0
+                ? <TrendingUp className="w-4 h-4 text-green-400" />
+                : <TrendingDown className="w-4 h-4 text-red-400" />
+              }
+            />
+          </div>
+
           {/* Agent Holdings */}
           <Section title={isHe ? "אחזקות סוכן" : "Agent Holdings"} icon={<Target className="w-3.5 h-3.5" />}>
             {data.agent.holdings.length === 0 ? (
               <p className="text-xs text-[#475569] text-center py-4">{isHe ? "אין אחזקות" : "No holdings"}</p>
             ) : (
               <div className="space-y-1">
-                <div className="grid grid-cols-6 gap-2 text-[9px] text-[#475569] font-medium px-2 uppercase">
+                <div className="hidden md:grid grid-cols-6 gap-2 text-[9px] text-[#475569] font-medium px-2 uppercase">
                   <span>Ticker</span><span>Qty</span><span>Avg Cost</span><span>Current</span><span>P&L</span><span>Value</span>
                 </div>
                 {data.agent.holdings.map((h) => (
-                  <div key={h.ticker} className="grid grid-cols-6 gap-2 text-xs p-2 rounded-lg bg-[#0f172a]">
-                    <span className="font-mono font-bold text-cyan-400">{h.ticker}</span>
-                    <span className="text-[#94a3b8]">{h.quantity}</span>
-                    <span className="text-[#94a3b8]">${h.avg_cost.toFixed(2)}</span>
-                    <span className="text-white">${h.current_price.toFixed(2)}</span>
-                    <span className={h.pnl_pct >= 0 ? "text-green-400" : "text-red-400"}>
-                      {h.pnl_pct >= 0 ? "+" : ""}{h.pnl_pct.toFixed(1)}%
-                    </span>
-                    <span className="text-[#94a3b8]">${h.market_value.toLocaleString()}</span>
+                  <div key={h.ticker} className="p-2 rounded-lg bg-[#0f172a]">
+                    {/* Desktop row */}
+                    <div className="hidden md:grid grid-cols-6 gap-2 text-xs">
+                      <span className="font-mono font-bold text-cyan-400">{h.ticker}</span>
+                      <span className="text-[#94a3b8]">{h.quantity}</span>
+                      <span className="text-[#94a3b8]">${h.avg_cost.toFixed(2)}</span>
+                      <span className="text-white">${h.current_price.toFixed(2)}</span>
+                      <span className={h.pnl_pct >= 0 ? "text-green-400" : "text-red-400"}>
+                        {h.pnl_pct >= 0 ? "+" : ""}{h.pnl_pct.toFixed(1)}%
+                      </span>
+                      <span className="text-[#94a3b8]">${h.market_value.toLocaleString()}</span>
+                    </div>
+                    {/* Mobile card */}
+                    <div className="md:hidden">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="font-mono font-bold text-cyan-400">{h.ticker}</span>
+                        <span className={`font-medium ${h.pnl_pct >= 0 ? "text-green-400" : "text-red-400"}`}>
+                          {h.pnl_pct >= 0 ? "+" : ""}{h.pnl_pct.toFixed(1)}%
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between text-[10px] text-[#64748b]">
+                        <span>{h.quantity} @ ${h.avg_cost.toFixed(2)}</span>
+                        <span className="text-[#94a3b8]">${h.market_value.toLocaleString()}</span>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
             )}
           </Section>
 
-          {/* All Trades */}
+          {/* FIX 3: Trades with Expandable Rows */}
           <Section title={isHe ? `כל העסקאות (${data.agent.trades.total})` : `All Trades (${data.agent.trades.total})`} icon={<Activity className="w-3.5 h-3.5" />}>
-            <div className="space-y-1 max-h-96 overflow-y-auto">
-              <div className="grid grid-cols-8 gap-1 text-[8px] text-[#475569] font-medium px-2 uppercase sticky top-0 bg-[#111827]">
-                <span>Action</span><span>Ticker</span><span>Qty</span><span>Entry</span><span>Conf</span><span>1d</span><span>7d</span><span>30d</span>
-              </div>
+            <div className="space-y-1 max-h-[500px] overflow-y-auto">
               {data.agent.recent_trades.map((t, i) => (
-                <div key={i} className="grid grid-cols-8 gap-1 text-[10px] p-1.5 rounded bg-[#0f172a]">
-                  <span className={`font-bold ${t.action === "buy" ? "text-green-400" : "text-red-400"}`}>
-                    {t.action.toUpperCase()}
-                  </span>
-                  <span className="font-mono text-cyan-400">{t.ticker}</span>
-                  <span className="text-[#94a3b8]">{t.quantity}</span>
-                  <span className="text-[#94a3b8]">${t.entry_price.toFixed(0)}</span>
-                  <span className="text-white">{(t.confidence * 100).toFixed(0)}%</span>
-                  <span className={t.outcome_1d !== null ? (t.outcome_1d >= 0 ? "text-green-500" : "text-red-500") : "text-[#334155]"}>
-                    {t.outcome_1d !== null ? `${t.outcome_1d > 0 ? "+" : ""}${t.outcome_1d.toFixed(1)}%` : "—"}
-                  </span>
-                  <span className={t.outcome_7d !== null ? (t.outcome_7d >= 0 ? "text-green-500" : "text-red-500") : "text-[#334155]"}>
-                    {t.outcome_7d !== null ? `${t.outcome_7d > 0 ? "+" : ""}${t.outcome_7d.toFixed(1)}%` : "—"}
-                  </span>
-                  <span className={t.outcome_30d !== null ? (t.outcome_30d >= 0 ? "text-green-500" : "text-red-500") : "text-[#334155]"}>
-                    {t.outcome_30d !== null ? `${t.outcome_30d > 0 ? "+" : ""}${t.outcome_30d.toFixed(1)}%` : "—"}
-                  </span>
+                <div key={i} className="rounded-lg bg-[#0f172a] overflow-hidden">
+                  {/* Summary row — always visible */}
+                  <button
+                    onClick={() => setExpandedTrade(expandedTrade === i ? null : i)}
+                    className="w-full flex items-center justify-between p-2 hover:bg-[#1e293b]/50 transition text-start"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
+                        t.action === "buy" ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"
+                      }`}>
+                        {t.action.toUpperCase()}
+                      </span>
+                      <span className="font-mono text-xs font-bold text-cyan-400">{t.ticker}</span>
+                      <span className="text-[10px] text-[#64748b]">x{t.quantity}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] text-white">{(t.confidence * 100).toFixed(0)}%</span>
+                      {t.pnl_pct !== null && (
+                        <span className={`text-[10px] font-medium ${t.pnl_pct >= 0 ? "text-green-400" : "text-red-400"}`}>
+                          {t.pnl_pct >= 0 ? "+" : ""}{t.pnl_pct.toFixed(1)}%
+                        </span>
+                      )}
+                      {expandedTrade === i
+                        ? <ChevronUp className="w-3 h-3 text-[#475569]" />
+                        : <ChevronDown className="w-3 h-3 text-[#475569]" />
+                      }
+                    </div>
+                  </button>
+                  {/* Expanded detail */}
+                  {expandedTrade === i && (
+                    <div className="px-3 pb-2.5 pt-0.5 border-t border-[#1e293b] space-y-1.5">
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-[10px]">
+                        <div>
+                          <span className="text-[#475569]">{isHe ? "כניסה" : "Entry"}: </span>
+                          <span className="text-white">${t.entry_price.toFixed(2)}</span>
+                        </div>
+                        {t.exit_price && (
+                          <div>
+                            <span className="text-[#475569]">{isHe ? "יציאה" : "Exit"}: </span>
+                            <span className="text-white">${t.exit_price.toFixed(2)}</span>
+                          </div>
+                        )}
+                        <div>
+                          <span className="text-[#475569]">{isHe ? "סטטוס" : "Status"}: </span>
+                          <span className={t.is_open ? "text-amber-400" : "text-green-400"}>
+                            {t.is_open ? (isHe ? "פתוח" : "OPEN") : (isHe ? "סגור" : "CLOSED")}
+                          </span>
+                        </div>
+                        {t.opened_at && (
+                          <div>
+                            <span className="text-[#475569]">{isHe ? "נפתח" : "Opened"}: </span>
+                            <span className="text-[#94a3b8]">{new Date(t.opened_at).toLocaleDateString()}</span>
+                          </div>
+                        )}
+                      </div>
+                      {/* Outcome bars */}
+                      <div className="flex gap-2">
+                        <OutcomeBadge label="1d" value={t.outcome_1d} />
+                        <OutcomeBadge label="7d" value={t.outcome_7d} />
+                        <OutcomeBadge label="30d" value={t.outcome_30d} />
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -444,6 +738,11 @@ export default function AdminDashboard() {
                         </div>
                       </div>
                     </div>
+                    {w.updated_at && (
+                      <div className="text-[8px] text-[#334155] mt-1">
+                        {isHe ? "עודכן" : "Updated"}: {timeAgo(w.updated_at)}
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -455,11 +754,12 @@ export default function AdminDashboard() {
       {/* ═══ USERS TAB ═══ */}
       {section === "users" && (
         <div className="space-y-4">
-          {/* Interaction Stats */}
+          {/* FIX 2: Interaction Stats with Deltas */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
             <MetricCard
               label={isHe ? "אינטראקציות 24h" : "Interactions 24h"}
               value={data.platform.interactions_24h.toLocaleString()}
+              delta={interactionsDelta}
               icon={<Activity className="w-4 h-4 text-cyan-400" />}
             />
             <MetricCard
@@ -571,10 +871,17 @@ export default function AdminDashboard() {
   );
 }
 
-// ── Helper Components ──
+// ═══════════════════════════════════════════
+// Helper Components
+// ═══════════════════════════════════════════
 
-function MetricCard({ label, value, sub, subColor, icon }: {
-  label: string; value: string; sub?: string; subColor?: string; icon?: React.ReactNode;
+function MetricCard({ label, value, sub, subColor, icon, delta }: {
+  label: string;
+  value: string;
+  sub?: string;
+  subColor?: string;
+  icon?: React.ReactNode;
+  delta?: { pct: number; direction: "up" | "down" | "flat" };
 }) {
   return (
     <div className="bg-[#111827] rounded-xl border border-[#334155] p-3">
@@ -582,7 +889,16 @@ function MetricCard({ label, value, sub, subColor, icon }: {
         <span className="text-[9px] text-[#64748b] uppercase font-medium">{label}</span>
         {icon}
       </div>
-      <div className="text-lg font-bold text-white">{value}</div>
+      <div className="flex items-baseline gap-2">
+        <div className="text-lg font-bold text-white">{value}</div>
+        {delta && delta.direction !== "flat" && (
+          <span className={`flex items-center gap-0.5 text-[10px] font-medium ${
+            delta.direction === "up" ? "text-green-400" : "text-red-400"
+          }`}>
+            {delta.direction === "up" ? "↑" : "↓"}{Math.abs(delta.pct)}%
+          </span>
+        )}
+      </div>
       {sub && <div className={`text-xs font-medium mt-0.5 ${subColor || "text-[#94a3b8]"}`}>{sub}</div>}
     </div>
   );
@@ -607,6 +923,131 @@ function OutcomeCard({ label, value, count }: { label: string; value: number | n
         {value !== null ? `${value > 0 ? "+" : ""}${value.toFixed(2)}%` : "—"}
       </div>
       <div className="text-[9px] text-[#475569] mt-0.5">{count} trades</div>
+    </div>
+  );
+}
+
+function OutcomeBadge({ label, value }: { label: string; value: number | null }) {
+  return (
+    <div className={`flex items-center gap-1 px-2 py-0.5 rounded text-[10px] ${
+      value === null
+        ? "bg-[#1e293b] text-[#475569]"
+        : value >= 0
+        ? "bg-green-500/10 text-green-400"
+        : "bg-red-500/10 text-red-400"
+    }`}>
+      <span className="font-medium">{label}</span>
+      <span>{value !== null ? `${value > 0 ? "+" : ""}${value.toFixed(1)}%` : "—"}</span>
+    </div>
+  );
+}
+
+function QuickAction({ label, icon, loading, onClick, color }: {
+  label: string;
+  icon: React.ReactNode;
+  loading: boolean;
+  onClick: () => void;
+  color: "violet" | "cyan" | "amber";
+}) {
+  const colors = {
+    violet: "bg-violet-500/15 text-violet-400 hover:bg-violet-500/25 border-violet-500/20",
+    cyan: "bg-cyan-500/15 text-cyan-400 hover:bg-cyan-500/25 border-cyan-500/20",
+    amber: "bg-amber-500/15 text-amber-400 hover:bg-amber-500/25 border-amber-500/20",
+  };
+  return (
+    <button
+      onClick={onClick}
+      disabled={loading}
+      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border transition whitespace-nowrap disabled:opacity-40 ${colors[color]}`}
+    >
+      {loading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : icon}
+      {label}
+    </button>
+  );
+}
+
+// FIX 4: SVG Performance Sparkline Chart
+function PerformanceChart({ data, isHe }: { data: AdminData["performance"]; isHe: boolean }) {
+  // Reverse so oldest is on the left
+  const sorted = [...data].reverse();
+  if (sorted.length < 2) return null;
+
+  const values = sorted.map((p) => p.cumulative_pnl_pct);
+  const benchmarks = sorted.map((p) => p.benchmark_pnl_pct);
+  const minVal = Math.min(...values, ...benchmarks.filter((b): b is number => b !== null), 0);
+  const maxVal = Math.max(...values, ...benchmarks.filter((b): b is number => b !== null), 0);
+  const range = maxVal - minVal || 1;
+
+  const W = 600;
+  const H = 120;
+  const padY = 8;
+
+  const toY = (v: number) => padY + ((maxVal - v) / range) * (H - padY * 2);
+  const toX = (i: number) => (i / (sorted.length - 1)) * W;
+
+  const portfolioPath = sorted
+    .map((_, i) => `${i === 0 ? "M" : "L"} ${toX(i).toFixed(1)} ${toY(values[i]).toFixed(1)}`)
+    .join(" ");
+
+  const benchPath = sorted
+    .filter((_, i) => benchmarks[i] !== null)
+    .map((_, idx) => {
+      const origIdx = sorted.findIndex((__, i) => {
+        let count = 0;
+        for (let j = 0; j <= i; j++) { if (benchmarks[j] !== null) count++; }
+        return count === idx + 1;
+      });
+      return `${idx === 0 ? "M" : "L"} ${toX(origIdx).toFixed(1)} ${toY(benchmarks[origIdx]!).toFixed(1)}`;
+    })
+    .join(" ");
+
+  // Fill area under portfolio line
+  const fillPath = `${portfolioPath} L ${toX(sorted.length - 1).toFixed(1)} ${toY(0).toFixed(1)} L ${toX(0).toFixed(1)} ${toY(0).toFixed(1)} Z`;
+
+  const lastVal = values[values.length - 1];
+  const lastBench = benchmarks[benchmarks.length - 1];
+
+  return (
+    <div>
+      <div className="flex items-center gap-4 mb-2">
+        <div className="flex items-center gap-1.5 text-[10px]">
+          <div className="w-3 h-0.5 rounded bg-cyan-400" />
+          <span className="text-[#94a3b8]">{isHe ? "תיק" : "Portfolio"}: <span className={`font-medium ${lastVal >= 0 ? "text-green-400" : "text-red-400"}`}>{lastVal >= 0 ? "+" : ""}{lastVal.toFixed(2)}%</span></span>
+        </div>
+        {lastBench !== null && (
+          <div className="flex items-center gap-1.5 text-[10px]">
+            <div className="w-3 h-0.5 rounded bg-amber-400/50" />
+            <span className="text-[#94a3b8]">SPY: <span className="text-[#64748b]">{lastBench >= 0 ? "+" : ""}{lastBench.toFixed(2)}%</span></span>
+          </div>
+        )}
+      </div>
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-28" preserveAspectRatio="none">
+        {/* Zero line */}
+        <line x1="0" y1={toY(0)} x2={W} y2={toY(0)} stroke="#334155" strokeWidth="0.5" strokeDasharray="4 4" />
+
+        {/* Fill under portfolio */}
+        <path d={fillPath} fill={lastVal >= 0 ? "rgba(34,211,238,0.06)" : "rgba(239,68,68,0.06)"} />
+
+        {/* Benchmark line */}
+        {benchPath && (
+          <path d={benchPath} fill="none" stroke="#f59e0b" strokeWidth="1" strokeOpacity="0.35" />
+        )}
+
+        {/* Portfolio line */}
+        <path d={portfolioPath} fill="none" stroke={lastVal >= 0 ? "#22d3ee" : "#ef4444"} strokeWidth="1.5" />
+
+        {/* Regime dots */}
+        {sorted.map((p, i) => {
+          if (p.regime === "volatile") {
+            return <circle key={i} cx={toX(i)} cy={toY(values[i])} r="2" fill="#ef4444" opacity="0.5" />;
+          }
+          return null;
+        })}
+      </svg>
+      <div className="flex justify-between text-[8px] text-[#475569] mt-0.5">
+        <span>{sorted[0]?.date}</span>
+        <span>{sorted[sorted.length - 1]?.date}</span>
+      </div>
     </div>
   );
 }

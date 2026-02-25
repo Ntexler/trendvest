@@ -43,6 +43,18 @@ async def get_admin_overview(
             WHERE created_at >= NOW() - INTERVAL '7 days'
         """) or 0
 
+        # ── Delta Comparisons (previous 24h window) ──
+        prev_active_users_24h = await conn.fetchval("""
+            SELECT COUNT(DISTINCT user_id) FROM user_interactions
+            WHERE created_at >= NOW() - INTERVAL '48 hours'
+              AND created_at < NOW() - INTERVAL '24 hours'
+        """) or 0
+        prev_interactions_24h = await conn.fetchval("""
+            SELECT COUNT(*) FROM user_interactions
+            WHERE created_at >= NOW() - INTERVAL '48 hours'
+              AND created_at < NOW() - INTERVAL '24 hours'
+        """) or 0
+
         # Interaction type breakdown (24h)
         interaction_breakdown = await conn.fetch("""
             SELECT interaction_type, COUNT(*) AS cnt
@@ -156,6 +168,46 @@ async def get_admin_overview(
             ORDER BY cnt DESC LIMIT 15
         """)
 
+        # ── Agent Activity Timeline ──
+        timeline_trades = await conn.fetch("""
+            SELECT 'trade' AS event_type, ticker, action AS detail,
+                   confidence, opened_at AS event_time
+            FROM agent_trades
+            ORDER BY opened_at DESC LIMIT 10
+        """)
+        timeline_alerts = await conn.fetch("""
+            SELECT 'breaking' AS event_type, ticker, headline AS detail,
+                   urgency_score AS confidence, created_at AS event_time
+            FROM agent_breaking_alerts
+            ORDER BY created_at DESC LIMIT 10
+        """)
+        timeline_weights = await conn.fetch("""
+            SELECT 'weight_update' AS event_type, signal_type AS ticker,
+                   ROUND(weight::numeric, 3)::text AS detail,
+                   accuracy AS confidence, updated_at AS event_time
+            FROM agent_signal_weights
+            WHERE updated_at IS NOT NULL
+            ORDER BY updated_at DESC LIMIT 5
+        """)
+        # Merge and sort timeline
+        raw_timeline = list(timeline_trades) + list(timeline_alerts) + list(timeline_weights)
+        raw_timeline.sort(key=lambda x: x["event_time"] or datetime.min.replace(tzinfo=timezone.utc), reverse=True)
+
+        # ── Health Checks ──
+        last_trade_at = await conn.fetchval(
+            "SELECT MAX(opened_at) FROM agent_trades"
+        )
+        last_alert_at = await conn.fetchval(
+            "SELECT MAX(created_at) FROM agent_breaking_alerts"
+        )
+        last_weight_update = await conn.fetchval(
+            "SELECT MAX(updated_at) FROM agent_signal_weights"
+        )
+        now = datetime.now(timezone.utc)
+        ml_freshness_hours = None
+        if ml_model and ml_model["trained_at"]:
+            ml_freshness_hours = round((now - ml_model["trained_at"]).total_seconds() / 3600, 1)
+
     return {
         "platform": {
             "total_users": total_users,
@@ -163,6 +215,8 @@ async def get_admin_overview(
             "active_users_7d": active_users_7d,
             "interactions_24h": total_interactions_24h,
             "interactions_7d": total_interactions_7d,
+            "prev_active_users_24h": prev_active_users_24h,
+            "prev_interactions_24h": prev_interactions_24h,
             "interaction_breakdown": [
                 {"type": r["interaction_type"], "count": r["cnt"]}
                 for r in interaction_breakdown
@@ -273,6 +327,24 @@ async def get_admin_overview(
                 "unique_sessions": t["unique_sessions"],
             }
             for t in top_topics
+        ],
+        "health": {
+            "last_trade_at": last_trade_at.isoformat() if last_trade_at else None,
+            "last_alert_at": last_alert_at.isoformat() if last_alert_at else None,
+            "last_weight_update": last_weight_update.isoformat() if last_weight_update else None,
+            "ml_freshness_hours": ml_freshness_hours,
+            "data_pipeline_ok": total_interactions_24h > 0 or active_users_24h > 0,
+            "agent_active": last_trade_at is not None and (now - last_trade_at).total_seconds() < 86400 * 3,
+        },
+        "timeline": [
+            {
+                "event_type": e["event_type"],
+                "ticker": e["ticker"],
+                "detail": str(e["detail"]) if e["detail"] else None,
+                "confidence": float(e["confidence"]) if e["confidence"] else None,
+                "event_time": e["event_time"].isoformat() if e["event_time"] else None,
+            }
+            for e in raw_timeline[:20]
         ],
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
