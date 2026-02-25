@@ -6,7 +6,7 @@ and performance data to the frontend.
 """
 
 from fastapi import APIRouter, Depends
-from ..deps import get_db_pool, get_stock_service
+from ..deps import get_db_pool, get_stock_service, get_current_user, require_admin, validate_ticker
 
 router = APIRouter(prefix="/api/agent", tags=["ai-agent"])
 
@@ -112,6 +112,7 @@ async def _collect_signals(ticker: str, pool, stock_service) -> dict:
 
 @router.get("/dashboard")
 async def get_agent_dashboard(
+    user: dict = Depends(get_current_user),
     pool=Depends(get_db_pool),
     stock_service=Depends(get_stock_service),
 ):
@@ -123,6 +124,7 @@ async def get_agent_dashboard(
 @router.post("/analyze/{ticker}")
 async def analyze_ticker(
     ticker: str,
+    user: dict = Depends(get_current_user),
     pool=Depends(get_db_pool),
     stock_service=Depends(get_stock_service),
 ):
@@ -130,7 +132,7 @@ async def analyze_ticker(
     Run full signal analysis on a ticker.
     Returns all signals and the fused decision — but does NOT execute a trade.
     """
-    ticker = ticker.upper()
+    ticker = validate_ticker(ticker)
 
     signals = await _collect_signals(ticker, pool, stock_service)
     brain = _get_brain(pool, stock_service)
@@ -154,14 +156,15 @@ async def analyze_ticker(
 @router.post("/execute/{ticker}")
 async def execute_trade(
     ticker: str,
+    admin: dict = Depends(require_admin),
     pool=Depends(get_db_pool),
     stock_service=Depends(get_stock_service),
 ):
     """
     Run analysis AND execute the trade if signals warrant it.
-    This is what the agent's scheduler would call automatically.
+    Admin-only: this triggers real portfolio changes.
     """
-    ticker = ticker.upper()
+    ticker = validate_ticker(ticker)
 
     signals = await _collect_signals(ticker, pool, stock_service)
     brain = _get_brain(pool, stock_service)
@@ -179,6 +182,7 @@ async def execute_trade(
 
 @router.post("/learn")
 async def trigger_learning(
+    admin: dict = Depends(require_admin),
     pool=Depends(get_db_pool),
     stock_service=Depends(get_stock_service),
 ):
@@ -194,7 +198,7 @@ async def trigger_learning(
 
 
 @router.get("/weights")
-async def get_signal_weights(pool=Depends(get_db_pool)):
+async def get_signal_weights(user: dict = Depends(get_current_user), pool=Depends(get_db_pool)):
     """Get current signal weights and their accuracy."""
     async with pool.acquire() as conn:
         rows = await conn.fetch("""
@@ -220,6 +224,7 @@ async def get_signal_weights(pool=Depends(get_db_pool)):
 
 @router.get("/breaking")
 async def get_breaking_news(
+    user: dict = Depends(get_current_user),
     pool=Depends(get_db_pool),
     stock_service=Depends(get_stock_service),
 ):
@@ -253,6 +258,7 @@ async def get_breaking_news(
 
 @router.post("/breaking/scan")
 async def trigger_breaking_scan(
+    admin: dict = Depends(require_admin),
     pool=Depends(get_db_pool),
     stock_service=Depends(get_stock_service),
 ):
@@ -292,6 +298,7 @@ async def trigger_breaking_scan(
 
 @router.post("/ml/retrain")
 async def retrain_ml_model(
+    admin: dict = Depends(require_admin),
     pool=Depends(get_db_pool),
     stock_service=Depends(get_stock_service),
 ):
@@ -306,6 +313,7 @@ async def retrain_ml_model(
 
 @router.get("/ml/info")
 async def get_ml_model_info(
+    user: dict = Depends(get_current_user),
     pool=Depends(get_db_pool),
     stock_service=Depends(get_stock_service),
 ):

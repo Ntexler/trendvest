@@ -5,6 +5,8 @@ Run:
     uvicorn app.main:app --reload --port 8000
 """
 import os
+import time
+from collections import defaultdict
 from datetime import datetime, timezone
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -15,14 +17,88 @@ from dotenv import load_dotenv
 env_path = Path(__file__).parent.parent.parent / ".env"
 load_dotenv(env_path)
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
 
 from .models.database import get_pool, init_db
 from .models.schemas import HealthResponse
 from .services.stocks import StockPriceService
 from . import deps
 
+
+# ── Rate Limiting Middleware ──
+
+class RateLimitMiddleware(BaseHTTPMiddleware):
+    """
+    In-memory sliding window rate limiter.
+    - General API: 100 requests per minute per IP
+    - Auth endpoints: 10 requests per minute per IP
+    - Admin/Agent write: 20 requests per minute per IP
+    """
+
+    def __init__(self, app):
+        super().__init__(app)
+        self.requests: dict[str, list[float]] = defaultdict(list)
+        self.limits = {
+            "auth": (10, 60),      # 10 req / 60s
+            "admin": (20, 60),     # 20 req / 60s
+            "agent_write": (20, 60),  # 20 req / 60s
+            "general": (100, 60),  # 100 req / 60s
+        }
+
+    def _get_bucket(self, path: str, method: str) -> str:
+        if path.startswith("/api/auth/"):
+            return "auth"
+        if path.startswith("/api/admin/"):
+            return "admin"
+        if path.startswith("/api/agent/") and method in ("POST", "PUT", "DELETE"):
+            return "agent_write"
+        return "general"
+
+    def _clean_old(self, key: str, window: float):
+        now = time.time()
+        self.requests[key] = [t for t in self.requests[key] if now - t < window]
+
+    async def dispatch(self, request: Request, call_next):
+        client_ip = request.client.host if request.client else "unknown"
+        bucket = self._get_bucket(request.url.path, request.method)
+        max_requests, window = self.limits[bucket]
+
+        key = f"{client_ip}:{bucket}"
+        self._clean_old(key, window)
+
+        if len(self.requests[key]) >= max_requests:
+            return Response(
+                content='{"detail":"Rate limit exceeded. Please slow down."}',
+                status_code=429,
+                media_type="application/json",
+                headers={"Retry-After": str(window)},
+            )
+
+        self.requests[key].append(time.time())
+        response = await call_next(request)
+        return response
+
+
+# ── Security Headers Middleware ──
+
+class SecurityHeadersMiddleware(BaseHTTPMiddleware):
+    """Add security headers to all responses."""
+
+    async def dispatch(self, request: Request, call_next):
+        response = await call_next(request)
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["X-XSS-Protection"] = "1; mode=block"
+        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        response.headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()"
+        # Don't expose server info
+        response.headers.pop("server", None)
+        return response
+
+
+# ── App Setup ──
 
 async def _warmup_cache(pool, stock_service: StockPriceService):
     """Pre-fetch all stock prices in background so first page load is fast."""
@@ -60,18 +136,26 @@ app = FastAPI(
     description="API for trend tracking and stock screening platform",
     version="1.0.0",
     lifespan=lifespan,
+    # Don't expose docs in production
+    docs_url="/docs" if os.getenv("ENV", "development") != "production" else None,
+    redoc_url="/redoc" if os.getenv("ENV", "development") != "production" else None,
 )
 
-# CORS
+# CORS — locked to specific origins
 CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://localhost:5173").split(",")
+CORS_ORIGINS = [o.strip() for o in CORS_ORIGINS if o.strip()]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=CORS_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "Accept"],
 )
+
+# Add security middlewares
+app.add_middleware(SecurityHeadersMiddleware)
+app.add_middleware(RateLimitMiddleware)
 
 # Register routers
 from .routers import trends, stocks, chat

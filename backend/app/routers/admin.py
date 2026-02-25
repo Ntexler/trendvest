@@ -10,19 +10,21 @@ Provides overview of:
   - User behavior patterns and trends
 """
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Request
 from datetime import datetime, timezone, timedelta
-from ..deps import get_db_pool, get_stock_service
+from ..deps import get_db_pool, get_stock_service, require_admin
 
 router = APIRouter(prefix="/api/admin", tags=["admin"])
 
 
 @router.get("/overview")
 async def get_admin_overview(
+    request: Request,
+    admin: dict = Depends(require_admin),
     pool=Depends(get_db_pool),
     stock_service=Depends(get_stock_service),
 ):
-    """Complete admin overview — all metrics in one call."""
+    """Complete admin overview — all metrics in one call. Requires admin role."""
     async with pool.acquire() as conn:
         # ── Platform Metrics ──
         total_users = await conn.fetchval("SELECT COUNT(*) FROM users") or 0

@@ -2,6 +2,7 @@
 import { useState, useCallback } from "react";
 import { I18nProvider, useI18n } from "@/i18n/context";
 import { ModeProvider } from "@/contexts/ModeContext";
+import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { useWatchlist } from "@/hooks/useWatchlist";
 import MarketTicker from "@/components/MarketTicker";
 import TopBar from "@/components/TopBar";
@@ -14,9 +15,12 @@ import StockProfile from "@/components/StockProfile";
 import ChatBot from "@/components/ChatBot";
 import AgentDashboard from "@/components/AgentDashboard";
 import AdminDashboard from "@/components/AdminDashboard";
+import AuthPage from "@/components/AuthPage";
+import { LogOut, Shield } from "lucide-react";
 
 function AppContent() {
   const { t } = useI18n();
+  const { user, loading, isAdmin, logout } = useAuth();
   const [page, setPage] = useState("trends");
   const [selectedStock, setSelectedStock] = useState<string | null>(null);
   const { watchlist, addTicker, removeTicker, isWatched } = useWatchlist();
@@ -41,6 +45,24 @@ function AppContent() {
     setPage("trade");
   }, []);
 
+  // Loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="w-6 h-6 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  // Not authenticated — show login
+  if (!user) {
+    return <AuthPage />;
+  }
+
+  // Nav items — hide admin for non-admins
+  const navItems = ["trends", "screener", "trade", "watchlist", "agent"];
+  if (isAdmin) navItems.push("admin");
+
   return (
     <div className="min-h-screen pb-20 md:pb-0">
       <MarketTicker />
@@ -49,7 +71,7 @@ function AppContent() {
       {/* Desktop Sidebar Nav */}
       <div className="hidden md:flex max-w-7xl mx-auto">
         <nav className="w-48 shrink-0 p-4 space-y-1 sticky top-14 h-[calc(100vh-3.5rem)]">
-          {["trends", "screener", "trade", "watchlist", "agent", "admin"].map((p) => (
+          {navItems.map((p) => (
             <button
               key={p}
               onClick={() => setPage(p)}
@@ -62,6 +84,33 @@ function AppContent() {
               {t(`nav.${p}` as any)}
             </button>
           ))}
+
+          {/* User info + logout at bottom */}
+          <div className="!mt-auto pt-4 border-t border-[#1e293b]">
+            <div className="flex items-center gap-2 px-4 py-2">
+              <div className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                <span className="text-[10px] font-bold text-cyan-400">
+                  {(user.display_name || user.email)[0].toUpperCase()}
+                </span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-xs text-white truncate">{user.display_name || user.email}</div>
+                {isAdmin && (
+                  <div className="flex items-center gap-1 text-[9px] text-amber-400">
+                    <Shield className="w-2.5 h-2.5" />
+                    Admin
+                  </div>
+                )}
+              </div>
+              <button
+                onClick={logout}
+                className="p-1 rounded hover:bg-[#1e293b] text-[#64748b] hover:text-red-400 transition"
+                title="Logout"
+              >
+                <LogOut className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
         </nav>
 
         <main className="flex-1 p-6 min-w-0">
@@ -89,7 +138,7 @@ function AppContent() {
             />
           )}
           {page === "agent" && <AgentDashboard onStockClick={handleStockClick} />}
-          {page === "admin" && <AdminDashboard />}
+          {page === "admin" && isAdmin && <AdminDashboard />}
         </main>
       </div>
 
@@ -119,7 +168,7 @@ function AppContent() {
           />
         )}
         {page === "agent" && <AgentDashboard onStockClick={handleStockClick} />}
-        {page === "admin" && <AdminDashboard />}
+        {page === "admin" && isAdmin && <AdminDashboard />}
       </main>
 
       <MobileMenu activePage={page} onNavigate={setPage} />
@@ -149,7 +198,9 @@ export default function Home() {
   return (
     <I18nProvider>
       <ModeProvider>
-        <AppContent />
+        <AuthProvider>
+          <AppContent />
+        </AuthProvider>
       </ModeProvider>
     </I18nProvider>
   );

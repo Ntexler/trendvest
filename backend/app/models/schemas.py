@@ -105,6 +105,8 @@ class UserProfile(BaseModel):
     email: str
     display_name: str
     tier: str
+    role: str = "user"
+    totp_enabled: bool = False
     created_at: datetime
 
 

@@ -24,8 +24,24 @@ import type {
 
 const BASE = "/api";
 
+function getAuthHeaders(): Record<string, string> {
+  if (typeof window === "undefined") return {};
+  const token = localStorage.getItem("tv_access_token");
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+
 async function fetchJSON<T>(url: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`${BASE}${url}`, init);
+  const authHeaders = getAuthHeaders();
+  const headers = {
+    ...authHeaders,
+    ...(init?.headers || {}),
+  };
+  const res = await fetch(`${BASE}${url}`, { ...init, headers });
+  if (res.status === 401 && typeof window !== "undefined") {
+    // Token expired — clear stored tokens
+    localStorage.removeItem("tv_access_token");
+    localStorage.removeItem("tv_refresh_token");
+  }
   if (!res.ok) {
     const err = await res.json().catch(() => ({ detail: res.statusText }));
     throw new Error(err.detail || res.statusText);

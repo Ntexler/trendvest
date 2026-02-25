@@ -165,6 +165,12 @@ const SIGNAL_LABELS: Record<string, string> = {
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 const AUTO_REFRESH_MS = 30_000;
 
+function authHeaders(): Record<string, string> {
+  if (typeof window === "undefined") return {};
+  const token = localStorage.getItem("tv_access_token");
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+
 // ── Helpers ──
 
 function calcDelta(current: number, previous: number): { pct: number; direction: "up" | "down" | "flat" } {
@@ -202,7 +208,7 @@ export default function AdminDashboard() {
   const load = useCallback(async (silent = false) => {
     if (!silent) setLoading(true);
     try {
-      const resp = await fetch(`${API_BASE}/api/admin/overview`);
+      const resp = await fetch(`${API_BASE}/api/admin/overview`, { headers: authHeaders() });
       if (resp.ok) setData(await resp.json());
     } catch (e) {
       console.error(e);
@@ -227,7 +233,7 @@ export default function AdminDashboard() {
   const handleRetrain = async () => {
     setRetraining(true);
     try {
-      await fetch(`${API_BASE}/api/agent/ml/retrain`, { method: "POST" });
+      await fetch(`${API_BASE}/api/agent/ml/retrain`, { method: "POST", headers: authHeaders() });
       await load();
     } catch (e) { console.error(e); }
     finally { setRetraining(false); }
@@ -236,7 +242,7 @@ export default function AdminDashboard() {
   const handleScan = async () => {
     setScanning(true);
     try {
-      await fetch(`${API_BASE}/api/agent/breaking/scan`, { method: "POST" });
+      await fetch(`${API_BASE}/api/agent/breaking/scan`, { method: "POST", headers: authHeaders() });
       await load();
     } catch (e) { console.error(e); }
     finally { setScanning(false); }
@@ -245,7 +251,7 @@ export default function AdminDashboard() {
   const handleLearn = async () => {
     setLearning(true);
     try {
-      await fetch(`${API_BASE}/api/agent/learn`, { method: "POST" });
+      await fetch(`${API_BASE}/api/agent/learn`, { method: "POST", headers: authHeaders() });
       await load();
     } catch (e) { console.error(e); }
     finally { setLearning(false); }
