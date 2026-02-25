@@ -12,7 +12,11 @@ from jose import jwt, JWTError
 _db_pool = None
 _stock_service = None
 
-JWT_SECRET = os.getenv("JWT_SECRET_KEY", "trendvest-dev-secret-change-in-production")
+JWT_SECRET = os.getenv("JWT_SECRET_KEY", "")
+if not JWT_SECRET:
+    import warnings
+    warnings.warn("JWT_SECRET_KEY not set — using insecure dev default. Set JWT_SECRET_KEY in production!", stacklevel=2)
+    JWT_SECRET = "trendvest-dev-only-" + os.getenv("HOSTNAME", "local")
 JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
 
 # Valid ticker: 1-10 uppercase letters, dots, or hyphens
