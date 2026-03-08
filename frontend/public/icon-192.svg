@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="40" fill="#0a0e17"/>
+  <rect x="16" y="16" width="160" height="160" rx="30" fill="#0f172a"/>
+  <rect x="40" y="50" width="112" height="92" rx="12" fill="#1e293b" stroke="#06b6d4" stroke-width="3"/>
+  <line x1="56" y1="76" x2="136" y2="76" stroke="#334155" stroke-width="2"/>
+  <line x1="56" y1="96" x2="120" y2="96" stroke="#334155" stroke-width="2"/>
+  <line x1="56" y1="116" x2="100" y2="116" stroke="#334155" stroke-width="2"/>
+  <text x="96" y="45" text-anchor="middle" fill="#06b6d4" font-size="18" font-family="sans-serif" font-weight="bold">₪</text>
+  <circle cx="140" cy="52" r="18" fill="#06b6d4"/>
+  <path d="M132 52 l6 6 l10-12" stroke="#0a0e17" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
