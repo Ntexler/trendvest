@@ -10,6 +10,9 @@ import type {
   RelatedStock,
   PeerStock,
   ResearchResult,
+  ExpenseReceipt,
+  ExpenseSummary,
+  ScanSchedule,
 } from "./types";
 
 const BASE = "/api";
@@ -159,6 +162,154 @@ export const trackInteraction = (data: {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   }).catch(() => {});
+};
+
+// Expenses
+export const scanReceipt = (imageData: string, mediaType: string, filename: string) => {
+  const sessionId = getSessionId();
+  return fetchJSON<{ is_receipt: boolean; receipt_id?: number; data?: Record<string, unknown> }>(
+    `/expenses/scan?session_id=${sessionId}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        image_data: imageData,
+        media_type: mediaType,
+        source_type: "upload",
+        original_filename: filename,
+      }),
+    }
+  );
+};
+
+export const addManualReceipt = (data: {
+  vendor_name: string;
+  amount: number;
+  currency?: string;
+  receipt_date?: string;
+  receipt_number?: string;
+  description?: string;
+  category?: string;
+  tax_deductible?: boolean;
+}) => {
+  const sessionId = getSessionId();
+  return fetchJSON<{ receipt_id: number }>(`/expenses/manual?session_id=${sessionId}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+};
+
+export const getExpensesList = (filters?: {
+  status?: string;
+  category?: string;
+  tax_deductible?: boolean;
+}) => {
+  const sessionId = getSessionId();
+  const sp = new URLSearchParams({ session_id: sessionId });
+  if (filters?.status) sp.set("status", filters.status);
+  if (filters?.category) sp.set("category", filters.category);
+  if (filters?.tax_deductible !== undefined) sp.set("tax_deductible", String(filters.tax_deductible));
+  return fetchJSON<ExpenseReceipt[]>(`/expenses/list?${sp}`);
+};
+
+export const getExpenseSummary = () => {
+  const sessionId = getSessionId();
+  return fetchJSON<ExpenseSummary>(`/expenses/summary?session_id=${sessionId}`);
+};
+
+export const updateReceipt = (id: number, data: Record<string, unknown>) => {
+  const sessionId = getSessionId();
+  return fetchJSON<{ status: string }>(`/expenses/receipt/${id}?session_id=${sessionId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+};
+
+export const deleteReceipt = (id: number) => {
+  const sessionId = getSessionId();
+  return fetchJSON<{ status: string }>(`/expenses/receipt/${id}?session_id=${sessionId}`, {
+    method: "DELETE",
+  });
+};
+
+export const exportReceipts = (format: "json" | "csv" = "json", taxDeductibleOnly = false) => {
+  const sessionId = getSessionId();
+  const sp = new URLSearchParams({
+    session_id: sessionId,
+    format,
+    tax_deductible_only: String(taxDeductibleOnly),
+  });
+  return fetchJSON<{
+    format: string;
+    count: number;
+    total_amount: number;
+    tax_deductible_amount: number;
+    data?: string;
+    receipts?: ExpenseReceipt[];
+  }>(`/expenses/export?${sp}`);
+};
+
+export const getExpenseCategories = () =>
+  fetchJSON<Record<string, string>>("/expenses/categories");
+
+export const testEmailConnection = (data: {
+  email_address: string;
+  imap_server: string;
+  imap_port: number;
+  password: string;
+}) =>
+  fetchJSON<{ success: boolean; message_count?: number; error?: string }>(
+    "/expenses/email/test",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }
+  );
+
+export const scanEmails = (data: {
+  email_address: string;
+  imap_server: string;
+  imap_port: number;
+  password: string;
+  days_back?: number;
+}) => {
+  const sessionId = getSessionId();
+  const daysBack = data.days_back || 30;
+  return fetchJSON<{
+    emails_scanned: number;
+    receipts_found: number;
+    receipts: Record<string, unknown>[];
+  }>(`/expenses/email/scan?session_id=${sessionId}&days_back=${daysBack}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+};
+
+export const getScanSchedule = () => {
+  const sessionId = getSessionId();
+  return fetchJSON<ScanSchedule>(`/expenses/schedule?session_id=${sessionId}`);
+};
+
+export const setScanSchedule = (data: {
+  scan_interval_hours: number;
+  scan_screenshots: boolean;
+  scan_emails: boolean;
+  screenshot_folder?: string;
+  is_active: boolean;
+}) => {
+  const sessionId = getSessionId();
+  return fetchJSON<{ status: string; next_scan_at?: string }>(
+    `/expenses/schedule?session_id=${sessionId}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }
+  );
 };
 
 // Session

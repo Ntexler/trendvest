@@ -154,3 +154,40 @@ export interface TradeHistoryItem {
   total: number;
   executed_at: string;
 }
+
+// Expense Receipt types
+export interface ExpenseReceipt {
+  id: number;
+  vendor_name: string;
+  amount: number;
+  currency: string;
+  receipt_date: string | null;
+  receipt_number: string;
+  description: string;
+  category: string;
+  tax_deductible: boolean;
+  deduction_category: string | null;
+  confidence_score: number;
+  source_type: string;
+  status: string;
+  created_at: string;
+  has_image: boolean;
+}
+
+export interface ExpenseSummary {
+  total_receipts: number;
+  total_amount: number;
+  tax_deductible_amount: number;
+  by_category: Record<string, number>;
+  receipts: ExpenseReceipt[];
+}
+
+export interface ScanSchedule {
+  is_active: boolean;
+  scan_interval_hours: number;
+  scan_screenshots: boolean;
+  scan_emails: boolean;
+  screenshot_folder: string;
+  last_auto_scan_at: string | null;
+  next_scan_at: string | null;
+}

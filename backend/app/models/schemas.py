@@ -251,6 +251,75 @@ class TrackRequest(BaseModel):
     metadata: dict | None = None
 
 
+# ── Expense Receipt Models ──
+
+class ReceiptScanRequest(BaseModel):
+    image_data: str = Field(..., min_length=10)
+    media_type: str = Field(default="image/jpeg", pattern="^image/(jpeg|png|gif|webp)$")
+    source_type: str = Field(default="upload", pattern="^(screenshot|upload|manual)$")
+    original_filename: str = ""
+
+class ReceiptManualEntry(BaseModel):
+    vendor_name: str = Field(..., min_length=1, max_length=255)
+    amount: float = Field(..., gt=0)
+    currency: str = Field(default="ILS", max_length=10)
+    receipt_date: str | None = None
+    receipt_number: str = ""
+    description: str = ""
+    category: str = "other"
+    tax_deductible: bool = False
+    deduction_category: str | None = None
+
+class ReceiptResponse(BaseModel):
+    id: int
+    vendor_name: str
+    amount: float
+    currency: str
+    receipt_date: str | None = None
+    receipt_number: str = ""
+    description: str = ""
+    category: str
+    tax_deductible: bool
+    deduction_category: str | None = None
+    confidence_score: float = 0
+    source_type: str
+    status: str
+    created_at: datetime
+    has_image: bool = False
+
+class ReceiptExportResponse(BaseModel):
+    total_receipts: int
+    total_amount: float
+    tax_deductible_amount: float
+    by_category: dict[str, float]
+    receipts: list[ReceiptResponse]
+
+class EmailConfigRequest(BaseModel):
+    email_address: str = Field(..., min_length=5, max_length=255)
+    imap_server: str = Field(default="imap.gmail.com", max_length=255)
+    imap_port: int = Field(default=993)
+    password: str = Field(..., min_length=1)
+
+class ScanScheduleRequest(BaseModel):
+    scan_interval_hours: int = Field(default=24, ge=1, le=168)
+    scan_screenshots: bool = True
+    scan_emails: bool = True
+    screenshot_folder: str = ""
+    is_active: bool = True
+
+class ReceiptUpdateRequest(BaseModel):
+    vendor_name: str | None = None
+    amount: float | None = None
+    currency: str | None = None
+    receipt_date: str | None = None
+    receipt_number: str | None = None
+    description: str | None = None
+    category: str | None = None
+    tax_deductible: bool | None = None
+    deduction_category: str | None = None
+    status: str | None = None
+
+
 # ── General ──
 
 class HealthResponse(BaseModel):

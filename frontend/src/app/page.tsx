@@ -13,6 +13,7 @@ import PaperTrading from "@/components/PaperTrading";
 import Watchlist from "@/components/Watchlist";
 import StockProfile from "@/components/StockProfile";
 import ChatBot from "@/components/ChatBot";
+import ExpenseReceipts from "@/components/ExpenseReceipts";
 
 function AppContent() {
   const { t } = useI18n();
@@ -48,7 +49,7 @@ function AppContent() {
       {/* Desktop Sidebar Nav */}
       <div className="hidden md:flex max-w-7xl mx-auto">
         <nav className="w-48 shrink-0 p-4 space-y-1 sticky top-14 h-[calc(100vh-3.5rem)]">
-          {["trends", "news", "screener", "trade", "watchlist"].map((p) => (
+          {["trends", "news", "screener", "trade", "watchlist", "expenses"].map((p) => (
             <button
               key={p}
               onClick={() => setPage(p)}
@@ -88,6 +89,7 @@ function AppContent() {
               onBuy={handleBuy}
             />
           )}
+          {page === "expenses" && <ExpenseReceipts />}
         </main>
       </div>
 
@@ -117,6 +119,7 @@ function AppContent() {
             onBuy={handleBuy}
           />
         )}
+        {page === "expenses" && <ExpenseReceipts />}
       </main>
 
       <MobileMenu activePage={page} onNavigate={setPage} />

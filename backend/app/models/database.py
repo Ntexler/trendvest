@@ -31,11 +31,18 @@ async def init_db(pool):
     """Run schema migration and seed data."""
     schema_path = Path(__file__).parent.parent.parent.parent / "database" / "001_schema.sql"
 
+    expenses_schema_path = Path(__file__).parent.parent.parent.parent / "database" / "002_expenses_schema.sql"
+
     async with get_connection(pool) as conn:
         if schema_path.exists():
             schema_sql = schema_path.read_text(encoding="utf-8")
             await conn.execute(schema_sql)
             print("Schema created/updated")
+
+        if expenses_schema_path.exists():
+            expenses_sql = expenses_schema_path.read_text(encoding="utf-8")
+            await conn.execute(expenses_sql)
+            print("Expenses schema created/updated")
 
         await seed_topics(conn)
 

@@ -182,6 +182,9 @@ const translations = {
   "watchlist.noTrend": { he: "ללא טרנד", en: "No trend" },
   "watchlist.score": { he: "ציון", en: "Score" },
 
+  // Expenses
+  "nav.expenses": { he: "קבלות", en: "Receipts" },
+
   // General
   "general.loading": { he: "טוען...", en: "Loading..." },
   "general.error": { he: "שגיאה", en: "Error" },
