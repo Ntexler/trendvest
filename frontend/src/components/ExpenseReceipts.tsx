@@ -40,6 +40,8 @@ import {
   PieChart,
   ArrowUpDown,
   Search,
+  Target,
+  Layers,
 } from "lucide-react";
 
 // ── Constants ──
@@ -166,6 +168,50 @@ function ConfidenceRing({ score }: { score: number }) {
   );
 }
 
+// ── Tax Deduction Progress Bar ──
+
+function DeductionProgressBar({
+  captured,
+  estimated,
+  locale,
+}: {
+  captured: number;
+  estimated: number;
+  locale: string;
+}) {
+  const isHe = locale === "he";
+  const pct = estimated > 0 ? Math.min(Math.round((captured / estimated) * 100), 100) : 0;
+  const remaining = Math.max(estimated - captured, 0);
+
+  return (
+    <div className="bg-[#0f172a] rounded-xl p-4 space-y-3">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Target className="w-4 h-4 text-green-400" />
+          <span className="text-xs font-medium text-white">
+            {isHe ? "התקדמות ניכויים רבעונית" : "Quarterly Deduction Progress"}
+          </span>
+        </div>
+        <span className="text-xs font-bold text-green-400">{pct}%</span>
+      </div>
+      <div className="w-full h-3 bg-[#1e293b] rounded-full overflow-hidden">
+        <div
+          className="h-full bg-gradient-to-r from-green-500 to-emerald-400 rounded-full transition-all duration-700 ease-out"
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+      <div className="flex justify-between text-[10px] text-[#64748b]">
+        <span>
+          {isHe ? "לכדת" : "Captured"}: <span className="text-green-400 font-medium">₪{captured.toLocaleString()}</span>
+        </span>
+        <span>
+          {isHe ? "נותר" : "Remaining"}: <span className="text-amber-400 font-medium">₪{remaining.toLocaleString()}</span>
+        </span>
+      </div>
+    </div>
+  );
+}
+
 // ══════════════════════════════════════
 // MAIN COMPONENT
 // ══════════════════════════════════════
@@ -194,6 +240,18 @@ export default function ExpenseReceipts() {
   const [scanResult, setScanResult] = useState<string>("");
   const fileInputRef = useRef<HTMLInputElement>(null);
   const cameraInputRef = useRef<HTMLInputElement>(null);
+
+  // Batch scan
+  const [batchMode, setBatchMode] = useState(false);
+  const [batchResults, setBatchResults] = useState<{ name: string; ok: boolean; msg: string }[]>([]);
+  const [batchProcessing, setBatchProcessing] = useState(false);
+  const batchInputRef = useRef<HTMLInputElement>(null);
+
+  // Pull-to-refresh
+  const [pullDistance, setPullDistance] = useState(0);
+  const [refreshing, setRefreshing] = useState(false);
+  const touchStartY = useRef(0);
+  const listRef = useRef<HTMLDivElement>(null);
 
   // Email
   const [emailConfig, setEmailConfig] = useState({
@@ -304,6 +362,78 @@ export default function ExpenseReceipts() {
     },
     [processFile]
   );
+
+  // ── Batch Scan ──
+
+  const handleBatchUpload = useCallback(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const files = e.target.files;
+      if (!files || files.length === 0) return;
+
+      setBatchMode(true);
+      setBatchProcessing(true);
+      setBatchResults([]);
+      setView("scan");
+
+      const results: { name: string; ok: boolean; msg: string }[] = [];
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+        const result = await new Promise<{ ok: boolean; msg: string }>((resolve) => {
+          reader.onload = async () => {
+            const base64 = (reader.result as string).split(",")[1];
+            const mediaType = file.type || "image/jpeg";
+            try {
+              const r = await scanReceipt(base64, mediaType, file.name);
+              if (r.is_receipt) {
+                const d = r.data as Record<string, unknown>;
+                resolve({ ok: true, msg: `${d?.vendor_name || ""} · ₪${d?.amount || 0}` });
+              } else {
+                resolve({ ok: false, msg: L("לא זוהתה קבלה", "No receipt detected") });
+              }
+            } catch {
+              resolve({ ok: false, msg: L("שגיאה", "Error") });
+            }
+          };
+          reader.readAsDataURL(file);
+        });
+        results.push({ name: file.name, ...result });
+        setBatchResults([...results]);
+      }
+
+      setBatchProcessing(false);
+      await loadSummary();
+    },
+    [isHe, loadSummary]
+  );
+
+  // ── Pull-to-refresh handlers ──
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    if (listRef.current && listRef.current.scrollTop === 0) {
+      touchStartY.current = e.touches[0].clientY;
+    }
+  }, []);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (touchStartY.current === 0 || refreshing) return;
+    const diff = e.touches[0].clientY - touchStartY.current;
+    if (diff > 0 && diff < 120) {
+      setPullDistance(diff);
+    }
+  }, [refreshing]);
+
+  const handleTouchEnd = useCallback(async () => {
+    if (pullDistance > 60 && !refreshing) {
+      setRefreshing(true);
+      setPullDistance(60);
+      await loadSummary();
+      setRefreshing(false);
+    }
+    setPullDistance(0);
+    touchStartY.current = 0;
+  }, [pullDistance, refreshing, loadSummary]);
 
   // ── Email ──
 
@@ -465,7 +595,35 @@ export default function ExpenseReceipts() {
            HOME VIEW
          ═══════════════════════════════════════ */}
       {view === "home" && (
-        <div className="space-y-4">
+        <div
+          ref={listRef}
+          className="space-y-4"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Pull-to-refresh indicator */}
+          {(pullDistance > 0 || refreshing) && (
+            <div
+              className="flex items-center justify-center transition-all duration-200 overflow-hidden"
+              style={{ height: refreshing ? 48 : pullDistance * 0.6 }}
+            >
+              <RefreshCw
+                className={`w-5 h-5 text-cyan-400 transition-transform ${
+                  refreshing ? "animate-spin" : ""
+                }`}
+                style={{ transform: refreshing ? undefined : `rotate(${pullDistance * 3}deg)` }}
+              />
+              <span className="text-xs text-[#64748b] mr-2">
+                {pullDistance > 60
+                  ? L("שחרר לרענון", "Release to refresh")
+                  : refreshing
+                  ? L("מרענן...", "Refreshing...")
+                  : L("משוך לרענון", "Pull to refresh")}
+              </span>
+            </div>
+          )}
+
           {/* ── Header ── */}
           <div className="flex items-center justify-between">
             <div>
@@ -482,7 +640,7 @@ export default function ExpenseReceipts() {
 
           {/* ── Summary Hero Card ── */}
           {summary && (
-            <div className="bg-gradient-to-br from-cyan-500/20 via-[#1e293b] to-[#1e293b] rounded-2xl p-5 space-y-4">
+            <div className="bg-gradient-to-br from-cyan-500/20 via-[#1e293b] to-[#1e293b] rounded-2xl p-5 space-y-4 animate-scaleIn">
               <div className="flex justify-between items-start">
                 <div>
                   <div className="text-xs text-cyan-300/70 mb-1">{L("סה״כ הוצאות", "Total Expenses")}</div>
@@ -524,6 +682,15 @@ export default function ExpenseReceipts() {
               {/* Donut chart */}
               {Object.keys(summary.by_category).length > 0 && (
                 <DonutChart data={summary.by_category} total={summary.total_amount} locale={locale} />
+              )}
+
+              {/* Deduction progress bar */}
+              {summary.tax_deductible_amount > 0 && (
+                <DeductionProgressBar
+                  captured={summary.tax_deductible_amount}
+                  estimated={Math.max(summary.total_amount * 0.8, summary.tax_deductible_amount * 1.3)}
+                  locale={locale}
+                />
               )}
             </div>
           )}
@@ -575,9 +742,24 @@ export default function ExpenseReceipts() {
             </button>
           </div>
 
+          {/* Batch scan button */}
+          <button
+            onClick={() => batchInputRef.current?.click()}
+            className="col-span-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-2xl p-3 flex items-center gap-3 active:from-cyan-500/20 active:to-purple-500/20 transition"
+          >
+            <div className="w-10 h-10 bg-cyan-500/20 rounded-xl flex items-center justify-center shrink-0">
+              <Layers className="w-5 h-5 text-cyan-400" />
+            </div>
+            <div className="text-start">
+              <span className="text-sm font-medium text-white">{L("סריקת אצווה", "Batch Scan")}</span>
+              <span className="text-[10px] text-[#64748b] block">{L("סרוק כמה קבלות בבת אחת", "Scan multiple receipts at once")}</span>
+            </div>
+          </button>
+
           {/* Hidden file inputs */}
           <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleFileUpload} />
           <input ref={cameraInputRef} type="file" accept="image/*" capture="environment" className="hidden" onChange={handleFileUpload} />
+          <input ref={batchInputRef} type="file" accept="image/*" multiple className="hidden" onChange={handleBatchUpload} />
 
           {/* ── Search + Filter bar ── */}
           {(summary?.total_receipts ?? 0) > 0 && (
@@ -669,7 +851,8 @@ export default function ExpenseReceipts() {
                 const isOpen = swipingId === r.id;
 
                 return (
-                  <div key={r.id} className="relative overflow-hidden rounded-2xl">
+                  <div key={r.id} className="relative overflow-hidden rounded-2xl animate-slideUp"
+                    style={{ animationDelay: `${filteredReceipts.indexOf(r) * 50}ms` }}>
                     {/* Swipe action */}
                     {isOpen && (
                       <div className="absolute inset-y-0 left-0 w-20 bg-red-500 flex items-center justify-center rounded-r-2xl z-0">
@@ -752,78 +935,150 @@ export default function ExpenseReceipts() {
            SCAN VIEW (result screen)
          ═══════════════════════════════════════ */}
       {view === "scan" && (
-        <div className="space-y-6">
-          <button onClick={() => setView("home")} className="flex items-center gap-2 text-[#94a3b8] text-sm">
+        <div className="space-y-6 animate-fadeIn">
+          <button onClick={() => { setView("home"); setBatchMode(false); setBatchResults([]); }} className="flex items-center gap-2 text-[#94a3b8] text-sm">
             <ChevronDown className="w-4 h-4 rotate-90" />
             {L("חזרה", "Back")}
           </button>
 
-          <div className="text-center space-y-4">
-            {scanning ? (
-              <>
-                <div className="w-24 h-24 bg-cyan-500/10 rounded-3xl flex items-center justify-center mx-auto">
-                  <RefreshCw className="w-10 h-10 text-cyan-400 animate-spin" />
-                </div>
-                <div>
-                  <p className="text-white font-medium">{L("סורק עם AI...", "Scanning with AI...")}</p>
-                  <p className="text-xs text-[#64748b] mt-1">{L("מזהה פרטי קבלה", "Identifying receipt details")}</p>
-                </div>
-                {/* Animated dots */}
-                <div className="flex justify-center gap-1">
-                  {[0, 1, 2].map((i) => (
-                    <div
-                      key={i}
-                      className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce"
-                      style={{ animationDelay: `${i * 150}ms` }}
-                    />
-                  ))}
-                </div>
-              </>
-            ) : scanResult ? (
-              <>
-                <div
-                  className={`w-24 h-24 rounded-3xl flex items-center justify-center mx-auto ${
-                    scanResult.includes("₪") ? "bg-green-500/10" : "bg-yellow-500/10"
-                  }`}
-                >
-                  {scanResult.includes("₪") ? (
-                    <CheckCircle className="w-10 h-10 text-green-400" />
+          {/* ── Batch Mode Results ── */}
+          {batchMode ? (
+            <div className="space-y-4">
+              <div className="text-center space-y-2">
+                <div className="w-20 h-20 bg-cyan-500/10 rounded-3xl flex items-center justify-center mx-auto">
+                  {batchProcessing ? (
+                    <RefreshCw className="w-8 h-8 text-cyan-400 animate-spin" />
                   ) : (
-                    <AlertCircle className="w-10 h-10 text-yellow-400" />
+                    <Layers className="w-8 h-8 text-cyan-400" />
                   )}
                 </div>
-                <p className="text-white font-medium">{scanResult}</p>
+                <h3 className="text-lg font-bold text-white">
+                  {batchProcessing
+                    ? L("סורק אצווה...", "Batch Scanning...")
+                    : L("סריקת אצווה הושלמה", "Batch Scan Complete")}
+                </h3>
+                {batchProcessing && (
+                  <p className="text-xs text-[#64748b]">
+                    {L(`מעבד ${batchResults.length} מתוך...`, `Processing ${batchResults.length}...`)}
+                  </p>
+                )}
+              </div>
+
+              {/* Results list */}
+              <div className="space-y-2">
+                {batchResults.map((r, i) => (
+                  <div
+                    key={i}
+                    className="bg-[#1e293b] rounded-xl p-3 flex items-center gap-3 animate-slideUp"
+                    style={{ animationDelay: `${i * 100}ms` }}
+                  >
+                    {r.ok ? (
+                      <CheckCircle className="w-5 h-5 text-green-400 shrink-0" />
+                    ) : (
+                      <XCircle className="w-5 h-5 text-red-400 shrink-0" />
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <div className="text-sm text-white font-medium truncate">{r.name}</div>
+                      <div className="text-[10px] text-[#64748b]">{r.msg}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {!batchProcessing && batchResults.length > 0 && (
+                <div className="bg-[#0f172a] rounded-xl p-3 text-center">
+                  <span className="text-xs text-[#94a3b8]">
+                    {L("זוהו", "Found")} <span className="text-green-400 font-bold">{batchResults.filter(r => r.ok).length}</span> {L("קבלות מתוך", "receipts out of")} {batchResults.length}
+                  </span>
+                </div>
+              )}
+
+              {!batchProcessing && (
                 <div className="flex gap-3 justify-center">
                   <button
-                    onClick={() => {
-                      setScanResult("");
-                      cameraInputRef.current?.click();
-                    }}
+                    onClick={() => { setBatchResults([]); batchInputRef.current?.click(); }}
                     className="px-5 py-2.5 bg-cyan-500 text-white rounded-xl text-sm font-medium"
                   >
                     {L("סרוק עוד", "Scan More")}
                   </button>
                   <button
-                    onClick={() => setView("home")}
+                    onClick={() => { setView("home"); setBatchMode(false); setBatchResults([]); }}
                     className="px-5 py-2.5 bg-[#1e293b] text-white rounded-xl text-sm font-medium"
                   >
                     {L("סיום", "Done")}
                   </button>
                 </div>
-              </>
-            ) : (
-              <div className="space-y-4">
-                <div className="w-24 h-24 bg-[#1e293b] rounded-3xl flex items-center justify-center mx-auto">
-                  <Camera className="w-10 h-10 text-[#475569]" />
+              )}
+            </div>
+          ) : (
+            /* ── Single scan view ── */
+            <div className="text-center space-y-4">
+              {scanning ? (
+                <>
+                  <div className="w-24 h-24 bg-cyan-500/10 rounded-3xl flex items-center justify-center mx-auto">
+                    <RefreshCw className="w-10 h-10 text-cyan-400 animate-spin" />
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">{L("סורק עם AI...", "Scanning with AI...")}</p>
+                    <p className="text-xs text-[#64748b] mt-1">{L("מזהה פרטי קבלה", "Identifying receipt details")}</p>
+                  </div>
+                  <div className="flex justify-center gap-1">
+                    {[0, 1, 2].map((i) => (
+                      <div
+                        key={i}
+                        className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce"
+                        style={{ animationDelay: `${i * 150}ms` }}
+                      />
+                    ))}
+                  </div>
+                </>
+              ) : scanResult ? (
+                <>
+                  <div
+                    className={`w-24 h-24 rounded-3xl flex items-center justify-center mx-auto ${
+                      scanResult.includes("₪") ? "bg-green-500/10" : "bg-yellow-500/10"
+                    }`}
+                  >
+                    {scanResult.includes("₪") ? (
+                      <CheckCircle className="w-10 h-10 text-green-400" />
+                    ) : (
+                      <AlertCircle className="w-10 h-10 text-yellow-400" />
+                    )}
+                  </div>
+                  <p className="text-white font-medium">{scanResult}</p>
+                  <div className="flex gap-3 justify-center">
+                    <button
+                      onClick={() => {
+                        setScanResult("");
+                        cameraInputRef.current?.click();
+                      }}
+                      className="px-5 py-2.5 bg-cyan-500 text-white rounded-xl text-sm font-medium"
+                    >
+                      {L("סרוק עוד", "Scan More")}
+                    </button>
+                    <button
+                      onClick={() => setView("home")}
+                      className="px-5 py-2.5 bg-[#1e293b] text-white rounded-xl text-sm font-medium"
+                    >
+                      {L("סיום", "Done")}
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <div className="space-y-4">
+                  <div className="w-24 h-24 bg-[#1e293b] rounded-3xl flex items-center justify-center mx-auto">
+                    <Camera className="w-10 h-10 text-[#475569]" />
+                  </div>
+                  <p className="text-[#94a3b8]">{L("בחר תמונה לסריקה", "Choose an image to scan")}</p>
                 </div>
-                <p className="text-[#94a3b8]">{L("בחר תמונה לסריקה", "Choose an image to scan")}</p>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )}
 
           {/* Hidden inputs */}
           <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleFileUpload} />
           <input ref={cameraInputRef} type="file" accept="image/*" capture="environment" className="hidden" onChange={handleFileUpload} />
+          <input ref={batchInputRef} type="file" accept="image/*" multiple className="hidden" onChange={handleBatchUpload} />
         </div>
       )}
 
@@ -831,7 +1086,7 @@ export default function ExpenseReceipts() {
            DETAIL VIEW
          ═══════════════════════════════════════ */}
       {view === "detail" && selectedReceipt && (
-        <div className="space-y-4">
+        <div className="space-y-4 animate-fadeIn">
           <button onClick={() => { setView("home"); setEditingId(null); }} className="flex items-center gap-2 text-[#94a3b8] text-sm">
             <ChevronDown className="w-4 h-4 rotate-90" />
             {L("חזרה", "Back")}
@@ -984,7 +1239,7 @@ export default function ExpenseReceipts() {
            EMAIL VIEW
          ═══════════════════════════════════════ */}
       {view === "email" && (
-        <div className="space-y-4">
+        <div className="space-y-4 animate-fadeIn">
           <button onClick={() => setView("home")} className="flex items-center gap-2 text-[#94a3b8] text-sm">
             <ChevronDown className="w-4 h-4 rotate-90" />
             {L("חזרה", "Back")}
@@ -1093,7 +1348,7 @@ export default function ExpenseReceipts() {
            MANUAL ENTRY VIEW
          ═══════════════════════════════════════ */}
       {view === "manual" && (
-        <div className="space-y-4">
+        <div className="space-y-4 animate-fadeIn">
           <button onClick={() => setView("home")} className="flex items-center gap-2 text-[#94a3b8] text-sm">
             <ChevronDown className="w-4 h-4 rotate-90" />
             {L("חזרה", "Back")}
@@ -1209,7 +1464,7 @@ export default function ExpenseReceipts() {
            EXPORT VIEW
          ═══════════════════════════════════════ */}
       {view === "export" && (
-        <div className="space-y-4">
+        <div className="space-y-4 animate-fadeIn">
           <button onClick={() => setView("home")} className="flex items-center gap-2 text-[#94a3b8] text-sm">
             <ChevronDown className="w-4 h-4 rotate-90" />
             {L("חזרה", "Back")}
