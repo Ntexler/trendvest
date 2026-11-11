@@ -104,10 +104,10 @@ function stock() { const n = byId[S.co], i = n.info, y1 = chg(n.px, 52), m1 = ch
   const ch = M.changes.filter(c => c[2] === n.tier).sort((a, b) => b[5].localeCompare(a[5])).slice(0, 2), news = n.news.filter(x => x.he).slice(0, 2);
   $("page").innerHTML = `
     <div><span class="kicker">${esc(D.stages[n.tier].title)} · <span class="num">${esc(n.ticker)}</span></span><h1>${esc(n.name)}</h1></div>
-    <p class="lead">${esc(M.plain[n.tier].replace(/^[^\s]+/, w => ({ "מספקים": "מספקת", "בונים": "בונה", "מייצרים": "מייצרת", "חותכים,": "חותכת,", "מתכננים": "מתכננת", "מרכיבים": "מרכיבה" }[w] || w)))} המניה ${word(y1)} בשנה האחרונה${Math.abs(gap) > 5 ? `, ${gap > 0 ? "יותר" : "פחות"} משאר מניות השבבים` : ", בדומה לשאר מניות השבבים"}.</p>
+    <p class="lead">${esc((M.plain_co || M.plain)[n.tier])} המניה ${word(y1)} בשנה האחרונה${Math.abs(gap) > 5 ? `, ${gap > 0 ? "יותר" : "פחות"} מ${M.index_name}` : `, בדומה ל${M.index_name}`}.</p>
     <div class="band"><h2>המצב במספרים</h2><div class="tiles">
       <div class="tile"><span class="big ${cls(y1)}"><i class="arrow ${cls(y1)}"></i>${sg(y1)}</span><span class="w">המניה בשנה האחרונה</span><span class="l">בשנתיים: ${sg(y2)}</span></div>
-      <div class="tile"><span class="big ${cls(gap)}">${gap > 0 ? "+" : ""}${gap.toFixed(0)}</span><span class="w">${gap > 5 ? "נקודות אחוז מעל " : gap < -5 ? "נקודות אחוז מתחת ל" : "נקודות אחוז, צמוד ל"}מדד השבבים</span><span class="l">המדד עשה ${sg(m1)} בשנה</span></div>
+      <div class="tile"><span class="big ${cls(gap)}">${gap > 0 ? "+" : ""}${gap.toFixed(0)}</span><span class="w">${gap > 5 ? "נקודות אחוז מעל " : gap < -5 ? "נקודות אחוז מתחת ל" : "נקודות אחוז, צמוד ל"}${esc(M.index_name)}</span><span class="l">המדד עשה ${sg(m1)} בשנה</span></div>
       ${growth != null ? `<div class="tile"><span class="big ${cls(growth)}"><i class="arrow ${cls(growth)}"></i>${sg(growth)}</span><span class="w">ההכנסות ${growth > 3 ? "צומחות" : growth < -3 ? "יורדות" : "יציבות"}</span><span class="l">לעומת התקופה המקבילה אשתקד</span></div>` : ""}
       <div class="tile"><span class="big num">${usd(i.revenueUSD)}</span><span class="w">הכנסות בשנה</span><span class="l">רווח נקי: <span class="num">${usd(i.netIncomeUSD)}</span></span></div></div></div>
     <div class="band"><h2>המניה בשנתיים האחרונות</h2><div class="pic">${picture(n)}</div></div>

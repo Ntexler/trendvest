@@ -41,7 +41,7 @@ EARN_Z, MOVE_Z, COOLDOWN, HORIZONS = 2.0, 3.0, 5, (0, 1, 3, 5)
 
 def load_earnings(companies: pd.DataFrame, refresh: bool = False) -> dict[str, list[str]]:
     """Earnings announcement timestamps (UTC ISO) per company id, cached."""
-    path = HERE / "data" / "earnings.json"
+    path = G.DATA / "earnings.json"
     data = json.loads(path.read_text()) if path.exists() and not refresh else {}
     import yfinance as yf
     for cid, c in companies.iterrows():
@@ -186,7 +186,8 @@ def summarise(pairs: pd.DataFrame) -> pd.DataFrame:
 
 def main() -> None:
     shocks, pairs = study()
-    res = HERE / "results"
+    res = G.RESULTS
+    res.mkdir(parents=True, exist_ok=True)
     shocks.to_csv(res / "shocks.csv", index=False)
     pairs.round(4).to_csv(res / "shock_pairs.csv", index=False)
     summ = summarise(pairs)

@@ -29,7 +29,8 @@ from . import markets as MK
 from . import shocks as S
 from .run import all_prices
 
-DIR = Path(__file__).parent / "ledger"
+DIR = Path(__file__).parent / "ledger" / G.MARKET
+DIR.mkdir(parents=True, exist_ok=True)
 F, SC = DIR / "forecasts.jsonl", DIR / "scores.jsonl"
 WINDOW, LOOKBACK = 5, 6      # forecast sessions 1..5; consider shocks from the last 6 sessions
 
@@ -58,7 +59,7 @@ def verify(p: Path) -> bool:
 
 def history_expectation() -> dict:
     """Average signed move of linked neighbours over sessions 1-5, from the shock library (sigma units)."""
-    p = Path(__file__).parent / "results" / "shock_pairs.csv"
+    p = G.RESULTS / "shock_pairs.csv"
     d = pd.read_csv(p)
     for k in ("linked", "placebo"):
         d[f"{k}_w"] = (d[f"{k}_d5"] * np.sqrt(6) - d[f"{k}_d0"]) / np.sqrt(5)

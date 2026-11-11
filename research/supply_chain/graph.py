@@ -7,12 +7,21 @@ links that were already documented before the event it is testing (point-in-time
 
 from __future__ import annotations
 
+import os
 from collections import deque
 from pathlib import Path
 
 import pandas as pd
 
-DATA = Path(__file__).parent / "data"
+BASE = Path(__file__).parent
+MARKET = os.environ.get("MARKET", "chips")     # one folder per market: data/<market>/, results/<market>/
+DATA = BASE / "data" / MARKET
+RESULTS = BASE / "results" / MARKET
+
+
+def market() -> dict:
+    import json
+    return json.loads((DATA / "market.json").read_text())
 
 
 def load_companies() -> pd.DataFrame:

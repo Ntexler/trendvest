@@ -25,7 +25,7 @@ from . import linkcheck as L
 from . import markets as MK
 from . import spillover as S
 
-RESULTS = Path(__file__).parent / "results"
+RESULTS = G.RESULTS
 
 
 def all_prices(companies: pd.DataFrame) -> pd.DataFrame:
@@ -47,7 +47,7 @@ def main() -> None:
     real, per_event, summary = S.run(prices, quality=("best",) if args.best else ("best", "ok"),
                                      weighted=args.weighted)
     tag = "_weighted" if args.weighted else ""
-    RESULTS.mkdir(exist_ok=True)
+    RESULTS.mkdir(parents=True, exist_ok=True)
     real.round({c: 4 for c in real.select_dtypes("number").columns}).to_csv(RESULTS / f"event_company{tag}.csv", index=False)
     per_event.round(4).to_csv(RESULTS / f"event_role{tag}.csv", index=False)
     summary.round(3).to_csv(RESULTS / f"summary{tag}.csv")

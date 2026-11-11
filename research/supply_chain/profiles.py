@@ -14,7 +14,7 @@ from pathlib import Path
 
 from . import graph as G
 
-OUT = Path(__file__).parent / "data" / "profiles.json"
+OUT = G.DATA / "profiles.json"
 INFO_KEYS = ["marketCap", "trailingPE", "forwardPE", "profitMargins", "revenueGrowth", "beta",
              "fiftyTwoWeekChange", "currency", "fullTimeEmployees", "heldPercentInstitutions",
              "heldPercentInsiders", "recommendationKey"]

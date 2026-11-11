@@ -20,7 +20,7 @@ import requests
 
 from . import graph as G
 
-OUT = Path(__file__).parent / "data" / "pulses.json"
+OUT = G.DATA / "pulses.json"
 UA = {"User-Agent": "TrendVestResearch/0.1 (personal research script)"}
 
 # SEC central index keys for the US filers in the map (10-K filers only: quarterly XBRL facts)
@@ -167,7 +167,7 @@ def main() -> None:
                     "month_share_pct": {int(k): round(float(v) * 100, 1) for k, v in month_share.groupby(month_share.index.month).mean().items()}}
                 print(cid, "monthly:", len(s), "months, last", out["monthly"][cid]["last_month"], f"{out['monthly'][cid]['yoy_pct']:+}% yoy", flush=True)
             time.sleep(1.2)
-    for cid, cik in CIK.items():
+    for cid, cik in (G.market().get("cik") or (CIK if G.MARKET == "chips" else {})).items():
         try:
             out["sec"][cid] = sec_company(cid, cik)
             d = out["sec"][cid]

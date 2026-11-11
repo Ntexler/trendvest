@@ -34,8 +34,9 @@ def build(chain: pd.DataFrame, info: dict, edges: pd.DataFrame) -> dict[str, lis
     cap = lambda c: info[c]["info"].get("marketCapUSD") or 0          # noqa: E731
     rev = lambda c: info[c]["info"].get("revenueUSD") or 0            # noqa: E731
     crit = edges[edges["critical"].astype(str).isin(["1", "1.0"])].groupby("customer")["supplier"].apply(set).to_dict()
-    popular = sorted([c for c in chain.index if chain.loc[c, "tier"] in ("design", "manufacturing", "equipment")], key=cap, reverse=True)[:8]
-    tiers = ["materials", "subsystems", "equipment", "manufacturing", "packaging", "design", "systems"]
+    popular = sorted(chain.index, key=cap, reverse=True)[:8] if G.MARKET != "chips" else \
+        sorted([c for c in chain.index if chain.loc[c, "tier"] in ("design", "manufacturing", "equipment")], key=cap, reverse=True)[:8]
+    tiers = G.market()["tiers"]
     by_tier = {t: sorted(chain.index[chain["tier"] == t], key=rev, reverse=True) for t in tiers}
     one_each = [by_tier[t][0] for t in tiers]
     balanced: list[str] = []
@@ -45,7 +46,7 @@ def build(chain: pd.DataFrame, info: dict, edges: pd.DataFrame) -> dict[str, lis
         shared = any(crit.get(c, set()) & crit.get(x, set()) for x in balanced)
         direct = any(c in crit.get(x, set()) or x in crit.get(c, set()) for x in balanced)
         return country and not shared and not direct
-    for t in tiers + ["manufacturing"]:
+    for t in tiers + [max(tiers, key=lambda t: len(by_tier[t]))]:
         pick = next((c for c in by_tier[t] if c not in balanced and ok(c)), None)
         if pick:
             balanced.append(pick)
@@ -71,7 +72,7 @@ def event_returns(prices: pd.DataFrame, chain: pd.DataFrame, events: pd.DataFram
 def main() -> None:
     companies = G.load_companies()
     chain = companies[companies["tier"] != "control"]
-    info = json.loads((HERE / "data" / "profiles.json").read_text())
+    info = json.loads((G.DATA / "profiles.json").read_text())
     edges = G.load_edges()
     prices = all_prices(companies)
     baskets = build(chain, info, edges)
@@ -106,7 +107,7 @@ def main() -> None:
             s[f"{k}_beats_random"] = float(better.mean())      # share of random baskets that did worse
         rows.append(s)
     res = pd.DataFrame(rows).set_index("basket")
-    res.round(3).to_csv(HERE / "results" / "baskets.csv")
+    res.round(3).to_csv(G.RESULTS / "baskets.csv")
     pd.set_option("display.width", 250, "display.max_columns", 30)
     for k, v in baskets.items():
         if k != "all":

@@ -148,7 +148,7 @@ function market() {
   $("screen").innerHTML = `
     <div><h1>${esc(M.name)}</h1><p class="intro" style="margin-top:6px">${esc(M.intro)}</p></div>
     <div class="grid kpis">${M.kpis.map(k => `<div class="kpi"><span class="lbl">${esc(k[0])}</span><b class="num" style="direction:rtl">${esc(k[1])}</b>${src(k[2])}</div>`).join("")}</div>
-    <div class="card"><div class="head"><h2>איך שבב נולד: שבעה שלבים</h2><span class="lbl">הסחורה עוברת מימין לשמאל. בתחתית כל שלב: כמה זמן הוא לוקח.</span></div><div class="chain">${stages}</div></div>
+    <div class="card"><div class="head"><h2>${esc(M.chain_title)}</h2><span class="lbl">הסחורה עוברת מימין לשמאל. בתחתית כל שלב: כמה זמן הוא לוקח.</span></div><div class="chain">${stages}</div></div>
     <div class="grid split">
       <div class="card"><div class="head"><h2>החברות הגדולות</h2><span class="lbl">לחיצה על חברה פותחת את העמוד שלה</span></div>
         <div class="scroll"><table><thead><tr><th>חברה</th><th>שלב</th><th class="r">הכנסות בשנה</th><th class="r">המניה בשנה האחרונה</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
@@ -213,7 +213,7 @@ function company() { const n = byId[S.co], i = n.info, p = n.pulse || {};
   const chartCard = `<div class="card"><div class="head"><h2>המניה לאורך זמן</h2><div class="chips">
       ${[[52, "שנה"], [156, "3 שנים"], [263, "5 שנים"]].map(r => `<button class="chip" data-range="${r[0]}" aria-pressed="${S.range === r[0]}">${r[1]}</button>`).join("")}</div></div>
     <div class="chips"><span class="lbl">שכבות:</span>
-      <button class="chip" data-layer="market" aria-pressed="${S.layers.market}"><i style="background:var(--muted)"></i>מדד השבבים</button>
+      <button class="chip" data-layer="market" aria-pressed="${S.layers.market}"><i style="background:var(--muted)"></i>${esc(M.index_name)}</button>
       <button class="chip" data-layer="events" aria-pressed="${S.layers.events}"><i style="background:var(--warn)"></i>אירועים</button>
       <button class="chip" data-layer="changes" aria-pressed="${S.layers.changes}"><i style="background:var(--accent)"></i>מה משתנה</button></div>
     <div class="chart">${chart(n)}</div>

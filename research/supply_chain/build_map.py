@@ -16,7 +16,7 @@ from . import graph as G
 
 HERE = Path(__file__).parent
 TEMPLATE, OUTPUT = "app_template.html", "chip_map.html"   # the template is market-agnostic
-TIERS = ["materials", "subsystems", "equipment", "manufacturing", "packaging", "design", "systems"]
+TIERS = G.market()["tiers"]
 INDEX_GIANTS = ("vanguard", "blackrock", "state street", "geode", "fmr", "jpmorgan", "morgan stanley",
                 "norges", "capital", "invesco", "northern trust", "price (t.rowe)", "bank of america")
 
@@ -32,9 +32,9 @@ def build() -> dict:
     companies = G.load_companies()
     chain = companies[companies["tier"] != "control"]
     edges = G.load_edges().fillna("")
-    profiles = json.loads((HERE / "data" / "profiles.json").read_text())
-    events = pd.read_csv(HERE / "data" / "events.csv", comment="#").fillna("")
-    res_path = HERE / "results" / "event_company.csv"
+    profiles = json.loads((G.DATA / "profiles.json").read_text())
+    events = pd.read_csv(G.DATA / "events.csv", comment="#").fillna("")
+    res_path = G.RESULTS / "event_company.csv"
     res = pd.read_csv(res_path) if res_path.exists() else pd.DataFrame()
 
     people = defaultdict(set)      # normalised person -> companies
@@ -47,13 +47,14 @@ def build() -> dict:
         for h in p["holders"]:
             holders[h["name"]].add(cid)
 
-    pulses = json.loads((HERE / "data" / "pulses.json").read_text())
-    content = json.loads((HERE / "data" / "stages.json").read_text())
+    pp = G.DATA / "pulses.json"
+    pulses = json.loads(pp.read_text()) if pp.exists() else {"sec": {}, "monthly": {}}
+    content = json.loads((G.DATA / "stages.json").read_text())
     il = re.compile(r"israel|rehovot|migdal|kiryat|nes ziona", re.I)
-    prices = json.loads((HERE / "data" / "prices_weekly.json").read_text())
-    news = json.loads((HERE / "data" / "news.json").read_text())
-    news_he = json.loads((HERE / "data" / "market.json").read_text()).get("news_he", {})
-    wres_path = HERE / "results" / "event_company_weighted.csv"
+    prices = json.loads((G.DATA / "prices_weekly.json").read_text())
+    news = json.loads((G.DATA / "news.json").read_text())
+    news_he = json.loads((G.DATA / "market.json").read_text()).get("news_he", {})
+    wres_path = G.RESULTS / "event_company_weighted.csv"
     wres = pd.read_csv(wres_path) if wres_path.exists() else pd.DataFrame()
     nodes = []
     for cid, c in chain.iterrows():
@@ -115,7 +116,7 @@ def build() -> dict:
                   "gm": gm[len(gm) // 2] if gm else None,
                   "top": [n["id"] for n in sorted(ns, key=lambda n: -(n["info"].get("revenueUSD") or 0))[:6]]}
     base = {}
-    rp = HERE / "results" / "event_role_weighted.csv"
+    rp = G.RESULTS / "event_role_weighted.csv"
     if rp.exists():     # what happened in past events, per role: one value per event
         er = pd.read_csv(rp)
         for role, g in er.groupby("role"):
@@ -124,7 +125,7 @@ def build() -> dict:
                           "max": round(float(v.max()), 1), "fell": int((v < 0).sum()),
                           "d10": round(float(g["pct10"].mean()), 1),
                           "by_event": {e: round(float(x), 1) for e, x in zip(g["event"], g["pct3"])}}
-    market = json.loads((HERE / "data" / "market.json").read_text())
+    market = json.loads((G.DATA / "market.json").read_text())
     market.pop("news_he", None)
     content["sources"] = {**content["sources"], **market.pop("sources")}
     return {"tiers": TIERS, "nodes": nodes, "edges": E, "events": EV, "agg": agg, "market": market,
@@ -134,10 +135,11 @@ def build() -> dict:
 def main() -> None:
     data = build()
     tpl = (HERE / "map" / TEMPLATE).read_text()
-    out = tpl.replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False)).replace("__TITLE__", "מפת שרשרת השבבים")
-    (HERE / "map" / OUTPUT).write_text(out)
+    out = tpl.replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False)).replace("__TITLE__", "מפת שרשרת השבבים" if G.MARKET == "chips" else "שוק: " + data["market"]["name"])
+    names = (OUTPUT, "stock_story.html") if G.MARKET == "chips" else (f"{G.MARKET}_app.html", f"{G.MARKET}_story.html")
+    (HERE / "map" / names[0]).write_text(out)
     poster = (HERE / "map" / "infographic_template.html").read_text()
-    (HERE / "map" / "stock_story.html").write_text(poster.replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False)))
+    (HERE / "map" / names[1]).write_text(poster.replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False)))
     n_links = sum(1 for n in data["nodes"] for p in n["people"] if p["also"])
     print(len(data["nodes"]), "nodes,", len(data["edges"]), "edges,", len(data["events"]), "events;",
           n_links, "person name matches across companies;", len(out) // 1024, "KB")
