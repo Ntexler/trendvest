@@ -1,0 +1,1414 @@
+{
+ "NABTESCO": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 25.7,
+  "ps": 1.6,
+  "rank_in_stage": 26.7,
+  "growth_pct": 0.5,
+  "margin_pct": 8.4,
+  "customers_growth_pct": 10.1,
+  "customers": [
+   "FANUC",
+   "YASKAWA",
+   "KAWASAKI"
+  ],
+  "price_1y_pct": 20.7,
+  "net_debt_usd": -262077253.55807495,
+  "net_debt_to_ebitda": -1.0
+ },
+ "HDS": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 296.7,
+  "ps": 7.5,
+  "rank_in_stage": 89.4,
+  "growth_pct": 23.6,
+  "margin_pct": 6.8,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 77.4,
+  "net_debt_usd": -33000518.929992676,
+  "net_debt_to_ebitda": -0.5
+ },
+ "LEADERDRIVE": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 356.5,
+  "ps": 73.6,
+  "rank_in_stage": 100.0,
+  "growth_pct": 56.1,
+  "margin_pct": 16.8,
+  "customers_growth_pct": 104.2,
+  "customers": [
+   "UBTECH"
+  ],
+  "price_1y_pct": 93.5,
+  "net_debt_usd": -284661967.41962856,
+  "net_debt_to_ebitda": -10.2
+ },
+ "SHUANGHUAN": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 29.3,
+  "ps": 3.9,
+  "rank_in_stage": 57.8,
+  "growth_pct": 14.4,
+  "margin_pct": 15.8,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 8.0,
+  "net_debt_usd": 254039567.9332695,
+  "net_debt_to_ebitda": 0.7
+ },
+ "SMC": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 23.2,
+  "ps": 4.2,
+  "rank_in_stage": 40.6,
+  "growth_pct": 35.4,
+  "margin_pct": 24.1,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 7.2,
+  "net_debt_usd": -4718472818.539257,
+  "net_debt_to_ebitda": -2.8
+ },
+ "THK": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 25.4,
+  "ps": 2.9,
+  "rank_in_stage": 31.1,
+  "growth_pct": -10.2,
+  "margin_pct": 15.0,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 42.4,
+  "net_debt_usd": 143194057.8505249,
+  "net_debt_to_ebitda": 0.4
+ },
+ "NIDEC": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": null,
+  "ps": 0.8,
+  "rank_in_stage": 10.0,
+  "growth_pct": 8.5,
+  "margin_pct": 3.5,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -22.7,
+  "net_debt_usd": 1633034026.600586,
+  "net_debt_to_ebitda": 1.7
+ },
+ "INOVANCE": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 29.0,
+  "ps": 2.9,
+  "rank_in_stage": 47.2,
+  "growth_pct": 19.1,
+  "margin_pct": 11.0,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -23.6,
+  "net_debt_usd": -1471211874.9919968,
+  "net_debt_to_ebitda": -1.5
+ },
+ "SANHUA": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": false,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 39.5,
+  "ps": 4.7,
+  "rank_in_stage": 78.9,
+  "growth_pct": 7.8,
+  "margin_pct": 15.8,
+  "customers_growth_pct": -0.2,
+  "customers": [
+   "TESLA"
+  ],
+  "price_1y_pct": -26.1,
+  "net_debt_usd": -1597629047.1825943,
+  "net_debt_to_ebitda": -1.7
+ },
+ "TUOPU": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": false,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 35.8,
+  "ps": 2.8,
+  "rank_in_stage": 48.3,
+  "growth_pct": 5.3,
+  "margin_pct": 9.7,
+  "customers_growth_pct": -0.2,
+  "customers": [
+   "TESLA"
+  ],
+  "price_1y_pct": -28.4,
+  "net_debt_usd": 108861678.04779053,
+  "net_debt_to_ebitda": 0.1
+ },
+ "KEYENCE": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 33.8,
+  "ps": 13.5,
+  "rank_in_stage": 82.5,
+  "growth_pct": 36.8,
+  "margin_pct": 53.8,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 36.3,
+  "net_debt_usd": -9397326171.265625,
+  "net_debt_to_ebitda": -2.0
+ },
+ "COGNEX": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 37.2,
+  "ps": 8.0,
+  "rank_in_stage": 83.8,
+  "growth_pct": 13.2,
+  "margin_pct": 25.0,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 38.8,
+  "net_debt_usd": -625330032.0,
+  "net_debt_to_ebitda": -2.0
+ },
+ "OMRON": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 17.8,
+  "ps": 1.2,
+  "rank_in_stage": 38.8,
+  "growth_pct": 5.6,
+  "margin_pct": 10.4,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 33.9,
+  "net_debt_usd": 423194815.9785156,
+  "net_debt_to_ebitda": 0.6
+ },
+ "HESAI": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 31.5,
+  "ps": 4.3,
+  "rank_in_stage": 66.2,
+  "growth_pct": 34.3,
+  "margin_pct": -0.9,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -26.5,
+  "net_debt_usd": -903373123.1898165,
+  "net_debt_to_ebitda": -70.6
+ },
+ "INNOVIZ": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": false,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": null,
+  "ps": 1.0,
+  "rank_in_stage": 30.0,
+  "growth_pct": 85.5,
+  "margin_pct": -153.5,
+  "customers_growth_pct": -4.8,
+  "customers": [
+   "VW",
+   "MOBILEYE",
+   "BMW"
+  ],
+  "price_1y_pct": -83.6,
+  "net_debt_usd": -12806000.0,
+  "net_debt_to_ebitda": null
+ },
+ "NVDA": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 22.3,
+  "ps": 14.1,
+  "rank_in_stage": 75.0,
+  "growth_pct": 105.9,
+  "margin_pct": 65.2,
+  "customers_growth_pct": 18.6,
+  "customers": [
+   "HYUNDAI",
+   "GM",
+   "TOYOTA",
+   "BYD",
+   "HONHAI",
+   "MOBILEYE",
+   "TERADYNE"
+  ],
+  "price_1y_pct": -11.0,
+  "net_debt_usd": -23608999936.0,
+  "net_debt_to_ebitda": -0.1
+ },
+ "MOBILEYE": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": false,
+   "not_broken": false
+  },
+  "passed": 0,
+  "candidate": false,
+  "pe": null,
+  "ps": 2.5,
+  "rank_in_stage": 50.0,
+  "growth_pct": -2.4,
+  "margin_pct": -18.0,
+  "customers_growth_pct": -2.2,
+  "customers": [
+   "VALEO",
+   "APTIV",
+   "VW"
+  ],
+  "price_1y_pct": -54.3,
+  "net_debt_usd": -1408000064.0,
+  "net_debt_to_ebitda": null
+ },
+ "STM": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": false,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 82.5,
+  "ps": 3.1,
+  "rank_in_stage": 80.0,
+  "growth_pct": 17.9,
+  "margin_pct": 7.9,
+  "customers_growth_pct": -2.4,
+  "customers": [
+   "MOBILEYE"
+  ],
+  "price_1y_pct": 93.3,
+  "net_debt_usd": -1884999936.0,
+  "net_debt_to_ebitda": -0.6
+ },
+ "VALEO": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 14.1,
+  "ps": 0.1,
+  "rank_in_stage": 17.5,
+  "growth_pct": -2.6,
+  "margin_pct": 5.9,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -6.9,
+  "net_debt_usd": 4264950729.370117,
+  "net_debt_to_ebitda": 1.8
+ },
+ "APTIV": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 11.0,
+  "ps": 0.4,
+  "rank_in_stage": 16.2,
+  "growth_pct": 2.3,
+  "margin_pct": 10.8,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -49.9,
+  "net_debt_usd": 5025000064.0,
+  "net_debt_to_ebitda": 1.6
+ },
+ "SIEMENS": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 27.6,
+  "ps": 2.6,
+  "rank_in_stage": 50.0,
+  "growth_pct": 7.3,
+  "margin_pct": 12.4,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 20.4,
+  "net_debt_usd": 43264177140.9375,
+  "net_debt_to_ebitda": 3.1
+ },
+ "ROCKWELL": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 33.0,
+  "ps": 5.1,
+  "rank_in_stage": 90.0,
+  "growth_pct": 0.7,
+  "margin_pct": 18.6,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 6.7,
+  "net_debt_usd": 3119000000.0,
+  "net_debt_to_ebitda": 1.6
+ },
+ "SCHNEIDER": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 29.1,
+  "ps": 3.4,
+  "rank_in_stage": 70.0,
+  "growth_pct": 9.8,
+  "margin_pct": 17.9,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 1.4,
+  "net_debt_usd": 18075004131.271484,
+  "net_debt_to_ebitda": 1.9
+ },
+ "MITSUBISHI": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 19.5,
+  "ps": 1.6,
+  "rank_in_stage": 20.0,
+  "growth_pct": 14.7,
+  "margin_pct": 8.6,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 17.2,
+  "net_debt_usd": -3864006474.968506,
+  "net_debt_to_ebitda": -0.9
+ },
+ "PTC": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 21.9,
+  "ps": 7.8,
+  "rank_in_stage": 70.0,
+  "growth_pct": -24.7,
+  "margin_pct": 34.6,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 9.4,
+  "net_debt_usd": 1563978976.0,
+  "net_debt_to_ebitda": 1.5
+ },
+ "FANUC": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": false,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 26.5,
+  "ps": 5.7,
+  "rank_in_stage": 56.8,
+  "growth_pct": 14.9,
+  "margin_pct": 23.2,
+  "customers_growth_pct": -6.3,
+  "customers": [
+   "VW"
+  ],
+  "price_1y_pct": 9.7,
+  "net_debt_usd": -4924020733.357422,
+  "net_debt_to_ebitda": -3.0
+ },
+ "YASKAWA": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 28.0,
+  "ps": 1.8,
+  "rank_in_stage": 44.9,
+  "growth_pct": 9.0,
+  "margin_pct": 7.9,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -5.2,
+  "net_debt_usd": 370738078.8077698,
+  "net_debt_to_ebitda": 0.9
+ },
+ "ABB": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": false,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 32.1,
+  "ps": 4.1,
+  "rank_in_stage": 66.5,
+  "growth_pct": 14.3,
+  "margin_pct": 17.7,
+  "customers_growth_pct": -6.3,
+  "customers": [
+   "VW"
+  ],
+  "price_1y_pct": 24.1,
+  "net_debt_usd": 2384000000.0,
+  "net_debt_to_ebitda": 0.3
+ },
+ "MIDEA": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": false,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 14.0,
+  "ps": 1.5,
+  "rank_in_stage": 21.6,
+  "growth_pct": -4.1,
+  "margin_pct": 9.7,
+  "customers_growth_pct": -5.8,
+  "customers": [
+   "BMW"
+  ],
+  "price_1y_pct": 22.9,
+  "net_debt_usd": -7768141619.143799,
+  "net_debt_to_ebitda": -1.0
+ },
+ "KAWASAKI": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 14.2,
+  "ps": 0.7,
+  "rank_in_stage": 23.3,
+  "growth_pct": 6.5,
+  "margin_pct": 6.6,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -5.5,
+  "net_debt_usd": 4993913183.988342,
+  "net_debt_to_ebitda": 3.4
+ },
+ "ESTUN": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 0,
+  "candidate": false,
+  "pe": 156.6,
+  "ps": 6.4,
+  "rank_in_stage": 86.4,
+  "growth_pct": -11.2,
+  "margin_pct": 6.2,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 29.4,
+  "net_debt_usd": 280144713.9137764,
+  "net_debt_to_ebitda": 4.1
+ },
+ "SIASUN": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 0,
+  "candidate": false,
+  "pe": null,
+  "ps": 5.0,
+  "rank_in_stage": 54.5,
+  "growth_pct": 76.6,
+  "margin_pct": -6.6,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -25.0,
+  "net_debt_usd": 125044297.10472107,
+  "net_debt_to_ebitda": null
+ },
+ "TERADYNE": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 31.2,
+  "ps": 8.5,
+  "rank_in_stage": 78.4,
+  "growth_pct": 69.8,
+  "margin_pct": 32.5,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 44.7,
+  "net_debt_usd": -329473984.0,
+  "net_debt_to_ebitda": -0.2
+ },
+ "DOOSANROBOTICS": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 0,
+  "candidate": false,
+  "pe": null,
+  "ps": 61.5,
+  "rank_in_stage": 90.9,
+  "growth_pct": 290.0,
+  "margin_pct": -103.7,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -34.7,
+  "net_debt_usd": -126051783.45035028,
+  "net_debt_to_ebitda": null
+ },
+ "RAINBOW": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": null,
+  "ps": 149.7,
+  "rank_in_stage": 100.0,
+  "growth_pct": 97.9,
+  "margin_pct": -5.8,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -14.1,
+  "net_debt_usd": -41473927.59717207,
+  "net_debt_to_ebitda": null
+ },
+ "SOFTBANK": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 4.5,
+  "ps": 2.6,
+  "rank_in_stage": 24.4,
+  "growth_pct": 15.6,
+  "margin_pct": -6.3,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -21.5,
+  "net_debt_usd": 164452775042.8203,
+  "net_debt_to_ebitda": 57.7
+ },
+ "ISRG": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 53.7,
+  "ps": 13.3,
+  "rank_in_stage": 66.1,
+  "growth_pct": 21.7,
+  "margin_pct": 31.7,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -18.1,
+  "net_debt_usd": -4042500096.0,
+  "net_debt_to_ebitda": -0.9
+ },
+ "STRYKER": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 33.9,
+  "ps": 4.6,
+  "rank_in_stage": 46.4,
+  "growth_pct": 7.6,
+  "margin_pct": 24.0,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -9.5,
+  "net_debt_usd": 12161999872.0,
+  "net_debt_to_ebitda": 1.6
+ },
+ "MEDTRONIC": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 24.8,
+  "ps": 3.4,
+  "rank_in_stage": 35.1,
+  "growth_pct": 13.7,
+  "margin_pct": 20.1,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 9.5,
+  "net_debt_usd": 19333999616.0,
+  "net_debt_to_ebitda": 1.9
+ },
+ "TESLA": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 432.6,
+  "ps": 15.0,
+  "rank_in_stage": 84.5,
+  "growth_pct": -0.2,
+  "margin_pct": 3.0,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -6.1,
+  "net_debt_usd": -29002000384.0,
+  "net_debt_to_ebitda": -3.0
+ },
+ "HYUNDAI": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": true,
+   "not_broken": false
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": null,
+  "ps": 0.4,
+  "rank_in_stage": 25.0,
+  "growth_pct": -3.4,
+  "margin_pct": 5.2,
+  "customers_growth_pct": 12.6,
+  "customers": [
+   "DHL"
+  ],
+  "price_1y_pct": 3.4,
+  "net_debt_usd": 118017014592.47107,
+  "net_debt_to_ebitda": 11.8
+ },
+ "UBTECH": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": true,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": null,
+  "ps": 12.5,
+  "rank_in_stage": 66.7,
+  "growth_pct": 104.2,
+  "margin_pct": -20.1,
+  "customers_growth_pct": 16.0,
+  "customers": [
+   "BYD",
+   "HONHAI",
+   "VW"
+  ],
+  "price_1y_pct": -39.6,
+  "net_debt_usd": -241318810.87408733,
+  "net_debt_to_ebitda": null
+ },
+ "UNITREE": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 503.3,
+  "ps": 131.7,
+  "rank_in_stage": 100.0,
+  "growth_pct": 69.9,
+  "margin_pct": 25.3,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 13.2,
+  "net_debt_usd": -1158036399.8349857,
+  "net_debt_to_ebitda": -12.8
+ },
+ "GOOGL": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 15.4,
+  "ps": 7.7,
+  "rank_in_stage": 36.3,
+  "growth_pct": 24.7,
+  "margin_pct": 33.3,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 4.2,
+  "net_debt_usd": -114767003648.0,
+  "net_debt_to_ebitda": -0.6
+ },
+ "AEROVIRONMENT": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": null,
+  "ps": 3.2,
+  "rank_in_stage": 33.3,
+  "growth_pct": 5.7,
+  "margin_pct": -0.6,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -57.6,
+  "net_debt_usd": 270595968.0,
+  "net_debt_to_ebitda": 1.2
+ },
+ "ELBIT": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 54.4,
+  "ps": 0.0,
+  "rank_in_stage": 44.0,
+  "growth_pct": 15.9,
+  "margin_pct": 9.4,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 51.0,
+  "net_debt_usd": -110697984.0,
+  "net_debt_to_ebitda": -0.1
+ },
+ "ONDAS": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": null,
+  "ps": 19.4,
+  "rank_in_stage": 91.7,
+  "growth_pct": 1235.4,
+  "margin_pct": -121.0,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -22.4,
+  "net_debt_usd": -1343397056.0,
+  "net_debt_to_ebitda": null
+ },
+ "MAYTRONICS": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": null,
+  "ps": 0.0,
+  "rank_in_stage": 8.3,
+  "growth_pct": -15.0,
+  "margin_pct": -9.4,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -52.0,
+  "net_debt_usd": 234258220.50653172,
+  "net_debt_to_ebitda": null
+ },
+ "SYMBOTIC": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 472.6,
+  "ps": 8.6,
+  "rank_in_stage": 100.0,
+  "growth_pct": 21.7,
+  "margin_pct": 0.5,
+  "customers_growth_pct": 10.8,
+  "customers": [
+   "WALMART",
+   "SOFTBANK"
+  ],
+  "price_1y_pct": -35.3,
+  "net_debt_usd": -1720618952.0,
+  "net_debt_to_ebitda": -30.4
+ },
+ "AUTOSTORE": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 33.6,
+  "ps": 7.7,
+  "rank_in_stage": 68.8,
+  "growth_pct": 38.2,
+  "margin_pct": 31.8,
+  "customers_growth_pct": 5.6,
+  "customers": [
+   "KION",
+   "KARDEX",
+   "MIDEA",
+   "SOFTBANK"
+  ],
+  "price_1y_pct": 54.6,
+  "net_debt_usd": 41400000.0,
+  "net_debt_to_ebitda": 0.2
+ },
+ "OCADO": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": false,
+   "not_broken": false
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": null,
+  "ps": 0.0,
+  "rank_in_stage": 12.5,
+  "growth_pct": 53.9,
+  "margin_pct": 1.2,
+  "customers_growth_pct": 2.0,
+  "customers": [
+   "KROGER"
+  ],
+  "price_1y_pct": 58.4,
+  "net_debt_usd": 1287328558.2141953,
+  "net_debt_to_ebitda": 2.1
+ },
+ "DAIFUKU": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 23.3,
+  "ps": 2.7,
+  "rank_in_stage": 54.2,
+  "growth_pct": 10.0,
+  "margin_pct": 15.4,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -1.3,
+  "net_debt_usd": -1401004715.6524353,
+  "net_debt_to_ebitda": -1.9
+ },
+ "KION": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 12.2,
+  "ps": 0.4,
+  "rank_in_stage": 27.1,
+  "growth_pct": 4.8,
+  "margin_pct": 6.2,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -43.0,
+  "net_debt_usd": 8163874777.359619,
+  "net_debt_to_ebitda": 4.3
+ },
+ "KARDEX": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 74.1,
+  "ps": 2.4,
+  "rank_in_stage": 64.6,
+  "growth_pct": 6.0,
+  "margin_pct": 9.4,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -5.1,
+  "net_debt_usd": -99301012.03918457,
+  "net_debt_to_ebitda": -0.7
+ },
+ "DURR": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": null,
+  "ps": 0.3,
+  "rank_in_stage": 25.0,
+  "growth_pct": -2.0,
+  "margin_pct": 4.8,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -17.5,
+  "net_debt_usd": -11838473.600830078,
+  "net_debt_to_ebitda": -0.0
+ },
+ "ATS": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 0,
+  "candidate": false,
+  "pe": 281.1,
+  "ps": 0.8,
+  "rank_in_stage": 66.7,
+  "growth_pct": -8.6,
+  "margin_pct": 6.1,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -32.4,
+  "net_debt_usd": 850192403.3473206,
+  "net_debt_to_ebitda": 4.4
+ },
+ "TOYOTA": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 10.0,
+  "ps": 0.8,
+  "rank_in_stage": 42.4,
+  "growth_pct": 8.6,
+  "margin_pct": 7.5,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 10.8,
+  "net_debt_usd": 181257720171.3125,
+  "net_debt_to_ebitda": 4.9
+ },
+ "VW": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 0,
+  "candidate": false,
+  "pe": 33.7,
+  "ps": 0.1,
+  "rank_in_stage": 45.1,
+  "growth_pct": -6.3,
+  "margin_pct": 5.0,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -25.2,
+  "net_debt_usd": 237090878277.51562,
+  "net_debt_to_ebitda": 7.4
+ },
+ "BMW": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 5.8,
+  "ps": 0.3,
+  "rank_in_stage": 17.0,
+  "growth_pct": -5.8,
+  "margin_pct": 5.7,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -30.7,
+  "net_debt_usd": 113963163435.60156,
+  "net_debt_to_ebitda": 7.7
+ },
+ "GM": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 0,
+  "candidate": false,
+  "pe": 19.3,
+  "ps": 0.4,
+  "rank_in_stage": 52.7,
+  "growth_pct": 2.9,
+  "margin_pct": 6.8,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 26.8,
+  "net_debt_usd": 102902996992.0,
+  "net_debt_to_ebitda": 5.5
+ },
+ "BYD": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 17.6,
+  "ps": 0.7,
+  "rank_in_stage": 47.7,
+  "growth_pct": 13.6,
+  "margin_pct": 5.5,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -28.1,
+  "net_debt_usd": 5090473263.561768,
+  "net_debt_to_ebitda": 0.3
+ },
+ "HONHAI": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 16.1,
+  "ps": 0.4,
+  "rank_in_stage": 30.3,
+  "growth_pct": 40.8,
+  "margin_pct": 3.5,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 1.9,
+  "net_debt_usd": -5078649154.205078,
+  "net_debt_to_ebitda": -0.4
+ },
+ "SAMSUNG": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": false,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": null,
+  "ps": 2.3,
+  "rank_in_stage": 91.7,
+  "growth_pct": 126.8,
+  "margin_pct": 46.1,
+  "customers_growth_pct": -0.2,
+  "customers": [
+   "TESLA"
+  ],
+  "price_1y_pct": 109.9,
+  "net_debt_usd": -147674790605.9862,
+  "net_debt_to_ebitda": -0.6
+ },
+ "AMZN": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 21.5,
+  "ps": 3.6,
+  "rank_in_stage": 86.4,
+  "growth_pct": 12.1,
+  "margin_pct": 13.1,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 15.4,
+  "net_debt_usd": 190614994944.0,
+  "net_debt_to_ebitda": 1.0
+ },
+ "WALMART": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 45.1,
+  "ps": 1.3,
+  "rank_in_stage": 91.7,
+  "growth_pct": 5.9,
+  "margin_pct": 3.9,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 23.5,
+  "net_debt_usd": 63563000832.0,
+  "net_debt_to_ebitda": 1.4
+ },
+ "KROGER": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 38.0,
+  "ps": 0.3,
+  "rank_in_stage": 53.8,
+  "growth_pct": 2.0,
+  "margin_pct": 3.2,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 4.6,
+  "net_debt_usd": 22481999104.0,
+  "net_debt_to_ebitda": 2.8
+ },
+ "DHL": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 18.0,
+  "ps": 0.8,
+  "rank_in_stage": 56.4,
+  "growth_pct": 12.6,
+  "margin_pct": 7.1,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 39.3,
+  "net_debt_usd": 25387773684.58203,
+  "net_debt_to_ebitda": 2.6
+ },
+ "HCA": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 0,
+  "candidate": false,
+  "pe": 16.6,
+  "ps": 1.3,
+  "rank_in_stage": 55.7,
+  "growth_pct": 3.6,
+  "margin_pct": 15.3,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 7.5,
+  "net_debt_usd": 51406998336.0,
+  "net_debt_to_ebitda": 3.3
+ }
+}

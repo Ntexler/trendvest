@@ -65,7 +65,8 @@ def event_returns(prices: pd.DataFrame, chain: pd.DataFrame, events: pd.DataFram
                 continue
             path = np.log(s.iloc[i:i + 11].to_numpy() / s.iloc[i - 1])
             rows[cid] = {"r3": path[3], "r10": path[10], "worst": path.min()}
-        out[ev_id] = pd.DataFrame(rows).T * 100
+        if rows:                       # an event too recent to have ten sessions after it is skipped
+            out[ev_id] = pd.DataFrame(rows).T * 100
     return out
 
 
