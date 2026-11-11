@@ -38,6 +38,10 @@ def profiles() -> None:
     def rate(cur):
         if cur in (None, "USD"):
             return 1.0
+        minor = {"ILA": "ILS", "GBp": "GBP", "GBX": "GBP", "ZAc": "ZAR"}      # prices quoted in hundredths
+        if cur in minor:
+            r = rate(minor[cur])
+            return r / 100 if r else None
         if cur not in fx:
             try:
                 fx[cur] = float(yf.Ticker(f"{cur}USD=X").fast_info["lastPrice"])
@@ -45,7 +49,7 @@ def profiles() -> None:
                 fx[cur] = None
         return fx[cur]
     for cid, c in chain_companies().iterrows():
-        if cid in data and "revenueUSD" in data[cid]["info"]:
+        if cid in data and "revenueUSD" in data[cid]["info"] and "marketCapUSD" in data[cid]["info"]:
             continue
         p = fetch_profile(c["ticker"])
         try:
