@@ -1,8 +1,8 @@
 # id,name,ticker (Yahoo, home market),country,segment (what it makes or does; rivals share a segment),tier (map column),sites (main AI-relevant operations)
 id,name,ticker,country,segment,tier,sites
-NVDA,Nvidia,NVDA,US,ai-chips,chips,Santa Clara; Israel (Yokneam; Tel Aviv; ~6200 staff); chips made by TSMC
+NVDA,Nvidia,NVDA,US,ai-chips,chips,Santa Clara; Israel (~6200 staff); chips made by TSMC
 AMD,AMD,AMD,US,ai-chips,chips,Santa Clara; Austin; chips made by TSMC
-AVGO,Broadcom,AVGO,US,custom-ai-chips,chips,Palo Alto; San Jose; Israel (Yakum); chips made by TSMC
+AVGO,Broadcom,AVGO,US,custom-ai-chips,chips,Palo Alto; San Jose; chips made by TSMC
 MICRON,Micron,MU,US,memory,chips,Idaho; Taiwan (Taichung); Hiroshima; Singapore
 SKHYNIX,SK hynix,000660.KS,KR,memory,chips,Icheon; Cheongju; Wuxi China
 SAMSUNG,Samsung Electronics,005930.KS,KR,memory,chips,Giheung; Hwaseong; Pyeongtaek; Taylor Texas
@@ -27,41 +27,41 @@ BE,Bloom Energy,BE,US,onsite-power,power,Fremont California; Newark Delaware
 CEG,Constellation Energy,CEG,US,power-generation,power,US nuclear plants incl. Crane (Pennsylvania) and Clinton (Illinois)
 VST,Vistra,VST,US,power-generation,power,Texas (Comanche Peak); Ohio (Perry; Davis-Besse); Pennsylvania (Beaver Valley)
 EQIX,Equinix,EQIX,US,colocation,datacenter,Data centres in 30+ countries
-DLR,Digital Realty,DLR,US,colocation,datacenter,Northern Virginia; Dallas; Chicago; Frankfurt; Singapore; Israel (via Mivne JV)
+DLR,Digital Realty,DLR,US,colocation,datacenter,Northern Virginia; Dallas; Chicago; Frankfurt; Singapore
 CRWV,CoreWeave,CRWV,US,neocloud,datacenter,US (Texas; North Dakota; New Jersey; Pennsylvania); UK; Norway; Sweden
 NBIS,Nebius,NBIS,NL,neocloud,datacenter,Finland; New Jersey (Vineland); Missouri; France; UK; Israel (Modiin)
 IREN,IREN,IREN,AU,neocloud,datacenter,Childress and Sweetwater Texas; British Columbia
 APLD,Applied Digital,APLD,US,datacenter-developer,datacenter,Ellendale and Harwood North Dakota
 CORZ,Core Scientific,CORZ,US,datacenter-developer,datacenter,Texas (Denton; Austin); Georgia; Oklahoma; North Dakota
 PWR,Quanta Services,PWR,US,builder,datacenter,US power-grid and data-centre construction crews
-MSFT,Microsoft,MSFT,US,hyperscaler,cloud,Azure regions worldwide; Israel R&D (Herzliya)
-GOOGL,Alphabet,GOOGL,US,hyperscaler,cloud,Google Cloud regions worldwide; Israel R&D (Tel Aviv; Haifa)
-AMZN,Amazon,AMZN,US,hyperscaler,cloud,AWS regions worldwide incl. Israel (Tel Aviv); UAE; Bahrain
+MSFT,Microsoft,MSFT,US,hyperscaler,cloud,Azure regions worldwide
+GOOGL,Alphabet,GOOGL,US,hyperscaler,cloud,Google Cloud regions worldwide
+AMZN,Amazon,AMZN,US,hyperscaler,cloud,AWS regions worldwide incl. UAE and Bahrain
 META,Meta,META,US,hyperscaler,cloud,US data centres incl. Louisiana (Hyperion); Ohio; Texas
-ORCL,Oracle,ORCL,US,hyperscaler,cloud,Abilene Texas (for OpenAI); OCI regions incl. Israel (Jerusalem)
+ORCL,Oracle,ORCL,US,hyperscaler,cloud,Abilene Texas (for OpenAI); OCI regions
 SPACEX,SpaceX (owns xAI),SPCX,US,ai-model-cloud,cloud,Memphis Tennessee (xAI data centres); Texas
 BABA,Alibaba,BABA,CN,china-cloud,cloud,Hangzhou; Alibaba Cloud regions in China and Asia
 TENCENT,Tencent,0700.HK,CN,china-cloud,cloud,Shenzhen; Tencent Cloud regions
 BAIDU,Baidu,BIDU,CN,china-cloud,cloud,Beijing; Baidu AI Cloud
 SOFTBANK,SoftBank Group,9984.T,JP,ai-investor,cloud,Tokyo; SB Energy campuses in US (Ohio; Texas)
 PLTR,Palantir,PLTR,US,ai-platform,software,Denver; hosted on AWS and Azure
-CRM,Salesforce,CRM,US,business-apps,software,San Francisco; Israel R&D (Tel Aviv)
+CRM,Salesforce,CRM,US,business-apps,software,San Francisco
 NOW,ServiceNow,NOW,US,business-apps,software,Santa Clara; own and third-party data centres
-SAP,SAP,SAP.DE,DE,business-apps,software,Walldorf; Israel R&D (Ra'anana)
+SAP,SAP,SAP.DE,DE,business-apps,software,Walldorf
 ADBE,Adobe,ADBE,US,business-apps,software,San Jose
 WDAY,Workday,WDAY,US,business-apps,software,Pleasanton; hosted on AWS and Google Cloud
-INTU,Intuit,INTU,US,business-apps,software,Mountain View; Israel R&D (Petah Tikva)
+INTU,Intuit,INTU,US,business-apps,software,Mountain View
 SNOW,Snowflake,SNOW,US,data-platform,software,Runs on AWS; Azure; Google Cloud
 DDOG,Datadog,DDOG,US,data-platform,software,New York
 CRWD,CrowdStrike,CRWD,US,security,software,Austin; hosted on AWS and own colocation sites
-PANW,Palo Alto Networks,PANW,US,security,software,Santa Clara; Israel (Tel Aviv; Petah Tikva - CyberArk since Feb 2026)
+PANW,Palo Alto Networks,PANW,US,security,software,Santa Clara; Israel (CyberArk since Feb 2026)
 FTNT,Fortinet,FTNT,US,security,software,Sunnyvale; own data centres and Equinix
 CHKP,Check Point,CHKP,IL,security,software,Tel Aviv
 WIX,Wix,WIX,IL,website-apps,software,Tel Aviv; data hosted on AWS; Google; Equinix
 MNDY,monday.com,MNDY,IL,work-apps,software,Tel Aviv; hosted mainly on AWS
 NICE,NICE,NICE,IL,customer-service-apps,software,Ra'anana; hosted on AWS and Azure
 ACN,Accenture,ACN,IE,it-services,services,Dublin (seat); delivery centres in India; Philippines; US
-IBM,IBM,IBM,US,it-services,services,Armonk New York; Israel R&D (Haifa)
+IBM,IBM,IBM,US,it-services,services,Armonk New York
 INFY,Infosys,INFY.NS,IN,it-services,services,Bengaluru; delivery centres in India
 CAPGEMINI,Capgemini,CAP.PA,FR,it-services,services,Paris; delivery centres in India
 CTSH,Cognizant,CTSH,US,it-services,services,New Jersey; delivery centres in India

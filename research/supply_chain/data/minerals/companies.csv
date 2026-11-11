@@ -18,10 +18,10 @@ FM,First Quantum Minerals,FM.TO,CA,copper,mining,Kansanshi and Sentinel (Zambia)
 ANTO,Antofagasta,ANTO.L,GB,copper,mining,Los Pelambres; Centinela; Antucoya; Zaldivar (Chile)
 TECK,Teck Resources,TECK-B.TO,CA,copper,mining,Quebrada Blanca and Andacollo (Chile); Highland Valley (Canada); Red Dog zinc (Alaska); Trail smelter (Canada)
 IVN,Ivanhoe Mines,IVN.TO,CA,copper,mining,Kamoa-Kakula (DR Congo); Kipushi (DR Congo); Platreef (South Africa)
-ZIJIN,Zijin Mining,601899.SS,CN,copper,mining,Kamoa-Kakula 39.6% (DR Congo); Julong (Tibet); Cukaru Peki (Serbia)
+ZIJIN,Zijin Mining,601899.SS,CN,copper,mining,Kamoa-Kakula JV partner (DR Congo); Julong (Tibet); Cukaru Peki (Serbia)
 CMOC,CMOC Group,603993.SS,CN,cobalt,mining,Tenke Fungurume and Kisanfu (DR Congo)
 FMG,Fortescue,FMG.AX,AU,iron-ore,mining,Chichester; Solomon; Western Hub; Iron Bridge (Pilbara - Australia)
-ALB,Albemarle,ALB,US,lithium,mining,Salar de Atacama (Chile); Greenbushes 49% and Wodgina (Australia); Silver Peak (Nevada); Kemerton refinery (Australia)
+ALB,Albemarle,ALB,US,lithium,mining,Salar de Atacama (Chile); Greenbushes JV and Wodgina (Australia); Silver Peak (Nevada); Kemerton refinery (Australia)
 SQM,SQM,SQM-B.SN,CL,lithium,mining,Salar de Atacama (Chile); Mt Holland 50% (Australia)
 PLS,Pilbara Minerals (PLS),PLS.AX,AU,lithium,mining,Pilgangoora (Western Australia)
 MP,MP Materials,MP,US,rare-earths,mining,Mountain Pass mine (California); Independence magnet plant (Texas)
@@ -29,8 +29,8 @@ LYNAS,Lynas Rare Earths,LYC.AX,AU,rare-earths,mining,Mt Weld mine (Australia); K
 NORTHERN,China Northern Rare Earth,600111.SS,CN,rare-earths,mining,Baotou - Bayan Obo ore (Inner Mongolia)
 CAMECO,Cameco,CCO.TO,CA,uranium,mining,McArthur River/Key Lake and Cigar Lake (Saskatchewan); JV Inkai 40% (Kazakhstan)
 KAP,Kazatomprom,KAP.IL,KZ,uranium,mining,In-situ recovery mines in Kazakhstan (incl. JV Inkai 60%)
-NEM,Newmont,NEM,US,gold,mining,Penasquito (Mexico); Cadia and Boddington (Australia); Nevada Gold Mines 38.5%; Yanacocha (Peru)
-BARRICK,Barrick Mining,ABX.TO,CA,gold,mining,Nevada Gold Mines 61.5% (US); Pueblo Viejo (Dominican Republic); Lumwana (Zambia); Reko Diq project (Pakistan)
+NEM,Newmont,NEM,US,gold,mining,Penasquito (Mexico); Cadia and Boddington (Australia); Nevada Gold Mines JV; Yanacocha (Peru)
+BARRICK,Barrick Mining,ABX.TO,CA,gold,mining,Nevada Gold Mines JV (US); Pueblo Viejo (Dominican Republic); Lumwana (Zambia); Reko Diq project (Pakistan)
 NUTRIEN,Nutrien,NTR.TO,CA,potash-phosphate,mining,Six potash mines in Saskatchewan (Canada)
 MOSAIC,Mosaic,MOS,US,potash-phosphate,mining,Esterhazy and Belle Plaine potash (Canada); Florida phosphate rock; Brazil
 ICL,ICL Group,ICL.TA,IL,potash-phosphate,mining,Dead Sea Works - potash and bromine (Israel); Rotem phosphate (Negev - Israel); Boulby polyhalite (UK); Haikou phosphate (China)
@@ -45,7 +45,7 @@ MITSUMAT,Mitsubishi Materials,5711.T,JP,copper-smelting,refining,Naoshima and On
 KOREAZINC,Korea Zinc,010130.KS,KR,zinc-smelting,refining,Onsan (Korea); Sun Metals (Australia)
 UMICORE,Umicore,UMI.BR,BE,battery-materials,refining,Hoboken and Olen (Belgium); Nysa (Poland); Cheonan (Korea)
 GANFENG,Ganfeng Lithium,002460.SZ,CN,lithium-chemicals,refining,Xinyu and Ningdu (Jiangxi - China); Cauchari-Olaroz (Argentina)
-TIANQI,Tianqi Lithium,002466.SZ,CN,lithium-chemicals,refining,Shehong and Zhangjiagang (China); Kwinana (Australia); Greenbushes 26% (Australia); SQM 21.9% stake
+TIANQI,Tianqi Lithium,002466.SZ,CN,lithium-chemicals,refining,Shehong and Zhangjiagang (China); Kwinana (Australia); Greenbushes JV (Australia); SQM 21.9% stake
 HUAYOU,Zhejiang Huayou Cobalt,603799.SS,CN,battery-materials,refining,Quzhou (China); HPAL plants in Sulawesi (Indonesia); DR Congo
 SHENGHE,Shenghe Resources,600392.SS,CN,rare-earth-processing,refining,Leshan (Sichuan); Ganzhou (China)
 CATL,CATL,300750.SZ,CN,battery,makers,Ningde (China); Erfurt (Germany); Debrecen (Hungary)

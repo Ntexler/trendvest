@@ -29,13 +29,43 @@ EXCHANGES = {
     "SW": ("Europe/Zurich", time(17, 30), "^SSMI"),
     "ST": ("Europe/Stockholm", time(17, 30), "^OMX"),
     "TA": ("Asia/Jerusalem", time(17, 25), "^TA125.TA"),
+    "CO": ("Europe/Copenhagen", time(17, 0), "^OMXC25"),
+    "L": ("Europe/London", time(16, 30), "^FTSE"),
+    "NS": ("Asia/Kolkata", time(15, 30), "^NSEI"),
+    "BO": ("Asia/Kolkata", time(15, 30), "^BSESN"),
+    "AX": ("Australia/Sydney", time(16, 0), "^AXJO"),
+    "TO": ("America/Toronto", time(16, 0), "^GSPTSE"),
+    "V": ("America/Toronto", time(16, 0), "^GSPTSE"),
+    "MC": ("Europe/Madrid", time(17, 30), "^IBEX"),
+    "MI": ("Europe/Rome", time(17, 30), "FTSEMIB.MI"),
+    "OL": ("Europe/Oslo", time(16, 20), "^OSEAX"),
+    "HE": ("Europe/Helsinki", time(18, 30), "^OMXH25"),
+    "BR": ("Europe/Brussels", time(17, 30), "^BFX"),
+    "VI": ("Europe/Vienna", time(17, 30), "^ATX"),
+    "LS": ("Europe/Lisbon", time(16, 30), "PSI20.LS"),
+    "SZ": ("Asia/Shanghai", time(15, 0), "399001.SZ"),
+    "SI": ("Asia/Singapore", time(17, 0), "^STI"),
+    "JK": ("Asia/Jakarta", time(16, 0), "^JKSE"),
+    "KL": ("Asia/Kuala_Lumpur", time(17, 0), "^KLSE"),
+    "BK": ("Asia/Bangkok", time(16, 30), "^SET.BK"),
+    "SA": ("America/Sao_Paulo", time(17, 0), "^BVSP"),
+    "SN": ("America/Santiago", time(16, 0), "^IPSA"),
+    "MX": ("America/Mexico_City", time(15, 0), "^MXX"),
+    "JO": ("Africa/Johannesburg", time(17, 0), "^J203.JO"),
+    "SR": ("Asia/Riyadh", time(15, 0), "^TASI.SR"),
+    "NZ": ("Pacific/Auckland", time(16, 45), "^NZ50"),
     "": ("America/New_York", time(16, 0), "^GSPC"),
 }
+_US = ("America/New_York", time(16, 0), "^GSPC")       # fallback for a suffix we have not mapped yet
 TOKYO_LATE_CLOSE_FROM = pd.Timestamp("2024-11-05")
 
 
 def suffix(ticker: str) -> str:
-    return ticker.rsplit(".", 1)[1] if "." in ticker and not ticker.startswith("^") else ""
+    """Exchange suffix of a Yahoo ticker; share classes such as BRK-B or NOVO-B.CO are handled; unknown -> US."""
+    if "." not in ticker or ticker.startswith("^"):
+        return ""
+    s = ticker.rsplit(".", 1)[1]
+    return s if s in EXCHANGES else ""
 
 
 def benchmark(ticker: str) -> str:
