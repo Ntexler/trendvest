@@ -1,0 +1,190 @@
+{
+ "calm": {
+  "members": [
+   "NVDA",
+   "CSCO",
+   "SCHNEIDER",
+   "BAIDU",
+   "SAP",
+   "INFY",
+   "CHKP"
+  ],
+  "vol_now": 18.8,
+  "vol_hist": 19.8,
+  "max_drawdown": -38.7,
+  "return_year": 14.0,
+  "events_r3": {
+   "NVDA_LICENCE2022": -2.3,
+   "BIS_OCT2022": -6.2,
+   "NVDA_RESULTS2023": 5.1,
+   "BIS_OCT2023": -5.6,
+   "CRWD_OUTAGE2024": 1.1,
+   "SMCI_DELAY2024": -2.1,
+   "SMCI_AUDITOR2024": -3.1,
+   "DEEPSEEK2025": -0.3,
+   "H20_LICENCE2025": -2.5,
+   "PANW_CYBERARK2025": -3.1,
+   "NBIS_MSFT2025": 2.0,
+   "ORCL_BACKLOG2025": 1.1,
+   "AMD_OPENAI2025": 0.3,
+   "IREN_MSFT2025": -1.5,
+   "COWORK2026": -0.9,
+   "AWS_DRONES2026": -0.3,
+   "BIS_MAY2026": 3.6,
+   "NVDA_GUARANTEE2026": -3.1
+  },
+  "countries": {
+   "US": 2,
+   "FR": 1,
+   "CN": 1,
+   "DE": 1,
+   "IN": 1,
+   "IL": 1
+  },
+  "shared_supplier": [
+   "SKHYNIX",
+   1
+  ]
+ },
+ "steady": {
+  "members": [
+   "SAMSUNG",
+   "HONHAI",
+   "SCHNEIDER",
+   "PWR",
+   "SOFTBANK",
+   "CRM",
+   "ACN",
+   "SAP"
+  ],
+  "vol_now": 25.8,
+  "vol_hist": 20.4,
+  "max_drawdown": -37.6,
+  "return_year": 15.9,
+  "events_r3": {
+   "NVDA_LICENCE2022": -0.9,
+   "BIS_OCT2022": -3.3,
+   "NVDA_RESULTS2023": 5.2,
+   "BIS_OCT2023": -4.0,
+   "CRWD_OUTAGE2024": -1.2,
+   "SMCI_DELAY2024": -1.3,
+   "SMCI_AUDITOR2024": -2.4,
+   "DEEPSEEK2025": -3.1,
+   "H20_LICENCE2025": -1.8,
+   "PANW_CYBERARK2025": -2.5,
+   "NBIS_MSFT2025": 2.2,
+   "ORCL_BACKLOG2025": 2.6,
+   "AMD_OPENAI2025": 2.0,
+   "IREN_MSFT2025": -7.3,
+   "COWORK2026": -1.8,
+   "AWS_DRONES2026": -4.2,
+   "BIS_MAY2026": 1.1,
+   "NVDA_GUARANTEE2026": -1.3
+  },
+  "countries": {
+   "US": 2,
+   "KR": 1,
+   "TW": 1,
+   "FR": 1,
+   "JP": 1,
+   "IE": 1,
+   "DE": 1
+  },
+  "shared_supplier": [
+   "NVDA",
+   1
+  ]
+ },
+ "bold": {
+  "members": [
+   "SKHYNIX",
+   "LITE",
+   "BE",
+   "IREN",
+   "SOFTBANK",
+   "WIX",
+   "ACN",
+   "CHKP"
+  ],
+  "vol_now": 43.2,
+  "vol_hist": 31.5,
+  "max_drawdown": -85.0,
+  "return_year": 17.7,
+  "events_r3": {
+   "NVDA_LICENCE2022": -0.4,
+   "BIS_OCT2022": -7.6,
+   "NVDA_RESULTS2023": 4.3,
+   "BIS_OCT2023": -5.1,
+   "CRWD_OUTAGE2024": -0.9,
+   "SMCI_DELAY2024": -4.7,
+   "SMCI_AUDITOR2024": -4.2,
+   "DEEPSEEK2025": -7.0,
+   "H20_LICENCE2025": -2.1,
+   "PANW_CYBERARK2025": -2.4,
+   "NBIS_MSFT2025": 11.5,
+   "ORCL_BACKLOG2025": 10.1,
+   "AMD_OPENAI2025": 2.8,
+   "IREN_MSFT2025": -1.0,
+   "COWORK2026": -3.6,
+   "AWS_DRONES2026": 1.5,
+   "BIS_MAY2026": -1.5,
+   "NVDA_GUARANTEE2026": -1.9
+  },
+  "countries": {
+   "US": 2,
+   "IL": 2,
+   "KR": 1,
+   "AU": 1,
+   "JP": 1,
+   "IE": 1
+  },
+  "shared_supplier": [
+   "AMZN",
+   1
+  ]
+ },
+ "popular": {
+  "members": [
+   "AAPL",
+   "NVDA",
+   "MSFT",
+   "GOOGL",
+   "AMZN",
+   "AVGO",
+   "META",
+   "SAMSUNG"
+  ],
+  "vol_now": 25.2,
+  "vol_hist": 23.1,
+  "max_drawdown": -55.8,
+  "return_year": 25.3,
+  "events_r3": {
+   "NVDA_LICENCE2022": -1.7,
+   "BIS_OCT2022": -7.1,
+   "NVDA_RESULTS2023": 7.7,
+   "BIS_OCT2023": -4.4,
+   "CRWD_OUTAGE2024": -3.8,
+   "SMCI_DELAY2024": -4.4,
+   "SMCI_AUDITOR2024": -3.3,
+   "DEEPSEEK2025": -2.7,
+   "H20_LICENCE2025": -4.7,
+   "PANW_CYBERARK2025": 0.1,
+   "NBIS_MSFT2025": 2.2,
+   "ORCL_BACKLOG2025": 3.1,
+   "AMD_OPENAI2025": 1.9,
+   "IREN_MSFT2025": -4.0,
+   "COWORK2026": -3.7,
+   "AWS_DRONES2026": -0.1,
+   "BIS_MAY2026": -1.7,
+   "NVDA_GUARANTEE2026": -2.5
+  },
+  "countries": {
+   "US": 7,
+   "KR": 1
+  },
+  "shared_supplier": [
+   "NVDA",
+   4
+  ]
+ }
+}

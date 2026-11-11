@@ -21,7 +21,15 @@
    "country": "United States",
    "revenueUSD": 47351001088.0,
    "netIncomeUSD": 7072000000.0,
-   "marketCapUSD": 268020072448.0
+   "marketCapUSD": 268020072448.0,
+   "totalDebt": 41370001408,
+   "totalCash": 6061000192,
+   "debtToEquity": 75.362,
+   "ebitda": 12131999744,
+   "freeCashflow": 6441625088,
+   "netDebtUSD": 35309001216.0,
+   "netDebtToEbitda": 2.91,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -164,7 +172,15 @@
    "country": "United States",
    "revenueUSD": 25607999488.0,
    "netIncomeUSD": 4288999936.0,
-   "marketCapUSD": 166159908864.0
+   "marketCapUSD": 166159908864.0,
+   "totalDebt": 27782000640,
+   "totalCash": 5681999872,
+   "debtToEquity": 51.8,
+   "ebitda": 8256000000,
+   "freeCashflow": 4746250240,
+   "netDebtUSD": 22100000768.0,
+   "netDebtToEbitda": 2.68,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -307,7 +323,15 @@
    "country": "Germany",
    "revenueUSD": 4066126803.588867,
    "netIncomeUSD": 242427610.39733887,
-   "marketCapUSD": 22570514777.421875
+   "marketCapUSD": 22570514777.421875,
+   "totalDebt": 3910599936,
+   "totalCash": 230700000,
+   "debtToEquity": 94.361,
+   "ebitda": 978000000,
+   "freeCashflow": 380587488,
+   "netDebtUSD": 4082880311.147827,
+   "netDebtToEbitda": 3.76,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -373,7 +397,15 @@
    "country": "Germany",
    "revenueUSD": 23449461954.875,
    "netIncomeUSD": 2629535037.1210938,
-   "marketCapUSD": 73130293877.78125
+   "marketCapUSD": 73130293877.78125,
+   "totalDebt": 12302000128,
+   "totalCash": 3123000064,
+   "debtToEquity": 40.618,
+   "ebitda": 5586999808,
+   "freeCashflow": 2632999936,
+   "netDebtUSD": 10184178724.725586,
+   "netDebtToEbitda": 1.64,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -450,7 +482,15 @@
    "country": "United States",
    "revenueUSD": 805609984.0,
    "netIncomeUSD": -11804000.0,
-   "marketCapUSD": 11127204864.0
+   "marketCapUSD": 11127204864.0,
+   "totalDebt": 692241024,
+   "totalCash": 862979008,
+   "debtToEquity": 33.094,
+   "ebitda": 143498000,
+   "freeCashflow": 111584000,
+   "netDebtUSD": -170737984.0,
+   "netDebtToEbitda": -1.19,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -593,7 +633,14 @@
    "country": "United States",
    "revenueUSD": 5610286080.0,
    "netIncomeUSD": 98629000.0,
-   "marketCapUSD": 46707011584.0
+   "marketCapUSD": 46707011584.0,
+   "totalDebt": 5133000192,
+   "totalCash": 593000000,
+   "debtToEquity": 33.569,
+   "ebitda": 1407047936,
+   "netDebtUSD": 4540000192.0,
+   "netDebtToEbitda": 3.23,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -736,7 +783,15 @@
    "country": "United States",
    "revenueUSD": 4538999808.0,
    "netIncomeUSD": 895000000.0,
-   "marketCapUSD": 33301800960.0
+   "marketCapUSD": 33301800960.0,
+   "totalDebt": 2312999936,
+   "totalCash": 1336999936,
+   "debtToEquity": 73.545,
+   "ebitda": 1142000000,
+   "freeCashflow": 859000000,
+   "netDebtUSD": 976000000.0,
+   "netDebtToEbitda": 0.85,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -879,7 +934,15 @@
    "country": "United States",
    "revenueUSD": 3396699904.0,
    "netIncomeUSD": 638899968.0,
-   "marketCapUSD": 28895397888.0
+   "marketCapUSD": 28895397888.0,
+   "totalDebt": 313900000,
+   "totalCash": 464100000,
+   "debtToEquity": 10.575,
+   "ebitda": 961299968,
+   "freeCashflow": 345562496,
+   "netDebtUSD": -150200000.0,
+   "netDebtToEbitda": -0.16,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -1022,7 +1085,15 @@
    "country": "Switzerland",
    "revenueUSD": 8243452472.699707,
    "netIncomeUSD": 1296924976.3359375,
-   "marketCapUSD": 55606569936.75
+   "marketCapUSD": 55606569936.75,
+   "totalDebt": 4167000064,
+   "totalCash": 487000000,
+   "debtToEquity": 51.116,
+   "ebitda": 2390000128,
+   "freeCashflow": -1567000064,
+   "netDebtUSD": 4416123524.22036,
+   "netDebtToEbitda": 1.54,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -1095,7 +1166,15 @@
    "country": "South Korea",
    "revenueUSD": 3828433747.417694,
    "netIncomeUSD": 1382488930.0637512,
-   "marketCapUSD": 49766332717.18213
+   "marketCapUSD": 49766332717.18213,
+   "totalDebt": 1241274646528,
+   "totalCash": 2212938383360,
+   "debtToEquity": 14.844,
+   "ebitda": 2827652169728,
+   "freeCashflow": 1295224537088,
+   "netDebtUSD": -726977648.1203003,
+   "netDebtToEbitda": -0.34,
+   "debt_checked": true
   },
   "holders": [],
   "officers": [
@@ -1156,7 +1235,15 @@
    "country": "China",
    "revenueUSD": 3545982029.019287,
    "netIncomeUSD": 751837241.9742737,
-   "marketCapUSD": 25649273204.660156
+   "marketCapUSD": 25649273204.660156,
+   "totalDebt": 2725683968,
+   "totalCash": 13028279296,
+   "debtToEquity": 4.999,
+   "ebitda": 9021680640,
+   "freeCashflow": 2419481600,
+   "netDebtUSD": -1546425471.365078,
+   "netDebtToEbitda": -1.14,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -1235,7 +1322,15 @@
    "country": "China",
    "revenueUSD": 8420873326.509705,
    "netIncomeUSD": 3774071114.6033936,
-   "marketCapUSD": 76061016068.57812
+   "marketCapUSD": 76061016068.57812,
+   "totalDebt": 8525180928,
+   "totalCash": 55939985408,
+   "debtToEquity": 8.748,
+   "ebitda": 28863031296,
+   "freeCashflow": 12081116160,
+   "netDebtUSD": -7116989363.679199,
+   "netDebtToEbitda": -1.64,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -1326,7 +1421,15 @@
    "country": "Japan",
    "revenueUSD": 21870979286.762817,
    "netIncomeUSD": 1637320676.7221832,
-   "marketCapUSD": 26366089822.766235
+   "marketCapUSD": 26366089822.766235,
+   "totalDebt": 1118171955200,
+   "totalCash": 145864998912,
+   "debtToEquity": 29.265,
+   "ebitda": 527653011456,
+   "freeCashflow": -192523255808,
+   "netDebtUSD": 6082925410.013428,
+   "netDebtToEbitda": 1.84,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -1392,7 +1495,15 @@
    "country": "India",
    "revenueUSD": 1301344991.3937988,
    "netIncomeUSD": 358988026.3900604,
-   "marketCapUSD": 32211584050.49707
+   "marketCapUSD": 32211584050.49707,
+   "totalDebt": 60000000,
+   "totalCash": 22360000512,
+   "debtToEquity": 0.033,
+   "ebitda": 46490001408,
+   "freeCashflow": -13214999552,
+   "netDebtUSD": -238044406.35111523,
+   "netDebtToEbitda": -0.48,
+   "debt_checked": true
   },
   "holders": [],
   "officers": [
@@ -1494,7 +1605,15 @@
    "country": "United States",
    "revenueUSD": 17311000576.0,
    "netIncomeUSD": 1394000000.0,
-   "marketCapUSD": 45916573696.0
+   "marketCapUSD": 45916573696.0,
+   "totalDebt": 16314000384,
+   "totalCash": 2422000128,
+   "debtToEquity": 240.23,
+   "ebitda": 3118000128,
+   "freeCashflow": 2115874944,
+   "netDebtUSD": 13892000256.0,
+   "netDebtToEbitda": 4.46,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -1637,7 +1756,15 @@
    "country": "United States",
    "revenueUSD": 3976867072.0,
    "netIncomeUSD": 40187000.0,
-   "marketCapUSD": 16824301568.0
+   "marketCapUSD": 16824301568.0,
+   "totalDebt": 2851930112,
+   "totalCash": 200380992,
+   "debtToEquity": 87.075,
+   "ebitda": 909380992,
+   "freeCashflow": 443239616,
+   "netDebtUSD": 2651549120.0,
+   "netDebtToEbitda": 2.92,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -1780,7 +1907,15 @@
    "country": "United States",
    "revenueUSD": 86461997056.0,
    "netIncomeUSD": 27580000256.0,
-   "marketCapUSD": 1271974985728.0
+   "marketCapUSD": 1271974985728.0,
+   "totalDebt": 49502998528,
+   "totalCash": 4885000192,
+   "debtToEquity": 122.925,
+   "ebitda": 46489001984,
+   "freeCashflow": 9343699968,
+   "netDebtUSD": 44617998336.0,
+   "netDebtToEbitda": 0.96,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -1923,7 +2058,15 @@
    "country": "Denmark",
    "revenueUSD": 49513693011.12305,
    "netIncomeUSD": 16795478195.4375,
-   "marketCapUSD": 178400449319.9297
+   "marketCapUSD": 178400449319.9297,
+   "totalDebt": 134480003072,
+   "totalCash": 46351998976,
+   "debtToEquity": 61.744,
+   "ebitda": 181555003392,
+   "freeCashflow": 32748875776,
+   "netDebtUSD": 13076283226.280151,
+   "netDebtToEbitda": 0.49,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -2001,7 +2144,15 @@
    "country": "United States",
    "revenueUSD": 63623999488.0,
    "netIncomeUSD": 4038000128.0,
-   "marketCapUSD": 166948716544.0
+   "marketCapUSD": 166948716544.0,
+   "totalDebt": 63408001024,
+   "totalCash": 14279000064,
+   "debtToEquity": 71.006,
+   "ebitda": 24937000960,
+   "freeCashflow": 13006999552,
+   "netDebtUSD": 49129000960.0,
+   "netDebtToEbitda": 1.97,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -2144,7 +2295,15 @@
    "country": "United States",
    "revenueUSD": 67377999872.0,
    "netIncomeUSD": 2452999936.0,
-   "marketCapUSD": 360197062656.0
+   "marketCapUSD": 360197062656.0,
+   "totalDebt": 53902999552,
+   "totalCash": 9649999872,
+   "debtToEquity": 119.928,
+   "ebitda": 29492000768,
+   "freeCashflow": 14024250368,
+   "netDebtUSD": 44252999680.0,
+   "netDebtToEbitda": 1.5,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -2287,7 +2446,15 @@
    "country": "United States",
    "revenueUSD": 99334995968.0,
    "netIncomeUSD": 16094999552.0,
-   "marketCapUSD": 668811001856.0
+   "marketCapUSD": 668811001856.0,
+   "totalDebt": 44650999808,
+   "totalCash": 17227999232,
+   "debtToEquity": 54.767,
+   "ebitda": 34502000640,
+   "freeCashflow": 18501875712,
+   "netDebtUSD": 27423000576.0,
+   "netDebtToEbitda": 0.79,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -2429,7 +2596,15 @@
    "country": "Switzerland",
    "revenueUSD": 75534788616.5039,
    "netIncomeUSD": 14806061359.444336,
-   "marketCapUSD": 393264001870.4531
+   "marketCapUSD": 393264001870.4531,
+   "totalDebt": 33308000256,
+   "totalCash": 9733999616,
+   "debtToEquity": 90.718,
+   "ebitda": 23964000256,
+   "freeCashflow": 10317875200,
+   "netDebtUSD": 28289591569.4989,
+   "netDebtToEbitda": 0.98,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -2495,7 +2670,15 @@
    "country": "Switzerland",
    "revenueUSD": 57364000768.0,
    "netIncomeUSD": 10030999552.0,
-   "marketCapUSD": 300771328015.125
+   "marketCapUSD": 300771328015.125,
+   "totalDebt": 48310001664,
+   "totalCash": 8871999488,
+   "debtToEquity": 128.607,
+   "ebitda": 24066000896,
+   "freeCashflow": 11266124800,
+   "netDebtUSD": 39438002176.0,
+   "netDebtToEbitda": 1.64,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -2573,7 +2756,15 @@
    "country": "United Kingdom",
    "revenueUSD": 62384001024.0,
    "netIncomeUSD": 11029999616.0,
-   "marketCapUSD": 286114203682.125
+   "marketCapUSD": 286114203682.125,
+   "totalDebt": 34325000192,
+   "totalCash": 8166000128,
+   "debtToEquity": 66.247,
+   "ebitda": 21280000000,
+   "freeCashflow": 5628000256,
+   "netDebtUSD": 26159000064.0,
+   "netDebtToEbitda": 1.23,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -2716,7 +2907,15 @@
    "country": "United Kingdom",
    "revenueUSD": 44531031185.23828,
    "netIncomeUSD": 5776302631.466309,
-   "marketCapUSD": 100429708700.01562
+   "marketCapUSD": 100429708700.01562,
+   "totalDebt": 23801999360,
+   "totalCash": 2961999872,
+   "debtToEquity": 129.626,
+   "ebitda": 11491999744,
+   "freeCashflow": 5553500160,
+   "netDebtUSD": 27673389203.157715,
+   "netDebtToEbitda": 1.81,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -2835,7 +3034,15 @@
    "country": "France",
    "revenueUSD": 56564961519.171875,
    "netIncomeUSD": 4592255812.12793,
-   "marketCapUSD": 115127860359.1875
+   "marketCapUSD": 115127860359.1875,
+   "totalDebt": 19844999168,
+   "totalCash": 5966000128,
+   "debtToEquity": 27.095,
+   "ebitda": 14773000192,
+   "freeCashflow": 8273750016,
+   "netDebtUSD": 15398867606.289062,
+   "netDebtToEbitda": 0.94,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -2916,7 +3123,15 @@
    "country": "Germany",
    "revenueUSD": 50779985119.1875,
    "netIncomeUSD": -1605458891.3515625,
-   "marketCapUSD": 61868843097.875
+   "marketCapUSD": 61868843097.875,
+   "totalDebt": 43425001472,
+   "totalCash": 12602000384,
+   "debtToEquity": 134.434,
+   "ebitda": 11452000256,
+   "freeCashflow": 5840000000,
+   "netDebtUSD": 34198382146.628906,
+   "netDebtToEbitda": 2.69,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -2986,7 +3201,14 @@
    "country": "United States",
    "revenueUSD": 66013999104.0,
    "netIncomeUSD": 10302999552.0,
-   "marketCapUSD": 516108615680.0
+   "marketCapUSD": 516108615680.0,
+   "totalDebt": 81317003264,
+   "totalCash": 10773999616,
+   "ebitda": 31850999808,
+   "freeCashflow": 17693124608,
+   "netDebtUSD": 70543003648.0,
+   "netDebtToEbitda": 2.21,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -3129,7 +3351,15 @@
    "country": "United States",
    "revenueUSD": 50033000448.0,
    "netIncomeUSD": 9242999808.0,
-   "marketCapUSD": 126815092736.0
+   "marketCapUSD": 126815092736.0,
+   "totalDebt": 44809998336,
+   "totalCash": 12581000192,
+   "debtToEquity": 191.463,
+   "ebitda": 18242000896,
+   "freeCashflow": 6364624896,
+   "netDebtUSD": 32228998144.0,
+   "netDebtToEbitda": 1.77,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -3272,7 +3502,15 @@
    "country": "United States",
    "revenueUSD": 38903001088.0,
    "netIncomeUSD": 9390999552.0,
-   "marketCapUSD": 250341949440.0
+   "marketCapUSD": 250341949440.0,
+   "totalDebt": 54007001088,
+   "totalCash": 13189999616,
+   "debtToEquity": 376.303,
+   "ebitda": 17632000000,
+   "freeCashflow": 7376750080,
+   "netDebtUSD": 40817001472.0,
+   "netDebtToEbitda": 2.31,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -3390,7 +3628,15 @@
    "country": "United States",
    "revenueUSD": 30987999232.0,
    "netIncomeUSD": -3862000128.0,
-   "marketCapUSD": 210249777152.0
+   "marketCapUSD": 210249777152.0,
+   "totalDebt": 26230999040,
+   "totalCash": 7952000000,
+   "debtToEquity": 202.462,
+   "ebitda": 14659999744,
+   "freeCashflow": 10676875264,
+   "netDebtUSD": 18278999040.0,
+   "netDebtToEbitda": 1.25,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -3533,7 +3779,15 @@
    "country": "United States",
    "revenueUSD": 12951600128.0,
    "netIncomeUSD": 3975899904.0,
-   "marketCapUSD": 137323618304.0
+   "marketCapUSD": 137323618304.0,
+   "totalDebt": 6478400000,
+   "totalCash": 6303300096,
+   "debtToEquity": 30.986,
+   "ebitda": 5100800000,
+   "freeCashflow": 2337787392,
+   "netDebtUSD": 175099904.0,
+   "netDebtToEbitda": 0.03,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -3676,7 +3930,15 @@
    "country": "United States",
    "revenueUSD": 16896199680.0,
    "netIncomeUSD": 4817399808.0,
-   "marketCapUSD": 96258228224.0
+   "marketCapUSD": 96258228224.0,
+   "totalDebt": 2707000064,
+   "totalCash": 9301099520,
+   "debtToEquity": 8.081,
+   "ebitda": 5646499840,
+   "freeCashflow": 2579912448,
+   "netDebtUSD": -6594099456.0,
+   "netDebtToEbitda": -1.17,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -3818,7 +4080,14 @@
    "country": "United States",
    "revenueUSD": 2524999936.0,
    "netIncomeUSD": -2788999936.0,
-   "marketCapUSD": 100520386560.0
+   "marketCapUSD": 100520386560.0,
+   "totalDebt": 4228999936,
+   "totalCash": 5170999808,
+   "debtToEquity": 61.855,
+   "ebitda": -1783000064,
+   "freeCashflow": -584499968,
+   "netDebtUSD": -941999872.0,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -3960,7 +4229,14 @@
    "country": "Germany",
    "revenueUSD": 2685343492.916992,
    "netIncomeUSD": -1634527943.4204102,
-   "marketCapUSD": 21655287808.0
+   "marketCapUSD": 21655287808.0,
+   "totalDebt": 359800000,
+   "totalCash": 13697099776,
+   "debtToEquity": 2.031,
+   "ebitda": -1016300032,
+   "freeCashflow": -1591712512,
+   "netDebtUSD": -14797847660.634521,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -4071,7 +4347,15 @@
    "country": "Japan",
    "revenueUSD": 29359881062.93042,
    "netIncomeUSD": 255204811.40457726,
-   "marketCapUSD": 66685284421.40869
+   "marketCapUSD": 66685284421.40869,
+   "totalDebt": 5357417005056,
+   "totalCash": 418533015552,
+   "debtToEquity": 72.23,
+   "ebitda": 1366422061056,
+   "freeCashflow": 681377136640,
+   "netDebtUSD": 30898537465.532227,
+   "netDebtToEbitda": 3.61,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -4137,7 +4421,15 @@
    "country": "Japan",
    "revenueUSD": 14481676221.784912,
    "netIncomeUSD": 1879538448.3345795,
-   "marketCapUSD": 31573719640.08252
+   "marketCapUSD": 31573719640.08252,
+   "totalDebt": 500332986368,
+   "totalCash": 680843018240,
+   "debtToEquity": 28.107,
+   "ebitda": 375224008704,
+   "freeCashflow": -165692882944,
+   "netDebtUSD": -1129302894.0454102,
+   "netDebtToEbitda": -0.48,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -4202,7 +4494,15 @@
    "city": "Tel Aviv-Yafo",
    "country": "Israel",
    "revenueUSD": 17230000128.0,
-   "netIncomeUSD": 506000000.0
+   "netIncomeUSD": 506000000.0,
+   "totalDebt": 16997999616,
+   "totalCash": 4084999936,
+   "debtToEquity": 212.901,
+   "ebitda": 4405000192,
+   "freeCashflow": 1492000000,
+   "netDebtUSD": 12912999680.0,
+   "netDebtToEbitda": 2.93,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -4344,7 +4644,15 @@
    "country": "United States",
    "revenueUSD": 14726899712.0,
    "netIncomeUSD": -607800000.0,
-   "marketCapUSD": 24029691904.0
+   "marketCapUSD": 24029691904.0,
+   "totalDebt": 13579299840,
+   "totalCash": 2006300032,
+   "debtToEquity": 99.224,
+   "ebitda": 4376399872,
+   "freeCashflow": 3158449920,
+   "netDebtUSD": 11572999808.0,
+   "netDebtToEbitda": 2.64,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -4446,7 +4754,15 @@
    "country": "India",
    "revenueUSD": 6578876817.268555,
    "netIncomeUSD": 1170597771.2440796,
-   "marketCapUSD": 48721761448.97461
+   "marketCapUSD": 48721761448.97461,
+   "totalDebt": 32412899328,
+   "totalCash": 335701213184,
+   "debtToEquity": 3.619,
+   "ebitda": 171054006272,
+   "freeCashflow": 75429437440,
+   "netDebtUSD": -3237492599.438835,
+   "netDebtToEbitda": -1.77,
+   "debt_checked": true
   },
   "holders": [],
   "officers": [
@@ -4512,7 +4828,15 @@
    "country": "India",
    "revenueUSD": 3520954397.034912,
    "netIncomeUSD": 298740384.42679596,
-   "marketCapUSD": 12254007458.718262
+   "marketCapUSD": 12254007458.718262,
+   "totalDebt": 72287002624,
+   "totalCash": 76242001920,
+   "debtToEquity": 18.565,
+   "ebitda": 49792000000,
+   "freeCashflow": -6592000000,
+   "netDebtUSD": -42218181.072631836,
+   "netDebtToEbitda": -0.08,
+   "debt_checked": true
   },
   "holders": [],
   "officers": [
@@ -4593,7 +4917,15 @@
    "country": "Ireland",
    "revenueUSD": 4090200064.0,
    "netIncomeUSD": -1730200064.0,
-   "marketCapUSD": 2317297152.0
+   "marketCapUSD": 2317297152.0,
+   "totalDebt": 3464000000,
+   "totalCash": 436600000,
+   "debtToEquity": 141.944,
+   "ebitda": 560000000,
+   "freeCashflow": 723449984,
+   "netDebtUSD": 3027400000.0,
+   "netDebtToEbitda": 5.41,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -4735,7 +5067,15 @@
    "city": "Rehovot",
    "country": "Israel",
    "revenueUSD": 191848992.0,
-   "netIncomeUSD": 22252000.0
+   "netIncomeUSD": 22252000.0,
+   "totalDebt": 11801000,
+   "totalCash": 70133000,
+   "debtToEquity": 4.378,
+   "ebitda": 41494000,
+   "freeCashflow": 15506375,
+   "netDebtUSD": -58332000.0,
+   "netDebtToEbitda": -1.41,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -4850,7 +5190,15 @@
    "country": "Ireland",
    "revenueUSD": 37541998592.0,
    "netIncomeUSD": 5231000064.0,
-   "marketCapUSD": 129372012544.0
+   "marketCapUSD": 129372012544.0,
+   "totalDebt": 28152999936,
+   "totalCash": 8819000320,
+   "debtToEquity": 55.365,
+   "ebitda": 10407999488,
+   "freeCashflow": 5412499968,
+   "netDebtUSD": 19333999616.0,
+   "netDebtToEbitda": 1.86,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -4993,7 +5341,15 @@
    "country": "United States",
    "revenueUSD": 48228999168.0,
    "netIncomeUSD": 4677000192.0,
-   "marketCapUSD": 190773379072.0
+   "marketCapUSD": 190773379072.0,
+   "totalDebt": 31438000128,
+   "totalCash": 4297999872,
+   "debtToEquity": 60.899,
+   "ebitda": 11457999872,
+   "freeCashflow": 6066999808,
+   "netDebtUSD": 27140000256.0,
+   "netDebtToEbitda": 2.37,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -5136,7 +5492,15 @@
    "country": "United States",
    "revenueUSD": 5104399872.0,
    "netIncomeUSD": 991000000.0,
-   "marketCapUSD": 29947959296.0
+   "marketCapUSD": 29947959296.0,
+   "totalDebt": 1392899968,
+   "totalCash": 1817900032,
+   "debtToEquity": 54.938,
+   "ebitda": 1498800000,
+   "freeCashflow": 811900032,
+   "netDebtUSD": -425000064.0,
+   "netDebtToEbitda": -0.28,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -5279,7 +5643,15 @@
    "country": "United States",
    "revenueUSD": 3189199872.0,
    "netIncomeUSD": 428700000.0,
-   "marketCapUSD": 10369583104.0
+   "marketCapUSD": 10369583104.0,
+   "totalDebt": 1038400000,
+   "totalCash": 584400000,
+   "debtToEquity": 65.759,
+   "ebitda": 693299968,
+   "freeCashflow": 113512496,
+   "netDebtUSD": 454000000.0,
+   "netDebtToEbitda": 0.65,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -5421,7 +5793,14 @@
    "country": "United States",
    "revenueUSD": 1075853952.0,
    "netIncomeUSD": -49235000.0,
-   "marketCapUSD": 1318308096.0
+   "marketCapUSD": 1318308096.0,
+   "totalDebt": 736542976,
+   "totalCash": 443081984,
+   "debtToEquity": 545.236,
+   "ebitda": -7319000,
+   "freeCashflow": -65562376,
+   "netDebtUSD": 293460992.0,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -5564,7 +5943,14 @@
    "country": "United States",
    "revenueUSD": 11578000384.0,
    "netIncomeUSD": 2957199872.0,
-   "marketCapUSD": 154278985728.0
+   "marketCapUSD": 154278985728.0,
+   "totalDebt": 0,
+   "totalCash": 4042500096,
+   "ebitda": 4470700032,
+   "freeCashflow": 3434800128,
+   "netDebtUSD": -4042500096.0,
+   "netDebtToEbitda": -0.9,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -5707,7 +6093,15 @@
    "country": "United States",
    "revenueUSD": 26300000256.0,
    "netIncomeUSD": 3623000064.0,
-   "marketCapUSD": 121371910144.0
+   "marketCapUSD": 121371910144.0,
+   "totalDebt": 15432999936,
+   "totalCash": 3271000064,
+   "debtToEquity": 65.793,
+   "ebitda": 7510000128,
+   "freeCashflow": 3702125056,
+   "netDebtUSD": 12161999872.0,
+   "netDebtToEbitda": 1.62,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -5850,7 +6244,15 @@
    "country": "United States",
    "revenueUSD": 21070000128.0,
    "netIncomeUSD": 3502000128.0,
-   "marketCapUSD": 65987272704.0
+   "marketCapUSD": 65987272704.0,
+   "totalDebt": 11953000448,
+   "totalCash": 609000000,
+   "debtToEquity": 46.199,
+   "ebitda": 5569999872,
+   "freeCashflow": 2491875072,
+   "netDebtUSD": 11344000448.0,
+   "netDebtToEbitda": 2.04,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -5992,7 +6394,15 @@
    "country": "United States",
    "revenueUSD": 11610999808.0,
    "netIncomeUSD": -619000000.0,
-   "marketCapUSD": 13629537280.0
+   "marketCapUSD": 13629537280.0,
+   "totalDebt": 8807000064,
+   "totalCash": 1975000064,
+   "debtToEquity": 136.015,
+   "ebitda": 1832999936,
+   "freeCashflow": 1222499968,
+   "netDebtUSD": 6832000000.0,
+   "netDebtToEbitda": 3.73,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -6135,7 +6545,15 @@
    "country": "Netherlands",
    "revenueUSD": 19700433465.796875,
    "netIncomeUSD": 1059580631.2561035,
-   "marketCapUSD": 29427124870.085938
+   "marketCapUSD": 29427124870.085938,
+   "totalDebt": 8138999808,
+   "totalCash": 2751000064,
+   "debtToEquity": 70.109,
+   "ebitda": 2203000064,
+   "freeCashflow": 1848625024,
+   "netDebtUSD": 5978031591.576172,
+   "netDebtToEbitda": 2.45,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -6205,7 +6623,15 @@
    "country": "United States",
    "revenueUSD": 5732675072.0,
    "netIncomeUSD": 1593170048.0,
-   "marketCapUSD": 32982677504.0
+   "marketCapUSD": 32982677504.0,
+   "totalDebt": 610577984,
+   "totalCash": 1010742016,
+   "debtToEquity": 10.266,
+   "ebitda": 2126510976,
+   "freeCashflow": 1298108800,
+   "netDebtUSD": -400164032.0,
+   "netDebtToEbitda": -0.19,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -6348,7 +6774,15 @@
    "country": "Israel",
    "revenueUSD": 374624992.0,
    "netIncomeUSD": 77514000.0,
-   "marketCapUSD": 773969088.0
+   "marketCapUSD": 773969088.0,
+   "totalDebt": 4451000,
+   "totalCash": 501115008,
+   "debtToEquity": 0.707,
+   "ebitda": 71147000,
+   "freeCashflow": 47395376,
+   "netDebtUSD": -496664008.0,
+   "netDebtToEbitda": -6.98,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -6466,7 +6900,14 @@
    "country": "Israel",
    "revenueUSD": 15633000.0,
    "netIncomeUSD": -116809000.0,
-   "marketCapUSD": 29301762.0
+   "marketCapUSD": 29301762.0,
+   "totalDebt": 7727000,
+   "totalCash": 31023000,
+   "debtToEquity": 10.663,
+   "ebitda": -49949000,
+   "freeCashflow": -30796000,
+   "netDebtUSD": -23296000.0,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -6609,7 +7050,14 @@
    "country": "United States",
    "revenueUSD": 418790014976.0,
    "netIncomeUSD": 4700000256.0,
-   "marketCapUSD": 124028739584.0
+   "marketCapUSD": 124028739584.0,
+   "totalDebt": 11201999872,
+   "totalCash": 6528000000,
+   "ebitda": 7302000128,
+   "freeCashflow": 7402625024,
+   "netDebtUSD": 4673999872.0,
+   "netDebtToEbitda": 0.64,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -6751,7 +7199,15 @@
    "country": "United States",
    "revenueUSD": 337397284864.0,
    "netIncomeUSD": 3483898880.0,
-   "marketCapUSD": 66255171584.0
+   "marketCapUSD": 66255171584.0,
+   "totalDebt": 11266146304,
+   "totalCash": 4880334848,
+   "debtToEquity": 306.042,
+   "ebitda": 5717408768,
+   "freeCashflow": 1790165632,
+   "netDebtUSD": 6385811456.0,
+   "netDebtToEbitda": 1.12,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -6894,7 +7350,14 @@
    "country": "United States",
    "revenueUSD": 257752006656.0,
    "netIncomeUSD": 1818000000.0,
-   "marketCapUSD": 63624986624.0
+   "marketCapUSD": 63624986624.0,
+   "totalDebt": 8814999552,
+   "totalCash": 5264000000,
+   "ebitda": 4387999744,
+   "freeCashflow": 5021125120,
+   "netDebtUSD": 3550999552.0,
+   "netDebtToEbitda": 0.81,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -7037,7 +7500,15 @@
    "country": "United States",
    "revenueUSD": 418157985792.0,
    "netIncomeUSD": 11036999680.0,
-   "marketCapUSD": 113521344512.0
+   "marketCapUSD": 113521344512.0,
+   "totalDebt": 75296997376,
+   "totalCash": 14887000064,
+   "debtToEquity": 93.318,
+   "ebitda": 17294000128,
+   "freeCashflow": 11826124800,
+   "netDebtUSD": 60409997312.0,
+   "netDebtToEbitda": 3.49,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -7180,7 +7651,15 @@
    "country": "United States",
    "revenueUSD": 450059010048.0,
    "netIncomeUSD": 15884000256.0,
-   "marketCapUSD": 357790777344.0
+   "marketCapUSD": 357790777344.0,
+   "totalDebt": 74330996736,
+   "totalCash": 28548999168,
+   "debtToEquity": 70.426,
+   "ebitda": 28903000064,
+   "freeCashflow": 26501249024,
+   "netDebtUSD": 45781997568.0,
+   "netDebtToEbitda": 1.58,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -7323,7 +7802,15 @@
    "country": "United States",
    "revenueUSD": 286316986368.0,
    "netIncomeUSD": 5990000128.0,
-   "marketCapUSD": 78579097600.0
+   "marketCapUSD": 78579097600.0,
+   "totalDebt": 31142000640,
+   "totalCash": 7295000064,
+   "debtToEquity": 71.227,
+   "ebitda": 12743999488,
+   "freeCashflow": 8189125120,
+   "netDebtUSD": 23847000576.0,
+   "netDebtToEbitda": 1.87,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -7466,7 +7953,15 @@
    "country": "United States",
    "revenueUSD": 201832005632.0,
    "netIncomeUSD": 5138999808.0,
-   "marketCapUSD": 91956625408.0
+   "marketCapUSD": 91956625408.0,
+   "totalDebt": 30756999168,
+   "totalCash": 37845999616,
+   "debtToEquity": 68.663,
+   "ebitda": 8712999936,
+   "freeCashflow": 7987125248,
+   "netDebtUSD": -7089000448.0,
+   "netDebtToEbitda": -0.81,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -7609,7 +8104,15 @@
    "country": "United States",
    "revenueUSD": 154185007104.0,
    "netIncomeUSD": 1246000000.0,
-   "marketCapUSD": 53504794624.0
+   "marketCapUSD": 53504794624.0,
+   "totalDebt": 13374999552,
+   "totalCash": 25109000192,
+   "debtToEquity": 70.812,
+   "ebitda": 3036000000,
+   "freeCashflow": 3292000000,
+   "netDebtUSD": -11734000640.0,
+   "netDebtToEbitda": -3.86,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -7711,7 +8214,15 @@
    "country": "United States",
    "revenueUSD": 180409008128.0,
    "netIncomeUSD": 1460000000.0,
-   "marketCapUSD": 34951798784.0
+   "marketCapUSD": 34951798784.0,
+   "totalDebt": 15541999616,
+   "totalCash": 23586000896,
+   "debtToEquity": 69.673,
+   "ebitda": 4691999744,
+   "freeCashflow": 3082749952,
+   "netDebtUSD": -8044001280.0,
+   "netDebtToEbitda": -1.71,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -7854,7 +8365,14 @@
    "country": "United States",
    "revenueUSD": 78701002752.0,
    "netIncomeUSD": 6776000000.0,
-   "marketCapUSD": 104356429824.0
+   "marketCapUSD": 104356429824.0,
+   "totalDebt": 52425998336,
+   "totalCash": 1019000000,
+   "ebitda": 15790999552,
+   "freeCashflow": 3943249920,
+   "netDebtUSD": 51406998336.0,
+   "netDebtToEbitda": 3.26,
+   "debt_checked": true
   },
   "holders": [
    {
@@ -7997,7 +8515,15 @@
    "country": "United States",
    "revenueUSD": 22154000384.0,
    "netIncomeUSD": 2899000064.0,
-   "marketCapUSD": 22875660288.0
+   "marketCapUSD": 22875660288.0,
+   "totalDebt": 13242999808,
+   "totalCash": 2673999872,
+   "debtToEquity": 138.034,
+   "ebitda": 5127000064,
+   "freeCashflow": 2028249984,
+   "netDebtUSD": 10568999936.0,
+   "netDebtToEbitda": 2.06,
+   "debt_checked": true
   },
   "holders": [
    {

@@ -1,0 +1,1430 @@
+{
+ "NVDA": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 22.4,
+  "ps": 14.1,
+  "rank_in_stage": 58.3,
+  "growth_pct": 105.9,
+  "margin_pct": 65.2,
+  "customers_growth_pct": 74.7,
+  "customers": [
+   "SMCI",
+   "HPE",
+   "DELL",
+   "HONHAI",
+   "QUANTA",
+   "CRWV",
+   "IREN",
+   "NBIS",
+   "MSFT",
+   "GOOGL",
+   "AMZN",
+   "META",
+   "ORCL",
+   "BABA",
+   "TENCENT",
+   "BAIDU",
+   "VRT",
+   "CTSH"
+  ],
+  "price_1y_pct": -11.0,
+  "net_debt_usd": -23608999936.0,
+  "net_debt_to_ebitda": -0.1
+ },
+ "AMD": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 120.8,
+  "ps": 20.4,
+  "rank_in_stage": 100.0,
+  "growth_pct": 44.7,
+  "margin_pct": 17.8,
+  "customers_growth_pct": 146.2,
+  "customers": [
+   "SMCI",
+   "IREN"
+  ],
+  "price_1y_pct": 108.7,
+  "net_debt_usd": -6565000192.0,
+  "net_debt_to_ebitda": -0.6
+ },
+ "AVGO": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 45.1,
+  "ps": 18.9,
+  "rank_in_stage": 79.2,
+  "growth_pct": 85.5,
+  "margin_pct": 48.8,
+  "customers_growth_pct": 24.7,
+  "customers": [
+   "GOOGL"
+  ],
+  "price_1y_pct": -2.3,
+  "net_debt_usd": 35444000768.0,
+  "net_debt_to_ebitda": 0.7
+ },
+ "MICRON": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 4,
+  "candidate": true,
+  "pe": 11.1,
+  "ps": 7.0,
+  "rank_in_stage": 37.5,
+  "growth_pct": 379.3,
+  "margin_pct": 74.6,
+  "customers_growth_pct": 105.9,
+  "customers": [
+   "NVDA"
+  ],
+  "price_1y_pct": 194.1,
+  "net_debt_usd": -38255000576.0,
+  "net_debt_to_ebitda": -0.3
+ },
+ "SKHYNIX": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 4,
+  "candidate": true,
+  "pe": null,
+  "ps": 3.3,
+  "rank_in_stage": 33.3,
+  "growth_pct": 327.9,
+  "margin_pct": 74.5,
+  "customers_growth_pct": 105.9,
+  "customers": [
+   "NVDA"
+  ],
+  "price_1y_pct": 117.1,
+  "net_debt_usd": -73829815284.89209,
+  "net_debt_to_ebitda": -0.5
+ },
+ "SAMSUNG": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 4,
+  "candidate": true,
+  "pe": null,
+  "ps": 2.3,
+  "rank_in_stage": 16.7,
+  "growth_pct": 126.8,
+  "margin_pct": 46.1,
+  "customers_growth_pct": 105.9,
+  "customers": [
+   "NVDA"
+  ],
+  "price_1y_pct": 109.9,
+  "net_debt_usd": -147891393383.92676,
+  "net_debt_to_ebitda": -0.6
+ },
+ "DELL": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": false,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 22.3,
+  "ps": 1.6,
+  "rank_in_stage": 38.2,
+  "growth_pct": 57.7,
+  "margin_pct": 9.9,
+  "customers_growth_pct": -5.0,
+  "customers": [
+   "IREN"
+  ],
+  "price_1y_pct": 152.6,
+  "net_debt_usd": 23714000896.0,
+  "net_debt_to_ebitda": 1.3
+ },
+ "SMCI": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 6.6,
+  "ps": 0.4,
+  "rank_in_stage": 14.1,
+  "growth_pct": 297.5,
+  "margin_pct": 8.3,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -23.7,
+  "net_debt_usd": 2265954304.0,
+  "net_debt_to_ebitda": 0.5
+ },
+ "HPE": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 26.6,
+  "ps": 1.6,
+  "rank_in_stage": 47.7,
+  "growth_pct": 33.7,
+  "margin_pct": 8.1,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 113.7,
+  "net_debt_usd": 14104999424.0,
+  "net_debt_to_ebitda": 2.0
+ },
+ "HONHAI": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 16.1,
+  "ps": 0.4,
+  "rank_in_stage": 19.5,
+  "growth_pct": 40.8,
+  "margin_pct": 3.5,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 1.9,
+  "net_debt_usd": -5078649154.205078,
+  "net_debt_to_ebitda": -0.4
+ },
+ "QUANTA": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 13.5,
+  "ps": 0.4,
+  "rank_in_stage": 23.6,
+  "growth_pct": 105.6,
+  "margin_pct": 3.3,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 8.4,
+  "net_debt_usd": 3108872450.6054688,
+  "net_debt_to_ebitda": 0.9
+ },
+ "ANET": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 53.2,
+  "ps": 21.1,
+  "rank_in_stage": 100.0,
+  "growth_pct": 58.5,
+  "margin_pct": 43.8,
+  "customers_growth_pct": 22.4,
+  "customers": [
+   "MSFT",
+   "META"
+  ],
+  "price_1y_pct": 40.8,
+  "net_debt_usd": -14359000064.0,
+  "net_debt_to_ebitda": -2.7
+ },
+ "CSCO": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 30.6,
+  "ps": 6.3,
+  "rank_in_stage": 66.8,
+  "growth_pct": 17.6,
+  "margin_pct": 25.4,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 28.2,
+  "net_debt_usd": 15267000320.0,
+  "net_debt_to_ebitda": 0.8
+ },
+ "CRDO": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 51.7,
+  "ps": 17.2,
+  "rank_in_stage": 90.5,
+  "growth_pct": 114.7,
+  "margin_pct": 31.7,
+  "customers_growth_pct": 20.2,
+  "customers": [
+   "AMZN",
+   "MSFT",
+   "ORCL"
+  ],
+  "price_1y_pct": -10.8,
+  "net_debt_usd": -738052984.0,
+  "net_debt_to_ebitda": -1.4
+ },
+ "LITE": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": false
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": null,
+  "ps": 16.2,
+  "rank_in_stage": 81.8,
+  "growth_pct": 136.5,
+  "margin_pct": 23.4,
+  "customers_growth_pct": 105.9,
+  "customers": [
+   "NVDA"
+  ],
+  "price_1y_pct": 152.2,
+  "net_debt_usd": -549399936.0,
+  "net_debt_to_ebitda": -0.5
+ },
+ "COHR": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 49.8,
+  "ps": 6.0,
+  "rank_in_stage": 67.3,
+  "growth_pct": 49.9,
+  "margin_pct": 14.1,
+  "customers_growth_pct": 105.9,
+  "customers": [
+   "NVDA"
+  ],
+  "price_1y_pct": 54.1,
+  "net_debt_usd": 2592050816.0,
+  "net_debt_to_ebitda": 1.6
+ },
+ "STX": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 29.6,
+  "ps": 9.4,
+  "rank_in_stage": 66.4,
+  "growth_pct": 61.0,
+  "margin_pct": 40.5,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 95.4,
+  "net_debt_usd": 1414000000.0,
+  "net_debt_to_ebitda": 0.2
+ },
+ "VRT": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 39.4,
+  "ps": 6.2,
+  "rank_in_stage": 83.3,
+  "growth_pct": 61.2,
+  "margin_pct": 21.1,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 13.7,
+  "net_debt_usd": -354799872.0,
+  "net_debt_to_ebitda": -0.1
+ },
+ "ETN": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 36.5,
+  "ps": 4.4,
+  "rank_in_stage": 55.6,
+  "growth_pct": 28.0,
+  "margin_pct": 17.7,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 1.7,
+  "net_debt_usd": 20103999360.0,
+  "net_debt_to_ebitda": 2.9
+ },
+ "SCHNEIDER": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 29.1,
+  "ps": 3.4,
+  "rank_in_stage": 44.4,
+  "growth_pct": 9.8,
+  "margin_pct": 17.9,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 1.4,
+  "net_debt_usd": 18075004131.271484,
+  "net_debt_to_ebitda": 1.9
+ },
+ "SIEMENSENERGY": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 44.4,
+  "ps": 2.7,
+  "rank_in_stage": 55.6,
+  "growth_pct": 17.5,
+  "margin_pct": 8.8,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 8.9,
+  "net_debt_usd": -9019194642.583984,
+  "net_debt_to_ebitda": -1.8
+ },
+ "GEV": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 21.5,
+  "ps": 4.9,
+  "rank_in_stage": 50.0,
+  "growth_pct": 26.8,
+  "margin_pct": 8.2,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 38.2,
+  "net_debt_usd": -12616000256.0,
+  "net_debt_to_ebitda": -2.5
+ },
+ "DELTA": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 39.0,
+  "ps": 4.8,
+  "rank_in_stage": 66.7,
+  "growth_pct": 31.1,
+  "margin_pct": 16.9,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 32.8,
+  "net_debt_usd": -2985644014.8825684,
+  "net_debt_to_ebitda": -0.7
+ },
+ "BE": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 131.1,
+  "ps": 16.7,
+  "rank_in_stage": 100.0,
+  "growth_pct": 138.1,
+  "margin_pct": 14.3,
+  "customers_growth_pct": 29.6,
+  "customers": [
+   "ORCL"
+  ],
+  "price_1y_pct": 65.7,
+  "net_debt_usd": 299891968.0,
+  "net_debt_to_ebitda": 0.5
+ },
+ "CEG": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 4,
+  "candidate": true,
+  "pe": 22.2,
+  "ps": 2.8,
+  "rank_in_stage": 33.3,
+  "growth_pct": 45.4,
+  "margin_pct": 17.9,
+  "customers_growth_pct": 18.8,
+  "customers": [
+   "MSFT"
+  ],
+  "price_1y_pct": -20.5,
+  "net_debt_usd": 22784000832.0,
+  "net_debt_to_ebitda": 2.4
+ },
+ "VST": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 4,
+  "candidate": true,
+  "pe": 18.4,
+  "ps": 2.2,
+  "rank_in_stage": 11.1,
+  "growth_pct": 27.7,
+  "margin_pct": 23.0,
+  "customers_growth_pct": 19.1,
+  "customers": [
+   "AMZN",
+   "META"
+  ],
+  "price_1y_pct": -24.5,
+  "net_debt_usd": 19023999488.0,
+  "net_debt_to_ebitda": 2.4
+ },
+ "EQIX": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": false
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 64.3,
+  "ps": 10.4,
+  "rank_in_stage": 62.5,
+  "growth_pct": 10.4,
+  "margin_pct": 24.5,
+  "customers_growth_pct": 17.7,
+  "customers": [
+   "WIX",
+   "FTNT"
+  ],
+  "price_1y_pct": 36.5,
+  "net_debt_usd": 24048999936.0,
+  "net_debt_to_ebitda": 5.1
+ },
+ "DLR": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 76.3,
+  "ps": 9.8,
+  "rank_in_stage": 68.8,
+  "growth_pct": 20.7,
+  "margin_pct": 18.9,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 17.6,
+  "net_debt_usd": 20054689152.0,
+  "net_debt_to_ebitda": 6.0
+ },
+ "CRWV": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": true,
+   "not_broken": false
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": null,
+  "ps": 3.4,
+  "rank_in_stage": 25.0,
+  "growth_pct": 168.3,
+  "margin_pct": -0.5,
+  "customers_growth_pct": 50.3,
+  "customers": [
+   "MSFT",
+   "META",
+   "NVDA"
+  ],
+  "price_1y_pct": -37.0,
+  "net_debt_usd": 62034999808.0,
+  "net_debt_to_ebitda": 11.9
+ },
+ "NBIS": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": true,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 124.5,
+  "ps": 32.0,
+  "rank_in_stage": 100.0,
+  "growth_pct": 454.0,
+  "margin_pct": -37.4,
+  "customers_growth_pct": 22.4,
+  "customers": [
+   "MSFT",
+   "META"
+  ],
+  "price_1y_pct": 60.4,
+  "net_debt_usd": 2153200128.0,
+  "net_debt_to_ebitda": 8.3
+ },
+ "IREN": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": true,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": null,
+  "ps": 13.1,
+  "rank_in_stage": 87.5,
+  "growth_pct": -5.0,
+  "margin_pct": -72.9,
+  "customers_growth_pct": 18.8,
+  "customers": [
+   "MSFT"
+  ],
+  "price_1y_pct": -57.5,
+  "net_debt_usd": 6693000192.0,
+  "net_debt_to_ebitda": null
+ },
+ "APLD": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": true,
+   "not_broken": false
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": null,
+  "ps": 6.4,
+  "rank_in_stage": 37.5,
+  "growth_pct": 322.4,
+  "margin_pct": -26.3,
+  "customers_growth_pct": 168.3,
+  "customers": [
+   "CRWV"
+  ],
+  "price_1y_pct": -29.5,
+  "net_debt_usd": 3533498880.0,
+  "net_debt_to_ebitda": null
+ },
+ "CORZ": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": true,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": null,
+  "ps": 7.8,
+  "rank_in_stage": 50.0,
+  "growth_pct": 187.1,
+  "margin_pct": -2.1,
+  "customers_growth_pct": 168.3,
+  "customers": [
+   "CRWV"
+  ],
+  "price_1y_pct": -12.1,
+  "net_debt_usd": 3602859904.0,
+  "net_debt_to_ebitda": 69.2
+ },
+ "PWR": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 55.6,
+  "ps": 2.5,
+  "rank_in_stage": 18.8,
+  "growth_pct": 57.4,
+  "margin_pct": 6.8,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 35.9,
+  "net_debt_usd": 5196624128.0,
+  "net_debt_to_ebitda": 1.4
+ },
+ "MSFT": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 27.2,
+  "ps": 11.2,
+  "rank_in_stage": 89.4,
+  "growth_pct": 18.8,
+  "margin_pct": 47.1,
+  "customers_growth_pct": 27.0,
+  "customers": [
+   "SNOW",
+   "PLTR",
+   "FTNT",
+   "NICE",
+   "NOW",
+   "IBM",
+   "CTSH"
+  ],
+  "price_1y_pct": 5.4,
+  "net_debt_usd": 69421998080.0,
+  "net_debt_to_ebitda": 0.3
+ },
+ "GOOGL": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 15.4,
+  "ps": 7.7,
+  "rank_in_stage": 56.7,
+  "growth_pct": 24.7,
+  "margin_pct": 33.3,
+  "customers_growth_pct": 16.2,
+  "customers": [
+   "SNOW",
+   "WIX",
+   "WDAY",
+   "FTNT",
+   "INTU",
+   "AAPL",
+   "CTSH"
+  ],
+  "price_1y_pct": 4.2,
+  "net_debt_usd": -114767003648.0,
+  "net_debt_to_ebitda": -0.6
+ },
+ "AMZN": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": true,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 21.6,
+  "ps": 3.6,
+  "rank_in_stage": 47.8,
+  "growth_pct": 12.1,
+  "margin_pct": 13.1,
+  "customers_growth_pct": 22.7,
+  "customers": [
+   "SNOW",
+   "PLTR",
+   "CRWD",
+   "WIX",
+   "MNDY",
+   "WDAY",
+   "CHKP",
+   "FTNT",
+   "NICE",
+   "INTU",
+   "IBM"
+  ],
+  "price_1y_pct": 15.4,
+  "net_debt_usd": 190614994944.0,
+  "net_debt_to_ebitda": 1.0
+ },
+ "META": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 21.9,
+  "ps": 6.8,
+  "rank_in_stage": 68.3,
+  "growth_pct": 26.1,
+  "margin_pct": 37.8,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 5.6,
+  "net_debt_usd": 32393003008.0,
+  "net_debt_to_ebitda": 0.3
+ },
+ "ORCL": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": false,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 20.4,
+  "ps": 5.6,
+  "rank_in_stage": 52.2,
+  "growth_pct": 29.6,
+  "margin_pct": 34.3,
+  "customers_growth_pct": 4.7,
+  "customers": [
+   "IBM"
+  ],
+  "price_1y_pct": -46.4,
+  "net_debt_usd": 132065992704.0,
+  "net_debt_to_ebitda": 3.8
+ },
+ "SPACEX": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 618.9,
+  "ps": 60.3,
+  "rank_in_stage": 100.0,
+  "growth_pct": 161.4,
+  "margin_pct": 1.8,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -11.1,
+  "net_debt_usd": -50637000704.0,
+  "net_debt_to_ebitda": -4.3
+ },
+ "BABA": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 24.6,
+  "ps": 1.6,
+  "rank_in_stage": 48.9,
+  "growth_pct": 8.6,
+  "margin_pct": 4.6,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -32.6,
+  "net_debt_usd": -17887033946.460938,
+  "net_debt_to_ebitda": -1.2
+ },
+ "TENCENT": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 14.4,
+  "ps": 4.0,
+  "rank_in_stage": 36.1,
+  "growth_pct": 11.0,
+  "margin_pct": 33.3,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -34.1,
+  "net_debt_usd": 1939898933.2573242,
+  "net_debt_to_ebitda": 0.0
+ },
+ "BAIDU": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": null,
+  "ps": 1.4,
+  "rank_in_stage": 10.0,
+  "growth_pct": -4.2,
+  "margin_pct": 6.9,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -31.3,
+  "net_debt_usd": -8008466692.17041,
+  "net_debt_to_ebitda": -2.3
+ },
+ "SOFTBANK": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 4.5,
+  "ps": 2.6,
+  "rank_in_stage": 20.6,
+  "growth_pct": 15.6,
+  "margin_pct": -6.3,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -21.5,
+  "net_debt_usd": 164450706331.8921,
+  "net_debt_to_ebitda": 57.7
+ },
+ "PLTR": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 122.2,
+  "ps": 57.3,
+  "rank_in_stage": 89.3,
+  "growth_pct": 95.9,
+  "margin_pct": 45.6,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -3.0,
+  "net_debt_usd": -10336263872.0,
+  "net_debt_to_ebitda": -3.1
+ },
+ "CRM": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": false,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 19.8,
+  "ps": 4.1,
+  "rank_in_stage": 29.9,
+  "growth_pct": 10.8,
+  "margin_pct": 21.5,
+  "customers_growth_pct": 4.7,
+  "customers": [
+   "IBM"
+  ],
+  "price_1y_pct": -11.6,
+  "net_debt_usd": 30972999680.0,
+  "net_debt_to_ebitda": 2.4
+ },
+ "NOW": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": false,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 73.7,
+  "ps": 6.9,
+  "rank_in_stage": 67.0,
+  "growth_pct": 20.5,
+  "margin_pct": 12.8,
+  "customers_growth_pct": 4.1,
+  "customers": [
+   "ACN",
+   "CTSH",
+   "INFY"
+  ],
+  "price_1y_pct": -41.4,
+  "net_debt_usd": 3808000000.0,
+  "net_debt_to_ebitda": 1.2
+ },
+ "SAP": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": false,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 30.8,
+  "ps": 6.2,
+  "rank_in_stage": 53.1,
+  "growth_pct": 13.2,
+  "margin_pct": 29.1,
+  "customers_growth_pct": 4.7,
+  "customers": [
+   "IBM"
+  ],
+  "price_1y_pct": 1.1,
+  "net_debt_usd": -453788911.3828125,
+  "net_debt_to_ebitda": -0.0
+ },
+ "ADBE": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": false,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 13.2,
+  "ps": 3.6,
+  "rank_in_stage": 16.1,
+  "growth_pct": 12.9,
+  "margin_pct": 36.3,
+  "customers_growth_pct": 4.7,
+  "customers": [
+   "IBM"
+  ],
+  "price_1y_pct": -28.5,
+  "net_debt_usd": 1144999936.0,
+  "net_debt_to_ebitda": 0.1
+ },
+ "WDAY": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 38.5,
+  "ps": 4.5,
+  "rank_in_stage": 50.4,
+  "growth_pct": 12.8,
+  "margin_pct": 12.0,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -18.2,
+  "net_debt_usd": 368999936.0,
+  "net_debt_to_ebitda": 0.2
+ },
+ "INTU": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 20.6,
+  "ps": 4.2,
+  "rank_in_stage": 36.6,
+  "growth_pct": 13.7,
+  "margin_pct": 28.8,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -47.9,
+  "net_debt_usd": 1221000192.0,
+  "net_debt_to_ebitda": 0.2
+ },
+ "SNOW": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 0,
+  "candidate": false,
+  "pe": null,
+  "ps": 19.9,
+  "rank_in_stage": 81.2,
+  "growth_pct": 35.1,
+  "margin_pct": -22.4,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 15.1,
+  "net_debt_usd": 419119872.0,
+  "net_debt_to_ebitda": null
+ },
+ "DDOG": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 260.4,
+  "ps": 15.8,
+  "rank_in_stage": 80.4,
+  "growth_pct": 35.2,
+  "margin_pct": 2.4,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -3.6,
+  "net_debt_usd": -3926353152.0,
+  "net_debt_to_ebitda": -23.1
+ },
+ "CRWD": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 3917.8,
+  "ps": 44.6,
+  "rank_in_stage": 96.9,
+  "growth_pct": 25.8,
+  "margin_pct": -2.5,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 68.0,
+  "net_debt_usd": -4193668032.0,
+  "net_debt_to_ebitda": -39.2
+ },
+ "PANW": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": false,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 853.2,
+  "ps": 24.3,
+  "rank_in_stage": 90.2,
+  "growth_pct": 34.5,
+  "margin_pct": 7.0,
+  "customers_growth_pct": 4.7,
+  "customers": [
+   "IBM"
+  ],
+  "price_1y_pct": 59.0,
+  "net_debt_usd": -504000000.0,
+  "net_debt_to_ebitda": -0.3
+ },
+ "FTNT": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 42.3,
+  "ps": 12.1,
+  "rank_in_stage": 66.5,
+  "growth_pct": 20.5,
+  "margin_pct": 32.9,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 50.1,
+  "net_debt_usd": -4238500096.0,
+  "net_debt_to_ebitda": -1.5
+ },
+ "CHKP": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 17.6,
+  "ps": 5.4,
+  "rank_in_stage": 35.7,
+  "growth_pct": -1.1,
+  "margin_pct": 28.3,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -26.8,
+  "net_debt_usd": -177600000.0,
+  "net_debt_to_ebitda": -0.2
+ },
+ "WIX": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": null,
+  "ps": 1.3,
+  "rank_in_stage": 6.2,
+  "growth_pct": 14.9,
+  "margin_pct": -5.6,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -48.6,
+  "net_debt_usd": 1077873920.0,
+  "net_debt_to_ebitda": null
+ },
+ "MNDY": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 26.1,
+  "ps": 2.2,
+  "rank_in_stage": 30.8,
+  "growth_pct": 19.2,
+  "margin_pct": 5.8,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -52.4,
+  "net_debt_usd": -906433056.0,
+  "net_debt_to_ebitda": -9.5
+ },
+ "NICE": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 15.2,
+  "ps": 1.7,
+  "rank_in_stage": 13.4,
+  "growth_pct": 8.0,
+  "margin_pct": 17.2,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -29.7,
+  "net_debt_usd": -267187000.0,
+  "net_debt_to_ebitda": -0.3
+ },
+ "ACN": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 18.6,
+  "ps": 2.0,
+  "rank_in_stage": 58.3,
+  "growth_pct": 6.2,
+  "margin_pct": 16.4,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 8.5,
+  "net_debt_usd": 559220736.0,
+  "net_debt_to_ebitda": 0.0
+ },
+ "IBM": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": false
+  },
+  "passed": 0,
+  "candidate": false,
+  "pe": 21.1,
+  "ps": 3.3,
+  "rank_in_stage": 83.3,
+  "growth_pct": 4.7,
+  "margin_pct": 18.4,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -17.8,
+  "net_debt_usd": 56082001920.0,
+  "net_debt_to_ebitda": 3.4
+ },
+ "INFY": {
+  "checks": {
+   "cheap": false,
+   "growing": false,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 1,
+  "candidate": false,
+  "pe": 15.4,
+  "ps": 2.5,
+  "rank_in_stage": 50.0,
+  "growth_pct": 1.4,
+  "margin_pct": 22.3,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -19.7,
+  "net_debt_usd": -3086999936.0,
+  "net_debt_to_ebitda": -0.6
+ },
+ "CAPGEMINI": {
+  "checks": {
+   "cheap": true,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 3,
+  "candidate": false,
+  "pe": 15.7,
+  "ps": 0.9,
+  "rank_in_stage": 33.3,
+  "growth_pct": 8.8,
+  "margin_pct": 11.2,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -4.7,
+  "net_debt_usd": 8772884178.4375,
+  "net_debt_to_ebitda": 2.6
+ },
+ "CTSH": {
+  "checks": {
+   "cheap": true,
+   "growing": false,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 11.7,
+  "ps": 1.3,
+  "rank_in_stage": 25.0,
+  "growth_pct": 4.6,
+  "margin_pct": 16.3,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": -8.5,
+  "net_debt_usd": 580000000.0,
+  "net_debt_to_ebitda": 0.1
+ },
+ "AAPL": {
+  "checks": {
+   "cheap": false,
+   "growing": true,
+   "demand": null,
+   "not_broken": true
+  },
+  "passed": 2,
+  "candidate": false,
+  "pe": 39.5,
+  "ps": 10.8,
+  "rank_in_stage": 100.0,
+  "growth_pct": 11.7,
+  "margin_pct": 33.0,
+  "customers_growth_pct": null,
+  "customers": [],
+  "price_1y_pct": 28.3,
+  "net_debt_usd": 37756997632.0,
+  "net_debt_to_ebitda": 0.2
+ }
+}
