@@ -5065,5 +5065,1305 @@
    }
   ],
   "insiders": []
+ },
+ "JLMAG": {
+  "info": {
+   "marketCap": 34446045184,
+   "trailingPE": 36.144928,
+   "forwardPE": 29.103893,
+   "profitMargins": 0.0959,
+   "revenueGrowth": 0.563,
+   "beta": 0.855,
+   "currency": "CNY",
+   "fullTimeEmployees": 7302,
+   "heldPercentInstitutions": 0.05752,
+   "heldPercentInsiders": 0.44652998,
+   "recommendationKey": "buy",
+   "totalRevenue": 9910423552,
+   "netIncomeToCommon": 950366272,
+   "grossMargins": 0.21735,
+   "operatingMargins": 0.096599996,
+   "financialCurrency": "CNY",
+   "city": "Ganzhou",
+   "country": "China",
+   "totalDebt": 2040948992,
+   "totalCash": 4114129664,
+   "debtToEquity": 25.606,
+   "ebitda": 1237563520,
+   "freeCashflow": 2489928960,
+   "revenueUSD": 1487560262.7211304,
+   "netIncomeUSD": 142650522.8398962,
+   "marketCapUSD": 5170371150.612854,
+   "netDebtUSD": -311185608.6601181,
+   "netDebtToEbitda": -1.68,
+   "debt_checked": true
+  },
+  "holders": [],
+  "officers": [
+   {
+    "name": "Mr. Baogui Cai",
+    "title": "Co-Founder, Chairman of the Board & GM"
+   },
+   {
+    "name": "Mr. Feng Lyu",
+    "title": "Executive Vice Chairman & Deputy GM"
+   },
+   {
+    "name": "Ms. Hui Xie",
+    "title": "Chief Financial Officer"
+   },
+   {
+    "name": "Mr. Quan Su",
+    "title": "VP, Assistant GM & Director of Marketing Department"
+   },
+   {
+    "name": "Mr. Huayun Mao",
+    "title": "Deputy GM & Chief Engineer"
+   },
+   {
+    "name": "Mr. Xunlong Lai",
+    "title": "Joint Company Secretary"
+   },
+   {
+    "name": "Mr. Tianyuan Zhang",
+    "title": "Joint Company Secretary"
+   },
+   {
+    "name": "Mr. Han Yu",
+    "title": "Deputy General Manager"
+   }
+  ],
+  "insiders": [
+   {
+    "name": "Huang (Changyuan)",
+    "title": "Vice President"
+   },
+   {
+    "name": "Lu (Ming)",
+    "title": "Vice President"
+   },
+   {
+    "name": "Lv (Feng)",
+    "title": "Vice Chairman"
+   },
+   {
+    "name": "Xie (Hui)",
+    "title": "Chief Financial Officer"
+   },
+   {
+    "name": "Yu (Han)",
+    "title": "Vice President"
+   }
+  ]
+ },
+ "POSCO": {
+  "info": {
+   "marketCap": 20909144408064,
+   "forwardPE": 9.995488,
+   "profitMargins": 0.018919999,
+   "revenueGrowth": 0.097,
+   "beta": 1.667,
+   "currency": "KRW",
+   "fullTimeEmployees": 383,
+   "heldPercentInstitutions": 0.30829,
+   "heldPercentInsiders": 0.01476,
+   "recommendationKey": "buy",
+   "totalRevenue": 71237317427200,
+   "netIncomeToCommon": 1347453845504,
+   "grossMargins": 0.07865,
+   "operatingMargins": 0.031040002,
+   "financialCurrency": "KRW",
+   "city": "Seoul",
+   "country": "South Korea",
+   "totalDebt": 31825604902912,
+   "totalCash": 14300278161408,
+   "debtToEquity": 49.601,
+   "ebitda": 6229349892096,
+   "freeCashflow": -3462723010560,
+   "revenueUSD": 53180430751.953125,
+   "netIncomeUSD": 1005907837.4969482,
+   "marketCapUSD": 15609196786.669922,
+   "netDebtUSD": 13083092666.064453,
+   "netDebtToEbitda": 2.81,
+   "debt_checked": true
+  },
+  "holders": [],
+  "officers": [
+   {
+    "name": "Mr. In-Hwa Chang",
+    "title": "CEO & Representative Director"
+   },
+   {
+    "name": "Mr. Ju-Tae Lee",
+    "title": "President, Head of Corporate Strategy Division & Representative Director"
+   },
+   {
+    "name": "Mr. Ki-Soo Kim",
+    "title": "Senior EVP, Group CTO, Head of New Experience of Technology Hub & Inside Director"
+   },
+   {
+    "name": "Mr. Seung-Jun Kim",
+    "title": "Head of Finance & IR Division"
+   },
+   {
+    "name": "Mr. In-Hwan Oh",
+    "title": "Chief Operating Officer"
+   },
+   {
+    "name": "Mr. Jeong-Bin Park",
+    "title": "Executive Officer, Head of Green Infra Business Team & Chief of Investments"
+   },
+   {
+    "name": "Ms. Young-Ah Han",
+    "title": "Head of Investor Relations Office, Executive Officer & Executive VP"
+   },
+   {
+    "name": "Mr. Sung-Wook Lee",
+    "title": "Head of Corporate Compliance Division"
+   }
+  ],
+  "insiders": []
+ },
+ "NIPPONSTEEL": {
+  "info": {
+   "marketCap": 3645847109632,
+   "trailingPE": 10.11161,
+   "forwardPE": 1.250224,
+   "profitMargins": 0.03491,
+   "revenueGrowth": 0.151,
+   "beta": 0.578,
+   "currency": "JPY",
+   "fullTimeEmployees": 138453,
+   "heldPercentInstitutions": 0.37947,
+   "heldPercentInsiders": 0.04457,
+   "recommendationKey": "buy",
+   "totalRevenue": 11271722237952,
+   "netIncomeToCommon": 393534996480,
+   "grossMargins": 0.1444,
+   "operatingMargins": 0.04201,
+   "financialCurrency": "JPY",
+   "city": "Chiyoda",
+   "country": "Japan",
+   "totalDebt": 5436291940352,
+   "totalCash": 414859984896,
+   "debtToEquity": 86.577,
+   "ebitda": 1147553054720,
+   "freeCashflow": -427709497344,
+   "revenueUSD": 70518782727.9375,
+   "netIncomeUSD": 2462055782.316284,
+   "marketCapUSD": 22809353775.393555,
+   "netDebtUSD": 31415365067.96167,
+   "netDebtToEbitda": 4.38,
+   "debt_checked": true
+  },
+  "holders": [
+   {
+    "name": "Pacer Advisors, Inc.",
+    "pct": 0.02
+   },
+   {
+    "name": "Coston, McIsaac & Partners",
+    "pct": 0.0
+   }
+  ],
+  "officers": [
+   {
+    "name": "Mr. Eiji Hashimoto",
+    "title": "Chairman & CEO"
+   },
+   {
+    "name": "Mr. Tadashi Imai",
+    "title": "President, COO & Representative Director"
+   },
+   {
+    "name": "Mr. Hiroyuki Minato",
+    "title": "EVP, Sub Leader of USS Proj., Next-Gen. Hot Rolling Proj. & Elec. Furnace Proj. & Rep. Director"
+   },
+   {
+    "name": "Mr. Naoki Sato",
+    "title": "EVP, India, Thai Integrated Steel and USS Project Sub-Leader & Director"
+   },
+   {
+    "name": "Mr. Takashi Hirose",
+    "title": "Executive VP, Sub-Leader of USS Project & Next Generation Hot Rolling Project & Rep. Director"
+   },
+   {
+    "name": "Mr. Hirofumi Funakoshi",
+    "title": "Executive VP of USS Project Sub Leader & Representative Director"
+   },
+   {
+    "name": "Mr. Nobuhiro Fujita",
+    "title": "EVP, Head of Research and Dev, Deputy Project Leader of USS Project & Representative Director"
+   },
+   {
+    "name": "Yuichiro Kaneko",
+    "title": "Manager of Investor Relations"
+   }
+  ],
+  "insiders": []
+ },
+ "ARCELOR": {
+  "info": {
+   "marketCap": 44770209792,
+   "trailingPE": 50.45763,
+   "forwardPE": 9.324183,
+   "profitMargins": 0.0164,
+   "revenueGrowth": 0.052,
+   "beta": 1.708,
+   "currency": "EUR",
+   "fullTimeEmployees": 125554,
+   "heldPercentInstitutions": 0.29036,
+   "heldPercentInsiders": 0.43894002,
+   "recommendationKey": "buy",
+   "totalRevenue": 63654998016,
+   "netIncomeToCommon": 1044000000,
+   "grossMargins": 0.08163,
+   "operatingMargins": 0.03235,
+   "financialCurrency": "USD",
+   "city": "Luxembourg",
+   "country": "Luxembourg",
+   "totalDebt": 13564999680,
+   "totalCash": 3191000064,
+   "debtToEquity": 24.201,
+   "ebitda": 4988000256,
+   "freeCashflow": -802875008,
+   "revenueUSD": 63654998016.0,
+   "netIncomeUSD": 1044000000.0,
+   "marketCapUSD": 49667415809.166504,
+   "netDebtUSD": 10373999616.0,
+   "netDebtToEbitda": 2.08,
+   "debt_checked": true
+  },
+  "holders": [
+   {
+    "name": "Pacer Advisors, Inc.",
+    "pct": 0.0
+   }
+  ],
+  "officers": [
+   {
+    "name": "Mr. Lakshmi Nivas Mittal B.Com.",
+    "title": "Executive Chairman of the Board"
+   },
+   {
+    "name": "Mr. Aditya Mittal",
+    "title": "CEO & Director"
+   },
+   {
+    "name": "Mr. Genuino Jose Magalhaes Christino",
+    "title": "Executive VP & CFO"
+   },
+   {
+    "name": "Mr. Daniel Fairclough",
+    "title": "Head of Investor Relations & VP of Corporate Finance"
+   },
+   {
+    "name": "Mr. Pinakin Chaubal",
+    "title": "VP & Chief Technology Officer"
+   },
+   {
+    "name": "Mr. Henk Scheffer",
+    "title": "Group Compliance, Data Protection Officer & Company Secretary"
+   },
+   {
+    "name": "Mr. Sapan Gupta",
+    "title": "VP & Group General Counsel"
+   },
+   {
+    "name": "Ms. Nicola Davidson",
+    "title": "VP, Head of Corporate Communications & Sustainable Development"
+   }
+  ],
+  "insiders": []
+ },
+ "NUCOR": {
+  "info": {
+   "marketCap": 58699186176,
+   "trailingPE": 16.62102,
+   "forwardPE": 11.845125,
+   "profitMargins": 0.092609994,
+   "revenueGrowth": 0.32,
+   "beta": 1.815,
+   "currency": "USD",
+   "fullTimeEmployees": 33000,
+   "heldPercentInstitutions": 0.80845,
+   "heldPercentInsiders": 0.011849999,
+   "recommendationKey": "buy",
+   "totalRevenue": 38828998656,
+   "netIncomeToCommon": 3588999936,
+   "grossMargins": 0.17392,
+   "operatingMargins": 0.13294,
+   "financialCurrency": "USD",
+   "city": "Charlotte",
+   "country": "United States",
+   "totalDebt": 7093000192,
+   "totalCash": 3640000000,
+   "debtToEquity": 29.443,
+   "ebitda": 6696000000,
+   "freeCashflow": 1537250048,
+   "revenueUSD": 38828998656.0,
+   "netIncomeUSD": 3588999936.0,
+   "marketCapUSD": 58699186176.0,
+   "netDebtUSD": 3453000192.0,
+   "netDebtToEbitda": 0.52,
+   "debt_checked": true
+  },
+  "holders": [
+   {
+    "name": "State Farm Mutual Automobile Insurance Co",
+    "pct": 10.67
+   },
+   {
+    "name": "Blackrock Inc.",
+    "pct": 8.81
+   },
+   {
+    "name": "Vanguard Capital Management LLC",
+    "pct": 6.55
+   },
+   {
+    "name": "Vanguard Portfolio Management LLC",
+    "pct": 5.38
+   },
+   {
+    "name": "State Street Corporation",
+    "pct": 5.1
+   },
+   {
+    "name": "Geode Capital Management, LLC",
+    "pct": 2.72
+   },
+   {
+    "name": "NORGES BANK",
+    "pct": 1.82
+   },
+   {
+    "name": "Morgan Stanley",
+    "pct": 1.74
+   },
+   {
+    "name": "Northern Trust Corporation",
+    "pct": 1.29
+   },
+   {
+    "name": "FMR, LLC",
+    "pct": 1.14
+   }
+  ],
+  "officers": [
+   {
+    "name": "Mr. Leon J. Topalian",
+    "title": "Chairman of the Board & CEO"
+   },
+   {
+    "name": "Mr. Stephen D. Laxton",
+    "title": "President & COO"
+   },
+   {
+    "name": "Mr. K. Rex Query",
+    "title": "Executive Vice President of Strategy"
+   },
+   {
+    "name": "Mr. John L. Sullivan",
+    "title": "Executive VP, CFO & Treasurer"
+   },
+   {
+    "name": "Chris Jacobi",
+    "title": "Director of Investor Relations"
+   },
+   {
+    "name": "Mr. Douglas R. Wilner",
+    "title": "President of Corporate Legal Affairs & General Counsel"
+   },
+   {
+    "name": "Ms. Elizabeth Bledsoe",
+    "title": "President of Human Resources & Talent"
+   },
+   {
+    "name": "Mr. D. Chad Utermark",
+    "title": "Executive Vice President of New Markets & Innovation"
+   }
+  ],
+  "insiders": [
+   {
+    "name": "Behr Allen C.",
+    "title": "Officer"
+   },
+   {
+    "name": "Hanners Noah C",
+    "title": "Officer"
+   },
+   {
+    "name": "Hollatz John J",
+    "title": "Officer"
+   },
+   {
+    "name": "Laxton Stephen D.",
+    "title": "President"
+   },
+   {
+    "name": "Murphy Gregory Joseph",
+    "title": "Officer"
+   },
+   {
+    "name": "Needham Daniel R.",
+    "title": "Officer"
+   },
+   {
+    "name": "Query Kenneth Rex",
+    "title": "Officer"
+   },
+   {
+    "name": "Sumoski David A",
+    "title": "Officer"
+   },
+   {
+    "name": "Topalian Leon J",
+    "title": "Chief Executive Officer"
+   },
+   {
+    "name": "Utermark Douglas Chad",
+    "title": "Officer"
+   }
+  ]
+ },
+ "BAOSTEEL": {
+  "info": {
+   "trailingPE": 14.476191,
+   "forwardPE": 12.286551,
+   "profitMargins": 0.027590001,
+   "revenueGrowth": 0.048,
+   "beta": 0.381,
+   "currency": "CNY",
+   "fullTimeEmployees": 46135,
+   "heldPercentInstitutions": 0.076869994,
+   "heldPercentInsiders": 0.68964,
+   "recommendationKey": "buy",
+   "totalRevenue": 330718904320,
+   "netIncomeToCommon": 9124740096,
+   "grossMargins": 0.06225,
+   "operatingMargins": 0.031400003,
+   "financialCurrency": "CNY",
+   "city": "Shanghai",
+   "country": "China",
+   "totalDebt": 32860758016,
+   "totalCash": 18684798976,
+   "debtToEquity": 14.622,
+   "ebitda": 28674826240,
+   "freeCashflow": 8272583680,
+   "revenueUSD": 49641097337.13867,
+   "netIncomeUSD": 1369628725.0738678,
+   "netDebtUSD": 2127819587.4494934,
+   "netDebtToEbitda": 0.49,
+   "debt_checked": true
+  },
+  "holders": [],
+  "officers": [
+   {
+    "name": "Mr. Baojun Liu",
+    "title": "President & Director"
+   },
+   {
+    "name": "Mr. Kai Wu",
+    "title": "General Counsel & Chief Compliance Officer"
+   },
+   {
+    "name": "Mr. Jun Wu",
+    "title": "Deputy General Manager"
+   },
+   {
+    "name": "Mr. Yanbao Cai",
+    "title": "Deputy General Manager"
+   },
+   {
+    "name": "Mr. Jun Peng",
+    "title": "Deputy General Manager"
+   },
+   {
+    "name": "Ruiwen Ran",
+    "title": "Head of Accounting Department & Accounting Supervisor"
+   },
+   {
+    "name": "Mr. Linfeng Shao",
+    "title": "Deputy General Manager"
+   }
+  ],
+  "insiders": []
+ },
+ "TSLA": {
+  "info": {
+   "marketCap": 1555232325632,
+   "trailingPE": 432.3681,
+   "forwardPE": 182.22089,
+   "profitMargins": 0.031070001,
+   "revenueGrowth": -0.002,
+   "beta": 1.743,
+   "currency": "USD",
+   "fullTimeEmployees": 134785,
+   "heldPercentInstitutions": 0.45129,
+   "heldPercentInsiders": 0.17806,
+   "recommendationKey": "buy",
+   "totalRevenue": 103569997824,
+   "netIncomeToCommon": 3220000000,
+   "grossMargins": 0.19285999,
+   "operatingMargins": 0.03026,
+   "financialCurrency": "USD",
+   "city": "Austin",
+   "country": "United States",
+   "totalDebt": 16444999680,
+   "totalCash": 45447000064,
+   "debtToEquity": 18.295,
+   "ebitda": 9838000128,
+   "freeCashflow": 4967249920,
+   "revenueUSD": 103569997824.0,
+   "netIncomeUSD": 3220000000.0,
+   "marketCapUSD": 1555232325632.0,
+   "netDebtUSD": -29002000384.0,
+   "netDebtToEbitda": -2.95,
+   "debt_checked": true
+  },
+  "holders": [
+   {
+    "name": "Blackrock Inc.",
+    "pct": 5.42
+   },
+   {
+    "name": "Vanguard Capital Management LLC",
+    "pct": 4.66
+   },
+   {
+    "name": "State Street Corporation",
+    "pct": 2.97
+   },
+   {
+    "name": "Geode Capital Management, LLC",
+    "pct": 1.77
+   },
+   {
+    "name": "Barclays Plc",
+    "pct": 1.53
+   },
+   {
+    "name": "Invesco Ltd.",
+    "pct": 1.4
+   },
+   {
+    "name": "Vanguard Portfolio Management LLC",
+    "pct": 1.25
+   },
+   {
+    "name": "Capital World Investors",
+    "pct": 1.16
+   },
+   {
+    "name": "JPMORGAN CHASE & CO",
+    "pct": 1.06
+   },
+   {
+    "name": "Morgan Stanley",
+    "pct": 0.98
+   }
+  ],
+  "officers": [
+   {
+    "name": "Mr. Elon R. Musk",
+    "title": "Co-Founder, Technoking of Tesla, CEO & Director"
+   },
+   {
+    "name": "Mr. Vaibhav Taneja",
+    "title": "Chief Financial Officer"
+   },
+   {
+    "name": "Mr. Xiaotong Zhu",
+    "title": "Senior Vice President of APAC & Global Vehicle Manufacturing"
+   },
+   {
+    "name": "Travis Axelrod",
+    "title": "Head of Investor Relations"
+   },
+   {
+    "name": "Mr. Brandon Ehrhart",
+    "title": "General Counsel & Corporate Secretary"
+   },
+   {
+    "name": "Mr. Franz von Holzhausen",
+    "title": "Chief Designer"
+   },
+   {
+    "name": "Ms. Roxanne Inskip-Kaye",
+    "title": "Head of Operations - Electric Vehicle Business"
+   },
+   {
+    "name": "Mr. John Walker",
+    "title": "Vice President of Sales - North America"
+   }
+  ],
+  "insiders": [
+   {
+    "name": "Denholm Robyn M",
+    "title": "Director"
+   },
+   {
+    "name": "Ehrenpreis Ira Matthew",
+    "title": "Director"
+   },
+   {
+    "name": "Gebbia Joseph",
+    "title": "Director"
+   },
+   {
+    "name": "Murdoch James Rupert",
+    "title": "Director"
+   },
+   {
+    "name": "Musk Elon Reeve",
+    "title": "Chief Executive Officer"
+   },
+   {
+    "name": "Musk Kimbal J",
+    "title": "Director"
+   },
+   {
+    "name": "Taneja Vaibhav",
+    "title": "Chief Financial Officer"
+   },
+   {
+    "name": "Wilson - Thompson Kathleen",
+    "title": "Director"
+   },
+   {
+    "name": "Zhu Xiaotong",
+    "title": "Officer"
+   }
+  ]
+ },
+ "GM": {
+  "info": {
+   "marketCap": 74485415936,
+   "trailingPE": 19.321663,
+   "forwardPE": 5.971425,
+   "profitMargins": 0.021170001,
+   "revenueGrowth": 0.029,
+   "beta": 1.418,
+   "currency": "USD",
+   "fullTimeEmployees": 156000,
+   "heldPercentInstitutions": 0.94174004,
+   "heldPercentInsiders": 0.00183,
+   "recommendationKey": "buy",
+   "totalRevenue": 186952007680,
+   "netIncomeToCommon": 3875000064,
+   "grossMargins": 0.11444,
+   "operatingMargins": 0.0683,
+   "financialCurrency": "USD",
+   "city": "Detroit",
+   "country": "United States",
+   "totalDebt": 130707996672,
+   "totalCash": 27804999680,
+   "debtToEquity": 202.592,
+   "ebitda": 18816999424,
+   "freeCashflow": 28518250496,
+   "revenueUSD": 186952007680.0,
+   "netIncomeUSD": 3875000064.0,
+   "marketCapUSD": 74485415936.0,
+   "netDebtUSD": 102902996992.0,
+   "netDebtToEbitda": 5.47,
+   "debt_checked": true
+  },
+  "holders": [
+   {
+    "name": "Blackrock Inc.",
+    "pct": 9.16
+   },
+   {
+    "name": "Vanguard Capital Management LLC",
+    "pct": 6.98
+   },
+   {
+    "name": "State Street Corporation",
+    "pct": 5.27
+   },
+   {
+    "name": "Vanguard Portfolio Management LLC",
+    "pct": 4.5
+   },
+   {
+    "name": "Franklin Resources, Inc.",
+    "pct": 3.71
+   },
+   {
+    "name": "Geode Capital Management, LLC",
+    "pct": 2.5
+   },
+   {
+    "name": "Capital World Investors",
+    "pct": 2.19
+   },
+   {
+    "name": "FMR, LLC",
+    "pct": 2.04
+   },
+   {
+    "name": "Shaw D.E. & Co., Inc.",
+    "pct": 1.78
+   },
+   {
+    "name": "Dimensional Fund Advisors LP",
+    "pct": 1.7
+   }
+  ],
+  "officers": [
+   {
+    "name": "Ms. Mary T. Barra",
+    "title": "Chairman & CEO"
+   },
+   {
+    "name": "Mr. Mark L. Reuss",
+    "title": "President"
+   },
+   {
+    "name": "Mr. Paul A. Jacobson",
+    "title": "Executive VP & CFO"
+   },
+   {
+    "name": "Mr. Rory V. Harvey",
+    "title": "Executive VP & President of Global Markets"
+   },
+   {
+    "name": "Mr. Sterling J. Anderson",
+    "title": "Executive VP of Global Product & Chief Product Officer"
+   },
+   {
+    "name": "Mr. Christopher T. Hatto",
+    "title": "VP of Global Business Solutions & Chief Accounting Officer"
+   },
+   {
+    "name": "Mr. Ashish Kohli C.F.A.",
+    "title": "Vice President of Investor Relations"
+   },
+   {
+    "name": "Mr. Grant M. Dixton",
+    "title": "Executive VP, Chief Legal & Public Policy Officer and Corporate Secretary"
+   }
+  ],
+  "insiders": [
+   {
+    "name": "Anderson Sterling",
+    "title": "Officer"
+   },
+   {
+    "name": "Barra Mary Teresa",
+    "title": "Chief Executive Officer"
+   },
+   {
+    "name": "Dixton Grant Michael",
+    "title": "Officer"
+   },
+   {
+    "name": "Glidden Craig B",
+    "title": "General Counsel"
+   },
+   {
+    "name": "Harvey Rory",
+    "title": "Officer"
+   },
+   {
+    "name": "Hatto Christopher",
+    "title": "Officer"
+   },
+   {
+    "name": "Jacobson Paul A",
+    "title": "Chief Financial Officer"
+   },
+   {
+    "name": "Kelly Alfred Francis Jr.",
+    "title": "Director"
+   },
+   {
+    "name": "Reuss Mark L",
+    "title": "President"
+   }
+  ]
+ },
+ "FORD": {
+  "info": {
+   "marketCap": 48537559040,
+   "forwardPE": 6.4393597,
+   "profitMargins": -0.041690003,
+   "revenueGrowth": -0.02,
+   "beta": 1.909,
+   "currency": "USD",
+   "fullTimeEmployees": 169000,
+   "heldPercentInstitutions": 0.68315005,
+   "heldPercentInsiders": 0.00401,
+   "recommendationKey": "buy",
+   "totalRevenue": 186965000192,
+   "netIncomeToCommon": -7793999872,
+   "grossMargins": 0.073860005,
+   "operatingMargins": 0.0093,
+   "financialCurrency": "USD",
+   "city": "Dearborn",
+   "country": "United States",
+   "totalDebt": 165432999936,
+   "totalCash": 25088000000,
+   "debtToEquity": 447.6,
+   "ebitda": 7837000192,
+   "freeCashflow": -6194625024,
+   "revenueUSD": 186965000192.0,
+   "netIncomeUSD": -7793999872.0,
+   "marketCapUSD": 48537559040.0,
+   "netDebtUSD": 140344999936.0,
+   "netDebtToEbitda": 17.91,
+   "debt_checked": true
+  },
+  "holders": [
+   {
+    "name": "Blackrock Inc.",
+    "pct": 8.53
+   },
+   {
+    "name": "Vanguard Capital Management LLC",
+    "pct": 6.51
+   },
+   {
+    "name": "State Street Corporation",
+    "pct": 4.95
+   },
+   {
+    "name": "Vanguard Portfolio Management LLC",
+    "pct": 4.63
+   },
+   {
+    "name": "Charles Schwab Investment Management, Inc.",
+    "pct": 3.49
+   },
+   {
+    "name": "Newport Trust Company, LLC",
+    "pct": 3.34
+   },
+   {
+    "name": "Geode Capital Management, LLC",
+    "pct": 3.07
+   },
+   {
+    "name": "Bank of America Corporation",
+    "pct": 1.85
+   },
+   {
+    "name": "Morgan Stanley",
+    "pct": 1.35
+   },
+   {
+    "name": "NORGES BANK",
+    "pct": 1.32
+   }
+  ],
+  "officers": [
+   {
+    "name": "Mr. William Clay Ford Jr.",
+    "title": "Executive Chairman"
+   },
+   {
+    "name": "Mr. James Duncan Farley Jr.",
+    "title": "President, CEO & Director"
+   },
+   {
+    "name": "Ms. Sherry House CPA",
+    "title": "Chief Financial Officer"
+   },
+   {
+    "name": "Mr. John Douglas Field",
+    "title": "Chief EV, Digital & Design Officer"
+   },
+   {
+    "name": "Ms. Alicia S. Boler Davis",
+    "title": "President of Ford Pro"
+   },
+   {
+    "name": "Mr. Ashwani Kumar Galhotra",
+    "title": "Chief Operating Officer"
+   },
+   {
+    "name": "Mr. Kyle Crockett",
+    "title": "Chief Accounting Officer"
+   },
+   {
+    "name": "Ms. Maria A. Ricciardone",
+    "title": "Chief Investor Relations Officer"
+   }
+  ],
+  "insiders": []
+ },
+ "VW": {
+  "info": {
+   "marketCap": 34769838080,
+   "trailingPE": 33.669903,
+   "forwardPE": 3.5367994,
+   "profitMargins": 0.00535,
+   "revenueGrowth": -0.063,
+   "beta": 0.963,
+   "currency": "EUR",
+   "fullTimeEmployees": 592430,
+   "heldPercentInstitutions": 0.30962,
+   "heldPercentInsiders": 0.0,
+   "recommendationKey": "buy",
+   "totalRevenue": 316622012416,
+   "netIncomeToCommon": 1076000000,
+   "grossMargins": 0.13852,
+   "operatingMargins": 0.04987,
+   "financialCurrency": "EUR",
+   "city": "Wolfsburg",
+   "country": "Germany",
+   "totalDebt": 280827002880,
+   "totalCash": 67136999424,
+   "debtToEquity": 142.989,
+   "ebitda": 28824000512,
+   "freeCashflow": 10050654208,
+   "revenueUSD": 351255828776.8086,
+   "netIncomeUSD": 1193698659.4200134,
+   "marketCapUSD": 38573149725.22949,
+   "netDebtUSD": 237064563807.51416,
+   "netDebtToEbitda": 7.41,
+   "debt_checked": true
+  },
+  "holders": [
+   {
+    "name": "Pacer Advisors, Inc.",
+    "pct": 0.0
+   },
+   {
+    "name": "Generali Investments Cee, Investicni Spolecnost, A.s.",
+    "pct": 0.0
+   }
+  ],
+  "officers": [
+   {
+    "name": "Dr. Oliver Blume Ph.D.",
+    "title": "CEO & Chairman of the Board of Management"
+   },
+   {
+    "name": "Dr. Arno Antlitz",
+    "title": "CFO, COO & Member of the Board of Management"
+   },
+   {
+    "name": "Mr. Thomas Schmall-Reichsgraf von und zu Westerholt",
+    "title": "Member of the Management Board & Head of Technology"
+   },
+   {
+    "name": "Mr. Thomas Schafer",
+    "title": "CEO of the Passenger Cars Brand, CEO & COO of Volkswagen Brand and Member of Management Board"
+   },
+   {
+    "name": "Mr. Ralf Brandstatter",
+    "title": "Member of Board of Management"
+   },
+   {
+    "name": "Dr. Manfred Doss Ph.D.",
+    "title": "Member of Management Board & Head of Integrity and Legal Affairs"
+   },
+   {
+    "name": "Ms. Hauke Stars",
+    "title": "Member of Management Board"
+   },
+   {
+    "name": "Dr. Gernot Dollner",
+    "title": "Member of Management Board"
+   }
+  ],
+  "insiders": []
+ },
+ "BMW": {
+  "info": {
+   "marketCap": 34273931264,
+   "trailingPE": 5.8096194,
+   "forwardPE": 7.157027,
+   "profitMargins": 0.048270002,
+   "revenueGrowth": -0.058,
+   "beta": 0.809,
+   "currency": "EUR",
+   "fullTimeEmployees": 154540,
+   "heldPercentInstitutions": 0.2281,
+   "heldPercentInsiders": 0.45721,
+   "recommendationKey": "hold",
+   "totalRevenue": 126171996160,
+   "netIncomeToCommon": 6089999872,
+   "grossMargins": 0.12239,
+   "operatingMargins": 0.05653,
+   "financialCurrency": "EUR",
+   "city": "Munich",
+   "country": "Germany",
+   "totalDebt": 118646996992,
+   "totalCash": 15932000256,
+   "debtToEquity": 120.725,
+   "ebitda": 13326999552,
+   "freeCashflow": 3478267904,
+   "revenueUSD": 139973366796.04004,
+   "netIncomeUSD": 6756156768.656555,
+   "marketCapUSD": 38022997958.07666,
+   "netDebtUSD": 113950514782.61548,
+   "netDebtToEbitda": 7.71,
+   "debt_checked": true
+  },
+  "holders": [
+   {
+    "name": "Generali Investments Cee, Investicni Spolecnost, A.s.",
+    "pct": 0.01
+   },
+   {
+    "name": "Pacer Advisors, Inc.",
+    "pct": 0.0
+   }
+  ],
+  "officers": [
+   {
+    "name": "Dr. Milan Nedeljkovic",
+    "title": "CEO & Chairman of the Management Board"
+   },
+   {
+    "name": "Mr. Walter Mertl",
+    "title": "Member of Management Board of Finance"
+   },
+   {
+    "name": "Jochen Goller",
+    "title": "Member of the Board of Management of Customer, Brands & Sales"
+   },
+   {
+    "name": "Dr. Joachim Post",
+    "title": "Head of Development & Member of the Board of Management"
+   },
+   {
+    "name": "Dr. Nicolai Martin",
+    "title": "Member of the Board of Management and Purchasing & Supplier Network"
+   },
+   {
+    "name": "Dr. Raymond Wittmann",
+    "title": "Member of the Board of Management"
+   },
+   {
+    "name": "Ms. Dorothea Von Boxberg",
+    "title": "People Labour Relations Director & Member of Board of Management"
+   },
+   {
+    "name": "Mr. Adam Sykes",
+    "title": "Head of Investor Relations"
+   }
+  ],
+  "insiders": []
+ },
+ "HYUNDAI": {
+  "info": {
+   "marketCap": 71702448963584,
+   "forwardPE": 6.455922,
+   "profitMargins": 0.040560003,
+   "revenueGrowth": -0.034,
+   "beta": 1.768,
+   "currency": "KRW",
+   "heldPercentInstitutions": 0.26365,
+   "heldPercentInsiders": 0.33885,
+   "recommendationKey": "buy",
+   "totalRevenue": 187102465622016,
+   "netIncomeToCommon": 7588987011072,
+   "grossMargins": 0.17059,
+   "operatingMargins": 0.05205,
+   "financialCurrency": "KRW",
+   "city": "Seoul",
+   "country": "South Korea",
+   "totalDebt": 172646998212608,
+   "totalCash": 14705999478784,
+   "debtToEquity": 134.048,
+   "ebitda": 13342803492864,
+   "revenueUSD": 139676648081.25,
+   "netIncomeUSD": 5665367714.501953,
+   "marketCapUSD": 53527663022.265625,
+   "netDebtUSD": 117906887140.18555,
+   "netDebtToEbitda": 11.84,
+   "debt_checked": true
+  },
+  "holders": [],
+  "officers": [
+   {
+    "name": "Mr. Eui-Sun Chung",
+    "title": "Executive Chairman & CEO"
+   },
+   {
+    "name": "Mr. Randy Parker",
+    "title": "Chief Executive Officer"
+   },
+   {
+    "name": "Mr. Dong-Seock Lee",
+    "title": "President, CEO & Internal Director"
+   },
+   {
+    "name": "Mr. Jose Antonio Munoz Barcelo",
+    "title": "President, CEO & Internal Director"
+   },
+   {
+    "name": "Ms. Jin Eun-Sook",
+    "title": "President"
+   },
+   {
+    "name": "Mr. Seung Jo Lee",
+    "title": "Executive VP, CFO & Director"
+   },
+   {
+    "name": "Zayong Koo",
+    "title": "Head of IR & Senior VP"
+   },
+   {
+    "name": "Mr. Luc Donckerwolke",
+    "title": "Executive VP & Chief Creative Officer"
+   }
+  ],
+  "insiders": []
+ },
+ "AAPL": {
+  "info": {
+   "marketCap": 5159578501120,
+   "trailingPE": 39.53786,
+   "forwardPE": 33.648224,
+   "profitMargins": 0.27604,
+   "revenueGrowth": 0.117,
+   "beta": 1.089,
+   "currency": "USD",
+   "fullTimeEmployees": 167000,
+   "heldPercentInstitutions": 0.66986,
+   "heldPercentInsiders": 0.0166,
+   "recommendationKey": "buy",
+   "totalRevenue": 478833999872,
+   "netIncomeToCommon": 132175003648,
+   "grossMargins": 0.48786,
+   "operatingMargins": 0.33009997,
+   "financialCurrency": "USD",
+   "city": "Cupertino",
+   "country": "United States",
+   "totalDebt": 94478999552,
+   "totalCash": 56722001920,
+   "debtToEquity": 84.286,
+   "ebitda": 171486003200,
+   "freeCashflow": 105658376192,
+   "revenueUSD": 478833999872.0,
+   "netIncomeUSD": 132175003648.0,
+   "marketCapUSD": 5159578501120.0,
+   "netDebtUSD": 37756997632.0,
+   "netDebtToEbitda": 0.22,
+   "debt_checked": true
+  },
+  "holders": [
+   {
+    "name": "Blackrock Inc.",
+    "pct": 8.0
+   },
+   {
+    "name": "Vanguard Capital Management LLC",
+    "pct": 6.6
+   },
+   {
+    "name": "State Street Corporation",
+    "pct": 4.23
+   },
+   {
+    "name": "Geode Capital Management, LLC",
+    "pct": 2.58
+   },
+   {
+    "name": "FMR, LLC",
+    "pct": 2.55
+   },
+   {
+    "name": "Vanguard Portfolio Management LLC",
+    "pct": 2.3
+   },
+   {
+    "name": "Morgan Stanley",
+    "pct": 1.67
+   },
+   {
+    "name": "JPMORGAN CHASE & CO",
+    "pct": 1.57
+   },
+   {
+    "name": "Berkshire Hathaway, Inc",
+    "pct": 1.57
+   },
+   {
+    "name": "NORGES BANK",
+    "pct": 1.31
+   }
+  ],
+  "officers": [
+   {
+    "name": "Mr. Kevan Parekh",
+    "title": "Senior VP & CFO"
+   },
+   {
+    "name": "Mr. Sabih Khan",
+    "title": "Senior VP & Chief Operating Officer"
+   },
+   {
+    "name": "Ms. Deirdre O'Brien",
+    "title": "Senior Vice President of Retail & People"
+   },
+   {
+    "name": "Ms. Katherine L. Adams",
+    "title": "Secretary"
+   },
+   {
+    "name": "Mr. John Ternus",
+    "title": "CEO & Director"
+   },
+   {
+    "name": "Mr. Ben Borders",
+    "title": "Principal Accounting Officer"
+   },
+   {
+    "name": "Suhasini Chandramouli",
+    "title": "Director of Investor Relations"
+   },
+   {
+    "name": "Ms. Jennifer G. Newstead J.D.",
+    "title": "Senior VP of Government Affairs & General Counsel"
+   }
+  ],
+  "insiders": [
+   {
+    "name": "Adams Katherine L",
+    "title": "General Counsel"
+   },
+   {
+    "name": "Cook Timothy D",
+    "title": "Officer and Director"
+   },
+   {
+    "name": "Jung Andrea",
+    "title": "Director"
+   },
+   {
+    "name": "Khan Sabih",
+    "title": "Chief Operating Officer"
+   },
+   {
+    "name": "Levinson Arthur D",
+    "title": "Director"
+   },
+   {
+    "name": "O'Brien Deirdre",
+    "title": "Officer"
+   },
+   {
+    "name": "Sugar Ronald D",
+    "title": "Director"
+   },
+   {
+    "name": "Ternus John",
+    "title": "Chief Executive Officer"
+   },
+   {
+    "name": "Wagner Susan L",
+    "title": "Director"
+   },
+   {
+    "name": "Williams Jeffrey E",
+    "title": "Chief Operating Officer"
+   }
+  ]
  }
 }
