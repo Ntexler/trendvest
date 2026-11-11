@@ -123,3 +123,63 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# ---------------------------------------------------------------------------
+# Portfolio builder: three baskets by risk level, same balancing rule, different pick inside each stage
+# ---------------------------------------------------------------------------
+def builder() -> dict:
+    """calm = the least volatile company of each stage (last 12 months), steady = the largest by
+    revenue, bold = the most volatile. All three obey the map rule: one per stage plus one,
+    at most 2 per country, no two holdings that depend critically on the same supplier."""
+    companies = G.load_companies()
+    chain = companies[companies["tier"] != "control"]
+    info = json.loads((G.DATA / "profiles.json").read_text())
+    edges = G.load_edges()
+    prices = all_prices(companies)
+    px = prices[list(chain["ticker"])]
+    px.columns = chain.index
+    daily = np.log(px).diff()
+    vol1y = (daily.iloc[-252:].std() * np.sqrt(252) * 100).dropna()
+    chain = chain.loc[[c for c in chain.index if c in vol1y.index and px[c].notna().sum() > 800]]
+    tiers = G.market()["tiers"]
+    crit = edges[edges["critical"].astype(str).isin(["1", "1.0"])]
+    cmap = crit.groupby("customer")["supplier"].apply(set).to_dict()
+    rev = lambda c: info.get(c, {}).get("info", {}).get("revenueUSD") or 0      # noqa: E731
+    keys = {"calm": lambda c: vol1y[c], "steady": lambda c: -rev(c), "bold": lambda c: -vol1y[c]}
+    events = G.events()
+    events = events[events["quality"] != "avoid"]
+    er = event_returns(prices, chain, events)
+    wk = np.log(px[chain.index].resample("W-FRI").last().loc["2016-01-01":]).diff()
+
+    def pick(key):
+        out: list[str] = []
+
+        def ok(c):
+            return sum(chain.loc[x, "country"] == chain.loc[c, "country"] for x in out) < 2 and \
+                not any(cmap.get(c, set()) & cmap.get(x, set()) or c in cmap.get(x, set()) or x in cmap.get(c, set()) for x in out)
+        by = {t: sorted(chain.index[chain["tier"] == t], key=key) for t in tiers}
+        for t in tiers + [max(tiers, key=lambda t: len(by[t]))]:
+            p = next((c for c in by[t] if c not in out and ok(c)), None)
+            if p:
+                out.append(p)
+        return out
+
+    def describe(members):
+        r = wk[members].mean(axis=1).dropna()
+        curve = r.cumsum()
+        ev = {k: float(v.reindex(members)["r3"].mean()) for k, v in er.items()}
+        top_sup = crit[crit.customer.isin(members)].groupby("supplier").size().sort_values(ascending=False)
+        return {"members": members,
+                "vol_now": round(float((daily[members].iloc[-252:].mean(axis=1).std()) * np.sqrt(252) * 100), 1),
+                "vol_hist": round(float(r.std() * np.sqrt(52) * 100), 1),
+                "max_drawdown": round(float((curve - curve.cummax()).min() * 100), 1),
+                "return_year": round(float(r.mean() * 52 * 100), 1),
+                "events_r3": {k: round(v, 1) for k, v in ev.items() if not np.isnan(v)},
+                "countries": chain.loc[members, "country"].value_counts().to_dict(),
+                "shared_supplier": [str(top_sup.index[0]), int(top_sup.iloc[0])] if len(top_sup) else None}
+    cap = lambda c: info.get(c, {}).get("info", {}).get("marketCapUSD") or 0     # noqa: E731
+    out = {k: describe(pick(f)) for k, f in keys.items()}
+    out["popular"] = describe(sorted(chain.index, key=cap, reverse=True)[:8])
+    (G.RESULTS / "builder.json").write_text(json.dumps(out, indent=1))
+    return out

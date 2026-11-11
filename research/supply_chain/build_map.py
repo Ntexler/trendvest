@@ -129,7 +129,8 @@ def build() -> dict:
     market.pop("news_he", None)
     content["sources"] = {**content["sources"], **market.pop("sources")}
     return {"tiers": TIERS, "nodes": nodes, "edges": E, "events": EV, "agg": agg, "market": market,
-            "base": base, "dates": prices["dates"], "mkt": prices["series"]["_MARKET"], **content}
+            "base": base, "baskets": json.loads(bp.read_text()) if (bp := G.RESULTS / "builder.json").exists() else None,
+            "dates": prices["dates"], "mkt": prices["series"]["_MARKET"], **content}
 
 
 def main() -> None:

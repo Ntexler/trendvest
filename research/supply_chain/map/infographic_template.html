@@ -50,12 +50,17 @@ h1 { font-size: 40px; font-weight: 800; line-height: 1.1; margin: 0; overflow-wr
 @media (max-width: 620px) { .steps { grid-template-columns: 1fr; gap: 14px } .step { border: 0; padding: 0; border-top: 2px dashed var(--line); padding-top: 12px } .step:first-child { border: 0; padding-top: 0 } }
 .bars { display: grid; grid-template-columns: auto 1fr auto; gap: 8px 12px; align-items: center; font-size: 14.5px } .bars .t { height: 18px; background: none; position: relative; direction: ltr }
 .bars .t::before { content: ""; position: absolute; left: 66.6%; top: -3px; bottom: -3px; width: 1px; background: var(--muted) } .bars .t i { position: absolute; top: 0; bottom: 0; border-radius: 4px }
+.hold { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px }
+.hold button { display: flex; flex-direction: column; gap: 1px; text-align: start; background: var(--bg); border: 0; border-radius: 12px; padding: 10px 12px; cursor: pointer; color: var(--fg) } .hold b { font-size: 15.5px } .hold small { font-size: 12px; color: var(--muted) }
+.bars2 { display: grid; grid-template-columns: auto 1fr auto; gap: 10px 12px; align-items: center; font-size: 14.5px } .bars2 .t2 { display: flex; flex-direction: column; gap: 3px; direction: ltr } .bars2 .t2 i { display: block; height: 9px; border-radius: 5px; min-width: 3px }
+@media (max-width: 520px) { .bars2 { grid-template-columns: 1fr } }
+.switch button[data-level] { font-size: 15px }
 .more { display: flex; flex-wrap: wrap; gap: 8px } .foot { font-size: 12.5px; color: var(--muted) }
 </style>
 
 <div class="wrap">
   <div class="top">
-    <div class="switch" role="tablist"><button role="tab" data-v="stock">מצב המניה</button><button role="tab" data-v="event">מה קרה</button></div>
+    <div class="switch" role="tablist"><button role="tab" data-v="stock">מצב המניה</button><button role="tab" data-v="event">מה קרה</button><button role="tab" data-v="build">בונה תיק</button></div>
     <div style="display:flex;gap:8px;min-width:0"><input type="search" id="q" list="names" placeholder="חיפוש חברה" aria-label="חיפוש חברה" autocomplete="off"><datalist id="names"></datalist><button class="ghost" id="theme" type="button"></button></div>
   </div>
   <main id="page" class="wrap" style="gap:16px"></main>
@@ -75,7 +80,7 @@ const evName = id => { const h = M.history.find(x => x[5] === id); return h ? [h
 const roleOf = (n, id) => n.ev[id] && (n.ev[id].w || n.ev[id].role);
 D.edges.forEach(e => { e.material = e.crit || Number(e.share) >= 10; });
 const byW = (a, b) => (b.material - a.material) || (Number(b.share || 0) - Number(a.share || 0));
-let S = { v: "stock", co: "TSMC", ev: "HUALIEN2024" };
+let S = { v: "stock", co: D.nodes.some(n => n.id === "TSMC") ? "TSMC" : D.nodes[0].id, ev: (D.events.find(e => e.id === "HUALIEN2024") || D.events[0] || {}).id, level: "calm" };
 
 /* ---------- the stock in one picture ---------- */
 function picture(n) { const K = 104, W = 680, H = 250, X0 = 14, X1 = W - 14, Y0 = 62, Y1 = H - 30;
@@ -143,9 +148,34 @@ function eventPage() { const e = D.events.find(x => x.id === S.ev), [name, text]
       <span class="muted" style="font-size:13px">כל עיגול הוא אירוע אחד. עיגול מלא: ירידה. המדגם קטן, ולכן זה רמז ולא כלל.</span></div>
     <div class="band"><h2>אירועים נוספים</h2><div class="more">${D.events.filter(x => x.id !== e.id).map(x => `<button class="pillbtn" data-ev="${x.id}">${esc(evName(x.id)[0])} <span class="num muted">${x.ts.slice(0, 4)}</span></button>`).join("")}</div></div>`; }
 
-function render() { document.querySelectorAll(".switch button").forEach(b => b.setAttribute("aria-selected", b.dataset.v === S.v)); (S.v === "stock" ? stock : eventPage)();
+/* ---------- portfolio builder ---------- */
+function buildPage() { const B = D.baskets; if (!B) { $("page").innerHTML = '<p class="lead">עוד אין נתונים לבניית תיק בשוק הזה.</p>'; return; }
+  const b = B[S.level], pop = B.popular, ev = Object.values(b.events_r3), fell = ev.filter(x => x < 0).length, pev = Object.values(pop.events_r3);
+  const top = o => { const [c, k] = Object.entries(o.countries).sort((x, y) => y[1] - x[1])[0]; return [c, k]; };
+  const CN = { US: "ארה\"ב", JP: "יפן", TW: "טייוואן", KR: "קוריאה", DE: "גרמניה", NL: "הולנד", IL: "ישראל", CN: "סין", FR: "צרפת", CH: "שווייץ", GB: "בריטניה", AU: "אוסטרליה", CA: "קנדה", DK: "דנמרק", ES: "ספרד", IT: "איטליה", BR: "ברזיל", CL: "צ'ילה" };
+  const cmp = (label, mine, theirs, unit, max) => `<span>${label}</span><div class="t2"><i style="width:${Math.min(100, Math.abs(mine) / max * 100)}%;background:var(--ink)"></i><i style="width:${Math.min(100, Math.abs(theirs) / max * 100)}%;background:var(--muted);opacity:.5"></i></div><b class="num">${mine}${unit} <span class="muted" style="font-weight:400">מול ${theirs}${unit}</span></b>`;
+  $("page").innerHTML = `
+    <div><span class="kicker">בונה תיק · ${esc(M.name)}</span><h1>תיק שמכסה את כל השרשרת</h1></div>
+    <p class="lead">בוחרים כמה תנודות מוכנים לספוג. הכלי לוקח חברה מכל שלב, עד שתיים מכל מדינה, ובלי שתי חברות שתלויות באותו ספק.</p>
+    <div class="switch" style="align-self:flex-start"><button data-level="calm" aria-selected="${S.level === "calm"}">רגוע יותר</button><button data-level="bold" aria-selected="${S.level === "bold"}">נועז יותר</button></div>
+    <div class="band"><h2>מה צפוי בתיק הזה</h2><div class="tiles">
+      <div class="tile"><span class="big num">${b.vol_now}%</span><span class="w">תנודתיות בשנה האחרונה</span><span class="l">בשנה רגילה התיק יכול לעלות או לרדת בערך בשיעור הזה</span></div>
+      <div class="tile"><span class="big num down">${b.max_drawdown}%</span><span class="w">הנפילה העמוקה ביותר מאז 2016</span><span class="l">מהשיא עד התחתית, לאותן מניות</span></div></div>
+      <p class="say">${fell ? `ב-${fell} מתוך ${ev.length} אירועי עבר התיק ירד בשלושת הימים הראשונים.` : `באף אחד מ-${ev.length} אירועי העבר התיק לא ירד בשלושת הימים הראשונים.`}</p><div class="dots">${ev.map(x => `<i class="${x < 0 ? "on" : "off"}"></i>`).join("")}</div></div>
+    <div class="band"><h2>מה בתיק: ${b.members.length} חברות, משקל שווה</h2><div class="hold">${b.members.map(id => { const n = byId[id];
+      return `<button data-co="${id}"><small>${esc(D.stages[n.tier].title)}</small><b>${esc(n.name)}</b><small>${CN[n.country] || n.country}</small></button>`; }).join("")}</div></div>
+    <div class="band"><h2>מול 8 המניות הגדולות בשוק</h2><div class="bars2">
+      ${cmp("תנודתיות", b.vol_now, pop.vol_now, "%", 60)}${cmp("הנפילה העמוקה ביותר", b.max_drawdown, pop.max_drawdown, "%", 70)}
+      ${cmp("אירועים שבהם ירד", fell, pev.filter(x => x < 0).length, "", 10)}${cmp("מדינות שונות", Object.keys(b.countries).length, Object.keys(pop.countries).length, "", 8)}</div>
+      <span class="muted" style="font-size:13px">הפס הכהה: התיק הזה. הפס הבהיר: 8 הגדולות (${pop.members.slice(0, 4).map(id => esc(byId[id].name)).join(", ")} ועוד). ${top(pop)[1]} מתוך 8 הגדולות הן מ${CN[top(pop)[0]] || top(pop)[0]}${pop.shared_supplier && pop.shared_supplier[1] > 1 ? `, ו-${pop.shared_supplier[1]} מהן תלויות ב-${esc(byId[pop.shared_supplier[0]].name)}` : ""}.</span></div>
+    <div class="band"><h2>ומה עם התשואה?</h2><p class="say">אי אפשר להבטיח אותה, ולא מצאנו דרך לנבא אותה.</p>
+      <span class="muted" style="font-size:14px">בעשר השנים האחרונות המניות בתיק הזה עלו בממוצע <span class="num">${b.return_year}%</span> בשנה, ו-8 הגדולות <span class="num">${pop.return_year}%</span>. המספרים האלה מוטים כלפי מעלה, כי הם כוללים רק חברות ששרדו, ואינם מעידים על העתיד. מה שהתיק הזה נותן הוא פיזור, לא תשואה גבוהה יותר.</span></div>
+    <p class="foot">איך נבחרו המניות: "רגוע יותר" לוקח מכל שלב את החברה שהתנדנדה הכי פחות בשנה האחרונה, ו"נועז יותר" את זו שהתנדנדה הכי הרבה. התשואות במטבע המקומי של כל מניה, בלי עמלות.</p>`; }
+
+function render() { document.querySelectorAll(".switch button").forEach(b => b.setAttribute("aria-selected", b.dataset.v === S.v)); ({ stock, event: eventPage, build: buildPage })[S.v]();
   if (location.hash.slice(1) !== S.v) history.replaceState(null, "", "#" + S.v); }
-document.addEventListener("click", ev => { const t = ev.target.closest("[data-v],[data-co],[data-ev]"); if (!t) return; const d = t.dataset;
+document.addEventListener("click", ev => { const t = ev.target.closest("[data-v],[data-co],[data-ev],[data-level]"); if (!t) return; const d = t.dataset;
+  if (d.level) { S.level = d.level; render(); return; }
   if (d.v) S.v = d.v; else if (d.co) { S.co = d.co; S.v = "stock"; } else if (d.ev) { S.ev = d.ev; S.v = "event"; } render(); scrollTo({ top: 0 }); });
 D.nodes.forEach(n => { const o = document.createElement("option"); o.value = n.name; o.label = n.ticker; $("names").appendChild(o); });
 $("q").addEventListener("change", e => { const v = e.target.value.trim().toLowerCase(); if (!v) return;
@@ -154,5 +184,5 @@ const root = document.documentElement, isDark = () => root.dataset.theme ? root.
 const label = () => { $("theme").textContent = isDark() ? "בהיר" : "כהה"; };
 try { const t = localStorage.getItem("story-theme"); if (t) root.dataset.theme = t; } catch (e) {}
 $("theme").addEventListener("click", () => { root.dataset.theme = isDark() ? "light" : "dark"; try { localStorage.setItem("story-theme", root.dataset.theme); } catch (e) {} label(); }); label();
-if (["stock", "event"].includes(location.hash.slice(1))) S.v = location.hash.slice(1); render();
+if (["stock", "event", "build"].includes(location.hash.slice(1))) S.v = location.hash.slice(1); render();
 </script>
