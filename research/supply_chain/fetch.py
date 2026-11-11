@@ -21,7 +21,7 @@ from .profiles import fetch as fetch_profile
 from .run import all_prices
 
 EXTRA = ["totalRevenue", "netIncomeToCommon", "grossMargins", "operatingMargins", "financialCurrency", "city", "country",
-         "marketCap", "currency", "fullTimeEmployees"]
+         "marketCap", "currency", "fullTimeEmployees", "totalDebt", "totalCash", "debtToEquity", "ebitda", "freeCashflow"]
 
 
 def chain_companies() -> pd.DataFrame:
@@ -65,10 +65,49 @@ def profiles() -> None:
             x["netIncomeUSD"] = x["netIncomeToCommon"] * r1
         if r2 and x.get("marketCap"):
             x["marketCapUSD"] = x["marketCap"] * r2
+        _debt(x, r1)
         data[cid] = p
         path.write_text(json.dumps(data, indent=1, ensure_ascii=False))
         time.sleep(0.4)
     print("profiles:", len(data))
+
+
+def _debt(x: dict, r1) -> None:
+    """Net debt = borrowings minus cash, in dollars, and how many years of operating profit it equals."""
+    if r1 and x.get("totalDebt") is not None:
+        x["netDebtUSD"] = (x["totalDebt"] - (x.get("totalCash") or 0)) * r1
+        if x.get("ebitda") and x["ebitda"] > 0:
+            x["netDebtToEbitda"] = round((x["totalDebt"] - (x.get("totalCash") or 0)) / x["ebitda"], 2)
+    x["debt_checked"] = True
+
+
+def debt() -> None:
+    """Add debt figures to companies fetched before debt was part of the profile."""
+    import yfinance as yf
+    path = G.DATA / "profiles.json"
+    data = json.loads(path.read_text())
+    fx: dict = {}
+    n = 0
+    for cid, c in chain_companies().iterrows():
+        x = data.get(cid, {}).get("info")
+        if x is None or x.get("debt_checked"):
+            continue
+        try:
+            info = yf.Ticker(c["ticker"]).info
+            x.update({k: info[k] for k in ("totalDebt", "totalCash", "debtToEquity", "ebitda", "freeCashflow") if info.get(k) is not None})
+        except Exception:  # noqa: BLE001
+            pass
+        cur = x.get("financialCurrency")
+        if cur not in fx:
+            try:
+                fx[cur] = 1.0 if cur in (None, "USD") else float(yf.Ticker(f"{cur}USD=X").fast_info["lastPrice"])
+            except Exception:  # noqa: BLE001
+                fx[cur] = None
+        _debt(x, fx[cur])
+        n += 1
+        path.write_text(json.dumps(data, indent=1, ensure_ascii=False))
+        time.sleep(0.3)
+    print("debt added for", n, "companies;", sum(1 for v in data.values() if "netDebtUSD" in v["info"]), "have a figure")
 
 
 def prices() -> None:
@@ -107,6 +146,6 @@ def news() -> None:
 
 
 if __name__ == "__main__":
-    steps = {"profiles": profiles, "prices": prices, "news": news}
-    for name in (sys.argv[1:] or list(steps)):
+    steps = {"profiles": profiles, "prices": prices, "news": news, "debt": debt}
+    for name in (sys.argv[1:] or ["profiles", "prices", "news"]):
         steps[name]()

@@ -7,7 +7,8 @@ written to the ledger on the day it appears so it can be scored later against it
   cheap        price-to-earnings and price-to-sales both ranked inside the stage; average rank in the cheapest 40%
   growing      revenue up more than 5% on a year ago, and operating margin above zero
   demand       its customers in the map grow revenue by more than 5% on average (needs at least one customer)
-  not_broken   positive net income, and the share price has not lost more than 40% in a year
+  not_broken   positive net income, net debt below 3 years of operating profit (or more cash than debt),
+               and the share price has not lost more than 40% in a year
 
     MARKET=chips python -m research.supply_chain.screen
 """
@@ -22,7 +23,7 @@ import pandas as pd
 
 from . import graph as G
 
-CHEAP_RANK, GROWTH, CRASH = 0.40, 0.05, -40.0
+CHEAP_RANK, GROWTH, CRASH, MAX_DEBT = 0.40, 0.05, -40.0, 3.0
 
 
 def run() -> dict:
@@ -35,7 +36,8 @@ def run() -> dict:
     df = pd.DataFrame({cid: {"pe": i.get("trailingPE") if (i.get("trailingPE") or 0) > 0 else np.nan,
                              "ps": (i["marketCapUSD"] / i["revenueUSD"]) if i.get("marketCapUSD") and i.get("revenueUSD") else np.nan,
                              "growth": pulses["monthly"][cid]["yoy_pct"] / 100 if cid in pulses["monthly"] else i.get("revenueGrowth"),
-                             "margin": i.get("operatingMargins"), "net": i.get("netIncomeUSD")}
+                             "margin": i.get("operatingMargins"), "net": i.get("netIncomeUSD"),
+                             "nd": i.get("netDebtUSD"), "nd_e": i.get("netDebtToEbitda")}
                        for cid, i in info.items() if cid in chain.index}).T.astype(float)
     df["tier"] = chain["tier"]
     df["rank"] = df.groupby("tier")[["pe", "ps"]].rank(pct=True).mean(axis=1)
@@ -45,14 +47,16 @@ def run() -> dict:
         y1 = (v[-1] / v[max(0, len(v) - 53)] - 1) * 100 if len(v) > 10 else np.nan
         cust = [x for x in edges.loc[edges.supplier == cid, "customer"] if x in df.index and pd.notna(df.loc[x, "growth"])]
         cg = float(np.mean([df.loc[x, "growth"] for x in cust])) if cust else np.nan
+        debt_ok = None if pd.isna(r["nd"]) else bool(r["nd"] <= 0 or (pd.notna(r["nd_e"]) and r["nd_e"] < MAX_DEBT))
         checks = {"cheap": bool(r["rank"] <= CHEAP_RANK) if pd.notna(r["rank"]) else None,
                   "growing": bool(r["growth"] > GROWTH and r["margin"] > 0) if pd.notna(r["growth"]) and pd.notna(r["margin"]) else None,
                   "demand": bool(cg > GROWTH) if pd.notna(cg) else None,
-                  "not_broken": bool(r["net"] > 0 and y1 > CRASH) if pd.notna(r["net"]) and pd.notna(y1) else None}
+                  "not_broken": bool(r["net"] > 0 and y1 > CRASH and debt_ok) if pd.notna(r["net"]) and pd.notna(y1) and debt_ok is not None else None}
         num = lambda x, k=1: None if pd.isna(x) else round(float(x) * k, 1)      # noqa: E731
         out[cid] = {"checks": checks, "passed": sum(1 for x in checks.values() if x), "candidate": all(checks.values()),
                     "pe": num(r["pe"]), "ps": num(r["ps"]), "rank_in_stage": num(r["rank"], 100), "growth_pct": num(r["growth"], 100),
-                    "margin_pct": num(r["margin"], 100), "customers_growth_pct": num(cg, 100), "customers": cust, "price_1y_pct": num(y1)}
+                    "margin_pct": num(r["margin"], 100), "customers_growth_pct": num(cg, 100), "customers": cust, "price_1y_pct": num(y1),
+                    "net_debt_usd": None if pd.isna(r["nd"]) else float(r["nd"]), "net_debt_to_ebitda": num(r["nd_e"])}
     G.RESULTS.mkdir(parents=True, exist_ok=True)
     (G.RESULTS / "screen.json").write_text(json.dumps(out, indent=1))
     return out

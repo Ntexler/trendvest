@@ -19,7 +19,9 @@
    "INTEL",
    "SKHYNIX"
   ],
-  "price_1y_pct": 23.4
+  "price_1y_pct": 23.4,
+  "net_debt_usd": -8453210334.612839,
+  "net_debt_to_ebitda": -1.4
  },
  "SUMCO": {
   "checks": {
@@ -40,7 +42,9 @@
    "TSMC",
    "SAMSUNG"
   ],
-  "price_1y_pct": 47.9
+  "price_1y_pct": 47.9,
+  "net_debt_usd": 1598690187.589672,
+  "net_debt_to_ebitda": 2.3
  },
  "GLOBALWAFERS": {
   "checks": {
@@ -60,7 +64,9 @@
   "customers": [
    "GFS"
   ],
-  "price_1y_pct": 53.4
+  "price_1y_pct": 53.4,
+  "net_debt_usd": 1123565890.4847412,
+  "net_debt_to_ebitda": 2.4
  },
  "SILTRONIC": {
   "checks": {
@@ -83,7 +89,9 @@
    "INFINEON",
    "INTEL"
   ],
-  "price_1y_pct": 18.3
+  "price_1y_pct": 18.3,
+  "net_debt_usd": 832131385.8032227,
+  "net_debt_to_ebitda": 2.6
  },
  "SOITEC": {
   "checks": {
@@ -103,7 +111,9 @@
   "customers": [
    "GFS"
   ],
-  "price_1y_pct": 165.6
+  "price_1y_pct": 165.6,
+  "net_debt_usd": 63357374.20654297,
+  "net_debt_to_ebitda": 0.6
  },
  "WACKER": {
   "checks": {
@@ -123,7 +133,9 @@
   "customers": [
    "SILTRONIC"
   ],
-  "price_1y_pct": 15.1
+  "price_1y_pct": 15.1,
+  "net_debt_usd": 289359820.5566406,
+  "net_debt_to_ebitda": 0.4
  },
  "TOK": {
   "checks": {
@@ -144,7 +156,9 @@
    "TSMC",
    "SKHYNIX"
   ],
-  "price_1y_pct": 18.0
+  "price_1y_pct": 18.0,
+  "net_debt_usd": -242412283.81838036,
+  "net_debt_to_ebitda": -0.6
  },
  "MERCK": {
   "checks": {
@@ -164,16 +178,18 @@
   "customers": [
    "TSMC"
   ],
-  "price_1y_pct": 29.5
+  "price_1y_pct": 29.5,
+  "net_debt_usd": 10184178724.725586,
+  "net_debt_to_ebitda": 1.6
  },
  "ENTEGRIS": {
   "checks": {
    "cheap": false,
    "growing": true,
    "demand": true,
-   "not_broken": true
+   "not_broken": false
   },
-  "passed": 3,
+  "passed": 2,
   "candidate": false,
   "pe": 53.9,
   "ps": 6.0,
@@ -184,7 +200,9 @@
   "customers": [
    "TSMC"
   ],
-  "price_1y_pct": 77.6
+  "price_1y_pct": 77.6,
+  "net_debt_usd": 3004499936.0,
+  "net_debt_to_ebitda": 3.0
  },
  "SOULBRAIN": {
   "checks": {
@@ -204,7 +222,9 @@
   "customers": [
    "SAMSUNG"
   ],
-  "price_1y_pct": -0.7
+  "price_1y_pct": -0.7,
+  "net_debt_usd": -223818742.9852574,
+  "net_debt_to_ebitda": -1.3
  },
  "LINDE": {
   "checks": {
@@ -224,16 +244,18 @@
   "customers": [
    "SAMSUNG"
   ],
-  "price_1y_pct": 24.9
+  "price_1y_pct": 24.9,
+  "net_debt_usd": 22755000064.0,
+  "net_debt_to_ebitda": 1.6
  },
  "AIRPRODUCTS": {
   "checks": {
    "cheap": false,
    "growing": true,
    "demand": true,
-   "not_broken": true
+   "not_broken": false
   },
-  "passed": 3,
+  "passed": 2,
   "candidate": false,
   "pe": 130.6,
   "ps": 5.4,
@@ -244,7 +266,9 @@
   "customers": [
    "SAMSUNG"
   ],
-  "price_1y_pct": 23.6
+  "price_1y_pct": 23.6,
+  "net_debt_usd": 16898400000.0,
+  "net_debt_to_ebitda": 3.6
  },
  "AGC": {
   "checks": {
@@ -264,7 +288,9 @@
   "customers": [
    "INTEL"
   ],
-  "price_1y_pct": -5.8
+  "price_1y_pct": -5.8,
+  "net_debt_usd": 3636009542.3681946,
+  "net_debt_to_ebitda": 1.8
  },
  "AJINOMOTO": {
   "checks": {
@@ -285,7 +311,9 @@
    "IBIDEN",
    "UNIMICRON"
   ],
-  "price_1y_pct": 14.8
+  "price_1y_pct": 14.8,
+  "net_debt_usd": 2139912594.1376572,
+  "net_debt_to_ebitda": 1.2
  },
  "IBIDEN": {
   "checks": {
@@ -306,7 +334,9 @@
    "INTEL",
    "NVDA"
   ],
-  "price_1y_pct": 106.5
+  "price_1y_pct": 106.5,
+  "net_debt_usd": -1569652974.7854843,
+  "net_debt_to_ebitda": -1.5
  },
  "UNIMICRON": {
   "checks": {
@@ -326,7 +356,9 @@
   "customers": [
    "INTEL"
   ],
-  "price_1y_pct": 417.7
+  "price_1y_pct": 417.7,
+  "net_debt_usd": -3337515311.2332153,
+  "net_debt_to_ebitda": -2.6
  },
  "UCTT": {
   "checks": {
@@ -347,7 +379,9 @@
    "LAM",
    "AMAT"
   ],
-  "price_1y_pct": 95.4
+  "price_1y_pct": 95.4,
+  "net_debt_usd": 539199968.0,
+  "net_debt_to_ebitda": 3.0
  },
  "ICHOR": {
   "checks": {
@@ -369,7 +403,9 @@
    "LAM",
    "ASML"
   ],
-  "price_1y_pct": 140.9
+  "price_1y_pct": 140.9,
+  "net_debt_usd": -61764000.0,
+  "net_debt_to_ebitda": -0.8
  },
  "AEIS": {
   "checks": {
@@ -390,7 +426,9 @@
    "AMAT",
    "LAM"
   ],
-  "price_1y_pct": 9.6
+  "price_1y_pct": 9.6,
+  "net_debt_usd": -32800000.0,
+  "net_debt_to_ebitda": -0.1
  },
  "MKS": {
   "checks": {
@@ -411,7 +449,9 @@
    "LAM",
    "AMAT"
   ],
-  "price_1y_pct": 50.2
+  "price_1y_pct": 50.2,
+  "net_debt_usd": 3339000064.0,
+  "net_debt_to_ebitda": 2.7
  },
  "AMAT": {
   "checks": {
@@ -433,7 +473,9 @@
    "TSMC",
    "INTEL"
   ],
-  "price_1y_pct": 65.7
+  "price_1y_pct": 65.7,
+  "net_debt_usd": -1887000576.0,
+  "net_debt_to_ebitda": -0.2
  },
  "LAM": {
   "checks": {
@@ -456,7 +498,9 @@
    "SKHYNIX",
    "TSMC"
   ],
-  "price_1y_pct": 50.7
+  "price_1y_pct": 50.7,
+  "net_debt_usd": -3701940224.0,
+  "net_debt_to_ebitda": -0.4
  },
  "KLA": {
   "checks": {
@@ -477,7 +521,9 @@
    "TSMC",
    "SAMSUNG"
   ],
-  "price_1y_pct": 35.6
+  "price_1y_pct": 35.6,
+  "net_debt_usd": 1251452928.0,
+  "net_debt_to_ebitda": 0.2
  },
  "ASML": {
   "checks": {
@@ -500,7 +546,9 @@
    "SAMSUNG",
    "SKHYNIX"
   ],
-  "price_1y_pct": 54.7
+  "price_1y_pct": 54.7,
+  "net_debt_usd": -11951736490.493164,
+  "net_debt_to_ebitda": -0.7
  },
  "TEL": {
   "checks": {
@@ -522,7 +570,9 @@
    "SAMSUNG",
    "TSMC"
   ],
-  "price_1y_pct": 43.8
+  "price_1y_pct": 43.8,
+  "net_debt_usd": -3626595076.0805054,
+  "net_debt_to_ebitda": -0.6
  },
  "SCREEN": {
   "checks": {
@@ -542,7 +592,9 @@
   "customers": [
    "TSMC"
   ],
-  "price_1y_pct": 33.4
+  "price_1y_pct": 33.4,
+  "net_debt_usd": -1182048503.3411064,
+  "net_debt_to_ebitda": -1.3
  },
  "LASERTEC": {
   "checks": {
@@ -564,7 +616,9 @@
    "TSMC",
    "SAMSUNG"
   ],
-  "price_1y_pct": 25.6
+  "price_1y_pct": 25.6,
+  "net_debt_usd": -692888935.7583771,
+  "net_debt_to_ebitda": -1.1
  },
  "ADVANTEST": {
   "checks": {
@@ -586,7 +640,9 @@
    "NVDA",
    "TSMC"
   ],
-  "price_1y_pct": 52.5
+  "price_1y_pct": 52.5,
+  "net_debt_usd": -1842434778.2676582,
+  "net_debt_to_ebitda": -0.4
  },
  "TERADYNE": {
   "checks": {
@@ -607,7 +663,9 @@
    "TSMC",
    "ASE"
   ],
-  "price_1y_pct": 44.7
+  "price_1y_pct": 44.7,
+  "net_debt_usd": -329473984.0,
+  "net_debt_to_ebitda": -0.2
  },
  "DISCO": {
   "checks": {
@@ -627,7 +685,9 @@
   "customers": [
    "TSMC"
   ],
-  "price_1y_pct": -3.3
+  "price_1y_pct": -3.3,
+  "net_debt_usd": -2141889263.1044617,
+  "net_debt_to_ebitda": -1.4
  },
  "BESI": {
   "checks": {
@@ -649,7 +709,9 @@
    "ASE",
    "TSMC"
   ],
-  "price_1y_pct": 12.6
+  "price_1y_pct": 12.6,
+  "net_debt_usd": -262460931.6376953,
+  "net_debt_to_ebitda": -0.6
  },
  "ONTO": {
   "checks": {
@@ -670,7 +732,9 @@
    "TSMC",
    "SAMSUNG"
   ],
-  "price_1y_pct": 54.4
+  "price_1y_pct": 54.4,
+  "net_debt_usd": 221708032.0,
+  "net_debt_to_ebitda": 0.6
  },
  "FORMFACTOR": {
   "checks": {
@@ -691,7 +755,9 @@
    "SKHYNIX",
    "INTEL"
   ],
-  "price_1y_pct": 70.7
+  "price_1y_pct": 70.7,
+  "net_debt_usd": -367652000.0,
+  "net_debt_to_ebitda": -1.5
  },
  "AXCELIS": {
   "checks": {
@@ -711,7 +777,9 @@
   "customers": [
    "SMIC"
   ],
-  "price_1y_pct": 31.0
+  "price_1y_pct": 31.0,
+  "net_debt_usd": -402494992.0,
+  "net_debt_to_ebitda": -4.0
  },
  "NOVA": {
   "checks": {
@@ -732,7 +800,9 @@
    "TSMC",
    "SAMSUNG"
   ],
-  "price_1y_pct": 12.2
+  "price_1y_pct": 12.2,
+  "net_debt_usd": -275319040.0,
+  "net_debt_to_ebitda": -0.8
  },
  "CAMTEK": {
   "checks": {
@@ -753,7 +823,9 @@
    "SKHYNIX",
    "ASE"
   ],
-  "price_1y_pct": 6.2
+  "price_1y_pct": 6.2,
+  "net_debt_usd": -117337024.0,
+  "net_debt_to_ebitda": -0.8
  },
  "TSMC": {
   "checks": {
@@ -781,7 +853,9 @@
    "NXP",
    "INFINEON"
   ],
-  "price_1y_pct": 58.4
+  "price_1y_pct": 58.4,
+  "net_debt_usd": -97316540747.57422,
+  "net_debt_to_ebitda": -0.9
  },
  "SAMSUNG": {
   "checks": {
@@ -804,7 +878,9 @@
    "QCOM",
    "AAPL"
   ],
-  "price_1y_pct": 109.9
+  "price_1y_pct": 109.9,
+  "net_debt_usd": -147909097546.40222,
+  "net_debt_to_ebitda": -0.6
  },
  "INTEL": {
   "checks": {
@@ -825,7 +901,9 @@
    "SMCI",
    "DELL"
   ],
-  "price_1y_pct": 63.7
+  "price_1y_pct": 63.7,
+  "net_debt_usd": -3870998528.0,
+  "net_debt_to_ebitda": -0.2
  },
  "SKHYNIX": {
   "checks": {
@@ -846,7 +924,9 @@
    "NVDA",
    "AAPL"
   ],
-  "price_1y_pct": 117.1
+  "price_1y_pct": 117.1,
+  "net_debt_usd": -73838653493.90094,
+  "net_debt_to_ebitda": -0.5
  },
  "MICRON": {
   "checks": {
@@ -867,7 +947,9 @@
    "NVDA",
    "AAPL"
   ],
-  "price_1y_pct": 194.1
+  "price_1y_pct": 194.1,
+  "net_debt_usd": -38255000576.0,
+  "net_debt_to_ebitda": -0.3
  },
  "GFS": {
   "checks": {
@@ -888,7 +970,9 @@
    "AMD",
    "QCOM"
   ],
-  "price_1y_pct": 23.4
+  "price_1y_pct": 23.4,
+  "net_debt_usd": -539000064.0,
+  "net_debt_to_ebitda": -0.3
  },
  "UMC": {
   "checks": {
@@ -908,7 +992,9 @@
   "customers": [
    "AMD"
   ],
-  "price_1y_pct": 127.2
+  "price_1y_pct": 127.2,
+  "net_debt_usd": -2188658727.0126953,
+  "net_debt_to_ebitda": -0.6
  },
  "SMIC": {
   "checks": {
@@ -926,7 +1012,9 @@
   "margin_pct": 17.1,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": -35.7
+  "price_1y_pct": -35.7,
+  "net_debt_usd": 1228239872.0,
+  "net_debt_to_ebitda": 0.2
  },
  "TOWER": {
   "checks": {
@@ -944,7 +1032,9 @@
   "margin_pct": 24.2,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 48.7
+  "price_1y_pct": 48.7,
+  "net_debt_usd": -1319144928.0,
+  "net_debt_to_ebitda": -1.9
  },
  "VIS": {
   "checks": {
@@ -962,7 +1052,9 @@
   "margin_pct": 22.1,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 45.8
+  "price_1y_pct": 45.8,
+  "net_debt_usd": -1206644728.3613892,
+  "net_debt_to_ebitda": -2.1
  },
  "PSMC": {
   "checks": {
@@ -980,7 +1072,9 @@
   "margin_pct": 20.5,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 94.4
+  "price_1y_pct": 94.4,
+  "net_debt_usd": -747370076.8544312,
+  "net_debt_to_ebitda": -2.5
  },
  "RENESAS": {
   "checks": {
@@ -1003,7 +1097,9 @@
    "NISSAN",
    "HONDA"
   ],
-  "price_1y_pct": 43.6
+  "price_1y_pct": 43.6,
+  "net_debt_usd": 2917210839.3314514,
+  "net_debt_to_ebitda": 1.0
  },
  "INFINEON": {
   "checks": {
@@ -1023,7 +1119,9 @@
   "customers": [
    "AAPL"
   ],
-  "price_1y_pct": 38.8
+  "price_1y_pct": 38.8,
+  "net_debt_usd": 5756130456.763672,
+  "net_debt_to_ebitda": 1.3
  },
  "NXP": {
   "checks": {
@@ -1043,7 +1141,9 @@
   "customers": [
    "AAPL"
   ],
-  "price_1y_pct": 35.0
+  "price_1y_pct": 35.0,
+  "net_debt_usd": 7034999808.0,
+  "net_debt_to_ebitda": 1.3
  },
  "STM": {
   "checks": {
@@ -1063,7 +1163,9 @@
   "customers": [
    "AAPL"
   ],
-  "price_1y_pct": 93.3
+  "price_1y_pct": 93.3,
+  "net_debt_usd": -1884999936.0,
+  "net_debt_to_ebitda": -0.6
  },
  "TI": {
   "checks": {
@@ -1083,7 +1185,9 @@
   "customers": [
    "AAPL"
   ],
-  "price_1y_pct": 92.7
+  "price_1y_pct": 92.7,
+  "net_debt_usd": 5413000192.0,
+  "net_debt_to_ebitda": 0.5
  },
  "SONY": {
   "checks": {
@@ -1103,7 +1207,9 @@
   "customers": [
    "AAPL"
   ],
-  "price_1y_pct": -9.1
+  "price_1y_pct": -9.1,
+  "net_debt_usd": 484887033.53271484,
+  "net_debt_to_ebitda": 0.0
  },
  "KIOXIA": {
   "checks": {
@@ -1123,7 +1229,9 @@
   "customers": [
    "AAPL"
   ],
-  "price_1y_pct": 171.8
+  "price_1y_pct": 171.8,
+  "net_debt_usd": -3719436922.7648315,
+  "net_debt_to_ebitda": -0.1
  },
  "MURATA": {
   "checks": {
@@ -1141,7 +1249,9 @@
   "margin_pct": 25.1,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 72.0
+  "price_1y_pct": 72.0,
+  "net_debt_usd": -3413388775.7212143,
+  "net_debt_to_ebitda": -0.9
  },
  "WINGTECH": {
   "checks": {
@@ -1164,7 +1274,9 @@
    "NISSAN",
    "VW"
   ],
-  "price_1y_pct": -73.2
+  "price_1y_pct": -73.2,
+  "net_debt_usd": 592434716.9660568,
+  "net_debt_to_ebitda": 39.0
  },
  "ASE": {
   "checks": {
@@ -1187,7 +1299,9 @@
    "AVGO",
    "AMD"
   ],
-  "price_1y_pct": 167.2
+  "price_1y_pct": 167.2,
+  "net_debt_usd": 8772886957.07898,
+  "net_debt_to_ebitda": 1.8
  },
  "AMKOR": {
   "checks": {
@@ -1209,7 +1323,9 @@
    "AAPL",
    "AVGO"
   ],
-  "price_1y_pct": 9.6
+  "price_1y_pct": 9.6,
+  "net_debt_usd": 336079872.0,
+  "net_debt_to_ebitda": 0.2
  },
  "NVDA": {
   "checks": {
@@ -1236,7 +1352,9 @@
    "AMZN",
    "META"
   ],
-  "price_1y_pct": -11.0
+  "price_1y_pct": -11.0,
+  "net_debt_usd": -23608999936.0,
+  "net_debt_to_ebitda": -0.1
  },
  "AMD": {
   "checks": {
@@ -1258,7 +1376,9 @@
    "MSFT",
    "SONY"
   ],
-  "price_1y_pct": 108.7
+  "price_1y_pct": 108.7,
+  "net_debt_usd": -6565000192.0,
+  "net_debt_to_ebitda": -0.6
  },
  "AAPL": {
   "checks": {
@@ -1276,7 +1396,9 @@
   "margin_pct": 31.1,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 28.3
+  "price_1y_pct": 28.3,
+  "net_debt_usd": 37756997632.0,
+  "net_debt_to_ebitda": 0.2
  },
  "QCOM": {
   "checks": {
@@ -1297,7 +1419,9 @@
    "AAPL",
    "SAMSUNG"
   ],
-  "price_1y_pct": 1.8
+  "price_1y_pct": 1.8,
+  "net_debt_usd": 8311000576.0,
+  "net_debt_to_ebitda": 0.8
  },
  "AVGO": {
   "checks": {
@@ -1317,7 +1441,9 @@
   "customers": [
    "AAPL"
   ],
-  "price_1y_pct": -2.3
+  "price_1y_pct": -2.3,
+  "net_debt_usd": 35444000768.0,
+  "net_debt_to_ebitda": 0.7
  },
  "MRVL": {
   "checks": {
@@ -1335,7 +1461,9 @@
   "margin_pct": 16.7,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 78.9
+  "price_1y_pct": 78.9,
+  "net_debt_usd": 1353299968.0,
+  "net_debt_to_ebitda": 0.5
  },
  "MEDIATEK": {
   "checks": {
@@ -1353,7 +1481,9 @@
   "margin_pct": 16.1,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 211.7
+  "price_1y_pct": 211.7,
+  "net_debt_usd": -7191492875.82843,
+  "net_debt_to_ebitda": -2.0
  },
  "HONHAI": {
   "checks": {
@@ -1374,7 +1504,9 @@
    "NVDA",
    "AAPL"
   ],
-  "price_1y_pct": 1.9
+  "price_1y_pct": 1.9,
+  "net_debt_usd": -5078649154.205078,
+  "net_debt_to_ebitda": -0.4
  },
  "QUANTA": {
   "checks": {
@@ -1394,7 +1526,9 @@
   "customers": [
    "AAPL"
   ],
-  "price_1y_pct": 8.4
+  "price_1y_pct": 8.4,
+  "net_debt_usd": 3108872450.6054688,
+  "net_debt_to_ebitda": 0.9
  },
  "SMCI": {
   "checks": {
@@ -1412,7 +1546,9 @@
   "margin_pct": 9.6,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": -23.7
+  "price_1y_pct": -23.7,
+  "net_debt_usd": 2265954304.0,
+  "net_debt_to_ebitda": 0.5
  },
  "DELL": {
   "checks": {
@@ -1430,7 +1566,9 @@
   "margin_pct": 12.0,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 152.6
+  "price_1y_pct": 152.6,
+  "net_debt_usd": 23714000896.0,
+  "net_debt_to_ebitda": 1.3
  },
  "MSFT": {
   "checks": {
@@ -1448,7 +1586,9 @@
   "margin_pct": 49.8,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 5.4
+  "price_1y_pct": 5.4,
+  "net_debt_usd": 69421998080.0,
+  "net_debt_to_ebitda": 0.3
  },
  "GOOGL": {
   "checks": {
@@ -1466,7 +1606,9 @@
   "margin_pct": 31.8,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 4.2
+  "price_1y_pct": 4.2,
+  "net_debt_usd": -114767003648.0,
+  "net_debt_to_ebitda": -0.6
  },
  "AMZN": {
   "checks": {
@@ -1484,7 +1626,9 @@
   "margin_pct": 13.9,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 15.4
+  "price_1y_pct": 15.4,
+  "net_debt_usd": 190614994944.0,
+  "net_debt_to_ebitda": 1.0
  },
  "META": {
   "checks": {
@@ -1502,16 +1646,18 @@
   "margin_pct": 35.4,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 5.6
+  "price_1y_pct": 5.6,
+  "net_debt_usd": 32393003008.0,
+  "net_debt_to_ebitda": 0.3
  },
  "TOYOTA": {
   "checks": {
    "cheap": true,
    "growing": true,
    "demand": null,
-   "not_broken": true
+   "not_broken": false
   },
-  "passed": 3,
+  "passed": 2,
   "candidate": false,
   "pe": 10.0,
   "ps": 0.8,
@@ -1520,7 +1666,9 @@
   "margin_pct": 8.4,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 10.8
+  "price_1y_pct": 10.8,
+  "net_debt_usd": 181237307147.65234,
+  "net_debt_to_ebitda": 4.9
  },
  "HONDA": {
   "checks": {
@@ -1538,7 +1686,9 @@
   "margin_pct": 8.8,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": 24.8
+  "price_1y_pct": 24.8,
+  "net_debt_usd": 54602674623.22998,
+  "net_debt_to_ebitda": 8.4
  },
  "NISSAN": {
   "checks": {
@@ -1556,16 +1706,18 @@
   "margin_pct": 2.6,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": -26.5
+  "price_1y_pct": -26.5,
+  "net_debt_usd": 43575269415.74182,
+  "net_debt_to_ebitda": 14.4
  },
  "VW": {
   "checks": {
    "cheap": false,
    "growing": false,
    "demand": null,
-   "not_broken": true
+   "not_broken": false
   },
-  "passed": 1,
+  "passed": 0,
   "candidate": false,
   "pe": 32.8,
   "ps": 0.1,
@@ -1574,6 +1726,8 @@
   "margin_pct": -7.8,
   "customers_growth_pct": null,
   "customers": [],
-  "price_1y_pct": -23.3
+  "price_1y_pct": -23.3,
+  "net_debt_usd": 237090878277.51562,
+  "net_debt_to_ebitda": 7.4
  }
 }
