@@ -1,135 +1,136 @@
 # share_pct = share of the SUPPLIER's revenue coming from this customer, where disclosed
 # valid_from_basis: documented = seen in a source for that year; assumed = long-standing link, start year is an estimate
-supplier,customer,product,share_pct,share_year,evidence_type,confidence,evidence_year,valid_from,valid_from_basis,source_url,note
-ENTEGRIS,TSMC,filtration; specialty chemicals,16,2025,filing,high,2025,2022,documented,https://www.sec.gov/Archives/edgar/data/1101302/000110130226000012/entg-20251231.htm,16% 2025 and 2024; 11% 2023; 12% 2022
-SILTRONIC,SAMSUNG,silicon wafers,,2024,filing,high,2024,2015,assumed,https://ir-api.eqs.com/media/document/ebcfeceb-dafc-4a1f-9259-7b7041809f85/assets/DE000WAF3001-JA-2024-EQ-E-00.pdf,one of three largest customers
-SILTRONIC,TSMC,silicon wafers,,2024,filing,high,2024,2015,assumed,https://ir-api.eqs.com/media/document/ebcfeceb-dafc-4a1f-9259-7b7041809f85/assets/DE000WAF3001-JA-2024-EQ-E-00.pdf,one of three largest customers
-SILTRONIC,INFINEON,silicon wafers,,2024,filing,high,2024,2015,assumed,https://ir-api.eqs.com/media/document/ebcfeceb-dafc-4a1f-9259-7b7041809f85/assets/DE000WAF3001-JA-2024-EQ-E-00.pdf,one of three largest customers
-SILTRONIC,INTEL,silicon wafers,,2025,official-list,high,2025,2015,assumed,https://www.intel.com/content/www/us/en/newsroom/news/corporate/intel-announces-2025-epic-supplier-award-recipients.html,Intel EPIC award
-WACKER,SILTRONIC,polysilicon,,2024,filing,high,2024,2015,assumed,https://ir-api.eqs.com/media/document/ebcfeceb-dafc-4a1f-9259-7b7041809f85/assets/DE000WAF3001-JA-2024-EQ-E-00.pdf,most of Siltronic's polysilicon
-SOULBRAIN,SAMSUNG,process chemicals,,2026,filing,high,2026,2018,assumed,https://images.samsung.com/is/content/samsung/assets/global/ir/docs/2026_1Q_Interim_Report.pdf,named main chemicals supplier; Samsung holds 5.6%
-SOITEC,GFS,SOI wafers,,2024,filing,high,2024,2021,assumed,https://www.sec.gov/Archives/edgar/data/1709048/000170904825000024/gfs-20241231.htm,61% of GF's SOI wafers in 2024
-GLOBALWAFERS,GFS,SOI wafers,,2021,press-release,high,2021,2021,documented,https://www.marketscreener.com/quote/stock/GLOBALWAFERS-CO-LTD-24203328/news/GLOBALFOUNDRIES-and-GlobalWafers-Partnering-to-Expand-Semiconductor-Wafer-Supply-35545993/,$800M long-term agreement
-SHINETSU,TSMC,wafers; litho materials,,2024,official-list,high,2024,2015,assumed,https://pr.tsmc.com/english/news/3192,TSMC supplier award 2023 and 2024
-SUMCO,TSMC,silicon wafers,,2024,official-list,high,2024,2015,assumed,https://pr.tsmc.com/english/news/3192,TSMC supplier award 2023 and 2024
-TOK,TSMC,photoresist,,2024,official-list,high,2024,2015,assumed,https://pr.tsmc.com/english/news/3192,TSMC supplier award
-MERCK,TSMC,precursors,,2023,official-list,high,2023,2018,assumed,https://pr.tsmc.com/english/news/3086,TSMC supplier award
-SHINETSU,INTEL,wafers; materials,,2024,official-list,high,2024,2015,assumed,https://www.intel.com/content/www/us/en/newsroom/news/intel-announces-2024-epic-supplier-program-award-recipients.html,Intel distinguished supplier
-AGC,INTEL,EUV mask blanks,,2025,official-list,high,2025,2022,assumed,https://www.intel.com/content/www/us/en/newsroom/news/corporate/intel-announces-2025-epic-supplier-award-recipients.html,Intel EPIC award
-UNIMICRON,INTEL,package substrates,,2024,official-list,high,2024,2018,assumed,https://www.intel.com/content/www/us/en/newsroom/news/intel-announces-2024-epic-supplier-program-award-recipients.html,Intel distinguished supplier
-IBIDEN,INTEL,package substrates,18,2026,press,medium,2024,2015,assumed,https://taipeitimes.com/News/biz/archives/2024/12/31/2003829378,share from aggregator; was 70-80% of substrate revenue earlier
-IBIDEN,NVDA,AI package substrates,29,2026,press,medium,2024,2023,assumed,https://taipeitimes.com/News/biz/archives/2024/12/31/2003829378,share from aggregator
-AJINOMOTO,IBIDEN,ABF build-up film,,2025,inferred,low,2025,2015,assumed,https://www.trendforce.com/news/2025/04/01/news-japanese-firm-ajinomoto-to-invest-jpy-25-billion-by-2030-to-expand-abf-production-for-advanced-packaging/,inferred from >95% ABF market share
-AJINOMOTO,UNIMICRON,ABF build-up film,,2025,inferred,low,2025,2015,assumed,https://www.trendforce.com/news/2025/04/01/news-japanese-firm-ajinomoto-to-invest-jpy-25-billion-by-2030-to-expand-abf-production-for-advanced-packaging/,inferred from >95% ABF market share
-LINDE,SAMSUNG,ultra-high-purity gases,,2020,press-release,high,2020,2020,documented,https://www.marketscreener.com/quote/stock/LINDE-PLC-46923083/news/Linde-Signs-Second-Long-Term-Agreement-to-Supply-Samsung-in-Pyeongtaek-South-Korea-31643276/,on-site plants Pyeongtaek
-AIRPRODUCTS,SAMSUNG,industrial gases,,2026,press,medium,2026,2026,documented,https://www.chemicalprocessing.com/industrynews/news/55375292/air-products-to-supply-gases-for-samsung-semiconductor-project-raises-outlook,new Pyeongtaek fab; start-up 2028-2030
-TOK,SKHYNIX,photoresist,,2025,press,medium,2025,2018,assumed,https://www.trendforce.com/news/2025/09/02/news-memory-giant-fragile-link-koreas-reliance-on-japan-in-hbm-supply-chain/,most of SK hynix's photoresist
-SHINETSU,SKHYNIX,silicon wafers,,2025,press,medium,2025,2018,assumed,https://www.trendforce.com/news/2025/09/02/news-memory-giant-fragile-link-koreas-reliance-on-japan-in-hbm-supply-chain/,large share of wafers
-SUMCO,SAMSUNG,silicon wafers,,2023,aggregator,medium,2023,2015,assumed,https://edinetdb.jp/company/E02103/main-customers,JPY 43.7bn in FY2023 per aggregator of securities reports
-UCTT,LAM,gas and fluid subsystems,37,2025,filing,high,2025,2020,documented,https://www.sec.gov/Archives/edgar/data/1275014/000162828026010744/uctt-20251226.htm,32-37% FY23-25
-UCTT,AMAT,gas and fluid subsystems,22,2025,filing,high,2025,2020,documented,https://www.sec.gov/Archives/edgar/data/1275014/000162828026010744/uctt-20251226.htm,22-23% FY23-25
-ICHOR,AMAT,fluid delivery,39,2025,filing,high,2025,2020,documented,https://www.sec.gov/Archives/edgar/data/1652535/000165253526000012/ichr-20251226.htm,35% in 2020
-ICHOR,LAM,fluid delivery,37,2025,filing,high,2025,2020,documented,https://www.sec.gov/Archives/edgar/data/1652535/000165253526000012/ichr-20251226.htm,52% in 2020
-ICHOR,ASML,fluid delivery,11,2023,filing,high,2023,2023,documented,https://www.sec.gov/Archives/edgar/data/1652535/000165253526000012/ichr-20251226.htm,below 10% in 2024-25
-AEIS,AMAT,RF and plasma power,18,2020,filing,high,2020,2018,documented,https://www.sec.gov/Archives/edgar/data/927003/000155837021001513/aeis-20201231x10k.htm,35.9% 2018; customers unnamed from 2023
-AEIS,LAM,RF and plasma power,10,2020,filing,high,2020,2018,documented,https://www.sec.gov/Archives/edgar/data/927003/000155837021001513/aeis-20201231x10k.htm,
-MKS,LAM,vacuum; RF; gas control,,2020,filing,high,2020,2019,documented,https://www.sec.gov/Archives/edgar/data/1049502/000156459021007630/mksi-10k_20201231.htm,Lam+AMAT 24% in 2020; none above 10% in 2023-25
-MKS,AMAT,vacuum; RF; gas control,,2020,filing,high,2020,2019,documented,https://www.sec.gov/Archives/edgar/data/1049502/000156459021007630/mksi-10k_20201231.htm,see Lam row
-AMAT,SAMSUNG,deposition; etch; CMP,12,2024,filing,high,2024,2018,documented,https://www.sec.gov/Archives/edgar/data/6951/000000695124000044/amat-20241027.htm,12-20% FY20-24; names dropped in FY25
-AMAT,TSMC,deposition; etch; CMP,11,2024,filing,high,2024,2018,documented,https://www.sec.gov/Archives/edgar/data/6951/000000695124000044/amat-20241027.htm,11-20% FY19-24
-AMAT,INTEL,deposition; etch; CMP,10,2022,filing,high,2022,2018,documented,https://www.sec.gov/Archives/edgar/data/6951/000000695123000041/amat-20231029.htm,10% FY22; 12% FY19
-LAM,MICRON,etch; deposition,,2026,filing,high,2026,2020,documented,https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm,four named top customers; 16/15/12/12% not mapped to names
-LAM,SAMSUNG,etch; deposition,,2026,filing,high,2026,2020,documented,https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm,
-LAM,SKHYNIX,etch; deposition,,2026,filing,high,2026,2020,documented,https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm,
-LAM,TSMC,etch; deposition,,2026,filing,high,2026,2020,documented,https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm,
-KLA,TSMC,inspection; metrology,19,2026,filing,high,2026,2018,documented,https://www.sec.gov/Archives/edgar/data/319201/000031920126000027/klac-20260630.htm,~19% FY25-26; ~13% FY24
-KLA,SAMSUNG,inspection; metrology,14,2020,filing,high,2020,2018,documented,https://www.sec.gov/Archives/edgar/data/319201/000031920120000047/klac-20200630.htm,above 10% in FY18 and FY20
-ASML,INTEL,EUV lithography,,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/intc-20251227.htm,Intel names ASML as sole source of EUV tools
-ASML,TSMC,lithography,,2025,inferred,low,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm,ASML does not name customers; largest customer 23.9% in 2025; Taiwan 25.5% of sales
-ASML,SAMSUNG,lithography,,2025,inferred,low,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm,inferred; Korea 25% of sales
-ASML,SKHYNIX,lithography,,2025,inferred,low,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm,inferred; Korea 25% of sales
-TERADYNE,TSMC,SoC testers,15,2020,filing,high,2020,2020,documented,https://www.sec.gov/Archives/edgar/data/97210/000119312521050735/d69963d10k.htm,2025 customers unnamed
-TERADYNE,ASE,testers,,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1122411/000119312526135585/d50802d20f.htm,named by ASE as primary tester supplier
-TEL,ASE,testers,,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1122411/000119312526135585/d50802d20f.htm,named by ASE
-ADVANTEST,ASE,testers,,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1122411/000119312526135585/d50802d20f.htm,named by ASE
-ONTO,TSMC,metrology; inspection,,2025,filing,high,2025,2020,documented,https://www.sec.gov/Archives/edgar/data/704532/000119312526066937/onto-20260103.htm,each above 10% in FY20
-ONTO,SAMSUNG,metrology; inspection,,2025,filing,high,2025,2020,documented,https://www.sec.gov/Archives/edgar/data/704532/000119312526066937/onto-20260103.htm,
-FORMFACTOR,SKHYNIX,probe cards,23,2025,filing,high,2025,2024,documented,https://www.sec.gov/Archives/edgar/data/1039399/000103939926000009/form-20251227.htm,18.9% FY24
-FORMFACTOR,INTEL,probe cards,15,2024,filing,high,2024,2023,documented,https://www.sec.gov/Archives/edgar/data/1039399/000103939926000009/form-20251227.htm,17.1% FY23; below 10% FY25
-AXCELIS,SMIC,ion implant,,2025,filing,high,2025,2020,assumed,https://www.sec.gov/Archives/edgar/data/1113232/000110465926020461/acls-20251231x10k.htm,named major Chinese customer
-BESI,AMKOR,die attach; hybrid bonding,,2025,annual-report,high,2025,2018,assumed,https://live.euronext.com/sites/default/files/esg_document_files/2026-03/062133_Annual_Report_2025_2026-03-16_15%3A55.pdf,no customer above 10%
-BESI,ASE,die attach; hybrid bonding,,2025,annual-report,high,2025,2018,assumed,https://live.euronext.com/sites/default/files/esg_document_files/2026-03/062133_Annual_Report_2025_2026-03-16_15%3A55.pdf,
-BESI,TSMC,hybrid bonding,,2025,annual-report,high,2025,2021,assumed,https://live.euronext.com/sites/default/files/esg_document_files/2026-03/062133_Annual_Report_2025_2026-03-16_15%3A55.pdf,
-LASERTEC,INTEL,EUV mask inspection,33,2025,official-list,high,2025,2019,assumed,https://www.intel.com/content/www/us/en/newsroom/news/corporate/intel-announces-2025-epic-supplier-award-recipients.html,"link from Intel award; share from aggregator, unverified"
-LASERTEC,TSMC,EUV mask inspection,26,2025,official-list,high,2023,2019,assumed,https://pr.tsmc.com/english/news/3086,"link from TSMC award; share from aggregator, unverified"
-LASERTEC,SAMSUNG,EUV mask inspection,20,2025,aggregator,low,2025,2019,assumed,https://envalith.com/en/companies/6920/overview,aggregator only
-SCREEN,TSMC,wafer cleaning,15,2026,aggregator,low,2026,2015,assumed,https://envalith.com/en/companies/7735/overview,aggregator only
-ADVANTEST,NVDA,testers,20,2025,aggregator,low,2025,2023,assumed,https://envalith.com/en/companies/6857/overview,aggregator only; year unclear
-ADVANTEST,TSMC,testers,11,2025,aggregator,low,2025,2020,assumed,https://envalith.com/en/companies/6857/overview,aggregator only
-DISCO,TSMC,dicing; grinding,11,2026,aggregator,low,2026,2018,assumed,https://envalith.com/en/companies/6146/overview,aggregator only
-TEL,SAMSUNG,coater; etch; deposition,12,2025,search-snippet,low,2025,2015,assumed,,unverified: search snippet only
-TEL,TSMC,coater; etch; deposition,12,2025,search-snippet,low,2025,2015,assumed,,unverified: search snippet only
-NOVA,TSMC,metrology,,2025,inferred,low,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1109345/000117891326000504/zk2634307.htm,Nova names no customers; Taiwan 29% of 2025 revenue
-NOVA,SAMSUNG,metrology,,2025,inferred,low,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1109345/000117891326000504/zk2634307.htm,inferred; Korea 16% of revenue
-CAMTEK,SKHYNIX,inspection for HBM / advanced packaging,,2025,inferred,low,2025,2023,assumed,https://www.sec.gov/Archives/edgar/data/1109138/000117891326001561/zk2634678.htm,Camtek names no customers; ~50% of revenue AI-related (HBM; packaging)
-CAMTEK,ASE,inspection for advanced packaging,,2025,inferred,low,2025,2018,assumed,https://www.sec.gov/Archives/edgar/data/1109138/000117891326001561/zk2634678.htm,inferred
-TSMC,NVDA,foundry wafers; CoWoS packaging,19,2025,filing,high,2025,2010,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,19% of TSMC 2025 revenue; customer identity from press
-TSMC,AAPL,leading-edge foundry,17,2025,official-list,high,2023,2014,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,17% 2025; 22% 2024; 25% 2023 (identity from press); 23-25% 2019-20
-TSMC,AMD,HPC wafers,,2025,filing,high,2025,2018,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,
-TSMC,QCOM,foundry,,2026,filing,high,2026,2010,assumed,https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm,
-TSMC,AVGO,foundry,,2025,filing,high,2025,2010,assumed,https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm,majority of wafers
-TSMC,MEDIATEK,foundry,,2025,inferred,low,2025,2010,assumed,,widely reported; no primary source opened
-TSMC,MRVL,foundry,,2025,inferred,low,2025,2015,assumed,,widely reported; no primary source opened
-GFS,AMD,12/14 nm wafers,,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,
-GFS,QCOM,foundry,,2026,filing,high,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm,
-UMC,AMD,programmable-logic wafers,,2025,filing,high,2025,2022,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,ex-Xilinx
-SAMSUNG,AMD,programmable-logic wafers,,2025,filing,high,2025,2022,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,ex-Xilinx
-SAMSUNG,NVDA,foundry wafers; memory,,2026,filing,high,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,
-SAMSUNG,QCOM,foundry,,2026,filing,high,2026,2015,assumed,https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm,
-SAMSUNG,AAPL,memory; displays,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,Apple supplier list FY2023
-SKHYNIX,NVDA,HBM memory,27,2025,filing,high,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,~27% of 1H25 revenue per press
-SKHYNIX,AAPL,memory,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,
-MICRON,NVDA,DRAM; HBM,,2026,filing,high,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,unnamed 17% customer in FY25
-MICRON,AAPL,memory,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,
-KIOXIA,AAPL,NAND flash,,2023,official-list,high,2023,2018,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,
-SONY,AAPL,image sensors,,2023,official-list,high,2023,2011,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,
-TI,AAPL,analog chips,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,
-STM,AAPL,sensors; power,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,
-NXP,AAPL,NFC; mixed-signal,,2025,filing,high,2025,2014,assumed,https://www.sec.gov/Archives/edgar/data/1413447/000141344726000008/nxpi-20251231.htm,named top-ten end customer
-INFINEON,AAPL,power chips,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,
-RENESAS,AAPL,power management,,2023,official-list,high,2023,2017,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,
-WINGTECH,AAPL,discretes; assembly,,2023,official-list,high,2023,2019,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,
-AVGO,AAPL,RF; wireless,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,
-QCOM,AAPL,modems,20,2026,filing,high,2026,2012,assumed,https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm,Apple and Samsung each >=10%; 22%/20% unnamed
-QCOM,SAMSUNG,application processors,20,2026,filing,high,2026,2012,assumed,https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm,
-ASE,QCOM,assembly and test,,2026,filing,high,2026,2012,assumed,https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm,
-AMKOR,QCOM,packaging and test,11,2025,filing,high,2025,2012,assumed,https://www.sec.gov/Archives/edgar/data/1047127/000104712726000014/amkr-20251231.htm,11.1% of Amkor 2025 sales
-AMKOR,AAPL,packaging and test,30,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1047127/000104712726000014/amkr-20251231.htm,29.8% of Amkor 2025 sales
-ASE,AAPL,packaging and test,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,
-ASE,AVGO,assembly and test,,2025,filing,high,2025,2012,assumed,https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm,
-AMKOR,AVGO,assembly and test,,2025,filing,high,2025,2012,assumed,https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm,
-ASE,AMD,assembly and test (SPIL),,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,via SPIL
-HONHAI,NVDA,contract manufacturing,,2026,filing,high,2026,2020,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,Hon Hai builds Nvidia systems
-NVDA,HONHAI,GPUs for AI racks,,2024,press,medium,2024,2023,documented,https://www.trendforce.com/news/2024/12/23/news-foxconn-reportedly-secures-the-lions-share-for-nvidias-gb300-with-new-products-set-to-debut-in-1h25/,largest GB300 share
-NVDA,QUANTA,GPUs for AI racks,,2024,press,medium,2024,2023,documented,https://www.trendforce.com/news/2024/12/23/news-foxconn-reportedly-secures-the-lions-share-for-nvidias-gb300-with-new-products-set-to-debut-in-1h25/,second-largest share
-HONHAI,AAPL,iPhone assembly,,2023,official-list,high,2023,2010,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,
-QUANTA,AAPL,Mac assembly,,2023,official-list,high,2023,2010,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,
-NVDA,SMCI,GPUs,,2026,filing,high,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm,one unnamed supplier = 63% of purchases
-AMD,SMCI,CPUs; GPUs,,2026,filing,high,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm,
-INTEL,SMCI,CPUs,,2026,filing,high,2026,2015,assumed,https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm,
-INTEL,DELL,PC and server CPUs,19,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/R55.htm,19% of Intel revenue 2023-25
-NVDA,DELL,GPUs,,2021,filing,high,2021,2020,documented,https://www.sec.gov/Archives/edgar/data/1045810/000104581021000010/nvda-20210131.htm,Dell ~11% of Nvidia FY2020 revenue
-NVDA,MSFT,AI GPUs,,2026,inferred,low,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,Nvidia names no customers (22% and 14% in FY26); widely reported
-NVDA,GOOGL,AI GPUs,,2026,inferred,low,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,inferred
-NVDA,AMZN,AI GPUs,,2026,inferred,low,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,inferred
-NVDA,META,AI GPUs,,2026,inferred,low,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,inferred
-AMD,MSFT,console and server chips,,2025,filing,high,2025,2013,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,Xbox; one gaming customer 18% of 2023
-AMD,SONY,console chips,,2025,filing,high,2025,2013,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,PlayStation 5
-RENESAS,TOYOTA,automotive microcontrollers,,2021,press,medium,2021,2012,assumed,https://www.insurancejournal.com/news/international/2021/03/22/606439.htm,~30% of global auto MCU market
-RENESAS,NISSAN,automotive microcontrollers,,2021,press,medium,2021,2012,assumed,https://www.insurancejournal.com/news/international/2021/03/22/606439.htm,
-RENESAS,HONDA,automotive microcontrollers,,2021,press,medium,2021,2012,assumed,https://www.insurancejournal.com/news/international/2021/03/22/606439.htm,
-WINGTECH,HONDA,discretes and logic chips (Nexperia),,2025,press,medium,2025,2019,assumed,https://finance.yahoo.com/news/crisis-chipmaker-nexperia-sent-automakers-184824100.html,Honda halted Mexico plant
-WINGTECH,NISSAN,discretes and logic chips (Nexperia),,2025,press,medium,2025,2019,assumed,https://finance.yahoo.com/news/crisis-chipmaker-nexperia-sent-automakers-184824100.html,
-WINGTECH,VW,discretes and logic chips (Nexperia),,2025,press,medium,2025,2019,assumed,https://finance.yahoo.com/news/crisis-chipmaker-nexperia-sent-automakers-184824100.html,
-TSMC,NXP,foundry (joint ventures),,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1413447/000141344726000008/nxpi-20251231.htm,Dresden and Singapore JVs
-TSMC,INFINEON,foundry (Dresden JV),,2025,filing,high,2025,2023,documented,https://www.sec.gov/Archives/edgar/data/1413447/000141344726000008/nxpi-20251231.htm,ESMC: TSMC 70%; Infineon 10%
+# critical = 1 when the CUSTOMER depends heavily on this supplier (sole or dominant source). Basis: documented in a source, or my judgment
+supplier,customer,product,share_pct,share_year,evidence_type,confidence,evidence_year,valid_from,valid_from_basis,source_url,note,critical,critical_basis
+ENTEGRIS,TSMC,filtration; specialty chemicals,16,2025,filing,high,2025,2022,documented,https://www.sec.gov/Archives/edgar/data/1101302/000110130226000012/entg-20251231.htm,16% 2025 and 2024; 11% 2023; 12% 2022,0,
+SILTRONIC,SAMSUNG,silicon wafers,,2024,filing,high,2024,2015,assumed,https://ir-api.eqs.com/media/document/ebcfeceb-dafc-4a1f-9259-7b7041809f85/assets/DE000WAF3001-JA-2024-EQ-E-00.pdf,one of three largest customers,0,
+SILTRONIC,TSMC,silicon wafers,,2024,filing,high,2024,2015,assumed,https://ir-api.eqs.com/media/document/ebcfeceb-dafc-4a1f-9259-7b7041809f85/assets/DE000WAF3001-JA-2024-EQ-E-00.pdf,one of three largest customers,0,
+SILTRONIC,INFINEON,silicon wafers,,2024,filing,high,2024,2015,assumed,https://ir-api.eqs.com/media/document/ebcfeceb-dafc-4a1f-9259-7b7041809f85/assets/DE000WAF3001-JA-2024-EQ-E-00.pdf,one of three largest customers,0,
+SILTRONIC,INTEL,silicon wafers,,2025,official-list,high,2025,2015,assumed,https://www.intel.com/content/www/us/en/newsroom/news/corporate/intel-announces-2025-epic-supplier-award-recipients.html,Intel EPIC award,0,
+WACKER,SILTRONIC,polysilicon,,2024,filing,high,2024,2015,assumed,https://ir-api.eqs.com/media/document/ebcfeceb-dafc-4a1f-9259-7b7041809f85/assets/DE000WAF3001-JA-2024-EQ-E-00.pdf,most of Siltronic's polysilicon,1,documented
+SOULBRAIN,SAMSUNG,process chemicals,,2026,filing,high,2026,2018,assumed,https://images.samsung.com/is/content/samsung/assets/global/ir/docs/2026_1Q_Interim_Report.pdf,named main chemicals supplier; Samsung holds 5.6%,0,
+SOITEC,GFS,SOI wafers,,2024,filing,high,2024,2021,assumed,https://www.sec.gov/Archives/edgar/data/1709048/000170904825000024/gfs-20241231.htm,61% of GF's SOI wafers in 2024,1,documented
+GLOBALWAFERS,GFS,SOI wafers,,2021,press-release,high,2021,2021,documented,https://www.marketscreener.com/quote/stock/GLOBALWAFERS-CO-LTD-24203328/news/GLOBALFOUNDRIES-and-GlobalWafers-Partnering-to-Expand-Semiconductor-Wafer-Supply-35545993/,$800M long-term agreement,0,
+SHINETSU,TSMC,wafers; litho materials,,2024,official-list,high,2024,2015,assumed,https://pr.tsmc.com/english/news/3192,TSMC supplier award 2023 and 2024,0,
+SUMCO,TSMC,silicon wafers,,2024,official-list,high,2024,2015,assumed,https://pr.tsmc.com/english/news/3192,TSMC supplier award 2023 and 2024,0,
+TOK,TSMC,photoresist,,2024,official-list,high,2024,2015,assumed,https://pr.tsmc.com/english/news/3192,TSMC supplier award,0,
+MERCK,TSMC,precursors,,2023,official-list,high,2023,2018,assumed,https://pr.tsmc.com/english/news/3086,TSMC supplier award,0,
+SHINETSU,INTEL,wafers; materials,,2024,official-list,high,2024,2015,assumed,https://www.intel.com/content/www/us/en/newsroom/news/intel-announces-2024-epic-supplier-program-award-recipients.html,Intel distinguished supplier,0,
+AGC,INTEL,EUV mask blanks,,2025,official-list,high,2025,2022,assumed,https://www.intel.com/content/www/us/en/newsroom/news/corporate/intel-announces-2025-epic-supplier-award-recipients.html,Intel EPIC award,0,
+UNIMICRON,INTEL,package substrates,,2024,official-list,high,2024,2018,assumed,https://www.intel.com/content/www/us/en/newsroom/news/intel-announces-2024-epic-supplier-program-award-recipients.html,Intel distinguished supplier,0,
+IBIDEN,INTEL,package substrates,18,2026,press,medium,2024,2015,assumed,https://taipeitimes.com/News/biz/archives/2024/12/31/2003829378,share from aggregator; was 70-80% of substrate revenue earlier,1,judgment
+IBIDEN,NVDA,AI package substrates,29,2026,press,medium,2024,2023,assumed,https://taipeitimes.com/News/biz/archives/2024/12/31/2003829378,share from aggregator,1,documented
+AJINOMOTO,IBIDEN,ABF build-up film,,2025,inferred,low,2025,2015,assumed,https://www.trendforce.com/news/2025/04/01/news-japanese-firm-ajinomoto-to-invest-jpy-25-billion-by-2030-to-expand-abf-production-for-advanced-packaging/,inferred from >95% ABF market share,1,documented
+AJINOMOTO,UNIMICRON,ABF build-up film,,2025,inferred,low,2025,2015,assumed,https://www.trendforce.com/news/2025/04/01/news-japanese-firm-ajinomoto-to-invest-jpy-25-billion-by-2030-to-expand-abf-production-for-advanced-packaging/,inferred from >95% ABF market share,1,documented
+LINDE,SAMSUNG,ultra-high-purity gases,,2020,press-release,high,2020,2020,documented,https://www.marketscreener.com/quote/stock/LINDE-PLC-46923083/news/Linde-Signs-Second-Long-Term-Agreement-to-Supply-Samsung-in-Pyeongtaek-South-Korea-31643276/,on-site plants Pyeongtaek,0,
+AIRPRODUCTS,SAMSUNG,industrial gases,,2026,press,medium,2026,2026,documented,https://www.chemicalprocessing.com/industrynews/news/55375292/air-products-to-supply-gases-for-samsung-semiconductor-project-raises-outlook,new Pyeongtaek fab; start-up 2028-2030,0,
+TOK,SKHYNIX,photoresist,,2025,press,medium,2025,2018,assumed,https://www.trendforce.com/news/2025/09/02/news-memory-giant-fragile-link-koreas-reliance-on-japan-in-hbm-supply-chain/,most of SK hynix's photoresist,1,documented
+SHINETSU,SKHYNIX,silicon wafers,,2025,press,medium,2025,2018,assumed,https://www.trendforce.com/news/2025/09/02/news-memory-giant-fragile-link-koreas-reliance-on-japan-in-hbm-supply-chain/,large share of wafers,1,documented
+SUMCO,SAMSUNG,silicon wafers,,2023,aggregator,medium,2023,2015,assumed,https://edinetdb.jp/company/E02103/main-customers,JPY 43.7bn in FY2023 per aggregator of securities reports,0,
+UCTT,LAM,gas and fluid subsystems,37,2025,filing,high,2025,2020,documented,https://www.sec.gov/Archives/edgar/data/1275014/000162828026010744/uctt-20251226.htm,32-37% FY23-25,0,
+UCTT,AMAT,gas and fluid subsystems,22,2025,filing,high,2025,2020,documented,https://www.sec.gov/Archives/edgar/data/1275014/000162828026010744/uctt-20251226.htm,22-23% FY23-25,0,
+ICHOR,AMAT,fluid delivery,39,2025,filing,high,2025,2020,documented,https://www.sec.gov/Archives/edgar/data/1652535/000165253526000012/ichr-20251226.htm,35% in 2020,0,
+ICHOR,LAM,fluid delivery,37,2025,filing,high,2025,2020,documented,https://www.sec.gov/Archives/edgar/data/1652535/000165253526000012/ichr-20251226.htm,52% in 2020,0,
+ICHOR,ASML,fluid delivery,11,2023,filing,high,2023,2023,documented,https://www.sec.gov/Archives/edgar/data/1652535/000165253526000012/ichr-20251226.htm,below 10% in 2024-25,0,
+AEIS,AMAT,RF and plasma power,18,2020,filing,high,2020,2018,documented,https://www.sec.gov/Archives/edgar/data/927003/000155837021001513/aeis-20201231x10k.htm,35.9% 2018; customers unnamed from 2023,0,
+AEIS,LAM,RF and plasma power,10,2020,filing,high,2020,2018,documented,https://www.sec.gov/Archives/edgar/data/927003/000155837021001513/aeis-20201231x10k.htm,,0,
+MKS,LAM,vacuum; RF; gas control,,2020,filing,high,2020,2019,documented,https://www.sec.gov/Archives/edgar/data/1049502/000156459021007630/mksi-10k_20201231.htm,Lam+AMAT 24% in 2020; none above 10% in 2023-25,0,
+MKS,AMAT,vacuum; RF; gas control,,2020,filing,high,2020,2019,documented,https://www.sec.gov/Archives/edgar/data/1049502/000156459021007630/mksi-10k_20201231.htm,see Lam row,0,
+AMAT,SAMSUNG,deposition; etch; CMP,12,2024,filing,high,2024,2018,documented,https://www.sec.gov/Archives/edgar/data/6951/000000695124000044/amat-20241027.htm,12-20% FY20-24; names dropped in FY25,0,
+AMAT,TSMC,deposition; etch; CMP,11,2024,filing,high,2024,2018,documented,https://www.sec.gov/Archives/edgar/data/6951/000000695124000044/amat-20241027.htm,11-20% FY19-24,0,
+AMAT,INTEL,deposition; etch; CMP,10,2022,filing,high,2022,2018,documented,https://www.sec.gov/Archives/edgar/data/6951/000000695123000041/amat-20231029.htm,10% FY22; 12% FY19,0,
+LAM,MICRON,etch; deposition,,2026,filing,high,2026,2020,documented,https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm,four named top customers; 16/15/12/12% not mapped to names,0,
+LAM,SAMSUNG,etch; deposition,,2026,filing,high,2026,2020,documented,https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm,,0,
+LAM,SKHYNIX,etch; deposition,,2026,filing,high,2026,2020,documented,https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm,,0,
+LAM,TSMC,etch; deposition,,2026,filing,high,2026,2020,documented,https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm,,0,
+KLA,TSMC,inspection; metrology,19,2026,filing,high,2026,2018,documented,https://www.sec.gov/Archives/edgar/data/319201/000031920126000027/klac-20260630.htm,~19% FY25-26; ~13% FY24,0,
+KLA,SAMSUNG,inspection; metrology,14,2020,filing,high,2020,2018,documented,https://www.sec.gov/Archives/edgar/data/319201/000031920120000047/klac-20200630.htm,above 10% in FY18 and FY20,0,
+ASML,INTEL,EUV lithography,,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/intc-20251227.htm,Intel names ASML as sole source of EUV tools,1,documented
+ASML,TSMC,lithography,,2025,inferred,low,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm,ASML does not name customers; largest customer 23.9% in 2025; Taiwan 25.5% of sales,1,judgment
+ASML,SAMSUNG,lithography,,2025,inferred,low,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm,inferred; Korea 25% of sales,1,judgment
+ASML,SKHYNIX,lithography,,2025,inferred,low,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm,inferred; Korea 25% of sales,1,judgment
+TERADYNE,TSMC,SoC testers,15,2020,filing,high,2020,2020,documented,https://www.sec.gov/Archives/edgar/data/97210/000119312521050735/d69963d10k.htm,2025 customers unnamed,0,
+TERADYNE,ASE,testers,,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1122411/000119312526135585/d50802d20f.htm,named by ASE as primary tester supplier,0,
+TEL,ASE,testers,,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1122411/000119312526135585/d50802d20f.htm,named by ASE,0,
+ADVANTEST,ASE,testers,,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1122411/000119312526135585/d50802d20f.htm,named by ASE,0,
+ONTO,TSMC,metrology; inspection,,2025,filing,high,2025,2020,documented,https://www.sec.gov/Archives/edgar/data/704532/000119312526066937/onto-20260103.htm,each above 10% in FY20,0,
+ONTO,SAMSUNG,metrology; inspection,,2025,filing,high,2025,2020,documented,https://www.sec.gov/Archives/edgar/data/704532/000119312526066937/onto-20260103.htm,,0,
+FORMFACTOR,SKHYNIX,probe cards,23,2025,filing,high,2025,2024,documented,https://www.sec.gov/Archives/edgar/data/1039399/000103939926000009/form-20251227.htm,18.9% FY24,0,
+FORMFACTOR,INTEL,probe cards,15,2024,filing,high,2024,2023,documented,https://www.sec.gov/Archives/edgar/data/1039399/000103939926000009/form-20251227.htm,17.1% FY23; below 10% FY25,0,
+AXCELIS,SMIC,ion implant,,2025,filing,high,2025,2020,assumed,https://www.sec.gov/Archives/edgar/data/1113232/000110465926020461/acls-20251231x10k.htm,named major Chinese customer,0,
+BESI,AMKOR,die attach; hybrid bonding,,2025,annual-report,high,2025,2018,assumed,https://live.euronext.com/sites/default/files/esg_document_files/2026-03/062133_Annual_Report_2025_2026-03-16_15%3A55.pdf,no customer above 10%,0,
+BESI,ASE,die attach; hybrid bonding,,2025,annual-report,high,2025,2018,assumed,https://live.euronext.com/sites/default/files/esg_document_files/2026-03/062133_Annual_Report_2025_2026-03-16_15%3A55.pdf,,0,
+BESI,TSMC,hybrid bonding,,2025,annual-report,high,2025,2021,assumed,https://live.euronext.com/sites/default/files/esg_document_files/2026-03/062133_Annual_Report_2025_2026-03-16_15%3A55.pdf,,0,
+LASERTEC,INTEL,EUV mask inspection,33,2025,official-list,high,2025,2019,assumed,https://www.intel.com/content/www/us/en/newsroom/news/corporate/intel-announces-2025-epic-supplier-award-recipients.html,"link from Intel award; share from aggregator, unverified",1,judgment
+LASERTEC,TSMC,EUV mask inspection,26,2025,official-list,high,2023,2019,assumed,https://pr.tsmc.com/english/news/3086,"link from TSMC award; share from aggregator, unverified",1,judgment
+LASERTEC,SAMSUNG,EUV mask inspection,20,2025,aggregator,low,2025,2019,assumed,https://envalith.com/en/companies/6920/overview,aggregator only,1,judgment
+SCREEN,TSMC,wafer cleaning,15,2026,aggregator,low,2026,2015,assumed,https://envalith.com/en/companies/7735/overview,aggregator only,0,
+ADVANTEST,NVDA,testers,20,2025,aggregator,low,2025,2023,assumed,https://envalith.com/en/companies/6857/overview,aggregator only; year unclear,0,
+ADVANTEST,TSMC,testers,11,2025,aggregator,low,2025,2020,assumed,https://envalith.com/en/companies/6857/overview,aggregator only,0,
+DISCO,TSMC,dicing; grinding,11,2026,aggregator,low,2026,2018,assumed,https://envalith.com/en/companies/6146/overview,aggregator only,0,
+TEL,SAMSUNG,coater; etch; deposition,12,2025,search-snippet,low,2025,2015,assumed,,unverified: search snippet only,0,
+TEL,TSMC,coater; etch; deposition,12,2025,search-snippet,low,2025,2015,assumed,,unverified: search snippet only,0,
+NOVA,TSMC,metrology,,2025,inferred,low,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1109345/000117891326000504/zk2634307.htm,Nova names no customers; Taiwan 29% of 2025 revenue,0,
+NOVA,SAMSUNG,metrology,,2025,inferred,low,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1109345/000117891326000504/zk2634307.htm,inferred; Korea 16% of revenue,0,
+CAMTEK,SKHYNIX,inspection for HBM / advanced packaging,,2025,inferred,low,2025,2023,assumed,https://www.sec.gov/Archives/edgar/data/1109138/000117891326001561/zk2634678.htm,Camtek names no customers; ~50% of revenue AI-related (HBM; packaging),0,
+CAMTEK,ASE,inspection for advanced packaging,,2025,inferred,low,2025,2018,assumed,https://www.sec.gov/Archives/edgar/data/1109138/000117891326001561/zk2634678.htm,inferred,0,
+TSMC,NVDA,foundry wafers; CoWoS packaging,19,2025,filing,high,2025,2010,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,19% of TSMC 2025 revenue; customer identity from press,1,documented
+TSMC,AAPL,leading-edge foundry,17,2025,official-list,high,2023,2014,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,17% 2025; 22% 2024; 25% 2023 (identity from press); 23-25% 2019-20,1,documented
+TSMC,AMD,HPC wafers,,2025,filing,high,2025,2018,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,,1,documented
+TSMC,QCOM,foundry,,2026,filing,high,2026,2010,assumed,https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm,,1,documented
+TSMC,AVGO,foundry,,2025,filing,high,2025,2010,assumed,https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm,majority of wafers,1,documented
+TSMC,MEDIATEK,foundry,,2025,inferred,low,2025,2010,assumed,,widely reported; no primary source opened,1,judgment
+TSMC,MRVL,foundry,,2025,inferred,low,2025,2015,assumed,,widely reported; no primary source opened,1,judgment
+GFS,AMD,12/14 nm wafers,,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,,0,
+GFS,QCOM,foundry,,2026,filing,high,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm,,0,
+UMC,AMD,programmable-logic wafers,,2025,filing,high,2025,2022,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,ex-Xilinx,0,
+SAMSUNG,AMD,programmable-logic wafers,,2025,filing,high,2025,2022,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,ex-Xilinx,0,
+SAMSUNG,NVDA,foundry wafers; memory,,2026,filing,high,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,,0,
+SAMSUNG,QCOM,foundry,,2026,filing,high,2026,2015,assumed,https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm,,0,
+SAMSUNG,AAPL,memory; displays,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,Apple supplier list FY2023,0,
+SKHYNIX,NVDA,HBM memory,27,2025,filing,high,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,~27% of 1H25 revenue per press,1,documented
+SKHYNIX,AAPL,memory,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,,0,
+MICRON,NVDA,DRAM; HBM,,2026,filing,high,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,unnamed 17% customer in FY25,0,
+MICRON,AAPL,memory,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,,0,
+KIOXIA,AAPL,NAND flash,,2023,official-list,high,2023,2018,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,,0,
+SONY,AAPL,image sensors,,2023,official-list,high,2023,2011,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,,1,judgment
+TI,AAPL,analog chips,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,,0,
+STM,AAPL,sensors; power,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,,0,
+NXP,AAPL,NFC; mixed-signal,,2025,filing,high,2025,2014,assumed,https://www.sec.gov/Archives/edgar/data/1413447/000141344726000008/nxpi-20251231.htm,named top-ten end customer,0,
+INFINEON,AAPL,power chips,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,,0,
+RENESAS,AAPL,power management,,2023,official-list,high,2023,2017,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,,0,
+WINGTECH,AAPL,discretes; assembly,,2023,official-list,high,2023,2019,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,,0,
+AVGO,AAPL,RF; wireless,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,,0,
+QCOM,AAPL,modems,20,2026,filing,high,2026,2012,assumed,https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm,Apple and Samsung each >=10%; 22%/20% unnamed,1,judgment
+QCOM,SAMSUNG,application processors,20,2026,filing,high,2026,2012,assumed,https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm,,1,judgment
+ASE,QCOM,assembly and test,,2026,filing,high,2026,2012,assumed,https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm,,0,
+AMKOR,QCOM,packaging and test,11,2025,filing,high,2025,2012,assumed,https://www.sec.gov/Archives/edgar/data/1047127/000104712726000014/amkr-20251231.htm,11.1% of Amkor 2025 sales,0,
+AMKOR,AAPL,packaging and test,30,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1047127/000104712726000014/amkr-20251231.htm,29.8% of Amkor 2025 sales,0,
+ASE,AAPL,packaging and test,,2023,official-list,high,2023,2012,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,,0,
+ASE,AVGO,assembly and test,,2025,filing,high,2025,2012,assumed,https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm,,0,
+AMKOR,AVGO,assembly and test,,2025,filing,high,2025,2012,assumed,https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm,,0,
+ASE,AMD,assembly and test (SPIL),,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,via SPIL,0,
+HONHAI,NVDA,contract manufacturing,,2026,filing,high,2026,2020,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,Hon Hai builds Nvidia systems,1,documented
+NVDA,HONHAI,GPUs for AI racks,,2024,press,medium,2024,2023,documented,https://www.trendforce.com/news/2024/12/23/news-foxconn-reportedly-secures-the-lions-share-for-nvidias-gb300-with-new-products-set-to-debut-in-1h25/,largest GB300 share,1,judgment
+NVDA,QUANTA,GPUs for AI racks,,2024,press,medium,2024,2023,documented,https://www.trendforce.com/news/2024/12/23/news-foxconn-reportedly-secures-the-lions-share-for-nvidias-gb300-with-new-products-set-to-debut-in-1h25/,second-largest share,1,judgment
+HONHAI,AAPL,iPhone assembly,,2023,official-list,high,2023,2010,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,,1,documented
+QUANTA,AAPL,Mac assembly,,2023,official-list,high,2023,2010,assumed,https://s203.q4cdn.com/367071867/files/doc_downloads/2024/04/Apple-Supplier-List.pdf,,0,
+NVDA,SMCI,GPUs,,2026,filing,high,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm,one unnamed supplier = 63% of purchases,1,judgment
+AMD,SMCI,CPUs; GPUs,,2026,filing,high,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm,,0,
+INTEL,SMCI,CPUs,,2026,filing,high,2026,2015,assumed,https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm,,0,
+INTEL,DELL,PC and server CPUs,19,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/R55.htm,19% of Intel revenue 2023-25,1,documented
+NVDA,DELL,GPUs,,2021,filing,high,2021,2020,documented,https://www.sec.gov/Archives/edgar/data/1045810/000104581021000010/nvda-20210131.htm,Dell ~11% of Nvidia FY2020 revenue,1,judgment
+NVDA,MSFT,AI GPUs,,2026,inferred,low,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,Nvidia names no customers (22% and 14% in FY26); widely reported,1,judgment
+NVDA,GOOGL,AI GPUs,,2026,inferred,low,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,inferred,1,judgment
+NVDA,AMZN,AI GPUs,,2026,inferred,low,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,inferred,1,judgment
+NVDA,META,AI GPUs,,2026,inferred,low,2026,2018,assumed,https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm,inferred,1,judgment
+AMD,MSFT,console and server chips,,2025,filing,high,2025,2013,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,Xbox; one gaming customer 18% of 2023,0,
+AMD,SONY,console chips,,2025,filing,high,2025,2013,assumed,https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm,PlayStation 5,0,
+RENESAS,TOYOTA,automotive microcontrollers,,2021,press,medium,2021,2012,assumed,https://www.insurancejournal.com/news/international/2021/03/22/606439.htm,~30% of global auto MCU market,1,documented
+RENESAS,NISSAN,automotive microcontrollers,,2021,press,medium,2021,2012,assumed,https://www.insurancejournal.com/news/international/2021/03/22/606439.htm,,1,documented
+RENESAS,HONDA,automotive microcontrollers,,2021,press,medium,2021,2012,assumed,https://www.insurancejournal.com/news/international/2021/03/22/606439.htm,,1,documented
+WINGTECH,HONDA,discretes and logic chips (Nexperia),,2025,press,medium,2025,2019,assumed,https://finance.yahoo.com/news/crisis-chipmaker-nexperia-sent-automakers-184824100.html,Honda halted Mexico plant,1,documented
+WINGTECH,NISSAN,discretes and logic chips (Nexperia),,2025,press,medium,2025,2019,assumed,https://finance.yahoo.com/news/crisis-chipmaker-nexperia-sent-automakers-184824100.html,,1,documented
+WINGTECH,VW,discretes and logic chips (Nexperia),,2025,press,medium,2025,2019,assumed,https://finance.yahoo.com/news/crisis-chipmaker-nexperia-sent-automakers-184824100.html,,1,documented
+TSMC,NXP,foundry (joint ventures),,2025,filing,high,2025,2015,assumed,https://www.sec.gov/Archives/edgar/data/1413447/000141344726000008/nxpi-20251231.htm,Dresden and Singapore JVs,0,
+TSMC,INFINEON,foundry (Dresden JV),,2025,filing,high,2025,2023,documented,https://www.sec.gov/Archives/edgar/data/1413447/000141344726000008/nxpi-20251231.htm,ESMC: TSMC 70%; Infineon 10%,0,

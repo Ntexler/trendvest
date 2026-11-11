@@ -41,12 +41,13 @@ def company_paths(prices: pd.DataFrame, ticker: str, event_utc: pd.Timestamp):
 
 
 def study_event(ev_id: str, ev: pd.Series, companies: pd.DataFrame, prices: pd.DataFrame,
-                ts: pd.Timestamp | None = None, edges: pd.DataFrame | None = None) -> pd.DataFrame:
+                ts: pd.Timestamp | None = None, edges: pd.DataFrame | None = None,
+                weighted: bool = False) -> pd.DataFrame:
     ts = ts if ts is not None else ev["ts_utc"]
     if edges is None:
         edges = G.load_edges(as_of=str(ev["ts_utc"].date()))
     hit = [h for h in str(ev["hit"]).split(";") if h in companies.index]
-    role = G.roles(hit, edges, companies)
+    role = G.roles(hit, edges, companies, weighted=weighted)
     rows = []
     for cid, c in companies.iterrows():
         res = company_paths(prices, c["ticker"], ts)
@@ -66,10 +67,10 @@ def study_event(ev_id: str, ev: pd.Series, companies: pd.DataFrame, prices: pd.D
 
 
 def run(prices: pd.DataFrame, quality: tuple[str, ...] = ("best", "ok"), n_placebo: int = 200,
-        seed: int = 7):
+        seed: int = 7, weighted: bool = False):
     companies, events = G.load_companies(), G.events()
     events = events[events["quality"].isin(quality)]
-    real = pd.concat([study_event(i, e, companies, prices) for i, e in events.iterrows()],
+    real = pd.concat([study_event(i, e, companies, prices, weighted=weighted) for i, e in events.iterrows()],
                      ignore_index=True)
 
     # one number per (event, role): the average company in that role
@@ -87,7 +88,7 @@ def run(prices: pd.DataFrame, quality: tuple[str, ...] = ("best", "ok"), n_place
             ts = e["ts_utc"] + pd.Timedelta(days=shift)
             if ts > pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=30):
                 ts = e["ts_utc"] - pd.Timedelta(days=abs(shift))
-            p = study_event(i, e, companies, prices, ts=ts, edges=edges)
+            p = study_event(i, e, companies, prices, ts=ts, edges=edges, weighted=weighted)
             if len(p):
                 plc.append(p.groupby("role")[[f"scar{h}" for h in HORIZONS]].mean())
     placebo = pd.concat(plc).reset_index()

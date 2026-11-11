@@ -36,6 +36,7 @@ def all_prices(companies: pd.DataFrame) -> pd.DataFrame:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--best", action="store_true")
+    ap.add_argument("--weighted", action="store_true", help="pass shocks only through material links")
     args = ap.parse_args()
     companies = G.load_companies()
     prices = all_prices(companies)
@@ -43,11 +44,13 @@ def main() -> None:
     if missing:
         print("! no price data for:", missing)
 
-    real, per_event, summary = S.run(prices, quality=("best",) if args.best else ("best", "ok"))
+    real, per_event, summary = S.run(prices, quality=("best",) if args.best else ("best", "ok"),
+                                     weighted=args.weighted)
+    tag = "_weighted" if args.weighted else ""
     RESULTS.mkdir(exist_ok=True)
-    real.round({c: 4 for c in real.select_dtypes("number").columns}).to_csv(RESULTS / "event_company.csv", index=False)
-    per_event.round(4).to_csv(RESULTS / "event_role.csv", index=False)
-    summary.round(3).to_csv(RESULTS / "summary.csv")
+    real.round({c: 4 for c in real.select_dtypes("number").columns}).to_csv(RESULTS / f"event_company{tag}.csv", index=False)
+    per_event.round(4).to_csv(RESULTS / f"event_role{tag}.csv", index=False)
+    summary.round(3).to_csv(RESULTS / f"summary{tag}.csv")
 
     # the map check uses chain companies only; the control group would dilute "unlinked" pairs
     ar = L.weekly_abnormal(prices, companies[companies["tier"] != "control"])

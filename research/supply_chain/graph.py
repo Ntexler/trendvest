@@ -38,8 +38,21 @@ def events() -> pd.DataFrame:
     return ev.set_index("id")
 
 
+def material_only(edges: pd.DataFrame, min_share: float = 10.0) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Split links by the direction in which a shock can travel.
+
+    downstream (supplier hit -> customer hurt): only links where the customer depends
+        heavily on that supplier (critical = 1)
+    upstream   (customer hit -> supplier hurt): only links where the customer is at
+        least ``min_share`` percent of the supplier's revenue
+    """
+    down = edges[pd.to_numeric(edges["critical"], errors="coerce").fillna(0) == 1]
+    up = edges[pd.to_numeric(edges["share_pct"], errors="coerce").fillna(0) >= min_share]
+    return down, up
+
+
 def roles(hit: list[str], edges: pd.DataFrame, companies: pd.DataFrame,
-          max_hops: int = 2) -> dict[str, str]:
+          max_hops: int = 2, weighted: bool = False) -> dict[str, str]:
     """Mechanical, pre-registered role of every company relative to the hit companies.
 
     hit            the companies whose own facilities/supply were disrupted
@@ -49,8 +62,9 @@ def roles(hit: list[str], edges: pd.DataFrame, companies: pd.DataFrame,
     control        everything else in the universe
     Nearest relation wins; downstream beats upstream on ties.
     """
-    down = edges.groupby("supplier")["customer"].apply(set).to_dict()
-    up = edges.groupby("customer")["supplier"].apply(set).to_dict()
+    e_down, e_up = material_only(edges) if weighted else (edges, edges)
+    down = e_down.groupby("supplier")["customer"].apply(set).to_dict()
+    up = e_up.groupby("customer")["supplier"].apply(set).to_dict()
 
     def bfs(adj):
         dist, q = {h: 0 for h in hit}, deque(hit)
