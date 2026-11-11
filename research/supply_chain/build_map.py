@@ -137,6 +137,9 @@ def main() -> None:
     data = build()
     tpl = (HERE / "map" / TEMPLATE).read_text()
     out = tpl.replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False)).replace("__TITLE__", "מפת שרשרת השבבים" if G.MARKET == "chips" else "שוק: " + data["market"]["name"])
+    site = HERE / "map" / "site" / "data"
+    site.mkdir(parents=True, exist_ok=True)
+    (site / f"{G.MARKET}.json").write_text(json.dumps(data, ensure_ascii=False))     # data for the multi-market page
     names = (OUTPUT, "stock_story.html") if G.MARKET == "chips" else (f"{G.MARKET}_app.html", f"{G.MARKET}_story.html")
     (HERE / "map" / names[0]).write_text(out)
     poster = (HERE / "map" / "infographic_template.html").read_text()
