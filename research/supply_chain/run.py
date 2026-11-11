@@ -45,11 +45,12 @@ def main() -> None:
 
     real, per_event, summary = S.run(prices, quality=("best",) if args.best else ("best", "ok"))
     RESULTS.mkdir(exist_ok=True)
-    real.round(4).to_csv(RESULTS / "event_company.csv", index=False)
+    real.round({c: 4 for c in real.select_dtypes("number").columns}).to_csv(RESULTS / "event_company.csv", index=False)
     per_event.round(4).to_csv(RESULTS / "event_role.csv", index=False)
     summary.round(3).to_csv(RESULTS / "summary.csv")
 
-    ar = L.weekly_abnormal(prices, companies)
+    # the map check uses chain companies only; the control group would dilute "unlinked" pairs
+    ar = L.weekly_abnormal(prices, companies[companies["tier"] != "control"])
     edges = G.load_edges()
     link = {"pair_comovement": L.pair_comovement(ar, edges),
             "customer_momentum": L.customer_momentum(ar, edges)}

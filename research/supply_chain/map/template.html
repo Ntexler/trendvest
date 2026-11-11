@@ -1,0 +1,236 @@
+<title>מפת שרשרת השבבים</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one working surface. Map on top (supply flows right to left, like Hebrew reading),
+   company card below it on phones and beside it on wide screens. */
+:root {
+  --bg: #f4f6f8; --surface: #ffffff; --fg: #14202b; --muted: #5b6b7a; --line: #c9d2da;
+  --accent: #0b7285; --accent-soft: #d8eef2; --link: #8a98a6;
+  --down: #c0392b; --up: #1e8449; --warn: #9a6700; --hit: #7b2cbf;
+  --font: "Heebo", "Segoe UI", Arial, sans-serif; --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0e151b; --surface: #17212a; --fg: #e6edf2; --muted: #9aabb9; --line: #33424f;
+  --accent: #4fc3d6; --accent-soft: #143840; --link: #5f7282;
+  --down: #ff7b6b; --up: #5fd08a; --warn: #e3b341; --hit: #c79bf2; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0e151b; --surface: #17212a; --fg: #e6edf2; --muted: #9aabb9; --line: #33424f;
+  --accent: #4fc3d6; --accent-soft: #143840; --link: #5f7282;
+  --down: #ff7b6b; --up: #5fd08a; --warn: #e3b341; --hit: #c79bf2; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 15px; line-height: 1.5;
+  direction: rtl; padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.wrap { max-width: 1500px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px }
+h1 { font-size: 24px; font-weight: 700; margin: 0; text-wrap: balance }
+.lead { color: var(--muted); margin: 4px 0 0; max-width: 70ch }
+.draft { display: inline-block; font-size: 12px; font-weight: 500; color: var(--warn); border: 1px solid var(--warn);
+  border-radius: 4px; padding: 0 6px; margin-inline-start: 8px; vertical-align: middle }
+.bar { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; font-size: 14px }
+.bar label { display: inline-flex; gap: 6px; align-items: center; cursor: pointer; max-width: 100%; min-width: 0 }
+.bar select { width: 260px; min-width: 0; flex: 0 1 260px }
+.bar input[type=search] { width: 200px; min-width: 0; flex: 0 1 200px }
+select, input[type=search] { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line);
+  border-radius: 6px; padding: 5px 8px; max-width: 100% }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--muted) }
+.legend svg { vertical-align: middle }
+.main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start }
+@media (min-width: 1100px) { .main { grid-template-columns: minmax(0, 1fr) 400px } }
+.mapbox { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow-x: auto; min-width: 0 }
+.mapbox svg { display: block; min-width: 940px; width: 100%; height: auto; direction: ltr }
+.tier-name { font: 500 12.5px var(--font); fill: var(--muted) }
+.node rect { fill: var(--surface); stroke: var(--line); stroke-width: 1; rx: 6 }
+.node text { font: 500 11.5px var(--font); fill: var(--fg); pointer-events: none }
+.node .cc { font: 400 9.5px var(--mono); fill: var(--muted) }
+.node { cursor: pointer }
+.node:hover rect { stroke: var(--accent) }
+.node.sel rect { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2 }
+.node.n1 rect { stroke: var(--accent); stroke-width: 1.5 }
+.node.dim { opacity: .22 }
+.node.hit rect { stroke: var(--hit); stroke-width: 2.5 }
+.edge { fill: none; stroke: var(--link); stroke-width: 1; opacity: .35 }
+.edge.medium { stroke-dasharray: 5 3 } .edge.low { stroke-dasharray: 1.5 3 }
+.edge.on { stroke: var(--accent); opacity: .95; stroke-width: 1.6 }
+.edge.dim { opacity: .05 }
+.edge.people { stroke: var(--warn); stroke-dasharray: 3 3; opacity: .9; stroke-width: 1.4 }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; min-width: 0;
+  display: flex; flex-direction: column; gap: 12px }
+.card h2 { font-size: 19px; margin: 0; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline }
+.tk { font: 500 13px var(--mono); color: var(--muted); direction: ltr }
+.sub { color: var(--muted); font-size: 13.5px; margin: 0 }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--line) }
+.tabs button { font: 500 14px var(--font); color: var(--muted); background: none; border: 0; border-bottom: 2px solid transparent;
+  padding: 6px 10px; cursor: pointer }
+.tabs button[aria-selected=true] { color: var(--accent); border-bottom-color: var(--accent) }
+.kv { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px }
+.kv div { display: flex; flex-direction: column }
+.kv span { font-size: 12px; color: var(--muted) }
+.kv b { font: 500 15px var(--mono); direction: ltr; text-align: right; font-variant-numeric: tabular-nums }
+h3 { font-size: 13px; font-weight: 700; color: var(--muted); margin: 6px 0 2px }
+ul.rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px }
+ul.rows li { font-size: 14px; display: flex; flex-direction: column; gap: 1px; overflow-wrap: anywhere }
+.r1 { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline }
+.r2 { font-size: 12.5px; color: var(--muted) }
+.pill { font-size: 11px; border-radius: 10px; padding: 0 7px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap }
+.pill.high { color: var(--up); border-color: var(--up) } .pill.medium { color: var(--warn); border-color: var(--warn) }
+.pill.low { color: var(--down); border-color: var(--down) }
+button.go { font: inherit; font-weight: 500; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-align: start }
+button.go:hover { text-decoration: underline }
+a { color: var(--accent) }
+.num { font-family: var(--mono); direction: ltr; unicode-bidi: isolate; font-variant-numeric: tabular-nums }
+.neg { color: var(--down) } .pos { color: var(--up) }
+.note { font-size: 12.5px; color: var(--muted); border-inline-start: 3px solid var(--line); padding-inline-start: 8px; margin: 0 }
+table { border-collapse: collapse; width: 100%; font-size: 13px }
+th, td { text-align: start; padding: 4px 6px; border-bottom: 1px solid var(--line) }
+th { color: var(--muted); font-weight: 500 }
+.scroll { overflow-x: auto }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>מפת שרשרת השבבים <span class="draft">סקיצה לאישור</span></h1>
+    <p class="lead">77 חברות ו-132 קשרי ספק–לקוח, כל קשר עם המקור שלו. האספקה זורמת מימין לשמאל: מחומרי גלם ועד לקוחות הקצה. לחיצה על חברה מדגישה את השכנים שלה ופותחת כרטיס.</p>
+  </header>
+
+  <div class="bar">
+    <label for="q">חיפוש <input type="search" id="q" list="names" placeholder="שם חברה או סימול" autocomplete="off"></label>
+    <datalist id="names"></datalist>
+    <label for="ev">אירוע עבר <select id="ev"><option value="">בלי אירוע</option></select></label>
+    <label><input type="checkbox" id="lowconf" checked> להציג גם קשרים בביטחון נמוך</label>
+    <label><input type="checkbox" id="ppl"> קשרי אנשים של החברה הנבחרת</label>
+  </div>
+  <div class="legend">
+    <span><svg width="34" height="8"><line x1="0" y1="4" x2="34" y2="4" stroke="currentColor" stroke-width="1.5"/></svg> מאומת מדוח או מרשימה רשמית</span>
+    <span><svg width="34" height="8"><line x1="0" y1="4" x2="34" y2="4" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 3"/></svg> עיתונות</span>
+    <span><svg width="34" height="8"><line x1="0" y1="4" x2="34" y2="4" stroke="currentColor" stroke-width="1.5" stroke-dasharray="1.5 3"/></svg> היסק או מקור משני</span>
+    <span id="evlegend" hidden>צבע החברה: תנועה חריגה ב-3 ימים אחרי האירוע (אדום ירידה, ירוק עלייה). מסגרת סגולה: נפגעה ישירות.</span>
+  </div>
+
+  <div class="main">
+    <div class="mapbox"><svg id="map" role="img" aria-label="מפת קשרי ספק ולקוח בשרשרת השבבים"></svg></div>
+    <aside class="card" id="card" aria-live="polite"></aside>
+  </div>
+  <p class="note">הנתונים נאספו ב-11 בנובמבר 2026 מדוחות שנתיים, מרשימות ספקים רשמיות ומעיתונות. שמות נושאי משרה ומחזיקים מגיעים מ-Yahoo Finance. התאמה של אדם בין שתי חברות נעשתה לפי שם בלבד ולא אומתה. זה כלי מחקר אישי, לא המלצת השקעה.</p>
+</div>
+
+<script>
+const D = /*__DATA__*/null;
+const HE = { tiers: { materials: "חומרי גלם", subsystems: "תת-מערכות", equipment: "ציוד ייצור", manufacturing: "ייצור שבבים",
+  packaging: "אריזה ובדיקה", design: "תכנון שבבים", systems: "מערכות ולקוחות קצה" },
+  roles: { hit: "נפגעה ישירות", down1: "לקוחה של נפגעת", down2: "לקוחה של לקוחה", up1: "ספקית של נפגעת", up2: "ספקית של ספקית",
+    rival: "מתחרה של נפגעת", control: "לא קשורה" },
+  conf: { high: "מאומת", medium: "עיתונות", low: "לא מאומת" },
+  type: { filing: "דוח שנתי", "official-list": "רשימת ספקים רשמית", "annual-report": "דוח שנתי", "press-release": "הודעה לעיתונות",
+    press: "עיתונות", aggregator: "אתר מרכז נתונים", inferred: "היסק", "search-snippet": "תקציר חיפוש" } };
+const byId = Object.fromEntries(D.nodes.map(n => [n.id, n]));
+const W = 1180, NW = 118, NH = 22, GAP = 7, TOP = 44;
+const cols = D.tiers.map(t => D.nodes.filter(n => n.tier === t));
+const colX = i => W - 40 - NW - i * ((W - 80 - NW) / (D.tiers.length - 1));   // materials on the right
+const H = TOP + Math.max(...cols.map(c => c.length)) * (NH + GAP) + 16;
+cols.forEach((c, i) => { const off = (H - TOP - 16 - c.length * (NH + GAP)) / 2;
+  c.forEach((n, j) => { n.x = colX(i); n.y = TOP + off + j * (NH + GAP); n.col = i; }); });
+const svg = document.getElementById("map"), NS = "http://www.w3.org/2000/svg";
+svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+const el = (tag, attrs, parent, text) => { const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; parent.appendChild(e); return e; };
+D.tiers.forEach((t, i) => el("text", { x: colX(i) + NW / 2, y: 24, "text-anchor": "middle", class: "tier-name", direction: "rtl" }, svg, HE.tiers[t]));
+const gE = el("g", {}, svg), gP = el("g", {}, svg), gN = el("g", {}, svg);
+function path(a, b) {
+  if (a.col === b.col) { const x = a.x + NW, bend = 26 + Math.abs(a.y - b.y) * 0.12;
+    return `M${x} ${a.y + NH / 2}C${x + bend} ${a.y + NH / 2},${x + bend} ${b.y + NH / 2},${x} ${b.y + NH / 2}`; }
+  const left = b.x < a.x, x1 = left ? a.x : a.x + NW, x2 = left ? b.x + NW : b.x, m = (x1 + x2) / 2;
+  return `M${x1} ${a.y + NH / 2}C${m} ${a.y + NH / 2},${m} ${b.y + NH / 2},${x2} ${b.y + NH / 2}`;
+}
+D.edges.forEach(e => { e.el = el("path", { d: path(byId[e.s], byId[e.t]), class: "edge " + e.conf }, gE); });
+D.nodes.forEach(n => { const g = el("g", { class: "node", tabindex: 0, role: "button", "aria-label": n.name }, gN);
+  n.rect = el("rect", { x: n.x, y: n.y, width: NW, height: NH }, g);
+  const label = n.name.length > 16 ? n.name.slice(0, 15) + "…" : n.name;
+  el("text", { x: n.x + 6, y: n.y + 15 }, g, label);
+  el("text", { x: n.x + NW - 5, y: n.y + 15, "text-anchor": "end", class: "cc" }, g, n.country);
+  n.g = g; g.addEventListener("click", () => select(n.id));
+  g.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); select(n.id); } }); });
+
+let cur = "TSMC", tab = "links", evId = "";
+const $ = id => document.getElementById(id);
+const visible = e => $("lowconf").checked || e.conf !== "low";
+const pct = v => v == null ? "–" : `<span class="num ${v < 0 ? "neg" : v > 0 ? "pos" : ""}">${v > 0 ? "+" : ""}${v}%</span>`;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const go = id => `<button class="go" data-go="${id}">${esc(byId[id].name)}</button>`;
+
+function paint() {
+  const n1 = new Set(), n2 = new Set();
+  D.edges.forEach(e => { e.el.style.display = visible(e) ? "" : "none";
+    const on = visible(e) && (e.s === cur || e.t === cur); e.on = on;
+    if (on) n1.add(e.s === cur ? e.t : e.s); });
+  D.edges.forEach(e => { if (visible(e) && !e.on && (n1.has(e.s) || n1.has(e.t))) { n2.add(e.s); n2.add(e.t); } });
+  D.edges.forEach(e => { e.el.setAttribute("class", "edge " + e.conf + (e.on ? " on" : " dim")); });
+  const ev = D.events.find(x => x.id === evId);
+  D.nodes.forEach(n => { const c = ["node"]; if (n.id === cur) c.push("sel"); else if (n1.has(n.id)) c.push("n1");
+    else if (!n2.has(n.id)) c.push("dim");
+    if (ev && ev.hit.includes(n.id)) c.push("hit");
+    n.g.setAttribute("class", c.join(" "));
+    let fill = "";
+    if (ev && n.ev[evId]) { const v = Math.max(-10, Math.min(10, n.ev[evId].d3)), a = Math.round(Math.abs(v) / 10 * 70);
+      fill = `color-mix(in srgb, var(${v < 0 ? "--down" : "--up"}) ${a}%, var(--surface))`; }
+    n.rect.style.fill = fill; });
+  gP.replaceChildren();
+  if ($("ppl").checked) { const seen = new Set();
+    byId[cur].people.forEach(p => p.also.forEach(o => { if (!seen.has(o) && byId[o]) { seen.add(o);
+      el("path", { d: path(byId[cur], byId[o]), class: "edge people" }, gP); byId[o].g.classList.remove("dim"); } })); }
+  $("evlegend").hidden = !ev;
+}
+
+const fmtCap = v => v == null ? "–" : v >= 1e12 ? (v / 1e12).toFixed(2) + "T" : v >= 1e9 ? (v / 1e9).toFixed(1) + "B" : (v / 1e6).toFixed(0) + "M";
+const f1 = (v, m = 1, s = "") => v == null ? "–" : (v * m).toFixed(1) + s;
+
+function card() {
+  const n = byId[cur], i = n.info;
+  const ins = D.edges.filter(e => e.t === cur && visible(e)), outs = D.edges.filter(e => e.s === cur && visible(e));
+  const row = (e, other) => `<li><div class="r1">${go(other)}<span class="pill ${e.conf}">${HE.conf[e.conf]}</span>${
+    e.share ? `<span class="num">${e.share}%</span><span class="r2">מהכנסות הספק (${e.year})</span>` : ""}</div>
+    <div class="r2">${esc(e.what)} · ${HE.type[e.type] || e.type}${e.url ? ` · <a href="${esc(e.url)}" target="_blank" rel="noopener">מקור</a>` : ""}${e.note ? " · " + esc(e.note) : ""}</div></li>`;
+  const tabs = { links: "קשרי אספקה", stats: "נתונים", people: "אנשים ובעלים", events: "אירועים" };
+  let body = "";
+  if (tab === "links") body = `<h3>לקוחות (${outs.length})</h3><ul class="rows">${outs.map(e => row(e, e.t)).join("") || "<li class='r2'>לא נמצאו לקוחות מתועדים</li>"}</ul>
+    <h3>ספקים (${ins.length})</h3><ul class="rows">${ins.map(e => row(e, e.s)).join("") || "<li class='r2'>לא נמצאו ספקים מתועדים</li>"}</ul>`;
+  if (tab === "stats") body = `<div class="kv">
+    <div><span>שווי שוק (${esc(i.currency || "")})</span><b>${fmtCap(i.marketCap)}</b></div>
+    <div><span>מכפיל רווח</span><b>${f1(i.trailingPE)}</b></div>
+    <div><span>מכפיל רווח צפוי</span><b>${f1(i.forwardPE)}</b></div>
+    <div><span>שולי רווח נקי</span><b>${f1(i.profitMargins, 100, "%")}</b></div>
+    <div><span>צמיחת הכנסות</span><b>${f1(i.revenueGrowth, 100, "%")}</b></div>
+    <div><span>שינוי ב-52 שבועות</span><b>${f1(i.fiftyTwoWeekChange, 100, "%")}</b></div>
+    <div><span>בטא</span><b>${f1(i.beta)}</b></div>
+    <div><span>עובדים</span><b>${i.fullTimeEmployees ? i.fullTimeEmployees.toLocaleString("en") : "–"}</b></div>
+    <div><span>מוחזק בידי מוסדיים</span><b>${f1(i.heldPercentInstitutions, 100, "%")}</b></div>
+    <div><span>מוחזק בידי בעלי עניין</span><b>${f1(i.heldPercentInsiders, 100, "%")}</b></div></div>
+    <h3>אתרי ייצור</h3><p class="sub">${esc(n.sites)}</p>`;
+  if (tab === "people") body = `<h3>נושאי משרה ודירקטורים</h3><ul class="rows">${n.people.map(p => `<li><div class="r1"><span>${esc(p.n)}</span></div>
+      <div class="r2">${esc(p.t)}${p.also.length ? ` · אותו שם מופיע גם ב: ${p.also.filter(o => byId[o]).map(go).join(", ")}` : ""}</div></li>`).join("") || "<li class='r2'>אין נתונים</li>"}</ul>
+    <h3>מחזיקים מוסדיים גדולים</h3><ul class="rows">${n.holders.map(h => `<li><div class="r1"><span>${esc(h.n)}</span><span class="num">${h.p}%</span>${
+      h.giant ? '<span class="pill">מנהל מדדים</span>' : ""}</div><div class="r2">מופיע בעשרת הגדולים של ${h.also} חברות נוספות במפה</div></li>`).join("") || "<li class='r2'>אין נתונים ממקור חינמי לחברה הזאת</li>"}</ul>`;
+  if (tab === "events") { const rows = D.events.filter(e => n.ev[e.id]).map(e => { const r = n.ev[e.id];
+      return `<tr><td><button class="go" data-ev="${e.id}">${esc(e.name)}</button></td><td>${HE.roles[r.role]}</td><td>${pct(r.d0)}</td><td>${pct(r.d3)}</td><td>${pct(r.d10)}</td></tr>`; }).join("");
+    body = `<p class="sub">תנועה חריגה של המניה (אחרי ניכוי תנועת השוק המקומי) מיום המסחר הראשון שנסגר אחרי האירוע.</p>
+      <div class="scroll"><table><thead><tr><th>אירוע</th><th>התפקיד</th><th>יום 0</th><th>3 ימים</th><th>10 ימים</th></tr></thead><tbody>${rows}</tbody></table></div>`; }
+  $("card").innerHTML = `<div><h2>${esc(n.name)} <span class="tk">${esc(n.ticker)}</span></h2>
+    <p class="sub">${HE.tiers[n.tier]} · ${esc(n.segment)} · ${esc(n.country)}</p></div>
+    <div class="tabs" role="tablist">${Object.entries(tabs).map(([k, v]) => `<button role="tab" aria-selected="${k === tab}" data-tab="${k}">${v}</button>`).join("")}</div>
+    <div>${body}</div>`;
+}
+function select(id) { cur = id; paint(); card(); }
+$("card").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.tab) { tab = b.dataset.tab; card(); } else if (b.dataset.go) select(b.dataset.go);
+  else if (b.dataset.ev) { evId = b.dataset.ev; $("ev").value = evId; paint(); } });
+D.events.forEach(e => { const o = document.createElement("option"); o.value = e.id; o.textContent = `${e.name} (${e.ts.slice(0, 10)})`; $("ev").appendChild(o); });
+D.nodes.forEach(n => { const o = document.createElement("option"); o.value = n.name; o.label = n.ticker; $("names").appendChild(o); });
+$("ev").addEventListener("change", e => { evId = e.target.value; paint(); });
+$("lowconf").addEventListener("change", () => { paint(); card(); });
+$("ppl").addEventListener("change", paint);
+$("q").addEventListener("change", e => { const v = e.target.value.trim().toLowerCase();
+  const n = D.nodes.find(n => n.name.toLowerCase() === v || n.ticker.toLowerCase() === v) || D.nodes.find(n => v && n.name.toLowerCase().includes(v));
+  if (n) select(n.id); });
+select(cur);
+</script>
