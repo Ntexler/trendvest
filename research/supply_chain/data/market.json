@@ -1,0 +1,336 @@
+{
+ "id": "chips",
+ "name": "שבבים",
+ "definition": "שוק השבבים הוא שרשרת של שבעה שלבים, מחומרי הגלם ועד המכשיר שהלקוח קונה. כל שלב נעשה בידי חברות אחרות, לרוב במדינות אחרות.",
+ "checked": "2026-11-11",
+ "lifecycle": [
+  [
+   "תכנון השבב",
+   "12 עד 24 חודשים",
+   "design",
+   "חברת התכנון מפתחת את השבב ומזמינה קיבולת ייצור הרבה לפני שיש לה הזמנות מלקוחות.",
+   "SA"
+  ],
+  [
+   "הזמנת חומרים וציוד",
+   "חוזים של 3 שנים ויותר; מכונה מגיעה תוך 12 עד 18 חודשים",
+   "materials",
+   "המפעל מבטיח לעצמו פרוסות, גזים ומכונות בחוזים ארוכים, חלקם עם מקדמות.",
+   "TT-GW"
+  ],
+  [
+   "ייצור במפעל",
+   "12 עד 20 שבועות",
+   "manufacturing",
+   "פרוסת הסיליקון עוברת מאות צעדים עד שהיא מכילה שבבים.",
+   "SIA-LT"
+  ],
+  [
+   "אריזה ובדיקה",
+   "כ-6 שבועות",
+   "packaging",
+   "חותכים את הפרוסה, אורזים כל שבב ובודקים אותו.",
+   "SIA-LT"
+  ],
+  [
+   "הרכבה במכשיר ומכירה",
+   "תלוי בהשקה: בדרך כלל פעם בשנה",
+   "systems",
+   "יצרן המכשיר מזמין רכיבים ובונה מלאי לפני ההכרזה על המוצר.",
+   "AAPL"
+  ]
+ ],
+ "lifecycle_total": [
+  "מפרוסה ריקה עד שבב מוכן",
+  "18 עד 26 שבועות",
+  "SIA-LT"
+ ],
+ "history": [
+  [
+   "2011",
+   "רעידת האדמה ביפן",
+   "פגעה ב-25% מייצור פרוסות הסיליקון בעולם וב-75% מאספקת מי החמצן לתעשייה.",
+   "materials",
+   "BCG21",
+   "",
+   1
+  ],
+  [
+   "2016",
+   "רעידות האדמה בקומאמוטו",
+   "מפעל חיישני התמונה של Sony ומפעל של Renesas הושבתו. הייצור חזר בהדרגה בתוך חודש וחצי.",
+   "manufacturing",
+   "W-KUM16",
+   "KUMAMOTO2016",
+   1
+  ],
+  [
+   "2019",
+   "יפן הגבילה יצוא חומרים לקוריאה",
+   "נדרש רישיון לכל משלוח של שלושה חומרים שסמסונג ו-SK hynix תלויות בהם.",
+   "materials",
+   "JPKR",
+   "",
+   0
+  ],
+  [
+   "2021",
+   "שריפה במפעל של Renesas",
+   "קו ייצור של שבבים לרכב נשרף. טויוטה, ניסאן והונדה נפגעו, והייצור חזר לקיבולת מלאה רק אחרי כחודשיים.",
+   "manufacturing",
+   "RENESAS",
+   "RENESAS_FIRE2021",
+   0
+  ],
+  [
+   "2022",
+   "המלחמה באוקראינה",
+   "שני מפעלים שסיפקו 45% עד 54% מגז הניאון לתעשייה הפסיקו לעבוד.",
+   "materials",
+   "NEON",
+   "",
+   1
+  ],
+  [
+   "2023",
+   "סין הגבילה יצוא גליום וגרמניום",
+   "נדרש רישיון ל-38 מוצרים. סין מייצרת כ-99% מהגליום הראשוני בעולם.",
+   "materials",
+   "YICAI",
+   "",
+   0
+  ],
+  [
+   "2024",
+   "רעידת האדמה בהואליין, טייוואן",
+   "מפעלי TSMC ו-UMC פונו. יותר מ-70% מהמכונות של TSMC חזרו לעבוד באותו יום.",
+   "manufacturing",
+   "W-HUA",
+   "HUALIEN2024",
+   1
+  ],
+  [
+   "2025",
+   "משבר Nexperia",
+   "הולנד השתלטה על החברה, וסין אסרה יצוא של השבבים שלה. יצרני רכב באירופה וביפן נפגעו.",
+   "manufacturing",
+   "NEXP2",
+   "NEXPERIA2025",
+   1
+  ],
+  [
+   "2026",
+   "המלחמה באיראן והמחסור בהליום",
+   "הפגיעה במתקני הגז בקטאר צמצמה את אספקת ההליום, ומחיר השוק שלו עלה ביותר מ-50%.",
+   "materials",
+   "HELIUM2",
+   "",
+   1
+  ],
+  [
+   "2026",
+   "רעידת האדמה בקומאמוטו",
+   "מפעלים של Sony, Renesas ו-Tokyo Electron הושבתו לכמה ימים עד כמה שבועות.",
+   "manufacturing",
+   "KUM26",
+   "KUMAMOTO2026",
+   1
+  ]
+ ],
+ "changes": [
+  [
+   "regulation",
+   "blocks",
+   "materials",
+   "סין אסרה יצוא הליום",
+   "האיסור נכנס לתוקף מיידית ב-10 ביולי 2026, בזמן מחסור עולמי.",
+   "2026-07",
+   "בתוקף",
+   "HELIUM",
+   0
+  ],
+  [
+   "regulation",
+   "delays",
+   "materials",
+   "השעיית האיסור הסיני על יצוא גליום וגרמניום לארה\"ב",
+   "ההשעיה בתוקף עד 27 בנובמבר 2026. אם לא תוארך, האיסור חוזר.",
+   "2026-11",
+   "מסתיים בקרוב",
+   "GAGE",
+   1
+  ],
+  [
+   "regulation",
+   "delays",
+   "manufacturing",
+   "הסכסוך המשפטי על Nexperia",
+   "הצו ההולנדי הושעה בנובמבר 2025, אבל ההליכים נמשכים.",
+   "2025-11",
+   "פתוח",
+   "NEXP",
+   1
+  ],
+  [
+   "technology",
+   "delays",
+   "packaging",
+   "אריזה מתקדמת היא צוואר הבקבוק של שבבי הבינה המלאכותית",
+   "זמני ההמתנה לאריזה מסוג CoWoS היו 40 עד 52 שבועות בתחילת 2026.",
+   "2026-01",
+   "נמשך",
+   "SA",
+   1
+  ],
+  [
+   "technology",
+   "blocks",
+   "manufacturing",
+   "זיכרון HBM נמכר מראש לשנים קדימה",
+   "SK hynix דיווחה שכמעט כל הקיבולת שלה מכורה עד 2029.",
+   "2026-10",
+   "נמשך",
+   "SKH",
+   1
+  ],
+  [
+   "technology",
+   "delays",
+   "equipment",
+   "הביקוש למכונות ליתוגרפיה גדול מההיצע",
+   "לקוחות של ASML מזמינים כבר ל-2028.",
+   "2026-10",
+   "נמשך",
+   "TI-ASML",
+   1
+  ],
+  [
+   "move",
+   "adds",
+   "manufacturing",
+   "TSMC הגדילה את תוכנית ההשקעות ל-2026",
+   "התחזית עלתה מ-52 עד 56 מיליארד דולר ל-60 עד 64 מיליארד דולר.",
+   "2026-07",
+   "בביצוע",
+   "TSM",
+   0
+  ],
+  [
+   "move",
+   "adds",
+   "manufacturing",
+   "Micron קנתה מפעל בטייוואן מ-Powerchip",
+   "המפעל בטונגלואו נרכש במרץ 2026 כדי להוסיף קיבולת מהר יותר מבנייה חדשה.",
+   "2026-03",
+   "הושלם",
+   "MU",
+   1
+  ],
+  [
+   "move",
+   "shortens",
+   "manufacturing",
+   "חוזי הזיכרון מתארכים משנה לשלוש עד חמש שנים",
+   "סמסונג ו-SK hynix עוברות לחוזים ארוכים עם מקדמות ומחיר רצפה. זה מקטין את התנודות אבל נועל את הקונים.",
+   "2026",
+   "נמשך",
+   "MEMLTA",
+   1
+  ],
+  [
+   "move",
+   "delays",
+   "manufacturing",
+   "אינטל הקפיאה את הרחבת המפעל בקריית גת",
+   "ההרחבה מוקפאת מאמצע 2024, אחרי השקעה של כ-10 מיליארד דולר.",
+   "2025-07",
+   "מוקפא",
+   "GLOBES",
+   1
+  ],
+  [
+   "move",
+   "adds",
+   "packaging",
+   "Amkor בונה מפעל אריזה באריזונה",
+   "תוכנית ההשקעות ל-2026 היא 2.5 עד 3.0 מיליארד דולר, לעומת 0.9 מיליארד ב-2025.",
+   "2026",
+   "בבנייה",
+   "AMKR",
+   1
+  ],
+  [
+   "move",
+   "other",
+   "materials",
+   "SK מוכרת את יצרנית הפרוסות SK Siltron ל-Doosan",
+   "ההסכם נחתם ביולי 2026. השלמת העסקה לא אומתה.",
+   "2026-07",
+   "נחתם",
+   "SILTRON",
+   1
+  ]
+ ],
+ "sources": {
+  "HELIUM": [
+   "Caixin, יולי 2026",
+   "https://www.caixinglobal.com/2026-07-11/china-bans-helium-exports-as-global-supply-crunch-hits-chipmaking-gas-102462943.html"
+  ],
+  "HELIUM2": [
+   "TrendForce, מרץ 2026",
+   "https://www.trendforce.com/news/2026/03/27/news-iran-conflict-reportedly-drives-50-helium-spot-price-surge-samsung-sk-hynix-on-high-alert/"
+  ],
+  "NEXP": [
+   "ויקיפדיה: Nexperia",
+   "https://en.wikipedia.org/wiki/Nexperia"
+  ],
+  "NEXP2": [
+   "Caixin, אוקטובר 2025",
+   "https://www.caixinglobal.com/2025-10-15/china-hits-nexperia-with-export-curbs-after-netherlands-freezes-assets-102371720.html"
+  ],
+  "MEMLTA": [
+   "Bits&Chips, 2026",
+   "https://bits-chips.com/article/memory-makers-lock-in-long-term-memory-deals-as-supply-crunch-drags-on/"
+  ],
+  "TI-ASML": [
+   "Tech Insider, אוקטובר 2026 (מקור משני)",
+   "https://tech-insider.org/asml-ai-chip-tool-demand-outstrips-supply-2028/"
+  ],
+  "SILTRON": [
+   "Korea Times, יולי 2026",
+   "https://www.koreatimes.co.kr/business/companies/20260731/sk-signs-16-bil-to-sell-chip-materials-firm-sk-siltron-to-doosan"
+  ],
+  "SWKS": [
+   "Skyworks, דוח שנתי 2026",
+   "https://www.sec.gov/Archives/edgar/data/4127/000000412726000055/swks-20261002.htm"
+  ],
+  "GLOBES": [
+   "גלובס, יולי 2025",
+   "https://en.globes.co.il/en/article-1001515435"
+  ],
+  "JPKR": [
+   "Malay Mail, יולי 2019",
+   "https://www.malaymail.com/news/money/2019/07/01/japan-to-tighten-export-rules-for-tech-materials-to-s.korea-amid-wartime-la/1766994"
+  ],
+  "YICAI": [
+   "Yicai, יולי 2023",
+   "https://yicaiglobal.com/news/20230704-02-chinese-gallium-germanium-giants-soar-as-china-says-to-control-export-of-key-semiconductor-materials"
+  ],
+  "W-KUM16": [
+   "ויקיפדיה",
+   "https://en.wikipedia.org/wiki/2016_Kumamoto_earthquakes"
+  ],
+  "W-HUA": [
+   "ויקיפדיה",
+   "https://en.wikipedia.org/wiki/2024_Hualien_earthquake"
+  ],
+  "RENESAS": [
+   "Renesas, הודעה לעיתונות",
+   "https://www.renesas.com/en/about/press-room/update-6-notice-regarding-semiconductor-manufacturing-factory-naka-factory-fire"
+  ],
+  "KUM26": [
+   "TrendForce, יולי 2026",
+   "https://www.trendforce.com/news/2026/07/29/news-7-1-kumamoto-earthquake-tsmc-confirms-jasm-safe-tel-halts-plants-as-chip-supply-chain-assesses-impact/"
+  ]
+ }
+}

@@ -15,6 +15,7 @@ import pandas as pd
 from . import graph as G
 
 HERE = Path(__file__).parent
+TEMPLATE, OUTPUT = "market_template.html", "chip_map.html"   # the template is market-agnostic
 TIERS = ["materials", "subsystems", "equipment", "manufacturing", "packaging", "design", "systems"]
 INDEX_GIANTS = ("vanguard", "blackrock", "state street", "geode", "fmr", "jpmorgan", "morgan stanley",
                 "norges", "capital", "invesco", "northern trust", "price (t.rowe)", "bank of america")
@@ -96,14 +97,16 @@ def build() -> dict:
                   "employees": tot("fullTimeEmployees"), "revenue": tot("revenueUSD"), "net": tot("netIncomeUSD"),
                   "gm": gm[len(gm) // 2] if gm else None,
                   "top": [n["id"] for n in sorted(ns, key=lambda n: -(n["info"].get("revenueUSD") or 0))[:6]]}
-    return {"tiers": TIERS, "nodes": nodes, "edges": E, "events": EV, "agg": agg, **content}
+    market = json.loads((HERE / "data" / "market.json").read_text())
+    content["sources"] = {**content["sources"], **market.pop("sources")}
+    return {"tiers": TIERS, "nodes": nodes, "edges": E, "events": EV, "agg": agg, "market": market, **content}
 
 
 def main() -> None:
     data = build()
-    tpl = (HERE / "map" / "template.html").read_text()
-    out = tpl.replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False))
-    (HERE / "map" / "chip_map.html").write_text(out)
+    tpl = (HERE / "map" / TEMPLATE).read_text()
+    out = tpl.replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False)).replace("__TITLE__", "מפת שרשרת השבבים")
+    (HERE / "map" / OUTPUT).write_text(out)
     n_links = sum(1 for n in data["nodes"] for p in n["people"] if p["also"])
     print(len(data["nodes"]), "nodes,", len(data["edges"]), "edges,", len(data["events"]), "events;",
           n_links, "person name matches across companies;", len(out) // 1024, "KB")
