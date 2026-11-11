@@ -136,6 +136,8 @@ def main() -> None:
     tpl = (HERE / "map" / TEMPLATE).read_text()
     out = tpl.replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False)).replace("__TITLE__", "מפת שרשרת השבבים")
     (HERE / "map" / OUTPUT).write_text(out)
+    poster = (HERE / "map" / "infographic_template.html").read_text()
+    (HERE / "map" / "stock_story.html").write_text(poster.replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False)))
     n_links = sum(1 for n in data["nodes"] for p in n["people"] if p["also"])
     print(len(data["nodes"]), "nodes,", len(data["edges"]), "edges,", len(data["events"]), "events;",
           n_links, "person name matches across companies;", len(out) // 1024, "KB")
