@@ -11,7 +11,17 @@
    "fullTimeEmployees": 28239,
    "heldPercentInstitutions": 0.55966,
    "heldPercentInsiders": 0.0078,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 2710130917376,
+   "netIncomeToCommon": 503554015232,
+   "grossMargins": 0.34535,
+   "operatingMargins": 0.27975,
+   "financialCurrency": "JPY",
+   "city": "Tokyo",
+   "country": "Japan",
+   "revenueUSD": 17058044715.520874,
+   "netIncomeUSD": 3169458292.009079,
+   "marketCapUSD": 65246274544.288086
   },
   "holders": [
    {
@@ -66,7 +76,17 @@
    "fullTimeEmployees": 9714,
    "heldPercentInstitutions": 0.54767,
    "heldPercentInsiders": 0.0,
-   "recommendationKey": "hold"
+   "recommendationKey": "hold",
+   "totalRevenue": 419314008064,
+   "netIncomeToCommon": -27726999552,
+   "grossMargins": 0.09333,
+   "operatingMargins": -0.02728,
+   "financialCurrency": "JPY",
+   "city": "Minato",
+   "country": "Japan",
+   "revenueUSD": 2639236744.4467773,
+   "netIncomeUSD": -174518653.38047218,
+   "marketCapUSD": 4598468124.86673
   },
   "holders": [
    {
@@ -125,7 +145,17 @@
    "currency": "TWD",
    "heldPercentInstitutions": 0.26951998,
    "heldPercentInsiders": 0.42415002,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 58571935744,
+   "netIncomeToCommon": 9381070848,
+   "grossMargins": 0.21768999,
+   "operatingMargins": 0.09774999,
+   "financialCurrency": "TWD",
+   "city": "Hsinchu City",
+   "country": "Taiwan",
+   "revenueUSD": 1783228811.535553,
+   "netIncomeUSD": 285607699.43348694,
+   "marketCapUSD": 10209833423.193604
   },
   "holders": [
    {
@@ -171,7 +201,7 @@
  },
  "SILTRONIC": {
   "info": {
-   "marketCap": 1849649920,
+   "marketCap": 1843049984,
    "forwardPE": -14.834596,
    "profitMargins": -0.14944,
    "revenueGrowth": 0.183,
@@ -180,7 +210,17 @@
    "fullTimeEmployees": 4300,
    "heldPercentInstitutions": 0.42470002,
    "heldPercentInsiders": 0.4916,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 1355100032,
+   "netIncomeToCommon": -202500000,
+   "grossMargins": -0.035639998,
+   "operatingMargins": -0.1193,
+   "financialCurrency": "EUR",
+   "city": "Munich",
+   "country": "Germany",
+   "revenueUSD": 1509692525.1196747,
+   "netIncomeUSD": -225601600.7065773,
+   "marketCapUSD": 2053308773.1981812
   },
   "holders": [
    {
@@ -226,7 +266,7 @@
  },
  "SOITEC": {
   "info": {
-   "marketCap": 3750992128,
+   "marketCap": 3740254464,
    "forwardPE": 25.827566,
    "profitMargins": -0.37146,
    "revenueGrowth": -0.346,
@@ -235,7 +275,17 @@
    "fullTimeEmployees": 1961,
    "heldPercentInstitutions": 0.47921002,
    "heldPercentInsiders": 0.15669,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 592318976,
+   "netIncomeToCommon": -222104000,
+   "grossMargins": 0.16278,
+   "operatingMargins": -0.107480004,
+   "financialCurrency": "EUR",
+   "city": "Bernin",
+   "country": "France",
+   "revenueUSD": 659891896.8616333,
+   "netIncomeUSD": -247442063.81893158,
+   "marketCapUSD": 4166950094.460846
   },
   "holders": [],
   "officers": [
@@ -284,7 +334,16 @@
    "fullTimeEmployees": 15916,
    "heldPercentInstitutions": 0.11682,
    "heldPercentInsiders": 0.6217,
-   "recommendationKey": "hold"
+   "recommendationKey": "hold",
+   "totalRevenue": 5642699776,
+   "netIncomeToCommon": -268100000,
+   "grossMargins": 0.16825001,
+   "operatingMargins": 0.07014,
+   "financialCurrency": "EUR",
+   "city": "Munich",
+   "country": "Germany",
+   "revenueUSD": 6286430132.208618,
+   "netIncomeUSD": -298685378.51572037
   },
   "holders": [],
   "officers": [
@@ -335,7 +394,17 @@
    "fullTimeEmployees": 2132,
    "heldPercentInstitutions": 0.41777,
    "heldPercentInsiders": 0.07275,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 265073999872,
+   "netIncomeToCommon": 40135000064,
+   "grossMargins": 0.38571,
+   "operatingMargins": 0.18983,
+   "financialCurrency": "JPY",
+   "city": "Kawasaki",
+   "country": "Japan",
+   "revenueUSD": 1668422773.877098,
+   "netIncomeUSD": 252616809.52742004,
+   "marketCapUSD": 5942272741.159393
   },
   "holders": [],
   "officers": [
@@ -376,7 +445,7 @@
  },
  "MERCK": {
   "info": {
-   "marketCap": 65455812608,
+   "marketCap": 65412333568,
    "trailingPE": 27.623856,
    "forwardPE": 16.564562,
    "profitMargins": 0.11214,
@@ -386,7 +455,17 @@
    "fullTimeEmployees": 62136,
    "heldPercentInstitutions": 0.60762,
    "heldPercentInsiders": 0.0,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 21134999552,
+   "netIncomeToCommon": 2369999872,
+   "grossMargins": 0.59087,
+   "operatingMargins": 0.13857001,
+   "financialCurrency": "EUR",
+   "city": "Darmstadt",
+   "country": "Germany",
+   "revenueUSD": 23546122122.785156,
+   "netIncomeUSD": 2640374147.1485596,
+   "marketCapUSD": 72874702019.22656
   },
   "holders": [
    {
@@ -454,7 +533,17 @@
    "fullTimeEmployees": 7700,
    "heldPercentInstitutions": 1.09735,
    "heldPercentInsiders": 0.0051200003,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 3524699904,
+   "netIncomeToCommon": 392800000,
+   "grossMargins": 0.46974,
+   "operatingMargins": 0.22253,
+   "financialCurrency": "USD",
+   "city": "Billerica",
+   "country": "United States",
+   "revenueUSD": 3524699904.0,
+   "netIncomeUSD": 392800000.0,
+   "marketCapUSD": 21173497856.0
   },
   "holders": [
    {
@@ -586,7 +675,17 @@
    "fullTimeEmployees": 1069,
    "heldPercentInstitutions": 0.33303002,
    "heldPercentInsiders": 0.50355,
-   "recommendationKey": "none"
+   "recommendationKey": "none",
+   "totalRevenue": 1060861640704,
+   "netIncomeToCommon": 127644909568,
+   "grossMargins": 0.26742,
+   "operatingMargins": 0.14752,
+   "financialCurrency": "KRW",
+   "city": "Seongnam-si",
+   "country": "South Korea",
+   "revenueUSD": 795069798.6300964,
+   "netIncomeUSD": 95664324.78323841,
+   "marketCapUSD": 1638580735.355606
   },
   "holders": [],
   "officers": [
@@ -617,7 +716,17 @@
    "fullTimeEmployees": 64512,
    "heldPercentInstitutions": 0.89259005,
    "heldPercentInsiders": 0.0025099998,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 36238000128,
+   "netIncomeToCommon": 7007000064,
+   "grossMargins": 0.47864,
+   "operatingMargins": 0.27967,
+   "financialCurrency": "USD",
+   "city": "Woking",
+   "country": "United Kingdom",
+   "revenueUSD": 36238000128.0,
+   "netIncomeUSD": 7007000064.0,
+   "marketCapUSD": 239540748288.0
   },
   "holders": [
    {
@@ -749,7 +858,17 @@
    "currency": "USD",
    "heldPercentInstitutions": 0.94345003,
    "heldPercentInsiders": 0.01889,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 12990900224,
+   "netIncomeToCommon": 532100000,
+   "grossMargins": 0.31584,
+   "operatingMargins": 0.17682,
+   "financialCurrency": "USD",
+   "city": "Allentown",
+   "country": "United States",
+   "revenueUSD": 12990900224.0,
+   "netIncomeUSD": 532100000.0,
+   "marketCapUSD": 69533556736.0
   },
   "holders": [
    {
@@ -881,7 +1000,17 @@
    "fullTimeEmployees": 52896,
    "heldPercentInstitutions": 0.45339,
    "heldPercentInsiders": 0.0719,
-   "recommendationKey": "hold"
+   "recommendationKey": "hold",
+   "totalRevenue": 2209299038208,
+   "netIncomeToCommon": 63098998784,
+   "grossMargins": 0.23452999,
+   "operatingMargins": 0.049089998,
+   "financialCurrency": "JPY",
+   "city": "Chiyoda",
+   "country": "Japan",
+   "revenueUSD": 13905720030.749634,
+   "netIncomeUSD": 397156290.81277275,
+   "marketCapUSD": 6694915623.978912
   },
   "holders": [],
   "officers": [
@@ -932,7 +1061,17 @@
    "fullTimeEmployees": 34787,
    "heldPercentInstitutions": 0.63288,
    "heldPercentInsiders": 0.00273,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 1675999969280,
+   "netIncomeToCommon": 156740993024,
+   "grossMargins": 0.38137,
+   "operatingMargins": 0.10613,
+   "financialCurrency": "JPY",
+   "city": "Tokyo",
+   "country": "Japan",
+   "revenueUSD": 10549041094.616394,
+   "netIncomeUSD": 986555612.7256241,
+   "marketCapUSD": 25531763840.645508
   },
   "holders": [
    {
@@ -988,7 +1127,17 @@
    "fullTimeEmployees": 11105,
    "heldPercentInstitutions": 0.68829,
    "heldPercentInsiders": 0.09116,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 483262005248,
+   "netIncomeToCommon": 80217997312,
+   "grossMargins": 0.33411,
+   "operatingMargins": 0.23255,
+   "financialCurrency": "JPY",
+   "city": "Ogaki",
+   "country": "Japan",
+   "revenueUSD": 3041736781.784027,
+   "netIncomeUSD": 504906304.1067047,
+   "marketCapUSD": 24855286548.139038
   },
   "holders": [
    {
@@ -1040,7 +1189,17 @@
    "fullTimeEmployees": 32644,
    "heldPercentInstitutions": 0.44242,
    "heldPercentInsiders": 0.15899,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 167677001728,
+   "netIncomeToCommon": 31744354304,
+   "grossMargins": 0.22678,
+   "operatingMargins": 0.19996001,
+   "financialCurrency": "TWD",
+   "city": "Taoyuan City",
+   "country": "Taiwan",
+   "revenueUSD": 5104944146.291016,
+   "netIncomeUSD": 966460242.0841827,
+   "marketCapUSD": 43287853215.48047
   },
   "holders": [],
   "officers": [
@@ -1091,7 +1250,17 @@
    "fullTimeEmployees": 6948,
    "heldPercentInstitutions": 1.03395,
    "heldPercentInsiders": 0.01847,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 2444300032,
+   "netIncomeToCommon": 26600000,
+   "grossMargins": 0.16111,
+   "operatingMargins": 0.07075,
+   "financialCurrency": "USD",
+   "city": "Hayward",
+   "country": "United States",
+   "revenueUSD": 2444300032.0,
+   "netIncomeUSD": 26600000.0,
+   "marketCapUSD": 2240219136.0
   },
   "holders": [
    {
@@ -1224,7 +1393,17 @@
    "fullTimeEmployees": 1891,
    "heldPercentInstitutions": 0.92087996,
    "heldPercentInsiders": 0.01398,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 1103156992,
+   "netIncomeToCommon": 3515000,
+   "grossMargins": 0.15324001,
+   "operatingMargins": 0.07204,
+   "financialCurrency": "USD",
+   "city": "Fremont",
+   "country": "United States",
+   "revenueUSD": 1103156992.0,
+   "netIncomeUSD": 3515000.0,
+   "marketCapUSD": 1325316224.0
   },
   "holders": [
    {
@@ -1345,7 +1524,17 @@
    "fullTimeEmployees": 13000,
    "heldPercentInstitutions": 1.0183799,
    "heldPercentInsiders": 0.01045,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 2270899968,
+   "netIncomeToCommon": 290100000,
+   "grossMargins": 0.40759,
+   "operatingMargins": 0.20706,
+   "financialCurrency": "USD",
+   "city": "Denver",
+   "country": "United States",
+   "revenueUSD": 2270899968.0,
+   "netIncomeUSD": 290100000.0,
+   "marketCapUSD": 8974452736.0
   },
   "holders": [
    {
@@ -1478,7 +1667,17 @@
    "fullTimeEmployees": 10200,
    "heldPercentInstitutions": 1.09524,
    "heldPercentInsiders": 0.00485,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 4771999744,
+   "netIncomeToCommon": 602000000,
+   "grossMargins": 0.47255,
+   "operatingMargins": 0.23212999,
+   "financialCurrency": "USD",
+   "city": "Andover",
+   "country": "United States",
+   "revenueUSD": 4771999744.0,
+   "netIncomeUSD": 602000000.0,
+   "marketCapUSD": 14434941952.0
   },
   "holders": [
    {
@@ -1611,7 +1810,17 @@
    "fullTimeEmployees": 38900,
    "heldPercentInstitutions": 0.85675,
    "heldPercentInsiders": 0.00328,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 30837000192,
+   "netIncomeToCommon": 9267000320,
+   "grossMargins": 0.49398,
+   "operatingMargins": 0.33736,
+   "financialCurrency": "USD",
+   "city": "Santa Clara",
+   "country": "United States",
+   "revenueUSD": 30837000192.0,
+   "netIncomeUSD": 9267000320.0,
+   "marketCapUSD": 295638859776.0
   },
   "holders": [
    {
@@ -1744,7 +1953,17 @@
    "fullTimeEmployees": 24300,
    "heldPercentInstitutions": 0.89058995,
    "heldPercentInsiders": 0.00283,
-   "recommendationKey": "none"
+   "recommendationKey": "none",
+   "totalRevenue": 26127935488,
+   "netIncomeToCommon": 8449873920,
+   "grossMargins": 0.51054,
+   "operatingMargins": 0.39951,
+   "financialCurrency": "USD",
+   "city": "Fremont",
+   "country": "United States",
+   "revenueUSD": 26127935488.0,
+   "netIncomeUSD": 8449873920.0,
+   "marketCapUSD": 277803139072.0
   },
   "holders": [
    {
@@ -1877,7 +2096,17 @@
    "fullTimeEmployees": 17000,
    "heldPercentInstitutions": 0.94012,
    "heldPercentInsiders": 0.00115,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 14505794560,
+   "netIncomeToCommon": 5258318848,
+   "grossMargins": 0.61465,
+   "operatingMargins": 0.45011002,
+   "financialCurrency": "USD",
+   "city": "Milpitas",
+   "country": "United States",
+   "revenueUSD": 14505794560.0,
+   "netIncomeUSD": 5258318848.0,
+   "marketCapUSD": 199340228608.0
   },
   "holders": [
    {
@@ -2000,7 +2229,7 @@
  },
  "ASML": {
   "info": {
-   "marketCap": 540741074944,
+   "marketCap": 539584823296,
    "trailingPE": 40.61957,
    "forwardPE": 24.860819,
    "profitMargins": 0.34135,
@@ -2010,7 +2239,17 @@
    "fullTimeEmployees": 44681,
    "heldPercentInstitutions": 0.47832,
    "heldPercentInsiders": 8.9999994e-05,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 39473500160,
+   "netIncomeToCommon": 13474299904,
+   "grossMargins": 0.54337,
+   "operatingMargins": 0.44356,
+   "financialCurrency": "EUR",
+   "city": "Veldhoven",
+   "country": "Netherlands",
+   "revenueUSD": 43976715168.33252,
+   "netIncomeUSD": 15011474699.964844,
+   "marketCapUSD": 601141727666.9297
   },
   "holders": [
    {
@@ -2082,7 +2321,17 @@
    "fullTimeEmployees": 20236,
    "heldPercentInstitutions": 0.55138,
    "heldPercentInsiders": 0.03229,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 2931319898112,
+   "netIncomeToCommon": 709756977152,
+   "grossMargins": 0.46366,
+   "operatingMargins": 0.31588,
+   "financialCurrency": "JPY",
+   "city": "Tokyo",
+   "country": "Japan",
+   "revenueUSD": 18450247394.65503,
+   "netIncomeUSD": 4467336310.503418,
+   "marketCapUSD": 132099828419.52832
   },
   "holders": [
    {
@@ -2146,7 +2395,17 @@
    "fullTimeEmployees": 7240,
    "heldPercentInstitutions": 0.56851,
    "heldPercentInsiders": 0.053340003,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 639902023680,
+   "netIncomeToCommon": 97804001280,
+   "grossMargins": 0.38446,
+   "operatingMargins": 0.2151,
+   "financialCurrency": "JPY",
+   "city": "Kyoto",
+   "country": "Japan",
+   "revenueUSD": 4027656842.5167847,
+   "netIncomeUSD": 615595732.477169,
+   "marketCapUSD": 10445966791.856384
   },
   "holders": [],
   "officers": [
@@ -2197,7 +2456,17 @@
    "fullTimeEmployees": 1335,
    "heldPercentInstitutions": 0.59325004,
    "heldPercentInsiders": 0.09041,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 216683003904,
+   "netIncomeToCommon": 69162000384,
+   "grossMargins": 0.58938,
+   "operatingMargins": 0.39064997,
+   "financialCurrency": "JPY",
+   "city": "Yokohama",
+   "country": "Japan",
+   "revenueUSD": 1363841261.685814,
+   "netIncomeUSD": 435317898.33511734,
+   "marketCapUSD": 21004211479.57019
   },
   "holders": [
    {
@@ -2253,7 +2522,17 @@
    "fullTimeEmployees": 7241,
    "heldPercentInstitutions": 0.66643,
    "heldPercentInsiders": 0.00279,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 1447076954112,
+   "netIncomeToCommon": 573622976512,
+   "grossMargins": 0.68152,
+   "operatingMargins": 0.55852,
+   "financialCurrency": "JPY",
+   "city": "Chiyoda",
+   "country": "Japan",
+   "revenueUSD": 9108159030.908386,
+   "netIncomeUSD": 3610484763.0998535,
+   "marketCapUSD": 142896418613.78516
   },
   "holders": [
    {
@@ -2321,7 +2600,17 @@
    "fullTimeEmployees": 6600,
    "heldPercentInstitutions": 1.01367,
    "heldPercentInsiders": 0.00198,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 5000771072,
+   "netIncomeToCommon": 1373069056,
+   "grossMargins": 0.59322,
+   "operatingMargins": 0.30872,
+   "financialCurrency": "USD",
+   "city": "North Reading",
+   "country": "United States",
+   "revenueUSD": 5000771072.0,
+   "netIncomeUSD": 1373069056.0,
+   "marketCapUSD": 38313013248.0
   },
   "holders": [
    {
@@ -2454,7 +2743,17 @@
    "fullTimeEmployees": 5547,
    "heldPercentInstitutions": 0.40632,
    "heldPercentInsiders": 0.18885,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 499410010112,
+   "netIncomeToCommon": 159973998592,
+   "grossMargins": 0.71361,
+   "operatingMargins": 0.47189,
+   "financialCurrency": "JPY",
+   "city": "Ota",
+   "country": "Japan",
+   "revenueUSD": 3143375188.722412,
+   "netIncomeUSD": 1006904723.2393951,
+   "marketCapUSD": 32495474954.981445
   },
   "holders": [
    {
@@ -2506,7 +2805,17 @@
    "fullTimeEmployees": 2001,
    "heldPercentInstitutions": 0.61474,
    "heldPercentInsiders": 0.21687001,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 884499008,
+   "netIncomeToCommon": 290579008,
+   "grossMargins": 0.64721,
+   "operatingMargins": 0.45758,
+   "financialCurrency": "EUR",
+   "city": "Duiven",
+   "country": "Netherlands",
+   "revenueUSD": 985404405.0774307,
+   "netIncomeUSD": 323728836.2297745,
+   "marketCapUSD": 13845548729.117798
   },
   "holders": [
    {
@@ -2565,7 +2874,17 @@
    "fullTimeEmployees": 1615,
    "heldPercentInstitutions": 1.00745,
    "heldPercentInsiders": 0.00658,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 1311692032,
+   "netIncomeToCommon": 151227008,
+   "grossMargins": 0.55416,
+   "operatingMargins": 0.23582001,
+   "financialCurrency": "USD",
+   "city": "Wilmington",
+   "country": "United States",
+   "revenueUSD": 1311692032.0,
+   "netIncomeUSD": 151227008.0,
+   "marketCapUSD": 9692654592.0
   },
   "holders": [
    {
@@ -2698,7 +3017,17 @@
    "fullTimeEmployees": 2153,
    "heldPercentInstitutions": 0.94291,
    "heldPercentInsiders": 0.00719,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 980096000,
+   "netIncomeToCommon": 173628992,
+   "grossMargins": 0.5022,
+   "operatingMargins": 0.30101,
+   "financialCurrency": "USD",
+   "city": "Livermore",
+   "country": "United States",
+   "revenueUSD": 980096000.0,
+   "netIncomeUSD": 173628992.0,
+   "marketCapUSD": 6713658368.0
   },
   "holders": [
    {
@@ -2831,7 +3160,17 @@
    "fullTimeEmployees": 1465,
    "heldPercentInstitutions": 1.01685,
    "heldPercentInsiders": 0.00679,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 890241984,
+   "netIncomeToCommon": 104561000,
+   "grossMargins": 0.42812002,
+   "operatingMargins": 0.114989996,
+   "financialCurrency": "USD",
+   "city": "Beverly",
+   "country": "United States",
+   "revenueUSD": 890241984.0,
+   "netIncomeUSD": 104561000.0,
+   "marketCapUSD": 3298072064.0
   },
   "holders": [
    {
@@ -2964,7 +3303,17 @@
    "fullTimeEmployees": 1612,
    "heldPercentInstitutions": 0.71055,
    "heldPercentInsiders": 0.00262,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 1000731008,
+   "netIncomeToCommon": 298916992,
+   "grossMargins": 0.57378,
+   "operatingMargins": 0.32251,
+   "financialCurrency": "USD",
+   "city": "Rehovot",
+   "country": "Israel",
+   "revenueUSD": 1000731008.0,
+   "netIncomeUSD": 298916992.0,
+   "marketCapUSD": 10359266304.0
   },
   "holders": [
    {
@@ -3093,7 +3442,17 @@
    "fullTimeEmployees": 709,
    "heldPercentInstitutions": 0.51613,
    "heldPercentInsiders": 0.37442002,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 544320000,
+   "netIncomeToCommon": 133682000,
+   "grossMargins": 0.50808996,
+   "operatingMargins": 0.25569,
+   "financialCurrency": "USD",
+   "city": "Migdal Haemek",
+   "country": "Israel",
+   "revenueUSD": 544320000.0,
+   "netIncomeUSD": 133682000.0,
+   "marketCapUSD": 4774852608.0
   },
   "holders": [
    {
@@ -3222,7 +3581,17 @@
    "fullTimeEmployees": 76907,
    "heldPercentInstitutions": 0.43383,
    "heldPercentInsiders": 0.00049,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 4944817029120,
+   "netIncomeToCommon": 2527570952192,
+   "grossMargins": 0.65846,
+   "operatingMargins": 0.58655,
+   "financialCurrency": "TWD",
+   "city": "Hsinchu City",
+   "country": "Taiwan",
+   "revenueUSD": 150545480221.7578,
+   "netIncomeUSD": 76952166389.8711,
+   "marketCapUSD": 1890885415812.8438
   },
   "holders": [
    {
@@ -3276,7 +3645,17 @@
    "currency": "KRW",
    "heldPercentInstitutions": 0.46803,
    "heldPercentInsiders": 0.09688,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 594479375450112,
+   "netIncomeToCommon": 212962144944128,
+   "grossMargins": 0.64053,
+   "operatingMargins": 0.55044,
+   "financialCurrency": "KRW",
+   "city": "Suwon-si",
+   "country": "South Korea",
+   "revenueUSD": 445536514087.9336,
+   "netIncomeUSD": 159605893172.08105,
+   "marketCapUSD": 1005363903964.6719
   },
   "holders": [
    {
@@ -3351,7 +3730,17 @@
    "fullTimeEmployees": 81100,
    "heldPercentInstitutions": 0.63584,
    "heldPercentInsiders": 0.13911,
-   "recommendationKey": "hold"
+   "recommendationKey": "hold",
+   "totalRevenue": 59891998720,
+   "netIncomeToCommon": -12032000000,
+   "grossMargins": 0.40152,
+   "operatingMargins": 0.156,
+   "financialCurrency": "USD",
+   "city": "Santa Clara",
+   "country": "United States",
+   "revenueUSD": 59891998720.0,
+   "netIncomeUSD": -12032000000.0,
+   "marketCapUSD": 308960952320.0
   },
   "holders": [
    {
@@ -3483,7 +3872,17 @@
    "fullTimeEmployees": 47639,
    "heldPercentInstitutions": 0.38786,
    "heldPercentInsiders": 0.20173,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 269336677711872,
+   "netIncomeToCommon": 189262280523776,
+   "grossMargins": 0.77380997,
+   "operatingMargins": 0.79657,
+   "financialCurrency": "KRW",
+   "city": "Icheon-si",
+   "country": "South Korea",
+   "revenueUSD": 201856160969.27637,
+   "netIncomeUSD": 141843872462.43848,
+   "marketCapUSD": 674890447619.2578
   },
   "holders": [],
   "officers": [
@@ -3534,7 +3933,17 @@
    "fullTimeEmployees": 61000,
    "heldPercentInstitutions": 0.80105,
    "heldPercentInsiders": 0.00243,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 133188001792,
+   "netIncomeToCommon": 84968996864,
+   "grossMargins": 0.80716,
+   "operatingMargins": 0.80678004,
+   "financialCurrency": "USD",
+   "city": "Boise",
+   "country": "United States",
+   "revenueUSD": 133188001792.0,
+   "netIncomeUSD": 84968996864.0,
+   "marketCapUSD": 820406255616.0
   },
   "holders": [
    {
@@ -3667,7 +4076,17 @@
    "fullTimeEmployees": 14000,
    "heldPercentInstitutions": 0.99569,
    "heldPercentInsiders": 0.00116,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 7149000192,
+   "netIncomeToCommon": 197000000,
+   "grossMargins": 0.28465998,
+   "operatingMargins": 0.121120006,
+   "financialCurrency": "USD",
+   "city": "Malta",
+   "country": "United States",
+   "revenueUSD": 7149000192.0,
+   "netIncomeUSD": 197000000.0,
+   "marketCapUSD": 22643568640.0
   },
   "holders": [
    {
@@ -3800,7 +4219,17 @@
    "fullTimeEmployees": 20000,
    "heldPercentInstitutions": 0.36206,
    "heldPercentInsiders": 0.07777,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 265819226112,
+   "netIncomeToCommon": 84920303616,
+   "grossMargins": 0.31715,
+   "operatingMargins": 0.25086,
+   "financialCurrency": "TWD",
+   "city": "Hsinchu City",
+   "country": "Taiwan",
+   "revenueUSD": 8092894602.882568,
+   "netIncomeUSD": 2585407672.9555664,
+   "marketCapUSD": 39702024952.450195
   },
   "holders": [],
   "officers": [
@@ -3841,7 +4270,7 @@
  },
  "SMIC": {
   "info": {
-   "marketCap": 420070457344,
+   "marketCap": 419556720640,
    "trailingPE": 48.09804,
    "forwardPE": 27.351395,
    "profitMargins": 0.1003,
@@ -3851,7 +4280,17 @@
    "fullTimeEmployees": 20336,
    "heldPercentInstitutions": 0.19454001,
    "heldPercentInsiders": 0.18041,
-   "recommendationKey": "none"
+   "recommendationKey": "none",
+   "totalRevenue": 10381606912,
+   "netIncomeToCommon": 1041254016,
+   "grossMargins": 0.21819,
+   "operatingMargins": 0.17099,
+   "financialCurrency": "USD",
+   "city": "Shanghai",
+   "country": "China",
+   "revenueUSD": 10381606912.0,
+   "netIncomeUSD": 1041254016.0,
+   "marketCapUSD": 53479007773.71826
   },
   "holders": [],
   "officers": [
@@ -3922,7 +4361,17 @@
    "currency": "USD",
    "heldPercentInstitutions": 0.66602,
    "heldPercentInsiders": 0.00397,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 1840077056,
+   "netIncomeToCommon": 356188992,
+   "grossMargins": 0.29623,
+   "operatingMargins": 0.24163,
+   "financialCurrency": "USD",
+   "city": "Migdal Haemek",
+   "country": "Israel",
+   "revenueUSD": 1840077056.0,
+   "netIncomeUSD": 356188992.0,
+   "marketCapUSD": 16755208192.0
   },
   "holders": [
    {
@@ -4054,7 +4503,17 @@
    "currency": "TWD",
    "heldPercentInstitutions": 0.51008,
    "heldPercentInsiders": 0.20309,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 55071244288,
+   "netIncomeToCommon": 10067502080,
+   "grossMargins": 0.30909002,
+   "operatingMargins": 0.22105,
+   "financialCurrency": "TWD",
+   "city": "Hsinchu City",
+   "country": "Taiwan",
+   "revenueUSD": 1676649887.9377441,
+   "netIncomeUSD": 306506171.2782669,
+   "marketCapUSD": 8679291738.011719
   },
   "holders": [],
   "officers": [
@@ -4104,7 +4563,17 @@
    "currency": "TWD",
    "heldPercentInstitutions": 0.09968001,
    "heldPercentInsiders": 0.20024,
-   "recommendationKey": "none"
+   "recommendationKey": "none",
+   "totalRevenue": 55198314496,
+   "netIncomeToCommon": 14140327936,
+   "grossMargins": 0.1141,
+   "operatingMargins": 0.20499,
+   "financialCurrency": "TWD",
+   "city": "Hsinchu City",
+   "country": "Taiwan",
+   "revenueUSD": 1680518553.931366,
+   "netIncomeUSD": 430503787.51771545,
+   "marketCapUSD": 8490253725.75
   },
   "holders": [],
   "officers": [
@@ -4154,7 +4623,17 @@
    "currency": "JPY",
    "heldPercentInstitutions": 0.54494,
    "heldPercentInsiders": 0.052360002,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 1586195988480,
+   "netIncomeToCommon": 606849007616,
+   "grossMargins": 0.59337,
+   "operatingMargins": 0.26769,
+   "financialCurrency": "JPY",
+   "city": "Tokyo",
+   "country": "Japan",
+   "revenueUSD": 9983798910.07965,
+   "netIncomeUSD": 3819615296.483856,
+   "marketCapUSD": 33610426404.47461
   },
   "holders": [
    {
@@ -4200,17 +4679,27 @@
  },
  "INFINEON": {
   "info": {
-   "marketCap": 67288088576,
+   "marketCap": 67392053248,
    "trailingPE": 56.282608,
    "forwardPE": 13.442961,
    "profitMargins": 0.07774,
    "revenueGrowth": 0.126,
    "beta": 1.947,
    "currency": "EUR",
-   "fullTimeEmployees": 56992,
+   "fullTimeEmployees": 58058,
    "heldPercentInstitutions": 0.58958,
    "heldPercentInsiders": 0.0,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 16353000448,
+   "netIncomeToCommon": 1495000064,
+   "grossMargins": 0.40415,
+   "operatingMargins": 0.16468,
+   "financialCurrency": "EUR",
+   "city": "Neubiberg",
+   "country": "Germany",
+   "revenueUSD": 18218583098.39099,
+   "netIncomeUSD": 1665552629.604126,
+   "marketCapUSD": 75080272037.78613
   },
   "holders": [
    {
@@ -4274,7 +4763,17 @@
    "fullTimeEmployees": 32169,
    "heldPercentInstitutions": 0.99486,
    "heldPercentInsiders": 0.0014200001,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 13797999616,
+   "netIncomeToCommon": 3228000000,
+   "grossMargins": 0.56457,
+   "operatingMargins": 0.32303002,
+   "financialCurrency": "USD",
+   "city": "Eindhoven",
+   "country": "Netherlands",
+   "revenueUSD": 13797999616.0,
+   "netIncomeUSD": 3228000000.0,
+   "marketCapUSD": 65926979584.0
   },
   "holders": [
    {
@@ -4407,7 +4906,17 @@
    "fullTimeEmployees": 49000,
    "heldPercentInstitutions": 0.1822,
    "heldPercentInsiders": 0.00253,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 13669000192,
+   "netIncomeToCommon": 520000000,
+   "grossMargins": 0.35533002,
+   "operatingMargins": 0.11099,
+   "financialCurrency": "USD",
+   "city": "Plan-les-Ouates",
+   "country": "Switzerland",
+   "revenueUSD": 13669000192.0,
+   "netIncomeUSD": 520000000.0,
+   "marketCapUSD": 39941632000.0
   },
   "holders": [
    {
@@ -4499,7 +5008,17 @@
    "fullTimeEmployees": 33000,
    "heldPercentInstitutions": 0.91955,
    "heldPercentInsiders": 0.00279,
-   "recommendationKey": "none"
+   "recommendationKey": "none",
+   "totalRevenue": 20765999104,
+   "netIncomeToCommon": 7072000000,
+   "grossMargins": 0.60243,
+   "operatingMargins": 0.47547,
+   "financialCurrency": "USD",
+   "city": "Dallas",
+   "country": "United States",
+   "revenueUSD": 20765999104.0,
+   "netIncomeUSD": 7072000000.0,
+   "marketCapUSD": 274749702144.0
   },
   "holders": [
    {
@@ -4632,7 +5151,17 @@
    "fullTimeEmployees": 94900,
    "heldPercentInstitutions": 0.45202,
    "heldPercentInsiders": 0.00053,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 13017315016704,
+   "netIncomeToCommon": 1252205002752,
+   "grossMargins": 0.33446997,
+   "operatingMargins": 0.18811001,
+   "financialCurrency": "JPY",
+   "city": "Tokyo",
+   "country": "Japan",
+   "revenueUSD": 81933289719.43213,
+   "netIncomeUSD": 7881600402.767212,
+   "marketCapUSD": 154073058793.64355
   },
   "holders": [
    {
@@ -4693,7 +5222,17 @@
    "currency": "JPY",
    "heldPercentInstitutions": 0.41782,
    "heldPercentInsiders": 0.10448,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 5793635106816,
+   "netIncomeToCommon": 2693415043072,
+   "grossMargins": 0.73405,
+   "operatingMargins": 0.80431,
+   "financialCurrency": "JPY",
+   "city": "Minato",
+   "country": "Japan",
+   "revenueUSD": 36466167034.16162,
+   "netIncomeUSD": 16952832037.598755,
+   "marketCapUSD": 96276586317.59424
   },
   "holders": [
    {
@@ -4737,7 +5276,17 @@
    "fullTimeEmployees": 76753,
    "heldPercentInstitutions": 0.48158002,
    "heldPercentInsiders": 0.01824,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 2018841985024,
+   "netIncomeToCommon": 287602016256,
+   "grossMargins": 0.44221002,
+   "operatingMargins": 0.25056,
+   "financialCurrency": "JPY",
+   "city": "Nagaokakyo",
+   "country": "Japan",
+   "revenueUSD": 12706949554.840454,
+   "netIncomeUSD": 1810218105.0053558,
+   "marketCapUSD": 62054036823.11914
   },
   "holders": [
    {
@@ -4800,7 +5349,17 @@
    "fullTimeEmployees": 3548,
    "heldPercentInstitutions": 0.1714,
    "heldPercentInsiders": 0.17365,
-   "recommendationKey": "none"
+   "recommendationKey": "none",
+   "totalRevenue": 3533678592,
+   "netIncomeToCommon": -10883718144,
+   "grossMargins": 0.31309998,
+   "operatingMargins": -0.28347,
+   "financialCurrency": "CNY",
+   "city": "Shenzhen",
+   "country": "China",
+   "revenueUSD": 530662039.2532654,
+   "netIncomeUSD": -1634437290.9376373,
+   "marketCapUSD": 2473072667.6077576
   },
   "holders": [],
   "officers": [
@@ -4827,7 +5386,17 @@
    "fullTimeEmployees": 119346,
    "heldPercentInstitutions": 0.34612,
    "heldPercentInsiders": 0.24494,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 786802737152,
+   "netIncomeToCommon": 76906192896,
+   "grossMargins": 0.20802,
+   "operatingMargins": 0.13574,
+   "financialCurrency": "TWD",
+   "city": "Kaohsiung",
+   "country": "Taiwan",
+   "revenueUSD": 23954292991.387207,
+   "netIncomeUSD": 2341417219.9645386,
+   "marketCapUSD": 82936912248.46875
   },
   "holders": [],
   "officers": [
@@ -4878,7 +5447,17 @@
    "fullTimeEmployees": 30800,
    "heldPercentInstitutions": 0.48918,
    "heldPercentInsiders": 0.50042,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 7461268992,
+   "netIncomeToCommon": 619478016,
+   "grossMargins": 0.16563,
+   "operatingMargins": 0.1129,
+   "financialCurrency": "USD",
+   "city": "Tempe",
+   "country": "United States",
+   "revenueUSD": 7461268992.0,
+   "netIncomeUSD": 619478016.0,
+   "marketCapUSD": 8542017536.0
   },
   "holders": [
    {
@@ -5011,7 +5590,17 @@
    "fullTimeEmployees": 42000,
    "heldPercentInstitutions": 0.71566004,
    "heldPercentInsiders": 0.04007,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 302970011648,
+   "netIncomeToCommon": 192880001024,
+   "grossMargins": 0.74674004,
+   "operatingMargins": 0.66236997,
+   "financialCurrency": "USD",
+   "city": "Santa Clara",
+   "country": "United States",
+   "revenueUSD": 302970011648.0,
+   "netIncomeUSD": 192880001024.0,
+   "marketCapUSD": 4078186790912.0
   },
   "holders": [
    {
@@ -5144,7 +5733,17 @@
    "fullTimeEmployees": 31000,
    "heldPercentInstitutions": 0.75044,
    "heldPercentInsiders": 0.00418,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 45435998208,
+   "netIncomeToCommon": 7725000192,
+   "grossMargins": 0.56,
+   "operatingMargins": 0.21170999,
+   "financialCurrency": "USD",
+   "city": "Santa Clara",
+   "country": "United States",
+   "revenueUSD": 45435998208.0,
+   "netIncomeUSD": 7725000192.0,
+   "marketCapUSD": 844989399040.0
   },
   "holders": [
    {
@@ -5277,7 +5876,17 @@
    "fullTimeEmployees": 167000,
    "heldPercentInstitutions": 0.66559,
    "heldPercentInsiders": 0.016549999,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 478833999872,
+   "netIncomeToCommon": 132175003648,
+   "grossMargins": 0.48786,
+   "operatingMargins": 0.31125,
+   "financialCurrency": "USD",
+   "city": "Cupertino",
+   "country": "United States",
+   "revenueUSD": 478833999872.0,
+   "netIncomeUSD": 132175003648.0,
+   "marketCapUSD": 5064611069952.0
   },
   "holders": [
    {
@@ -5410,7 +6019,17 @@
    "fullTimeEmployees": 57000,
    "heldPercentInstitutions": 0.8172,
    "heldPercentInsiders": 0.00121,
-   "recommendationKey": "hold"
+   "recommendationKey": "hold",
+   "totalRevenue": 43120001024,
+   "netIncomeToCommon": 13628000256,
+   "grossMargins": 0.53103,
+   "operatingMargins": 0.15414,
+   "financialCurrency": "USD",
+   "city": "San Diego",
+   "country": "United States",
+   "revenueUSD": 43120001024.0,
+   "netIncomeUSD": 13628000256.0,
+   "marketCapUSD": 185677103104.0
   },
   "holders": [
    {
@@ -5543,7 +6162,17 @@
    "fullTimeEmployees": 33000,
    "heldPercentInstitutions": 0.79923,
    "heldPercentInsiders": 0.01915,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 89103998976,
+   "netIncomeToCommon": 38264999936,
+   "grossMargins": 0.75515,
+   "operatingMargins": 0.54307,
+   "financialCurrency": "USD",
+   "city": "Palo Alto",
+   "country": "United States",
+   "revenueUSD": 89103998976.0,
+   "netIncomeUSD": 38264999936.0,
+   "marketCapUSD": 1584749740032.0
   },
   "holders": [
    {
@@ -5676,7 +6305,17 @@
    "fullTimeEmployees": 7480,
    "heldPercentInstitutions": 0.81947,
    "heldPercentInsiders": 0.0049799997,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 9450300416,
+   "netIncomeToCommon": 2639899904,
+   "grossMargins": 0.52216,
+   "operatingMargins": 0.16679001,
+   "financialCurrency": "USD",
+   "city": "Wilmington",
+   "country": "United States",
+   "revenueUSD": 9450300416.0,
+   "netIncomeUSD": 2639899904.0,
+   "marketCapUSD": 138914856960.0
   },
   "holders": [
    {
@@ -5808,7 +6447,17 @@
    "currency": "TWD",
    "heldPercentInstitutions": 0.45157,
    "heldPercentInsiders": 0.08095,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 619578654720,
+   "netIncomeToCommon": 99296256000,
+   "grossMargins": 0.46240002,
+   "operatingMargins": 0.16127001,
+   "financialCurrency": "TWD",
+   "city": "Hsinchu City",
+   "country": "Taiwan",
+   "revenueUSD": 18863138021.220703,
+   "netIncomeUSD": 3023085071.8460083,
+   "marketCapUSD": 194012905981.1836
   },
   "holders": [],
   "officers": [
@@ -5858,7 +6507,17 @@
    "currency": "TWD",
    "heldPercentInstitutions": 0.31902,
    "heldPercentInsiders": 0.1236,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 9310748803072,
+   "netIncomeToCommon": 212778467328,
+   "grossMargins": 0.06118,
+   "operatingMargins": 0.03753,
+   "financialCurrency": "TWD",
+   "city": "New Taipei City",
+   "country": "Taiwan",
+   "revenueUSD": 283466737298.4844,
+   "netIncomeUSD": 6478063062.01062,
+   "marketCapUSD": 103695171107.4668
   },
   "holders": [
    {
@@ -5913,7 +6572,17 @@
    "currency": "TWD",
    "heldPercentInstitutions": 0.34351003,
    "heldPercentInsiders": 0.29725,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 2979709583360,
+   "netIncomeToCommon": 88472502272,
+   "grossMargins": 0.055409998,
+   "operatingMargins": 0.03304,
+   "financialCurrency": "TWD",
+   "city": "Taoyuan City",
+   "country": "Taiwan",
+   "revenueUSD": 90717575090.5664,
+   "netIncomeUSD": 2693554738.734009,
+   "marketCapUSD": 37193460361.549805
   },
   "holders": [],
   "officers": [
@@ -5964,7 +6633,17 @@
    "fullTimeEmployees": 7000,
    "heldPercentInstitutions": 0.68461,
    "heldPercentInsiders": 0.12617,
-   "recommendationKey": "hold"
+   "recommendationKey": "hold",
+   "totalRevenue": 53991112704,
+   "netIncomeToCommon": 3294405120,
+   "grossMargins": 0.11378,
+   "operatingMargins": 0.0956,
+   "financialCurrency": "USD",
+   "city": "San Jose",
+   "country": "United States",
+   "revenueUSD": 53991112704.0,
+   "netIncomeUSD": 3294405120.0,
+   "marketCapUSD": 18319929344.0
   },
   "holders": [
    {
@@ -6097,7 +6776,17 @@
    "fullTimeEmployees": 97000,
    "heldPercentInstitutions": 0.77041,
    "heldPercentInsiders": 0.07692,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 151197007872,
+   "netIncomeToCommon": 11377999872,
+   "grossMargins": 0.19910999,
+   "operatingMargins": 0.12020001,
+   "financialCurrency": "USD",
+   "city": "Round Rock",
+   "country": "United States",
+   "revenueUSD": 151197007872.0,
+   "netIncomeUSD": 11377999872.0,
+   "marketCapUSD": 212603060224.0
   },
   "holders": [
    {
@@ -6230,7 +6919,17 @@
    "fullTimeEmployees": 223000,
    "heldPercentInstitutions": 0.75655,
    "heldPercentInsiders": 0.00079,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 346444988416,
+   "netIncomeToCommon": 142630993920,
+   "grossMargins": 0.67657,
+   "operatingMargins": 0.49757,
+   "financialCurrency": "USD",
+   "city": "Redmond",
+   "country": "United States",
+   "revenueUSD": 346444988416.0,
+   "netIncomeUSD": 142630993920.0,
+   "marketCapUSD": 3959349575680.0
   },
   "holders": [
    {
@@ -6363,7 +7062,17 @@
    "fullTimeEmployees": 204757,
    "heldPercentInstitutions": 0.80674005,
    "heldPercentInsiders": 0.01594,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 471097999360,
+   "netIncomeToCommon": 235693621248,
+   "grossMargins": 0.60857,
+   "operatingMargins": 0.31805,
+   "financialCurrency": "USD",
+   "city": "Mountain View",
+   "country": "United States",
+   "revenueUSD": 471097999360.0,
+   "netIncomeUSD": 235693621248.0,
+   "marketCapUSD": 3533049692160.0
   },
   "holders": [
    {
@@ -6468,7 +7177,17 @@
    "fullTimeEmployees": 1638000,
    "heldPercentInstitutions": 0.6882,
    "heldPercentInsiders": 0.0883,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 797455024128,
+   "netIncomeToCommon": 134779002880,
+   "grossMargins": 0.51374,
+   "operatingMargins": 0.13903,
+   "financialCurrency": "USD",
+   "city": "Seattle",
+   "country": "United States",
+   "revenueUSD": 797455024128.0,
+   "netIncomeUSD": 134779002880.0,
+   "marketCapUSD": 2928954572800.0
   },
   "holders": [
    {
@@ -6601,7 +7320,17 @@
    "fullTimeEmployees": 66775,
    "heldPercentInstitutions": 0.77374,
    "heldPercentInsiders": 0.00133,
-   "recommendationKey": "strong_buy"
+   "recommendationKey": "strong_buy",
+   "totalRevenue": 241605001216,
+   "netIncomeToCommon": 75249000448,
+   "grossMargins": 0.81034,
+   "operatingMargins": 0.35414,
+   "financialCurrency": "USD",
+   "city": "Menlo Park",
+   "country": "United States",
+   "revenueUSD": 241605001216.0,
+   "netIncomeUSD": 75249000448.0,
+   "marketCapUSD": 1639927119872.0
   },
   "holders": [
    {
@@ -6726,7 +7455,17 @@
    "fullTimeEmployees": 367173,
    "heldPercentInstitutions": 0.26268,
    "heldPercentInsiders": 0.08956,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 53016661065728,
+   "netIncomeToCommon": 4311117987840,
+   "grossMargins": 0.16929,
+   "operatingMargins": 0.08392,
+   "financialCurrency": "JPY",
+   "city": "Toyota",
+   "country": "Japan",
+   "revenueUSD": 333696268814.3574,
+   "netIncomeUSD": 27134941319.241943,
+   "marketCapUSD": 254651600542.6914
   },
   "holders": [
    {
@@ -6790,7 +7529,17 @@
    "fullTimeEmployees": 195109,
    "heldPercentInstitutions": 0.44048,
    "heldPercentInsiders": 0.02654,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 22517855027200,
+   "netIncomeToCommon": -169696002048,
+   "grossMargins": 0.17447,
+   "operatingMargins": 0.08756,
+   "financialCurrency": "JPY",
+   "city": "Tokyo",
+   "country": "Japan",
+   "revenueUSD": 141731373746.14258,
+   "netIncomeUSD": -1068096737.475174,
+   "marketCapUSD": 43346402318.095215
   },
   "holders": [
    {
@@ -6849,7 +7598,17 @@
    "fullTimeEmployees": 120079,
    "heldPercentInstitutions": 0.23306,
    "heldPercentInsiders": 0.35841,
-   "recommendationKey": "hold"
+   "recommendationKey": "hold",
+   "totalRevenue": 12265185083392,
+   "netIncomeToCommon": -413576003584,
+   "grossMargins": 0.14456001,
+   "operatingMargins": 0.02628,
+   "financialCurrency": "JPY",
+   "city": "Yokohama",
+   "country": "Japan",
+   "revenueUSD": 77199250506.76562,
+   "netIncomeUSD": -2603120726.445526,
+   "marketCapUSD": 6113503214.764343
   },
   "holders": [
    {
@@ -6895,7 +7654,7 @@
  },
  "VW": {
   "info": {
-   "marketCap": 34689630208,
+   "marketCap": 34509164544,
    "trailingPE": 32.796207,
    "forwardPE": 3.4931428,
    "profitMargins": 0.00535,
@@ -6905,7 +7664,17 @@
    "fullTimeEmployees": 592430,
    "heldPercentInstitutions": 0.30958998,
    "heldPercentInsiders": 0.0,
-   "recommendationKey": "buy"
+   "recommendationKey": "buy",
+   "totalRevenue": 316622012416,
+   "netIncomeToCommon": 1076000000,
+   "grossMargins": 0.13852,
+   "operatingMargins": -0.07785,
+   "financialCurrency": "EUR",
+   "city": "Wolfsburg",
+   "country": "Germany",
+   "revenueUSD": 352742878123.39453,
+   "netIncomeUSD": 1198752209.186554,
+   "marketCapUSD": 38446038321.842285
   },
   "holders": [
    {
