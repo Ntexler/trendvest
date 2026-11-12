@@ -1,0 +1,2331 @@
+{
+ "ASML.AS": {
+  "name": "ASML",
+  "checked": "2026-11-12",
+  "one_liner": "חברה הולנדית שבונה את המכונות שמדפיסות שבבים. יצרניות שבבים כמו TSMC, Samsung ו-Intel קונות אותן.",
+  "hq": {
+   "city": "Veldhoven",
+   "country": "הולנד"
+  },
+  "founded": 1984,
+  "employees": {
+   "value": 44681,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Philips ו-ASM International",
+    "story": "שתי חברות טכנולוגיה הולנדיות הקימו את ASML ב-1984 כמיזם משותף. המטרה הייתה לסיים מכונת הדפסת שבבים ש-Philips פיתחה בעצמה.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1984,
+    "Philips ו-ASM International מקימות את ASML כמיזם משותף.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1988,
+    "ASML הופכת לחברה עצמאית שנסחרת בבורסה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1991,
+    "המכונה PAS 5500 יוצאת ונהיית ההצלחה המסחרית הראשונה של החברה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2002,
+    "ASML הופכת לספקית הגדולה בעולם של מכונות להדפסת שבבים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2012,
+    "Intel, TSMC ו-Samsung קונות יחד 23% מהחברה כדי לממן פיתוח של מכונות EUV, הדור המתקדם.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "הולנד מגבילה מכירת מכונות מתקדמות לסין, וההגבלות מוחמרות ב-2024 וב-2025.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2024,
+    "Christophe Fouquet מחליף את Peter Wennink כמנכ\"ל.",
+    [
+     "IR_CEO"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Christophe Fouquet",
+    "role": "נשיא ומנכ\"ל",
+    "since": 2024,
+    "background": "לפני כן ראש תחום העסקים (Chief Business Officer) בחברה",
+    "src": [
+     "IR_CEO",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "החברה תלויה באישורי ייצוא מממשלת הולנד, ובעקיפין מארה\"ב, כדי למכור מכונות לסין.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "לפי Wikipedia, נכון ל-2026 ASML היא היצרנית היחידה בעולם של מכונות EUV, שנדרשות לשבבים המתקדמים ביותר.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. לפי Yahoo, כמחצית מהמניות בידי גופים מוסדיים כמו קרנות, ואנשי הפנים מחזיקים כמעט כלום.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": {
+   "text": "מהיום הראשון החברה קונה רכיבים מרכזיים, כמו עדשות ומנועים, מספקים חיצוניים, ומתרכזת בהרכבה ובכיוון של המכונה כולה. יש לה כמעט 5,000 ספקים ישירים.",
+   "src": [
+    "W"
+   ]
+  },
+  "how_to_start": [
+   "היא מוכרת מכונות ענק להדפסת שבבים, וגם שירות ושדרוג למכונות שכבר נמכרו, ליצרניות שבבים.",
+   "המחיר תלוי בכמה יצרניות השבבים מתכננות לבנות מפעלים חדשים, למשל בגלל ביקוש לבינה מלאכותית, ובהגבלות על מכירה לסין.",
+   "דוח הרבעון הרביעי של 2026 צפוי בסוף ינואר 2027 (אתרי נתונים מציינים 26-27 בינואר). בשנה שעברה החברה דיווחה ב-28 בינואר. זו הערכה."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: ASML Holding",
+    "https://en.wikipedia.org/wiki/ASML_Holding"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/ASML.AS/profile"
+   ],
+   "IR_CEO": [
+    "ASML: Christophe Fouquet, ASML's new CEO",
+    "https://www.asml.com/en/company/stories/2024/christophe-fouquet-asml-ceo"
+   ],
+   "CAL": [
+    "MarketScreener calendar",
+    "https://www.marketscreener.com/quote/stock/ASML-HOLDING-N-V-12002973/calendar/"
+   ]
+  },
+  "unverified": [
+   "תאריך הדוח הבא לא נמצא בלוח הרשמי של החברה, רק באתרי צד שלישי.",
+   "שמות בעלי המניות הגדולים ואחוזיהם לא נמצאו במקור אמין."
+  ]
+ },
+ "RO.SW": {
+  "name": "Roche",
+  "checked": "2026-11-12",
+  "one_liner": "חברה שוויצרית שמפתחת ומוכרת תרופות, בעיקר לסרטן, וגם בדיקות ומכשירים למעבדות רפואיות.",
+  "hq": {
+   "city": "באזל",
+   "country": "שווייץ"
+  },
+  "founded": 1896,
+  "employees": {
+   "value": 103249,
+   "year": 2026,
+   "src": "SA"
+  },
+  "founders": [
+   {
+    "name": "Fritz Hoffmann-La Roche",
+    "story": "הקים את החברה בבאזל ב-1896. בשנים הראשונות היא נודעה בעיקר בזכות תכשירי ויטמינים. צאצאי משפחתו עדיין שולטים בה.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1896,
+    "Fritz Hoffmann-La Roche מקים את החברה בבאזל.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1934,
+    "Roche היא החברה הראשונה שמייצרת ויטמין C סינתטי בכמויות גדולות.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1957,
+    "Roche משיקה תרופות הרגעה ממשפחת הבנזודיאזפינים, כמו Valium.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1998,
+    "Roche קונה את Boehringer Mannheim ב-11 מיליארד דולר, שהופכת ל-Roche Diagnostics.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2009,
+    "Roche קונה את כל חברת הביוטכנולוגיה האמריקאית Genentech ב-46.8 מיליארד דולר.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2021,
+    "Novartis, שהחזיקה כשליש ממניות ההצבעה של Roche, יוצאת מההחזקה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "Roche מודיעה על השקעה של 50 מיליארד דולר בארה\"ב בחמש שנים.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Thomas Schinecker",
+    "role": "מנכ\"ל הקבוצה",
+    "since": 2023,
+    "src": [
+     "yahoo",
+     "AR"
+    ]
+   },
+   {
+    "name": "Severin Schwan",
+    "role": "יו\"ר הדירקטוריון",
+    "src": [
+     "yahoo",
+     "AR"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "שליטה משפחתית: צאצאי משפחות Hoffmann ו-Oeri מחזיקים מעט יותר ממחצית ממניות ההצבעה.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "המניה RO היא מניה עם זכות הצבעה, ומעט יותר ממחציתה בידי המשפחה. משקיע מן השורה לא יכול להשפיע על ההחלטות.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "ב-1999 החברה הודתה בארה\"ב שהשתתפה בתיאום מחירים עולמי של ויטמינים ושילמה קנס של 500 מיליון דולר.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "בעלת השליטה היא קבוצת בני משפחת המייסד (Hoffmann ו-Oeri): כ-45% במאגר משפחתי ועוד כ-5% של Maja Oeri, מתוך מניות ההצבעה.",
+   "src": [
+    "W"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא מוכרת תרופות מרשם, בעיקר לסרטן, ובדיקות ומכשירי מעבדה לבתי חולים ולמעבדות.",
+   "המחיר תלוי בתוצאות ניסויים בתרופות חדשות, בפקיעת פטנטים על תרופות ותיקות, במחירי התרופות בארה\"ב ובשער הפרנק השוויצרי.",
+   "הדוח השנתי של 2025 פורסם ב-29 בינואר 2026. הבא צפוי בדרך כלל בסוף ינואר 2027, לפי השנים הקודמות (אתר צד שלישי מציין 28 בינואר). זו הערכה."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Roche",
+    "https://en.wikipedia.org/wiki/Roche_Holding"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/RO.SW/profile"
+   ],
+   "AR": [
+    "Roche Annual Report 2025: CEO and Chairman letter",
+    "https://www.roche.com/investors/annualreport25/ceo-and-chairman-letter"
+   ],
+   "SA": [
+    "StockAnalysis: Roche company profile",
+    "https://stockanalysis.com/quote/swx/RO/company"
+   ],
+   "IR": [
+    "Roche: Annual results 2025",
+    "https://www.roche.com/investors/events/annual-results-2025"
+   ]
+  },
+  "unverified": [
+   "שנת תחילת הכהונה של Schinecker (2023) ושל Schwan כיו\"ר לא אומתו מול מקור ראשי.",
+   "מספר העובדים (103,249) מאתר צד שלישי; Yahoo לא מציג מספר, והחברה כותבת 'יותר מ-100,000'.",
+   "אחוזי ההחזקה של המשפחה מ-Wikipedia, בלי תאריך מעודכן.",
+   "לא אומת: שלחברה יש גם נייר נפרד בלי זכות הצבעה (ROG), שהוא הנסחר יותר."
+  ]
+ },
+ "NOVN.SW": {
+  "name": "Novartis",
+  "checked": "2026-11-12",
+  "one_liner": "חברת תרופות שוויצרית שממציאה, מייצרת ומוכרת תרופות מרשם, למשל לסרטן, ללב ולמחלות של מערכת החיסון.",
+  "hq": {
+   "city": "באזל",
+   "country": "שווייץ"
+  },
+  "founded": 1996,
+  "employees": {
+   "value": 75267,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Alexander Clavel",
+    "story": "ב-1859 התחיל לייצר צבע לבדי משי במפעל שלו בבאזל. מהמפעל הזה צמחה CIBA, אחת מחברות האם של Novartis.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Johann Rudolf Geigy-Merian",
+    "story": "ב-1857 קנה עם שותף אתר בבאזל והקים טחנה ומפעל לצבעים. מכאן צמחה Geigy.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Alfred Kern ו-Edouard Sandoz",
+    "story": "ב-1886 הקימו בבאזל חברת כימיקלים שייצרה צבעים. היא הפכה ל-Sandoz, ומ-1917 פיתחה גם תרופות.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1886,
+    "Alfred Kern ו-Edouard Sandoz מקימים בבאזל את החברה שתהפוך ל-Sandoz.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1970,
+    "CIBA ו-Geigy מתמזגות ל-Ciba-Geigy.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1996,
+    "Ciba-Geigy ו-Sandoz מתמזגות ל-Novartis. השם בא מלטינית: 'כישורים חדשים'.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2019,
+    "Novartis מפרידה את חטיבת העיניים Alcon לחברה עצמאית בבורסה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2020,
+    "Novartis משלמת 678 מיליון דולר בארה\"ב כדי לסגור טענות שקנתה רופאים כדי שירשמו את התרופות שלה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "Novartis מפרידה את Sandoz, חטיבת התרופות הגנריות (הזולות, אחרי פקיעת פטנט), לחברה עצמאית.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "Novartis קונה את Avidity Biosciences בכ-12 מיליארד דולר, ומכריזה על השקעה של 23 מיליארד דולר במפעלים בארה\"ב.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Vas Narasimhan",
+    "role": "מנכ\"ל",
+    "since": 2018,
+    "background": "רופא; לפני כן ראש פיתוח התרופות של החברה",
+    "src": [
+     "CEO",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "ב-2020 החברה הסכימה לשלם בארה\"ב 678 מיליון דולר בתיק תמריצים לרופאים, ועוד כ-347 מיליון דולר בתיקי שוחד במדינות אחרות (למשל יוון).",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. לפי Yahoo, כמחצית מהמניות בידי גופים מוסדיים כמו קרנות, וכ-2% בידי אנשי פנים.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": {
+   "text": "מאז 2019 החברה מפרידה ממנה חטיבות צדדיות (עיניים, גנריות) כדי להתרכז רק בתרופות מרשם חדשות.",
+   "src": [
+    "W"
+   ]
+  },
+  "how_to_start": [
+   "היא מוכרת תרופות מרשם לבתי חולים, לקופות ולמבטחים בעולם.",
+   "המחיר תלוי בתרופות חדשות שמאושרות או נכשלות בניסויים, במועד שבו פטנטים על תרופות גדולות פוקעים, ובמדיניות מחירי התרופות בארה\"ב.",
+   "לפי לוח האירועים שהחברה מצרפת להודעות שלה, הדוח השנתי של 2026 צפוי ב-1 בפברואר 2027."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Novartis",
+    "https://en.wikipedia.org/wiki/Novartis"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/NOVN.SW/profile"
+   ],
+   "CEO": [
+    "3tres3: Vasant Narasimhan appointed CEO of Novartis (effective 1 Feb 2018)",
+    "https://www.3tres3.com/en/print/12865"
+   ],
+   "CAL": [
+    "Novartis press release with financial calendar (via MFN)",
+    "https://mfn.se/all/a/novartis/novartis-delivered-high-single-digit-sales-growth-achieved-40-core-margin-and-further-advanced-the-pipeline-in-2025-16b2c89d"
+   ]
+  },
+  "unverified": [
+   "תאריך הדוח הבא (1 בפברואר 2027) נלקח מרשימה בתחתית הודעה של החברה דרך אתר צד שלישי; אתרים אחרים מציינים 2-4 בפברואר.",
+   "יו\"ר הדירקטוריון הנוכחי לא אומת ולכן לא נכלל.",
+   "שמות בעלי המניות הגדולים ואחוזיהם לא נמצאו במקור אמין."
+  ]
+ },
+ "AZN.L": {
+  "name": "AstraZeneca",
+  "checked": "2026-11-12",
+  "one_liner": "חברת תרופות בריטית-שוודית שמפתחת ומוכרת תרופות מרשם, בעיקר לסרטן, ללב, לכליות ולמחלות נשימה.",
+  "hq": {
+   "city": "קיימברידג'",
+   "country": "בריטניה"
+  },
+  "founded": 1999,
+  "employees": {
+   "value": 96100,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "קבוצה של 400 רופאים ורוקחים",
+    "story": "הקימו ב-1913 בעיר Södertälje בשוודיה את Astra AB. היא גדלה להיות חברת התרופות הגדולה בשוודיה.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Imperial Chemical Industries (ICI)",
+    "story": "חברת הכימיקלים הבריטית הפרידה ב-1993 את חטיבת התרופות שלה לחברה בשם Zeneca, שהתמזגה עם Astra ב-1999.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1913,
+    "400 רופאים ורוקחים מקימים את Astra AB בשוודיה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1993,
+    "ICI הבריטית מפרידה את חטיבת התרופות שלה, ונוצרת Zeneca.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1999,
+    "Astra ו-Zeneca מתמזגות ל-AstraZeneca.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2012,
+    "Pascal Soriot מתמנה למנכ\"ל.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2014,
+    "החברה דוחה הצעת השתלטות של Pfizer בשווי כ-117 מיליארד דולר.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2021,
+    "החברה משלימה את קניית Alexion, שמפתחת תרופות למחלות נדירות.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "המניה עוברת לרישום ישיר בבורסה של ניו יורק (NYSE), בנוסף ללונדון.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Pascal Soriot",
+    "role": "מנכ\"ל",
+    "since": 2012,
+    "background": "וטרינר ובעל תואר במנהל עסקים",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Michel Demaré",
+    "role": "יו\"ר הדירקטוריון",
+    "src": [
+     "AR"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המנכ\"ל מכהן מאז 2012, ובעלי מניות ומומחי ממשל תאגידי ביקרו ב-2024 את גובה השכר שלו.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "Investor AB השוודית, של משפחת Wallenberg, היא בעלת המניות הגדולה עם כ-3.3%, ו-Marcus Wallenberg יושב בדירקטוריון.",
+    "src": [
+     "yahoo",
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. לפי Yahoo, הגדולים הם Investor AB של משפחת Wallenberg (כ-3.3%), Vanguard (כ-2.9%) והקרן של נורבגיה (כ-2.2%). כשלושה רבעים מהמניות בידי גופים מוסדיים.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא מוכרת תרופות מרשם לבתי חולים, לקופות ולמבטחים בעולם.",
+   "המחיר תלוי בתוצאות ניסויים בתרופות חדשות לסרטן, בפקיעת פטנטים, ובמדיניות מחירי התרופות בארה\"ב.",
+   "הדוח השנתי של 2025 פורסם ב-10 בפברואר 2026. הבא צפוי בדרך כלל בתחילת עד אמצע פברואר 2027, לפי השנים הקודמות. זו הערכה."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: AstraZeneca",
+    "https://en.wikipedia.org/wiki/AstraZeneca"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/AZN.L/profile"
+   ],
+   "AR": [
+    "AstraZeneca Annual Report 2025",
+    "https://www.astrazeneca.com/investor-relations/annual-reports/annual-report-2025.html"
+   ],
+   "Q4": [
+    "AstraZeneca: Full Year and Q4 2025 results",
+    "https://www.astrazeneca.com/media-centre/press-releases/2026/full-year-q4-2025-results.html"
+   ]
+  },
+  "unverified": [
+   "שנת תחילת הכהונה של Michel Demaré כיו\"ר לא נמצאה.",
+   "לפי Wikipedia, באוגוסט 2026 התקיימו שיחות על מיזוג עם Bristol Myers Squibb שלא הבשילו. לא אומת מול מקור שני ולכן לא נכלל בציר הזמן."
+  ]
+ },
+ "SAP.DE": {
+  "name": "SAP",
+  "checked": "2026-11-12",
+  "one_liner": "חברת תוכנה גרמנית שמוכרת לחברות גדולות תוכנה לניהול כספים, מלאי, רכש ועובדים, יותר ויותר בענן.",
+  "hq": {
+   "city": "Walldorf",
+   "country": "גרמניה"
+  },
+  "founded": 1972,
+  "employees": {
+   "value": 113076,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Dietmar Hopp, Klaus Tschira, Hans-Werner Hector, Hasso Plattner ו-Claus Wellenreuther",
+    "story": "חמישה מהנדסים לשעבר של IBM. ב-1972 נאמר להם שהפרויקט שלהם לא נחוץ, אז עזבו והקימו את SAP. הלקוח הראשון היה הסניף הגרמני של ICI.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1972,
+    "חמישה מהנדסים לשעבר של IBM מקימים את SAP בעיר Weinheim.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1988,
+    "SAP נהיית חברה ציבורית ומניותיה מתחילות להיסחר.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1992,
+    "יוצאת התוכנה SAP R/3, שהפכה למוצר המרכזי שלה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2014,
+    "החברה קונה את Concur, אחרי SuccessFactors, Ariba ו-Hybris בשנים שלפני כן.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2015,
+    "יוצא S/4HANA, הדור החדש של תוכנת הליבה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2020,
+    "Christian Klein נהיה המנכ\"ל היחיד.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2024,
+    "החברה מסכימה לשלם יותר מ-220 מיליון דולר בארה\"ב בתיק שוחד במדינות באפריקה, באינדונזיה ובאזרבייג'ן.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Christian Klein",
+    "role": "מנכ\"ל",
+    "since": 2020,
+    "background": "מנכ\"ל יחיד מאפריל 2020, אחרי תקופה קצרה כמנכ\"ל משותף",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Pekka Ala-Pietilä",
+    "role": "יו\"ר מועצת הפיקוח (הדירקטוריון)",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המייסדים עדיין בעלי המניות הגדולים: Hasso Plattner כ-6.6%, Dietmar Hopp כ-5% וקרן Klaus Tschira כ-3.6% (תחילת 2024).",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "ב-2024 החברה הסכימה לשלם יותר מ-220 מיליון דולר בארה\"ב בתיק שוחד, במסגרת הסדר דחיית תביעה ל-3 שנים.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "הנציבות האירופית פתחה ב-2025 חקירת תחרות נגד החברה, וקיבלה ב-2026 את ההתחייבויות שהחברה הציעה.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה, אבל המייסדים עדיין גדולים: Plattner כ-6.6%, Hopp כ-5%, קרן Tschira כ-3.6%. BlackRock כ-5.5%. כ-70% מפוזרים (תחילת 2024).",
+   "src": [
+    "W"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא מוכרת לחברות גדולות תוכנה שמנהלת את הכסף, המלאי, הרכש והעובדים שלהן, ובעיקר מנויים לתוכנה בענן.",
+   "המחיר תלוי בקצב שבו לקוחות עוברים לענן, בכמה הזמנות חדשות נכנסות, ובשאלה אם בינה מלאכותית תעזור לה או תפגע בה.",
+   "הדוח השנתי של 2025 פורסם ב-29 בינואר 2026. הבא צפוי בדרך כלל בסוף ינואר 2027, לפי השנים הקודמות. זו הערכה."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: SAP",
+    "https://en.wikipedia.org/wiki/SAP"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/SAP.DE/profile"
+   ],
+   "Q4": [
+    "Nasdaq: SAP Quarterly Statement Q4 2025 (29 Jan 2026)",
+    "https://www.nasdaq.com/press-release/sap-quarterly-statement-q4-2025-2026-01-29"
+   ]
+  },
+  "unverified": [
+   "פילוח בעלי המניות הוא מתחילת 2024; לא נמצא נתון עדכני.",
+   "שנת תחילת הכהונה של Pekka Ala-Pietilä כיו\"ר לא נמצאה."
+  ]
+ },
+ "SIE.DE": {
+  "name": "Siemens",
+  "checked": "2026-11-12",
+  "one_liner": "חברה גרמנית שמוכרת ציוד ותוכנה לאוטומציה של מפעלים, מערכות לבניינים ולרשתות חשמל, ורכבות.",
+  "hq": {
+   "city": "מינכן",
+   "country": "גרמניה"
+  },
+  "founded": 1847,
+  "employees": {
+   "value": 317000,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Werner von Siemens ו-Johann Georg Halske",
+    "story": "הקימו בברלין ב-1847 את Siemens & Halske כדי לבנות מכשירי טלגרף. המכשיר שלהם הצביע עם מחט על אותיות, במקום קוד מורס.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1847,
+    "Werner von Siemens ו-Johann Georg Halske מקימים בברלין חברת טלגרף.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1944,
+    "במלחמת העולם השנייה החברה העסיקה עובדי כפייה, כולל במפעל ליד מחנה Ravensbrück ובמפעל באושוויץ.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1966,
+    "שלוש חברות של הקבוצה מתמזגות ל-Siemens AG של היום.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2008,
+    "החברה משלמת כ-1.6 מיליארד דולר לארה\"ב ולגרמניה בפרשת שוחד עולמית, אז הקנס הגבוה בהיסטוריה על שוחד.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2017,
+    "חטיבת הציוד הרפואי, Siemens Healthineers, יוצאת לבורסה כחברה נפרדת.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2020,
+    "חטיבת האנרגיה הופכת לחברה עצמאית, Siemens Energy.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "Siemens משלימה את קניית חברת התוכנה Altair בכ-10 מיליארד דולר, הקנייה הגדולה בתולדותיה.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Roland Busch",
+    "role": "מנכ\"ל",
+    "since": 2021,
+    "background": "פיזיקאי; החליף את Joe Kaeser",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Jim Hagemann Snabe",
+    "role": "יו\"ר מועצת הפיקוח (הדירקטוריון)",
+    "since": 2018,
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "משפחת Siemens, משפחת המייסד, היא עדיין בעלת המניות הגדולה, עם כ-6.9%.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "ב-2008 החברה שילמה כ-1.6 מיליארד דולר לסגירת פרשת שוחד, והתחייבה להשקיע במערכות אכיפה פנימיות.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. משפחת Siemens מחזיקה כ-6.9%, מדינת קטאר כ-3%, קרן הנפט של נורבגיה כ-2.5%. כ-62% בידי מנהלי השקעות, הגדול מהם BlackRock.",
+   "src": [
+    "W"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא מוכרת ציוד ותוכנה למפעלים, מערכות חשמל ושליטה לבניינים ולחוות שרתים, ורכבות. הלקוחות הם עסקים וממשלות.",
+   "המחיר תלוי בכמה מפעלים בעולם משקיעים באוטומציה, בביקוש מחוות שרתים, ובמה שקורה עם המניות שהיא מחזיקה ב-Siemens Healthineers.",
+   "השנה הכספית שלה נגמרת ב-30 בספטמבר. הדוח השנתי של 2026 פורסם ב-12 בנובמבר 2026. הדוח הרבעוני הבא צפוי בדרך כלל באמצע פברואר 2027, לפי השנים הקודמות. זו הערכה."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Siemens",
+    "https://en.wikipedia.org/wiki/Siemens"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/SIE.DE/profile"
+   ],
+   "CAL": [
+    "Siemens financial calendar",
+    "https://www.siemens.com/de-ch/company/investor-relations/financial-calendar"
+   ]
+  },
+  "unverified": [
+   "השנה 1944 בציר הזמן מסמנת את תקופת המלחמה (1933-1945), לא תאריך מדויק.",
+   "פילוח בעלי המניות מ-Wikipedia, בלי תאריך עדכון ברור.",
+   "שנת תחילת הכהונה של Snabe כיו\"ר (2018) לא אומתה מול מקור שני."
+  ]
+ },
+ "TTE.PA": {
+  "name": "TotalEnergies",
+  "checked": "2026-11-12",
+  "one_liner": "חברת נפט וגז צרפתית ענקית. היא מפיקה, מזקקת ומוכרת דלק וגז, וגם מייצרת ומוכרת חשמל.",
+  "hq": {
+   "city": "Courbevoie (ליד פריז)",
+   "country": "צרפת"
+  },
+  "founded": 1924,
+  "employees": {
+   "value": 94847,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Ernest Mercier",
+    "story": "קולונל שהקים ב-1924, לבקשת נשיא צרפת Raymond Poincaré ובתמיכת 90 בנקים וחברות, את Compagnie Française des Pétroles. המטרה: חברת נפט צרפתית לגמרי.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1924,
+    "Ernest Mercier מקים את Compagnie Française des Pétroles (CFP).",
+    [
+     "W"
+    ]
+   ],
+   [
+    1985,
+    "החברה משנה את שמה ל-Total CFP, על שם מותג הדלק שלה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1999,
+    "Total קונה את Petrofina הבלגית, ואחר כך את Elf Aquitaine הצרפתית.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2014,
+    "המנכ\"ל Christophe de Margerie נהרג בתאונת מטוס במוסקבה. Patrick Pouyanné מחליף אותו.",
+    [
+     "W",
+     "PP"
+    ]
+   ],
+   [
+    2021,
+    "בעלי המניות מאשרים לשנות את השם ל-TotalEnergies, כדי לסמן השקעה בחשמל ירוק.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "החברה מבטלת את תעודות ה-ADR בארה\"ב והופכת אותן למניות רגילות. לדבריה, כ-40.8% מהמשקיעים בצפון אמריקה.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Patrick Pouyanné",
+    "role": "יו\"ר ומנכ\"ל",
+    "since": 2014,
+    "background": "מנכ\"ל מאוקטובר 2014, וגם יו\"ר מדצמבר 2015",
+    "src": [
+     "PP",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המנכ\"ל הוא גם יו\"ר הדירקטוריון, מאז 2015.",
+    "src": [
+     "PP",
+     "yahoo"
+    ]
+   },
+   {
+    "text": "העובדים מחזיקים כ-8.9% מהמניות (2025), והחברה רוצה להעלות את זה מעל 9%.",
+    "src": [
+     "BOARD"
+    ]
+   },
+   {
+    "text": "החברה מתמודדת עם תביעות בצרפת סביב פרויקטי נפט באוגנדה, בטענה שלא שמרה על זכויות אדם וסביבה.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. העובדים מחזיקים כ-9%. לפי Yahoo, הגוף המוסדי הגדול הוא Amundi עם כ-8%, ואחריו Vanguard עם כ-2.4%.",
+   "src": [
+    "BOARD",
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא מוכרת נפט, גז, דלק בתחנות, חומרים כימיים וחשמל, לחברות, למדינות ולצרכנים.",
+   "המחיר תלוי בעיקר במחיר הנפט והגז בעולם, וגם בכמה כסף היא מחלקת לבעלי המניות.",
+   "הדוח השנתי של 2025 פורסם ב-11 בפברואר 2026. הבא צפוי בדרך כלל באמצע פברואר 2027, לפי השנים הקודמות. זו הערכה."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: TotalEnergies",
+    "https://en.wikipedia.org/wiki/TotalEnergies"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/TTE.PA/profile"
+   ],
+   "PP": [
+    "The Conference Board: Patrick Pouyanné bio",
+    "https://www.conference-board.org/bio/patrick-pouyanne"
+   ],
+   "BOARD": [
+    "TotalEnergies board confirms strategy (employee shareholding)",
+    "https://chemxplore.com/news/the-board-of-directors-of-totalenergies-confirms-the-relevance-and-progress-of-the-company-s-strategy-as-the-differentiated-and-profitably-growing-energy-major"
+   ],
+   "Q4": [
+    "Euronext: TotalEnergies Q4 and full year 2025 results (11 Feb 2026)",
+    "https://live.euronext.com/en/products/equities/company-news/2026-02-11-totalenergies-se-fourth-quarter-and-full-year-2025"
+   ]
+  },
+  "unverified": [
+   "ייתכן שחלק מהחזקת Amundi ב-Yahoo הוא בעצם קרן העובדים שהיא מנהלת; לא נבדק.",
+   "הנתון על אחוז העובדים מגיע מאתר שמצטט הודעה של החברה, לא מהאתר שלה ישירות."
+  ]
+ },
+ "NOVO-B.CO": {
+  "name": "Novo Nordisk",
+  "checked": "2026-11-12",
+  "one_liner": "חברת תרופות דנית שמייצרת תרופות לסוכרת ולהשמנה, כמו אינסולין, Ozempic ו-Wegovy.",
+  "hq": {
+   "city": "Bagsværd",
+   "country": "דנמרק"
+  },
+  "founded": 1924,
+  "employees": {
+   "value": 68794,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "August Krogh ו-Hans Christian Hagedorn",
+    "story": "Krogh שמע על האינסולין החדש בסיור בארה\"ב ב-1923 וקיבל אישור לייצר אותו בדנמרק. עם Hagedorn ובמימון August Kongsted הקימו את Nordisk Insulin Laboratorium ב-1924.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Harald ו-Thorvald Pedersen",
+    "story": "שני אחים שעבדו ב-Nordisk והקימו ב-1925 חברה מתחרה, Novo. שתי החברות התחרו עד שהתמזגו ב-1989.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1924,
+    "נוסדת Nordisk Insulin Laboratorium, יחד עם קרן שמחזיקה בה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1925,
+    "האחים Pedersen מקימים את Novo המתחרה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1985,
+    "Novo משיקה את עט האינסולין הראשון, Novopen.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1989,
+    "Novo ו-Nordisk מתמזגות ל-Novo Nordisk, והקרנות שלהן מתאחדות ל-Novo Nordisk Foundation.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "בזכות Ozempic ו-Wegovy, שווי החברה עובר את כל התוצר השנתי של דנמרק.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "מנכ\"ל חדש, Mike Doustdar, ותוכנית לפטר כ-9,000 עובדים. תרופות מתחרות גוזלות ממנה לקוחות.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "בנובמבר הקרן בעלת השליטה מחליפה את רוב הדירקטוריון ושמה בראשו את Lars Rebien Sørensen.",
+    [
+     "EGM"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Mike Doustdar",
+    "role": "מנכ\"ל",
+    "since": 2025,
+    "background": "מנכ\"ל מאוגוסט 2025",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Lars Rebien Sørensen",
+    "role": "יו\"ר הדירקטוריון",
+    "since": 2025,
+    "background": "גם יו\"ר הקרן בעלת השליטה",
+    "src": [
+     "EGM"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "שליטה של קרן: Novo Holdings, של Novo Nordisk Foundation, מחזיקה כ-28% מהמניות אבל כ-77% מכוח ההצבעה. זה אפשרי כי יש שני סוגי מניות עם כוח הצבעה שונה.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "בנובמבר 2025 היו\"ר ושישה חברי דירקטוריון עזבו אחרי מחלוקת עם הקרן, והקרן מינתה את היו\"ר שלה לעמוד גם בראש החברה.",
+    "src": [
+     "EGM"
+    ]
+   },
+   {
+    "text": "באוגוסט 2025 התחלף המנכ\"ל.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "בעלת השליטה היא Novo Holdings, של קרן Novo Nordisk Foundation: כ-28% מהמניות וכ-77% מההצבעה. אחריה (2025): BlackRock כ-4.1%, Vanguard כ-2.9%, הקרן של נורבגיה כ-1.8%.",
+   "src": [
+    "W"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא מוכרת תרופות לסוכרת ולהשמנה, בעיקר זריקות, ומ-2026 גם כדורים להשמנה.",
+   "המחיר תלוי במכירות Wegovy ו-Ozempic מול המתחרה Eli Lilly, במחירים שארה\"ב מאפשרת לגבות, ובתוצאות ניסויים בתרופות חדשות.",
+   "הדוח השנתי מתפרסם בדרך כלל בתחילת פברואר, לפי השנים הקודמות. אתרי נתונים צופים 2-4 בפברואר 2027. זו הערכה."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Novo Nordisk",
+    "https://en.wikipedia.org/wiki/Novo_Nordisk"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/NOVO-B.CO/profile"
+   ],
+   "EGM": [
+    "BioSpace: Resolutions from the Extraordinary General Meeting of Novo Nordisk A/S (Nov 2025)",
+    "https://www.biospace.com/press-releases/resolutions-from-the-extraordinary-general-meeting-of-novo-nordisk-a-s"
+   ],
+   "CAL": [
+    "MarketScreener calendar (projected)",
+    "https://www.marketscreener.com/quote/stock/NOVO-NORDISK-A-S-1412980/calendar/"
+   ]
+  },
+  "unverified": [
+   "שנת ההקמה: Wikipedia מתארת ייצור כבר ב-1923 והקמה רשמית ב-1924; נבחרה 1924.",
+   "תאריך הדוח השנתי הבא לא פורסם במקור רשמי שנמצא."
+  ]
+ },
+ "IBE.MC": {
+  "name": "Iberdrola",
+  "checked": "2026-11-12",
+  "one_liner": "חברת חשמל ספרדית. היא מייצרת חשמל, הרבה ממנו מרוח ומשמש, מעבירה אותו ברשתות ומוכרת אותו לבתים ולעסקים בכמה מדינות.",
+  "hq": {
+   "city": "בילבאו",
+   "country": "ספרד"
+  },
+  "founded": 1992,
+  "employees": {
+   "value": 45363,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Juan de Urrutia",
+    "story": "מהנדס שהקים ב-1901 בבילבאו את Hidroeléctrica Ibérica, חברה שייצרה חשמל מסכרים על נהרות. זו אחת מחברות האם של Iberdrola.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1901,
+    "Juan de Urrutia מקים בבילבאו את Hidroeléctrica Ibérica, חברת חשמל מכוח מים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1944,
+    "Hidroeléctrica Ibérica מתמזגת עם Saltos del Duero, ונוצרת Iberduero.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1992,
+    "Iberduero מתמזגת עם Hidroeléctrica Española, ונוצרת Iberdrola.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2001,
+    "José Ignacio Sánchez Galán מגיע לחברה, והיא מתחילה להתמקד באנרגיה מרוח ומשמש.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2007,
+    "החברה משלימה את קניית ScottishPower הבריטית, וב-2008 קונה את Energy East האמריקאית.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2015,
+    "החברה מקימה את Avangrid, הזרוע שלה בארה\"ב, שנסחרת בבורסה בניו יורק.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2024,
+    "החברה מסכמת לקנות את שאר המניות של Avangrid ו-88% מרשת החשמל הבריטית Electricity North West.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "José Ignacio Sánchez Galán",
+    "role": "יו\"ר פעיל (יו\"ר שגם מנהל בפועל)",
+    "since": 2005,
+    "background": "הגיע לחברה ב-2001 והוביל את המעבר לרוח ושמש",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Pedro Azagra",
+    "role": "מנכ\"ל",
+    "since": 2025,
+    "background": "לפני כן מנכ\"ל Avangrid, הזרוע האמריקאית; כ-25 שנה בקבוצה",
+    "src": [
+     "IR_CEO"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "Sánchez Galán נמצא בהנהלה הבכירה מאז 2001, ועדיין יו\"ר פעיל.",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "text": "ביוני 2025 התחלף המנכ\"ל: Pedro Azagra החליף את Armando Martínez.",
+    "src": [
+     "IR_CEO"
+    ]
+   },
+   {
+    "text": "ב-2025 ארגוני העובדים מתחו ביקורת פומבית על גובה השכר של היו\"ר.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. לפי Wikipedia (נכון ל-2023), בעלת המניות הגדולה היא קרן ההשקעות של מדינת קטאר (QIA). גם BlackRock וקרן הנפט של נורבגיה מחזיקות נתח משמעותי.",
+   "src": [
+    "W"
+   ]
+  },
+  "approach": {
+   "text": "בתוכנית שהוצגה ב-2025 החברה מכוונת את רוב ההשקעה לרשתות חשמל, בעיקר בארה\"ב ובבריטניה. לדבריה, שם הכללים יציבים יותר.",
+   "src": [
+    "W"
+   ]
+  },
+  "how_to_start": [
+   "היא מוכרת חשמל לבתים ולעסקים, ומפעילה רשתות חשמל בספרד, בבריטניה, בארה\"ב, בברזיל ובמקסיקו.",
+   "המחיר תלוי בתעריפים שהמדינות מאשרות לרשתות החשמל, במחיר החשמל ובריבית, כי החברה לווה הרבה כסף כדי לבנות.",
+   "התוצאות השנתיות של 2025 הוצגו ב-25 בפברואר 2026. לכן הדוח השנתי הבא צפוי בדרך כלל בסוף פברואר 2027, לפי השנים הקודמות. זו הערכה."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Iberdrola",
+    "https://en.wikipedia.org/wiki/Iberdrola"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/IBE.MC/profile"
+   ],
+   "IR_CEO": [
+    "Iberdrola: Pedro Azagra nuevo consejero delegado",
+    "https://www.iberdrola.com/sala-comunicacion/noticias/detalle/pedro-azagra-nuevo-consejero-delegado-grupo-iberdrola"
+   ],
+   "IR_CAL": [
+    "Iberdrola financial calendar",
+    "https://www.iberdrola.com/accionistas-inversores/accionistas/calendario-accionistas-inversores"
+   ]
+  },
+  "unverified": [
+   "שנת תחילת הכהונה של Sánchez Galán כיו\"ר: Wikipedia כותבת 2005, לא אומת מול מקור שני.",
+   "פילוח בעלי המניות של Wikipedia הוא נכון ל-2023 בלבד; לא נמצא אחוז מעודכן.",
+   "מספר העובדים מ-Yahoo; Wikipedia כותבת כ-40,000. ההבדל לא נבדק."
+  ]
+ },
+ "SU.PA": {
+  "name": "Schneider Electric",
+  "checked": "2026-11-12",
+  "one_liner": "חברה צרפתית שמוכרת ציוד ותוכנה לניהול חשמל ולשליטה במפעלים: ממפסקים לבית ועד מערכות חשמל וקירור לחוות שרתים.",
+  "hq": {
+   "city": "Rueil-Malmaison",
+   "country": "צרפת"
+  },
+  "founded": 1836,
+  "employees": {
+   "value": 156399,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Adolphe Schneider ו-Joseph-Eugène Schneider",
+    "story": "שני אחים שב-1836 לקחו לידיהם בית יציקה לברזל בעיירה Le Creusot בצרפת. משם צמחה Schneider-Creusot, שייצרה פלדה, מכונות כבדות וציוד תחבורה.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1836,
+    "האחים Schneider לוקחים לידיהם בית יציקה לברזל ב-Le Creusot.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1960,
+    "בשנות ה-60 החברה נבלעת בקבוצה הבלגית Empain ונקראת Empain-Schneider.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1988,
+    "בין 1988 ל-1992 החברה קונה את Télémécanique, Square D ו-Merlin Gerin, ועוברת לתחום החשמל.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1999,
+    "החברה משנה את שמה ל-Schneider Electric.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2007,
+    "החברה משלימה את קניית APC, יצרנית ציוד לחוות שרתים, ב-6.1 מיליארד דולר.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "החברה משלימה את קניית חברת התוכנה הבריטית Aveva.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "באוקטובר החברה מסכמת לקנות את חברת התוכנה האמריקאית PTC ב-22.6 מיליארד דולר במזומן. העסקה עוד לא הושלמה.",
+    [
+     "W",
+     "PTC"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Olivier Blum",
+    "role": "מנכ\"ל",
+    "since": 2024,
+    "background": "מונה בנובמבר 2024 אחרי שהדירקטוריון הדיח את קודמו",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "החלפת מנכ\"ל לא צפויה: בנובמבר 2024 הדירקטוריון הדיח את Peter Herweck אחרי 18 חודשים בתפקיד.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "קניית PTC היא הקנייה הגדולה בתולדות החברה. היא תמומן בעיקר בהלוואות ובהנפקת מניות חדשות, וצפויה להיסגר עד אמצע 2027.",
+    "src": [
+     "PTC"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. לפי Yahoo, כמחצית מהמניות בידי גופים מוסדיים כמו קרנות ומנהלי השקעות, ופחות מ-4% בידי אנשי פנים.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא מוכרת ציוד לחלוקת חשמל, מערכות שליטה למפעלים ותוכנה, לבניינים, למפעלים, לרשתות חשמל ולחוות שרתים.",
+   "המחיר תלוי בכמה בונים ומשקיעים בחוות שרתים, בבניינים ובמפעלים, ובאיך תעבור קניית PTC.",
+   "הדוח השנתי של 2026 צפוי בדרך כלל באמצע פברואר 2027, לפי השנים הקודמות. זו הערכה; החברה לא פרסמה תאריך."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Schneider Electric",
+    "https://en.wikipedia.org/wiki/Schneider_Electric"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/SU.PA/profile"
+   ],
+   "PTC": [
+    "Techzine: Schneider Electric acquires PTC for $22.6 billion",
+    "https://www.techzine.eu/news/applications/144735/schneider-electric-acquires-ptc-for-22-6-billion/"
+   ],
+   "CAL": [
+    "MarketScreener calendar (projected)",
+    "https://www.marketscreener.com/quote/stock/SCHNEIDER-ELECTRIC-SE-4699/calendar/"
+   ]
+  },
+  "unverified": [
+   "שנת המיזוג עם Empain: Wikipedia אומרת רק 'בשנות ה-60'; השנה 1960 בציר הזמן מסמנת עשור, לא תאריך מדויק.",
+   "לא נמצא מקור לשמות בעלי המניות הגדולים (למשל BlackRock או העובדים) ולאחוזים שלהם.",
+   "יו\"ר הדירקטוריון לא אומת ולכן לא נכלל."
+  ]
+ },
+ "ABBN.SW": {
+  "name": "ABB",
+  "checked": "2026-11-12",
+  "one_liner": "חברה שוויצרית-שוודית שמוכרת ציוד חשמל, מנועים ומערכות שליטה למפעלים, לבניינים ולתשתיות.",
+  "hq": {
+   "city": "ציריך",
+   "country": "שווייץ"
+  },
+  "founded": 1988,
+  "employees": {
+   "value": 115300,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Ludvig Fredholm",
+    "story": "הקים ב-1883 בעיר Västerås בשוודיה את ASEA, שייצרה תאורה חשמלית וגנרטורים.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Charles E. L. Brown ו-Walter Boveri",
+    "story": "הקימו ב-1891 בעיר Baden בשווייץ את Brown, Boveri & Cie, שייצרה מנועים, גנרטורים, טורבינות ושנאים.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1883,
+    "Ludvig Fredholm מקים את ASEA בשוודיה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1891,
+    "Brown ו-Boveri מקימים את BBC בשווייץ.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1988,
+    "ASEA ו-BBC מתמזגות ל-ABB.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2020,
+    "ABB מוכרת את עסקי רשתות החשמל שלה ל-Hitachi.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2022,
+    "ABB משלמת כ-460 מיליון דולר לרשויות בארה\"ב כדי לסגור תיק שוחד בדרום אפריקה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "ABB מסכמת למכור את עסקי הרובוטים התעשייתיים ל-SoftBank ב-5.4 מיליארד דולר.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "בנובמבר סין חוסמת את מכירת עסקי הרובוטים בסין ל-SoftBank. עתיד העסקה לא ברור.",
+    [
+     "W",
+     "BLOCK"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Morten Wierod",
+    "role": "מנכ\"ל",
+    "since": 2024,
+    "background": "מנכ\"ל מאוגוסט 2024",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "בעלת המניות הגדולה היא Investor AB השוודית, שבשליטת משפחת Wallenberg, עם כ-14.6%.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "ב-2022 החברה הסכימה לשלם כ-460 מיליון דולר לרשויות בארה\"ב בתיק שוחד סביב תחנת כוח בדרום אפריקה.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "מכירת עסקי הרובוטים ל-SoftBank נתקעה אחרי שסין אסרה עליה בנובמבר 2026.",
+    "src": [
+     "BLOCK"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "לפי Wikipedia (2026): Investor AB של משפחת Wallenberg מחזיקה כ-14.6%, UBS כ-5%, BlackRock כ-4.2% וקרן Cevian כ-3%. השאר מפוזר.",
+   "src": [
+    "W"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא מוכרת ציוד חשמל, מנועים, מערכות שליטה למפעלים ועד לאחרונה רובוטים, בעיקר ללקוחות עסקיים.",
+   "המחיר תלוי בכמה מפעלים, בניינים וחוות שרתים בונים ומשדרגים, ובגורל עסקת הרובוטים עם SoftBank.",
+   "הדוח השנתי של 2025 פורסם ב-29 בינואר 2026. לכן הבא צפוי בדרך כלל בסוף ינואר או תחילת פברואר 2027, לפי השנים הקודמות. זו הערכה."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: ABB",
+    "https://en.wikipedia.org/wiki/ABB"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/ABBN.SW/profile"
+   ],
+   "BLOCK": [
+    "Evertiq: China blocks SoftBank's purchase of ABB's robotics business in China",
+    "https://evertiq.com/news/2026-11-05-china-blocks-softbanks-purchase-of-abbs-robotics-business-in-china"
+   ],
+   "Q4": [
+    "ABB: Q4 2025 results",
+    "https://www.abb.com/global/en/news/132985"
+   ]
+  },
+  "unverified": [
+   "איזה גוף סיני חסם את העסקה: יש דיווחים שונים (ועדת סקירת השקעות זרות או NDRC).",
+   "יו\"ר הדירקטוריון הנוכחי לא אומת ולכן לא נכלל."
+  ]
+ },
+ "ENR.DE": {
+  "name": "Siemens Energy (כולל Siemens Gamesa)",
+  "checked": "2026-11-12",
+  "one_liner": "חברה גרמנית שמייצרת טורבינות גז, שנאים וציוד לרשתות חשמל, וגם טורבינות רוח דרך Siemens Gamesa.",
+  "hq": {
+   "city": "מינכן",
+   "country": "גרמניה"
+  },
+  "founded": 2020,
+  "employees": {
+   "value": 106000,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Siemens AG",
+    "story": "Siemens הפרידה ב-2020 את חטיבת הגז והחשמל שלה לחברה עצמאית. בעלי המניות של Siemens אישרו, והמניות התחילו להיסחר בפרנקפורט בספטמבר 2020.",
+    "src": [
+     "W2"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    2020,
+    "Siemens מפרידה את חטיבת האנרגיה, ו-Siemens Energy נכנסת לבורסה בפרנקפורט.",
+    [
+     "W2"
+    ]
+   ],
+   [
+    2023,
+    "החברה קונה את כל המניות של Siemens Gamesa, יצרנית טורבינות הרוח, ומוציאה אותה מהבורסה.",
+    [
+     "GAMESA"
+    ]
+   ],
+   [
+    2023,
+    "בעיות איכות בטורבינות רוח יבשתיות. המניה צונחת בכ-35% ביומיים, והחברה מבקשת ערבויות מממשלת גרמניה.",
+    [
+     "W2"
+    ]
+   ],
+   [
+    2024,
+    "המניה עולה ביותר מ-300% בשנה, הטובה במדד Stoxx 600.",
+    [
+     "W2"
+    ]
+   ],
+   [
+    2026,
+    "החברה מודיעה שתשנה את שמה ל-Omterra, כי רישיון השימוש בשם Siemens מסתיים.",
+    [
+     "W2",
+     "OMT"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Christian Bruch",
+    "role": "מנכ\"ל",
+    "background": "גם יו\"ר Siemens Gamesa אחרי שהוצאה מהבורסה",
+    "src": [
+     "yahoo",
+     "GAMESA"
+    ]
+   },
+   {
+    "name": "Joe Kaeser",
+    "role": "יו\"ר מועצת הפיקוח (הדירקטוריון)",
+    "background": "מנכ\"ל Siemens לשעבר",
+    "src": [
+     "W2"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "היו\"ר, Joe Kaeser, היה המנכ\"ל של Siemens, החברה שממנה היא יצאה.",
+    "src": [
+     "W2"
+    ]
+   },
+   {
+    "text": "ב-2023 החברה ביקשה ערבויות מממשלת גרמניה אחרי הפסדים מבעיות בטורבינות רוח.",
+    "src": [
+     "W2"
+    ]
+   },
+   {
+    "text": "Siemens AG וקרן הפנסיה שלה עדיין מחזיקות נתח גדול, כ-17% יחד.",
+    "src": [
+     "W2"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. Siemens AG וקרן הפנסיה של Siemens מחזיקות יחד כ-17% (נובמבר 2024), ומשפחת Siemens כ-3%. השאר בעיקר בידי גופים מוסדיים.",
+   "src": [
+    "W2"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא מוכרת טורבינות גז לתחנות כוח, שנאים וציוד לרשתות חשמל, וטורבינות רוח, לחברות חשמל ולמפעילי רשתות.",
+   "המחיר תלוי בביקוש לחשמל, למשל מחוות שרתים, בהשקעות ברשתות חשמל, ובשאלה אם עסקי הרוח מפסיקים להפסיד.",
+   "השנה הכספית נגמרת ב-30 בספטמבר. הדוח השנתי צפוי בערך ב-11 בנובמבר 2026, והרבעוני הבא בתחילת פברואר 2027 (אתר צד שלישי צופה 9 בפברואר). זו הערכה."
+  ],
+  "sources": {
+   "W2": [
+    "Wikipedia: Siemens Energy",
+    "https://en.wikipedia.org/wiki/Siemens_Energy"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/ENR.DE/profile"
+   ],
+   "GAMESA": [
+    "Offshorewind.biz: Siemens Gamesa shareholders approve delisting (Jan 2023)",
+    "https://offshorewind.biz/2023/01/25/siemens-gamesa-chairman-warns-european-wind-industry-in-critical-situation-as-shareholders-approve-delisting"
+   ],
+   "OMT": [
+    "Power Magazine: Siemens Energy will shed the Siemens name, rebrand as Omterra",
+    "https://www.powermag.com/siemens-energy-will-shed-the-siemens-name-rebrand-as-omterra/"
+   ],
+   "CAL": [
+    "MarketScreener calendar (projected)",
+    "https://www.marketscreener.com/quote/stock/SIEMENS-ENERGY-AG-113013151/calendar/"
+   ]
+  },
+  "unverified": [
+   "שנת תחילת הכהונה של Christian Bruch כמנכ\"ל ושל Joe Kaeser כיו\"ר לא נמצאו במקור.",
+   "Wikipedia נותנת שני נתונים שונים להחזקת Siemens (6% + 11% לקרן הפנסיה, או 17% יחד).",
+   "מועדי הדוחות (11 בנובמבר 2026, 9 בפברואר 2027) מאתרי צד שלישי בלבד. ייתכן שהדוח השנתי כבר פורסם.",
+   "מועד המעבר בפועל לשם Omterra לא ברור."
+  ]
+ },
+ "SAN.PA": {
+  "name": "Sanofi",
+  "checked": "2026-11-12",
+  "one_liner": "חברת תרופות צרפתית שמפתחת ומוכרת תרופות מרשם וחיסונים, למשל Dupixent לאסתמה ולמחלות עור.",
+  "hq": {
+   "city": "פריז",
+   "country": "צרפת"
+  },
+  "founded": 1973,
+  "employees": {
+   "value": 74846,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Elf Aquitaine ו-Jean-François Dehecq",
+    "story": "חברת הנפט הצרפתית Elf Aquitaine הקימה את Sanofi ב-1973 כחברת בת, אחרי שהשתלטה על קבוצת התרופות Labaz. Dehecq ניהל אותה מההקמה ועד 2007.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1973,
+    "Sanofi נוסדת כחברת בת של חברת הנפט Elf Aquitaine.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1999,
+    "Sanofi מתמזגת עם Synthélabo ל-Sanofi-Synthélabo.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2004,
+    "אחרי הצעת השתלטות עוינת, Sanofi-Synthélabo קונה את Aventis ונקראת Sanofi-Aventis.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2011,
+    "החברה קונה את Genzyme האמריקאית בכ-20.1 מיליארד דולר וחוזרת לשם Sanofi.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "Sanofi מוכרת 50% מחטיבת התרופות ללא מרשם, Opella, לקרן CD&R.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "הדירקטוריון לא מאריך את כהונת המנכ\"ל Paul Hudson. Belén Garijo נכנסת לתפקיד באפריל.",
+    [
+     "CEO"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Belén Garijo",
+    "role": "מנכ\"לית",
+    "since": 2026,
+    "background": "לפני כן מנכ\"לית Merck KGaA הגרמנית; 15 שנה ב-Sanofi בעבר",
+    "src": [
+     "CEO",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Frédéric Oudéa",
+    "role": "יו\"ר הדירקטוריון",
+    "since": 2023,
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "החלפת מנכ\"ל: בפברואר 2026 Paul Hudson עזב, ו-Belén Garijo נכנסה לתפקיד ב-29 באפריל 2026.",
+    "src": [
+     "CEO"
+    ]
+   },
+   {
+    "text": "לפי Bloomberg, L'Oréal, בעלת המניות הגדולה, לחצה להחלפת המנכ\"ל ולבחירת המחליפה. החברה לא אישרה זאת.",
+    "src": [
+     "BBG"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "בעלת המניות הגדולה היא חברת הקוסמטיקה L'Oréal. ב-2013 היא החזיקה כ-9%. השאר בעיקר בידי גופים מוסדיים כמו קרנות.",
+   "src": [
+    "W",
+    "BBG",
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא מוכרת תרופות מרשם וחיסונים לבתי חולים, לקופות ולממשלות בעולם.",
+   "המחיר תלוי בעיקר בתרופה אחת גדולה, Dupixent, ובשאלה מה יחליף אותה כשהפטנט שלה יפקע, וגם בתוצאות ניסויים בתרופות חדשות.",
+   "הדוח השנתי של 2025 פורסם ב-29 בינואר 2026. הבא צפוי בדרך כלל בסוף ינואר 2027, לפי השנים הקודמות. זו הערכה."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Sanofi",
+    "https://en.wikipedia.org/wiki/Sanofi"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/SAN.PA/profile"
+   ],
+   "CEO": [
+    "BioPharma Dive: Sanofi replaces CEO Paul Hudson with Belén Garijo",
+    "https://www.biopharmadive.com/news/sanofi-ceo-paul-hudson-belen-garijo/812061/"
+   ],
+   "BBG": [
+    "Bloomberg Law: L'Oréal played a key role in Sanofi CEO ouster",
+    "https://news.bloomberglaw.com/health-law-and-business/loreal-played-a-key-role-in-sanofi-ceo-ouster-successor-pick"
+   ],
+   "IR": [
+    "Sanofi: Q4 and full year 2025 results",
+    "https://www.sanofi.com/en/investors/financial-results-and-events/financial-results/q4-results-2025"
+   ]
+  },
+  "unverified": [
+   "האחוז העדכני של L'Oréal לא נמצא; 9% הוא נתון של 2013.",
+   "Yahoo עדיין מציג את Garijo כמנכ\"לית; תאריך הכניסה (29 באפריל 2026) מבוסס על ההודעה מפברואר."
+  ]
+ },
+ "GSK.L": {
+  "name": "GSK",
+  "checked": "2026-11-12",
+  "one_liner": "חברת תרופות בריטית שמפתחת ומוכרת חיסונים ותרופות מרשם, למשל למחלות נשימה, ל-HIV ולסרטן.",
+  "hq": {
+   "city": "לונדון",
+   "country": "בריטניה"
+  },
+  "founded": 2000,
+  "employees": {
+   "value": 66841,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Joseph Edward Nathan",
+    "story": "סוחר מלונדון שהקים ב-1873 חברת מסחר בניו זילנד. ב-1904 היא התחילה לייצר אבקת חלב לתינוקות בשם Glaxo, ומשם צמחה Glaxo.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Henry Wellcome ו-Silas Burroughs",
+    "story": "שני רוקחים אמריקאים שהקימו ב-1880 בלונדון את Burroughs Wellcome, עוד חברת אם של GSK.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Thomas Beecham",
+    "story": "ב-1848 התחיל למכור באנגליה כדורים נגד עצירות, Beecham's Pills. מכאן צמחה קבוצת Beecham.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1848,
+    "Thomas Beecham מתחיל למכור את Beecham's Pills באנגליה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1904,
+    "חברת Joseph Nathan בניו זילנד מתחילה לייצר אבקת חלב לתינוקות, שנקראת בהמשך Glaxo.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1995,
+    "Glaxo ו-Wellcome מתמזגות ל-Glaxo Wellcome.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2000,
+    "Glaxo Wellcome ו-SmithKline Beecham מתמזגות ל-GlaxoSmithKline.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2012,
+    "החברה מודה באשמה פלילית בארה\"ב ומשלמת 3 מיליארד דולר, בין השאר על שיווק תרופות לשימושים לא מאושרים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2022,
+    "החברה מפרידה את חטיבת המוצרים לצרכן ל-Haleon, ומשנה את שמה ל-GSK.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "Luke Miels מחליף את Emma Walmsley כמנכ\"ל ב-1 בינואר.",
+    [
+     "CEO"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Luke Miels",
+    "role": "מנכ\"ל",
+    "since": 2026,
+    "background": "לפני כן מנהל המכירות הראשי (Chief Commercial Officer) בחברה",
+    "src": [
+     "CEO",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "החלפת מנכ\"ל: Emma Walmsley, שניהלה מ-2017, עזבה בסוף 2025. Luke Miels מנכ\"ל מ-1 בינואר 2026.",
+    "src": [
+     "CEO",
+     "W"
+    ]
+   },
+   {
+    "text": "ב-2012 החברה הודתה באשמה פלילית בארה\"ב ושילמה 3 מיליארד דולר, אז ההסדר הגדול ביותר של חברת תרופות עם משרד המשפטים.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. לפי Yahoo, כמחצית מהמניות בידי גופים מוסדיים כמו קרנות, ופחות מ-2% בידי אנשי פנים.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא מוכרת חיסונים ותרופות מרשם לממשלות, לבתי חולים ולמבטחים, בעולם.",
+   "המחיר תלוי בתוצאות ניסויים בתרופות חדשות, בפקיעת פטנטים על תרופות ל-HIV, ובמדיניות החיסונים ומחירי התרופות בארה\"ב.",
+   "הדוח השנתי מתפרסם בדרך כלל בתחילת פברואר, לפי השנים הקודמות. זו הערכה; לא נמצא תאריך רשמי ל-2027."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: GSK plc",
+    "https://en.wikipedia.org/wiki/GSK_plc"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/GSK.L/profile"
+   ],
+   "CEO": [
+    "GSK: GSK appoints CEO designate (29 Sep 2025)",
+    "https://www.gsk.com/media/fnshvcez/250929-gsk-appoints-ceo-designate.pdf"
+   ]
+  },
+  "unverified": [
+   "מועד הדוח השנתי ('תחילת פברואר') הוא הערכה לפי זיכרון השנים הקודמות, לא אומת מול לוח רשמי.",
+   "יו\"ר הדירקטוריון הנוכחי לא אומת ולכן לא נכלל.",
+   "שמות בעלי המניות הגדולים לא נמצאו במקור אמין."
+  ]
+ },
+ "EQNR.OL": {
+  "name": "Equinor",
+  "checked": "2026-11-12",
+  "one_liner": "חברת נפט וגז נורווגית שהמדינה שולטת בה. היא מפיקה נפט וגז, בעיקר מול חופי נורווגיה, וגם מפתחת חוות רוח בים.",
+  "hq": {
+   "city": "סטוונגר",
+   "country": "נורווגיה"
+  },
+  "founded": 1972,
+  "employees": {
+   "value": 23545,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "פרלמנט נורווגיה (Stortinget)",
+    "story": "ב-1972 הפרלמנט החליט פה אחד להקים חברת נפט ממשלתית, Statoil. המטרה: שנורווגיה עצמה תשתתף בהפקת הנפט מול חופיה.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1972,
+    "הפרלמנט מקים את חברת הנפט הממשלתית Statoil.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2001,
+    "Statoil נכנסת לבורסה באוסלו ובניו יורק. המדינה שומרת 81.7% מהמניות.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2007,
+    "Statoil מתמזגת עם חטיבת הנפט והגז של Norsk Hydro.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2009,
+    "החברה משיקה את טורבינת הרוח הצפה הראשונה בעולם בים עמוק, Hywind.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2018,
+    "השם משתנה ל-Equinor.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "החברה מקצצת בחצי את ההשקעה המתוכננת באנרגיה מתחדשת, לכ-5 מיליארד דולר בשנתיים.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Anders Opedal",
+    "role": "נשיא ומנכ\"ל",
+    "since": 2020,
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "שליטת המדינה: ממשלת נורווגיה מחזיקה כ-67% מהמניות, דרך משרד האנרגיה.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "בשנים 2002-2003 החברה שילמה שוחד באיראן כדי להשיג חוזי נפט (פרשת Horton).",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "בעלת השליטה היא מדינת נורווגיה, עם כ-67% מהמניות. השאר נסחר בבורסה.",
+   "src": [
+    "W",
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא מוכרת נפט וגז טבעי, וגם חשמל מרוח.",
+   "המחיר תלוי בעיקר במחיר הנפט והגז באירופה, וגם בשער הכתר הנורווגי.",
+   "הדוח השנתי של 2025 פורסם ב-4 בפברואר 2026. הבא צפוי בדרך כלל בתחילת פברואר 2027, לפי השנים הקודמות. זו הערכה."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Equinor",
+    "https://en.wikipedia.org/wiki/Equinor"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/EQNR.OL/profile"
+   ],
+   "Q4": [
+    "Equinor: fourth quarter and full year 2025 results",
+    "https://equinor.com/news/equinor-fourth-quarter-and-full-year-2025-results"
+   ]
+  },
+  "unverified": [
+   "נתון 67% מ-Wikipedia הוא 'נכון ל-2017'; Yahoo מראה כ-72% בידי אנשי פנים, כנראה כולל המדינה. לא אומת נתון עדכני.",
+   "יו\"ר הדירקטוריון לא אומת ולכן לא נכלל."
+  ]
+ },
+ "MT.AS": {
+  "name": "ArcelorMittal",
+  "checked": "2026-11-12",
+  "one_liner": "יצרנית פלדה מלוקסמבורג, מהגדולות בעולם. היא כורה עפרות ברזל ומוכרת פלדה ליצרניות רכב, לבנייה ולתעשייה.",
+  "hq": {
+   "city": "לוקסמבורג",
+   "country": "לוקסמבורג"
+  },
+  "founded": 2007,
+  "employees": {
+   "value": 125554,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Lakshmi Mittal",
+    "story": "איש עסקים הודי שפתח ב-1976 מפעל פלדה ראשון באינדונזיה. הוא בנה ממנו את Mittal Steel, שקנתה ב-2006-2007 את Arcelor האירופית.",
+    "src": [
+     "SMU",
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1976,
+    "Lakshmi Mittal פותח מפעל פלדה ראשון, PT Ispat Indo, באינדונזיה.",
+    [
+     "SMU",
+     "BT"
+    ]
+   ],
+   [
+    2007,
+    "Mittal Steel קונה את Arcelor ב-33 מיליארד דולר, ונוצרת ArcelorMittal.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2011,
+    "החברה מפרידה את חטיבת נירוסטה ל-Aperam.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2018,
+    "קבוצה בהובלת החברה קונה את מפעל הפלדה Ilva באיטליה, הגדול באירופה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2020,
+    "החברה מוכרת את רוב פעילותה בארה\"ב ל-Cleveland-Cliffs.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2021,
+    "Aditya Mittal, בנו של המייסד, הופך למנכ\"ל, והאב עובר לתפקיד יו\"ר פעיל.",
+    [
+     "SMU"
+    ]
+   ],
+   [
+    2024,
+    "ממשלת איטליה לוקחת את השליטה במפעלי הפלדה באיטליה מידי החברה.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Aditya Mittal",
+    "role": "מנכ\"ל",
+    "since": 2021,
+    "background": "בנו של המייסד; לפני כן סמנכ\"ל הכספים",
+    "src": [
+     "SMU",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Lakshmi Mittal",
+    "role": "יו\"ר פעיל (יו\"ר שגם מעורב בניהול)",
+    "since": 2021,
+    "background": "המייסד",
+    "src": [
+     "SMU",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "שליטה משפחתית: משפחת Mittal מחזיקה כ-38%-40% מהמניות, האב יו\"ר והבן מנכ\"ל.",
+    "src": [
+     "SMU",
+     "BT",
+     "yahoo"
+    ]
+   },
+   {
+    "text": "במיזוג של 2006-2007 המשפחה התחייבה לא להשיג שליטה מלאה בלי אישור של דירקטורים בלתי תלויים.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "החברה נקנסה בעבר על תיאום מחירים, באירופה (2011) ובדרום אפריקה (2016).",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "משפחת Mittal היא בעלת המניות הגדולה, עם כ-38%-40% (מקורות שונים נותנים מספרים מעט שונים). השאר בעיקר בידי גופים מוסדיים.",
+   "src": [
+    "BT",
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא מוכרת פלדה ליצרניות רכב, לחברות בנייה ולתעשייה, בעיקר באירופה ובאמריקה, וגם עפרות ברזל.",
+   "המחיר תלוי במחיר הפלדה, בעלות האנרגיה באירופה, במכסים ובייבוא פלדה זולה מסין.",
+   "הדוח השנתי מתפרסם בדרך כלל בתחילת פברואר, לפי השנים הקודמות. זו הערכה; לא נמצא תאריך רשמי ל-2027."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: ArcelorMittal",
+    "https://en.wikipedia.org/wiki/ArcelorMittal"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/MT.AS/profile"
+   ],
+   "SMU": [
+    "Steel Market Update: ArcelorMittal CEO title to pass from Lakshmi Mittal to son Aditya (Feb 2021)",
+    "https://steelmarketupdate.com/2021/02/11/arcelormittal-ceo-title-to-pass-from-lakshmi-mittal-to-son-aditya"
+   ],
+   "BT": [
+    "Business Today: 10 facts about Lakshmi Mittal (May 2026)",
+    "https://www.businesstoday.in/latest/trends/story/from-sleeping-on-bare-floors-to-billionaire-discover-10-fascinating-facts-about-lakshmi-mittal-528651-2026-05-03"
+   ]
+  },
+  "unverified": [
+   "שנת ההקמה: Wikipedia כותבת 2007; העסקה עצמה סוכמה ב-2006.",
+   "אחוז ההחזקה המדויק של משפחת Mittal (38% או 39.88%) לא אומת מול דוח רשמי.",
+   "מועד הדוח השנתי ('תחילת פברואר') הוא הערכה, לא אומת מול לוח רשמי."
+  ]
+ }
+}

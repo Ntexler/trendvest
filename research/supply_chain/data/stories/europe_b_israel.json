@@ -1,0 +1,2204 @@
+{
+ "SAND.ST": {
+  "name": "Sandvik",
+  "checked": "2026-11-12",
+  "one_liner": "חברה שוודית שמייצרת כלים לחיתוך מתכת במפעלים, ומכונות וכלים לכרייה ולחציבת סלעים.",
+  "hq": {
+   "city": "Stockholm",
+   "country": "שוודיה"
+  },
+  "founded": 1862,
+  "employees": {
+   "value": 42831,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Göran Fredrik Göransson",
+    "story": "סוחר שוודי שהיה מהראשונים להשתמש בשיטת Bessemer לייצור פלדה. הוא הקים מפעל פלדה ב-1862, וסביבו צמחה העיירה Sandviken.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1862,
+    "Göransson מקים מפעל פלדה בשם Högbo Stål & Jernverks.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1901,
+    "המניה נכנסת לבורסה של שטוקהולם.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1942,
+    "נרשם המותג Sandvik Coromant לכלי חיתוך קשים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1972,
+    "שם החברה משתנה ל-Sandvik AB.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1997,
+    "קונה את Tamrock, יצרנית מכונות קידוח לכרייה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2020,
+    "Stefan Widing מתמנה למנכ\"ל.",
+    [
+     "PR20"
+    ]
+   ],
+   [
+    2022,
+    "תחום הפלדות המיוחדות מופרד לחברה עצמאית בבורסה בשם Alleima.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Stefan Widing",
+    "role": "מנכ\"ל",
+    "since": 2020,
+    "background": "לפני כן מנהל בכיר בקבוצת Assa Abloy וראש חטיבת HID Global.",
+    "src": [
+     "PR20",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Johan Molin",
+    "role": "יו\"ר הדירקטוריון",
+    "background": "",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "יש בעל מניות עוגן: חברת ההשקעות Industrivärden מחזיקה בכ-15% מהמניות.",
+    "src": [
+     "AR"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "בעלת המניות הגדולה היא Industrivärden, חברת השקעות שוודית, עם כ-15% (סוף 2025). 10 הבעלים הגדולים מחזיקים יחד כ-41%. השאר מפוזר בין קרנות פנסיה וקרנות השקעה.",
+   "src": [
+    "AR"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת למפעלים כלים לעיבוד מתכת, ולמכרות מכונות קידוח, כלי חציבה ומגרסות. כמחצית מהמכירות קשורות לכרייה.",
+   "המחיר תלוי בכמה המכרות משקיעים (ותלוי במחירי מתכות), ובכמה מפעלי רכב ותעופה מייצרים.",
+   "הדוח הבא (רבעון 4 של 2026): 27 בינואר 2027, לפי לוח האירועים של החברה."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Sandvik",
+    "https://en.wikipedia.org/wiki/Sandvik"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/SAND.ST/profile"
+   ],
+   "AR": [
+    "Sandvik Annual Report 2025: Our share",
+    "https://www.annualreport.sandvik/en/2025/to-our-shareholders/our-share.html"
+   ],
+   "PR20": [
+    "Sandvik press release: Stefan Widing CEO as of 1 Feb 2020",
+    "https://www.home.sandvik/en/news-and-media/news/2019/10/stefan-widing-assumes-the-position-as-ceo-of-sandvik-as-of-1-february-2020/"
+   ],
+   "CAL": [
+    "Sandvik financial calendar",
+    "https://www.home.sandvik/en/investors/calendar/"
+   ]
+  },
+  "unverified": [
+   "השנה שבה Johan Molin נכנס לתפקיד יו\"ר לא נבדקה."
+  ]
+ },
+ "PRY.MI": {
+  "name": "Prysmian",
+  "checked": "2026-11-12",
+  "one_liner": "חברה איטלקית שמייצרת כבלי חשמל ותקשורת, כולל כבלים תת-ימיים לחוות רוח ולחיבור בין מדינות.",
+  "hq": {
+   "city": "Milan",
+   "country": "איטליה"
+  },
+  "founded": 1879,
+  "employees": {
+   "value": 34703,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Giovanni Battista Pirelli",
+    "story": "מהנדס מ-Milan שהקים ב-1872 את חברת Pirelli לגומי. ב-1879 החברה פתחה מחלקה לכבלי חשמל וטלגרף, וממנה צמחה Prysmian.",
+    "src": [
+     "WP",
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1879,
+    "Pirelli מתחילה לייצר חוטים וכבלים לחשמל ולטלגרף.",
+    [
+     "W",
+     "HIST"
+    ]
+   ],
+   [
+    1886,
+    "נפתח מפעל לכבלים תת-ימיים ב-La Spezia.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2005,
+    "בנק Goldman Sachs קונה את תחום הכבלים מ-Pirelli, וכך נולדה Prysmian.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2007,
+    "המניה נכנסת לבורסה של Milan.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2011,
+    "קונה את Draka ההולנדית, יצרנית כבלים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2018,
+    "משלימה את קניית General Cable האמריקאית.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2024,
+    "Massimo Battaini מחליף את Valerio Battista כמנכ\"ל, וקונה את Encore Wire מטקסס.",
+    [
+     "PRC"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Massimo Battaini",
+    "role": "מנכ\"ל",
+    "since": 2024,
+    "background": "לפני כן מנהל התפעול של החברה ומנהל הפעילות בצפון אמריקה.",
+    "src": [
+     "PRC"
+    ]
+   },
+   {
+    "name": "Francesco Gori",
+    "role": "יו\"ר הדירקטוריון",
+    "since": 2024,
+    "background": "",
+    "src": [
+     "PRC",
+     "W"
+    ]
+   },
+   {
+    "name": "Valerio Battista",
+    "role": "סגן יו\"ר (לא מנהל ביום-יום)",
+    "since": 2024,
+    "background": "ניהל את החברה כ-20 שנה עד 2024.",
+    "src": [
+     "PRC",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "אין בעל שליטה. המניות מפוזרות. הגדולה היא BlackRock עם כ-7% (סוף 2023).",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "החלפת מנכ\"ל ב-2024, אחרי כ-20 שנה של אותו מנהל.",
+    "src": [
+     "PRC"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. בסוף 2023 הגדולים היו BlackRock (כ-6.8%), T. Rowe Price (כ-4%) ו-Crédit Agricole (כ-3.8%). רוב המניות בידי קרנות רבות.",
+   "src": [
+    "W"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת כבלים לחברות חשמל, לחברות תקשורת, לבנייה ולחוות רוח בים.",
+   "המחיר תלוי בכמה מדינות משקיעות ברשת החשמל ובאנרגיה מתחדשת, ובמחיר הנחושת.",
+   "הדוח השנתי של 2026: בדרך כלל בסוף פברואר, לפי השנים הקודמות (הערכה). אסיפת בעלי המניות נקבעה ל-15 באפריל 2027."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Prysmian Group",
+    "https://en.wikipedia.org/wiki/Prysmian_Group"
+   ],
+   "WP": [
+    "Wikipedia: Pirelli",
+    "https://en.wikipedia.org/wiki/Pirelli"
+   ],
+   "HIST": [
+    "Prysmian: history",
+    "https://www.prysmian.com/index%2Ephp/en/company/prysmian-group-history"
+   ],
+   "PRC": [
+    "Prysmian: Massimo Battaini is the new CEO",
+    "https://www.prysmian.com/en/news/massimo-battaini-is-the-new-ceo-at-the-helm-of-prysmian"
+   ],
+   "CAL": [
+    "Prysmian: 2027 corporate events calendar",
+    "https://www.prysmian.com/en/media/press-releases/2027-corporate-events-calendar"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/PRY.MI/profile"
+   ]
+  },
+  "unverified": [
+   "תאריך הדוח השנתי לא אומת בלוח הרשמי (תאריך 26 בפברואר 2027 מופיע רק בתחזית של AJ Bell).",
+   "נתוני הבעלות מסוף 2023; לא נמצאו נתונים עדכניים יותר.",
+   "Encore Wire לא מופיעה בוויקיפדיה; המקור הוא הודעת החברה ותקשורת."
+  ]
+ },
+ "EPI-A.ST": {
+  "name": "Epiroc",
+  "checked": "2026-11-12",
+  "one_liner": "חברה שוודית שמייצרת מכונות קידוח, משאיות ומעמיסים למכרות ולחפירת מנהרות, ומספקת להם חלקים ושירות.",
+  "hq": {
+   "city": "Nacka (ליד Stockholm)",
+   "country": "שוודיה"
+  },
+  "founded": 2018,
+  "employees": {
+   "value": 19902,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Atlas Copco",
+    "story": "Epiroc לא הוקמה בידי אדם. היא פוצלה ב-2018 מקבוצת Atlas Copco, שנוסדה ב-1873 בשטוקהולם ומייצרת מקדחות סלע מ-1905.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1873,
+    "Atlas Copco נוסדת בשטוקהולם.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1905,
+    "Atlas Copco מתחילה לייצר מקדחות סלע.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2017,
+    "הדירקטוריון של Atlas Copco מציע לפצל את תחום הכרייה לחברה נפרדת.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2018,
+    "Epiroc נולדת ב-1 בינואר ונכנסת לבורסה בשטוקהולם ב-18 ביוני.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2020,
+    "Helena Hedblom מתמנה למנכ\"לית.",
+    [
+     "PR19"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Helena Hedblom",
+    "role": "מנכ\"לית",
+    "since": 2020,
+    "background": "מהנדסת חומרים; לפני כן ניהלה את תחום הכרייה בקבוצה.",
+    "src": [
+     "PR19"
+    ]
+   },
+   {
+    "name": "Ronnie Leten",
+    "role": "יו\"ר הדירקטוריון",
+    "background": "",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "יש שני סוגי מניות עם כוח הצבעה שונה (A ו-B). לכן Investor מחזיקה 17% מהמניות אבל כ-23% מהקולות.",
+    "src": [
+     "SH"
+    ]
+   },
+   {
+    "text": "בעלת המניות הגדולה היא Investor AB, חברת ההשקעות של משפחת Wallenberg.",
+    "src": [
+     "SH",
+     "WI"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "Investor AB מחזיקה כ-17.1% מהמניות וכ-22.7% מהקולות (סוף 2025). 10 הבעלים הגדולים מחזיקים יחד כ-48% מהקולות.",
+   "src": [
+    "SH",
+    "AR"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת למכרות ולחברות בנייה מכונות קידוח וחפירה, כלים וחלקי חילוף, וגם חוזי שירות.",
+   "המחיר תלוי בכמה חברות כרייה משקיעות (ותלוי במחירי זהב, נחושת ועוד), ובכמה מכרות פועלים וצריכים חלקים.",
+   "הדוח של רבעון 4: בדרך כלל בסוף ינואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Epiroc",
+    "https://en.wikipedia.org/wiki/Epiroc"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/EPI-A.ST/profile"
+   ],
+   "SH": [
+    "Epiroc: largest shareholders",
+    "https://www.epirocgroup.com/en/investors/share/shareholders"
+   ],
+   "AR": [
+    "Epiroc Annual Report 2025: the Epiroc share",
+    "https://reports.epirocgroup.com/annual-and-sustainability-report-2025/the-business/the-epiroc-share/"
+   ],
+   "PR19": [
+    "Epiroc press release: Helena Hedblom appointed CEO",
+    "https://www.epirocgroup.com/en/media/corporate-press-releases/2019/20191126-helena-hedblom-appointed-epiroc-s-next-president-and-ceo"
+   ],
+   "WI": [
+    "Wikipedia: Investor AB",
+    "https://en.wikipedia.org/wiki/Investor_AB"
+   ]
+  },
+  "unverified": [
+   "לוח האירועים של Epiroc חסם גישה; מועד הדוח הבא הוא הערכה."
+  ]
+ },
+ "PHIA.AS": {
+  "name": "Philips",
+  "checked": "2026-11-12",
+  "one_liner": "חברה הולנדית שמוכרת לבתי חולים מכשירי הדמיה ומוניטורים, ולאנשים פרטיים מכונות גילוח ומברשות שיניים חשמליות.",
+  "hq": {
+   "city": "Amsterdam",
+   "country": "הולנד"
+  },
+  "founded": 1891,
+  "employees": {
+   "value": 63909,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Gerard Philips, Frederik Philips",
+    "story": "Gerard ואביו Frederik הקימו ב-1891 ב-Eindhoven מפעל לנורות חשמל. האח Anton הצטרף ב-1895.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1891,
+    "מוקם מפעל לנורות חשמל ב-Eindhoven.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1963,
+    "מציגה את קלטת השמע (Compact Cassette).",
+    [
+     "W"
+    ]
+   ],
+   [
+    1982,
+    "דיסק ה-CD, שפותח יחד עם Sony, מגיע לחנויות.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2006,
+    "מוכרת את רוב תחום השבבים, שהפך ל-NXP.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2016,
+    "מפרידה את תחום התאורה, שנקרא היום Signify.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2021,
+    "מחזירה מהשוק מיליוני מכשירי נשימה לשינה בגלל ספוג פנימי שמתפרק.",
+    [
+     "REC"
+    ]
+   ],
+   [
+    2024,
+    "מסכימה לשלם 1.1 מיליארד דולר לסגירת תביעות נזקי גוף בארה\"ב, בלי להודות באשמה.",
+    [
+     "REC"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Roy Jakobs",
+    "role": "מנכ\"ל",
+    "since": 2022,
+    "background": "",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Charlotte Hanneman",
+    "role": "סמנכ\"לית כספים",
+    "since": 2024,
+    "background": "",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Feike Sijbesma",
+    "role": "יו\"ר",
+    "background": "",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "ההחזרה של מכשירי הנשימה (2021) הובילה לצו בית משפט אמריקאי ב-2024. הצו אוסר על מכירת מכשירי נשימה לשינה חדשים בארה\"ב עד שיעמדו בדרישות.",
+    "src": [
+     "REC"
+    ]
+   },
+   {
+    "text": "יש בעל מניות גדול: Exor של משפחת Agnelli (בעלי Ferrari) מחזיקה בכ-17.5% (2024).",
+    "src": [
+     "EXOR",
+     "EXOR2"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "בעלת המניות הגדולה היא Exor, חברת ההשקעות של משפחת Agnelli, עם כ-17.5% (יוני 2024). Philips התירה לה לעלות עד 22%. השאר בידי קרנות רבות.",
+   "src": [
+    "EXOR",
+    "EXOR2"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת לבתי חולים מכשירי MRI, CT ואולטרסאונד, מוניטורים למטופלים, וגם מוצרי טיפוח לבית.",
+   "המחיר תלוי בכמה בתי חולים קונים ציוד, במכירות בסין, ובתביעות ובצווים בעניין מכשירי הנשימה.",
+   "הדוח של רבעון 4: בדרך כלל בסוף ינואר או תחילת פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Philips",
+    "https://en.wikipedia.org/wiki/Philips"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/PHIA.AS/profile"
+   ],
+   "REC": [
+    "Sleep Foundation: Philips Respironics CPAP settlement",
+    "https://www.sleepfoundation.org/sleep-news/philips-respironics-cpap-settlement"
+   ],
+   "EXOR": [
+    "Fierce Biotech: Exor takes 15% of Philips",
+    "https://www.fiercebiotech.com/medtech/agnelli-familys-exor-extends-28b-carve-out-15-foothold-philips"
+   ],
+   "EXOR2": [
+    "MedTech Dive: Philips lets Exor raise stake to 22%",
+    "https://www.medtechdive.com/news/philips-authorizes-largest-shareholder-to-increase-stake-to-22/827642/"
+   ]
+  },
+  "unverified": [
+   "מספר המכשירים שהוחזרו משתנה בין מקורות (3 עד 5.5 מיליון), לכן לא נכתב מספר.",
+   "אחוז ההחזקה העדכני של Exor (אחרי 2024) לא אומת.",
+   "רקע מקצועי של Roy Jakobs ושנת כניסת היו\"ר לא נבדקו."
+  ]
+ },
+ "ORSTED.CO": {
+  "name": "Ørsted",
+  "checked": "2026-11-12",
+  "one_liner": "חברת אנרגיה דנית שבונה ומפעילה חוות טורבינות רוח בים, ומוכרת את החשמל שהן מייצרות.",
+  "hq": {
+   "city": "Fredericia",
+   "country": "דנמרק"
+  },
+  "founded": 2006,
+  "employees": {
+   "value": 7151,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "מדינת דנמרק",
+    "story": "השורשים ב-Dansk Naturgas, חברת גז ממשלתית מ-1972. ב-2006 אוחדו כמה חברות חשמל דניות לחברה בשם DONG Energy.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1972,
+    "נוסדת Dansk Naturgas, חברת גז של המדינה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2006,
+    "איחוד חברות חשמל דניות יוצר את DONG Energy.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2016,
+    "חלק מהמניות נמכר לציבור בבורסה של קופנהגן.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2017,
+    "מוכרת את עסקי הנפט והגז, מפסיקה להשתמש בפחם, ומשנה שם ל-Ørsted.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "מבטלת את פרויקט Ocean Wind בארה\"ב.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "Rasmus Errboe מחליף את Mads Nipper כמנכ\"ל, בגלל שינויים קשים בשוק.",
+    [
+     "CEO"
+    ]
+   ],
+   [
+    2025,
+    "מגייסת כ-60 מיליארד כתר מבעלי המניות. ממשל ארה\"ב עוצר זמנית את Revolution Wind.",
+    [
+     "RI",
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Rasmus Errboe",
+    "role": "מנכ\"ל",
+    "since": 2025,
+    "background": "משפטן; עובד בחברה מ-2012, לפני כן סגן מנכ\"ל.",
+    "src": [
+     "CEO"
+    ]
+   },
+   {
+    "name": "Lene Skole",
+    "role": "יו\"ר הדירקטוריון",
+    "background": "",
+    "src": [
+     "W",
+     "CEO"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המדינה בעלת השליטה: ממשלת דנמרק מחזיקה ב-50.1% מהמניות.",
+    "src": [
+     "W",
+     "RI"
+    ]
+   },
+   {
+    "text": "החלפת מנכ\"ל בפברואר 2025.",
+    "src": [
+     "CEO"
+    ]
+   },
+   {
+    "text": "ב-2025 החברה ביקשה מבעלי המניות כסף חדש (כ-60 מיליארד כתר). מי שלא השתתף ראה את חלקו בחברה קטן.",
+    "src": [
+     "RI"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "ממשלת דנמרק מחזיקה 50.1%. חברת האנרגיה הנורבגית Equinor מחזיקה כ-10%. השאר בידי קרנות ומשקיעים.",
+   "src": [
+    "W",
+    "EQ"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "בונה חוות רוח בים (בעיקר באירופה, ארה\"ב וטאיוואן) ומוכרת את החשמל לחברות חשמל ולמדינות.",
+   "המחיר תלוי בריבית (הפרויקטים נבנים בכסף מושאל), בהחלטות של ממשלות (בעיקר ארה\"ב), ובעיכובים בבנייה.",
+   "הדוח השנתי: בדרך כלל בתחילת פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Ørsted (company)",
+    "https://en.wikipedia.org/wiki/%C3%98rsted_(company)"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/ORSTED.CO/profile"
+   ],
+   "CEO": [
+    "Ørsted announcement: Rasmus Errboe appointed CEO",
+    "https://orsted.com/en/company-announcement-list/2025/01/rasmus-errboe-is-appointed-ceo-of-orsted-replacing-142447291"
+   ],
+   "RI": [
+    "offshoreWIND.biz: Ørsted raises EUR 7.98 billion in rights issue",
+    "https://www.offshorewind.biz/2025/10/07/orsted-raises-eur-7-98-billion-in-oversubscribed-rights-issue"
+   ],
+   "EQ": [
+    "offshoreWIND.biz: Equinor to participate as 10 pct shareholder",
+    "https://www.offshorewind.biz/2025/09/01/equinor-to-participate-in-orsteds-rights-issue-as-10-pct-shareholder"
+   ]
+  },
+  "unverified": [
+   "מצב פרויקט Revolution Wind אחרי צו העצירה מאוגוסט 2025 לא נבדק.",
+   "הנתון של Yahoo על 65% בידי 'בעלי עניין' כנראה כולל את המדינה; לא אומת."
+  ]
+ },
+ "VWS.CO": {
+  "name": "Vestas",
+  "checked": "2026-11-12",
+  "one_liner": "חברה דנית שמייצרת, מתקינה ומתחזקת טורבינות רוח לייצור חשמל, ביבשה ובים.",
+  "hq": {
+   "city": "Aarhus",
+   "country": "דנמרק"
+  },
+  "founded": 1945,
+  "employees": {
+   "value": 39520,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "H.S. Hansen, Peder Hansen",
+    "story": "ב-1898 Hans Smith Hansen קנה נפחייה בכפר Lem. ב-1945 בנו Peder הקים חברת פלדה שייצרה מכשירי בית, ציוד חקלאי ומנופים.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1945,
+    "Peder Hansen מקים את החברה, שמייצרת בהתחלה מכשירי בית.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1979,
+    "נכנסת לתחום טורבינות הרוח.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1989,
+    "מייצרת רק טורבינות רוח.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2003,
+    "מתמזגת עם NEG Micon ונהיית יצרנית הטורבינות הגדולה של אז.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2013,
+    "מקימה מיזם משותף לטורבינות בים עם Mitsubishi Heavy Industries.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2019,
+    "Henrik Andersen מתמנה למנכ\"ל.",
+    [
+     "CEO"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Henrik Andersen",
+    "role": "מנכ\"ל",
+    "since": 2019,
+    "background": "לפני כן מנכ\"ל Hempel (צבעים) וחבר דירקטוריון ב-Vestas.",
+    "src": [
+     "CEO"
+    ]
+   },
+   {
+    "name": "Bert Nordberg",
+    "role": "יו\"ר הדירקטוריון",
+    "background": "",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "governance": [],
+  "owners": {
+   "text": "אין בעל שליטה. המניות מפוזרות בין קרנות ומשקיעים רבים.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת טורבינות רוח לחברות חשמל ולמפתחי חוות רוח, ומרוויחה גם מחוזי תחזוקה ארוכים.",
+   "המחיר תלוי בכמות ההזמנות החדשות, במחירי פלדה ושינוע, ובהחלטות ממשלות על אנרגיית רוח.",
+   "הדוח השנתי: בדרך כלל בתחילת פברואר, לפי השנים הקודמות (הערכה). השנה הקודמת: 5 בפברואר 2026."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Vestas",
+    "https://en.wikipedia.org/wiki/Vestas"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/VWS.CO/profile"
+   ],
+   "CEO": [
+    "Vestas announcement: Anders Runevad to step down, Henrik Andersen successor",
+    "https://www.vestas.com/en/media/company-news/2019/vestas---anders-runevad-to-step-down-as-vestas-ceo-with-c2963203"
+   ],
+   "CAL": [
+    "Vestas: calendar and events",
+    "https://www.vestas.com/en/investor/calendars"
+   ]
+  },
+  "unverified": [
+   "רשימת בעלי המניות הגדולים לא נמצאה במקור ראשי; 'אין בעל שליטה' מבוסס על Yahoo (פחות מ-1% בידי בעלי עניין).",
+   "בוויקיפדיה יש עמימות אם שנת הייסוד היא 1898 (הנפחייה) או 1945; נבחרה 1945."
+  ]
+ },
+ "TRN.MI": {
+  "name": "Terna",
+  "checked": "2026-11-12",
+  "one_liner": "החברה שמפעילה את רשת החשמל במתח גבוה של איטליה ומעבירה חשמל מתחנות הכוח לאזורים בכל המדינה.",
+  "hq": {
+   "city": "Rome",
+   "country": "איטליה"
+  },
+  "founded": 1999,
+  "employees": {
+   "value": 7260,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Enel (חברת החשמל האיטלקית)",
+    "story": "Terna הוקמה ב-1999 בתוך Enel, אחרי חוק שהפריד את ניהול רשת ההולכה מייצור החשמל.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1999,
+    "מוקמת בתוך Enel כבעלת רשת ההולכה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2004,
+    "המניה נכנסת לבורסה של Milan.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2005,
+    "מקבלת גם את ניהול הרשת, ו-Cassa Depositi e Prestiti (בנק בשליטת המדינה) נהיית בעלת המניות הגדולה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2015,
+    "קונה את רשת המתח הגבוה של רכבות איטליה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2022,
+    "מתחילה את Tyrrhenian Link, כבל תת-ימי בין סיציליה, סרדיניה ויבשת איטליה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "Pasqualino Monti מחליף את Giuseppina Di Foggia כמנכ\"ל, לפי הצעת CDP.",
+    [
+     "W",
+     "MON"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Pasqualino Monti",
+    "role": "מנכ\"ל",
+    "since": 2026,
+    "background": "בא מתחום הנמלים והלוגיסטיקה.",
+    "src": [
+     "W",
+     "MF"
+    ]
+   },
+   {
+    "name": "Stefano Cuzzilla",
+    "role": "יו\"ר הדירקטוריון",
+    "since": 2026,
+    "background": "",
+    "src": [
+     "W",
+     "MON"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המדינה היא בעלת המניות הגדולה: CDP Reti, ששייכת לבנק הממשלתי Cassa Depositi e Prestiti, מחזיקה כ-29.9%.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "החלפת מנכ\"ל במאי 2026. את ההנהלה החדשה הציעה CDP.",
+    "src": [
+     "MON"
+    ]
+   },
+   {
+    "text": "פועלת כמונופול מפוקח: רשות האנרגיה ARERA קובעת כמה מותר לה לגבות על השימוש ברשת.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "CDP Reti (גוף בשליטת המדינה) מחזיקה כ-29.9%. משקיעים מוסדיים מחזיקים כ-56.6%, ומשקיעים פרטיים כ-13.3%.",
+   "src": [
+    "W"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מקבלת תשלום על העברת חשמל ברשת. התעריף נקבע על ידי רשות ממשלתית ולא בשוק חופשי.",
+   "המחיר תלוי בריבית (יש לה הרבה חוב), בהחלטות של הרשות על התעריף, ובכמה היא משקיעה ברשת.",
+   "הדוח השנתי: בדרך כלל במרץ, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Terna Group",
+    "https://en.wikipedia.org/wiki/Terna_Group"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/TRN.MI/profile"
+   ],
+   "MON": [
+    "Il Sole 24 Ore: Terna embarks on new course with Cuzzilla-Monti",
+    "https://en.ilsole24ore.com/art/terna-embarks-on-new-course-with-ticket-cuzzilla-monti-board-and-committees-AIFDaQ2C"
+   ],
+   "MF": [
+    "Milano Finanza: Dalla logistica all'energia, la sfida di Monti alla guida di Terna",
+    "https://www.milanofinanza.it/news/dalla-logistica-all-energia-la-sfida-di-monti-alla-guida-di-terna-202604171739214764"
+   ]
+  },
+  "unverified": [
+   "הרקע של Monti מבוסס על כותרת כתבה בלבד; לא נבדקו פרטי תפקידיו הקודמים.",
+   "מועד הדוח השנתי הוא הערכה; לוח האירועים של Terna לא נבדק."
+  ]
+ },
+ "METSO.HE": {
+  "name": "Metso",
+  "checked": "2026-11-12",
+  "one_liner": "חברה פינית שמוכרת למכרות ולמחצבות מגרסות, טחנות וציוד לעיבוד עפרות, וגם חלקי חילוף ושירות.",
+  "hq": {
+   "city": "Espoo",
+   "country": "פינלנד"
+  },
+  "founded": 2020,
+  "employees": {
+   "value": 18104,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Outotec + Metso Minerals",
+    "story": "החברה של היום נולדה ב-2020 מחיבור של Outotec (במקור יחידת טכנולוגיה של חברת הכרייה Outokumpu) ותחום הכרייה של Metso הישנה.",
+    "src": [
+     "W",
+     "WO"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1999,
+    "Metso הישנה נוצרת ממיזוג Valmet ו-Rauma.",
+    [
+     "WM"
+    ]
+   ],
+   [
+    2006,
+    "Outotec מופרדת מ-Outokumpu ונכנסת לבורסה בהלסינקי.",
+    [
+     "WO"
+    ]
+   ],
+   [
+    2020,
+    "Outotec ותחום הכרייה של Metso מתאחדים ל-Metso Outotec.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "בעלי המניות מאשרים להוריד את המילה Outotec מהשם. המטה עובר ל-Espoo.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2024,
+    "Sami Takaluoma מחליף את Pekka Vauramo כמנכ\"ל.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Sami Takaluoma",
+    "role": "מנכ\"ל",
+    "since": 2024,
+    "background": "",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המדינה בעלת מניות גדולה: Solidium, חברת ההשקעות של ממשלת פינלנד, מחזיקה כ-14.9%.",
+    "src": [
+     "NB",
+     "WS"
+    ]
+   },
+   {
+    "text": "קרן Cevian, שידועה בלחץ על הנהלות, מחזיקה כ-7.8%.",
+    "src": [
+     "NB"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "Solidium (ממשלת פינלנד) כ-14.9%, Cevian Capital כ-7.8%, וקרנות הפנסיה Varma כ-4% ו-Ilmarinen כ-3.4% (אוגוסט 2025).",
+   "src": [
+    "NB"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת למכרות ולמחצבות מכונות לגריסה ולטחינה של סלעים, ולהפרדת מתכת מהעפרה. חלק גדול מהמכירות הוא חלקי חילוף ושירות.",
+   "המחיר תלוי בכמה חברות כרייה ובנייה משקיעות, ובמחירי מתכות כמו נחושת וזהב.",
+   "הדוח של רבעון 4: בדרך כלל בתחילת פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Metso (Metso Outotec)",
+    "https://en.wikipedia.org/wiki/Metso_Outotec"
+   ],
+   "WM": [
+    "Wikipedia: Metso (1999-2020)",
+    "https://en.wikipedia.org/wiki/Metso"
+   ],
+   "WO": [
+    "Wikipedia: Outotec",
+    "https://en.wikipedia.org/wiki/Outotec"
+   ],
+   "WS": [
+    "Wikipedia: Solidium",
+    "https://en.wikipedia.org/wiki/Solidium"
+   ],
+   "NB": [
+    "Metso release: Composition of shareholders' nomination board (Aug 2025)",
+    "https://www.metso.com/corporate/media/news/2025/8/composition-of-metsos-shareholders-nomination-board/"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/METSO.HE/profile"
+   ]
+  },
+  "unverified": [
+   "זהות יו\"ר הדירקטוריון: ויקיפדיה סותרת את עצמה (Mikael Lilius או Kari Stadigh), לכן לא נכתב.",
+   "רקע של Sami Takaluoma לא נבדק.",
+   "נתוני הבעלות מאוגוסט 2025; עדכון 2026 לא נקרא."
+  ]
+ },
+ "RED.MC": {
+  "name": "Redeia (Red Eléctrica)",
+  "checked": "2026-11-12",
+  "one_liner": "החברה שמפעילה את רשת החשמל במתח גבוה של ספרד ומנהלת את איזון החשמל בכל רגע.",
+  "hq": {
+   "city": "Alcobendas (ליד Madrid)",
+   "country": "ספרד"
+  },
+  "founded": 1985,
+  "employees": {
+   "value": 2136,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "מדינת ספרד (INI)",
+    "story": "הוקמה ב-1985 בידי חברת האחזקות הממשלתית INI, כדי לנהל רשת חשמל ארצית אחת. לפי החברה, זו הייתה החברה הראשונה בעולם שעסקה רק בהולכה וניהול רשת.",
+    "src": [
+     "W",
+     "HIST"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1985,
+    "מוקמת בידי המדינה לניהול רשת החשמל הארצית.",
+    [
+     "W",
+     "HIST"
+    ]
+   ],
+   [
+    2019,
+    "קונה כ-90% מחברת הלוויינים Hispasat.",
+    [
+     "ESW"
+    ]
+   ],
+   [
+    2020,
+    "Beatriz Corredor מתמנה ליו\"רית.",
+    [
+     "ESW"
+    ]
+   ],
+   [
+    2022,
+    "הקבוצה מאמצת את השם Redeia.",
+    [
+     "REN"
+    ]
+   ],
+   [
+    2025,
+    "הפסקת חשמל רחבה בספרד ובפורטוגל ב-28 באפריל. הממשלה פותחת בחקירה.",
+    [
+     "W",
+     "ESW"
+    ]
+   ],
+   [
+    2025,
+    "מאשרת למכור את Hispasat ל-Indra.",
+    [
+     "HISP"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Roberto García Merino",
+    "role": "מנכ\"ל",
+    "background": "",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Beatriz Corredor",
+    "role": "יו\"רית",
+    "since": 2020,
+    "background": "שרת שיכון לשעבר בממשלת ספרד.",
+    "src": [
+     "ESW",
+     "VP"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המדינה בעלת מניות: SEPI, חברת האחזקות הממשלתית, מחזיקה 20%.",
+    "src": [
+     "W",
+     "ESW"
+    ]
+   },
+   {
+    "text": "אחרי הפסקת החשמל של אפריל 2025 יש מחלוקת ציבורית על חלקה של Redeia, כמפעילת הרשת, באירוע.",
+    "src": [
+     "ESW"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "SEPI (המדינה) מחזיקה 20%. 80% נסחרים בבורסה בידי קרנות ומשקיעים רבים.",
+   "src": [
+    "W",
+    "ESW"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מקבלת תשלום על הולכת חשמל ברשת של ספרד. התעריף נקבע על ידי הרגולטור. יש לה גם רשתות בדרום אמריקה ורשת סיבים אופטיים.",
+   "המחיר תלוי בהחלטות הרגולטור על התעריף, בריבית, ובתוצאות החקירות על הפסקת החשמל.",
+   "הדוח השנתי: בדרך כלל בסוף פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Red Eléctrica de España",
+    "https://en.wikipedia.org/wiki/Red_El%C3%A9ctrica_de_Espa%C3%B1a"
+   ],
+   "ESW": [
+    "Wikipedia (es): Redeia",
+    "https://es.wikipedia.org/wiki/Redeia"
+   ],
+   "HIST": [
+    "Red Eléctrica: Our history",
+    "https://www.ree.es/en/about-us/our-history"
+   ],
+   "REN": [
+    "Red Eléctrica press release: brand name changes to Redeia (June 2022)",
+    "https://www.ree.es/en/press-office/news/press-release/2022/06/the-red-electrica-group-is-changing-its-brand-name-to-redeia-to-strengthen-its-positioning-as-a-global-manager-of-essential-infrastructures"
+   ],
+   "HISP": [
+    "Redeia press release: Hispasat sale (Jan 2025)",
+    "https://redeia.com/sites/default/files/paragraph/2025/01/file/20250131_NP_Hispasat.pdf"
+   ],
+   "VP": [
+    "Vozpópuli: La red ella de Beatriz Corredor",
+    "https://www.vozpopuli.com/el-trumpetista/la-red-ella-de-beatriz-corredor-que-acabo-fundiendo-los-plomos.html"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/RED.MC/profile"
+   ]
+  },
+  "unverified": [
+   "השנה שבה Roberto García Merino נכנס לתפקיד המנכ\"ל לא נמצאה (ידוע שכיהן ביוני 2022).",
+   "העבר של Corredor כשרת שיכון לא אומת מול מקור שני.",
+   "המסקנות הסופיות של חקירות הפסקת החשמל לא נבדקו."
+  ]
+ },
+ "AUTO.OL": {
+  "name": "AutoStore",
+  "checked": "2026-11-12",
+  "one_liner": "חברה נורווגית שמוכרת מחסנים אוטומטיים: קוביות של ארגזים שרובוטים על הגג שולפים, לחנויות אונליין ומפעלים.",
+  "hq": {
+   "city": "Nedre Vats",
+   "country": "נורווגיה"
+  },
+  "founded": 1995,
+  "employees": {
+   "value": 969,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Jakob Hatteland",
+    "story": "התחיל למכור רכיבי מחשב מתוך אסם בכפר Nedre Vats. העסק גדל, והמחסן החדש שלו התמלא תוך חודש.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Ingvar Hognaland",
+    "story": "המנהל הטכני של Hatteland. כדי לפתור את בעיית המקום, פיתח את שיטת האחסון הרובוטית הצפופה שעליה בנויה AutoStore.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1995,
+    "Jakob Hatteland מקים את החברה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2005,
+    "ההתקנה הראשונה, אצל ספקית ציוד אבטחה נורווגית בשם Elotec.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2017,
+    "קרן ההשקעות EQT קונה את החברה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2019,
+    "THL ו-EQT קונות אותה לפי שווי של 15 מיליארד כתר.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2021,
+    "SoftBank קונה 40%, והמניה נכנסת לבורסה של Oslo.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "סוגרת את כל התביעות על פטנטים מול Ocado ומשלמת לה 200 מיליון ליש\"ט.",
+    [
+     "OC"
+    ]
+   ],
+   [
+    2023,
+    "Mats Hovland Vikse מחליף את Karl Johan Lier כמנכ\"ל.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Mats Hovland Vikse",
+    "role": "מנכ\"ל",
+    "since": 2023,
+    "background": "",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "רוב המניות בידי שני בעלים גדולים: SoftBank (כ-40%) וקרן ההשקעות THL. מעט מניות נסחרות בחופשיות.",
+    "src": [
+     "W",
+     "THL"
+    ]
+   },
+   {
+    "text": "THL מוכרת מניות בהדרגה; בספטמבר 2026 מכרה 103 מיליון מניות.",
+    "src": [
+     "THL"
+    ]
+   },
+   {
+    "text": "סכסוך פטנטים גדול עם Ocado נסגר ב-2023 בתשלום של 200 מיליון ליש\"ט.",
+    "src": [
+     "OC"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "SoftBank מחזיקה כ-40%. קרן ההשקעות האמריקאית THL מחזיקה נתח גדול ומוכרת בהדרגה. השאר בידי קרנות.",
+   "src": [
+    "W",
+    "THL"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת את המערכת דרך חברות שמתקינות מחסנים, לחנויות אונליין, רשתות מזון ומפעלים. מרוויחה גם מתוכנה וחלקי חילוף.",
+   "המחיר תלוי בכמה חברות משקיעות במחסנים חדשים (תלוי בריבית ובכלכלה), ובתחרות מצד מערכות אחרות.",
+   "הדוח של רבעון 4: בדרך כלל בתחילת פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: AutoStore",
+    "https://en.wikipedia.org/wiki/AutoStore"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/AUTO.OL/profile"
+   ],
+   "OC": [
+    "AutoStore: AutoStore and Ocado settle all patent litigation",
+    "https://www.autostoresystem.com/investors/press-releases/autostore-and-ocado-settle-all-patent-litigation"
+   ],
+   "THL": [
+    "THL successfully completes the sale of 103 million shares of AutoStore",
+    "https://www.inderes.fi/sv/releases/auto-thl-successfully-completes-the-sale-of-103-million-shares-of-autostore-holdings-ltd"
+   ]
+  },
+  "unverified": [
+   "האחוז המדויק של THL ושל SoftBank היום לא אומת (טבלת בעלי המניות באתר החברה לא נטענה).",
+   "שם היו\"ר לא נמצא.",
+   "מועד הדוח הבא הוא הערכה; לא נמצא לוח אירועים."
+  ]
+ },
+ "UMI.BR": {
+  "name": "Umicore",
+  "checked": "2026-11-12",
+  "one_liner": "חברה בלגית שממחזרת מתכות יקרות, מייצרת ממירים קטליטיים לרכבים, ומייצרת חומרים לסוללות של רכבים חשמליים.",
+  "hq": {
+   "city": "Brussels",
+   "country": "בלגיה"
+  },
+  "founded": 1906,
+  "employees": {
+   "value": 11213,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Union Minière du Haut-Katanga",
+    "story": "החברה הוקמה ב-1906 כדי לכרות מתכות בקונגו, אז מושבה בלגית. ב-1967 נלאמו המכרות בקונגו, והחברה עברה בהדרגה לעיבוד ולמחזור.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1906,
+    "Union Minière du Haut-Katanga מוקמת לכרייה בקונגו.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1967,
+    "שלטון Mobutu מלאים את פעילות הכרייה בקונגו.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1989,
+    "מיזוג של 4 חברות, בהן יצרנית האבץ Vieille Montagne.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2001,
+    "השם משתנה ל-Umicore.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2024,
+    "מחיקה של 1.6 מיליארד אירו בתחום חומרי הסוללות, בגלל האטה ברכבים חשמליים.",
+    [
+     "H24"
+    ]
+   ],
+   [
+    2024,
+    "Bart Sap מחליף את Mathias Miedreich כמנכ\"ל.",
+    [
+     "CEO"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Bart Sap",
+    "role": "מנכ\"ל",
+    "since": 2024,
+    "background": "בחברה מ-2004; לפני כן ניהל את תחום הקטליזטורים.",
+    "src": [
+     "CEO"
+    ]
+   },
+   {
+    "name": "Thomas Leysen",
+    "role": "יו\"ר הדירקטוריון",
+    "background": "",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "החלפת מנכ\"ל ב-2024, אחרי שהמנכ\"ל הקודם התפטר.",
+    "src": [
+     "CEO"
+    ]
+   },
+   {
+    "text": "ב-2024 החברה הודתה שהשקעות הסוללות שווות הרבה פחות, ומחקה 1.6 מיליארד אירו מהשווי שלהן.",
+    "src": [
+     "H24"
+    ]
+   },
+   {
+    "text": "המדינה הבלגית מחזיקה כ-5% דרך חברת השקעות ממשלתית.",
+    "src": [
+     "GBL"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. GBL (חברת השקעות בלגית) מכרה בנובמבר 2025 חצי מהחזקתה וירדה לכ-8%. המדינה הבלגית מחזיקה כ-5%.",
+   "src": [
+    "GBL"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת ליצרני רכב ממירים קטליטיים וחומרים לסוללות, וממחזרת מתכות יקרות לתעשייה.",
+   "המחיר תלוי במכירות רכבים (רגילים וחשמליים) ובמחירי מתכות כמו פלטינה, פלדיום וקובלט.",
+   "הדוח השנתי: בדרך כלל באמצע פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Umicore",
+    "https://en.wikipedia.org/wiki/Umicore"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/UMI.BR/profile"
+   ],
+   "H24": [
+    "Umicore half year results 2024 (Euronext)",
+    "https://live.euronext.com/en/products/equities/company-news/2024-07-26-umicore-half-year-results-2024"
+   ],
+   "CEO": [
+    "Reuters via TradingView: Umicore names Bart Sap as CEO",
+    "https://il.tradingview.com/news/reuters.com,2024:newsml_L4N3HI40J:0-battery-group-umicore-names-bart-sap-as-ceo"
+   ],
+   "GBL": [
+    "Belga News Agency: GBL sells half its stake in Umicore",
+    "https://www.belganewsagency.eu/gbl-sells-half-its-stake-in-umicore-as-shares-reach-record-highs"
+   ]
+  },
+  "unverified": [
+   "שנת 2001 לשם Umicore מבוססת על ויקיפדיה בלבד.",
+   "ההחזקה של GBL אחרי תום תקופת החסימה (פברואר 2026) לא נבדקה."
+  ]
+ },
+ "SHEL.L": {
+  "name": "Shell",
+  "checked": "2026-11-12",
+  "one_liner": "חברת נפט וגז בריטית: מפיקה נפט וגז, מזקקת דלק, ומוכרת אותו בכ-44,000 תחנות דלק בעולם.",
+  "hq": {
+   "city": "London",
+   "country": "בריטניה"
+  },
+  "founded": 1907,
+  "employees": {
+   "value": 84000,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Marcus Samuel, Samuel Samuel",
+    "story": "האחים הקימו ב-1897 בלונדון חברת נפט בשם Shell. השם בא מהעסק של אביהם, שמ-1833 ייבא צדפים.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Henri Deterding, August Kessler",
+    "story": "ניהלו את Royal Dutch, חברה הולנדית שנוסדה ב-1890 להפקת נפט בסומטרה. ב-1907 שתי החברות התאחדו.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1890,
+    "Royal Dutch נוסדת להפקת נפט בסומטרה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1897,
+    "האחים Samuel מקימים בלונדון את Shell.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1907,
+    "Royal Dutch ו-Shell מתאחדות.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2005,
+    "אחרי שערוריית ניפוח עתודות הנפט, החברה מאוחדת לחברת אם אחת.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2016,
+    "קונה את BG Group הבריטית.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2022,
+    "מעבירה את המטה ללונדון ומשנה שם ל-Shell plc.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "Wael Sawan מחליף את Ben van Beurden כמנכ\"ל.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Wael Sawan",
+    "role": "מנכ\"ל",
+    "since": 2023,
+    "background": "",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Sinead Gorman",
+    "role": "סמנכ\"לית כספים",
+    "background": "",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Andrew Mackenzie",
+    "role": "יו\"ר הדירקטוריון",
+    "background": "",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "ב-2021 בית משפט הולנדי חייב את Shell לקצץ 45% מהפליטות עד 2030. ב-2024 ערעור ביטל את המספר המחייב.",
+    "src": [
+     "APP"
+    ]
+   },
+   {
+    "text": "אין בעל שליטה. המניות מפוזרות בין קרנות ומשקיעים רבים.",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. המניות מוחזקות בידי קרנות פנסיה, קרנות מחקות מדד ומשקיעים פרטיים רבים.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת נפט, גז טבעי מונזל (LNG), דלק בתחנות, שמנים וכימיקלים לחברות ולנהגים.",
+   "המחיר תלוי בעיקר במחירי הנפט והגז בעולם, וגם בכמה כסף היא מחזירה לבעלי המניות.",
+   "הדוח של רבעון 4: בדרך כלל בתחילת פברואר, לפי השנים הקודמות (הערכה). בשנה הקודמת: 5 בפברואר 2026."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Shell plc",
+    "https://en.wikipedia.org/wiki/Shell_plc"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/SHEL.L/profile"
+   ],
+   "APP": [
+    "Greenberg Traurig: Shell wins appeal in Dutch climate ruling",
+    "https://www.gtlaw.com/en/insights/2024/11/shell-wins-appeal-in-dutch-climate-ruling"
+   ],
+   "Q4": [
+    "Shell: fourth quarter 2025 results announcement",
+    "https://www.shell.com/news-and-insights/newsroom/news-and-media-releases/2026/fourth-quarter-2025-results-announcement.html"
+   ]
+  },
+  "unverified": [
+   "רשימת בעלי המניות הגדולים לא נבדקה; 'אין בעל שליטה' מבוסס על Yahoo.",
+   "מספר העובדים שונה בין Yahoo (84,000) לוויקיפדיה (כ-96,000).",
+   "רקע של Wael Sawan לא נבדק."
+  ]
+ },
+ "ESLT.TA": {
+  "name": "Elbit Systems",
+  "checked": "2026-11-12",
+  "one_liner": "חברה ישראלית שמייצרת ציוד צבאי: רחפנים, מערכות לוחמה אלקטרונית, מערכות ראייה, תותחים ותחמושת, לצה\"ל ולצבאות בעולם.",
+  "hq": {
+   "city": "Haifa",
+   "country": "ישראל"
+  },
+  "founded": 1966,
+  "employees": {
+   "value": 21000,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Elron ומשרד הביטחון",
+    "story": "הוקמה ב-1966 בשם Elbit Computers בידי חברת Elron ומשרד הביטחון, כדי לפתח מחשבים לצה\"ל. המוצר הראשון היה מחשב קטן בשם Elbit 100.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1966,
+    "מוקמת כ-Elbit Computers לפיתוח מחשבים לצבא.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1996,
+    "Elbit מתפצלת ל-3 חברות; אחת מהן היא Elbit Systems.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2000,
+    "מתמזגת עם El-Op שבשליטת Michael Federmann.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2004,
+    "Federmann Enterprises קונה את מניות Elron בחברה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2013,
+    "Bezhalel Machlis מחליף את Joseph Ackerman כמנכ\"ל.",
+    [
+     "CEO"
+    ]
+   ],
+   [
+    2018,
+    "משלימה את קניית התעשייה הצבאית (IMI Systems).",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Bezhalel Machlis",
+    "role": "מנכ\"ל",
+    "since": 2013,
+    "background": "בחברה מ-1991; לפני כן ניהל את חטיבת היבשה.",
+    "src": [
+     "CEO"
+    ]
+   },
+   {
+    "name": "Michael Federmann",
+    "role": "יו\"ר הדירקטוריון",
+    "background": "בעל השליטה בחברה.",
+    "src": [
+     "W",
+     "GL"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "יש בעל שליטה: Federmann Enterprises של Michael Federmann מחזיקה כ-42% מהמניות. Federmann גם יו\"ר הדירקטוריון.",
+    "src": [
+     "GL",
+     "W"
+    ]
+   },
+   {
+    "text": "כמה גופים בעולם מכרו את מניותיה או חסמו אותה מסיבות מוסריות, למשל קרן הפנסיה של נורווגיה (2009).",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "סוכנות הרכש של NATO חוסמת אותה מחוזים מאז מאי 2025, בזמן חקירת שחיתות.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "Federmann Enterprises (משפחת Federmann) מחזיקה כ-42%. השאר בידי חברות ביטוח וקרנות פנסיה ישראליות (כמו Clal) וקרנות זרות.",
+   "src": [
+    "GL",
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת לצבאות וממשלות: לצה\"ל, לצבא ארה\"ב (דרך חברת בת) ולצבאות באירופה ובאסיה.",
+   "המחיר תלוי במלחמות ובתקציבי ביטחון, בעיקר בישראל ובאירופה, ובכמות ההזמנות שממתינות לייצור.",
+   "הדוח של רבעון 3: בדרך כלל בסוף נובמבר, והדוח השנתי במרץ, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Elbit Systems",
+    "https://en.wikipedia.org/wiki/Elbit_Systems"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/ESLT.TA/profile"
+   ],
+   "CEO": [
+    "Elbit press release: Joseph Ackerman to retire, Machlis to succeed (2012)",
+    "https://prnewswire.com/news-releases/joseph-ackerman-elbit-systems-president-and-ceo-announces-his-intention-to-retire-at-the-end-of-march-2013-165952466.html"
+   ],
+   "GL": [
+    "Globes: Elbit Systems stock opens 2026 at record high",
+    "https://en.globes.co.il/en/article-1001531042"
+   ]
+  },
+  "unverified": [
+   "אחוז ההחזקה של Federmann נע בין 42% ל-44% לפי מקורות שונים.",
+   "פרטי חקירת NATO מבוססים על ויקיפדיה בלבד."
+  ]
+ },
+ "ENLT.TA": {
+  "name": "Enlight Renewable Energy",
+  "checked": "2026-11-12",
+  "one_liner": "חברה ישראלית שבונה ומפעילה חוות סולאריות, טורבינות רוח ומתקני אגירת חשמל בישראל, באירופה ובארה\"ב, ומוכרת את החשמל.",
+  "hq": {
+   "city": "Rosh HaAyin",
+   "country": "ישראל"
+  },
+  "founded": 2008,
+  "employees": {
+   "value": 406,
+   "year": 2025,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Gilad Yavetz",
+    "story": "הקים את החברה ב-2008 עם 50 אלף שקל משלו והלוואה של מיליון שקל בערבות אישית. ניהל אותה כמנכ\"ל עד 2025.",
+    "src": [
+     "CAL",
+     "W"
+    ]
+   },
+   {
+    "name": "Zafrir Yoeli, Amit Paz",
+    "story": "שותפים לייסוד החברה ב-2008, לפי ויקיפדיה.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    2008,
+    "Gilad Yavetz ושותפיו מקימים את Enlight Energy.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2010,
+    "נכנסת לבורסה בתל אביב, דרך מיזוג לחברת מעטפת.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2015,
+    "חוות השמש Halutziot (55 מגה-וואט) מתחילה לפעול, הגדולה בישראל באותה עת.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2021,
+    "קונה 90.1% מהמפתחת האמריקאית Clēnera.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "נכנסת גם לבורסת Nasdaq. חוות הרוח Genesis Wind ברמת הגולן מתחילה לפעול.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "Adi Leviatan מחליפה את Yavetz כמנכ\"לית; Yavetz נהיה יו\"ר פעיל.",
+    [
+     "W",
+     "BIZ"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Adi Leviatan",
+    "role": "מנכ\"לית",
+    "since": 2025,
+    "background": "הגיעה מ-3M, שם ניהלה חטיבה גדולה.",
+    "src": [
+     "W",
+     "BIZ"
+    ]
+   },
+   {
+    "name": "Gilad Yavetz",
+    "role": "יו\"ר דירקטוריון פעיל ומייסד",
+    "since": 2025,
+    "background": "מייסד החברה ומנכ\"ל עד 2025.",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "החלפת מנכ\"ל באוקטובר 2025: המייסד עבר לתפקיד יו\"ר פעיל.",
+    "src": [
+     "W",
+     "BIZ"
+    ]
+   },
+   {
+    "text": "אין בעל שליטה. הגדולים הם גופים מוסדיים ישראליים, כמו Clal (כ-9.5%).",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. חברות ביטוח ובתי השקעות ישראליים מחזיקים נתחים גדולים: Clal כ-9.5%, More כ-4.3%, Altshuler Shaham כ-3.3%. גם קרנות זרות כמו Vanguard.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת חשמל מחוות שמש ורוח לחברות חשמל, לעסקים ולמשקי בית, בדרך כלל בחוזים ארוכים.",
+   "המחיר תלוי בריבית (הפרויקטים נבנים בהלוואות), בכמה פרויקטים חדשים מתחילים לפעול, ובמדיניות ממשלות כלפי אנרגיה ירוקה.",
+   "הדוח של רבעון 3: בדרך כלל באמצע נובמבר, והדוח השנתי בפברואר-מרץ, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Enlight Renewable Energy",
+    "https://en.wikipedia.org/wiki/Enlight_Renewable_Energy"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/ENLT.TA/profile"
+   ],
+   "CAL": [
+    "Calcalist: interview with Gilad Yavetz",
+    "https://www.calcalist.co.il/market/article/bylz97vvll"
+   ],
+   "BIZ": [
+    "Bizportal: Gilad Yavetz and Adi Leviatan, Enlight",
+    "https://www.bizportal.co.il/capitalmarket/news/article/20019931"
+   ]
+  },
+  "unverified": [
+   "פרטי הכסף ההתחלתי (50 אלף שקל והלוואה) מבוססים על ראיון יחיד בכלכליסט.",
+   "מקורות ישראליים מייחסים את הייסוד בעיקר ל-Yavetz; ויקיפדיה מוסיפה את Yoeli ו-Paz.",
+   "אחוזי ההחזקה מ-Yahoo, לא מדוח החברה."
+  ]
+ },
+ "OPCE.TA": {
+  "name": "OPC Energy",
+  "checked": "2026-11-12",
+  "one_liner": "חברה ישראלית שמייצרת חשמל בתחנות כוח פרטיות בישראל (בעיקר בגז טבעי) ובארה\"ב (גז, שמש ורוח), ומוכרת אותו.",
+  "hq": {
+   "city": "Tel Aviv-Yafo",
+   "country": "ישראל"
+  },
+  "founded": 2010,
+  "founders": [
+   {
+    "name": "Israel Corporation (משפחת Ofer)",
+    "story": "הוקמה ב-2010 בשם IC Power Israel, כחלק מקבוצת החברה לישראל. ב-2017 שינתה את שמה ל-OPC Energy.",
+    "src": [
+     "yahoo",
+     "GL"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    2010,
+    "מוקמת בשם IC Power Israel.",
+    [
+     "yahoo"
+    ]
+   ],
+   [
+    2013,
+    "תחנת הכוח OPC Rotem במישור רותם מתחילה לפעול; תוארה כתחנה הפרטית הראשונה בישראל.",
+    [
+     "PT",
+     "JP"
+    ]
+   ],
+   [
+    2017,
+    "משנה את שמה ל-OPC Energy.",
+    [
+     "yahoo"
+    ]
+   ],
+   [
+    2021,
+    "קונה את CPV האמריקאית, יחד עם 3 גופים מוסדיים ישראליים, ב-648 מיליון דולר.",
+    [
+     "CPV"
+    ]
+   ],
+   [
+    2026,
+    "מגייסת כ-800 מיליון שקל ממשקיעים בהנפקה פרטית.",
+    [
+     "KEN"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Giora Almogy",
+    "role": "מנכ\"ל",
+    "since": 2011,
+    "background": "לפני כן נושא משרה בחברה לישראל.",
+    "src": [
+     "MS",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Sherman Knight",
+    "role": "מנכ\"ל CPV (הפעילות בארה\"ב)",
+    "background": "",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "יש בעלת שליטה: Kenon Holdings, שבשליטת Idan Ofer, מחזיקה כ-49.8% (ספטמבר 2025).",
+    "src": [
+     "KEN",
+     "GL"
+    ]
+   },
+   {
+    "text": "אותו מנכ\"ל מנהל את החברה מאז 2011.",
+    "src": [
+     "MS"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "Kenon Holdings (בשליטת Idan Ofer) מחזיקה כ-49.8% (ספטמבר 2025). אחרי ההנפקה הפרטית של מרץ 2026 האחוז עשוי להשתנות. השאר בידי גופים מוסדיים וציבור.",
+   "src": [
+    "KEN"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת חשמל לחברת החשמל, לעסקים גדולים ולרשת בארה\"ב. בישראל גם מתקני ייצור אצל לקוחות ועמדות טעינה לרכבים.",
+   "המחיר תלוי במחיר הגז הטבעי, במחירי החשמל בארה\"ב, בריבית (יש לה הרבה חוב), ובפרויקטים חדשים.",
+   "הדוח של רבעון 3: בדרך כלל בסוף נובמבר, והדוח השנתי במרץ, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/OPCE.TA/profile"
+   ],
+   "GL": [
+    "Globes: Idan Ofer again loses on EVs",
+    "https://en.globes.co.il/en/article-1001478505"
+   ],
+   "PT": [
+    "Power Technology: OPC Rotem combined cycle power plant profile",
+    "https://www.power-technology.com/marketdata/power-plant-profile-opc-rotem-combined-cycle-power-plant-israel/"
+   ],
+   "JP": [
+    "Jerusalem Post: Launch of first private power plant stirs electricity competition",
+    "https://www.jpost.com/business/business-news/launch-of-first-private-power-plant-stirs-electricity-competition-331531"
+   ],
+   "CPV": [
+    "Globes: OPC Energy completes $648m acquisition of CPV",
+    "https://en.globes.co.il/en/article-1001358169"
+   ],
+   "KEN": [
+    "Kenon Holdings: Q3 2025 results",
+    "https://www.barchart.com/story/news/36431177/kenon-holdings-reports-q3-2025-results-and-additional-updates"
+   ],
+   "MS": [
+    "MarketScreener: Giora Almogy",
+    "https://www.marketscreener.com/insider/GIORA-ALMOGY-A115MS/"
+   ]
+  },
+  "unverified": [
+   "מספר עובדים לא נמצא (Yahoo לא מציג).",
+   "שם יו\"ר הדירקטוריון לא נמצא.",
+   "אחוז ההחזקה של Kenon אחרי ההנפקה הפרטית של 2026 לא אומת.",
+   "הקשר בין Kenon ל-Idan Ofer מבוסס על כתבת Globes; לא נבדק בדוח Kenon.",
+   "שנת כניסת Almogy לתפקיד (2010/2011) משתנה בין אתרי מידע; לא אומתה בדוח החברה.",
+   "דוחות MAYA לא נבדקו."
+  ]
+ }
+}

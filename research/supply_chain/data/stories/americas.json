@@ -1,0 +1,2194 @@
+{
+ "AAPL": {
+  "name": "Apple",
+  "checked": "2026-11-12",
+  "one_liner": "Apple מתכננת ומוכרת אייפון, מחשבי Mac, אייפד ושעונים, ומוכרת גם שירותים כמו App Store, iCloud ו-Apple Music.",
+  "hq": {
+   "city": "Cupertino",
+   "country": "ארצות הברית"
+  },
+  "founded": 1976,
+  "employees": {
+   "value": 167000,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Steve Jobs",
+    "story": "Jobs ו-Wozniak הקימו את החברה ב-1976 כדי למכור את מחשב Apple I ש-Wozniak תכנן ובנה בידיים. Jobs עזב ב-1985 וחזר ב-1997.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Steve Wozniak",
+    "story": "המהנדס שתכנן את Apple I ואת Apple II, אחד המחשבים האישיים הראשונים שנמכרו בהמונים. עם הזמן לקח תפקיד פחות פעיל.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Ronald Wayne",
+    "story": "שותף שלישי בהקמה ב-1976.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1976,
+    "הוקמה כשותפות על ידי Jobs, Wozniak ו-Wayne. המוצר הראשון: מחשב Apple I.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1984,
+    "השיקה את Macintosh, מחשב שמפעילים עם עכבר ומסך גרפי.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1997,
+    "אחרי הפסדים גדולים קנתה את NeXT, ו-Jobs חזר לחברה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2007,
+    "שינתה את שמה ל-Apple Inc. כשהתרחבה ממחשבים למוצרי אלקטרוניקה, ובאותה שנה השיקה אייפון.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2011,
+    "Jobs פרש מסיבות בריאות ונפטר באותה שנה. Tim Cook נהיה מנכ\"ל.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2020,
+    "הודיעה שתעבור משבבי Intel לשבבים שהיא מתכננת בעצמה (M1).",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "ב-1 בספטמבר Tim Cook עבר לתפקיד יו\"ר פעיל, ו-John Ternus נהיה מנכ\"ל.",
+    [
+     "W",
+     "yahoo"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "John Ternus",
+    "role": "מנכ\"ל",
+    "since": 2026,
+    "background": "החליף את Tim Cook ב-1 בספטמבר 2026",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Tim Cook",
+    "role": "יו\"ר פעיל של הדירקטוריון",
+    "since": 2026,
+    "background": "היה מנכ\"ל 15 שנה, 2011-2026",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Kevan Parekh",
+    "role": "סמנכ\"ל כספים",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Sabih Khan",
+    "role": "סמנכ\"ל תפעול",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "החלפת מנכ\"ל טרייה: ב-1 בספטמבר 2026 John Ternus החליף את Tim Cook, ש-Cook נשאר יו\"ר פעיל.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "Arthur Levinson, יו\"ר 15 שנה, נהיה הדירקטור הבלתי תלוי הבכיר.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. מנהלים ודירקטורים מחזיקים כ-1.7% יחד. המחזיקות הגדולות הן חברות ניהול כספים כמו BlackRock (כ-8%) ו-Vanguard (כ-6.6%), שמחזיקות בשם קרנות מחקות מדד. Berkshire Hathaway מחזיקה כ-1.6%.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת מכשירים (בעיקר אייפון) ושירותים לצרכנים בכל העולם. את המכשירים מרכיבים קבלנים חיצוניים, בעיקר באסיה.",
+   "המחיר תלוי בכמה אייפונים נמכרים בכל דור, בגידול בשירותים, ובמכסים וביחסים בין ארצות הברית לסין.",
+   "הדוח הבא: בדרך כלל בסוף ינואר או תחילת פברואר, לפי השנים הקודמות (הערכה). כדאי לעקוב גם אחרי השקת האייפון בספטמבר."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Apple Inc.",
+    "https://en.wikipedia.org/wiki/Apple_Inc."
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/AAPL/profile"
+   ],
+   "IR": [
+    "Apple investor relations",
+    "https://investor.apple.com/"
+   ]
+  },
+  "unverified": [
+   "מועד הדוח הבא הוא הערכה לפי השנים הקודמות; Nasdaq/Zacks עוד לא פרסמו תאריך."
+  ]
+ },
+ "NVDA": {
+  "name": "Nvidia",
+  "checked": "2026-11-12",
+  "one_liner": "Nvidia מתכננת שבבים גרפיים (GPU). בהתחלה למשחקי מחשב, והיום בעיקר לחוות שרתים שמריצות בינה מלאכותית.",
+  "hq": {
+   "city": "Santa Clara",
+   "country": "ארצות הברית"
+  },
+  "founded": 1993,
+  "employees": {
+   "value": 42000,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Jensen Huang",
+    "story": "מהנדס חשמל יליד טייוואן שעבד ב-LSI Logic וב-AMD. ב-1992 שרטט עם שני שותפיו את הרעיון במסעדת Denny's בסן חוזה. מנכ\"ל מאז ההקמה.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Chris Malachowsky",
+    "story": "מהנדס מ-Sun Microsystems. עדיין בחברה כ-Nvidia fellow.",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Curtis Priem",
+    "story": "מתכנן שבבים גרפיים מ-IBM ו-Sun. התפטר ראשון מ-Sun, וכך דחף את שני האחרים לקפוץ. החברה התחילה בבית שלו ב-Fremont.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1993,
+    "הוקמה ב-5 באפריל על ידי Huang, Malachowsky ו-Priem.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1999,
+    "נכנסה לבורסה בינואר. בסוף השנה הוציאה את GeForce 256, השבב הראשון ששווק כ-GPU.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2006,
+    "בשנים האלה השקיעה יותר ממיליארד דולר בתוכנה CUDA, שמאפשרת להריץ על השבבים שלה חישובים כלליים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2019,
+    "הודיעה על קניית Mellanox הישראלית, שעושה ציוד תקשורת לשרתים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2022,
+    "ביטלה את קניית Arm בגלל התנגדות של רגולטורים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "החברה הראשונה בעולם שהשווי שלה עבר 4 ואחר כך 5 טריליון דולר.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Jensen Huang",
+    "role": "מנכ\"ל ונשיא",
+    "since": 1993,
+    "background": "מייסד",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Colette Kress",
+    "role": "סמנכ\"לית כספים",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Stephen Neal",
+    "role": "הדירקטור הבלתי תלוי הבכיר",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המייסד Jensen Huang הוא המנכ\"ל מאז ההקמה ב-1993, יותר מ-30 שנה.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "ב-2024 משרד המשפטים האמריקאי פתח בדיקת הגבלים עסקיים נגד Nvidia.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. מנהלים ודירקטורים מחזיקים כ-4% יחד. המחזיקות הגדולות הן BlackRock (כ-8%) ו-Vanguard (כ-6.4%), בעיקר בשם קרנות מחקות מדד.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת שבבים ומערכות שרתים שלמות לחברות ענן גדולות (Microsoft, Amazon, Google, Meta) ולחברות בינה מלאכותית. את השבבים מייצרת TSMC בטייוואן.",
+   "המחיר תלוי בכמה כסף חברות הענן מוציאות על חוות שרתים, בתחרות מ-AMD ומשבבים שהלקוחות מתכננים בעצמם, ובהגבלות ייצוא לסין.",
+   "הדוח הבא צפוי ב-17 בנובמבר 2026, אחרי סגירת המסחר (לפי Nasdaq/Zacks)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Nvidia",
+    "https://en.wikipedia.org/wiki/Nvidia"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/NVDA/profile"
+   ],
+   "nasdaq": [
+    "Nasdaq earnings date",
+    "https://www.nasdaq.com/market-activity/stocks/nvda/earnings"
+   ]
+  },
+  "unverified": [
+   "תאריך הדוח מ-Nasdaq מסומן 'צפוי'; לא אומת מול דף קשרי המשקיעים של Nvidia."
+  ]
+ },
+ "MSFT": {
+  "name": "Microsoft",
+  "checked": "2026-11-12",
+  "one_liner": "Microsoft מוכרת תוכנה (Windows, Office), שירותי ענן (Azure) ומשחקים (Xbox) לחברות ולאנשים פרטיים.",
+  "hq": {
+   "city": "Redmond",
+   "country": "ארצות הברית"
+  },
+  "founded": 1975,
+  "employees": {
+   "value": 223000,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Bill Gates",
+    "story": "Gates ו-Allen כתבו תוכנה (BASIC) למחשב הביתי Altair 8800 והציגו אותה ביצרן ב-1975. משם נולדה החברה. Gates היה מנכ\"ל עד 2000.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Paul Allen",
+    "story": "חבר הילדות של Gates. הוא הציע לכתוב את התוכנה ל-Altair ובנה את סביבת הבדיקה שלה.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1975,
+    "Gates ו-Allen מקימים את החברה כדי למכור תוכנת BASIC למחשב Altair.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1985,
+    "יוצאת גרסה ראשונה של Windows.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1986,
+    "נכנסת לבורסת Nasdaq.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2014,
+    "Satya Nadella מחליף את Steve Ballmer כמנכ\"ל ומעביר את המיקוד לענן.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "משלימה את קניית Activision Blizzard ומודיעה על השקעה של מיליארדים ב-OpenAI.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "מכניסה לשימוש בחוות השרתים שלה שבב בינה מלאכותית שתכננה בעצמה, Maia 200.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Satya Nadella",
+    "role": "מנכ\"ל ויו\"ר",
+    "since": 2014,
+    "background": "לפני כן ניהל את חטיבת הענן",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Amy Hood",
+    "role": "סמנכ\"לית כספים",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Brad Smith",
+    "role": "נשיא וסגן יו\"ר",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המנכ\"ל Satya Nadella הוא גם יו\"ר הדירקטוריון.",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "text": "ב-2004 האיחוד האירופי קנס אותה ב-497 מיליון אירו על ניצול כוח של Windows.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. מנהלים ודירקטורים מחזיקים פחות מ-0.1%. המחזיקות הגדולות הן BlackRock (כ-8%) ו-Vanguard (כ-6.5%), בעיקר בשם קרנות מחקות מדד.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": {
+   "text": "לפי Wikipedia, יש בחברה מדיניות שנקראת \"לאכול את האוכל של הכלב\": העובדים משתמשים בגרסאות ניסיון של המוצרים לפני שהם יוצאים, כדי למצוא תקלות.",
+   "src": [
+    "W"
+   ]
+  },
+  "how_to_start": [
+   "מוכרת ענן ותוכנה בעיקר לחברות, ומשחקים ומחשבים גם לאנשים פרטיים.",
+   "המחיר תלוי בקצב הגידול של Azure, בכמה היא מוציאה על חוות שרתים לבינה מלאכותית, ובקשר שלה עם OpenAI.",
+   "הדוח הבא: בדרך כלל בסוף ינואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Microsoft",
+    "https://en.wikipedia.org/wiki/Microsoft"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/MSFT/profile"
+   ],
+   "IR": [
+    "Microsoft investor relations",
+    "https://www.microsoft.com/en-us/investor"
+   ]
+  },
+  "unverified": [
+   "מועד הדוח הבא הוא הערכה לפי השנים הקודמות."
+  ]
+ },
+ "ABX.TO": {
+  "name": "Barrick Mining",
+  "checked": "2026-11-12",
+  "one_liner": "Barrick כורה זהב ונחושת במכרות בכ-18 מדינות, ומוכרת את המתכות בשוק העולמי.",
+  "hq": {
+   "city": "Toronto",
+   "country": "קנדה"
+  },
+  "founded": 1983,
+  "founders": [
+   {
+    "name": "Peter Munk",
+    "story": "Munk (1927-2018) החזיק חברת נפט וגז בשם Barrick Resources שהפסידה כסף. הוא החליט להפוך אותה לחברת כריית זהב, והיא נכנסה לבורסה בטורונטו ב-1983.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1983,
+    "Barrick Resources נכנסת לבורסה בטורונטו ועוברת מנפט לזהב.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1986,
+    "קונה את מכרה Goldstrike בנבדה, שהופך אותה לאחת מחברות הזהב הגדולות.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2019,
+    "מתמזגת עם Randgold. Mark Bristow מ-Randgold נהיה מנכ\"ל. באותה שנה מקימה עם Newmont את Nevada Gold Mines.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "מחליפה שם מ-Barrick Gold ל-Barrick Mining, כי נחושת נהייתה חלק גדול מהעסק. Bristow עוזב בספטמבר.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "בנובמבר מסיימת סכסוך של שנתיים עם ממשלת מאלי על מכרה Loulo-Gounkoto.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "ב-10 בנובמבר החברה הבת American Barrick מגישה בקשה להנפקה בבורסת ניו יורק, עם המכרות בצפון אמריקה.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Mark Hill",
+    "role": "מנכ\"ל ונשיא",
+    "since": 2026,
+    "background": "כמעט 20 שנה בחברה. מנכ\"ל זמני מספטמבר 2025, קבוע מפברואר 2026",
+    "src": [
+     "W",
+     "ENG",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "John Thornton",
+    "role": "יו\"ר",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Hongyu Cai",
+    "role": "סמנכ\"לית כספים",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "החלפת מנכ\"ל: Mark Bristow עזב בפתאומיות בספטמבר 2025, ו-Mark Hill מונה במקומו.",
+    "src": [
+     "W",
+     "ENG"
+    ]
+   },
+   {
+    "text": "קרן אקטיביסטית בשם Elliott קנתה מניות ב-2025 ולחצה לפצל את החברה לשתיים.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "החברה מתכננת להפריד את המכרות בצפון אמריקה לחברה נפרדת בשם American Barrick, ולהשאיר בידיה את רוב המניות שלה.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. מנהלים ודירקטורים מחזיקים פחות מ-1%. המחזיקים הגדולים הם גופי השקעה כמו Capital International (כ-4%), Van Eck (כ-3.7%) ו-BlackRock (כ-3%).",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת זהב ונחושת שהיא כורה. הקונים הם בתי זיקוק ובנקים לזהב ומפעלי התכה לנחושת.",
+   "המחיר תלוי בעיקר במחיר הזהב והנחושת בעולם, בעלות הכרייה, ובסיכונים פוליטיים במדינות כמו מאלי ופקיסטן.",
+   "הדוח הבא: בדרך כלל בתחילת פברואר, לפי השנים הקודמות (הערכה). כדאי לעקוב גם אחרי ההנפקה של American Barrick."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Barrick Mining",
+    "https://en.wikipedia.org/wiki/Barrick_Mining"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/ABX.TO/profile"
+   ],
+   "ENG": [
+    "Engineering News: Hill takes reins as Barrick moves to list North America assets (Feb 2026)",
+    "https://www.engineeringnews.co.za/article/hill-takes-reins-as-barrick-moves-to-list-north-america-assets-reports-record-results-2026-02-05"
+   ]
+  },
+  "unverified": [
+   "מספר העובדים לא נמצא בפרופיל Yahoo ולא אומת.",
+   "מועד הדוח הבא הוא הערכה."
+  ]
+ },
+ "WPM.TO": {
+  "name": "Wheaton Precious Metals",
+  "checked": "2026-11-12",
+  "one_liner": "Wheaton לא כורה בעצמה. היא משלמת מראש לחברות כרייה, ובתמורה מקבלת חלק מהכסף והזהב שלהן במחיר נמוך וקבוע.",
+  "hq": {
+   "city": "Vancouver",
+   "country": "קנדה"
+  },
+  "founded": 2004,
+  "founders": [
+   {
+    "name": "Randy Smallwood",
+    "story": "שותף בהקמת החברה ב-2004 (אז בשם Silver Wheaton). היה מנכ\"ל מ-2011 עד מרץ 2026, ואז נהיה יו\"ר.",
+    "src": [
+     "MW"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    2004,
+    "Silver Wheaton מוקמת. בהתחלה בשליטת חברת הזהב Goldcorp.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2008,
+    "Goldcorp מוכרת את כל המניות שלה ב-Silver Wheaton.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2015,
+    "מסכמת לשלם ל-Vale כ-900 מיליון דולר תמורת 25% מהזהב של מכרה Salobo בברזיל.",
+    [
+     "W_VALE"
+    ]
+   ],
+   [
+    2017,
+    "משנה את השם ל-Wheaton Precious Metals.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2020,
+    "נכנסת גם לבורסה בלונדון.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "Haytham Hodaly מחליף את Randy Smallwood כמנכ\"ל ב-31 במרץ.",
+    [
+     "MW"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Haytham Hodaly",
+    "role": "מנכ\"ל ונשיא",
+    "since": 2026,
+    "background": "הצטרף ב-2012, לפני כן אנליסט כרייה ב-RBC",
+    "src": [
+     "MW",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Randy Smallwood",
+    "role": "יו\"ר הדירקטוריון",
+    "since": 2026,
+    "background": "מייסד שותף ומנכ\"ל לשעבר",
+    "src": [
+     "MW"
+    ]
+   },
+   {
+    "name": "Vincent Lau",
+    "role": "סמנכ\"ל כספים",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "החלפת מנכ\"ל טרייה: Hodaly נכנס לתפקיד במרץ 2026, והמנכ\"ל הקודם עבר לכהן כיו\"ר.",
+    "src": [
+     "MW"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. מנהלים ודירקטורים מחזיקים כ-0.1%. המחזיק הגדול הוא Capital World Investors (כ-8%), ואחריו FMR/Fidelity (כ-3.5%).",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "היא \"מממנת\" מכרות: נותנת כסף מראש לחברות כרייה, ומוכרת הלאה את הכסף והזהב שהיא מקבלת מהן.",
+   "המחיר תלוי במחיר הכסף והזהב, ובכך שהמכרות שהיא מממנת באמת מייצרים כמתוכנן. היא לא נושאת בעלויות הכרייה עצמן.",
+   "הדוח הבא: הדוח השנתי בדרך כלל בין פברואר למרץ, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Wheaton Precious Metals",
+    "https://en.wikipedia.org/wiki/Wheaton_Precious_Metals"
+   ],
+   "W_VALE": [
+    "Wikipedia: Vale S.A.",
+    "https://en.wikipedia.org/wiki/Vale_S.A."
+   ],
+   "MW": [
+    "Mining Weekly: Wheaton names Hodaly CEO as Smallwood steps up to chair (Feb 2026)",
+    "https://www.miningweekly.com/article/wheaton-names-hodaly-ceo-as-smallwood-steps-up-to-chair-2026-02-06"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/WPM.TO/profile"
+   ]
+  },
+  "unverified": [
+   "דף Wikipedia של החברה ישן (נתונים מ-2016). לא נמצא מספר עובדים.",
+   "רשימת המייסדים חלקית: נמצא מקור רק ל-Smallwood כמייסד שותף.",
+   "מועד הדוח הבא הוא הערכה."
+  ]
+ },
+ "VALE3.SA": {
+  "name": "Vale",
+  "checked": "2026-11-12",
+  "one_liner": "Vale כורה בעיקר עפרת ברזל בברזיל ומוכרת אותה ליצרני פלדה, בעיקר באסיה. היא כורה גם ניקל ונחושת.",
+  "hq": {
+   "city": "Rio de Janeiro",
+   "country": "ברזיל"
+  },
+  "founded": 1942,
+  "employees": {
+   "value": 65805,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "ממשלת ברזיל",
+    "story": "החברה הוקמה ב-1 ביוני 1942 בעיר Itabira כחברה ממשלתית, בשם Companhia Vale do Rio Doce.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1942,
+    "ממשלת ברזיל מקימה את Companhia Vale do Rio Doce.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1997,
+    "הממשלה מוכרת במכרז 41.73% מהחברה, למרות מחאות של עובדים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2006,
+    "קונה את יצרנית הניקל הקנדית Inco בכ-18.9 מיליארד דולר.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2015,
+    "סכר פסולת של Samarco, חברה בבעלות Vale ו-BHP, קורס ליד Mariana. 19 הרוגים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2019,
+    "סכר פסולת של Vale קורס ב-Brumadinho. 270 הרוגים. ב-2021 הסכימה לשלם לנפגעים 7 מיליארד דולר.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "מפרידה את עסקי הניקל והנחושת לחברה בת בשם Vale Base Metals.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Gustavo Pimenta",
+    "role": "מנכ\"ל",
+    "since": 2024,
+    "background": "היה סמנכ\"ל הכספים של Vale",
+    "src": [
+     "MIN",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Marcelo Bacci",
+    "role": "סמנכ\"ל כספים וקשרי משקיעים",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "שתי אסונות סכרים (2015 ו-2019) הביאו לתביעות ענק. ב-2020 התובעים מצאו שהחברה זייפה דוחות בטיחות, ו-16 מנהלים, כולל המנכ\"ל, הואשמו בהריגה.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "ממשלת ברזיל מחזיקה 12 \"מניות זהב\" מיוחדות, שריד מההפרטה.",
+    "src": [
+     "SH"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל מניות אחד עם רוב. במרץ 2026: קרן הפנסיה של עובדי Banco do Brasil בשם Previ (כ-7.5%), BlackRock (כ-6.7%), Mitsui היפנית (כ-6.5%) ו-Capital World (כ-5.1%). כ-70% אצל מחזיקים קטנים.",
+   "src": [
+    "SH"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת עפרת ברזל ליצרני פלדה, בעיקר בסין. גם ניקל ונחושת למפעלים.",
+   "המחיר תלוי בעיקר במחיר עפרת הברזל, שתלוי בבנייה ובייצור הפלדה בסין. גם תביעות על אסונות הסכרים משפיעות.",
+   "הדוח הבא: בדרך כלל בסוף פברואר, לפי השנים הקודמות (הערכה). כדאי לעקוב אחרי דוח הייצור הרבעוני שהיא מפרסמת לפני כל דוח."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Vale S.A.",
+    "https://en.wikipedia.org/wiki/Vale_S.A."
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/VALE3.SA/profile"
+   ],
+   "SH": [
+    "Vale shareholder structure, March 2026",
+    "https://vale.com/documents/d/guest/march-shareholder-structure-i"
+   ],
+   "MIN": [
+    "Mining.com: Vale names CFO Gustavo Pimenta as next CEO (Aug 2024)",
+    "https://www.mining.com/vale-names-cfo-gustavo-pimenta-as-next-ceo/"
+   ]
+  },
+  "unverified": [
+   "התאריך המדויק שבו Pimenta נכנס לתפקיד (2024 או 1 בינואר 2025) לא אומת: הודעה מאוגוסט 2024 דיברה על ינואר 2025.",
+   "גובה ההסדר על אסון Mariana מ-2024 לא אומת ולכן לא נכלל.",
+   "מועד הדוח הבא הוא הערכה."
+  ]
+ },
+ "FNV.TO": {
+  "name": "Franco-Nevada",
+  "checked": "2026-11-12",
+  "one_liner": "Franco-Nevada לא מפעילה מכרות. היא קונה זכות לקבל אחוז מהזהב, הכסף או הנפט של מכרות ושדות של אחרים.",
+  "hq": {
+   "city": "Toronto",
+   "country": "קנדה"
+  },
+  "founded": 1983,
+  "founders": [
+   {
+    "name": "Pierre Lassonde",
+    "story": "Lassonde ו-Schulich ניהלו חברת חיפושי זהב קטנה מ-1983. ב-1986 הוציאו חצי מהקופה על זכות ל-4% מהכנסות מכרה בנבדה, שהפך למכרה Goldstrike הענק.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Seymour Schulich",
+    "story": "שותף של Lassonde בניהול החברה המקורית. ב-2001 מכרו אותה ל-Newmont.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1986,
+    "קונה את זכות התמלוגים הראשונה שלה, על מכרה שהפך ל-Goldstrike בנבדה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2002,
+    "Newmont קונה את כל Franco-Nevada.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2007,
+    "Newmont מוכרת את עסק התמלוגים. Franco-Nevada חוזרת לבורסה בהנפקה הגדולה ביותר של חברת כרייה בצפון אמריקה עד אז.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2012,
+    "משקיעה כמיליארד דולר כדי לקבל חלק מהזהב והכסף של מכרה הנחושת Cobre Panama.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2020,
+    "Paul Brink נהיה מנכ\"ל. Lassonde פורש מתפקיד היו\"ר.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "מכרה Cobre Panama, שהיה סגור, מתחיל לעבד רק ערמות עפרה קיימות באישור ממשלת פנמה.",
+    [
+     "KITCO"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Paul Brink",
+    "role": "מנכ\"ל ונשיא",
+    "since": 2020,
+    "background": "ניהל את פיתוח העסקים מאז 2007",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Tom Albanese",
+    "role": "יו\"ר",
+    "background": "מנכ\"ל Rio Tinto לשעבר",
+    "src": [
+     "NQ"
+    ]
+   },
+   {
+    "name": "Sandip Rana",
+    "role": "סמנכ\"ל כספים",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המכרה Cobre Panama, אחד הנכסים הגדולים שלה, נעצר בהוראת ממשלת פנמה. ב-2026 רק עפרה שכבר נכרתה מעובדת, והפעלה מלאה עוד לא הוחלטה.",
+    "src": [
+     "W",
+     "KITCO"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. מנהלים ודירקטורים מחזיקים כ-0.6%. המחזיק הגדול הוא FMR/Fidelity (כ-11.5%), ואחריו MFS (כ-5.7%).",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת את הזהב, הכסף והנפט שהיא מקבלת ממכרות ושדות של חברות אחרות.",
+   "המחיר תלוי בעיקר במחיר הזהב, ובמה שיקרה במכרה Cobre Panama בפנמה.",
+   "הדוח הבא: הדוח השנתי בדרך כלל במרץ, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Franco-Nevada",
+    "https://en.wikipedia.org/wiki/Franco-Nevada"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/FNV.TO/profile"
+   ],
+   "NQ": [
+    "Nasdaq: Franco-Nevada Q1 earnings call highlights (2026)",
+    "https://www.nasdaq.com/articles/franco-nevada-q1-earnings-call-highlights"
+   ],
+   "KITCO": [
+    "Kitco: Franco-Nevada prepares for new deals as Cobre Panamá talks advance (Oct 2026)",
+    "https://www.kitco.com/news/video/2026-10-23/franco-nevada-prepares-for-new-mining-deals-as-cobre-panam-talks-advance-paul-brink"
+   ]
+  },
+  "unverified": [
+   "מספר העובדים לא נמצא.",
+   "מצב הבוררות של Franco-Nevada נגד פנמה לא ברור: מקורות סותרים.",
+   "מועד הדוח הבא הוא הערכה."
+  ]
+ },
+ "SQM-B.SN": {
+  "name": "SQM (Sociedad Química y Minera)",
+  "checked": "2026-11-12",
+  "one_liner": "SQM מפיקה ליתיום לסוללות, דשנים ויוד ממי מלח ומחצבים במדבר Atacama בצ'ילה, ומוכרת אותם בעולם.",
+  "hq": {
+   "city": "Santiago",
+   "country": "צ'ילה"
+  },
+  "founded": 1968,
+  "employees": {
+   "value": 7637,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "CORFO ו-Anglo-Lautaro",
+    "story": "הוקמה ב-1968 כשותפות: חברת המלחת Anglo-Lautaro (62.5%) וסוכנות הפיתוח של מדינת צ'ילה CORFO (37.5%). ב-1971 המדינה לקחה 100%.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1968,
+    "הוקמה כשותפות בין חברה פרטית למדינת צ'ילה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1971,
+    "המדינה מלאימה את החברה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1983,
+    "בין 1983 ל-1988, בתקופת שלטון Pinochet, החברה מופרטת. Julio Ponce Lerou, אז חתנו של Pinochet, משתלט עליה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2017,
+    "משלמת 30 מיליון דולר כדי לסגור תיקי שוחד בארצות הברית על תשלומים לפוליטיקאים בצ'ילה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2018,
+    "Tianqi Lithium הסינית קונה כ-24% מהחברה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "בסוף השנה נסגרה עסקה: הליתיום עובר לחברה משותפת עם חברת הנחושת הממשלתית Codelco, NovaAndino Litio. מ-2031 Codelco שולטת בה.",
+    [
+     "CAREY",
+     "BMI"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Ricardo Ramos",
+    "role": "מנכ\"ל (General Manager)",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Gerardo Illanes",
+    "role": "סמנכ\"ל כספים",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "יש בעלי מניות גדולים עם השפעה: קבוצת Pampa של Julio Ponce Lerou (32% ב-2015) ו-Tianqi הסינית (כ-22%).",
+    "src": [
+     "W",
+     "CAREY"
+    ]
+   },
+   {
+    "text": "ב-2017 שילמה 30 מיליון דולר לרשויות בארצות הברית על תשלומים לא תקינים לפוליטיקאים.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "ממשלת צ'ילה, דרך Codelco, תקבל שליטה בעסקי הליתיום ב-Atacama מ-2031.",
+    "src": [
+     "CAREY",
+     "BMI"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "קבוצת Pampa של משפחת Ponce Lerou ו-Tianqi Lithium הסינית (כ-22%) הן המחזיקות הגדולות. Tianqi ניסתה לעצור את העסקה עם Codelco בבית המשפט ונכשלה.",
+   "src": [
+    "W",
+    "CAREY"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת ליתיום ליצרני סוללות, דשנים לחקלאים, ויוד לתעשייה ולרפואה.",
+   "המחיר תלוי בעיקר במחיר הליתיום, שעולה ויורד עם הביקוש לרכב חשמלי, ובהסכם עם Codelco.",
+   "הדוח הבא צפוי ב-17 בנובמבר 2026 (לפי Nasdaq/Zacks, עבור המניה שנסחרת בניו יורק)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Sociedad Química y Minera",
+    "https://en.wikipedia.org/wiki/Sociedad_Qu%C3%ADmica_y_Minera"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/SQM-B.SN/profile"
+   ],
+   "CAREY": [
+    "Carey: Codelco and SQM forge a historic lithium partnership",
+    "https://www.carey.cl/en/codelco-and-sqm-forge-a-historic-lithium-partnership"
+   ],
+   "BMI": [
+    "Benchmark: SQM's Atacama lithium operation secured to 2060",
+    "https://source.benchmarkminerals.com/article/sqm-atacama-lithium-operation-secured-to-2060-with-codelco-partnership-approval"
+   ],
+   "nasdaq": [
+    "Nasdaq earnings date (SQM ADR)",
+    "https://www.nasdaq.com/market-activity/stocks/sqm/earnings"
+   ]
+  },
+  "unverified": [
+   "חלקה העדכני של קבוצת Pampa לא אומת (המספר 32% הוא מ-2015).",
+   "תאריך הסגירה המדויק של העסקה עם Codelco (27 בדצמבר 2025 לפי Carey) לא אומת מול הודעה רשמית."
+  ]
+ },
+ "GOOGL": {
+  "name": "Alphabet (Google)",
+  "checked": "2026-11-12",
+  "one_liner": "Alphabet היא חברת האם של Google. היא מרוויחה בעיקר מפרסומות בחיפוש וב-YouTube, ומוכרת גם שירותי ענן ובינה מלאכותית (Gemini).",
+  "hq": {
+   "city": "Mountain View",
+   "country": "ארצות הברית"
+  },
+  "founded": 1998,
+  "employees": {
+   "value": 204757,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Larry Page",
+    "story": "Page ו-Brin היו דוקטורנטים באוניברסיטת Stanford. ב-1996 התחילו פרויקט מחקר על דירוג אתרים, וב-1998 הקימו את Google במוסך של Susan Wojcicki.",
+    "src": [
+     "WG"
+    ]
+   },
+   {
+    "name": "Sergey Brin",
+    "story": "שותף של Page למחקר ולהקמה. שניהם עזבו את תפקידי הניהול ב-2019 ונשארו בדירקטוריון ובעלי השליטה.",
+    "src": [
+     "WG",
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1998,
+    "Google מוקמת ב-4 בספטמבר, אחרי השקעה של 100,000 דולר מ-Andy Bechtolsheim.",
+    [
+     "WG"
+    ]
+   ],
+   [
+    2004,
+    "נכנסת לבורסת Nasdaq.",
+    [
+     "WG"
+    ]
+   ],
+   [
+    2006,
+    "קונה את YouTube ב-1.65 מיליארד דולר.",
+    [
+     "WG"
+    ]
+   ],
+   [
+    2015,
+    "הקבוצה מתארגנת מחדש: Alphabet נהיית חברת האם, ו-Google אחת החברות שלה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2019,
+    "Page ו-Brin עוזבים את הניהול. Sundar Pichai מנכ\"ל גם של Alphabet.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2024,
+    "בית משפט בארצות הברית קובע שלגוגל יש מונופול לא חוקי בחיפוש. ב-2025 נקבע שהיא לא צריכה למכור את Chrome.",
+    [
+     "WG"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Sundar Pichai",
+    "role": "מנכ\"ל",
+    "since": 2019,
+    "background": "היה ראש המוצרים ואחר כך מנכ\"ל Google מ-2015",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Anat Ashkenazi",
+    "role": "סמנכ\"לית כספים",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Ruth Porat",
+    "role": "נשיאה ומנהלת השקעות ראשית",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "שתי סוגי מניות: Page ו-Brin מחזיקים כ-14% מהמניות אבל שולטים ב-56% מכוח ההצבעה, כי למניות שלהם יש 10 קולות.",
+    "src": [
+     "WG"
+    ]
+   },
+   {
+    "text": "בית משפט קבע ב-2024 שיש לה מונופול לא חוקי בחיפוש. ב-2025 נאסרו עליה חוזים בלעדיים והיא חויבה לשתף נתוני חיפוש עם מתחרים.",
+    "src": [
+     "WG"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "המייסדים Page ו-Brin שולטים ברוב כוח ההצבעה. בין המוסדיים: BlackRock (כ-7.8%) ו-Vanguard (כ-6.5%) מחזיקות בעיקר בשם קרנות מחקות מדד.",
+   "src": [
+    "WG",
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת פרסומות לעסקים (בחיפוש וב-YouTube), שירותי ענן לחברות, ומכשירים ומנויים לאנשים פרטיים.",
+   "המחיר תלוי בכמה עסקים מפרסמים, בתחרות מצ'אטבוטים של בינה מלאכותית על החיפוש, בגידול בענן, ובתיקי ההגבלים העסקיים.",
+   "הדוח הבא: בדרך כלל בסוף ינואר או תחילת פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Alphabet Inc.",
+    "https://en.wikipedia.org/wiki/Alphabet_Inc."
+   ],
+   "WG": [
+    "Wikipedia: Google",
+    "https://en.wikipedia.org/wiki/Google"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/GOOGL/profile"
+   ]
+  },
+  "unverified": [
+   "מועד הדוח הבא הוא הערכה."
+  ]
+ },
+ "AMZN": {
+  "name": "Amazon",
+  "checked": "2026-11-12",
+  "one_liner": "Amazon מוכרת כמעט כל מוצר באינטרנט ומשלוחים עד הבית, ומשכירה לחברות שרתים בענן דרך AWS.",
+  "hq": {
+   "city": "Seattle",
+   "country": "ארצות הברית"
+  },
+  "founded": 1994,
+  "employees": {
+   "value": 1638000,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Jeff Bezos",
+    "story": "Bezos עבר מניו יורק ל-Bellevue שבמדינת וושינגטון והקים ב-1994 חנות ספרים באינטרנט בשם Cadabra. כמה חודשים אחר כך שינה את השם ל-Amazon.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1994,
+    "Bezos מקים את Cadabra, חנות ספרים באינטרנט, ומשנה את שמה ל-Amazon.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1997,
+    "נכנסת לבורסה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2006,
+    "AWS מתחילה להשכיר לחברות אחסון נתונים, ומשם לשרתים בענן.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2017,
+    "קונה את רשת הסופרמרקטים Whole Foods.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2021,
+    "Bezos עובר לתפקיד יו\"ר פעיל. Andy Jassy, מנהל AWS, נהיה מנכ\"ל.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "מודיעה בינואר על פיטורי כ-16,000 עובדי משרד.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Andy Jassy",
+    "role": "מנכ\"ל ונשיא",
+    "since": 2021,
+    "background": "בנה והוביל את AWS",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Jeff Bezos",
+    "role": "יו\"ר פעיל",
+    "since": 2021,
+    "background": "המייסד",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Brian Olsavsky",
+    "role": "סמנכ\"ל כספים",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Matt Garman",
+    "role": "מנכ\"ל AWS",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המייסד Jeff Bezos הוא יו\"ר הדירקטוריון.",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "text": "ב-2025 בית משפט חייב אותה לשלם קנס של מיליארד דולר בתביעה של רשות הסחר (FTC) על הרשמה מטעה ל-Prime שקשה לבטל.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. מנהלים ודירקטורים (בעיקר Bezos) מחזיקים כ-9% יחד. בין המוסדיים: BlackRock (כ-6.9%) ו-Vanguard (כ-5.9%).",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": {
+   "text": "Bezos רצה \"אובססיה ללקוח\" בכל דרג. למשל, מנהלים בכירים נדרשו לענות זמן מה לפניות במוקד שירות הלקוחות.",
+   "src": [
+    "W"
+   ]
+  },
+  "how_to_start": [
+   "מוכרת מוצרים ומנוי Prime לאנשים פרטיים, פרסומות לסוחרים, ושירותי ענן (AWS) לחברות.",
+   "המחיר תלוי בעיקר בגידול של AWS, בכמה היא מוציאה על חוות שרתים, ובהוצאות הצרכנים.",
+   "הדוח הבא: בדרך כלל בתחילת פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Amazon (company)",
+    "https://en.wikipedia.org/wiki/Amazon_(company)"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/AMZN/profile"
+   ]
+  },
+  "unverified": [
+   "מועד הדוח הבא הוא הערכה."
+  ]
+ },
+ "SPCX": {
+  "name": "SpaceX (כולל xAI)",
+  "checked": "2026-11-12",
+  "one_liner": "SpaceX משגרת טילים ולוויינים, מוכרת אינטרנט מהחלל (Starlink), ומפתחת בינה מלאכותית (Grok) אחרי שקנתה את xAI.",
+  "hq": {
+   "city": "Starbase, Texas",
+   "country": "ארצות הברית"
+  },
+  "founded": 2002,
+  "employees": {
+   "value": 21000,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Elon Musk",
+    "story": "Musk הקים את SpaceX ב-2002 כדי להוזיל טיסות לחלל ובסוף להגיע למאדים. שלוש שיגורים ראשונים נכשלו, והחברה כמעט פשטה רגל לפני ההצלחה ב-2008.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    2002,
+    "Elon Musk מקים את SpaceX.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2008,
+    "אחרי 3 כישלונות, הטיל Falcon 1 מגיע למסלול סביב כדור הארץ.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2012,
+    "החללית Dragon היא הראשונה של חברה פרטית שמגיעה לתחנת החלל הבינלאומית.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2019,
+    "לווייני Starlink הראשונים מתחילים לפעול. Starlink נהיה מקור רוב ההכנסה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "בפברואר קונה את xAI, חברת הבינה המלאכותית של Musk, לפי שווי של 250 מיליארד דולר.",
+    [
+     "WX"
+    ]
+   ],
+   [
+    2026,
+    "ב-12 ביוני נכנסת לבורסת Nasdaq. ההנפקה גייסה 86 מיליארד דולר, הגדולה בהיסטוריה.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Elon Musk",
+    "role": "מייסד, מנכ\"ל, יו\"ר ומנהל טכנולוגיה ראשי",
+    "since": 2002,
+    "background": "גם מנכ\"ל Tesla",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Gwynne Shotwell",
+    "role": "נשיאה וסמנכ\"לית תפעול",
+    "background": "בחברה מהשנים הראשונות, הגיעה מ-TRW ו-Boeing",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Bret Johnsen",
+    "role": "סמנכ\"ל כספים",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "Musk מחזיק כ-39% מהמניות אבל שולט ב-84% מכוח ההצבעה, בזכות מניות עם קולות נוספים.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "Musk הוא בו זמנית מנכ\"ל, יו\"ר ומנהל הטכנולוגיה, ומנהל גם את Tesla.",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "text": "חברה ציבורית רק מיוני 2026, אז יש לה היסטוריה קצרה של דוחות.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "Elon Musk הוא בעל השליטה. בין המחזיקים הגדולים האחרים: Alphabet (כ-6.7%), קרן Valor (כ-6.1%), Vy Capital (כ-3.3%) וקרן ההשקעות של סעודיה PIF (כ-1.9%).",
+   "src": [
+    "W",
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת שיגורים לנאס\"א, לצבא ולחברות, אינטרנט לווייני לבתים ולמטוסים, וכוח מחשוב ובינה מלאכותית לחברות כמו Anthropic ו-Google.",
+   "המחיר תלוי בגידול של Starlink, בהצלחת הטיל Starship, בכמה כסף נשרף על בינה מלאכותית, ובמה ש-Musk עושה ואומר.",
+   "הדוח הבא: הדוח הקודם יצא ב-20 באוקטובר 2026. הבא צפוי בדרך כלל בסוף ינואר (הערכה לפי קצב רבעוני; אין עדיין שנים קודמות)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: SpaceX",
+    "https://en.wikipedia.org/wiki/SpaceX"
+   ],
+   "WX": [
+    "Wikipedia: xAI (company)",
+    "https://en.wikipedia.org/wiki/XAI_(company)"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/SPCX/profile"
+   ],
+   "IR": [
+    "SpaceX IR: Q3 2026 results on October 20, 2026",
+    "https://ir.spacex.com/updates/releases-details/2026/SpaceX-to-Post-Third-Quarter-2026-Results-and-Host-Webcast-on-October-20-2026-2026-QssQGye3im/default.aspx"
+   ]
+  },
+  "unverified": [
+   "Wikipedia אומרת גם 39% וגם 'כמעט חצי' לגבי חלקו של Musk. נבחר המספר המפורט (39%).",
+   "מועד הדוח הבא הוא הערכה בלבד."
+  ]
+ },
+ "AVGO": {
+  "name": "Broadcom",
+  "checked": "2026-11-12",
+  "one_liner": "Broadcom מתכננת שבבים לתקשורת ולחוות שרתים, כולל שבבי בינה מלאכותית בהזמנה אישית, ומוכרת תוכנה לחברות (VMware).",
+  "hq": {
+   "city": "Palo Alto",
+   "country": "ארצות הברית"
+  },
+  "founded": 1961,
+  "employees": {
+   "value": 33000,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Hewlett-Packard",
+    "story": "השורשים: מחלקת השבבים של HP, שהוקמה ב-1961. ב-1999 עברה ל-Agilent, וב-2005 נקנתה על ידי KKR ו-Silver Lake והפכה ל-Avago.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1961,
+    "HP Associates, מחלקת שבבים של Hewlett-Packard, מוקמת.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2005,
+    "KKR ו-Silver Lake קונות את מחלקת השבבים של Agilent ומקימות את Avago.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2009,
+    "Avago נכנסת לבורסת Nasdaq בסימול AVGO.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2016,
+    "Avago קונה את Broadcom Corporation ב-37 מיליארד דולר ולוקחת את השם שלה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2018,
+    "ממשל Trump חוסם את ניסיון ההשתלטות שלה על Qualcomm מטעמי ביטחון לאומי.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "משלימה את קניית VMware ב-69 מיליארד דולר.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "השווי שלה עובר 2 טריליון דולר באפריל.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Hock Tan",
+    "role": "נשיא ומנכ\"ל",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Kirsten Spears",
+    "role": "יועצת (הייתה סמנכ\"לית הכספים)",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Charlie Kawwas",
+    "role": "נשיא חטיבת השבבים",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "ב-2021 הסכימה ליישב תלונה של רשות הסחר האמריקאית (FTC) שטענה שניצלה כוח מונופול מול לקוחות.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "אחרי קניית VMware, ארגון ספקי ענן באירופה (CISPE) טען שהמחירים עלו פי 10.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. מנהלים ודירקטורים מחזיקים כ-1.9%. המחזיקות הגדולות הן BlackRock (כ-8.3%) ו-Vanguard (כ-6.5%), בעיקר בשם קרנות מחקות מדד.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": {
+   "text": "גדלה בעיקר בקניית חברות. אחרי שהקנייה של Qualcomm נחסמה, עברה לקנות חברות תוכנה.",
+   "src": [
+    "W"
+   ]
+  },
+  "how_to_start": [
+   "מוכרת שבבים ליצרני ציוד תקשורת, טלפונים וחברות ענן גדולות, ותוכנה לחברות.",
+   "המחיר תלוי בהזמנות של שבבי בינה מלאכותית מלקוחות ענן גדולים, ובכמה לקוחות VMware נשארים.",
+   "הדוח הבא צפוי ב-9 בדצמבר 2026, אחרי סגירת המסחר (לפי Nasdaq/Zacks)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Broadcom",
+    "https://en.wikipedia.org/wiki/Broadcom"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/AVGO/profile"
+   ],
+   "nasdaq": [
+    "Nasdaq earnings date",
+    "https://www.nasdaq.com/market-activity/stocks/avgo/earnings"
+   ]
+  },
+  "unverified": [
+   "השנה שבה Hock Tan נהיה מנכ\"ל לא אומתה ולכן לא נכתבה.",
+   "תאריך הדוח מ-Nasdaq מסומן 'צפוי'."
+  ]
+ },
+ "META": {
+  "name": "Meta Platforms",
+  "checked": "2026-11-12",
+  "one_liner": "Meta מפעילה את Facebook, Instagram, WhatsApp ו-Threads בחינם, ומרוויחה כמעט רק ממכירת פרסומות לעסקים.",
+  "hq": {
+   "city": "Menlo Park",
+   "country": "ארצות הברית"
+  },
+  "founded": 2004,
+  "employees": {
+   "value": 66775,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Mark Zuckerberg",
+    "story": "הקים ב-4 בפברואר 2004 בקיימברידג', מסצ'וסטס, את TheFacebook עם 4 שותפים. מנכ\"ל מאז ועד היום.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Eduardo Saverin, Dustin Moskovitz, Andrew McCollum, Chris Hughes",
+    "story": "ארבעת השותפים להקמת TheFacebook ב-2004.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    2004,
+    "TheFacebook מוקמת. שנה אחר כך השם משתנה ל-Facebook.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2012,
+    "קונה את Instagram בכמיליארד דולר, ונכנסת לבורסה במאי.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2014,
+    "קונה את WhatsApp ב-19 מיליארד דולר.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2021,
+    "משנה את השם ל-Meta Platforms, כדי לסמן מעבר למציאות מדומה (\"מטאוורס\").",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "בנובמבר בית משפט קובע שלא הפרה חוקי הגבלים עסקיים ושאין לה מונופול.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "בחודש מאי מפטרת כ-8,000 עובדים, כ-10%, ומעבירה 7,000 לתפקידי בינה מלאכותית.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Mark Zuckerberg",
+    "role": "מייסד, מנכ\"ל ויו\"ר",
+    "since": 2004,
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Dina Powell McCormick",
+    "role": "נשיאה וסגנית יו\"ר",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Susan Li",
+    "role": "סמנכ\"לית כספים",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Javier Olivan",
+    "role": "סמנכ\"ל תפעול",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "Zuckerberg הוא מנכ\"ל וגם יו\"ר. הוא מחזיק כ-13.7% מהמניות אבל שולט בכ-61% מכוח ההצבעה, בזכות מניות עם קולות נוספים.",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "text": "בנובמבר 2025 ניצחה בתביעת ההגבלים העסקיים של רשות הסחר האמריקאית (FTC).",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "Mark Zuckerberg הוא בעל השליטה בהצבעה. בין המוסדיים: BlackRock (כ-7.8%) ו-Vanguard (כ-6.5%), בעיקר בשם קרנות מחקות מדד.",
+   "src": [
+    "W",
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת פרסומות לעסקים שרוצים להגיע למשתמשים שלה. ב-2023 כ-98% מהכסף הגיע מפרסומות.",
+   "המחיר תלוי בכמה עסקים מפרסמים, בכמה היא מוציאה על בינה מלאכותית ומציאות מדומה, וברגולציה על פרטיות.",
+   "הדוח הבא: בדרך כלל בסוף ינואר או תחילת פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Meta Platforms",
+    "https://en.wikipedia.org/wiki/Meta_Platforms"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/META/profile"
+   ]
+  },
+  "unverified": [
+   "מתי Dina Powell McCormick מונתה לנשיאה לא אומת.",
+   "Yahoo מראה רק כ-0.1% בידי מנהלים, כנראה כי סופר רק את סוג המניות הנסחר. נבחר הנתון של Wikipedia (13.7%).",
+   "מועד הדוח הבא הוא הערכה."
+  ]
+ },
+ "MU": {
+  "name": "Micron Technology",
+  "checked": "2026-11-12",
+  "one_liner": "Micron מייצרת שבבי זיכרון למחשבים, טלפונים ושרתים, כולל זיכרון מהיר (HBM) לשבבי בינה מלאכותית.",
+  "hq": {
+   "city": "Boise",
+   "country": "ארצות הברית"
+  },
+  "founded": 1978,
+  "employees": {
+   "value": 61000,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Ward Parkinson, Joe Parkinson, Dennis Wilson, Doug Pitman",
+    "story": "ארבעתם הקימו ב-1978 בבויסי, איידהו, חברת ייעוץ לתכנון שבבים. אנשי עסקים מקומיים מימנו, ואחר כך גם J. R. Simplot, שהתעשר מתפוחי אדמה.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1978,
+    "מוקמת בבויסי כחברת ייעוץ לתכנון שבבים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1981,
+    "עוברת מייעוץ לייצור שבבים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1984,
+    "נכנסת לבורסה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2013,
+    "בין 2012 ל-2014 קונה את Elpida היפנית בכ-2 מיליארד דולר.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "סין אוסרת על חברות תשתית גדולות שלה לקנות מוצרים של Micron.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "בפברואר סוגרת את המותג לצרכנים Crucial. בסוף מאי השווי שלה עובר טריליון דולר.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Sanjay Mehrotra",
+    "role": "מנכ\"ל ויו\"ר",
+    "since": 2017,
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Mark Murphy",
+    "role": "סמנכ\"ל כספים",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Manish Bhatia",
+    "role": "נשיא וסמנכ\"ל תפעול",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המנכ\"ל Sanjay Mehrotra הוא גם יו\"ר הדירקטוריון.",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "text": "מאז 2023 סין מגבילה רכישת מוצרים שלה בטענה של סיכון ביטחוני.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. מנהלים ודירקטורים מחזיקים כ-0.2%. המחזיקות הגדולות הן BlackRock (כ-9.3%) ו-Vanguard (כ-6.5%), בעיקר בשם קרנות מחקות מדד.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת שבבי זיכרון ליצרני שרתים, מחשבים וטלפונים, ולחברות שבבי בינה מלאכותית כמו Nvidia.",
+   "מחירי הזיכרון עולים ויורדים חזק במחזורים. המחיר תלוי בהיצע מול Samsung ו-SK hynix ובביקוש לבינה מלאכותית.",
+   "הדוח הבא מוערך ל-16 בדצמבר 2026 (לפי Nasdaq, הערכה אלגוריתמית ולא תאריך שהחברה פרסמה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Micron Technology",
+    "https://en.wikipedia.org/wiki/Micron_Technology"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/MU/profile"
+   ],
+   "nasdaq": [
+    "Nasdaq earnings date",
+    "https://www.nasdaq.com/market-activity/stocks/mu/earnings"
+   ]
+  },
+  "unverified": [
+   "תאריך הדוח הבא הוא הערכה של Nasdaq, לא אישור של החברה."
+  ]
+ },
+ "AMD": {
+  "name": "AMD (Advanced Micro Devices)",
+  "checked": "2026-11-12",
+  "one_liner": "AMD מתכננת מעבדים ושבבים גרפיים למחשבים, קונסולות משחק ושרתים, כולל שבבי בינה מלאכותית שמתחרים ב-Nvidia.",
+  "hq": {
+   "city": "Santa Clara",
+   "country": "ארצות הברית"
+  },
+  "founded": 1969,
+  "employees": {
+   "value": 31000,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Jerry Sanders",
+    "story": "מנהל השיווק של Fairchild Semiconductor. נמאס לו מהחברה, וב-1 במאי 1969 הקים את AMD עם 7 עמיתים מ-Fairchild.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1969,
+    "Jerry Sanders ו-7 עמיתים מ-Fairchild מקימים את AMD.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1975,
+    "נכנסת לשוק המעבדים ומתחרה ב-Intel.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2006,
+    "קונה את יצרנית הכרטיסים הגרפיים ATI מקנדה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2009,
+    "מפרידה את המפעלים שלה לחברה נפרדת, GlobalFoundries, ומאז לא מייצרת בעצמה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2014,
+    "Lisa Su נהיית מנכ\"לית.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2022,
+    "משלימה את קניית Xilinx.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "חותמת עסקה עם OpenAI על שבבי בינה מלאכותית, כולל אופציה ל-OpenAI לקבל עד כ-10% מהמניות.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Lisa Su",
+    "role": "יו\"ר, נשיאה ומנכ\"לית",
+    "since": 2014,
+    "background": "הייתה סמנכ\"לית התפעול",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Jean Hu",
+    "role": "סמנכ\"לית כספים",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Mark Papermaster",
+    "role": "מנהל טכנולוגיה ראשי",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המנכ\"לית Lisa Su היא גם יו\"ר הדירקטוריון.",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "text": "OpenAI קיבלה אופציה לקנות עד 160 מיליון מניות (כ-10%) במחיר סמלי, אם יעמדו ביעדים.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. מנהלים ודירקטורים מחזיקים כ-0.4%. המחזיקות הגדולות הן BlackRock (כ-9.2%) ו-Vanguard (כ-6.5%), בעיקר בשם קרנות מחקות מדד.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת מעבדים ושבבים גרפיים ליצרני מחשבים, לחברות ענן וליצרני קונסולות. את השבבים מייצרת TSMC.",
+   "המחיר תלוי בכמה שבבי בינה מלאכותית היא מצליחה למכור מול Nvidia, ובנתח שלה מול Intel במעבדים.",
+   "הדוח הבא: בדרך כלל בתחילת פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: AMD",
+    "https://en.wikipedia.org/wiki/AMD"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/AMD/profile"
+   ]
+  },
+  "unverified": [
+   "מועד הדוח הבא הוא הערכה."
+  ]
+ }
+}

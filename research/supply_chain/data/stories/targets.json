@@ -1,0 +1,684 @@
+{
+ "americas": [
+  {
+   "ticker": "AAPL",
+   "name": "Apple",
+   "market": "minerals",
+   "id": "AAPL",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "NVDA",
+   "name": "Nvidia",
+   "market": "ai",
+   "id": "NVDA",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "MSFT",
+   "name": "Microsoft",
+   "market": "chips",
+   "id": "MSFT",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "ABX.TO",
+   "name": "Barrick Mining",
+   "market": "minerals",
+   "id": "BARRICK",
+   "exchange": "TO",
+   "country": "CA"
+  },
+  {
+   "ticker": "WPM.TO",
+   "name": "Wheaton Precious Metals",
+   "market": "minerals",
+   "id": "WPM",
+   "exchange": "TO",
+   "country": "CA"
+  },
+  {
+   "ticker": "VALE3.SA",
+   "name": "Vale",
+   "market": "minerals",
+   "id": "VALE",
+   "exchange": "SA",
+   "country": "BR"
+  },
+  {
+   "ticker": "FNV.TO",
+   "name": "Franco-Nevada",
+   "market": "minerals",
+   "id": "FNV",
+   "exchange": "TO",
+   "country": "CA"
+  },
+  {
+   "ticker": "SQM-B.SN",
+   "name": "SQM",
+   "market": "minerals",
+   "id": "SQM",
+   "exchange": "SN",
+   "country": "CL"
+  },
+  {
+   "ticker": "GOOGL",
+   "name": "Alphabet",
+   "market": "ai",
+   "id": "GOOGL",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "AMZN",
+   "name": "Amazon",
+   "market": "chips",
+   "id": "AMZN",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "SPCX",
+   "name": "SpaceX (owns xAI)",
+   "market": "ai",
+   "id": "SPACEX",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "AVGO",
+   "name": "Broadcom",
+   "market": "ai",
+   "id": "AVGO",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "META",
+   "name": "Meta",
+   "market": "chips",
+   "id": "META",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "MU",
+   "name": "Micron",
+   "market": "ai",
+   "id": "MICRON",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "AMD",
+   "name": "AMD",
+   "market": "ai",
+   "id": "AMD",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "PLTR",
+   "name": "Palantir",
+   "market": "ai",
+   "id": "PLTR",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "ORCL",
+   "name": "Oracle",
+   "market": "ai",
+   "id": "ORCL",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "CSCO",
+   "name": "Cisco",
+   "market": "ai",
+   "id": "CSCO",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "INTC",
+   "name": "Intel",
+   "market": "chips",
+   "id": "INTEL",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "AMAT",
+   "name": "Applied Materials",
+   "market": "chips",
+   "id": "AMAT",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "PANW",
+   "name": "Palo Alto Networks",
+   "market": "ai",
+   "id": "PANW",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "LRCX",
+   "name": "Lam Research",
+   "market": "chips",
+   "id": "LAM",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "TXN",
+   "name": "Texas Instruments",
+   "market": "chips",
+   "id": "TI",
+   "exchange": "US",
+   "country": "US"
+  },
+  {
+   "ticker": "BABA",
+   "name": "Alibaba",
+   "market": "ai",
+   "id": "BABA",
+   "exchange": "US",
+   "country": "CN"
+  }
+ ],
+ "china_taiwan": [
+  {
+   "ticker": "2330.TW",
+   "name": "TSMC",
+   "market": "chips",
+   "id": "TSMC",
+   "exchange": "TW",
+   "country": "TW"
+  },
+  {
+   "ticker": "0700.HK",
+   "name": "Tencent",
+   "market": "ai",
+   "id": "TENCENT",
+   "exchange": "HK",
+   "country": "CN"
+  },
+  {
+   "ticker": "2454.TW",
+   "name": "MediaTek",
+   "market": "chips",
+   "id": "MEDIATEK",
+   "exchange": "TW",
+   "country": "TW"
+  },
+  {
+   "ticker": "300750.SZ",
+   "name": "CATL",
+   "market": "energy",
+   "id": "CATL",
+   "exchange": "SZ",
+   "country": "CN"
+  },
+  {
+   "ticker": "601899.SS",
+   "name": "Zijin Mining",
+   "market": "minerals",
+   "id": "ZIJIN",
+   "exchange": "SS",
+   "country": "CN"
+  },
+  {
+   "ticker": "2317.TW",
+   "name": "Hon Hai (Foxconn)",
+   "market": "chips",
+   "id": "HONHAI",
+   "exchange": "TW",
+   "country": "TW"
+  },
+  {
+   "ticker": "000333.SZ",
+   "name": "Midea Group (Kuka)",
+   "market": "robotics",
+   "id": "MIDEA",
+   "exchange": "SZ",
+   "country": "CN"
+  },
+  {
+   "ticker": "1211.HK",
+   "name": "BYD",
+   "market": "robotics",
+   "id": "BYD",
+   "exchange": "HK",
+   "country": "CN"
+  },
+  {
+   "ticker": "2359.HK",
+   "name": "WuXi AppTec",
+   "market": "medical",
+   "id": "WUXIAPPTEC",
+   "exchange": "HK",
+   "country": "CN"
+  },
+  {
+   "ticker": "INFY.NS",
+   "name": "Infosys",
+   "market": "ai",
+   "id": "INFY",
+   "exchange": "NS",
+   "country": "IN"
+  },
+  {
+   "ticker": "SUNPHARMA.NS",
+   "name": "Sun Pharma (owns Taro)",
+   "market": "medical",
+   "id": "SUNPHARMA",
+   "exchange": "NS",
+   "country": "IN"
+  },
+  {
+   "ticker": "688836.SS",
+   "name": "Unitree Robotics",
+   "market": "robotics",
+   "id": "UNITREE",
+   "exchange": "SS",
+   "country": "CN"
+  },
+  {
+   "ticker": "603993.SS",
+   "name": "CMOC Group",
+   "market": "minerals",
+   "id": "CMOC",
+   "exchange": "SS",
+   "country": "CN"
+  },
+  {
+   "ticker": "DIVISLAB.NS",
+   "name": "Divi's Laboratories",
+   "market": "medical",
+   "id": "DIVIS",
+   "exchange": "NS",
+   "country": "IN"
+  },
+  {
+   "ticker": "300274.SZ",
+   "name": "Sungrow Power Supply",
+   "market": "energy",
+   "id": "SUNGROW",
+   "exchange": "SZ",
+   "country": "CN"
+  },
+  {
+   "ticker": "6488.TWO",
+   "name": "GlobalWafers",
+   "market": "chips",
+   "id": "GLOBALWAFERS",
+   "exchange": "TWO",
+   "country": "TW"
+  },
+  {
+   "ticker": "5347.TWO",
+   "name": "Vanguard International",
+   "market": "chips",
+   "id": "VIS",
+   "exchange": "TWO",
+   "country": "TW"
+  },
+  {
+   "ticker": "INCO.JK",
+   "name": "Vale Indonesia",
+   "market": "minerals",
+   "id": "INCO",
+   "exchange": "JK",
+   "country": "ID"
+  }
+ ],
+ "japan_korea": [
+  {
+   "ticker": "005930.KS",
+   "name": "Samsung Electronics",
+   "market": "chips",
+   "id": "SAMSUNG",
+   "exchange": "KS",
+   "country": "KR"
+  },
+  {
+   "ticker": "000660.KS",
+   "name": "SK hynix",
+   "market": "chips",
+   "id": "SKHYNIX",
+   "exchange": "KS",
+   "country": "KR"
+  },
+  {
+   "ticker": "7203.T",
+   "name": "Toyota",
+   "market": "chips",
+   "id": "TOYOTA",
+   "exchange": "T",
+   "country": "JP"
+  },
+  {
+   "ticker": "BHP.AX",
+   "name": "BHP",
+   "market": "minerals",
+   "id": "BHP",
+   "exchange": "AX",
+   "country": "AU"
+  },
+  {
+   "ticker": "6758.T",
+   "name": "Sony",
+   "market": "chips",
+   "id": "SONY",
+   "exchange": "T",
+   "country": "JP"
+  },
+  {
+   "ticker": "6857.T",
+   "name": "Advantest",
+   "market": "chips",
+   "id": "ADVANTEST",
+   "exchange": "T",
+   "country": "JP"
+  },
+  {
+   "ticker": "373220.KS",
+   "name": "LG Energy Solution",
+   "market": "energy",
+   "id": "LGES",
+   "exchange": "KS",
+   "country": "KR"
+  },
+  {
+   "ticker": "FMG.AX",
+   "name": "Fortescue",
+   "market": "minerals",
+   "id": "FMG",
+   "exchange": "AX",
+   "country": "AU"
+  },
+  {
+   "ticker": "LYC.AX",
+   "name": "Lynas Rare Earths",
+   "market": "minerals",
+   "id": "LYNAS",
+   "exchange": "AX",
+   "country": "AU"
+  },
+  {
+   "ticker": "277810.KQ",
+   "name": "Rainbow Robotics",
+   "market": "robotics",
+   "id": "RAINBOW",
+   "exchange": "KQ",
+   "country": "KR"
+  },
+  {
+   "ticker": "357780.KQ",
+   "name": "Soulbrain",
+   "market": "chips",
+   "id": "SOULBRAIN",
+   "exchange": "KQ",
+   "country": "KR"
+  }
+ ],
+ "europe_a": [
+  {
+   "ticker": "ASML.AS",
+   "name": "ASML",
+   "market": "chips",
+   "id": "ASML",
+   "exchange": "AS",
+   "country": "NL"
+  },
+  {
+   "ticker": "RO.SW",
+   "name": "Roche",
+   "market": "medical",
+   "id": "ROCHE",
+   "exchange": "SW",
+   "country": "CH"
+  },
+  {
+   "ticker": "NOVN.SW",
+   "name": "Novartis",
+   "market": "medical",
+   "id": "NOVARTIS",
+   "exchange": "SW",
+   "country": "CH"
+  },
+  {
+   "ticker": "AZN.L",
+   "name": "AstraZeneca",
+   "market": "medical",
+   "id": "AZN",
+   "exchange": "L",
+   "country": "GB"
+  },
+  {
+   "ticker": "SAP.DE",
+   "name": "SAP",
+   "market": "ai",
+   "id": "SAP",
+   "exchange": "DE",
+   "country": "DE"
+  },
+  {
+   "ticker": "SIE.DE",
+   "name": "Siemens",
+   "market": "robotics",
+   "id": "SIEMENS",
+   "exchange": "DE",
+   "country": "DE"
+  },
+  {
+   "ticker": "TTE.PA",
+   "name": "TotalEnergies",
+   "market": "energy",
+   "id": "TOTAL",
+   "exchange": "PA",
+   "country": "FR"
+  },
+  {
+   "ticker": "NOVO-B.CO",
+   "name": "Novo Nordisk",
+   "market": "medical",
+   "id": "NOVO",
+   "exchange": "CO",
+   "country": "DK"
+  },
+  {
+   "ticker": "IBE.MC",
+   "name": "Iberdrola",
+   "market": "energy",
+   "id": "IBERDROLA",
+   "exchange": "MC",
+   "country": "ES"
+  },
+  {
+   "ticker": "SU.PA",
+   "name": "Schneider Electric",
+   "market": "ai",
+   "id": "SCHNEIDER",
+   "exchange": "PA",
+   "country": "FR"
+  },
+  {
+   "ticker": "ABBN.SW",
+   "name": "ABB",
+   "market": "robotics",
+   "id": "ABB",
+   "exchange": "SW",
+   "country": "CH"
+  },
+  {
+   "ticker": "ENR.DE",
+   "name": "Siemens Energy (incl. Siemens Gamesa)",
+   "market": "energy",
+   "id": "SIEMENSENERGY",
+   "exchange": "DE",
+   "country": "DE"
+  },
+  {
+   "ticker": "SAN.PA",
+   "name": "Sanofi",
+   "market": "medical",
+   "id": "SANOFI",
+   "exchange": "PA",
+   "country": "FR"
+  },
+  {
+   "ticker": "GSK.L",
+   "name": "GSK",
+   "market": "medical",
+   "id": "GSK",
+   "exchange": "L",
+   "country": "GB"
+  },
+  {
+   "ticker": "EQNR.OL",
+   "name": "Equinor",
+   "market": "energy",
+   "id": "EQUINOR",
+   "exchange": "OL",
+   "country": "NO"
+  },
+  {
+   "ticker": "MT.AS",
+   "name": "ArcelorMittal",
+   "market": "minerals",
+   "id": "ARCELOR",
+   "exchange": "AS",
+   "country": "LU"
+  }
+ ],
+ "europe_b_israel": [
+  {
+   "ticker": "SAND.ST",
+   "name": "Sandvik",
+   "market": "minerals",
+   "id": "SANDVIK",
+   "exchange": "ST",
+   "country": "SE"
+  },
+  {
+   "ticker": "PRY.MI",
+   "name": "Prysmian",
+   "market": "energy",
+   "id": "PRYSMIAN",
+   "exchange": "MI",
+   "country": "IT"
+  },
+  {
+   "ticker": "EPI-A.ST",
+   "name": "Epiroc",
+   "market": "minerals",
+   "id": "EPIROC",
+   "exchange": "ST",
+   "country": "SE"
+  },
+  {
+   "ticker": "PHIA.AS",
+   "name": "Philips",
+   "market": "medical",
+   "id": "PHILIPS",
+   "exchange": "AS",
+   "country": "NL"
+  },
+  {
+   "ticker": "ORSTED.CO",
+   "name": "Orsted",
+   "market": "energy",
+   "id": "ORSTED",
+   "exchange": "CO",
+   "country": "DK"
+  },
+  {
+   "ticker": "VWS.CO",
+   "name": "Vestas",
+   "market": "energy",
+   "id": "VESTAS",
+   "exchange": "CO",
+   "country": "DK"
+  },
+  {
+   "ticker": "TRN.MI",
+   "name": "Terna",
+   "market": "energy",
+   "id": "TERNA",
+   "exchange": "MI",
+   "country": "IT"
+  },
+  {
+   "ticker": "METSO.HE",
+   "name": "Metso",
+   "market": "minerals",
+   "id": "METSO",
+   "exchange": "HE",
+   "country": "FI"
+  },
+  {
+   "ticker": "RED.MC",
+   "name": "Redeia (Red Electrica)",
+   "market": "energy",
+   "id": "REDEIA",
+   "exchange": "MC",
+   "country": "ES"
+  },
+  {
+   "ticker": "AUTO.OL",
+   "name": "AutoStore",
+   "market": "robotics",
+   "id": "AUTOSTORE",
+   "exchange": "OL",
+   "country": "NO"
+  },
+  {
+   "ticker": "UMI.BR",
+   "name": "Umicore",
+   "market": "minerals",
+   "id": "UMICORE",
+   "exchange": "BR",
+   "country": "BE"
+  },
+  {
+   "ticker": "SHEL.L",
+   "name": "Shell",
+   "market": "energy",
+   "id": "SHELL",
+   "exchange": "L",
+   "country": "GB"
+  },
+  {
+   "ticker": "ESLT.TA",
+   "name": "Elbit Systems",
+   "market": "robotics",
+   "id": "ELBIT",
+   "exchange": "TA",
+   "country": "IL"
+  },
+  {
+   "ticker": "ENLT.TA",
+   "name": "Enlight Renewable Energy",
+   "market": "energy",
+   "id": "ENLIGHT",
+   "exchange": "TA",
+   "country": "IL"
+  },
+  {
+   "ticker": "OPCE.TA",
+   "name": "OPC Energy",
+   "market": "energy",
+   "id": "OPC",
+   "exchange": "TA",
+   "country": "IL"
+  }
+ ]
+}

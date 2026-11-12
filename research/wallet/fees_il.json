@@ -1,0 +1,212 @@
+{
+  "checked": "2026-11-12",
+  "_about": "Fees & taxes reference for a paper wallet of an Israeli resident individual. Numbers are copied from the cited sources; fields with \"verified\": false or a \"caveat\" were not confirmed against a primary source. Broker prices are LIST prices unless marked promo; Israeli banks negotiate personally.",
+
+  "tax": {
+    "capital_gains_rate": 0.25,
+    "capital_gains_rate_substantial_shareholder": 0.30,
+    "substantial_shareholder_def": "holds 10% or more of the company",
+    "surtax": {
+      "threshold_ils": 721560,
+      "threshold_year": 2026,
+      "threshold_note": "Frozen (no CPI linkage) for 2025-2027 per secondary sources.",
+      "rate": 0.03,
+      "capital_income_extra_rate": 0.02,
+      "effective_rate_on_capital_income_above_threshold": 0.05,
+      "applies_to": "Annual taxable income from ALL sources above the threshold (3%). From 2025, an extra 2% on the part of capital income (capital gains, dividends, interest, etc.) above the same threshold.",
+      "src": ["pwc_il_other", "bizportal_surtax", "bsh_surtax"]
+    },
+    "real_vs_nominal": "Tax is on the REAL gain: nominal gain minus the 'inflationary amount'. The inflationary amount accrued after 1994-01-01 is exempt for individuals (pre-1994 part taxed at 10%).",
+    "foreign_currency_rule": "Individual holding a foreign-currency security: everything is measured in ILS. Cost is converted at the Bank of Israel representative rate on the purchase date and proceeds at the rate on the sale date -> nominal ILS gain. For such a security the exchange rate is 'deemed the index', so the inflationary amount is the currency move on the cost and is exempt. In practice: real gain = (sale_usd - cost_usd) * fx_sale. Edge cases (secondary sources, verify): if nominal ILS gain > 0 but the USD-based real gain is larger (shekel strengthened), tax only the nominal ILS gain; if nominal ILS gain > 0 but USD result is a loss, gain is exempt (taxable 0); if nominal ILS result is a loss, the ILS nominal loss is the capital loss. Simplified engine rule: taxable = max(0, min(nominal_ils_gain, usd_gain * fx_sale)) when nominal >= 0, else loss = nominal_ils_gain.",
+    "fx_rate_source": "Bank of Israel representative rate (sha'ar yatzig) on trade date",
+    "loss_offset": "Capital losses offset capital gains in the same tax year (Israeli or foreign; a loss on a foreign asset is first set against foreign-source gains). Securities losses may also offset interest/dividends from securities in the same year if the tax rate on that income does not exceed 25%. Unused losses carry forward indefinitely, but only against future capital gains. An Israeli broker offsets gains/losses automatically within the account during the year; across brokers you offset via the annual return.",
+    "withholding_vs_self_report": {
+      "israeli_broker": "Withholds 25% at source on realized real gain (and on dividends), offsetting losses within the account during the year. No annual return required if all was withheld and no surtax applies (verify: annual return still needed in some cases, e.g. surtax, multiple accounts).",
+      "foreign_broker": "Foreign brokers (e.g. Interactive Brokers) do not withhold Israeli tax and do not report to the Israel Tax Authority. The investor must file a semi-annual report and pay an advance on net securities gains by 31 July (for Jan-Jun) and 31 January (for Jul-Dec), and file an annual return (form 1301 + appendix 1322 for capital gains, 1324 for foreign income/dividends with foreign tax credit).",
+      "src": ["deloitte_semiannual", "bsh_semiannual", "financa_foreign_broker"]
+    },
+    "src": ["pwc_il_income", "pwc_il_other", "bizportal_fx_calc", "capitax_fx", "financa_foreign_broker"]
+  },
+
+  "dividends": {
+    "il_rate": 0.25,
+    "il_rate_substantial_shareholder": 0.30,
+    "foreign_tax_credit": "Foreign tax withheld is credited against the Israeli 25%, up to the Israeli tax on that dividend. If foreign withholding > 25%, the excess is not credited (only recoverable by a reclaim in the source country under a treaty). Israeli brokers typically withhold only the difference up to 25% (not verified from a primary source).",
+    "src_il": ["pwc_il_income", "financa_foreign_broker"],
+    "withholding": {
+      "US": {"rate": 0.25, "rate_without_form": 0.30, "note": "With W-8BEN the US-Israel treaty rate for individuals is 25% (NOT 15%). 12.5% only for a company owning >=10% of voting shares. No W-8BEN -> 30%.", "src": ["irs_treaty_table1", "irs_israel_treaty"]},
+      "JP": {"rate": 0.15315, "statutory_base": 0.15, "note": "PwC chart: 15% for non-residents on listed shares; +2.1% reconstruction surtax gives 15.315% (surtax not in PwC chart - from general knowledge, verify).", "verified": false, "src": ["pwc_wht_chart"]},
+      "DE": {"rate": 0.26375, "note": "25% + 5.5% solidarity surcharge. Partly reclaimable down to the treaty rate.", "src": ["globetax_wht", "pwc_wht_chart"]},
+      "NL": {"rate": 0.15, "src": ["globetax_wht", "pwc_wht_chart"]},
+      "CH": {"rate": 0.35, "note": "Statutory 35%; reclaim to treaty rate possible via Swiss forms (slow). Excess over 25% is lost for Israeli credit unless reclaimed.", "src": ["globetax_wht", "pwc_wht_chart"]},
+      "GB": {"rate": 0.0, "src": ["pwc_wht_chart"]},
+      "TW": {"rate": 0.21, "src": ["pwc_wht_chart"]},
+      "KR": {"rate": 0.22, "statutory_base": 0.20, "note": "PwC chart: 20%; plus 10% local income tax surcharge = 22% (surcharge from general knowledge, verify).", "verified": false, "src": ["pwc_wht_chart"]},
+      "HK": {"rate": 0.0, "src": ["pwc_wht_chart"]},
+      "CN": {"rate": 0.10, "note": "Mainland China companies (incl. H-shares).", "src": ["pwc_wht_chart"]},
+      "DK": {"rate": 0.27, "src": ["pwc_wht_chart"]},
+      "FR": {"rate": 0.128, "note": "PwC: 12.8% for non-resident individuals (25% for companies). GlobeTax lists 25% (US-investor/corporate basis). Use 12.8% for individuals; verify.", "verified": false, "src": ["pwc_wht_chart", "globetax_wht"]}
+    },
+    "note": "Rates are statutory for non-residents; Israel's treaty with each country may cap them lower, but brokers often withhold the statutory rate and the investor must reclaim."
+  },
+
+  "brokers": [
+    {
+      "id": "ibkr",
+      "name": "Interactive Brokers (IBKR Pro Fixed, direct account)",
+      "us": {"per_share": 0.005, "min": 1.00, "max_pct": 0.01, "currency": "USD", "note": "Fixed plan; SEC fee and FINRA TAF/CAT are passed through on sales. Tiered alternative: 0.0035/share, min 0.35, plus exchange/clearing fees. IBKR Lite ($0) is generally not available to Israeli residents (verify)."},
+      "tase": {"pct": 0.001, "min_ils": 15.00, "max_ils": null, "note": "Fixed 0.1% of trade value, min ILS 15. Tiered: 0.05%, min ILS 5.25, max ILS 120 + third-party fees."},
+      "eu": {"pct": 0.0005, "min": {"EUR": 3.00, "GBP": 3.00, "CHF": 5.00, "DKK": 49.00}, "note": "Fixed, SmartRouting, Germany/NL/FR/UK/CH/DK. Direct routing is 0.10% with higher minimums. Taxes (UK stamp, FR/IT FTT) are extra."},
+      "asia": {"JP": {"pct": 0.0008, "min_jpy": 80}, "HK": {"pct": 0.0008, "min_hkd": 18}, "KR": {"pct": 0.0006, "min_krw": 4000, "note": "tiered only (no fixed)"}, "TW": {"pct": 0.0008, "min_twd": 80, "note": "tiered only"}},
+      "fx_fee_pct": 0.00002,
+      "fx_min_usd": 2.00,
+      "fx_note": "Manual conversion: 0.002% (0.2 bp) of value, min USD 2, no added spread (interbank rate). Auto-conversion pricing reported differently (~0.03%) by secondary sources - unverified.",
+      "custody": null,
+      "src": ["ibkr_stocks", "ibkr_fx"],
+      "note": "Official IBKR schedule downloaded 2026-11-12. No custody or inactivity fee. Does not withhold Israeli tax -> semi-annual self-reporting."
+    },
+    {
+      "id": "interactive_il",
+      "name": "Interactive Israel (Israeli introducing broker on IBKR)",
+      "us": {"per_share": 0.01, "min": 2.5, "max_pct": null, "currency": "USD"},
+      "tase": null,
+      "eu": null,
+      "fx_fee_pct": 0.002,
+      "custody": null,
+      "src": ["themarker_compare"],
+      "note": "Per TheMarker Supermarker comparison (updated 10/2026). TASE fee 'not provided'. Different from direct IBKR pricing."
+    },
+    {
+      "id": "meitav_trade",
+      "name": "Meitav Trade",
+      "us": {"per_share": 0.01, "min": 7.5, "max_pct": null, "currency": "USD"},
+      "tase": {"pct": 0.0008, "min_ils": 4.65},
+      "eu": null,
+      "fx_fee_pct": 0.007,
+      "fx_note": "No explicit conversion fee; spread 'up to 0.7%'.",
+      "custody": null,
+      "monthly_fee_ils": 15,
+      "monthly_fee_note": "PROMO: handling fee waived 4 years (new clients), afterwards offset against commissions. Tariff allows raising it (up to ILS 90/month per TheMarker).",
+      "src": ["themarker_compare", "themarker_meitav"],
+      "note": "List/comparison price, verified by TheMarker 10/2026."
+    },
+    {
+      "id": "ibi_smart",
+      "name": "IBI Trade / IBI Smart",
+      "us": {"per_share": 0.01, "min": 7.5, "max_pct": null, "currency": "USD"},
+      "tase": {"pct": 0.0008, "min_ils": 2.35},
+      "eu": null,
+      "fx_fee_pct": 0.007,
+      "fx_note": "Spread up to 0.7%, no separate fee.",
+      "custody": null,
+      "monthly_fee_ils": 15,
+      "monthly_fee_note": "PROMO: waived 2 years, then offset against commissions.",
+      "src": ["themarker_compare"],
+      "note": "CONFLICT: another TheMarker product page (tariff 'July 2026') shows TASE up to 0.15% min ILS 3.5, US $0.01/share min $10, handling fee up to ILS 50/month - likely the tariff ceiling vs the actual offer. Use comparison values as default."
+    },
+    {
+      "id": "excellence",
+      "name": "Excellence (Spark platform)",
+      "us": {"per_share": 0.01, "min": 5.0, "max_pct": null, "currency": "USD"},
+      "tase": {"pct": 0.0007, "min_ils": 3.0},
+      "eu": null,
+      "fx_fee_pct": 0.0054,
+      "custody": null,
+      "monthly_fee_ils": 15,
+      "monthly_fee_note": "PROMO: waived 2 years with ILS 10,000 deposit, then offset against commissions.",
+      "src": ["themarker_compare"],
+      "verified": false,
+      "note": "TheMarker marks this tariff as NOT verified."
+    },
+    {
+      "id": "altshuler_trade",
+      "name": "Altshuler Shaham Trade",
+      "us": {"per_share": 0.01, "min": 6.0, "max_pct": null, "currency": "USD"},
+      "tase": {"pct": 0.0007, "min_ils": 2.9},
+      "eu": null,
+      "fx_fee_pct": 0.007,
+      "custody": null,
+      "src": ["themarker_compare"],
+      "note": "No handling fee currently, but it is a benefit not a contractual term."
+    },
+    {
+      "id": "leumi",
+      "name": "Bank Leumi (online, book tariff)",
+      "us": {"pct": 0.003, "min": 24.0, "max_pct": null, "currency": "USD"},
+      "tase": {"pct": 0.004, "min_ils": 26.0},
+      "eu": null,
+      "fx_fee_pct": 0.0043,
+      "custody": {"pct_year": 0.006, "pct_year_foreign": 0.008, "min_ils_quarter": null},
+      "src": ["themarker_compare"],
+      "note": "Book (list) tariff - banks give personal discounts; ask for an offer. Custody minimum per quarter not found."
+    },
+    {
+      "id": "hapoalim",
+      "name": "Bank Hapoalim (online, book tariff)",
+      "us": {"pct": 0.003, "min": 20.0, "max_pct": null, "currency": "USD"},
+      "tase": {"pct": 0.004, "min_ils": 20.0},
+      "eu": null,
+      "fx_fee_pct": 0.0042,
+      "custody": {"pct_year": 0.006, "pct_year_foreign": 0.008, "min_ils_quarter": null},
+      "src": ["themarker_compare"],
+      "note": "Book tariff; benefits by personal offer."
+    }
+  ],
+
+  "market_costs": {
+    "US_sale_sec_fee": {"rate": 0.0000206, "per": "USD of sale value", "side": "sell", "valid_from": "2026-04-04", "note": "$20.60 per $1M of sales (FY2026). Rate was $0 before 2026-04-04.", "src": ["sec_fee_2026", "finra_info_notice", "ibkr_stocks"]},
+    "US_sale_finra_taf": {"per_share": 0.000195, "max_per_trade": 9.79, "side": "sell", "note": "2026 schedule. FINRA filed SR-FINRA-2026-021 to pause TAF for trades 2026-10-01..2026-12-31; IBKR's schedule currently shows TAF USD 0.00 per share sold. 2027 rate scheduled at 0.000232 (max 11.61) but SR-FINRA-2026-020 proposes keeping 2026 rates for 2027-2028.", "src": ["finra_taf_schedule", "finra_taf_pause", "ibkr_stocks"]},
+    "US_finra_cat": {"per_share": 0.000003, "side": "both", "note": "As passed through by IBKR.", "src": ["ibkr_stocks"]},
+    "UK_stamp": {"rate": 0.005, "side": "buy", "note": "SDRT on UK-incorporated shares. AIM shares exempt; new UK listings relieved for 3 years from 2025-11-27. Plus GBP 1.50 PTM levy on trades > GBP 10,000 (verify).", "src": ["lse_stamp", "freshfields_sdrt"]},
+    "FR_ftt": {"rate": 0.004, "side": "buy", "note": "French companies with market cap > EUR 1bn (annual list). Rate raised 0.3% -> 0.4% in 2025.", "src": ["sg_ftt"]},
+    "IT_ftt": {"rate": 0.002, "rate_otc": 0.004, "side": "buy", "note": "From 2026-01-01 (Budget Law 199/2025): 0.2% on regulated markets, 0.4% OTC. Issuers < EUR 500m cap exempt. A 2027 draft would double again - unconfirmed.", "src": ["clearstream_it_ftt", "aoshearman_it"]},
+    "HK_stamp": {"rate": 0.001, "side": "both", "note": "0.1% per side since 2023-11-17 (cut from 0.13%). Other HK levies (SFC, AFRC, exchange trading fee) not researched.", "src": ["uppersetup_hk"], "verified": false},
+    "TW_stt": {"rate": 0.003, "side": "sell", "note": "Stocks 0.3%; ETFs 0.1%. IBKR passes it to the seller.", "src": ["kaizen_tw"]},
+    "KR_stt": {"rate": 0.002, "side": "sell", "note": "2026: ~0.20% incl. agriculture & fishery special tax on KOSPI; sources conflict on the split (0.05% + 0.15%).", "src": ["ey_korea_2026"], "verified": false},
+    "CN_stamp": {"rate": 0.0005, "side": "sell", "note": "A-shares 0.05% seller-side since Aug 2023 - from general knowledge, NOT verified in this session.", "verified": false, "src": []},
+    "IL_tase": {"rate": 0.0, "note": "No stamp duty / FTT on TASE trades.", "verified": false, "src": []}
+  },
+
+  "service_fee_examples": [
+    {"name": "Composer", "model": "subscription", "price": "Starter $0 (1 automated strategy), Advanced $10/mo, Pro $40/mo or $384/yr", "per_trade": "not stated (broker/regulatory fees apply)", "src": ["composer_help"]},
+    {"name": "TradersPost", "model": "subscription, no per-trade fee", "price": "Starter $49, Basic $99, Pro $199, Premium $299 per month; -15% yearly; extra live account $10/mo", "src": ["traderspost_pricing"]},
+    {"name": "Capitalise.ai", "model": "free to user, funded via broker partnerships (secondary sources conflict)", "price": "free / unclear", "verified": false, "src": ["toolworthy_capitalise"]},
+    {"name": "Wealthfront (robo-advisor)", "model": "percent of assets (AUM)", "price": "0.25% per year", "src": ["wealthfront_pricing"]}
+  ],
+
+  "sources": {
+    "pwc_il_income": ["PwC Tax Summaries - Israel, Individual, Income determination", "https://taxsummaries.pwc.com/israel/individual/income-determination"],
+    "pwc_il_other": ["PwC Tax Summaries - Israel, Individual, Other taxes (reviewed 2026-06-29)", "https://taxsummaries.pwc.com/israel/individual/other-taxes"],
+    "bizportal_surtax": ["Bizportal - surtax 2026 threshold", "https://www.bizportal.co.il/guides/news/article/20041445"],
+    "bsh_surtax": ["BSH CPA - Surtax 2025 (threshold frozen 2025-2027)", "https://www.bshcpa.co.il/מס-יסף-2025/"],
+    "bizportal_fx_calc": ["Bizportal - computing gain/loss on foreign securities", "https://www.bizportal.co.il/general/news/article/413985"],
+    "capitax_fx": ["Alex Shapira & Co - foreign currency securities", "https://www.capitax.co.il/content/1/479"],
+    "deloitte_semiannual": ["Deloitte Israel tax alert 1/2025 - semi-annual reporting", "https://www2.deloitte.com/content/dam/Deloitte/il/Documents/tax/tax_alerts/2025/1.2025.pdf"],
+    "bsh_semiannual": ["BSH CPA - semi-annual reporting of foreign securities gains", "https://www.bshcpa.co.il/דיווח-חצי-שנתי-רווחי-הון/"],
+    "financa_foreign_broker": ["Financa - tax reporting with a foreign broker (2026)", "https://financa.co.il/מילוי-דוח-שנתי-ומיסוי-עם-ברוקר-זר/"],
+    "irs_treaty_table1": ["IRS Tax Treaty Table 1", "https://www.irs.gov/pub/irs-lbi/tax-treaty-table-1.pdf"],
+    "irs_israel_treaty": ["US-Israel income tax treaty text", "https://www.irs.gov/pub/irs-trty/israel.pdf"],
+    "pwc_wht_chart": ["PwC Quick Charts - WHT rates", "https://taxsummaries.pwc.com/quick-charts/withholding-tax-wht-rates"],
+    "globetax_wht": ["GlobeTax - Dividend WHT rates by country (2026)", "https://www.globetax.com/dividend-withholding-tax-rates-database/"],
+    "ibkr_stocks": ["Interactive Brokers - Commissions Stocks (all regions)", "https://www.interactivebrokers.com/en/pricing/commissions-stocks.php"],
+    "ibkr_fx": ["Interactive Brokers - Commissions & Fees (FX conversion)", "https://investors.interactivebrokers.com/en/pricing/commissions-home.php"],
+    "themarker_compare": ["TheMarker Supermarker - investment account comparison (updated 10/2026)", "https://www.supermarker.themarker.com/Account/CompareInvestmentAccounts.aspx"],
+    "themarker_meitav": ["TheMarker Supermarker - Meitav Trade product page", "https://www.supermarker.themarker.com/Account/InvestmentAccount.aspx?Product=11371"],
+    "sec_fee_2026": ["SEC Fee Rate Advisory 2026-2", "https://www.sec.gov/rules-regulations/fee-rate-advisories/2026-2"],
+    "finra_info_notice": ["FINRA Information Notice 2026-03-17", "https://www.finra.org/rules-guidance/notices/information-notice-20260317"],
+    "finra_taf_schedule": ["FINRA fee adjustment schedule (SR-FINRA-2024-019)", "https://www.finra.org/rules-guidance/rule-filings/sr-finra-2024-019/fee-adjustment-schedule"],
+    "finra_taf_pause": ["SR-FINRA-2026-021 - temporary TAF pause", "https://www.finra.org/rules-guidance/rule-filings/sr-finra-2026-021"],
+    "lse_stamp": ["LSE - Stamp duty exemptions", "https://www.londonstockexchange.com/en/resources/markets-products/shares/stamp-duty"],
+    "freshfields_sdrt": ["Freshfields - Autumn Budget 2025 SDRT listing relief", "https://transactions.freshfields.com/post/102lwn7/autumn-budget-2025-new-stamp-duty-reserve-tax-uk-listing-relief"],
+    "sg_ftt": ["Societe Generale - 2026 French FTT", "https://sharinbox.societegenerale.com/en/article/2026-french-financial-transaction-tax-ftt/"],
+    "clearstream_it_ftt": ["Clearstream - Italy 2026 Budget Law FTT", "https://www.clearstream.com/clearstream-en/res-library/tax-announcements/c26002-4891282"],
+    "aoshearman_it": ["A&O Shearman - Italy's 2026 Budget Law", "https://www.aoshearman.com/en/insights/italys-2026-budget-law-practical-takeaways-for-businesses"],
+    "uppersetup_hk": ["UpperSetup - HK stamp duty on share transfers 2026", "https://uppersetup.com/en/blog/stamp-duty-on-share-transfers-in-hong-kong-2026-rates-net"],
+    "kaizen_tw": ["KaizenCPA - Guide to Taiwan Securities Transaction Tax", "https://kaizencpa.com/knowledge/info/id/364.html"],
+    "ey_korea_2026": ["EY - Korea enacts 2026 tax reform bill", "https://taxnews.ey.com/news/2026-0126-korea-enacts-2026-tax-reform-bill"],
+    "composer_help": ["Composer help - plans", "https://help.composer.trade/article/226-manage-your-trading-pass"],
+    "traderspost_pricing": ["TradersPost pricing", "https://traderspost.io/pricing"],
+    "toolworthy_capitalise": ["ToolWorthy - Capitalise.ai", "https://www.toolworthy.ai/tool/capitaliseai"],
+    "wealthfront_pricing": ["Wealthfront pricing", "https://wealthfront.com/pricing"]
+  }
+}

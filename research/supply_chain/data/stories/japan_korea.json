@@ -1,0 +1,1575 @@
+{
+ "005930.KS": {
+  "name": "Samsung Electronics",
+  "checked": "2026-11-12",
+  "one_liner": "מייצרת שבבי זיכרון למחשבים ולשרתי בינה מלאכותית, וגם טלפונים Galaxy, טלוויזיות ומכשירי חשמל לבית.",
+  "hq": {
+   "city": "סוון (Suwon)",
+   "country": "דרום קוריאה"
+  },
+  "founded": 1969,
+  "employees": {
+   "value": 259149,
+   "year": 2025,
+   "src": "W"
+  },
+  "founders": [
+   {
+    "name": "Lee Byung-chul",
+    "story": "מייסד קבוצת Samsung, שהתחילה כחברת מסחר בדשנים וממתיקים. ב-1969 פתח זרוע אלקטרוניקה, בעזרת ייעוץ ושותפות עם החברות היפניות Sanyo ו-Sumitomo.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1969,
+    "נוסדה בעיר סוון כחלק מקבוצת Samsung. בהתחלה ייצרה טלוויזיות, מקררים ומזגנים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1983,
+    "המייסד הודיע שהחברה תיכנס לייצור שבבי זיכרון (DRAM). שנה אחר כך הציגה שבב ראשון.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1988,
+    "חברת האלקטרוניקה וחברת השבבים של הקבוצה התאחדו לחברה אחת: Samsung Electronics.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2005,
+    "התחילה לספק שבבי זיכרון ל-Apple, שהפכה ללקוחה גדולה שלה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2017,
+    "נהייתה לחברת השבבים הגדולה בעולם לפי מכירות, לפני Intel.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "בית המשפט העליון בקוריאה זיכה סופית את היו\"ר Lee Jae-yong בתיק מיזוג משנת 2015.",
+    [
+     "KT"
+    ]
+   ],
+   [
+    2026,
+    "ברבעון הראשון הרוויחה יותר מכל השנה הקודמת, בזכות ביקוש עצום לזיכרון לבינה מלאכותית.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Jun Young-hyun",
+    "role": "סגן יו\"ר ומנכ\"ל, אחראי על חטיבת השבבים",
+    "since": 2025,
+    "background": "מנהל ותיק בעסקי הזיכרון של Samsung",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Roh Tae-moon (TM Roh)",
+    "role": "מנכ\"ל שותף, אחראי על הטלפונים ומוצרי הצריכה",
+    "since": 2025,
+    "background": "ניהל קודם את עסקי הטלפונים",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Lee Jae-yong",
+    "role": "יו\"ר (Executive Chairman)",
+    "background": "נכדו של המייסד; אינו חבר בדירקטוריון",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "משפחת Lee (נכדי המייסד ואמם) מחזיקה ישירות כ-4% מהמניות. אבל היא שולטת דרך חברות אחרות בקבוצה, כמו Samsung Life ו-Samsung C&T.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "היו\"ר Lee Jae-yong ישב 18 חודשים בכלא אחרי הרשעה בשוחד ב-2017. בתיק נפרד על מיזוג מ-2015 הוא זוכה סופית ביולי 2025.",
+    "src": [
+     "KT",
+     "AE"
+    ]
+   },
+   {
+    "text": "יש שני מנכ\"לים: אחד לשבבים ואחד למוצרי הצריכה. יו\"ר הדירקטוריון הוא דירקטור חיצוני (Shin Je-yoon).",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "ב-2024 היתה השביתה הראשונה בתולדות החברה, של איגוד העובדים הארצי.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "נכון לתחילת 2024: Samsung Life Insurance כ-8.6%, קרן הפנסיה הלאומית של קוריאה כ-7.4%, BlackRock כ-5%, Samsung C&T כ-5%. משפחת Lee מחזיקה ישירות כמה אחוזים בודדים.",
+   "src": [
+    "W"
+   ]
+  },
+  "approach": {
+   "text": "בשנות ה-90 החליט היו\"ר דאז Lee Kun-hee לייצר רכיבים (שבבים, מסכים) גם לחברות אחרות, ולא רק מוצרים בשם Samsung.",
+   "src": [
+    "W"
+   ]
+  },
+  "how_to_start": [
+   "מוכרת שני סוגי דברים: שבבי זיכרון לחברות אחרות (כולל Apple ויצרני שרתים), ומוצרים לצרכנים כמו טלפונים וטלוויזיות.",
+   "רוב הרווח בא מהשבבים. לכן המחיר תלוי מאוד במחיר העולמי של שבבי זיכרון, שעולה ויורד בגלים.",
+   "החברה מפרסמת הערכה מוקדמת של תוצאות הרבעון בתחילת החודש שאחריו, והדוח המלא בסוף החודש. לכן הבא צפוי בדרך כלל בתחילת ינואר 2027, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Samsung Electronics",
+    "https://en.wikipedia.org/wiki/Samsung_Electronics"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/005930.KS/profile"
+   ],
+   "KT": [
+    "Korea Times editorial on Lee acquittal, July 2025",
+    "https://www.koreatimes.co.kr/amp/opinion/editorial/20250720/prosecution-needs-to-reflect-for-having-abused-discretion"
+   ],
+   "AE": [
+    "Asia Economy: Lee Jae-yong acquitted by Supreme Court",
+    "https://www.asiae.co.kr/en/article/2025071711392015786"
+   ]
+  },
+  "unverified": [
+   "Lee Byung-chul כמייסד הקבוצה מבוסס על ערך Samsung Electronics בלבד (שם מוזכר כמייסד Samsung); לא נבדק מול מקור שני.",
+   "שנת המינוי של Lee Jae-yong ליו\"ר (ידוע כ-2022) לא אומתה, לכן הושמטה.",
+   "הנתון 'Samsung Electronics גדולה בעולם' ב-2017 מבוסס על Wikipedia בלבד."
+  ]
+ },
+ "000660.KS": {
+  "name": "SK hynix",
+  "checked": "2026-11-12",
+  "one_liner": "מייצרת שבבי זיכרון למחשבים, לטלפונים ובעיקר לשרתי בינה מלאכותית. Nvidia היא אחת הלקוחות הגדולות שלה.",
+  "hq": {
+   "city": "איצ'ון (Icheon)",
+   "country": "דרום קוריאה"
+  },
+  "founded": 1983,
+  "employees": {
+   "value": 47639,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Chung Ju-yung",
+    "story": "מייסד קבוצת Hyundai (מכוניות, ספינות ובנייה). ב-1983 הקים את Hyundai Electronics, כי ראה שהאלקטרוניקה נהיית חשובה גם במכוניות.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1983,
+    "נוסדה בשם Hyundai Electronics, כחלק מקבוצת Hyundai.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1998,
+    "קנתה את חברת השבבים של LG בלחץ הממשלה, אחרי המשבר הכלכלי באסיה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2001,
+    "מחירי השבבים צנחו. הבנקים הצילו את החברה, והיא שינתה את שמה ל-Hynix.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2012,
+    "קבוצת SK קנתה אותה בכ-3 מיליארד דולר, והשם הפך ל-SK hynix.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2024,
+    "התחילה לייצר בכמויות זיכרון HBM עם 12 שכבות, סוג זיכרון מהיר לשבבי בינה מלאכותית.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "עקפה את Samsung כחברה הגדולה בבורסה של קוריאה, ובאותו חודש יולי התחילה להיסחר גם ב-Nasdaq.",
+    [
+     "W",
+     "QZ"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Kwak Noh-jung",
+    "role": "מנכ\"ל",
+    "since": 2022,
+    "background": "מהנדס חומרים, עובד בחברה מאז 1994",
+    "src": [
+     "KH",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "בעלת השליטה היא SK Square, חברה של קבוצת SK בראשות Chey Tae-won.",
+    "src": [
+     "DAUM",
+     "W"
+    ]
+   },
+   {
+    "text": "ביולי 2026 גייסה כ-26.5 מיליארד דולר בהנפקה בארה\"ב (Nasdaq, סימול SKHY).",
+    "src": [
+     "QZ"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "SK Square מחזיקה כ-20%. קרן הפנסיה הלאומית של קוריאה מחזיקה כ-8%. השאר בידי משקיעים רבים.",
+   "src": [
+    "DAUM",
+    "SWS"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת שבבי זיכרון לחברות: יצרניות שרתים, טלפונים ומחשבים. החשוב כיום הוא זיכרון HBM לשבבי בינה מלאכותית.",
+   "המחיר תלוי במחיר העולמי של שבבי זיכרון, ובכמה חברות הבינה המלאכותית ממשיכות לקנות שרתים.",
+   "הדוח השנתי (רבעון רביעי) מתפרסם בדרך כלל בסוף ינואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: SK Hynix",
+    "https://en.wikipedia.org/wiki/SK_Hynix"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/000660.KS/profile"
+   ],
+   "KH": [
+    "Korea Herald / KoreaWho on Kwak Noh-jung",
+    "https://www.koreawho.com/profile/KwakNohjung"
+   ],
+   "QZ": [
+    "Quartz: SK hynix Nasdaq debut",
+    "https://qz.com/sk-hynix-nasdaq-debut-adr-listing-record-071026"
+   ],
+   "DAUM": [
+    "Korea JoongAng Daily via Daum: SK Square stake",
+    "https://v.daum.net/v/20260505134435324"
+   ],
+   "SWS": [
+    "Simply Wall St ownership",
+    "https://simplywall.st/stocks/kr/semiconductors/kose-a000660/sk-hynix-shares/ownership"
+   ]
+  },
+  "unverified": [
+   "אחוז ההחזקה של SK Square מופיע במקורות בין 20% ל-21%.",
+   "אחוז קרן הפנסיה (7.75%-8.1%) לא אומת מול דיווח רשמי.",
+   "דיווחים על רכישת מפעל Intel באוהיו (יולי 2026) לא אומתו, ולכן לא נכללו."
+  ]
+ },
+ "7203.T": {
+  "name": "Toyota",
+  "checked": "2026-11-12",
+  "one_liner": "יצרנית המכוניות הגדולה בעולם. מוכרת כ-10 מיליון רכבים בשנה, בשמות Toyota, Lexus ו-Daihatsu.",
+  "hq": {
+   "city": "טויוטה (Toyota City)",
+   "country": "יפן"
+  },
+  "founded": 1937,
+  "employees": {
+   "value": 367173,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Sakichi Toyoda",
+    "story": "ממציא שבנה מכונות אריגה אוטומטיות. ב-1929 מכר פטנט לחברה בריטית, והכסף שימש לפתוח את עסקי המכוניות.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Kiichiro Toyoda",
+    "story": "בנו של Sakichi. הקים מחלקת רכב בתוך חברת מכונות האריגה של אביו, וב-1937 הפך אותה לחברה נפרדת.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1937,
+    "Toyota Motor נוסדה כחברה נפרדת מחברת מכונות האריגה של משפחת Toyoda.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1950,
+    "מנהלים כולל Eiji Toyoda למדו במפעלי Ford בארה\"ב. מכאן צמחה שיטת הייצור של Toyota.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1997,
+    "השיקה את Prius, מכונית ההיברידית (דלק וחשמל) הראשונה שיוצרה בכמויות.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2009,
+    "Akio Toyoda, נכד המייסד, נהיה נשיא. באותן שנים החזירה מיליוני רכבים בגלל תקלות בדוושת הגז.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2012,
+    "היצרנית הראשונה שייצרה יותר מ-10 מיליון רכבים בשנה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2026,
+    "Kenta Kon, שהיה סמנכ\"ל הכספים, מונה למנכ\"ל. באותה שנה קבוצת Toyota קנתה את Toyota Industries כדי להוריד אותה מהבורסה.",
+    [
+     "TG",
+     "ADN"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Kenta Kon",
+    "role": "נשיא ומנכ\"ל",
+    "since": 2026,
+    "background": "עובד בחברה מאז 1991, היה סמנכ\"ל הכספים",
+    "src": [
+     "TG",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Akio Toyoda",
+    "role": "יו\"ר הדירקטוריון",
+    "since": 2023,
+    "background": "נכד המייסד, היה מנכ\"ל 2009-2023",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Koji Sato",
+    "role": "סגן יו\"ר",
+    "since": 2026,
+    "background": "היה מנכ\"ל 2023-2026",
+    "src": [
+     "TG",
+     "W"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "יו\"ר הדירקטוריון, Akio Toyoda, הוא נכד המייסד.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "באפריל 2026 החליפה החברה מנכ\"ל: Kenta Kon במקום Koji Sato.",
+    "src": [
+     "TG"
+    ]
+   },
+   {
+    "text": "חברות הקבוצה מחזיקות זו בזו: Toyota Industries ו-Denso הן בין בעלי המניות הגדולים של Toyota. ב-2026 הצליחה הצעה של הקבוצה לקנות את Toyota Industries ולהוציא אותה מהבורסה.",
+    "src": [
+     "TIR",
+     "ADN"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "בעלי המניות הגדולים (מרץ 2026): בנקי נאמנות יפניים שמחזיקים עבור קרנות, Toyota Industries (כ-8%), Nippon Life (כ-4%) ו-Denso (כ-3%). האחוזים הם חישוב משוער.",
+   "src": [
+    "TIR"
+   ]
+  },
+  "approach": {
+   "text": "שיטת הייצור של Toyota: עוצרים את הקו כשיש תקלה (רעיון שבא ממכונות האריגה של המייסד), ומייצרים רק מה שצריך.",
+   "src": [
+    "W"
+   ]
+  },
+  "how_to_start": [
+   "מוכרת מכוניות לאנשים פרטיים ולחברות בכל העולם, וגם נותנת הלוואות לקניית רכב.",
+   "המחיר תלוי בכמה מכוניות נמכרות, בשער הין מול הדולר, ובמכסים של ארה\"ב על רכבים.",
+   "Toyota מפרסמת כל חודש נתוני מכירות וייצור. הדוח הרבעוני הבא צפוי בדרך כלל בתחילת פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Toyota",
+    "https://en.wikipedia.org/wiki/Toyota"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/7203.T/profile"
+   ],
+   "TG": [
+    "Toyota newsroom, Feb 6 2026: executive changes",
+    "https://global.toyota/en/newsroom/corporate/43951723.html"
+   ],
+   "TIR": [
+    "Toyota IR: Stock overview (major shareholders)",
+    "https://global.toyota/en/ir/stock/outline/"
+   ],
+   "ADN": [
+    "Adnkronos/Jiji: Toyota's tender offer for Toyota Industries ends in success",
+    "https://english.adnkronos.com/2026/03/24/toyotas-tender-offer-for-toyota-industries-ends-in-success/"
+   ]
+  },
+  "unverified": [
+   "אחוזי ההחזקה חושבו מכמות המניות בדף ה-IR מול סך המניות ביוני 2026; לא פורסמו כאחוזים.",
+   "המשך הוצאת Toyota Industries מהבורסה (שלב רכישת יתרת המניות) לא אומת."
+  ]
+ },
+ "6758.T": {
+  "name": "Sony",
+  "checked": "2026-11-12",
+  "one_liner": "חברת בידור וטכנולוגיה: קונסולת PlayStation, מוזיקה, סרטים, ומצלמות קטנות (חיישני תמונה) שנמכרות ליצרני טלפונים.",
+  "hq": {
+   "city": "טוקיו",
+   "country": "יפן"
+  },
+  "founded": 1946,
+  "employees": {
+   "value": 94900,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Masaru Ibuka",
+    "story": "מהנדס שפתח סדנת אלקטרוניקה בטוקיו אחרי מלחמת העולם השנייה. עם Akio Morita הקים את החברה ב-1946.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "name": "Akio Morita",
+    "story": "שותפו של Ibuka. משפחתו עזרה במימון. הוא בחר את השם Sony, ופתח את החברה לשוק האמריקאי.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1946,
+    "נוסדה בטוקיו בשם Tokyo Tsushin Kogyo.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1958,
+    "שינתה את שמה ל-Sony, שם קצר שקל לבטא גם באנגלית.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1989,
+    "קנתה את אולפני Columbia Pictures, שנה אחרי שקנתה את CBS Records. כך נכנסה לסרטים ולמוזיקה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1994,
+    "השיקה את קונסולת המשחקים PlayStation.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2021,
+    "שינתה את שמה ל-Sony Group והפכה לחברת אם של כמה עסקים.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "הוציאה את עסקי הביטוח והבנקאות לחברה נפרדת בבורסה, וחילקה את רוב מניותיה לבעלי המניות.",
+    [
+     "IJ"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Hiroki Totoki",
+    "role": "נשיא ומנכ\"ל",
+    "since": 2025,
+    "background": "מנכ\"ל Sony מאז 2025",
+    "src": [
+     "yahoo",
+     "IJ"
+    ]
+   },
+   {
+    "name": "Kenichiro Yoshida",
+    "role": "יו\"ר",
+    "background": "המנכ\"ל הקודם",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "אין בעל שליטה. המניות מפוזרות בין משקיעים רבים, ובעלי התפקידים מחזיקים פחות מ-1%.",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "text": "החלפת מנכ\"ל ב-2025: Hiroki Totoki במקום Kenichiro Yoshida, שנשאר יו\"ר.",
+    "src": [
+     "yahoo",
+     "IJ"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "מניות מפוזרות: כ-45% בידי גופים מוסדיים (קרנות, בנקי נאמנות), ופחות מ-1% בידי מנהלים.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת משחקים ומנויים ל-PlayStation, מוזיקה וסרטים, וחיישני מצלמה ליצרני טלפונים ומצלמות.",
+   "המחיר תלוי במכירות המשחקים והקונסולות, בלהיטים של המוזיקה והסרטים, ובשער הין.",
+   "הדוח הרבעוני הבא צפוי בדרך כלל בתחילת פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Sony",
+    "https://en.wikipedia.org/wiki/Sony"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile and holders",
+    "https://finance.yahoo.com/quote/6758.T/profile"
+   ],
+   "IJ": [
+    "Insurance Journal/Reuters, May 2025: Sony spin-off of financial arm",
+    "https://www.insurancejournal.com/news/international/2025/05/29/825466.htm"
+   ]
+  },
+  "unverified": [
+   "תאריך תחילת הכהונה של Totoki (אפריל 2025) לא אומת במקור ראשוני; Yahoo ו-Reuters מאשרים שהוא המנכ\"ל."
+  ]
+ },
+ "6857.T": {
+  "name": "Advantest",
+  "checked": "2026-11-12",
+  "one_liner": "מייצרת מכונות שבודקות שבבים לפני שהם יוצאים מהמפעל, כדי לוודא שהם עובדים. חלק גדול הולך לשבבי בינה מלאכותית.",
+  "hq": {
+   "city": "טוקיו",
+   "country": "יפן"
+  },
+  "founded": 1954,
+  "employees": {
+   "value": 7241,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Ikuo Takeda",
+    "story": "הקים ב-1954 את Takeda Riken, יצרנית של מכשירי מדידה חשמליים. כך מופיע באתר החברה.",
+    "src": [
+     "AH"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1954,
+    "נוסדה בשם Takeda Riken Industry, יצרנית של מכשירי מדידה.",
+    [
+     "AH",
+     "W"
+    ]
+   ],
+   [
+    1972,
+    "הוציאה את מכונת בדיקת השבבים הראשונה שיוצרה ביפן.",
+    [
+     "AH"
+    ]
+   ],
+   [
+    1985,
+    "שינתה את שמה ל-Advantest.",
+    [
+     "AH",
+     "W"
+    ]
+   ],
+   [
+    2011,
+    "קנתה את Verigy, חברה גדולה אחרת לבדיקת שבבים.",
+    [
+     "AH"
+    ]
+   ],
+   [
+    2024,
+    "Douglas Lefever, אמריקאי, נהיה מנכ\"ל הקבוצה.",
+    [
+     "RTT"
+    ]
+   ],
+   [
+    2025,
+    "לפי הערכת החברה, היא מחזיקה כ-66% מהשוק של מכונות לבדיקת שבבי מחשוב.",
+    [
+     "ADV"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Douglas Lefever",
+    "role": "מנכ\"ל הקבוצה",
+    "since": 2024,
+    "background": "היה סמנכ\"ל התפעול של הקבוצה",
+    "src": [
+     "RTT",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Koichi Tsukui",
+    "role": "נשיא וסמנכ\"ל תפעול",
+    "since": 2024,
+    "background": "מנהל ותיק בחברה",
+    "src": [
+     "RTT",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "מנכ\"ל זר (אמריקאי) בחברה יפנית, מאז אפריל 2024.",
+    "src": [
+     "RTT"
+    ]
+   },
+   {
+    "text": "אין בעל שליטה. כשני שלישים מהמניות בידי גופים מוסדיים כמו קרנות.",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "מניות מפוזרות. כ-67% בידי גופים מוסדיים (קרנות, בנקי נאמנות). מנהלים מחזיקים פחות מ-1%.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת מכונות בדיקה ליצרני שבבים ולמפעלים שאורזים שבבים. כ-80% ממכירות מכונות בדיקת שבבי המחשוב קשורות לבינה מלאכותית ולמחשוב מהיר.",
+   "המחיר תלוי בכמה שבבים חדשים מייצרים בעולם, במיוחד שבבי בינה מלאכותית. כשההשקעה בשבבים נעצרת, ההזמנות יורדות.",
+   "החברה מפרסמת דוחות בסוף אפריל, יולי, אוקטובר וינואר. הבא צפוי בדרך כלל בסוף ינואר 2027, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Advantest",
+    "https://en.wikipedia.org/wiki/Advantest"
+   ],
+   "AH": [
+    "Advantest: company history",
+    "https://www.advantest.com/en/about/history/"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/6857.T/profile"
+   ],
+   "RTT": [
+    "RTTNews: Advantest appoints Douglas Lefever as new CEO",
+    "https://www.rttnews.com/3428011/advantest-appoints-douglas-lefever-as-new-ceo.aspx"
+   ],
+   "ADV": [
+    "Advantest IR: FY2025 Q4 business briefing notes",
+    "https://www.advantest.com/document/en/investors/ir-library/result/JE_BIZ_260427_note.pdf"
+   ]
+  },
+  "unverified": [
+   "שם המייסד Ikuo Takeda מגיע רק מכיתוב תמונה באתר החברה.",
+   "נתון 80% (חלק הבינה המלאכותית) ונתון 66% (נתח שוק) הם הערכות של החברה עצמה, מסיכום שיחת משקיעים; לא נבדקו במסמך המקורי."
+  ]
+ },
+ "373220.KS": {
+  "name": "LG Energy Solution",
+  "checked": "2026-11-12",
+  "one_liner": "מייצרת סוללות למכוניות חשמליות ולמערכות שאוגרות חשמל. הלקוחות הם יצרניות רכב כמו General Motors.",
+  "hq": {
+   "city": "סיאול",
+   "country": "דרום קוריאה"
+  },
+  "founded": 2020,
+  "employees": {
+   "value": 12612,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Koo Bon-moo",
+    "story": "יו\"ר קבוצת LG. ב-1992 ביקר במשרד אנרגיה אטומית בבריטניה, חזר עם דגימות של סוללות נטענות, והתחיל מחקר בתוך LG Chem.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1992,
+    "LG Chem התחילה לחקור סוללות נטענות, אחרי ביקור של יו\"ר הקבוצה בבריטניה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1999,
+    "LG Chem ייצרה את סוללת הליתיום הראשונה של קוריאה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2020,
+    "עסקי הסוללות הופרדו מ-LG Chem לחברה נפרדת בשם LG Energy Solution.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2021,
+    "הסכימה לשלם ל-General Motors עד 1.9 מיליארד דולר, אחרי שסוללות פגומות גרמו לשריפות ברכבי Chevrolet Bolt.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2022,
+    "נכנסה לבורסה בקוריאה, בהנפקה הגדולה ביותר במדינה עד אז.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "רשויות ההגירה בארה\"ב עצרו עובדים של LG בפשיטה על מפעל סוללות של Hyundai בג'ורג'יה.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Kim Dong-myung",
+    "role": "מנכ\"ל",
+    "since": 2024,
+    "background": "היה ראש חטיבת סוללות הרכב",
+    "src": [
+     "KT",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "בעלת השליטה היא LG Chem, חברת האם, שמחזיקה בערך 80% מהמניות.",
+    "src": [
+     "yahoo",
+     "W"
+    ]
+   },
+   {
+    "text": "החברה שייכת לקבוצת LG, שבשליטת משפחת Koo.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "LG Chem מחזיקה כ-80%. רק כ-20% נסחרים בבורסה, בעיקר בידי קרנות.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת סוללות ליצרניות רכב חשמלי ולחברות חשמל שבונות מאגרי אנרגיה.",
+   "המחיר תלוי בכמה מכוניות חשמליות נמכרות, בעיקר בארה\"ב ובאירופה, במחיר הליתיום ובתמיכה ממשלתית בארה\"ב.",
+   "החברה מפרסמת הערכה מוקדמת של תוצאות הרבעון בתחילת החודש שאחריו. הבא צפוי בדרך כלל בתחילת ינואר 2027, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: LG Energy Solution",
+    "https://en.wikipedia.org/wiki/LG_Energy_Solution"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile and holders",
+    "https://finance.yahoo.com/quote/373220.KS/profile"
+   ],
+   "KT": [
+    "Korea Times: LG Energy Solution replaces CEO, Nov 2023",
+    "https://www.koreatimes.co.kr/business/companies/20231122/lg-energy-solution-replaces-ceo-in-generational-shift"
+   ]
+  },
+  "unverified": [
+   "Yahoo מראה שכ-80% בידי 'בעלי עניין'; לא נמצא מקור עדכני שמציין במדויק את אחוז ההחזקה של LG Chem (בהנפקה היה כ-82%, לפי זיכרון, לא מאומת).",
+   "שנת ההסכם עם GM (2021) לא מופיעה במפורש ב-Wikipedia; Wikipedia מציין רק את הסכום.",
+   "מועד הדוח הבא הוא הערכה."
+  ]
+ },
+ "277810.KQ": {
+  "name": "Rainbow Robotics",
+  "checked": "2026-11-12",
+  "one_liner": "חברה קטנה שמפתחת רובוטים: זרועות רובוטיות למפעלים, רובוטים על ארבע רגליים, ורובוטים דמויי אדם.",
+  "hq": {
+   "city": "דאג'ון (Daejeon)",
+   "country": "דרום קוריאה"
+  },
+  "founded": 2011,
+  "employees": {
+   "value": 199,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Oh Jun-ho",
+    "story": "פרופסור במכון KAIST שפיתח את HUBO, רובוט דמוי אדם ראשון של KAIST שהולך על שתי רגליים. הקים את החברה ב-2011 עם הסטודנטים שלו.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    2011,
+    "נוסדה על ידי פרופ' Oh Jun-ho וסטודנטים ממרכז חקר הרובוטים של KAIST.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2012,
+    "מכרה 15 רובוטים דמויי אדם מדגם HUBO-2 Plus, רובם לקבוצות מחקר מחוץ לקוריאה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2015,
+    "רובוט שפיתח הצוות זכה בתחרות רובוטי החילוץ של DARPA, סוכנות המחקר של צבא ארה\"ב.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2023,
+    "פתחה חברת בת במדינת אילינוי בארה\"ב, למכירת זרועות רובוטיות.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2024,
+    "Samsung Electronics העלתה את חלקה מ-14.7% ל-35% ונהייתה בעלת המניות הגדולה.",
+    [
+     "SAM"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Lee Jung-ho",
+    "role": "מנכ\"ל",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "בעלת המניות הגדולה היא Samsung Electronics, עם 35%. Samsung מכניסה את החברה לדוחות שלה כחברת בת.",
+    "src": [
+     "SAM"
+    ]
+   },
+   {
+    "text": "החברה קטנה (כ-200 עובדים) אבל שווה בבורסה פי כמה מסכום המכירות שלה. המחיר רגיש לחדשות על רובוטים.",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "Samsung Electronics מחזיקה 35%. לפני כן בעל המניות הגדול היה המייסד Oh Jun-ho וגופים קשורים אליו.",
+   "src": [
+    "SAM"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת זרועות רובוטיות למפעלים ורובוטים למחקר, וגם עובדת עם Samsung על רובוטים חדשים.",
+   "המחיר תלוי בעיקר בחדשות על רובוטים דמויי אדם ובתוכניות של Samsung, יותר מאשר במכירות של היום.",
+   "חברות בקוריאה מפרסמות דוח שנתי עד סוף מרץ. הבא צפוי בדרך כלל באמצע פברואר עד מרץ, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Rainbow Robotics",
+    "https://en.wikipedia.org/wiki/Rainbow_Robotics"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/277810.KQ/profile"
+   ],
+   "SAM": [
+    "Samsung Newsroom: Samsung to become largest shareholder in Rainbow Robotics",
+    "https://news.samsung.com/global/samsung-electronics-to-become-largest-shareholder-in-rainbow-robotics"
+   ]
+  },
+  "unverified": [
+   "רקע המנכ\"ל Lee Jung-ho ושנת מינויו לא נמצאו.",
+   "תפקידו הנוכחי של המייסד Oh Jun-ho לא נמצא.",
+   "שנת הכניסה לבורסה (KOSDAQ) לא נמצאה.",
+   "מועד הדוח הבא הוא הערכה כללית לחברות קוריאניות."
+  ]
+ },
+ "357780.KQ": {
+  "name": "Soulbrain",
+  "checked": "2026-11-12",
+  "one_liner": "מייצרת חומרים כימיים טהורים מאוד שמשמשים לייצור שבבים, מסכים וסוללות.",
+  "hq": {
+   "city": "סונגנאם (Seongnam)",
+   "country": "דרום קוריאה"
+  },
+  "founded": 1986,
+  "employees": {
+   "value": 1069,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Chung Ji-wan",
+    "story": "מהנדס כימיה. עבד 4 שנים בחברת מסחר, ובגיל 31 הקים חברה בשם Techno Trading, שהפכה ל-Soulbrain.",
+    "src": [
+     "KW"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1986,
+    "החברה שקדמה ל-Soulbrain נוסדה (בשם Techno Trading או Techno Semichem, המקורות חלוקים).",
+    [
+     "CBI",
+     "KW"
+    ]
+   ],
+   [
+    2019,
+    "יפן הגבילה ייצוא של חומרים לשבבים לקוריאה, ביניהם מימן פלואורי (גז לחריטת שבבים).",
+    [
+     "JA"
+    ]
+   ],
+   [
+    2020,
+    "הממשלה הודיעה ש-Soulbrain מייצרת בכמויות מימן פלואורי טהור מספיק כדי להחליף את היבוא מיפן.",
+    [
+     "JA"
+    ]
+   ],
+   [
+    2020,
+    "החברה פוצלה לשתיים: Soulbrain Holdings (חברת אחזקות) ו-Soulbrain, שממשיכה את העסקים. זו החברה שכאן.",
+    [
+     "MS"
+    ]
+   ],
+   [
+    2022,
+    "המייסד Chung Ji-wan עזב את תפקיד המנכ\"ל ונשאר יו\"ר.",
+    [
+     "KW"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Park Young-soo",
+    "role": "יו\"ר ומנכ\"ל",
+    "src": [
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Chung Ji-wan",
+    "role": "יו\"ר Soulbrain Holdings, חברת האם",
+    "since": 2014,
+    "background": "המייסד",
+    "src": [
+     "KW",
+     "SWS"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "שליטה משפחתית: המייסד שולט ב-Soulbrain Holdings, והיא בעלת המניות הגדולה של Soulbrain.",
+    "src": [
+     "SWS"
+    ]
+   },
+   {
+    "text": "כ-50% מהמניות בידי בעלי עניין, ולכן רק כחצי נסחר בחופשיות.",
+    "src": [
+     "yahoo"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "Soulbrain Holdings מחזיקה כ-31%, והמייסד Chung Ji-wan עוד כ-12% בעצמו.",
+   "src": [
+    "SWS"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת חומרים כימיים ליצרני שבבים, מסכים וסוללות בקוריאה.",
+   "המחיר תלוי בכמה שבבים מייצרים בקוריאה, ובכמה מכוניות חשמליות נמכרות (בגלל חומרים לסוללות).",
+   "חברות בקוריאה מפרסמות דוח שנתי עד סוף מרץ. הבא צפוי בדרך כלל בפברואר עד מרץ, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/357780.KQ/profile"
+   ],
+   "KW": [
+    "KoreaWho: Chung Ji-wan profile",
+    "https://m.koreawho.com/profile_view.jsp?idxno=6860"
+   ],
+   "CBI": [
+    "CB Insights: Soulbrain",
+    "https://www.cbinsights.com/company/soulbrain"
+   ],
+   "JA": [
+    "Korea JoongAng Daily, Jan 3 2020: Soulbrain is able to make super pure etching gas",
+    "https://www.koreajoongangdaily.com/business/soulbrain-is-able-to-make-super-pure-etching-gas/10787436"
+   ],
+   "MS": [
+    "MarketScreener: Soulbrain spin-off completed",
+    "https://in.marketscreener.com/quote/stock/SOULBRAIN-CO-LTD-120976512/news/The-Board-of-Soulbrain-Co-Ltd-completed-the-spin-off-of-Manufacturing-division-of-Soulbrain-Co-Lt-33798666/"
+   ],
+   "SWS": [
+    "Simply Wall St: Soulbrain ownership",
+    "https://simplywall.st/stocks/kr/materials/kosdaq-a357780/soulbrain-shares/ownership"
+   ]
+  },
+  "unverified": [
+   "אין ערך Wikipedia באנגלית; המידע ההיסטורי דל.",
+   "השם המקורי של החברה ב-1986 לא ברור (Techno Trading / Techno Semichem).",
+   "תאריך הפיצול (2020) לא אומת במדויק.",
+   "אחוזי ההחזקה מ-Simply Wall St בלי תאריך ברור.",
+   "רקע ושנת מינוי של Park Young-soo לא נמצאו.",
+   "שמות הלקוחות (Samsung, SK hynix) לא אומתו, ולכן לא נכללו."
+  ]
+ },
+ "BHP.AX": {
+  "name": "BHP",
+  "checked": "2026-11-12",
+  "one_liner": "חברת כרייה ענקית מאוסטרליה. חופרת ומוכרת עפרות ברזל (לייצור פלדה), נחושת ופחם, בעיקר למפעלים באסיה.",
+  "hq": {
+   "city": "מלבורן",
+   "country": "אוסטרליה"
+  },
+  "founded": 1885,
+  "employees": {
+   "value": 38833,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "Charles Rasp",
+    "story": "עובד בחוות בקר שסימן ב-1883 תביעת כרייה בגבעה בשם Broken Hill. עם כמה שותפים הקים את החברה, שנקראה על שם הגבעה.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1885,
+    "נוסדה כחברת Broken Hill Proprietary, שכרתה כסף ועופרת בעיירה Broken Hill.",
+    [
+     "W"
+    ]
+   ],
+   [
+    1915,
+    "נכנסה לייצור פלדה, עם מפעל בעיר Newcastle.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2001,
+    "התמזגה עם Billiton האנגלו-הולנדית והפכה ל-BHP Billiton.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2015,
+    "סכר של Samarco, מיזם משותף של BHP ו-Vale בברזיל, קרס. האסון הוביל לתביעות ענק.",
+    [
+     "MIN"
+    ]
+   ],
+   [
+    2022,
+    "עזבה את הבורסה בלונדון ונשארה רק בבורסה של אוסטרליה.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "בית משפט בלונדון קבע ש-BHP אחראית לקריסת הסכר. משפט על גובה הפיצוי נקבע לאוקטובר 2026.",
+    [
+     "MIN"
+    ]
+   ],
+   [
+    2026,
+    "Brandon Craig, שניהל את עסקי החברה ביבשת אמריקה, נהיה מנכ\"ל ביולי.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Brandon Craig",
+    "role": "מנכ\"ל",
+    "since": 2026,
+    "background": "ניהל קודם את עסקי BHP ביבשת אמריקה",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Ross McEwan",
+    "role": "יו\"ר הדירקטוריון",
+    "since": 2025,
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "החלפת מנכ\"ל ביולי 2026: Brandon Craig במקום Mike Henry.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "תביעה גדולה בלונדון על קריסת סכר בברזיל ב-2015. התובעים מעריכים אותה בעד 36 מיליארד ליש\"ט. BHP אמרה שתערער.",
+    "src": [
+     "MIN"
+    ]
+   },
+   {
+    "text": "ב-2024 ניסתה לקנות את Anglo American, וההצעה נדחתה.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. המניות מפוזרות בין קרנות, קרנות פנסיה ומשקיעים פרטיים. כ-41% בידי גופים מוסדיים.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת חומרי גלם: ברזל ליצרני פלדה (הרבה בסין), נחושת לחוטי חשמל, ופחם לייצור פלדה.",
+   "המחיר תלוי במחיר העולמי של ברזל ונחושת, ובכמה פלדה ובנייה יש בסין.",
+   "BHP מפרסמת דוח ייצור כל רבעון ודוח כספי כל חצי שנה. הדוח החצי-שנתי צפוי בדרך כלל באמצע פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: BHP",
+    "https://en.wikipedia.org/wiki/BHP"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/BHP.AX/profile"
+   ],
+   "MIN": [
+    "Mining.com/Reuters: BHP liable for 2015 Brazil dam collapse, UK court rules",
+    "https://www.mining.com/web/bhp-liable-for-2015-brazil-dam-collapse-uk-court-rules-in-mammoth-lawsuit"
+   ]
+  },
+  "unverified": [
+   "Wikipedia כותב את שם המנכ\"ל גם 'Brendon' וגם 'Brandon'; Yahoo כותב Brandon.",
+   "תוצאות משפט הפיצויים (שהיה אמור להתחיל באוקטובר 2026) לא נבדקו.",
+   "המונח 'מייסד' ל-Charles Rasp הוא פרשנות: הוא גילה את המרבץ והקים את הקבוצה עם שותפים."
+  ]
+ },
+ "FMG.AX": {
+  "name": "Fortescue",
+  "checked": "2026-11-12",
+  "one_liner": "כורה עפרות ברזל במערב אוסטרליה ושולחת אותן בעיקר לסין לייצור פלדה. מנסה גם לפתח אנרגיה ירוקה.",
+  "hq": {
+   "city": "פרת'",
+   "country": "אוסטרליה"
+  },
+  "founded": 2003,
+  "founders": [
+   {
+    "name": "Andrew Forrest",
+    "story": "איש עסקים אוסטרלי. ב-2003 קנה חברה קטנה בבורסה ושינה את שמה ל-Fortescue. אחרי פחות מ-5 שנים יצא המשלוח הראשון לסין.",
+    "src": [
+     "SMM",
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    2003,
+    "Andrew Forrest הקים את Fortescue Metals Group דרך קנייה של חברה קטנה בבורסה.",
+    [
+     "SMM"
+    ]
+   ],
+   [
+    2008,
+    "המשלוח המסחרי הראשון של עפרות ברזל יצא לחברת הפלדה Baosteel בשנגחאי.",
+    [
+     "SMM"
+    ]
+   ],
+   [
+    2023,
+    "עסקי הכרייה ועסקי האנרגיה הירוקה אוחדו לחברה אחת, והשם קוצר ל-Fortescue.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "ביטלה שני פרויקטים של מימן ירוק, באריזונה ובקווינסלנד, ורשמה הפסד עליהם.",
+    [
+     "MIN2"
+    ]
+   ],
+   [
+    2026,
+    "בית משפט פדרלי חייב פיצוי של כ-150 מיליון דולר אוסטרלי לקבוצה אבוריג'ינית על נזק תרבותי ממכרה של החברה.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Andrew Forrest",
+    "role": "מייסד ויו\"ר פעיל",
+    "background": "המייסד ובעל המניות הגדול",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Dino Otranto",
+    "role": "מנכ\"ל עסקי המתכות",
+    "since": 2023,
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   },
+   {
+    "name": "Agustín Pichot",
+    "role": "מנכ\"ל עסקי הצמיחה והאנרגיה",
+    "background": "שחקן רוגבי ארגנטינאי לשעבר",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "המייסד Andrew Forrest הוא גם היו\"ר הפעיל, ומחזיק כשליש מהמניות.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "אין מנכ\"ל אחד לכל החברה: יש מנכ\"ל לכרייה ומנכ\"ל לאנרגיה.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "החלטת בית משפט ב-2026 על פיצוי לקבוצה אבוריג'ינית בגלל מכרה Solomon.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "Andrew Forrest מחזיק כשליש (נכון ל-2022). Yahoo מראה כ-49% בידי בעלי עניין וכ-25% בידי גופים מוסדיים.",
+   "src": [
+    "W",
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת עפרות ברזל למפעלי פלדה, בעיקר בסין.",
+   "המחיר תלוי כמעט רק במחיר הברזל, שתלוי בבנייה ובייצור פלדה בסין.",
+   "החברה מפרסמת דוח ייצור כל רבעון. הדוח החצי-שנתי צפוי בדרך כלל בסוף פברואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Fortescue (company)",
+    "https://en.wikipedia.org/wiki/Fortescue_(company)"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/FMG.AX/profile"
+   ],
+   "SMM": [
+    "SMM: Background of Fortescue (FMG)",
+    "https://news.metal.com/en/newscontent/103505887-smm-specialbackground-of-fortescue-fmg"
+   ],
+   "MIN2": [
+    "Mining.com/Reuters: Fortescue scraps US, Aussie green hydrogen projects",
+    "https://www.mining.com/web/fortescue-iron-ore-shipments-rise-scraps-us-aussie-green-energy-projects"
+   ]
+  },
+  "unverified": [
+   "מספר העובדים לא נמצא ב-Yahoo, ולכן הושמט.",
+   "אחוז ההחזקה של Forrest (כשליש) הוא נתון מ-2022; לא נמצא נתון עדכני.",
+   "'שחקן רוגבי לשעבר' על Pichot לא נבדק במקור שני.",
+   "שנת מינוי Pichot לא נמצאה."
+  ]
+ },
+ "LYC.AX": {
+  "name": "Lynas Rare Earths",
+  "checked": "2026-11-12",
+  "one_liner": "כורה ומעבדת 'עפרות נדירות', מתכות שצריך למגנטים במנועים חשמליים, טורבינות רוח ונשק. היצרנית הגדולה מחוץ לסין.",
+  "hq": {
+   "city": "פרת'",
+   "country": "אוסטרליה"
+  },
+  "founded": 1983,
+  "employees": {
+   "value": 1156,
+   "year": 2026,
+   "src": "yahoo"
+  },
+  "founders": [
+   {
+    "name": "משפחת Sumich",
+    "story": "משפחה מפרת' שהקימה את החברה כחברת זהב. ב-2000 המנכ\"ל Les Emery הוביל מעבר לעפרות נדירות.",
+    "src": [
+     "W"
+    ]
+   }
+  ],
+  "timeline": [
+   [
+    1983,
+    "נוסדה כחברת כריית זהב בשם Yilgangi Gold, ושנתיים אחר כך נקראה Lynas Gold.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2001,
+    "מכרה את עסקי הזהב וקנתה את מרבץ העפרות הנדירות Mount Weld.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2009,
+    "אוסטרליה חסמה השקעה של חברה ממשלתית סינית שהיתה מקבלת 51.6% מהמניות.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2012,
+    "פתחה מפעל עיבוד גדול במלזיה. תושבים מקומיים מחו בגלל פסולת רדיואקטיבית.",
+    [
+     "W"
+    ]
+   ],
+   [
+    2025,
+    "נהייתה היצרנית הראשונה מחוץ לסין של 'עפרות נדירות כבדות' כמו דיספרוזיום.",
+    [
+     "MIN3"
+    ]
+   ],
+   [
+    2026,
+    "המנכ\"לית Amanda Lacaze פרשה אחרי 12 שנים. Pol Le Roux ממלא את מקומה זמנית.",
+    [
+     "W"
+    ]
+   ]
+  ],
+  "leaders": [
+   {
+    "name": "Pol Le Roux",
+    "role": "מנכ\"ל זמני",
+    "since": 2026,
+    "background": "היה סמנכ\"ל התפעול",
+    "src": [
+     "W",
+     "yahoo"
+    ]
+   }
+  ],
+  "governance": [
+   {
+    "text": "אין מנכ\"ל קבוע: מאז יולי 2026 יש מנכ\"ל זמני, והדירקטוריון מחפש מחליף.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "המפעל במלזיה פועל ברישיונות מוגבלים בזמן, בגלל מחלוקת על פסולת רדיואקטיבית.",
+    "src": [
+     "W"
+    ]
+   },
+   {
+    "text": "לחברה קשר מימוני עם ממשלת יפן, דרך גוף בשם JARE שהלווה לה כסף ומתחייב לקנות ממנה.",
+    "src": [
+     "MIN4"
+    ]
+   }
+  ],
+  "owners": {
+   "text": "אין בעל שליטה. כ-56% בידי גופים מוסדיים וכ-11% בידי בעלי עניין.",
+   "src": [
+    "yahoo"
+   ]
+  },
+  "approach": null,
+  "how_to_start": [
+   "מוכרת עפרות נדירות מעובדות ליצרני מגנטים, בעיקר ביפן.",
+   "המחיר תלוי במחיר העפרות הנדירות, שסין שולטת בו, ובהחלטות של סין, ארה\"ב ויפן על הגבלות סחר.",
+   "החברה מפרסמת דוח כל רבעון. הבא צפוי בדרך כלל בסוף ינואר, לפי השנים הקודמות (הערכה)."
+  ],
+  "sources": {
+   "W": [
+    "Wikipedia: Lynas",
+    "https://en.wikipedia.org/wiki/Lynas"
+   ],
+   "yahoo": [
+    "Yahoo Finance profile",
+    "https://finance.yahoo.com/quote/LYC.AX/profile"
+   ],
+   "MIN3": [
+    "Mining.com: Lynas becomes first producer of heavy rare earths outside China",
+    "https://www.mining.com/lynas-becomes-first-producer-of-heavy-rare-earths-outside-china/"
+   ],
+   "MIN4": [
+    "Mining.com: Japan secures rare earth supply for longer through Lynas funding",
+    "https://www.mining.com/japan-secures-rare-earth-supply-for-longer-through-lynas-funding/"
+   ]
+  },
+  "unverified": [
+   "'בעיקר ביפן' כיעד המכירות מבוסס על ההסכמים עם JARE בלבד; לא נמצא פילוח מכירות.",
+   "שמות בני משפחת Sumich לא נמצאו.",
+   "מפעל Kalgoorlie באוסטרליה: תאריך הפתיחה לא אומת, ולכן לא נכלל."
+  ]
+ }
+}
