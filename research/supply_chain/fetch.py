@@ -29,7 +29,7 @@ def chain_companies() -> pd.DataFrame:
     return c[c["tier"] != "control"]
 
 
-def profiles() -> None:
+def profiles(refresh: bool = False) -> None:
     import yfinance as yf
     path = G.DATA / "profiles.json"
     data = json.loads(path.read_text()) if path.exists() else {}
@@ -49,7 +49,7 @@ def profiles() -> None:
                 fx[cur] = None
         return fx[cur]
     for cid, c in chain_companies().iterrows():
-        if cid in data and "revenueUSD" in data[cid]["info"] and "marketCapUSD" in data[cid]["info"]:
+        if not refresh and cid in data and "revenueUSD" in data[cid]["info"] and "marketCapUSD" in data[cid]["info"]:
             continue
         p = fetch_profile(c["ticker"])
         try:
@@ -66,6 +66,8 @@ def profiles() -> None:
         if r2 and x.get("marketCap"):
             x["marketCapUSD"] = x["marketCap"] * r2
         _debt(x, r1)
+        if cid in data and not x.get("totalRevenue") and data[cid]["info"].get("totalRevenue"):
+            continue                                         # a failed refresh must not erase a good profile
         data[cid] = p
         path.write_text(json.dumps(data, indent=1, ensure_ascii=False))
         time.sleep(0.4)

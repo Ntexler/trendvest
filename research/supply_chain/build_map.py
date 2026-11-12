@@ -135,6 +135,8 @@ def build() -> dict:
 
 def main() -> None:
     data = build()
+    inf = G.RESULTS / "inference.json"
+    data["inference"] = json.loads(inf.read_text()) if inf.exists() else None
     tpl = (HERE / "map" / TEMPLATE).read_text()
     out = tpl.replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False)).replace("__TITLE__", "מפת שרשרת השבבים" if G.MARKET == "chips" else "שוק: " + data["market"]["name"])
     site = HERE / "map" / "site" / "data"

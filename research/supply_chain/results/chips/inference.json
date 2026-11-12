@@ -1,0 +1,3155 @@
+{
+ "market": "chips",
+ "as_of": "2026-11-13",
+ "rates_computed": "2026-11-12",
+ "checked_nothing_to_say": 9,
+ "rules": {
+  "min_cases": 30,
+  "min_gap_points": 10.0
+ },
+ "record": {
+  "claims": 45,
+  "scored": 0,
+  "hit": 0,
+  "by_detector": {},
+  "next_due": "2027-05-14",
+  "chain_intact": true
+ },
+ "cards": [
+  {
+   "detector": "market_growth",
+   "company": null,
+   "name": null,
+   "tier": null,
+   "stage": "",
+   "stage_rhythm": "",
+   "suppliers": [],
+   "customers": [],
+   "strength": "strong",
+   "claim": null,
+   "refute": [],
+   "see": {
+    "count": 42,
+    "mapped": 77,
+    "median_growth_pct": 46.6,
+    "fastest": [
+     [
+      "Kioxia",
+      453.2
+     ],
+     [
+      "Micron",
+      379.3
+     ],
+     [
+      "SK hynix",
+      327.9
+     ],
+     [
+      "Super Micro",
+      297.5
+     ],
+     [
+      "Samsung Electronics",
+      126.8
+     ]
+    ],
+    "by_stage": [
+     [
+      "ייצור שבבים",
+      12
+     ],
+     [
+      "ציוד ייצור",
+      12
+     ],
+     [
+      "מערכות ולקוחות קצה",
+      5
+     ],
+     [
+      "תכנון שבבים",
+      4
+     ],
+     [
+      "חומרי גלם",
+      4
+     ],
+     [
+      "תת-מערכות",
+      4
+     ],
+     [
+      "אריזה ובדיקה",
+      1
+     ]
+    ]
+   },
+   "past": {
+    "buckets": [
+     {
+      "lo": 50,
+      "hi": null,
+      "cases": 85,
+      "companies": 18,
+      "median_now": 68.3,
+      "median_later": 27.6,
+      "slowed_pct": 92.9,
+      "halved_pct": 63.5
+     },
+     {
+      "lo": 25,
+      "hi": 50,
+      "cases": 140,
+      "companies": 26,
+      "median_now": 32.5,
+      "median_later": 16.0,
+      "slowed_pct": 81.4,
+      "halved_pct": 52.1
+     }
+    ],
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "show": true,
+   "id": "market_growth:chips",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "42 מתוך 77 חברות צומחות בקצב שבדרך כלל לא מחזיק",
+    "see": "ההכנסות של 42 מתוך 77 החברות שמיפינו גדלו ב-25% ומעלה בשנה האחרונה. החציון אצלן: 46.6%. המהירות ביותר: Kioxia (453.2%), Micron (379.3%), SK hynix (327.9%), Super Micro (297.5%), Samsung Electronics (126.8%).",
+    "past": "צמיחה של 25% עד 50% האטה שנה אחר כך ב-81.4% מ-140 המקרים, והחציון ירד ל-16.0%. צמיחה של 50% ומעלה האטה שנה אחר כך ב-92.9% מ-85 המקרים, והחציון ירד ל-27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "כשחלק גדול מהשוק צומח מהר בבת אחת, המקור הוא בדרך כלל גל ביקוש אחד. כשהגל נחלש, הוא נחלש אצל כולם, והשנה הבאה נמדדת מול מספרים גבוהים.",
+    "who": "לפי שלב: ייצור שבבים (12), ציוד ייצור (12), מערכות ולקוחות קצה (5), תכנון שבבים (4), חומרי גלם (4), תת-מערכות (4), אריזה ובדיקה (1).",
+    "refute": "אם בעוד שנה רוב החברות האלה עדיין יצמחו באותו קצב או מהר יותר.",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניות ילכו. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "רשמנו ביומן 42 טענות נפרדות, אחת לכל חברה. בעוד שנה נספור כמה התקיימו.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "date",
+   "company": null,
+   "name": null,
+   "tier": "materials",
+   "stage": "חומרי גלם",
+   "stage_rhythm": "חוזים של שלוש שנים ויותר · המחיר קבוע בחוזה · האיתות מגיע באיחור של חצי שנה",
+   "suppliers": [],
+   "customers": [],
+   "exposed": [
+    "Shin-Etsu Chemical",
+    "SUMCO",
+    "GlobalWafers",
+    "Siltronic",
+    "Soitec",
+    "Wacker Chemie",
+    "Tokyo Ohka Kogyo",
+    "Merck KGaA"
+   ],
+   "see": {
+    "title": "השעיית האיסור הסיני על יצוא גליום וגרמניום לארה\"ב",
+    "detail": "ההשעיה בתוקף עד 27 בנובמבר 2026. אם לא תוארך, האיסור חוזר.",
+    "month": "2026-11",
+    "status": "מסתיים בקרוב",
+    "kind": "regulation",
+    "effect": "delays",
+    "source": "GAGE",
+    "verified": true
+   },
+   "past": null,
+   "strength": "date",
+   "claim": null,
+   "refute": [],
+   "show": true,
+   "id": "date:השעיית האיסור הסיני על יצוא גליום וגרמניום לארה\"ב",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "השעיית האיסור הסיני על יצוא גליום וגרמניום לארה\"ב",
+    "see": "ההשעיה בתוקף עד 27 בנובמבר 2026. אם לא תוארך, האיסור חוזר. מועד: 2026-11. מצב: מסתיים בקרוב.",
+    "past": "אין כאן סטטיסטיקה. זה תאריך ידוע מראש, לא תחזית.",
+    "why": "השלב שמושפע: חומרי גלם. הקצב בשלב \"חומרי גלם\": חוזים של שלוש שנים ויותר · המחיר קבוע בחוזה · האיתות מגיע באיחור של חצי שנה.",
+    "who": "חברות בשלב הזה: Shin-Etsu Chemical, SUMCO, GlobalWafers, Siltronic, Soitec, Wacker Chemie, Tokyo Ohka Kogyo, Merck KGaA.",
+    "refute": "",
+    "not": "אנחנו לא יודעים איך זה ייגמר. אנחנו יודעים מתי, ומי עומד ליד.",
+    "claim": "",
+    "strength": "תאריך ידוע, לא תחזית"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "KIOXIA",
+   "name": "Kioxia",
+   "tier": "manufacturing",
+   "stage": "ייצור שבבים",
+   "stage_rhythm": "14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר",
+   "suppliers": [],
+   "customers": [
+    "Apple"
+   ],
+   "see": {
+    "growth_pct": 453.2
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 453.2,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "6cf48276005fa742",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הסכסוך המשפטי על Nexperia",
+     "detail": "הצו ההולנדי הושעה בנובמבר 2025, אבל ההליכים נמשכים.",
+     "status": "פתוח",
+     "source": "NEXP"
+    },
+    {
+     "title": "זיכרון HBM נמכר מראש לשנים קדימה",
+     "detail": "SK hynix דיווחה שכמעט כל הקיבולת שלה מכורה עד 2029.",
+     "status": "נמשך",
+     "source": "SKH"
+    },
+    {
+     "title": "TSMC הגדילה את תוכנית ההשקעות ל-2026",
+     "detail": "התחזית עלתה מ-52 עד 56 מיליארד דולר ל-60 עד 64 מיליארד דולר.",
+     "status": "בביצוע",
+     "source": "TSM"
+    }
+   ],
+   "show": true,
+   "id": "growth:KIOXIA",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Kioxia: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Kioxia גדלו ב-453.2% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ייצור שבבים\": 14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר.",
+    "who": "אם ההזמנות של Kioxia יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: Apple.",
+    "refute": "צמיחה של 453.2% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הסכסוך המשפטי על Nexperia (פתוח). זיכרון HBM נמכר מראש לשנים קדימה (נמשך). TSMC הגדילה את תוכנית ההשקעות ל-2026 (בביצוע).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Kioxia תהיה נמוכה מ-453.2%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "MICRON",
+   "name": "Micron",
+   "tier": "manufacturing",
+   "stage": "ייצור שבבים",
+   "stage_rhythm": "14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר",
+   "suppliers": [
+    "Lam Research"
+   ],
+   "customers": [
+    "Nvidia",
+    "Apple"
+   ],
+   "see": {
+    "growth_pct": 379.3
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 379.3,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "c522cf47d9428bb4",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הסכסוך המשפטי על Nexperia",
+     "detail": "הצו ההולנדי הושעה בנובמבר 2025, אבל ההליכים נמשכים.",
+     "status": "פתוח",
+     "source": "NEXP"
+    },
+    {
+     "title": "זיכרון HBM נמכר מראש לשנים קדימה",
+     "detail": "SK hynix דיווחה שכמעט כל הקיבולת שלה מכורה עד 2029.",
+     "status": "נמשך",
+     "source": "SKH"
+    },
+    {
+     "title": "TSMC הגדילה את תוכנית ההשקעות ל-2026",
+     "detail": "התחזית עלתה מ-52 עד 56 מיליארד דולר ל-60 עד 64 מיליארד דולר.",
+     "status": "בביצוע",
+     "source": "TSM"
+    }
+   ],
+   "show": true,
+   "id": "growth:MICRON",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Micron: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Micron גדלו ב-379.3% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ייצור שבבים\": 14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר.",
+    "who": "אם ההזמנות של Micron יאטו, הספקים ירגישו ראשונים: Lam Research. הלקוחות: Nvidia, Apple.",
+    "refute": "צמיחה של 379.3% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הסכסוך המשפטי על Nexperia (פתוח). זיכרון HBM נמכר מראש לשנים קדימה (נמשך). TSMC הגדילה את תוכנית ההשקעות ל-2026 (בביצוע).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Micron תהיה נמוכה מ-379.3%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "SKHYNIX",
+   "name": "SK hynix",
+   "tier": "manufacturing",
+   "stage": "ייצור שבבים",
+   "stage_rhythm": "14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר",
+   "suppliers": [
+    "Tokyo Ohka Kogyo",
+    "Shin-Etsu Chemical",
+    "Lam Research",
+    "ASML",
+    "FormFactor",
+    "Camtek"
+   ],
+   "customers": [
+    "Nvidia",
+    "Apple"
+   ],
+   "see": {
+    "growth_pct": 327.9
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 327.9,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "6ee4f8a4a1df9aed",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הסכסוך המשפטי על Nexperia",
+     "detail": "הצו ההולנדי הושעה בנובמבר 2025, אבל ההליכים נמשכים.",
+     "status": "פתוח",
+     "source": "NEXP"
+    },
+    {
+     "title": "זיכרון HBM נמכר מראש לשנים קדימה",
+     "detail": "SK hynix דיווחה שכמעט כל הקיבולת שלה מכורה עד 2029.",
+     "status": "נמשך",
+     "source": "SKH"
+    },
+    {
+     "title": "TSMC הגדילה את תוכנית ההשקעות ל-2026",
+     "detail": "התחזית עלתה מ-52 עד 56 מיליארד דולר ל-60 עד 64 מיליארד דולר.",
+     "status": "בביצוע",
+     "source": "TSM"
+    }
+   ],
+   "show": true,
+   "id": "growth:SKHYNIX",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "SK hynix: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של SK hynix גדלו ב-327.9% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ייצור שבבים\": 14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר.",
+    "who": "אם ההזמנות של SK hynix יאטו, הספקים ירגישו ראשונים: Tokyo Ohka Kogyo, Shin-Etsu Chemical, Lam Research, ASML, FormFactor, Camtek. הלקוחות: Nvidia, Apple.",
+    "refute": "צמיחה של 327.9% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הסכסוך המשפטי על Nexperia (פתוח). זיכרון HBM נמכר מראש לשנים קדימה (נמשך). TSMC הגדילה את תוכנית ההשקעות ל-2026 (בביצוע).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של SK hynix תהיה נמוכה מ-327.9%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "vol",
+   "company": "KIOXIA",
+   "name": "Kioxia",
+   "tier": "manufacturing",
+   "stage": "ייצור שבבים",
+   "stage_rhythm": "14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר",
+   "suppliers": [],
+   "customers": [
+    "Apple"
+   ],
+   "see": {
+    "vol_pct": 127.1,
+    "market_median_vol_pct": 61.1
+   },
+   "past": {
+    "cases": 1147,
+    "stayed_pct": 71.6,
+    "plain_pct": 33.3,
+    "source": "weekly prices, six markets, five years"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "vol_top_third",
+    "op": "=",
+    "value": 1,
+    "weeks": 26,
+    "cut_now": 69.7,
+    "due": "2027-05-14",
+    "ledger": {
+     "hash": "0e0f847da45e64bd",
+     "created": "2026-11-12",
+     "due": "2027-05-14"
+    }
+   },
+   "refute": [],
+   "show": true,
+   "id": "vol:KIOXIA",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Kioxia: המניה כנראה תישאר קופצנית",
+    "see": "בחצי השנה האחרונה המניה של Kioxia זזה בקצב שנתי של 127.1%. החציון בשוק הזה: 61.1%.",
+    "past": "בדקנו 1147 מקרים של מניה שהייתה בשליש הקופצני של השוק שלה. ב-71.6% מהם היא נשארה שם גם בחצי השנה שאחרי. אם זה היה מקרי, היינו מצפים ל-33.3%.",
+    "why": "הסיבות שמקפיצות מניה לא נעלמות בחצי שנה: חוב, תלות בלקוח אחד, מוצר אחד, מחיר שנשען על ציפיות.",
+    "who": "מי שמחזיק את המניה. ספקים: לא מופו. לקוחות: Apple.",
+    "refute": "חצי שנה רגועה, שבה המניה יוצאת מהשליש הקופצני של השוק.",
+    "not": "זה לא אומר אם המניה תעלה או תרד. זה אומר שהדרך תהיה סוערת.",
+    "claim": "עד 14.5.2027: המניה של Kioxia תישאר בשליש הקופצני של השוק.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "vol",
+   "company": "GLOBALWAFERS",
+   "name": "GlobalWafers",
+   "tier": "materials",
+   "stage": "חומרי גלם",
+   "stage_rhythm": "חוזים של שלוש שנים ויותר · המחיר קבוע בחוזה · האיתות מגיע באיחור של חצי שנה",
+   "suppliers": [],
+   "customers": [
+    "GlobalFoundries"
+   ],
+   "see": {
+    "vol_pct": 127.0,
+    "market_median_vol_pct": 61.1
+   },
+   "past": {
+    "cases": 1147,
+    "stayed_pct": 71.6,
+    "plain_pct": 33.3,
+    "source": "weekly prices, six markets, five years"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "vol_top_third",
+    "op": "=",
+    "value": 1,
+    "weeks": 26,
+    "cut_now": 69.7,
+    "due": "2027-05-14",
+    "ledger": {
+     "hash": "36460e3ffb6133e4",
+     "created": "2026-11-12",
+     "due": "2027-05-14"
+    }
+   },
+   "refute": [],
+   "show": true,
+   "id": "vol:GLOBALWAFERS",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "GlobalWafers: המניה כנראה תישאר קופצנית",
+    "see": "בחצי השנה האחרונה המניה של GlobalWafers זזה בקצב שנתי של 127.0%. החציון בשוק הזה: 61.1%.",
+    "past": "בדקנו 1147 מקרים של מניה שהייתה בשליש הקופצני של השוק שלה. ב-71.6% מהם היא נשארה שם גם בחצי השנה שאחרי. אם זה היה מקרי, היינו מצפים ל-33.3%.",
+    "why": "הסיבות שמקפיצות מניה לא נעלמות בחצי שנה: חוב, תלות בלקוח אחד, מוצר אחד, מחיר שנשען על ציפיות.",
+    "who": "מי שמחזיק את המניה. ספקים: לא מופו. לקוחות: GlobalFoundries.",
+    "refute": "חצי שנה רגועה, שבה המניה יוצאת מהשליש הקופצני של השוק.",
+    "not": "זה לא אומר אם המניה תעלה או תרד. זה אומר שהדרך תהיה סוערת.",
+    "claim": "עד 14.5.2027: המניה של GlobalWafers תישאר בשליש הקופצני של השוק.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "vol",
+   "company": "SUMCO",
+   "name": "SUMCO",
+   "tier": "materials",
+   "stage": "חומרי גלם",
+   "stage_rhythm": "חוזים של שלוש שנים ויותר · המחיר קבוע בחוזה · האיתות מגיע באיחור של חצי שנה",
+   "suppliers": [],
+   "customers": [
+    "TSMC",
+    "Samsung Electronics"
+   ],
+   "see": {
+    "vol_pct": 101.5,
+    "market_median_vol_pct": 61.1
+   },
+   "past": {
+    "cases": 1147,
+    "stayed_pct": 71.6,
+    "plain_pct": 33.3,
+    "source": "weekly prices, six markets, five years"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "vol_top_third",
+    "op": "=",
+    "value": 1,
+    "weeks": 26,
+    "cut_now": 69.7,
+    "due": "2027-05-14",
+    "ledger": {
+     "hash": "4eeb0aad09f4283f",
+     "created": "2026-11-12",
+     "due": "2027-05-14"
+    }
+   },
+   "refute": [],
+   "show": true,
+   "id": "vol:SUMCO",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "SUMCO: המניה כנראה תישאר קופצנית",
+    "see": "בחצי השנה האחרונה המניה של SUMCO זזה בקצב שנתי של 101.5%. החציון בשוק הזה: 61.1%.",
+    "past": "בדקנו 1147 מקרים של מניה שהייתה בשליש הקופצני של השוק שלה. ב-71.6% מהם היא נשארה שם גם בחצי השנה שאחרי. אם זה היה מקרי, היינו מצפים ל-33.3%.",
+    "why": "הסיבות שמקפיצות מניה לא נעלמות בחצי שנה: חוב, תלות בלקוח אחד, מוצר אחד, מחיר שנשען על ציפיות.",
+    "who": "מי שמחזיק את המניה. ספקים: לא מופו. לקוחות: TSMC, Samsung Electronics.",
+    "refute": "חצי שנה רגועה, שבה המניה יוצאת מהשליש הקופצני של השוק.",
+    "not": "זה לא אומר אם המניה תעלה או תרד. זה אומר שהדרך תהיה סוערת.",
+    "claim": "עד 14.5.2027: המניה של SUMCO תישאר בשליש הקופצני של השוק.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "SMCI",
+   "name": "Super Micro",
+   "tier": "systems",
+   "stage": "מערכות ולקוחות קצה",
+   "stage_rhythm": "השקות שנתיות · רבעון החגים · תקציבי ענן רבעוניים",
+   "suppliers": [
+    "Nvidia",
+    "AMD",
+    "Intel"
+   ],
+   "customers": [],
+   "see": {
+    "growth_pct": 297.5
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 297.5,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "eecd34f64ab7bee0",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [],
+   "show": false,
+   "id": "growth:SMCI",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Super Micro: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Super Micro גדלו ב-297.5% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"מערכות ולקוחות קצה\": השקות שנתיות · רבעון החגים · תקציבי ענן רבעוניים.",
+    "who": "אם ההזמנות של Super Micro יאטו, הספקים ירגישו ראשונים: Nvidia, AMD, Intel. הלקוחות: לא מופו.",
+    "refute": "צמיחה של 297.5% ומעלה גם בעוד שנה. ",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Super Micro תהיה נמוכה מ-297.5%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "SAMSUNG",
+   "name": "Samsung Electronics",
+   "tier": "manufacturing",
+   "stage": "ייצור שבבים",
+   "stage_rhythm": "14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר",
+   "suppliers": [
+    "Siltronic",
+    "Soulbrain",
+    "Linde",
+    "Air Products",
+    "SUMCO",
+    "Applied Materials"
+   ],
+   "customers": [
+    "AMD",
+    "Nvidia",
+    "Qualcomm",
+    "Apple"
+   ],
+   "see": {
+    "growth_pct": 126.8
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 126.8,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "ffa532ae32442930",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הסכסוך המשפטי על Nexperia",
+     "detail": "הצו ההולנדי הושעה בנובמבר 2025, אבל ההליכים נמשכים.",
+     "status": "פתוח",
+     "source": "NEXP"
+    },
+    {
+     "title": "זיכרון HBM נמכר מראש לשנים קדימה",
+     "detail": "SK hynix דיווחה שכמעט כל הקיבולת שלה מכורה עד 2029.",
+     "status": "נמשך",
+     "source": "SKH"
+    },
+    {
+     "title": "TSMC הגדילה את תוכנית ההשקעות ל-2026",
+     "detail": "התחזית עלתה מ-52 עד 56 מיליארד דולר ל-60 עד 64 מיליארד דולר.",
+     "status": "בביצוע",
+     "source": "TSM"
+    }
+   ],
+   "show": false,
+   "id": "growth:SAMSUNG",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Samsung Electronics: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Samsung Electronics גדלו ב-126.8% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ייצור שבבים\": 14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר.",
+    "who": "אם ההזמנות של Samsung Electronics יאטו, הספקים ירגישו ראשונים: Siltronic, Soulbrain, Linde, Air Products, SUMCO, Applied Materials. הלקוחות: AMD, Nvidia, Qualcomm, Apple.",
+    "refute": "צמיחה של 126.8% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הסכסוך המשפטי על Nexperia (פתוח). זיכרון HBM נמכר מראש לשנים קדימה (נמשך). TSMC הגדילה את תוכנית ההשקעות ל-2026 (בביצוע).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Samsung Electronics תהיה נמוכה מ-126.8%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "BESI",
+   "name": "BE Semiconductor",
+   "tier": "equipment",
+   "stage": "ציוד ייצור",
+   "stage_rhythm": "הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות",
+   "suppliers": [],
+   "customers": [
+    "Amkor",
+    "ASE Technology",
+    "TSMC"
+   ],
+   "see": {
+    "growth_pct": 113.5
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 113.5,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "8b14a962977dcb58",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הביקוש למכונות ליתוגרפיה גדול מההיצע",
+     "detail": "לקוחות של ASML מזמינים כבר ל-2028.",
+     "status": "נמשך",
+     "source": "TI-ASML"
+    }
+   ],
+   "show": false,
+   "id": "growth:BESI",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "BE Semiconductor: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של BE Semiconductor גדלו ב-113.5% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ציוד ייצור\": הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות.",
+    "who": "אם ההזמנות של BE Semiconductor יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: Amkor, ASE Technology, TSMC.",
+    "refute": "צמיחה של 113.5% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הביקוש למכונות ליתוגרפיה גדול מההיצע (נמשך).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של BE Semiconductor תהיה נמוכה מ-113.5%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "NVDA",
+   "name": "Nvidia",
+   "tier": "design",
+   "stage": "תכנון שבבים",
+   "stage_rhythm": "מתחייבות לספקים שנה מראש · הלקוחות מבטלים בהתראה קצרה · דור חדש כל שנה",
+   "suppliers": [
+    "Ibiden",
+    "Advantest",
+    "TSMC",
+    "Samsung Electronics",
+    "SK hynix",
+    "Micron"
+   ],
+   "customers": [
+    "Hon Hai (Foxconn)",
+    "Quanta",
+    "Super Micro",
+    "Dell",
+    "Microsoft",
+    "Alphabet"
+   ],
+   "see": {
+    "growth_pct": 105.9
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 105.9,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "2db66229ff636d42",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [],
+   "show": false,
+   "id": "growth:NVDA",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Nvidia: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Nvidia גדלו ב-105.9% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"תכנון שבבים\": מתחייבות לספקים שנה מראש · הלקוחות מבטלים בהתראה קצרה · דור חדש כל שנה.",
+    "who": "אם ההזמנות של Nvidia יאטו, הספקים ירגישו ראשונים: Ibiden, Advantest, TSMC, Samsung Electronics, SK hynix, Micron. הלקוחות: Hon Hai (Foxconn), Quanta, Super Micro, Dell, Microsoft, Alphabet.",
+    "refute": "צמיחה של 105.9% ומעלה גם בעוד שנה. ",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Nvidia תהיה נמוכה מ-105.9%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "QUANTA",
+   "name": "Quanta",
+   "tier": "systems",
+   "stage": "מערכות ולקוחות קצה",
+   "stage_rhythm": "השקות שנתיות · רבעון החגים · תקציבי ענן רבעוניים",
+   "suppliers": [
+    "Nvidia"
+   ],
+   "customers": [
+    "Apple"
+   ],
+   "see": {
+    "growth_pct": 105.6
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 105.6,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "2151243d4d63aaa4",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [],
+   "show": false,
+   "id": "growth:QUANTA",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Quanta: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Quanta גדלו ב-105.6% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"מערכות ולקוחות קצה\": השקות שנתיות · רבעון החגים · תקציבי ענן רבעוניים.",
+    "who": "אם ההזמנות של Quanta יאטו, הספקים ירגישו ראשונים: Nvidia. הלקוחות: Apple.",
+    "refute": "צמיחה של 105.6% ומעלה גם בעוד שנה. ",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Quanta תהיה נמוכה מ-105.6%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "ONTO",
+   "name": "Onto Innovation",
+   "tier": "equipment",
+   "stage": "ציוד ייצור",
+   "stage_rhythm": "הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות",
+   "suppliers": [],
+   "customers": [
+    "TSMC",
+    "Samsung Electronics"
+   ],
+   "see": {
+    "growth_pct": 87.8
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 87.8,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "f49b60d54248e216",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הביקוש למכונות ליתוגרפיה גדול מההיצע",
+     "detail": "לקוחות של ASML מזמינים כבר ל-2028.",
+     "status": "נמשך",
+     "source": "TI-ASML"
+    }
+   ],
+   "show": false,
+   "id": "growth:ONTO",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Onto Innovation: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Onto Innovation גדלו ב-87.8% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ציוד ייצור\": הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות.",
+    "who": "אם ההזמנות של Onto Innovation יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: TSMC, Samsung Electronics.",
+    "refute": "צמיחה של 87.8% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הביקוש למכונות ליתוגרפיה גדול מההיצע (נמשך).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Onto Innovation תהיה נמוכה מ-87.8%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "AVGO",
+   "name": "Broadcom",
+   "tier": "design",
+   "stage": "תכנון שבבים",
+   "stage_rhythm": "מתחייבות לספקים שנה מראש · הלקוחות מבטלים בהתראה קצרה · דור חדש כל שנה",
+   "suppliers": [
+    "TSMC",
+    "ASE Technology",
+    "Amkor"
+   ],
+   "customers": [
+    "Apple"
+   ],
+   "see": {
+    "growth_pct": 85.5
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 85.5,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "239855ceee9347e8",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [],
+   "show": false,
+   "id": "growth:AVGO",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Broadcom: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Broadcom גדלו ב-85.5% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"תכנון שבבים\": מתחייבות לספקים שנה מראש · הלקוחות מבטלים בהתראה קצרה · דור חדש כל שנה.",
+    "who": "אם ההזמנות של Broadcom יאטו, הספקים ירגישו ראשונים: TSMC, ASE Technology, Amkor. הלקוחות: Apple.",
+    "refute": "צמיחה של 85.5% ומעלה גם בעוד שנה. ",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Broadcom תהיה נמוכה מ-85.5%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "ADVANTEST",
+   "name": "Advantest",
+   "tier": "equipment",
+   "stage": "ציוד ייצור",
+   "stage_rhythm": "הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות",
+   "suppliers": [],
+   "customers": [
+    "ASE Technology",
+    "Nvidia",
+    "TSMC"
+   ],
+   "see": {
+    "growth_pct": 81.7
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 81.7,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "298fdeaf2b363fb7",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הביקוש למכונות ליתוגרפיה גדול מההיצע",
+     "detail": "לקוחות של ASML מזמינים כבר ל-2028.",
+     "status": "נמשך",
+     "source": "TI-ASML"
+    }
+   ],
+   "show": false,
+   "id": "growth:ADVANTEST",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Advantest: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Advantest גדלו ב-81.7% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ציוד ייצור\": הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות.",
+    "who": "אם ההזמנות של Advantest יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: ASE Technology, Nvidia, TSMC.",
+    "refute": "צמיחה של 81.7% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הביקוש למכונות ליתוגרפיה גדול מההיצע (נמשך).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Advantest תהיה נמוכה מ-81.7%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "TERADYNE",
+   "name": "Teradyne",
+   "tier": "equipment",
+   "stage": "ציוד ייצור",
+   "stage_rhythm": "הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות",
+   "suppliers": [],
+   "customers": [
+    "TSMC",
+    "ASE Technology"
+   ],
+   "see": {
+    "growth_pct": 69.8
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 69.8,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "282901b63bfe5483",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הביקוש למכונות ליתוגרפיה גדול מההיצע",
+     "detail": "לקוחות של ASML מזמינים כבר ל-2028.",
+     "status": "נמשך",
+     "source": "TI-ASML"
+    }
+   ],
+   "show": false,
+   "id": "growth:TERADYNE",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Teradyne: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Teradyne גדלו ב-69.8% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ציוד ייצור\": הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות.",
+    "who": "אם ההזמנות של Teradyne יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: TSMC, ASE Technology.",
+    "refute": "צמיחה של 69.8% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הביקוש למכונות ליתוגרפיה גדול מההיצע (נמשך).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Teradyne תהיה נמוכה מ-69.8%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "DELL",
+   "name": "Dell",
+   "tier": "systems",
+   "stage": "מערכות ולקוחות קצה",
+   "stage_rhythm": "השקות שנתיות · רבעון החגים · תקציבי ענן רבעוניים",
+   "suppliers": [
+    "Intel",
+    "Nvidia"
+   ],
+   "customers": [],
+   "see": {
+    "growth_pct": 57.7
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 57.7,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "fbcfa6cb40e6c0d5",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [],
+   "show": false,
+   "id": "growth:DELL",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Dell: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Dell גדלו ב-57.7% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"מערכות ולקוחות קצה\": השקות שנתיות · רבעון החגים · תקציבי ענן רבעוניים.",
+    "who": "אם ההזמנות של Dell יאטו, הספקים ירגישו ראשונים: Intel, Nvidia. הלקוחות: לא מופו.",
+    "refute": "צמיחה של 57.7% ומעלה גם בעוד שנה. ",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Dell תהיה נמוכה מ-57.7%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "ASML",
+   "name": "ASML",
+   "tier": "equipment",
+   "stage": "ציוד ייצור",
+   "stage_rhythm": "הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות",
+   "suppliers": [
+    "Ichor"
+   ],
+   "customers": [
+    "Intel",
+    "TSMC",
+    "Samsung Electronics",
+    "SK hynix"
+   ],
+   "see": {
+    "growth_pct": 55.2
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 55.2,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "cd62a5e87467d0dc",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הביקוש למכונות ליתוגרפיה גדול מההיצע",
+     "detail": "לקוחות של ASML מזמינים כבר ל-2028.",
+     "status": "נמשך",
+     "source": "TI-ASML"
+    }
+   ],
+   "show": false,
+   "id": "growth:ASML",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "ASML: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של ASML גדלו ב-55.2% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ציוד ייצור\": הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות.",
+    "who": "אם ההזמנות של ASML יאטו, הספקים ירגישו ראשונים: Ichor. הלקוחות: Intel, TSMC, Samsung Electronics, SK hynix.",
+    "refute": "צמיחה של 55.2% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הביקוש למכונות ליתוגרפיה גדול מההיצע (נמשך).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של ASML תהיה נמוכה מ-55.2%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "UNIMICRON",
+   "name": "Unimicron",
+   "tier": "materials",
+   "stage": "חומרי גלם",
+   "stage_rhythm": "חוזים של שלוש שנים ויותר · המחיר קבוע בחוזה · האיתות מגיע באיחור של חצי שנה",
+   "suppliers": [
+    "Ajinomoto"
+   ],
+   "customers": [
+    "Intel"
+   ],
+   "see": {
+    "growth_pct": 54.9
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 54.9,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "038d16050b5d09b9",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "סין אסרה יצוא הליום",
+     "detail": "האיסור נכנס לתוקף מיידית ב-10 ביולי 2026, בזמן מחסור עולמי.",
+     "status": "בתוקף",
+     "source": "HELIUM"
+    },
+    {
+     "title": "השעיית האיסור הסיני על יצוא גליום וגרמניום לארה\"ב",
+     "detail": "ההשעיה בתוקף עד 27 בנובמבר 2026. אם לא תוארך, האיסור חוזר.",
+     "status": "מסתיים בקרוב",
+     "source": "GAGE"
+    },
+    {
+     "title": "SK מוכרת את יצרנית הפרוסות SK Siltron ל-Doosan",
+     "detail": "ההסכם נחתם ביולי 2026. השלמת העסקה לא אומתה.",
+     "status": "נחתם",
+     "source": "SILTRON"
+    }
+   ],
+   "show": false,
+   "id": "growth:UNIMICRON",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Unimicron: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Unimicron גדלו ב-54.9% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"חומרי גלם\": חוזים של שלוש שנים ויותר · המחיר קבוע בחוזה · האיתות מגיע באיחור של חצי שנה.",
+    "who": "אם ההזמנות של Unimicron יאטו, הספקים ירגישו ראשונים: Ajinomoto. הלקוחות: Intel.",
+    "refute": "צמיחה של 54.9% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: סין אסרה יצוא הליום (בתוקף). השעיית האיסור הסיני על יצוא גליום וגרמניום לארה\"ב (מסתיים בקרוב). SK מוכרת את יצרנית הפרוסות SK Siltron ל-Doosan (נחתם).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Unimicron תהיה נמוכה מ-54.9%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "LAM",
+   "name": "Lam Research",
+   "tier": "equipment",
+   "stage": "ציוד ייצור",
+   "stage_rhythm": "הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות",
+   "suppliers": [
+    "Ultra Clean",
+    "Ichor",
+    "Advanced Energy",
+    "MKS Instruments"
+   ],
+   "customers": [
+    "Micron",
+    "Samsung Electronics",
+    "SK hynix",
+    "TSMC"
+   ],
+   "see": {
+    "growth_pct": 54.4
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 54.4,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "1d3ad023b049b9c5",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הביקוש למכונות ליתוגרפיה גדול מההיצע",
+     "detail": "לקוחות של ASML מזמינים כבר ל-2028.",
+     "status": "נמשך",
+     "source": "TI-ASML"
+    }
+   ],
+   "show": false,
+   "id": "growth:LAM",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Lam Research: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Lam Research גדלו ב-54.4% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ציוד ייצור\": הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות.",
+    "who": "אם ההזמנות של Lam Research יאטו, הספקים ירגישו ראשונים: Ultra Clean, Ichor, Advanced Energy, MKS Instruments. הלקוחות: Micron, Samsung Electronics, SK hynix, TSMC.",
+    "refute": "צמיחה של 54.4% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הביקוש למכונות ליתוגרפיה גדול מההיצע (נמשך).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Lam Research תהיה נמוכה מ-54.4%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "PSMC",
+   "name": "Powerchip",
+   "tier": "manufacturing",
+   "stage": "ייצור שבבים",
+   "stage_rhythm": "14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר",
+   "suppliers": [],
+   "customers": [],
+   "see": {
+    "growth_pct": 53.3
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 53.3,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "7e8c0b481b7fa354",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הסכסוך המשפטי על Nexperia",
+     "detail": "הצו ההולנדי הושעה בנובמבר 2025, אבל ההליכים נמשכים.",
+     "status": "פתוח",
+     "source": "NEXP"
+    },
+    {
+     "title": "זיכרון HBM נמכר מראש לשנים קדימה",
+     "detail": "SK hynix דיווחה שכמעט כל הקיבולת שלה מכורה עד 2029.",
+     "status": "נמשך",
+     "source": "SKH"
+    },
+    {
+     "title": "TSMC הגדילה את תוכנית ההשקעות ל-2026",
+     "detail": "התחזית עלתה מ-52 עד 56 מיליארד דולר ל-60 עד 64 מיליארד דולר.",
+     "status": "בביצוע",
+     "source": "TSM"
+    }
+   ],
+   "show": false,
+   "id": "growth:PSMC",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Powerchip: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Powerchip גדלו ב-53.3% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ייצור שבבים\": 14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר.",
+    "who": "אם ההזמנות של Powerchip יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: לא מופו.",
+    "refute": "צמיחה של 53.3% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הסכסוך המשפטי על Nexperia (פתוח). זיכרון HBM נמכר מראש לשנים קדימה (נמשך). TSMC הגדילה את תוכנית ההשקעות ל-2026 (בביצוע).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Powerchip תהיה נמוכה מ-53.3%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "TSMC",
+   "name": "TSMC",
+   "tier": "manufacturing",
+   "stage": "ייצור שבבים",
+   "stage_rhythm": "14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר",
+   "suppliers": [
+    "Entegris",
+    "Siltronic",
+    "Shin-Etsu Chemical",
+    "SUMCO",
+    "Tokyo Ohka Kogyo",
+    "Merck KGaA"
+   ],
+   "customers": [
+    "Nvidia",
+    "Apple",
+    "AMD",
+    "Qualcomm",
+    "Broadcom",
+    "MediaTek"
+   ],
+   "see": {
+    "growth_pct": 50.9
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 50.9,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "510a8a13abc3d4bb",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הסכסוך המשפטי על Nexperia",
+     "detail": "הצו ההולנדי הושעה בנובמבר 2025, אבל ההליכים נמשכים.",
+     "status": "פתוח",
+     "source": "NEXP"
+    },
+    {
+     "title": "זיכרון HBM נמכר מראש לשנים קדימה",
+     "detail": "SK hynix דיווחה שכמעט כל הקיבולת שלה מכורה עד 2029.",
+     "status": "נמשך",
+     "source": "SKH"
+    },
+    {
+     "title": "TSMC הגדילה את תוכנית ההשקעות ל-2026",
+     "detail": "התחזית עלתה מ-52 עד 56 מיליארד דולר ל-60 עד 64 מיליארד דולר.",
+     "status": "בביצוע",
+     "source": "TSM"
+    }
+   ],
+   "show": false,
+   "id": "growth:TSMC",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "TSMC: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של TSMC גדלו ב-50.9% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ייצור שבבים\": 14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר.",
+    "who": "אם ההזמנות של TSMC יאטו, הספקים ירגישו ראשונים: Entegris, Siltronic, Shin-Etsu Chemical, SUMCO, Tokyo Ohka Kogyo, Merck KGaA. הלקוחות: Nvidia, Apple, AMD, Qualcomm, Broadcom, MediaTek.",
+    "refute": "צמיחה של 50.9% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הסכסוך המשפטי על Nexperia (פתוח). זיכרון HBM נמכר מראש לשנים קדימה (נמשך). TSMC הגדילה את תוכנית ההשקעות ל-2026 (בביצוע).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של TSMC תהיה נמוכה מ-50.9%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "AEIS",
+   "name": "Advanced Energy",
+   "tier": "subsystems",
+   "stage": "תת-מערכות",
+   "stage_rhythm": "הזמנות קצרות · אספקה תוך 20 עד 30 יום · מגבירות את התנודות של יצרני הציוד",
+   "suppliers": [],
+   "customers": [
+    "Applied Materials",
+    "Lam Research"
+   ],
+   "see": {
+    "growth_pct": 50.3
+   },
+   "past": {
+    "bucket_lo": 50,
+    "bucket_hi": null,
+    "cases": 85,
+    "companies": 18,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5,
+    "median_later": 27.6,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 50.3,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "42d71cdd05ec1b5f",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [],
+   "show": false,
+   "id": "growth:AEIS",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Advanced Energy: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Advanced Energy גדלו ב-50.3% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 85 מקרים דומים בעבר, ב-18 חברות שבבים אמריקאיות שצמחו ב-50% ומעלה. ב-92.9% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-63.5% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 27.6%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"תת-מערכות\": הזמנות קצרות · אספקה תוך 20 עד 30 יום · מגבירות את התנודות של יצרני הציוד.",
+    "who": "אם ההזמנות של Advanced Energy יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: Applied Materials, Lam Research.",
+    "refute": "צמיחה של 50.3% ומעלה גם בעוד שנה. ",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Advanced Energy תהיה נמוכה מ-50.3%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "UCTT",
+   "name": "Ultra Clean",
+   "tier": "subsystems",
+   "stage": "תת-מערכות",
+   "stage_rhythm": "הזמנות קצרות · אספקה תוך 20 עד 30 יום · מגבירות את התנודות של יצרני הציוד",
+   "suppliers": [],
+   "customers": [
+    "Lam Research",
+    "Applied Materials"
+   ],
+   "see": {
+    "growth_pct": 48.8
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 48.8,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "e43bdcd22e956a49",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [],
+   "show": false,
+   "id": "growth:UCTT",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Ultra Clean: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Ultra Clean גדלו ב-48.8% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"תת-מערכות\": הזמנות קצרות · אספקה תוך 20 עד 30 יום · מגבירות את התנודות של יצרני הציוד.",
+    "who": "אם ההזמנות של Ultra Clean יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: Lam Research, Applied Materials.",
+    "refute": "צמיחה של 48.8% ומעלה גם בעוד שנה. ",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Ultra Clean תהיה נמוכה מ-48.8%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "TEL",
+   "name": "Tokyo Electron",
+   "tier": "equipment",
+   "stage": "ציוד ייצור",
+   "stage_rhythm": "הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות",
+   "suppliers": [],
+   "customers": [
+    "ASE Technology",
+    "Samsung Electronics",
+    "TSMC"
+   ],
+   "see": {
+    "growth_pct": 48.4
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 48.4,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "c811fd4b730dd588",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הביקוש למכונות ליתוגרפיה גדול מההיצע",
+     "detail": "לקוחות של ASML מזמינים כבר ל-2028.",
+     "status": "נמשך",
+     "source": "TI-ASML"
+    }
+   ],
+   "show": false,
+   "id": "growth:TEL",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Tokyo Electron: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Tokyo Electron גדלו ב-48.4% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ציוד ייצור\": הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות.",
+    "who": "אם ההזמנות של Tokyo Electron יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: ASE Technology, Samsung Electronics, TSMC.",
+    "refute": "צמיחה של 48.4% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הביקוש למכונות ליתוגרפיה גדול מההיצע (נמשך).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Tokyo Electron תהיה נמוכה מ-48.4%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "ASE",
+   "name": "ASE Technology",
+   "tier": "packaging",
+   "stage": "אריזה ובדיקה",
+   "stage_rhythm": "כשישה שבועות · בלי צבר הזמנות · עונתיות של השקות טלפונים",
+   "suppliers": [
+    "Teradyne",
+    "Tokyo Electron",
+    "Advantest",
+    "BE Semiconductor",
+    "Camtek"
+   ],
+   "customers": [
+    "Qualcomm",
+    "Apple",
+    "Broadcom",
+    "AMD"
+   ],
+   "see": {
+    "growth_pct": 44.8
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 44.8,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "8f333e229c04514f",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "אריזה מתקדמת היא צוואר הבקבוק של שבבי הבינה המלאכותית",
+     "detail": "זמני ההמתנה לאריזה מסוג CoWoS היו 40 עד 52 שבועות בתחילת 2026.",
+     "status": "נמשך",
+     "source": "SA"
+    },
+    {
+     "title": "Amkor בונה מפעל אריזה באריזונה",
+     "detail": "תוכנית ההשקעות ל-2026 היא 2.5 עד 3.0 מיליארד דולר, לעומת 0.9 מיליארד ב-2025.",
+     "status": "בבנייה",
+     "source": "AMKR"
+    }
+   ],
+   "show": false,
+   "id": "growth:ASE",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "ASE Technology: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של ASE Technology גדלו ב-44.8% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"אריזה ובדיקה\": כשישה שבועות · בלי צבר הזמנות · עונתיות של השקות טלפונים.",
+    "who": "אם ההזמנות של ASE Technology יאטו, הספקים ירגישו ראשונים: Teradyne, Tokyo Electron, Advantest, BE Semiconductor, Camtek. הלקוחות: Qualcomm, Apple, Broadcom, AMD.",
+    "refute": "צמיחה של 44.8% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: אריזה מתקדמת היא צוואר הבקבוק של שבבי הבינה המלאכותית (נמשך). Amkor בונה מפעל אריזה באריזונה (בבנייה).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של ASE Technology תהיה נמוכה מ-44.8%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "AMD",
+   "name": "AMD",
+   "tier": "design",
+   "stage": "תכנון שבבים",
+   "stage_rhythm": "מתחייבות לספקים שנה מראש · הלקוחות מבטלים בהתראה קצרה · דור חדש כל שנה",
+   "suppliers": [
+    "TSMC",
+    "GlobalFoundries",
+    "UMC",
+    "Samsung Electronics",
+    "ASE Technology"
+   ],
+   "customers": [
+    "Super Micro",
+    "Microsoft",
+    "Sony"
+   ],
+   "see": {
+    "growth_pct": 44.7
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 44.7,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "962baf0acd9686ac",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [],
+   "show": false,
+   "id": "growth:AMD",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "AMD: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של AMD גדלו ב-44.7% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"תכנון שבבים\": מתחייבות לספקים שנה מראש · הלקוחות מבטלים בהתראה קצרה · דור חדש כל שנה.",
+    "who": "אם ההזמנות של AMD יאטו, הספקים ירגישו ראשונים: TSMC, GlobalFoundries, UMC, Samsung Electronics, ASE Technology. הלקוחות: Super Micro, Microsoft, Sony.",
+    "refute": "צמיחה של 44.7% ומעלה גם בעוד שנה. ",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של AMD תהיה נמוכה מ-44.7%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "MKS",
+   "name": "MKS Instruments",
+   "tier": "subsystems",
+   "stage": "תת-מערכות",
+   "stage_rhythm": "הזמנות קצרות · אספקה תוך 20 עד 30 יום · מגבירות את התנודות של יצרני הציוד",
+   "suppliers": [],
+   "customers": [
+    "Lam Research",
+    "Applied Materials"
+   ],
+   "see": {
+    "growth_pct": 43.0
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 43.0,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "bf33a2c388f29f75",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [],
+   "show": false,
+   "id": "growth:MKS",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "MKS Instruments: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של MKS Instruments גדלו ב-43.0% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"תת-מערכות\": הזמנות קצרות · אספקה תוך 20 עד 30 יום · מגבירות את התנודות של יצרני הציוד.",
+    "who": "אם ההזמנות של MKS Instruments יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: Lam Research, Applied Materials.",
+    "refute": "צמיחה של 43.0% ומעלה גם בעוד שנה. ",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של MKS Instruments תהיה נמוכה מ-43.0%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "IBIDEN",
+   "name": "Ibiden",
+   "tier": "materials",
+   "stage": "חומרי גלם",
+   "stage_rhythm": "חוזים של שלוש שנים ויותר · המחיר קבוע בחוזה · האיתות מגיע באיחור של חצי שנה",
+   "suppliers": [
+    "Ajinomoto"
+   ],
+   "customers": [
+    "Intel",
+    "Nvidia"
+   ],
+   "see": {
+    "growth_pct": 42.1
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 42.1,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "524d977bc5946f6e",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "סין אסרה יצוא הליום",
+     "detail": "האיסור נכנס לתוקף מיידית ב-10 ביולי 2026, בזמן מחסור עולמי.",
+     "status": "בתוקף",
+     "source": "HELIUM"
+    },
+    {
+     "title": "השעיית האיסור הסיני על יצוא גליום וגרמניום לארה\"ב",
+     "detail": "ההשעיה בתוקף עד 27 בנובמבר 2026. אם לא תוארך, האיסור חוזר.",
+     "status": "מסתיים בקרוב",
+     "source": "GAGE"
+    },
+    {
+     "title": "SK מוכרת את יצרנית הפרוסות SK Siltron ל-Doosan",
+     "detail": "ההסכם נחתם ביולי 2026. השלמת העסקה לא אומתה.",
+     "status": "נחתם",
+     "source": "SILTRON"
+    }
+   ],
+   "show": false,
+   "id": "growth:IBIDEN",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Ibiden: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Ibiden גדלו ב-42.1% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"חומרי גלם\": חוזים של שלוש שנים ויותר · המחיר קבוע בחוזה · האיתות מגיע באיחור של חצי שנה.",
+    "who": "אם ההזמנות של Ibiden יאטו, הספקים ירגישו ראשונים: Ajinomoto. הלקוחות: Intel, Nvidia.",
+    "refute": "צמיחה של 42.1% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: סין אסרה יצוא הליום (בתוקף). השעיית האיסור הסיני על יצוא גליום וגרמניום לארה\"ב (מסתיים בקרוב). SK מוכרת את יצרנית הפרוסות SK Siltron ל-Doosan (נחתם).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Ibiden תהיה נמוכה מ-42.1%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "HONHAI",
+   "name": "Hon Hai (Foxconn)",
+   "tier": "systems",
+   "stage": "מערכות ולקוחות קצה",
+   "stage_rhythm": "השקות שנתיות · רבעון החגים · תקציבי ענן רבעוניים",
+   "suppliers": [
+    "Nvidia"
+   ],
+   "customers": [
+    "Nvidia",
+    "Apple"
+   ],
+   "see": {
+    "growth_pct": 40.8
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 40.8,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "2daa8599af73f938",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [],
+   "show": false,
+   "id": "growth:HONHAI",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Hon Hai (Foxconn): קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Hon Hai (Foxconn) גדלו ב-40.8% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"מערכות ולקוחות קצה\": השקות שנתיות · רבעון החגים · תקציבי ענן רבעוניים.",
+    "who": "אם ההזמנות של Hon Hai (Foxconn) יאטו, הספקים ירגישו ראשונים: Nvidia. הלקוחות: Nvidia, Apple.",
+    "refute": "צמיחה של 40.8% ומעלה גם בעוד שנה. ",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Hon Hai (Foxconn) תהיה נמוכה מ-40.8%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "FORMFACTOR",
+   "name": "FormFactor",
+   "tier": "equipment",
+   "stage": "ציוד ייצור",
+   "stage_rhythm": "הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות",
+   "suppliers": [],
+   "customers": [
+    "SK hynix",
+    "Intel"
+   ],
+   "see": {
+    "growth_pct": 38.4
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 38.4,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "21be15cf5bbcd554",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הביקוש למכונות ליתוגרפיה גדול מההיצע",
+     "detail": "לקוחות של ASML מזמינים כבר ל-2028.",
+     "status": "נמשך",
+     "source": "TI-ASML"
+    }
+   ],
+   "show": false,
+   "id": "growth:FORMFACTOR",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "FormFactor: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של FormFactor גדלו ב-38.4% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ציוד ייצור\": הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות.",
+    "who": "אם ההזמנות של FormFactor יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: SK hynix, Intel.",
+    "refute": "צמיחה של 38.4% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הביקוש למכונות ליתוגרפיה גדול מההיצע (נמשך).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של FormFactor תהיה נמוכה מ-38.4%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "ICHOR",
+   "name": "Ichor",
+   "tier": "subsystems",
+   "stage": "תת-מערכות",
+   "stage_rhythm": "הזמנות קצרות · אספקה תוך 20 עד 30 יום · מגבירות את התנודות של יצרני הציוד",
+   "suppliers": [],
+   "customers": [
+    "Applied Materials",
+    "Lam Research",
+    "ASML"
+   ],
+   "see": {
+    "growth_pct": 37.4
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 37.4,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "a4ac70f50c019151",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [],
+   "show": false,
+   "id": "growth:ICHOR",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Ichor: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Ichor גדלו ב-37.4% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"תת-מערכות\": הזמנות קצרות · אספקה תוך 20 עד 30 יום · מגבירות את התנודות של יצרני הציוד.",
+    "who": "אם ההזמנות של Ichor יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: Applied Materials, Lam Research, ASML.",
+    "refute": "צמיחה של 37.4% ומעלה גם בעוד שנה. ",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Ichor תהיה נמוכה מ-37.4%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "MRVL",
+   "name": "Marvell",
+   "tier": "design",
+   "stage": "תכנון שבבים",
+   "stage_rhythm": "מתחייבות לספקים שנה מראש · הלקוחות מבטלים בהתראה קצרה · דור חדש כל שנה",
+   "suppliers": [
+    "TSMC"
+   ],
+   "customers": [],
+   "see": {
+    "growth_pct": 36.5
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 36.5,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "8e8b4b9a144c9cd3",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [],
+   "show": false,
+   "id": "growth:MRVL",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Marvell: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Marvell גדלו ב-36.5% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"תכנון שבבים\": מתחייבות לספקים שנה מראש · הלקוחות מבטלים בהתראה קצרה · דור חדש כל שנה.",
+    "who": "אם ההזמנות של Marvell יאטו, הספקים ירגישו ראשונים: TSMC. הלקוחות: לא מופו.",
+    "refute": "צמיחה של 36.5% ומעלה גם בעוד שנה. ",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Marvell תהיה נמוכה מ-36.5%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "SOULBRAIN",
+   "name": "Soulbrain",
+   "tier": "materials",
+   "stage": "חומרי גלם",
+   "stage_rhythm": "חוזים של שלוש שנים ויותר · המחיר קבוע בחוזה · האיתות מגיע באיחור של חצי שנה",
+   "suppliers": [],
+   "customers": [
+    "Samsung Electronics"
+   ],
+   "see": {
+    "growth_pct": 36.3
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 36.3,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "8e9e8b58bf93144e",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "סין אסרה יצוא הליום",
+     "detail": "האיסור נכנס לתוקף מיידית ב-10 ביולי 2026, בזמן מחסור עולמי.",
+     "status": "בתוקף",
+     "source": "HELIUM"
+    },
+    {
+     "title": "השעיית האיסור הסיני על יצוא גליום וגרמניום לארה\"ב",
+     "detail": "ההשעיה בתוקף עד 27 בנובמבר 2026. אם לא תוארך, האיסור חוזר.",
+     "status": "מסתיים בקרוב",
+     "source": "GAGE"
+    },
+    {
+     "title": "SK מוכרת את יצרנית הפרוסות SK Siltron ל-Doosan",
+     "detail": "ההסכם נחתם ביולי 2026. השלמת העסקה לא אומתה.",
+     "status": "נחתם",
+     "source": "SILTRON"
+    }
+   ],
+   "show": false,
+   "id": "growth:SOULBRAIN",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Soulbrain: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Soulbrain גדלו ב-36.3% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"חומרי גלם\": חוזים של שלוש שנים ויותר · המחיר קבוע בחוזה · האיתות מגיע באיחור של חצי שנה.",
+    "who": "אם ההזמנות של Soulbrain יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: Samsung Electronics.",
+    "refute": "צמיחה של 36.3% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: סין אסרה יצוא הליום (בתוקף). השעיית האיסור הסיני על יצוא גליום וגרמניום לארה\"ב (מסתיים בקרוב). SK מוכרת את יצרנית הפרוסות SK Siltron ל-Doosan (נחתם).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Soulbrain תהיה נמוכה מ-36.3%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "SMIC",
+   "name": "SMIC",
+   "tier": "manufacturing",
+   "stage": "ייצור שבבים",
+   "stage_rhythm": "14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר",
+   "suppliers": [
+    "Axcelis"
+   ],
+   "customers": [],
+   "see": {
+    "growth_pct": 36.1
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 36.1,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "d74d61bd01537706",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הסכסוך המשפטי על Nexperia",
+     "detail": "הצו ההולנדי הושעה בנובמבר 2025, אבל ההליכים נמשכים.",
+     "status": "פתוח",
+     "source": "NEXP"
+    },
+    {
+     "title": "זיכרון HBM נמכר מראש לשנים קדימה",
+     "detail": "SK hynix דיווחה שכמעט כל הקיבולת שלה מכורה עד 2029.",
+     "status": "נמשך",
+     "source": "SKH"
+    },
+    {
+     "title": "TSMC הגדילה את תוכנית ההשקעות ל-2026",
+     "detail": "התחזית עלתה מ-52 עד 56 מיליארד דולר ל-60 עד 64 מיליארד דולר.",
+     "status": "בביצוע",
+     "source": "TSM"
+    }
+   ],
+   "show": false,
+   "id": "growth:SMIC",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "SMIC: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של SMIC גדלו ב-36.1% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ייצור שבבים\": 14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר.",
+    "who": "אם ההזמנות של SMIC יאטו, הספקים ירגישו ראשונים: Axcelis. הלקוחות: לא מופו.",
+    "refute": "צמיחה של 36.1% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הסכסוך המשפטי על Nexperia (פתוח). זיכרון HBM נמכר מראש לשנים קדימה (נמשך). TSMC הגדילה את תוכנית ההשקעות ל-2026 (בביצוע).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של SMIC תהיה נמוכה מ-36.1%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "SCREEN",
+   "name": "Screen Holdings",
+   "tier": "equipment",
+   "stage": "ציוד ייצור",
+   "stage_rhythm": "הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות",
+   "suppliers": [],
+   "customers": [
+    "TSMC"
+   ],
+   "see": {
+    "growth_pct": 34.8
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 34.8,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "706de2f3b0dc5c50",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הביקוש למכונות ליתוגרפיה גדול מההיצע",
+     "detail": "לקוחות של ASML מזמינים כבר ל-2028.",
+     "status": "נמשך",
+     "source": "TI-ASML"
+    }
+   ],
+   "show": false,
+   "id": "growth:SCREEN",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Screen Holdings: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Screen Holdings גדלו ב-34.8% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ציוד ייצור\": הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות.",
+    "who": "אם ההזמנות של Screen Holdings יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: TSMC.",
+    "refute": "צמיחה של 34.8% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הביקוש למכונות ליתוגרפיה גדול מההיצע (נמשך).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Screen Holdings תהיה נמוכה מ-34.8%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "TOWER",
+   "name": "Tower Semiconductor",
+   "tier": "manufacturing",
+   "stage": "ייצור שבבים",
+   "stage_rhythm": "14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר",
+   "suppliers": [],
+   "customers": [],
+   "see": {
+    "growth_pct": 33.0
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 33.0,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "281dd85a974e227d",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הסכסוך המשפטי על Nexperia",
+     "detail": "הצו ההולנדי הושעה בנובמבר 2025, אבל ההליכים נמשכים.",
+     "status": "פתוח",
+     "source": "NEXP"
+    },
+    {
+     "title": "זיכרון HBM נמכר מראש לשנים קדימה",
+     "detail": "SK hynix דיווחה שכמעט כל הקיבולת שלה מכורה עד 2029.",
+     "status": "נמשך",
+     "source": "SKH"
+    },
+    {
+     "title": "TSMC הגדילה את תוכנית ההשקעות ל-2026",
+     "detail": "התחזית עלתה מ-52 עד 56 מיליארד דולר ל-60 עד 64 מיליארד דולר.",
+     "status": "בביצוע",
+     "source": "TSM"
+    }
+   ],
+   "show": false,
+   "id": "growth:TOWER",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Tower Semiconductor: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Tower Semiconductor גדלו ב-33.0% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ייצור שבבים\": 14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר.",
+    "who": "אם ההזמנות של Tower Semiconductor יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: לא מופו.",
+    "refute": "צמיחה של 33.0% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הסכסוך המשפטי על Nexperia (פתוח). זיכרון HBM נמכר מראש לשנים קדימה (נמשך). TSMC הגדילה את תוכנית ההשקעות ל-2026 (בביצוע).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Tower Semiconductor תהיה נמוכה מ-33.0%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "RENESAS",
+   "name": "Renesas",
+   "tier": "manufacturing",
+   "stage": "ייצור שבבים",
+   "stage_rhythm": "14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר",
+   "suppliers": [],
+   "customers": [
+    "Apple",
+    "Toyota",
+    "Nissan",
+    "Honda"
+   ],
+   "see": {
+    "growth_pct": 30.0
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 30.0,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "a869d5dc240b227a",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הסכסוך המשפטי על Nexperia",
+     "detail": "הצו ההולנדי הושעה בנובמבר 2025, אבל ההליכים נמשכים.",
+     "status": "פתוח",
+     "source": "NEXP"
+    },
+    {
+     "title": "זיכרון HBM נמכר מראש לשנים קדימה",
+     "detail": "SK hynix דיווחה שכמעט כל הקיבולת שלה מכורה עד 2029.",
+     "status": "נמשך",
+     "source": "SKH"
+    },
+    {
+     "title": "TSMC הגדילה את תוכנית ההשקעות ל-2026",
+     "detail": "התחזית עלתה מ-52 עד 56 מיליארד דולר ל-60 עד 64 מיליארד דולר.",
+     "status": "בביצוע",
+     "source": "TSM"
+    }
+   ],
+   "show": false,
+   "id": "growth:RENESAS",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Renesas: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Renesas גדלו ב-30.0% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ייצור שבבים\": 14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר.",
+    "who": "אם ההזמנות של Renesas יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: Apple, Toyota, Nissan, Honda.",
+    "refute": "צמיחה של 30.0% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הסכסוך המשפטי על Nexperia (פתוח). זיכרון HBM נמכר מראש לשנים קדימה (נמשך). TSMC הגדילה את תוכנית ההשקעות ל-2026 (בביצוע).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Renesas תהיה נמוכה מ-30.0%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "KLA",
+   "name": "KLA",
+   "tier": "equipment",
+   "stage": "ציוד ייצור",
+   "stage_rhythm": "הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות",
+   "suppliers": [],
+   "customers": [
+    "TSMC",
+    "Samsung Electronics"
+   ],
+   "see": {
+    "growth_pct": 28.9
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 28.9,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "d0f5dc3d2bb94980",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הביקוש למכונות ליתוגרפיה גדול מההיצע",
+     "detail": "לקוחות של ASML מזמינים כבר ל-2028.",
+     "status": "נמשך",
+     "source": "TI-ASML"
+    }
+   ],
+   "show": false,
+   "id": "growth:KLA",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "KLA: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של KLA גדלו ב-28.9% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ציוד ייצור\": הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות.",
+    "who": "אם ההזמנות של KLA יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: TSMC, Samsung Electronics.",
+    "refute": "צמיחה של 28.9% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הביקוש למכונות ליתוגרפיה גדול מההיצע (נמשך).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של KLA תהיה נמוכה מ-28.9%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "NOVA",
+   "name": "Nova",
+   "tier": "equipment",
+   "stage": "ציוד ייצור",
+   "stage_rhythm": "הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות",
+   "suppliers": [],
+   "customers": [
+    "TSMC",
+    "Samsung Electronics"
+   ],
+   "see": {
+    "growth_pct": 28.2
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 28.2,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "06201d701c54bfee",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הביקוש למכונות ליתוגרפיה גדול מההיצע",
+     "detail": "לקוחות של ASML מזמינים כבר ל-2028.",
+     "status": "נמשך",
+     "source": "TI-ASML"
+    }
+   ],
+   "show": false,
+   "id": "growth:NOVA",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Nova: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Nova גדלו ב-28.2% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ציוד ייצור\": הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות.",
+    "who": "אם ההזמנות של Nova יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: TSMC, Samsung Electronics.",
+    "refute": "צמיחה של 28.2% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הביקוש למכונות ליתוגרפיה גדול מההיצע (נמשך).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Nova תהיה נמוכה מ-28.2%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "CAMTEK",
+   "name": "Camtek",
+   "tier": "equipment",
+   "stage": "ציוד ייצור",
+   "stage_rhythm": "הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות",
+   "suppliers": [],
+   "customers": [
+    "SK hynix",
+    "ASE Technology"
+   ],
+   "see": {
+    "growth_pct": 28.0
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 28.0,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "cd84d5cdab41a5fb",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הביקוש למכונות ליתוגרפיה גדול מההיצע",
+     "detail": "לקוחות של ASML מזמינים כבר ל-2028.",
+     "status": "נמשך",
+     "source": "TI-ASML"
+    }
+   ],
+   "show": false,
+   "id": "growth:CAMTEK",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Camtek: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Camtek גדלו ב-28.0% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ציוד ייצור\": הזמנה, צבר, משלוח · אספקה של 12 עד 18 חודשים · תלוי בתוכנית ההשקעות של הלקוחות.",
+    "who": "אם ההזמנות של Camtek יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: SK hynix, ASE Technology.",
+    "refute": "צמיחה של 28.0% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הביקוש למכונות ליתוגרפיה גדול מההיצע (נמשך).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Camtek תהיה נמוכה מ-28.0%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "TI",
+   "name": "Texas Instruments",
+   "tier": "manufacturing",
+   "stage": "ייצור שבבים",
+   "stage_rhythm": "14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר",
+   "suppliers": [],
+   "customers": [
+    "Apple"
+   ],
+   "see": {
+    "growth_pct": 27.7
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 27.7,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "61fbe3b302adedbf",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הסכסוך המשפטי על Nexperia",
+     "detail": "הצו ההולנדי הושעה בנובמבר 2025, אבל ההליכים נמשכים.",
+     "status": "פתוח",
+     "source": "NEXP"
+    },
+    {
+     "title": "זיכרון HBM נמכר מראש לשנים קדימה",
+     "detail": "SK hynix דיווחה שכמעט כל הקיבולת שלה מכורה עד 2029.",
+     "status": "נמשך",
+     "source": "SKH"
+    },
+    {
+     "title": "TSMC הגדילה את תוכנית ההשקעות ל-2026",
+     "detail": "התחזית עלתה מ-52 עד 56 מיליארד דולר ל-60 עד 64 מיליארד דולר.",
+     "status": "בביצוע",
+     "source": "TSM"
+    }
+   ],
+   "show": false,
+   "id": "growth:TI",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Texas Instruments: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Texas Instruments גדלו ב-27.7% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ייצור שבבים\": 14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר.",
+    "who": "אם ההזמנות של Texas Instruments יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: Apple.",
+    "refute": "צמיחה של 27.7% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הסכסוך המשפטי על Nexperia (פתוח). זיכרון HBM נמכר מראש לשנים קדימה (נמשך). TSMC הגדילה את תוכנית ההשקעות ל-2026 (בביצוע).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Texas Instruments תהיה נמוכה מ-27.7%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "VIS",
+   "name": "Vanguard International",
+   "tier": "manufacturing",
+   "stage": "ייצור שבבים",
+   "stage_rhythm": "14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר",
+   "suppliers": [],
+   "customers": [],
+   "see": {
+    "growth_pct": 27.2
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 27.2,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "ed4d61f6dfa34490",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הסכסוך המשפטי על Nexperia",
+     "detail": "הצו ההולנדי הושעה בנובמבר 2025, אבל ההליכים נמשכים.",
+     "status": "פתוח",
+     "source": "NEXP"
+    },
+    {
+     "title": "זיכרון HBM נמכר מראש לשנים קדימה",
+     "detail": "SK hynix דיווחה שכמעט כל הקיבולת שלה מכורה עד 2029.",
+     "status": "נמשך",
+     "source": "SKH"
+    },
+    {
+     "title": "TSMC הגדילה את תוכנית ההשקעות ל-2026",
+     "detail": "התחזית עלתה מ-52 עד 56 מיליארד דולר ל-60 עד 64 מיליארד דולר.",
+     "status": "בביצוע",
+     "source": "TSM"
+    }
+   ],
+   "show": false,
+   "id": "growth:VIS",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Vanguard International: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Vanguard International גדלו ב-27.2% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ייצור שבבים\": 14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר.",
+    "who": "אם ההזמנות של Vanguard International יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: לא מופו.",
+    "refute": "צמיחה של 27.2% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הסכסוך המשפטי על Nexperia (פתוח). זיכרון HBM נמכר מראש לשנים קדימה (נמשך). TSMC הגדילה את תוכנית ההשקעות ל-2026 (בביצוע).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Vanguard International תהיה נמוכה מ-27.2%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "TOK",
+   "name": "Tokyo Ohka Kogyo",
+   "tier": "materials",
+   "stage": "חומרי גלם",
+   "stage_rhythm": "חוזים של שלוש שנים ויותר · המחיר קבוע בחוזה · האיתות מגיע באיחור של חצי שנה",
+   "suppliers": [],
+   "customers": [
+    "TSMC",
+    "SK hynix"
+   ],
+   "see": {
+    "growth_pct": 26.6
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 26.6,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "fccee84ab0fa86a0",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "סין אסרה יצוא הליום",
+     "detail": "האיסור נכנס לתוקף מיידית ב-10 ביולי 2026, בזמן מחסור עולמי.",
+     "status": "בתוקף",
+     "source": "HELIUM"
+    },
+    {
+     "title": "השעיית האיסור הסיני על יצוא גליום וגרמניום לארה\"ב",
+     "detail": "ההשעיה בתוקף עד 27 בנובמבר 2026. אם לא תוארך, האיסור חוזר.",
+     "status": "מסתיים בקרוב",
+     "source": "GAGE"
+    },
+    {
+     "title": "SK מוכרת את יצרנית הפרוסות SK Siltron ל-Doosan",
+     "detail": "ההסכם נחתם ביולי 2026. השלמת העסקה לא אומתה.",
+     "status": "נחתם",
+     "source": "SILTRON"
+    }
+   ],
+   "show": false,
+   "id": "growth:TOK",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Tokyo Ohka Kogyo: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Tokyo Ohka Kogyo גדלו ב-26.6% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"חומרי גלם\": חוזים של שלוש שנים ויותר · המחיר קבוע בחוזה · האיתות מגיע באיחור של חצי שנה.",
+    "who": "אם ההזמנות של Tokyo Ohka Kogyo יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: TSMC, SK hynix.",
+    "refute": "צמיחה של 26.6% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: סין אסרה יצוא הליום (בתוקף). השעיית האיסור הסיני על יצוא גליום וגרמניום לארה\"ב (מסתיים בקרוב). SK מוכרת את יצרנית הפרוסות SK Siltron ל-Doosan (נחתם).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Tokyo Ohka Kogyo תהיה נמוכה מ-26.6%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "META",
+   "name": "Meta",
+   "tier": "systems",
+   "stage": "מערכות ולקוחות קצה",
+   "stage_rhythm": "השקות שנתיות · רבעון החגים · תקציבי ענן רבעוניים",
+   "suppliers": [
+    "Nvidia"
+   ],
+   "customers": [],
+   "see": {
+    "growth_pct": 26.1
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 26.1,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "7bc82007ef71a624",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [],
+   "show": false,
+   "id": "growth:META",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "Meta: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של Meta גדלו ב-26.1% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"מערכות ולקוחות קצה\": השקות שנתיות · רבעון החגים · תקציבי ענן רבעוניים.",
+    "who": "אם ההזמנות של Meta יאטו, הספקים ירגישו ראשונים: Nvidia. הלקוחות: לא מופו.",
+    "refute": "צמיחה של 26.1% ומעלה גם בעוד שנה. ",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של Meta תהיה נמוכה מ-26.1%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  },
+  {
+   "detector": "growth",
+   "company": "UMC",
+   "name": "UMC",
+   "tier": "manufacturing",
+   "stage": "ייצור שבבים",
+   "stage_rhythm": "14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר",
+   "suppliers": [],
+   "customers": [
+    "AMD"
+   ],
+   "see": {
+    "growth_pct": 25.6
+   },
+   "past": {
+    "bucket_lo": 25,
+    "bucket_hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1,
+    "median_later": 16.0,
+    "plain_pct": 46.2,
+    "source": "SEC quarterly revenue, 30 US-listed chip companies"
+   },
+   "strength": "strong",
+   "claim": {
+    "metric": "revenue_growth_pct",
+    "op": "<",
+    "value": 25.6,
+    "weeks": 52,
+    "due": "2027-11-12",
+    "ledger": {
+     "hash": "db9efec6d482c437",
+     "created": "2026-11-12",
+     "due": "2027-11-12"
+    }
+   },
+   "refute": [
+    {
+     "title": "הסכסוך המשפטי על Nexperia",
+     "detail": "הצו ההולנדי הושעה בנובמבר 2025, אבל ההליכים נמשכים.",
+     "status": "פתוח",
+     "source": "NEXP"
+    },
+    {
+     "title": "זיכרון HBM נמכר מראש לשנים קדימה",
+     "detail": "SK hynix דיווחה שכמעט כל הקיבולת שלה מכורה עד 2029.",
+     "status": "נמשך",
+     "source": "SKH"
+    },
+    {
+     "title": "TSMC הגדילה את תוכנית ההשקעות ל-2026",
+     "detail": "התחזית עלתה מ-52 עד 56 מיליארד דולר ל-60 עד 64 מיליארד דולר.",
+     "status": "בביצוע",
+     "source": "TSM"
+    }
+   ],
+   "show": false,
+   "id": "growth:UMC",
+   "as_of": "2026-11-13",
+   "text": {
+    "title": "UMC: קצב הצמיחה הזה כנראה לא יחזיק",
+    "see": "ההכנסות של UMC גדלו ב-25.6% לעומת התקופה המקבילה בשנה שעברה.",
+    "past": "מצאנו 140 מקרים דומים בעבר, ב-26 חברות שבבים אמריקאיות שצמחו ב-25% ומעלה. ב-81.4% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-52.1% היא ירדה ליותר מחצי. הצמיחה החציונית שנה אחר כך: 16.0%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-46.2%.",
+    "why": "צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה. הקצב בשלב \"ייצור שבבים\": 14 עד 20 שבועות לשבב מתקדם · הכנסות מתפרסמות כל חודש · ההשקעות נקבעות בינואר.",
+    "who": "אם ההזמנות של UMC יאטו, הספקים ירגישו ראשונים: לא מופו. הלקוחות: AMD.",
+    "refute": "צמיחה של 25.6% ומעלה גם בעוד שנה. שינויים פתוחים בשלב הזה: הסכסוך המשפטי על Nexperia (פתוח). זיכרון HBM נמכר מראש לשנים קדימה (נמשך). TSMC הגדילה את תוכנית ההשקעות ל-2026 (בביצוע).",
+    "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
+    "claim": "עד 12.11.2027: צמיחת ההכנסות של UMC תהיה נמוכה מ-25.6%.",
+    "strength": "ההיסטוריה ברורה"
+   },
+   "written_by": "template"
+  }
+ ]
+}
