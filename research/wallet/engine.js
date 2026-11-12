@@ -187,14 +187,14 @@
             const trial = estimate(i, r.ticker, sh); sh *= want / Math.max(1, trial);
           }
           sell(i, r.ticker, sh, `פקודה: ההשקעה ב-${p.name} הגיעה לפי ${P.multiple || 2}. הקרן חזרה אליך`, true);
-          r.active = false;
+          r.active = false; r.done = px.dates[i];
           for (const o of Object.values(S.rules)) if (o.ticker === r.ticker && o.kind === "trailing_stop" && o.params && o.params.after === "principal") { o.trackPeak = true; o.peak = posValue(r.ticker, i); }
         } else if (r.kind === "trailing_stop") {
-          sell(i, r.ticker, p.shares, `פקודה: ${p.name} ירדה ${P.pct || 25}% מהשיא. נמכר הכול`, true); r.active = false;
+          sell(i, r.ticker, p.shares, `פקודה: ${p.name} ירדה ${P.pct || 25}% מהשיא. נמכר הכול`, true); r.active = false; r.done = px.dates[i];
         } else if (r.kind === "stop_loss") {
-          sell(i, r.ticker, p.shares, `פקודה: ${p.name} ירדה ${P.pct || 20}% ממה שהשקעת. נמכר הכול`, true); r.active = false;
+          sell(i, r.ticker, p.shares, `פקודה: ${p.name} ירדה ${P.pct || 20}% ממה שהשקעת. נמכר הכול`, true); r.active = false; r.done = px.dates[i];
         } else if (r.kind === "take_profit") {
-          sell(i, r.ticker, p.shares, `פקודה: ההשקעה ב-${p.name} הגיעה לפי ${P.multiple || 2}. נמכר הכול`, true); r.active = false;
+          sell(i, r.ticker, p.shares, `פקודה: ההשקעה ב-${p.name} הגיעה לפי ${P.multiple || 2}. נמכר הכול`, true); r.active = false; r.done = px.dates[i];
         } else if (r.kind === "sweep_profit") {
           const sh = (P.amount || 1000) / (pr * fx);
           sell(i, r.ticker, sh, `פקודה: ${round2(P.amount || 1000)} ₪ רווח מ-${p.name} עברו לקופת הרווחים`, true);
@@ -259,7 +259,7 @@
         tax_if_sold_today: round2(Math.max(0, openGain) * tax.rate), fees: Object.fromEntries(Object.entries(S.fee).map(([a, b]) => [a, round2(b)])),
         fees_total: round2(fees_total) },
       positions, log: S.log, daily,
-      rules: Object.values(S.rules).map((r) => ({ id: r.id, ticker: r.ticker, kind: r.kind, params: r.params, active: r.active }))
+      rules: Object.values(S.rules).map((r) => ({ id: r.id, ticker: r.ticker, kind: r.kind, params: r.params, active: r.active, done: r.done || null }))
     };
   }
 
