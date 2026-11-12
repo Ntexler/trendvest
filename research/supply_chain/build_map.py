@@ -56,6 +56,12 @@ def build() -> dict:
     news_he = json.loads((G.DATA / "market.json").read_text()).get("news_he", {})
     wres_path = G.RESULTS / "event_company_weighted.csv"
     wres = pd.read_csv(wres_path) if wres_path.exists() else pd.DataFrame()
+    from .run import all_prices
+    daily = all_prices(companies)
+    fc_path = HERE / "ledger" / G.MARKET / "forecasts.jsonl"
+    forecasts = [json.loads(x) for x in fc_path.read_text().splitlines() if x.strip()] if fc_path.exists() else []
+    sc_path = G.RESULTS / "screen.json"
+    candidates = [k for k, v in json.loads(sc_path.read_text()).items() if v["candidate"]] if sc_path.exists() else []
     nodes = []
     for cid, c in chain.iterrows():
         p = profiles.get(cid, {"info": {}, "holders": [], "officers": [], "insiders": []})
@@ -91,7 +97,10 @@ def build() -> dict:
             for _, r in wres[wres.company == cid].iterrows():
                 if r["event"] in ev:
                     ev[r["event"]]["w"] = r["role"]
-        nodes.append({"id": cid, "name": c["name"], "ticker": c["ticker"], "country": c["country"],
+        d = daily[c["ticker"]].dropna() if c["ticker"] in daily else pd.Series(dtype=float)
+        last = {"p": round(float(d.iloc[-1]), 2), "d": str(d.index[-1].date()), "day": round(float(d.iloc[-1] / d.iloc[-2] - 1) * 100, 1),
+                "cur": p["info"].get("currency") or ""} if len(d) > 1 else None
+        nodes.append({"id": cid, "last": last, "name": c["name"], "ticker": c["ticker"], "country": c["country"],
                       "tier": c["tier"], "segment": c["segment"], "sites": c["sites"],
                       "israel": c["country"] == "IL" or bool(il.search(str(c["sites"]))),
                       "info": p["info"], "holders": hs, "people": ppl, "ev": ev, "pulse": pulse,
@@ -130,7 +139,9 @@ def build() -> dict:
     content["sources"] = {**content["sources"], **market.pop("sources")}
     return {"tiers": TIERS, "nodes": nodes, "edges": E, "events": EV, "agg": agg, "market": market,
             "base": base, "baskets": json.loads(bp.read_text()) if (bp := G.RESULTS / "builder.json").exists() else None,
-            "dates": prices["dates"], "mkt": prices["series"]["_MARKET"], **content}
+            "forecasts": [{k: f[k] for k in ("created_utc", "source", "target", "shock_date", "shock_z", "predicted_direction",
+                                             "history_same_direction_rate", "hash")} for f in forecasts],
+            "candidates": candidates, "dates": prices["dates"], "mkt": prices["series"]["_MARKET"], **content}
 
 
 def main() -> None:

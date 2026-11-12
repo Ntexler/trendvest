@@ -73,6 +73,11 @@ h1 { font-size: 40px; font-weight: 800; line-height: 1.1; margin: 0; overflow-wr
 .nx details { font-size: 14.5px } .nx summary { cursor: pointer; color: var(--accent); font-size: 14px } .nx dl { margin: 10px 0 0; display: grid; gap: 10px } .nx dt { font-size: 12.5px; color: var(--muted) } .nx dd { margin: 0 }
 .nx .log { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px }
 .rows { display: grid; grid-template-columns: 1fr auto auto; gap: 6px 14px; font-size: 14px; align-items: baseline } .rows button { font: inherit; color: var(--fg); background: none; border: 0; padding: 0; cursor: pointer; text-align: start }
+.price { display: flex; gap: 10px 14px; align-items: baseline; flex-wrap: wrap } .price .p { font: 800 34px var(--mono); direction: ltr; unicode-bidi: isolate } .price small { color: var(--muted); font-size: 13px }
+.chips { display: flex; gap: 6px; flex-wrap: wrap } .chips button { font-size: 13.5px; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer } .chips button[aria-pressed=true] { color: var(--bg); background: var(--ink); border-color: var(--ink) }
+.feed { display: flex; flex-direction: column } .fi { display: grid; grid-template-columns: 62px 1fr; gap: 4px 12px; padding: 14px 0; border-top: 1px solid var(--line) } .fi:first-child { border-top: 0; padding-top: 0 }
+.fi time { font: 500 12.5px var(--mono); color: var(--muted); direction: ltr; text-align: end; padding-top: 2px } .fi .k { font-size: 12.5px; font-weight: 500; color: var(--accent) } .fi .b { display: flex; flex-direction: column; gap: 3px; min-width: 0 }
+.fi .raw { direction: ltr; text-align: left; unicode-bidi: plaintext; font-size: 14.5px } .fi small { font-size: 12.5px; color: var(--muted); overflow-wrap: anywhere } .fi.soon .k { color: var(--flat) } .fhead { font-size: 13px; color: var(--muted); padding: 14px 0 0 }
 </style>
 
 <div class="wrap">
@@ -133,7 +138,7 @@ const evName = id => { const h = M.history.find(x => x[5] === id); return h ? [h
 const roleOf = (n, id) => n.ev[id] && (n.ev[id].w || n.ev[id].role);
 D.edges.forEach(e => { e.material = e.crit || Number(e.share) >= 10; });
 const byW = (a, b) => (b.material - a.material) || (Number(b.share || 0) - Number(a.share || 0));
-let S = { v: "stock", co: D.nodes.some(n => n.id === "TSMC") ? "TSMC" : D.nodes[0].id, ev: (D.events.find(e => e.id === "HUALIEN2024") || D.events[0] || {}).id, level: "calm" };
+let S = { feed: "all", more: false, v: "stock", co: D.nodes.some(n => n.id === "TSMC") ? "TSMC" : D.nodes[0].id, ev: (D.events.find(e => e.id === "HUALIEN2024") || D.events[0] || {}).id, level: "calm" };
 
 /* ---------- the stock in one picture ---------- */
 function picture(n) { const K = 104, W = 680, H = 250, X0 = 14, X1 = W - 14, Y0 = 62, Y1 = H - 30;
@@ -161,7 +166,7 @@ function stock() { const nxt = ((D.inference || {}).cards || []).filter(c => c.c
   const d3 = use.map(e => n.ev[e.id].d3), d10 = use.map(e => n.ev[e.id].d10), fell = d3.filter(x => x < 0).length;
   const ch = M.changes.filter(c => c[2] === n.tier).sort((a, b) => b[5].localeCompare(a[5])).slice(0, 2), news = n.news.filter(x => x.he).slice(0, 2);
   $("page").innerHTML = `
-    <div><span class="kicker">${esc(D.stages[n.tier].title)} · <span class="num">${esc(n.ticker)}</span></span><h1>${esc(n.name)}</h1></div>
+    <div><span class="kicker">${esc(D.stages[n.tier].title)} · <span class="num">${esc(n.ticker)}</span></span><h1>${esc(n.name)}</h1>${priceLine(n)}</div>
     <p class="lead">${esc((M.plain_co || M.plain)[n.tier])} המניה ${word(y1)} בשנה האחרונה${Math.abs(gap) > 5 ? `, ${gap > 0 ? "יותר" : "פחות"} מ${M.index_name}` : `, בדומה ל${M.index_name}`}.</p>
     <div class="band"><h2>המצב במספרים</h2><div class="tiles">
       <div class="tile"><span class="big ${cls(y1)}"><i class="arrow ${cls(y1)}"></i>${sg(y1)}</span><span class="w">המניה בשנה האחרונה</span><span class="l">בשנתיים: ${sg(y2)}</span></div>
@@ -169,17 +174,11 @@ function stock() { const nxt = ((D.inference || {}).cards || []).filter(c => c.c
       ${growth != null ? `<div class="tile"><span class="big ${cls(growth)}"><i class="arrow ${cls(growth)}"></i>${sg(growth)}</span><span class="w">ההכנסות ${growth > 3 ? "צומחות" : growth < -3 ? "יורדות" : "יציבות"}</span><span class="l">לעומת התקופה המקבילה אשתקד</span></div>` : ""}
       <div class="tile"><span class="big num">${usd(i.revenueUSD)}</span><span class="w">הכנסות בשנה</span><span class="l">רווח נקי: <span class="num">${usd(i.netIncomeUSD)}</span></span></div></div></div>
     <div class="band"><h2>המניה בשנתיים האחרונות</h2><div class="pic">${picture(n)}</div></div>
+    ${feed(n)}
     ${rank != null ? `<div class="band"><h2>האם המניה יקרה?</h2><p class="say">${rank > 0.66 ? "יקרה יותר מרוב החברות בשלב שלה" : rank < 0.34 ? "זולה יותר מרוב החברות בשלב שלה" : "באמצע, ביחס לחברות בשלב שלה"}.</p>
       <div><div class="meter"><i style="left:${(rank * 100).toFixed(0)}%"></i></div><div class="ends"><span>יקרה</span><span>זולה</span></div></div>
       <span class="muted" style="font-size:13px">המשקיעים משלמים <span class="num">${pe.toFixed(0)}</span> שקלים על כל שקל של רווח שנתי. ההשוואה היא ל-${peers.length} חברות בשלב "${esc(D.stages[n.tier].title)}".</span></div>` : ""}
-    <div class="band"><h2>מי תלוי במי</h2><div class="chain3">${col(sup, e => e.s, "מספקים לה")}<span class="to">←</span><div class="me">${esc(n.name)}</div><span class="to">←</span>${col(cus, e => e.t, "קונים ממנה")}</div></div>
-    ${use.length ? `<div class="band"><h2>${hit.length ? "מה קרה למניה כשהיא נפגעה" : "מה קרה למניה כשספק או לקוח שלה נפגע"}</h2>
-      <p class="say">${fell ? `ב-${fell} מתוך ${use.length} אירועים המניה ירדה בשלושת הימים הראשונים.` : `באף אחד מ-${use.length} האירועים המניה לא ירדה בשלושת הימים הראשונים.`}</p><div class="dots">${d3.map(x => `<i class="${x < 0 ? "on" : "off"}"></i>`).join("")}</div>
-      <div class="tiles"><div class="tile"><span class="big">${sg(mean(d3), 1)}</span><span class="w">בממוצע אחרי 3 ימים</span></div><div class="tile"><span class="big">${sg(mean(d10), 1)}</span><span class="w">בממוצע אחרי 10 ימים</span></div></div>
-      <div class="more">${use.map(e => `<button class="pillbtn" data-ev="${e.id}">${esc(evName(e.id)[0])}</button>`).join("")}</div><span class="muted" style="font-size:13px">מדגם קטן. לחיצה על אירוע מראה מה קרה בו.</span></div>` : ""}
-    ${nxt.length ? `<div class="band"><h2>מה סביר שיקרה הלאה</h2><div class="now">${nxt.map(c => `<div><span>${esc(c.text.title.replace(n.name + ": ", ""))}</span><small>${esc(c.text.strength)} · ${esc(c.text.claim)}</small></div>`).join("")}</div><button class="pillbtn" data-v="next" style="align-self:flex-start">לכל המסקנות בשוק</button></div>` : ""}
-    ${ch.length + news.length ? `<div class="band"><h2>מה קורה עכשיו</h2><div class="now">${news.map(x => `<div><span>${esc(x.he)}</span><small>${esc(x.p)} · <span class="num">${esc(x.d)}</span> · <a href="${esc(x.u)}" target="_blank" rel="noopener">לידיעה המקורית</a> · סיכום שנכתב בבינה מלאכותית</small></div>`).join("")}
-      ${ch.map(c => `<div><span><b>${esc(c[3])}.</b> ${esc(c[4])}</span><small>${D.sources[c[7]] ? `<a href="${esc(D.sources[c[7]][1])}" target="_blank" rel="noopener">${esc(D.sources[c[7]][0])}</a>` : ""}${c[8] ? "" : " · לא אומת מול המקור"}</small></div>`).join("")}</div></div>` : ""}`; }
+    <div class="band"><h2>מי תלוי במי</h2><div class="chain3">${col(sup, e => e.s, "מספקים לה")}<span class="to">←</span><div class="me">${esc(n.name)}</div><span class="to">←</span>${col(cus, e => e.t, "קונים ממנה")}</div></div>`; }
 
 /* ---------- what happened, as a four-step strip ---------- */
 function eventPage() { const e = D.events.find(x => x.id === S.ev), [name, text] = evName(e.id);
@@ -225,8 +224,35 @@ function buildPage() { const B = D.baskets; if (!B) { $("page").innerHTML = '<p 
       <span class="muted" style="font-size:14px">בעשר השנים האחרונות המניות בתיק הזה עלו בממוצע <span class="num">${b.return_year}%</span> בשנה, ו-8 הגדולות <span class="num">${pop.return_year}%</span>. המספרים האלה מוטים כלפי מעלה, כי הם כוללים רק חברות ששרדו, ואינם מעידים על העתיד. מה שהתיק הזה נותן הוא פיזור, לא תשואה גבוהה יותר.</span></div>
     <p class="foot">איך נבחרו המניות: "רגוע יותר" לוקח מכל שלב את החברה שהתנדנדה הכי פחות בשנה האחרונה, ו"נועז יותר" את זו שהתנדנדה הכי הרבה. התשואות במטבע המקומי של כל מניה, בלי עמלות.</p>`; }
 
-/* ---------- what is likely next ---------- */
 const hd = d => d ? d.split("-").reverse().map(Number).join(".") : "";
+/* ---------- the stock's feed: everything we know about it, newest first ---------- */
+const KIND = { next: "מסקנה", news: "חדשות", event: "אירוע בשרשרת", change: "שינוי בשוק", report: "דוח", short: "תחזית קצרה", check: "רשימת בדיקה" };
+function feedItems(n) { const out = [], today = new Date().toISOString().slice(0, 10), I = (D.inference || {}).cards || [], nm = id => (byId[id] || {}).name || id;
+  const src = c => D.sources[c[7]] ? `<a href="${esc(D.sources[c[7]][1])}" target="_blank" rel="noopener">${esc(D.sources[c[7]][0])}</a>` : "";
+  I.filter(c => c.company === n.id).forEach(c => { out.push({ d: c.as_of > today ? today : c.as_of, k: "next", h: `<b>${esc(c.text.title.replace(n.name + ": ", ""))}.</b> ${esc(c.text.see)}`, s: `${esc(c.text.strength)} · <button class="pillbtn" data-v="next" style="font-size:12.5px;padding:0;background:none;color:var(--accent)">על מה זה נשען</button>` });
+    if (c.claim) out.push({ d: c.claim.due, k: "next", h: `ביום הזה תיבדק הטענה: ${esc(c.text.claim.replace(/^עד [\d.]+: /, ""))}`, s: "נרשמה ביומן ולא ניתנת לשינוי" }); });
+  if (D.candidates.includes(n.id)) out.push({ d: today, k: "check", h: "עוברת את ארבע הבדיקות: זולה ביחס לשלב שלה, צומחת, הלקוחות שלה צומחים, ואין סימן שהיא שבורה.", s: "זו רשימה לבדיקה, לא המלצה" });
+  D.forecasts.filter(f => f.target === n.id).forEach(f => out.push({ d: f.created_utc.slice(0, 10), k: "short", h: `תנועה חריגה אצל ${esc(nm(f.source))} ב-${hd(f.shock_date)}. נרשמה תחזית שהמניה תזוז ${f.predicted_direction === "down" ? "למטה" : "למעלה"} בחמשת ימי המסחר שאחרי.`, s: `בעבר זה קרה ב-${(f.history_same_direction_rate * 100).toFixed(0)}% מהמקרים, כמעט כמו הטלת מטבע` }));
+  D.forecasts.filter(f => f.source === n.id).slice(0, 1).forEach(f => out.push({ d: f.shock_date, k: "short", h: `תנועה חריגה במניה: ${f.shock_z > 0 ? "עלייה" : "ירידה"} חדה ביחס לשוק.`, s: "נרשמו תחזיות לחברות הקשורות" }));
+  n.news.forEach(x => out.push({ d: x.d, k: "news", h: x.he ? esc(x.he) : `<span class="raw">${esc(x.t)}</span>`, s: `${x.he ? `<span class="raw" style="font-size:12.5px">${esc(x.t)}</span> · סיכום שנכתב בבינה מלאכותית · ` : ""}${esc(x.p)} · <a href="${esc(x.u)}" target="_blank" rel="noopener">לידיעה המקורית</a>` }));
+  if (n.pulse && n.pulse.monthly) out.push({ d: n.pulse.monthly.last + "-28", k: "report", h: `הכנסות החודש: ${sg(n.pulse.monthly.yoy, 1)} לעומת אותו חודש בשנה שעברה.`, s: "דיווח חודשי לבורסה בטייוואן" });
+  M.changes.filter(c => c[2] === n.tier && /^\d{4}-\d{2}/.test(c[5])).forEach(c => out.push({ d: c[5].slice(0, 7) + "-28", m: 1, k: "change", h: `<b>${esc(c[3])}.</b> ${esc(c[4])}`, s: `${esc(c[6])}${src(c) ? " · " + src(c) : ""}${c[8] ? "" : " · לא אומת מול המקור"}` }));
+  D.events.forEach(e => { const r = roleOf(n, e.id), v = n.ev[e.id]; if (!r || r === "control" || r === "rival" || !v) return;
+    out.push({ d: v.day0, k: "event", h: `<button class="pillbtn" data-ev="${e.id}" style="padding:0;background:none;font-weight:800">${esc(evName(e.id)[0])}</button> המניה זזה ${sg(v.d3, 1)} בשלושה ימים, מעבר לתנועת השוק.`, s: r === "hit" ? "החברה נפגעה ישירות" : "ספק או לקוח שלה נפגע" }); });
+  return out.sort((a, b) => b.d.localeCompare(a.d)); }
+function feed(n) { const all = feedItems(n), today = new Date().toISOString().slice(0, 10), kinds = [...new Set(all.map(x => x.k))];
+  const f = kinds.includes(S.feed) ? S.feed : "all", items = all.filter(x => f === "all" || x.k === f), soon = items.filter(x => x.d > today).reverse(), past = items.filter(x => x.d <= today);
+  const row = (x, c = "") => `<div class="fi ${c}"><time>${x.m ? hd(x.d.slice(0, 7)) : hd(x.d)}</time><div class="b"><span class="k">${KIND[x.k]}</span><span>${x.h}</span><small>${x.s}</small></div></div>`;
+  const cut = S.more ? past : past.slice(0, 8);
+  return `<div class="band" id="feed"><h2>הפיד של ${esc(n.name)}</h2>
+    ${kinds.length > 1 ? `<div class="chips"><button data-feed="all" aria-pressed="${f === "all"}">הכול</button>${kinds.map(k => `<button data-feed="${k}" aria-pressed="${f === k}">${KIND[k]}</button>`).join("")}</div>` : ""}
+    ${all.length ? "" : '<span class="muted">עוד אין פריטים על החברה הזאת.</span>'}
+    ${soon.length ? `<div><div class="fhead" style="padding-top:0">בדרך</div><div class="feed">${soon.map(x => row(x, "soon")).join("")}</div></div>` : ""}
+    ${cut.length ? `<div>${soon.length ? '<div class="fhead">מה כבר קרה</div>' : ""}<div class="feed">${cut.map(x => row(x)).join("")}</div></div>` : ""}
+    ${past.length > cut.length ? `<button class="pillbtn" data-more="1" style="align-self:flex-start">עוד ${past.length - cut.length} פריטים</button>` : ""}</div>`; }
+function priceLine(n) { const L = n.last; if (!L) return ""; const cur = { ILA: "אגורות", GBp: "פני", USD: "$" }[L.cur] || L.cur;
+  return `<div class="price"><span class="p">${cur === "$" ? "$" : ""}${L.p.toLocaleString("en-US", { maximumFractionDigits: 2 })}</span>${cur === "$" ? "" : `<span>${esc(cur)}</span>`}<span>${sg(L.day, 1)} <span class="muted" style="font-size:13px">ביום המסחר האחרון</span></span><small>מחיר סגירה, <span class="num">${hd(L.d)}</span>. לא מחיר בזמן אמת.</small></div>`; }
+/* ---------- what is likely next ---------- */
 function ten(pct) { const k = Math.round(pct / 10); return `<span class="ten" role="img" aria-label="${k} מתוך 10">${Array.from({ length: 10 }, (_, i) => `<i class="${i < k ? "on" : ""}"></i>`).join("")}</span>`; }
 function nxCard(c) { const t = c.text, p = c.past, s = c.see; let pic = "";
   if (c.detector === "growth") { const mx = Math.max(s.growth_pct, p.median_later);
@@ -263,7 +289,9 @@ function nextPage() { const I = D.inference; if (!I || !I.cards.length) { $("pag
       <span class="muted" style="font-size:13px">כלל ההצגה: לפחות ${I.rules.min_cases} מקרים בעבר, ופער של ${I.rules.min_gap_points} נקודות אחוז לפחות מהממוצע הרגיל.</span></div>`; }
 function render() { document.querySelectorAll(".switch button").forEach(b => b.setAttribute("aria-selected", b.dataset.v === S.v)); ({ stock, event: eventPage, build: buildPage, next: nextPage })[S.v]();
  }
-document.addEventListener("click", ev => { const t = ev.target.closest("[data-v],[data-co],[data-ev],[data-level]"); if (!t) return; const d = t.dataset;
+document.addEventListener("click", ev => { const t = ev.target.closest("[data-v],[data-co],[data-ev],[data-level],[data-feed],[data-more]"); if (!t) return; const d = t.dataset;
+  if (d.feed || d.more) { if (d.feed) S.feed = d.feed; else S.more = true; const y = scrollY; render(); scrollTo({ top: y }); return; }
+  if (d.co) { S.feed = "all"; S.more = false; }
   if (d.level) { S.level = d.level; render(); return; }
   if (d.v) S.v = d.v; else if (d.co) { S.co = d.co; S.v = "stock"; } else if (d.ev) { S.ev = d.ev; S.v = "event"; } render(); scrollTo({ top: 0 }); });
 D.nodes.forEach(n => { const o = document.createElement("option"); o.value = n.name; o.label = n.ticker; $("names").appendChild(o); });
