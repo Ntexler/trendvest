@@ -113,9 +113,19 @@ sup a { font-size: 10px; color: var(--accent); text-decoration: none; margin-inl
 .wform { display: flex; flex-direction: column; gap: 10px } .fl { display: flex; flex-direction: column; gap: 4px; font-size: 13.5px; color: var(--muted) }
 .fl input, .fl select { font: inherit; font-size: 16px; color: var(--fg); background: var(--surface); border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 12px; min-width: 0 }
 .fl select, .fl input { width: 100%; max-width: 100% } .band, .why, .box, .kv span { min-width: 0; overflow-wrap: anywhere } .kv { min-width: 0 }
-.switch { max-width: 100%; overflow-x: auto; scrollbar-width: none } .switch button { white-space: nowrap; flex: none }
+.switch { max-width: 100%; min-width: 0; flex: 0 1 auto; overflow-x: auto; scrollbar-width: none } .top > * { min-width: 0 } .secs { max-width: 100% } #page, .wrap { width: 100% } .switch button { white-space: nowrap; flex: none }
 .ck { display: flex; gap: 8px; align-items: center; font-size: 14px } .go { align-self: flex-start; font: inherit; font-size: 15px; font-weight: 700; background: var(--ink); color: var(--bg); border: 0; border-radius: 999px; padding: 10px 22px; cursor: pointer }
 .mk .wbtn { color: var(--ink); border-color: var(--ink); font-weight: 700 } .box.tint-chain, .box.tint-stock, .box.tint-value { border: 0 }
+.secs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 8px 0; margin-top: -4px }
+.secs button { flex: none; font: inherit; font-size: 14.5px; color: var(--fg); background: var(--soft); border: 0; border-radius: 999px; padding: 8px 16px; cursor: pointer; white-space: nowrap }
+.secs button[aria-current=true] { background: var(--ink); color: var(--bg); font-weight: 700 }
+.big2 { font-size: 24px; font-weight: 800 } .rowlink { font: inherit; text-align: start; cursor: pointer; color: var(--fg) } .rowlink:hover { outline: 2px solid var(--accent) }
+.ytk { position: absolute; left: 0; transform: translateY(-50%); font-size: 11.5px; color: var(--muted); direction: ltr } .salesbox { display: flex; flex-direction: column; gap: 2px }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 13px } .legend i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; margin-inline-end: 5px; vertical-align: middle } .legend i.unk { border: 1.5px dashed var(--muted) }
+.hl2 { display: flex; flex-direction: column; gap: 1px; padding: 6px 0; border-top: 1px solid var(--line) } .dashband { background: transparent; border: 1.5px dashed var(--muted) }
+.clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden } .strip { display: flex; gap: 2px; height: 14px } .strip i { flex: 1; border-radius: 3px }
+.mcard.tint-stock, .mcard.tint-value, .mcard.tint-chain, .mcard.tint-news, .mcard.tint-next { border: 0 } .wcard { background: var(--ink); color: var(--bg) } .wcard p, .wcard .small { color: var(--bg); opacity: .85 }
+.cmp .t i { background: var(--c-next) }
 </style>
 
 <div class="wrap">
@@ -134,31 +144,32 @@ const go = id => { location.hash = id; location.reload(); };
 function nav(C, cur) { const el = document.getElementById("mk");
   el.innerHTML = `<button data-m="" aria-current="${!C.markets[cur] && cur !== "wallet"}">כל השווקים</button>` + C.order.map(m => `<button data-m="${m}" aria-current="${m === cur}">${C.markets[m].name}</button>`).join("") + `<button data-m="wallet" aria-current="${cur === "wallet"}" class="wbtn">הארנק שלי</button>`;
   el.addEventListener("click", e => { const b = e.target.closest("button"); if (b) go(b.dataset.m); }); }
-function hub(C) { const ms = C.order.map(m => C.markets[m]), page = document.getElementById("page"), big = v => "$" + (v >= 1e12 ? (v / 1e12).toFixed(1) + "T" : (v / 1e9).toFixed(0) + "B");
+/* ---------- the opening page ---------- */
+function hub(C) { const HEATC = { frozen: "#ECE9E7", cool: "#F3DCCB", mild: "#F9C29A", hot: "#FF9A52", boiling: "#FF5A1F" };
+  const esc = x => String(x ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])), tag = (t, c) => `<span class="tag" style="background:${c}">${t}</span>`; const ms = C.order.map(m => C.markets[m]), page = document.getElementById("page"), big = v => "$" + (v >= 1e12 ? (v / 1e12).toFixed(1) + "T" : (v / 1e9).toFixed(0) + "B");
   document.querySelector(".wrap").classList.add("wide"); page.classList.add("wide");
-  const s = (v, d = 0) => `<span class="num ${v > 0.5 ? "up" : v < -0.5 ? "down" : "flat"}">${v > 0 ? "+" : ""}${v.toFixed(d)}%</span>`;
-  const band = (title, key, fmt, note, abs) => { const vals = ms.map(m => typeof key === "function" ? key(m) : m[key]), mx = Math.max(...vals.filter(v => v != null).map(Math.abs)) || 1;
-    return `<div class="band"><h2>${title}</h2><div class="cmp">${ms.map((m, i) => vals[i] == null ? "" : `<button data-m="${m.id}">${m.name}</button><div class="t"><i style="width:${Math.abs(vals[i]) / mx * 100}%${!abs && vals[i] < 0 ? ";background:var(--down)" : ""}"></i></div><b>${fmt(vals[i], m)}</b>`).join("")}</div>${note ? `<span class="muted" style="font-size:13px">${note}</span>` : ""}</div>`; };
-  page.innerHTML = `<div><span class="kicker">${ms.length} שווקים · אותן שאלות לכולם</span><h1>השווקים</h1></div>
-    <p class="lead">כל שוק מפורק לשלבים, לחברות ולקשרים ביניהן. בחירה בשוק פותחת אותו.</p>
-    <div class="cards">${ms.map(m => `<button class="mcard" data-m="${m.id}"><h3>${m.name}</h3><p>${m.intro}</p><span class="flow">${m.stages.join(" ← ")}</span>
-      <div class="three"><div><b class="num">${m.companies}</b><span>חברות</span></div><div><b class="num">${big(m.revenue)}</b><span>הכנסות בשנה</span></div><div><b>${s(m.price_1y_med)}</b><span>המניה החציונית בשנה</span></div></div></button>`).join("")}</div>
-    ${band("איפה הכסף: הכנסות שנתיות של כל החברות במפה", "revenue", v => `<span class="num">${big(v)}</span>`, "כולל את כל הפעילות של כל חברה, גם מה שאינו שייך לשוק הזה.", 1)}
-    ${band("כמה נשאר כרווח מכל 100 של הכנסות", "net_margin", v => `<span class="num">${v}</span>`, "", 0)}
-    ${band("איפה הצמיחה: גידול ההכנסות של החברה החציונית", "growth_med", v => s(v), "לעומת התקופה המקבילה אשתקד.", 0)}
-    ${band("מה עשו המניות בשנה האחרונה", "price_1y_med", (v, m) => `${s(v)} <span class="muted" style="font-weight:400;font-size:12.5px">${m.index_1y != null ? `${m.index_name}: ${m.index_1y > 0 ? "+" : ""}${m.index_1y}%` : ""}</span>`, "המניה החציונית בכל שוק, במטבע המקומי.", 0)}
-    ${band("איפה התנודות: תנודתיות שנתית של כל המניות יחד", "vol_1y", v => `<span class="num">${v}%</span>`, "ככל שהמספר גבוה יותר, המחירים קופצים יותר.", 1)}
-    ${band("הנפילה העמוקה ביותר בחמש השנים האחרונות", "max_drawdown", v => `<span class="num down">${v}%</span>`, "", 1)}
-    ${band("כמה יקר: כמה משלמים על כל 1 של רווח שנתי", "pe_med", v => `<span class="num">${v}</span>`, "החברה החציונית בכל שוק. מספר גבוה פירושו מניות יקרות יותר.", 1)}
-    ${band("כמה ריכוז: חלקה של המדינה הגדולה ביותר", m => m.top_country[1] / m.companies * 100, (v, m) => `<span class="num">${v.toFixed(0)}%</span> <span class="muted" style="font-weight:400;font-size:12.5px">${CN[m.top_country[0]] || m.top_country[0]}</span>`, "מתוך החברות במפה.", 1)}
-    ${band("מה פתוח עכשיו: מהלכים שחוסמים או מעכבים", m => m.open_blocks + m.open_delays, (v, m) => `<span class="num">${v}</span> <span class="muted" style="font-weight:400;font-size:12.5px">מתוך ${m.open_changes} שינויים</span>`, "רגולציה, טכנולוגיה ומהלכים עסקיים שנאספו לכל שוק.", 1)}
-    ${band("כשמשהו משתבש: מה קרה לחברות שנפגעו ישירות", m => m.events.hit ? m.events.hit.mean : null, (v, m) => `${s(v, 1)} <span class="muted" style="font-weight:400;font-size:12.5px">${m.events.hit.n} אירועים</span>`, "תנועה חריגה ממוצעת שלושה ימים אחרי האירוע. מדגמים קטנים.", 0)}
-    <div class="band"><h2>כמה זמן לוקח להגיע למוצר</h2><div class="now">${ms.filter(m => m.lifecycle_total).map(m => `<div><span><b>${m.name}:</b> ${m.lifecycle_total[0]}, ${m.lifecycle_total[1]}</span></div>`).join("")}</div></div>
-    ${C.bridges.length ? `<div class="band"><h2>חברות שמופיעות ביותר משוק אחד</h2><div class="more">${C.bridges.slice(0, 30).map(b => `<span class="pillbtn" style="cursor:default">${b[0]} <span class="muted" style="font-size:12px">${b[1].map(x => C.markets[x].name).join(" · ")}</span></span>`).join("")}</div>
-      <span class="muted" style="font-size:13px">אלה נקודות החיבור: זעזוע בחברה כזאת מורגש בכמה שווקים בבת אחת.</span></div>` : ""}
-    <div class="band"><h2>מועמדות לבדיקה: זולות לשלב שלהן, צומחות, עם ביקוש מהלקוחות</h2><div class="now">${ms.map(m => `<div><span><b>${m.name}:</b> ${m.candidates.length ? m.candidates.length + " חברות" : "אין כרגע"}</span></div>`).join("")}</div>
-      <span class="muted" style="font-size:13px">זו רשימה לבדיקה, לא המלצה. לא מצאנו דרך לנבא תשואה. כל מועמדת נרשמה ביומן ותיבדק בעוד 3, 6 ו-12 חודשים.</span></div>`;
+  const hot = ms.reduce((a, m) => a + (m.heat ? m.heat.hot : 0), 0), n = ms.reduce((a, m) => a + (m.heat ? m.heat.n : 0), 0);
+  const hottest = [...ms].filter(m => m.heat && m.heat.n).sort((a, b) => b.heat.hot / b.heat.n - a.heat.hot / a.heat.n)[0];
+  const tints = ["tint-stock", "tint-value", "tint-chain", "tint-news", "tint-next", "tint-stock"];
+  const s = (v, d = 0) => `<span class="num">${v >= 0 ? "▲" : "▼"} ${Math.abs(v).toFixed(d)}%</span>`;
+  const band = (title, key, fmt, note) => { const vals = ms.map(m => typeof key === "function" ? key(m) : m[key]), mx = Math.max(...vals.filter(v => v != null).map(Math.abs)) || 1;
+    return `<div class="band"><h2>${title}</h2><div class="cmp">${ms.map((m, i) => vals[i] == null ? "" : `<button data-m="${m.id}">${m.name}</button><div class="t"><i style="width:${Math.abs(vals[i]) / mx * 100}%"></i></div><b>${fmt(vals[i], m)}</b>`).join("")}</div>${note ? `<span class="small">${note}</span>` : ""}</div>`; };
+  page.innerHTML = `<div><span class="kicker">TrendVest · ${ms.length} שווקים · ${n} חברות</span><h1>השווקים</h1></div>
+    <div class="band tint-stock">${tag("השורה התחתונה", "var(--c-stock)")}<b class="say" style="margin:0">${hot} מתוך ${n} חברות חמות עכשיו. הכי חם: ${hottest ? esc(hottest.name) : ""}.</b>
+      <span>חם אומר שהרבה קורה: המכירות רצות או שהמחיר עלה. זה לא סימן לקנות. בכל שוק אפשר לראות מי חם, למה מניות זזו, ומי עובד עם מי.</span></div>
+    <div class="cards">${ms.map((m, k) => `<button class="mcard ${tints[k % tints.length]}" data-m="${m.id}"><h3>${m.name}</h3><p class="clamp">${m.intro}</p>
+      ${m.heat ? `<div class="strip">${m.heat.levels.map(l => `<i style="background:${HEATC[l]}"></i>`).join("")}</div><span class="small">${m.heat.hot} מתוך ${m.heat.n} חמות. הכי חמות: ${m.heat.top.map(esc).join(", ")}</span>` : ""}
+      <div class="three"><div><b class="num">${m.companies}</b><span>חברות</span></div><div><b class="num">${big(m.revenue)}</b><span>מכירות בשנה</span></div><div><b>${s(m.price_1y_med)}</b><span>מניה חציונית בשנה</span></div></div></button>`).join("")}
+      <button class="mcard wcard" data-m="wallet"><h3>הארנק שלי</h3><p>כסף וירטואלי במניות אמיתיות, עם פקודות שקובעים מראש, עמלות ומס אמיתיים.</p><span class="small">לפתוח את הארנק ←</span></button></div>
+    <details class="band"><summary>השוואה מפורטת בין השווקים</summary><div class="wrap" style="gap:12px;margin-top:12px">
+      ${band("מכירות בשנה של כל החברות במפה", "revenue", v => `<span class="num">${big(v)}</span>`, "כולל את כל הפעילות של כל חברה, גם מה שאינו שייך לשוק הזה.")}
+      ${band("כמה נשאר כרווח מכל 100 של מכירות", "net_margin", v => `<span class="num">${v}</span>`, "")}
+      ${band("כמה המכירות גדלו, בחברה החציונית", "growth_med", v => s(v), "לעומת שנה שעברה.")}
+      ${band("מה עשו המניות בשנה האחרונה", "price_1y_med", v => s(v), "המניה החציונית בכל שוק, במטבע המקומי.")}
+      ${band("כמה המחירים קופצים", "vol_1y", v => `<span class="num">${v}%</span>`, "ככל שהמספר גבוה יותר, המחירים קופצים יותר.")}
+      ${band("כמה יקר: כמה משלמים על כל 1 של רווח", "pe_med", v => `<span class="num">${v}</span>`, "החברה החציונית בכל שוק.")}</div></details>`;
   page.addEventListener("click", e => { const b = e.target.closest("[data-m]"); if (b) go(b.dataset.m); }); }
+
 (async () => {
 const CMP = await (await fetch("data/compare.json")).json(), market = location.hash.slice(1);
 nav(CMP, market);
@@ -178,7 +189,7 @@ const evName = id => { const h = M.history.find(x => x[5] === id); return h ? [h
 const roleOf = (n, id) => n.ev[id] && (n.ev[id].w || n.ev[id].role);
 D.edges.forEach(e => { e.material = e.crit || Number(e.share) >= 10; });
 const byW = (a, b) => (b.material - a.material) || (Number(b.share || 0) - Number(a.share || 0));
-let S = { sums: {}, whyAll: false, layers: { index: true, why: true, sales: true, events: false, changes: false, next: false }, feed: "all", more: false, v: "stock", co: D.nodes.some(n => n.id === "TSMC") ? "TSMC" : D.nodes[0].id, ev: (D.events.find(e => e.id === "HUALIEN2024") || D.events[0] || {}).id, level: "calm" };
+let S = { sec: "overview", sums: {}, whyAll: false, layers: { index: true, why: true, sales: true, events: false, changes: false, next: false }, feed: "all", more: false, v: "stock", co: D.nodes.some(n => n.id === "TSMC") ? "TSMC" : D.nodes[0].id, ev: (D.events.find(e => e.id === "HUALIEN2024") || D.events[0] || {}).id, level: "calm" };
 
 /* ---------- the stock in one picture ---------- */
 function picture(n) { const K = 104, W = 680, H = 250, X0 = 14, X1 = W - 14, Y0 = 62, Y1 = H - 30;
@@ -210,103 +221,122 @@ function heatBox(n) { const h = n.heat; if (!h) return "";
     ${bar("מכירות", h.sales_pct, h.sales_rank, "בשנה")}${bar("מחיר", h.price_pct, h.price_rank, "מעבר למדד, חצי שנה")}
     <span class="small">הפס מראה איפה החברה ביחס לשאר החברות בשוק. חם לא אומר לקנות: חם אומר שהרבה קורה עכשיו.</span></div>`; }
 
-/* ---------- the stock page ---------- */
-function stock() { const n = byId[S.co], i = n.info, st = n.story, nxt = ((D.inference || {}).cards || []).filter(c => c.company === S.co);
-  const peers = D.nodes.filter(x => x.tier === n.tier && x.info.trailingPE > 0).map(x => x.info.trailingPE).sort((a, b) => a - b), pe = i.trailingPE > 0 ? i.trailingPE : null;
-  const rank = pe && peers.length > 2 ? peers.filter(p => p <= pe).length / peers.length : null;
+/* ---------- the stock page: hero on top, then one focused screen at a time (as in the approved sketches) ---------- */
+const SECS = [["overview", "בקצרה"], ["chart", "הגרף ולמה"], ["company", "החברה"], ["links", "מי עובד עם מי"], ["news", "חדשות"]];
+const WHYS = { report: "לפי הכותרות מאותו יום: נראה שקשור לדוח של החברה.", analyst: "לפי הכותרות מאותו יום: נראה שקשור להמלצה של אנליסט.",
+  deal: "לפי הכותרות מאותו יום: נראה שקשור לעסקה או חוזה.", regulation: "לפי הכותרות מאותו יום: נראה שקשור לרגולציה או חוק.",
+  news: "יש כותרות מאותו יום, אבל לא ברור מהן מה הסיבה.", event: "באותו יום היה אירוע בשרשרת שהחברה קשורה אליו." };
+function whyReason(m) { return m.earnings ? "יום הדוח הרבעוני של החברה." : m.kind ? WHYS[m.kind] : m.searched ? "לא מצאנו סיבה." : "עוד לא חיפשנו חדשות לחברה הזאת."; }
+function stock() { const n = byId[S.co], i = n.info, st = n.story;
   const bg = n.heat ? HEATC[n.heat.level] : "var(--t-stock)";
+  const body = { overview, chart: () => layers(n) + whyList(n), company: () => storyCard(n), links: () => netMap(n), news: () => feed(n) }[S.sec] || overview;
   $("page").innerHTML = `
     <section class="hero" style="background:${bg}">
       <span class="kicker">${esc(D.stages[n.tier].title)} · <span class="num">${esc(n.ticker)}</span></span><h1>${esc(n.name)}</h1>
       <p class="one">${esc(st && st.one_liner ? st.one_liner : (M.plain_co || M.plain)[n.tier])}</p>
       ${priceLine(n)}${heatBox(n)}</section>
-    ${nxt.length ? `<div class="band tint-next">${tag("מה צפוי", "var(--c-next)")}${nxt.map(c => `<b class="say" style="margin:0">${esc(c.text.title)}</b><span>${esc(c.text.see)}</span><span class="small">${esc(c.text.claim)} <button class="linkbtn" data-v="next">למה אנחנו חושבים ככה</button></span>`).join("")}</div>` : ""}
-    ${layers(n)}${whyList(n)}${feed(n)}${storyCard(n)}${netMap(n)}
-    ${rank != null ? `<div class="band tint-value">${tag("זולה או יקרה", "var(--c-value)")}<p class="say">${rank > 0.66 ? "יקרה יותר מרוב החברות בשלב שלה" : rank < 0.34 ? "זולה יותר מרוב החברות בשלב שלה" : "באמצע, ביחס לחברות בשלב שלה"}.</p>
-      <div><div class="meter"><i style="left:${(rank * 100).toFixed(0)}%"></i></div><div class="ends"><span>יקרה</span><span>זולה</span></div></div>
-      <span class="small">המשקיעים משלמים <span class="num">${pe.toFixed(0)}</span> על כל 1 של רווח שנתי. ההשוואה היא ל-${peers.length} חברות בשלב "${esc(D.stages[n.tier].title)}".</span></div>`
-    : `<div class="band tint-value">${tag("זולה או יקרה", "var(--c-value)")}<span>${i.netIncomeUSD < 0 ? "החברה הפסידה כסף בשנה האחרונה. בלי רווח, אין למה להשוות." : "אין מספיק נתונים להשוואה."}</span></div>`}`;
-  if (S.sumOpen) { const b = document.querySelector(`[data-sum="${S.sumOpen}"]`); if (b) b.scrollIntoView({ block: "center" }); S.sumOpen = null; } }
+    <nav class="secs" aria-label="חלקי הדף">${SECS.map(([k, t]) => `<button data-sec="${k}" aria-current="${S.sec === k}">${t}</button>`).join("")}</nav>
+    ${body(n)}`;
+  function overview() { const y1 = chg(n.px, 52), growth = n.pulse && n.pulse.monthly ? n.pulse.monthly.yoy : i.revenueGrowth != null ? i.revenueGrowth * 100 : null;
+    const nxt = ((D.inference || {}).cards || []).filter(c => c.company === S.co), lastWhy = (n.why || []).slice(-1)[0];
+    const peers = D.nodes.filter(x => x.tier === n.tier && x.info.trailingPE > 0).map(x => x.info.trailingPE).sort((a, b) => a - b), pe = i.trailingPE > 0 ? i.trailingPE : null;
+    const rank = pe && peers.length > 2 ? peers.filter(p => p <= pe).length / peers.length : null;
+    const sup = D.edges.filter(e => e.t === n.id).sort(byW), cus = D.edges.filter(e => e.s === n.id).sort(byW);
+    return `
+      ${nxt.length ? `<div class="band tint-next">${tag("מה צפוי", "var(--c-next)")}${nxt.map(c => `<b class="say" style="margin:0">${esc(c.text.title)}</b><span>${esc(c.text.see)}</span><span class="small">${esc(c.text.claim)} <button class="linkbtn" data-v="next">למה אנחנו חושבים ככה</button></span>`).join("")}</div>` : ""}
+      <div class="grid2">
+        <div class="box tint-stock"><span class="small">המחיר בשנה האחרונה</span><b class="big2">${y1 == null ? "–" : `${y1 >= 0 ? "▲" : "▼"} ${Math.abs(Math.round(y1))}%`}</b></div>
+        <div class="box tint-value"><span class="small">המכירות לעומת שנה שעברה</span><b class="big2">${growth == null ? "–" : `${growth >= 0 ? "▲" : "▼"} ${Math.abs(Math.round(growth))}%`}</b></div>
+        <div class="box tint-chain"><span class="small">מכירות בשנה</span><b class="big2">${usd(i.revenueUSD)}</b><span class="small">נשאר רווח: ${usd(i.netIncomeUSD)}</span></div>
+        <div class="box tint-news"><span class="small">זולה או יקרה</span><b class="big2">${rank == null ? (i.netIncomeUSD < 0 ? "מפסידה" : "–") : rank > 0.66 ? "יקרה" : rank < 0.34 ? "זולה" : "באמצע"}</b><span class="small">${rank == null ? (i.netIncomeUSD < 0 ? "בלי רווח אין למה להשוות" : "") : `לעומת ${peers.length} חברות דומות`}</span></div></div>
+      ${lastWhy ? `<button class="band rowlink" data-sec="chart">${tag("למה זז לאחרונה", "var(--c-news)")}<span><b>${hd(lastWhy.date)}: ${lastWhy.ret >= 0 ? "▲ עלתה" : "▼ ירדה"} ${Math.abs(lastWhy.ret).toFixed(1)}% ביום אחד.</b> ${esc(whyReason(lastWhy))}</span><span class="small">לגרף ולכל הימים החזקים ←</span></button>` : ""}
+      <button class="band rowlink tint-chain" data-sec="links">${tag("מי עובד עם מי", "var(--c-chain)")}<span>${sup.length ? `מוכרות לה: ${sup.slice(0, 3).map(e => esc(byId[e.s].name)).join(", ")}${sup.length > 3 ? ` ועוד ${sup.length - 3}` : ""}.` : ""} ${cus.length ? `קונות ממנה: ${cus.slice(0, 3).map(e => esc(byId[e.t].name)).join(", ")}${cus.length > 3 ? ` ועוד ${cus.length - 3}` : ""}.` : ""}</span><span class="small">למפה ←</span></button>
+      <button class="band rowlink tint-value" data-sec="company">${tag("החברה", "var(--c-value)")}<span>${st ? `${esc(st.hq ? st.hq.city + ", " + st.hq.country : "")}${st.founded ? `, נוסדה ב-${st.founded}` : ""}. ${st.leaders && st.leaders[0] ? `מנהל: ${esc(st.leaders[0].name)}.` : ""}` : "עוד לא חקרנו את הסיפור שלה. יש נתונים בסיסיים."}</span><span class="small">לכרטיס המלא ←</span></button>`; } }
 
 /* ---------- one chart, several layers ---------- */
-function layers(n) { const L = S.layers, K = 104, W = 700, H = 230, padT = 34, padB = 8, future = L.next ? 52 : 0;
+function layers(n) { const L = S.layers, K = 104, W = 700, H = 240, padT = 30, padB = 10, padL = 46, future = L.next ? 52 : 0;
   const dates = D.dates.slice(-K), px = n.px.slice(-K), mk = D.mkt.slice(-K), p0 = px.find(v => v != null), m0 = mk.find(v => v != null);
   if (!p0) return "";
   const vp = px.map(v => v == null ? null : v / p0 * 100), vm = mk.map(v => v == null ? null : v / m0 * 100);
   const all = vp.concat(L.index ? vm : []).filter(v => v != null), lo = Math.min(...all), hi = Math.max(...all);
   const t0 = Date.parse(dates[0]), tl = Date.parse(dates[dates.length - 1]), t1 = tl + future * 7 * 864e5;
-  const X = d => (Date.parse(d) - t0) / (t1 - t0) * W, Y = v => padT + (1 - (v - lo) / (hi - lo || 1)) * (H - padT - padB);
+  const X = d => padL + (Date.parse(d) - t0) / (t1 - t0) * (W - padL), Y = v => padT + (1 - (v - lo) / (hi - lo || 1)) * (H - padT - padB);
   const path = arr => "M" + arr.map((v, k) => v == null ? null : `${X(dates[k]).toFixed(1)} ${Y(v).toFixed(1)}`).filter(Boolean).join("L");
   const near = d => { let b = 0; dates.forEach((x, k) => { if (x <= d && vp[k] != null) b = k; }); return b; };
+  const step = [10, 20, 50, 100, 200, 500, 1000].find(s => (hi - lo) / s <= 4) || 2000;
   let g = "", html = "";
-  if (L.next) { const card = ((D.inference || {}).cards || []).find(c => c.company === n.id && c.claim);
-    g += `<rect x="${X(dates[dates.length - 1])}" y="0" width="${W - X(dates[dates.length - 1])}" height="${H}" fill="var(--soft)"/>`;
-    html += `<div class="lbl" style="right:6px;top:4px">השנה הבאה${card ? ` · נבדוק ב-${hd(card.claim.due)}` : ""}</div>`; }
-  [100].forEach(v => { g += `<line x1="0" x2="${X(dates[dates.length - 1])}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" stroke-dasharray="4 4"/>`; });
-  if (L.changes) M.changes.filter(c => c[2] === n.tier && /^\d{4}-\d{2}/.test(c[5]) && c[5] >= dates[0].slice(0, 7)).slice(0, 4).forEach((c, k) => {
-    const x = X(c[5].slice(0, 7) + "-15"); g += `<line x1="${x}" x2="${x}" y1="${padT - 6}" y2="${H}" stroke="var(--c-news)" stroke-dasharray="3 4"/>`;
-    html += `<span class="flag" style="left:${x / W * 100}%;top:${4 + (k % 2) * 16}px" title="${esc(c[3])}">${"אבגד"[k]}</span>`; });
+  for (let v = Math.ceil(lo / step) * step; v <= hi; v += step) { g += `<line x1="${padL}" x2="${W}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/>`;
+    html += `<span class="ytk" style="top:${Y(v) / H * 100}%">${Math.round(v)} ₪</span>`; }
+  if (L.next) { const card = ((D.inference || {}).cards || []).find(c => c.company === n.id && c.claim), xs = X(dates[dates.length - 1]);
+    g += `<rect x="${xs}" y="0" width="${W - xs}" height="${H}" fill="var(--soft)"/>`;
+    html += `<div class="lbl" style="right:6px;top:2px">השנה הבאה${card ? ` · נבדוק ב-${hd(card.claim.due)}` : ""}</div>`; }
+  const chs = M.changes.filter(c => c[2] === n.tier && /^\d{4}-\d{2}/.test(c[5]) && c[5] >= dates[0].slice(0, 7)).slice(0, 4);
+  if (L.changes) chs.forEach((c, k) => { const x = X(c[5].slice(0, 7) + "-15"); g += `<line x1="${x}" x2="${x}" y1="${padT - 4}" y2="${H}" stroke="var(--c-news)" stroke-dasharray="3 4"/>`;
+    html += `<span class="flag" style="left:${x / W * 100}%;top:${2 + (k % 2) * 15}px">${"אבגד"[k]}</span>`; });
   if (L.index) g += `<path d="${path(vm)}" fill="none" stroke="var(--c-next)" stroke-width="2.2"/>`;
   g += `<path d="${path(vp)}" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>`;
-  if (L.why) (n.why || []).forEach((m, k) => { if (m.date < dates[0]) return; const j = near(m.date), x = X(dates[j]), y = Y(vp[j]), c = m.kind ? WHYK[m.kind][1] : "var(--surface)";
-    g += `<circle cx="${x}" cy="${y}" r="15" fill="${c}" stroke="${m.kind ? "var(--surface)" : "var(--muted)"}" stroke-width="2" ${m.kind ? "" : 'stroke-dasharray="3 2"'}/><text x="${x}" y="${y + 5}" text-anchor="middle" class="mk ${m.kind ? "w" : ""}">${k + 1}</text>`; });
   if (L.events) D.events.forEach(e => { const r = roleOf(n, e.id), v = n.ev[e.id]; if (!v || v.day0 < dates[0] || !r || r === "control") return;
-    const j = near(v.day0); g += `<rect x="${X(dates[j]) - 7}" y="${Y(vp[j]) - 7}" width="14" height="14" rx="3" fill="var(--t-chain)" stroke="var(--c-chain)" stroke-width="2"/>`; });
+    const j = near(v.day0); g += `<rect x="${X(dates[j]) - 8}" y="${Y(vp[j]) - 8}" width="16" height="16" rx="4" fill="var(--t-chain)" stroke="var(--c-chain)" stroke-width="2"/>`; });
+  if (L.why) { const placed = []; (n.why || []).forEach((m, k) => { if (m.date < dates[0]) return; const j = near(m.date), x = X(dates[j]); let y = Y(vp[j]);
+    for (let t = 0, dir = -1; t < 8 && placed.some(p => Math.abs(p[0] - x) < 30 && Math.abs(p[1] - y) < 30); t++) { if (y - 32 < 16) dir = 1; y += dir * 32; }
+    y = Math.max(16, y);
+    placed.push([x, y]); const c = m.kind || m.earnings ? WHYK[m.earnings ? "report" : m.kind][1] : "var(--surface)";
+    g += `${y !== Y(vp[j]) ? `<line x1="${x}" x2="${x}" y1="${y}" y2="${Y(vp[j])}" stroke="var(--muted)"/>` : ""}<circle cx="${x}" cy="${y}" r="14" fill="${c}" stroke="${m.kind ? "var(--surface)" : "var(--muted)"}" stroke-width="2" ${m.kind ? "" : 'stroke-dasharray="3 2"'}/><text x="${x}" y="${y + 5}" text-anchor="middle" class="mk ${m.kind ? "w" : ""}">${k + 1}</text>`; }); }
   const yr = [...new Set(dates.map(d => d.slice(0, 4)))].slice(1).concat(future ? [String(+dates[dates.length - 1].slice(0, 4) + 1)] : [])
-    .filter(y => X(y + "-01-01") > 30 && X(y + "-01-01") < W - 20).map(y => `<span class="yr" style="left:${X(y + "-01-01") / W * 100}%">${y}</span>`).join("");
+    .filter(y => X(y + "-01-01") > padL + 20 && X(y + "-01-01") < W - 20).map(y => `<span class="yr" style="left:${X(y + "-01-01") / W * 100}%">${y}</span>`).join("");
   let sales = "";
   if (L.sales && n.pulse && n.pulse.rev) { const rv = n.pulse.rev.filter(r => r[0] >= dates[0]), mx = Math.max(...rv.map(r => r[1]));
-    sales = `<svg viewBox="0 0 ${W} 70" class="sales" role="img" aria-label="מכירות">${rv.map(r => { const x = X(r[0]), h = r[1] / mx * 60; return `<rect x="${x - 6}" y="${68 - h}" width="12" height="${h}" rx="2" fill="var(--t-value)" stroke="var(--c-value)"/>`; }).join("")}</svg>
-      <span class="small">עמודות: מכירות ${n.pulse.rev_unit === "TWD" ? "בכל חודש (מיליארד דולר טייוואני)" : "בכל רבעון (מיליארד דולר)"}. הגבוהה: <span class="num">${mx.toFixed(1)}</span></span>`; }
-  const endP = vp[vp.length - 1], endM = vm[vm.length - 1];
+    sales = `<div class="salesbox"><span class="small">${n.pulse.rev_unit === "TWD" ? "מכירות בכל חודש" : "מכירות בכל רבעון"}</span><svg viewBox="0 0 ${W} 70" class="sales" role="img" aria-label="מכירות">${rv.map(r => { const x = X(r[0]), h = Math.max(2, r[1] / mx * 56); return `<rect x="${x - 7}" y="${66 - h}" width="14" height="${h}" rx="3" fill="var(--t-value)" stroke="var(--c-value)" stroke-width="1.5"/>`; }).join("")}</svg>
+      <span class="small">מ-<span class="num">${rv[0][1].toFixed(1)}</span> ל-<span class="num">${rv[rv.length - 1][1].toFixed(1)}</span> ${n.pulse.rev_unit === "TWD" ? "מיליארד דולר טייוואני" : "מיליארד דולר"}</span></div>`; }
+  const endP = vp[vp.length - 1], endM = vm[vm.length - 1], peakK = vp.indexOf(Math.max(...vp.filter(v => v != null))), fromPeak = (endP / vp[peakK] - 1) * 100;
   const chip = (k, t, c) => `<button class="lay" data-layer="${k}" aria-pressed="${!!L[k]}"><i style="background:${c}"></i>${t}</button>`;
-  return `<div class="band">${tag("המניה", "var(--c-stock)")}<b class="say" style="margin:0">100 ₪ לפני שנתיים שווים היום ${Math.round(endP)} ₪${L.index ? `. בממוצע השוק: ${Math.round(endM)} ₪` : ""}.</b>
-    <div class="chips">${chip("index", "ממוצע השוק", "var(--c-next)")}${chip("why", "קפיצות ולמה", "var(--c-news)")}${n.pulse && n.pulse.rev ? chip("sales", "מכירות", "var(--c-value)") : ""}${chip("events", "אירועים בשרשרת", "var(--c-chain)")}${chip("changes", "שינויים בתחום", "var(--c-news)")}${chip("next", "שנה קדימה", "var(--muted)")}</div>
-    <div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="מחיר המניה בשנתיים, 100 בתחילת התקופה">${g}</svg>${html}<div class="yrs">${yr}</div></div>${sales}
-    ${L.changes ? `<div class="small">${M.changes.filter(c => c[2] === n.tier && /^\d{4}-\d{2}/.test(c[5]) && c[5] >= dates[0].slice(0, 7)).slice(0, 4).map((c, k) => `<b>${"אבגד"[k]}</b> ${esc(c[3])} (${hd(c[5].slice(0, 7))})`).join(" · ")}</div>` : ""}
-    ${L.why ? `<span class="small">המספרים על הקו הם הימים שבהם המחיר זז הכי חזק. ההסבר לכל אחד ברשימה למטה.</span>` : ""}</div>`; }
+  return `<div class="band tint-stock">${tag("השורה התחתונה", "var(--c-stock)")}<span class="say" style="margin:0">100 ₪ שהושקעו לפני שנתיים שווים היום <b>${Math.round(endP)} ₪</b>, לעומת ${Math.round(endM)} ₪ בממוצע השוק.${fromPeak < -10 ? ` מאז השיא ב-${hd(dates[peakK])} המחיר ירד ב-${Math.round(-fromPeak)}%.` : ""}</span></div>
+    <div class="band"><div class="chips">${chip("index", "ממוצע השוק", "var(--c-next)")}${chip("why", "קפיצות ולמה", "var(--c-news)")}${n.pulse && n.pulse.rev ? chip("sales", "מכירות", "var(--c-value)") : ""}${chip("events", "אירועים בשרשרת", "var(--c-chain)")}${chip("changes", "שינויים בתחום", "var(--c-news)")}${chip("next", "שנה קדימה", "var(--muted)")}</div>
+    <div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="שווי 100 שקלים שהושקעו לפני שנתיים">${g}</svg>${html}<div class="yrs">${yr}</div></div>${sales}
+    ${L.why ? `<div class="legend">${["report", "news", "event"].map(k => `<span><i style="background:${WHYK[k][1]}"></i>${k === "report" ? "דוח" : k === "news" ? "כותרות" : "אירוע"}</span>`).join("")}<span><i class="unk"></i>לא ידוע</span><span class="small">המספרים: הימים שבהם המחיר זז הכי חזק. ההסבר למטה.</span></div>` : ""}
+    ${L.changes && chs.length ? `<div class="small">${chs.map((c, k) => `<b>${"אבגד"[k]}</b> ${esc(c[3])} (${hd(c[5].slice(0, 7))})`).join(" · ")}</div>` : ""}</div>`; }
 
-/* ---------- why it moved ---------- */
+/* ---------- why it moved: Hebrew first, the raw headlines behind a click ---------- */
 function whyList(n) { const ms = (n.why || []).map((m, k) => ({ ...m, k: k + 1 })).reverse();
   if (!ms.length) return "";
-  const cnt = {}; ms.forEach(m => { const k = m.kind || "unknown"; cnt[k] = (cnt[k] || 0) + 1; });
-  const parts = Object.entries(cnt).filter(([k]) => k !== "unknown").map(([k, v]) => `${v} ${k === "report" ? "סביב דוח" : k === "news" ? "עם כותרות מאותו יום" : k === "event" ? "באירוע בשרשרת" : k === "analyst" ? "אחרי המלצת אנליסט" : k === "deal" ? "סביב עסקה" : "סביב רגולציה"}`);
-  const searched = ms.some(m => m.searched);
-  const card = m => { const key = n.id + m.date, sum = S.sums[key];
-    const ev = m.event ? `<span>באותו יום: ${esc(m.event.name)}. ${m.event.linked ? "החברה קשורה לאירוע." : "אבל החברה לא קשורה אליו, ייתכן שזה צירוף מקרים."}</span>` : "";
-    return `<div class="why ${m.kind ? "" : "unk"}" id="why-${m.k}"><div class="wh"><span class="wn" style="background:${m.kind ? WHYK[m.kind][1] : "var(--surface)"}">${m.k}</span><time>${hd(m.date)}</time>${arrowTxt(m.ret)}<span class="small">ביום אחד. המדד: <span class="num">${m.index > 0 ? "+" : ""}${m.index}%</span></span></div>
-      <b>${m.earnings ? "יום הדוח הרבעוני של החברה." : m.kind ? WHYK[m.kind][0] : m.searched ? "לא מצאנו סיבה." : "עוד לא חיפשנו חדשות לחברה הזאת."}</b>${ev}
-      ${(m.news || []).slice(0, 3).map(h => `<span class="raw">${esc(h.t)}</span><span class="small">${esc(h.src)} · <a href="${esc(safe(h.u))}" target="_blank" rel="noopener noreferrer">לידיעה המקורית</a></span>`).join("")}
-      ${m.news && m.news.length ? (sum ? `<div class="sum">${esc(sum)}<span class="small"> · סיכום שנכתב בבינה מלאכותית מהכותרות. כדאי לקרוא את המקור.</span></div>` : `<button class="linkbtn" data-sum="${key}">לסכם בעברית</button>`) : ""}</div>`; };
+  const rep = ms.filter(m => m.earnings || m.kind === "report").length, ev = ms.filter(m => !m.earnings && m.kind === "event").length,
+    other = ms.filter(m => !m.earnings && ["analyst", "deal", "regulation"].includes(m.kind)).length, vague = ms.filter(m => !m.earnings && m.kind === "news").length, unk = ms.filter(m => !m.kind && !m.earnings).length;
+  const card = m => { const key = n.id + m.date, sum = S.sums[key], k = m.earnings ? "report" : m.kind;
+    return `<div class="why ${k ? "" : "unk"}" id="why-${m.k}"><div class="wh"><span class="wn" style="background:${k ? WHYK[k][1] : "var(--surface)"}">${m.k}</span><time>${hd(m.date)}</time>${arrowTxt(m.ret)}<span class="small">ביום אחד. השוק: <span class="num">${m.index > 0 ? "+" : ""}${m.index}%</span></span></div>
+      <b>${whyReason(m)}</b>${m.event && !m.event.linked ? `<span class="small">באותו יום: ${esc(m.event.name)}. החברה לא קשורה אליו, ייתכן שזה צירוף מקרים.</span>` : m.event ? `<span class="small">${esc(m.event.name)}</span>` : ""}
+      ${sum ? `<div class="sum">${esc(sum)}<span class="small"> · סיכום שנכתב בבינה מלאכותית מהכותרות</span></div>` : ""}
+      ${m.news && m.news.length ? `<details><summary>${m.news.length} כותרות מאותו יום (באנגלית)</summary>${m.news.slice(0, 5).map(h => `<div class="hl2"><span class="raw">${esc(h.t)}</span><span class="small">${esc(h.src)} · <a href="${esc(safe(h.u))}" target="_blank" rel="noopener noreferrer">לידיעה</a></span></div>`).join("")}
+        ${sum ? "" : `<button class="linkbtn" data-sum="${key}">לסכם בעברית</button>`}</details>` : ""}</div>`; };
   const shown = S.whyAll ? ms : ms.slice(0, 4);
   return `<div class="band tint-news" id="whyband">${tag("למה המחיר זז", "var(--c-news)")}
-    <b class="say" style="margin:0">ב-${ms.length} הימים שבהם המחיר זז הכי חזק: ${parts.join(", ") || "אין הסבר מתועד"}${cnt.unknown ? `, ו-${cnt.unknown} בלי סיבה שמצאנו` : ""}.</b>
+    <b class="say" style="margin:0">ב-${ms.length} הימים שבהם המחיר זז הכי חזק: ${[rep ? `${rep} סביב דוח` : "", ev ? `${ev} באירוע בשרשרת` : "", other ? `${other} סביב המלצה, עסקה או חוק` : "", vague ? `${vague} עם כותרות שלא מסבירות` : "", unk ? `${unk} בלי שום מידע` : ""].filter(Boolean).join(", ")}.</b>
     ${shown.map(card).join("")}${ms.length > shown.length ? `<button class="pillbtn" data-whyall="1" style="align-self:flex-start">עוד ${ms.length - shown.length} ימים</button>` : ""}
-    <span class="small">${searched ? "איך קובעים: תאריך הדוח הרשמי, אירועים שמיפינו, וכותרות שפורסמו ביום שלפני או ביום עצמו. כותרת מאותו יום לא בהכרח היא הסיבה. אנחנו לא ממציאים סיבה." : "עוד לא חיפשנו חדשות לחברה הזאת. החיפוש נעשה קודם לחברות הגדולות."}</span></div>`; }
+    <span class="small">איך קובעים: תאריך הדוח הרשמי, אירועים שמיפינו, וכותרות שפורסמו ביום שלפני או ביום עצמו. כותרת מאותו יום לא בהכרח היא הסיבה. אנחנו לא ממציאים סיבה.</span></div>`; }
 
-/* ---------- the company card ---------- */
+/* ---------- the company card: one colored block per question, as in the sketch ---------- */
 function storyCard(n) { const s = n.story, i = n.info;
   const src = ids => (ids || []).map(k => s && s.sources && s.sources[k] ? `<a href="${esc(safe(s.sources[k][1]))}" target="_blank" rel="noopener noreferrer" title="${esc(s.sources[k][0])}">${esc(k)}</a>` : "").filter(Boolean).join(" ");
   const holders = (n.holders || []).some(h => h.p > 50) ? "" : (n.holders || []).slice(0, 3).map(h => `<div class="kv"><span>${esc(h.n)}</span><b class="num">${h.p}%</b></div>`).join("");
   const insiders = i.heldPercentInsiders != null ? `<div class="kv"><span>המנהלים והדירקטורים, ביחד</span><b class="num">${(i.heldPercentInsiders * 100).toFixed(1)}%</b></div>` : "";
-  if (!s) return `<div class="band tint-chain">${tag("הכרטיס של החברה", "var(--c-chain)")}<span>עוד לא חקרנו את הסיפור של ${esc(n.name)}. בינתיים, מה שידוע מהנתונים:</span>
-      <div class="grid2"><div class="box"><span class="small">איפה</span><b>${esc(i.city || "")}${i.country ? ", " + esc(i.country) : ""}</b></div><div class="box"><span class="small">עובדים</span><b class="num">${i.fullTimeEmployees ? i.fullTimeEmployees.toLocaleString("en-US") : "–"}</b></div></div>
-      ${n.people.length ? `<b>מי מנהל</b>${n.people.slice(0, 4).map(p => `<div class="kv"><span>${esc(p.n)}</span><span class="small">${esc(p.t)}</span></div>`).join("")}` : ""}
-      ${holders ? `<b>מי מחזיק</b>${holders}${insiders}` : ""}<span class="small">מקור: Yahoo Finance.</span></div>`;
-  return `<div class="band tint-chain">${tag("הכרטיס של החברה", "var(--c-chain)")}
-    <div class="grid2"><div class="box"><span class="small">המטה</span><b>${esc(s.hq ? s.hq.city + ", " + s.hq.country : "")}</b></div>
-      <div class="box"><span class="small">נוסדה</span><b class="num">${s.founded || "–"}</b></div>
-      <div class="box"><span class="small">עובדים</span><b class="num">${s.employees ? Number(s.employees.value).toLocaleString("en-US") : (i.fullTimeEmployees || "–").toLocaleString("en-US")}</b></div>
-      <div class="box"><span class="small">מפעלים ואתרים</span><b style="font-size:13.5px">${esc(n.sites || "–")}</b></div></div>
-    ${s.timeline && s.timeline.length ? `<b>הסיפור</b><div class="tl">${s.timeline.map(t => `<div><b class="num">${t[0]}</b><span>${esc(t[1])} <sup>${src(t[2])}</sup></span></div>`).join("")}</div>` : ""}
-    ${s.founders && s.founders.length ? `<b>המייסדים</b>${s.founders.map(f => `<div class="kv2"><b>${esc(f.name)}</b><span>${esc(f.story || "")} <sup>${src(f.src)}</sup></span></div>`).join("")}` : ""}
-    ${s.leaders && s.leaders.length ? `<b>מי מנהל</b>${s.leaders.map(l => `<div class="kv2"><b>${esc(l.name)}</b><span>${esc(l.role || "")}${l.since ? `, מאז ${l.since}` : ""}${l.background ? `. ${esc(l.background)}` : ""} <sup>${src(l.src)}</sup></span></div>`).join("")}` : ""}
-    <b>של מי החברה</b>${s.owners ? `<span>${esc(s.owners.text)} <sup>${src(s.owners.src)}</sup></span>` : ""}${holders}${insiders}
-    ${s.governance && s.governance.length ? `<b>שימו לב</b>${s.governance.map(g => `<span>• ${esc(g.text)} <sup>${src(g.src)}</sup></span>`).join("")}` : ""}
-    <b>איך עובדים שם</b>${s.approach ? `<span>${esc(s.approach.text)} <sup>${src(s.approach.src)}</sup></span>` : `<span class="dash">עוד אין לנו מקור אמין לזה.</span>`}
-    ${s.how_to_start ? `<b>איך להתחיל להבין אותה</b><ol class="steps3">${s.how_to_start.map(h => `<li>${esc(h)}</li>`).join("")}</ol>` : ""}
-    <details><summary>מקורות${s.unverified && s.unverified.length ? " ומה עוד לא אומת" : ""}</summary><div class="small">${Object.entries(s.sources || {}).map(([k, v]) => `<div><b>${esc(k)}</b> · <a href="${esc(safe(v[1]))}" target="_blank" rel="noopener noreferrer">${esc(v[0])}</a></div>`).join("")}
-      ${s.unverified && s.unverified.length ? `<b>עוד לא אומת:</b>${s.unverified.map(u => `<div>• ${esc(u)}</div>`).join("")}` : ""}<div>נבדק ב-${hd(s.checked)}</div></div></details></div>`; }
+  const where = `<div class="band tint-stock">${tag("איפה היא", "var(--c-stock)")}<div class="grid2">
+      <div class="box"><span class="small">המטה</span><b>${esc(s && s.hq ? s.hq.city + ", " + s.hq.country : (i.city || "") + (i.country ? ", " + i.country : ""))}</b></div>
+      <div class="box"><span class="small">עובדים</span><b class="num">${s && s.employees ? Number(s.employees.value).toLocaleString("en-US") : i.fullTimeEmployees ? i.fullTimeEmployees.toLocaleString("en-US") : "–"}</b></div>
+      ${s && s.founded ? `<div class="box"><span class="small">נוסדה</span><b class="num">${s.founded}</b></div>` : ""}
+      <div class="box"><span class="small">מפעלים ואתרים</span><b style="font-size:13.5px">${esc(n.sites || "–")}</b></div></div></div>`;
+  if (!s) return where + `<div class="band tint-chain">${tag("מי מנהל", "var(--c-chain)")}${n.people.slice(0, 4).map(p => `<div class="kv"><span>${esc(p.n)}</span><span class="small">${esc(p.t)}</span></div>`).join("") || '<span class="small">אין נתון</span>'}</div>
+    ${holders ? `<div class="band tint-news">${tag("של מי החברה", "var(--c-news)")}${holders}${insiders}</div>` : ""}
+    <div class="band dashband">עוד לא חקרנו את הסיפור של ${esc(n.name)}. המחקר נעשה קודם לחברות הגדולות ולשווקים החמים. מקור הנתונים כאן: Yahoo Finance.</div>`;
+  return where + `
+    ${s.timeline && s.timeline.length ? `<div class="band tint-value">${tag("הסיפור", "var(--c-value)")}<div class="tl">${s.timeline.map(t => `<div><b class="num">${t[0]}</b><span>${esc(t[1])} <sup>${src(t[2])}</sup></span></div>`).join("")}</div>
+      ${s.founders && s.founders.length ? `<b>המייסדים</b>${s.founders.map(f => `<div class="kv2"><b>${esc(f.name)}</b><span>${esc(f.story || "")} <sup>${src(f.src)}</sup></span></div>`).join("")}` : ""}</div>` : ""}
+    ${s.leaders && s.leaders.length ? `<div class="band tint-chain">${tag("מי מנהל", "var(--c-chain)")}${s.leaders.map(l => `<div class="box"><b>${esc(l.name)}</b><span class="small">${esc(l.role || "")}${l.since ? `, מאז ${l.since}` : ""}${l.background ? `. ${esc(l.background)}` : ""} <sup>${src(l.src)}</sup></span></div>`).join("")}
+      ${s.governance && s.governance.length ? `<b>שימו לב</b>${s.governance.map(g => `<span>• ${esc(g.text)} <sup>${src(g.src)}</sup></span>`).join("")}` : ""}</div>` : ""}
+    <div class="band tint-news">${tag("של מי החברה", "var(--c-news)")}${s.owners ? `<span>${esc(s.owners.text)} <sup>${src(s.owners.src)}</sup></span>` : ""}${holders}${insiders}</div>
+    <div class="band dashband">${tag("איך עובדים שם", "var(--muted)")}${s.approach ? `<span>${esc(s.approach.text)} <sup>${src(s.approach.src)}</sup></span>` : `<span>עוד אין לנו מקור אמין לזה.</span>`}</div>
+    ${s.how_to_start ? `<div class="band" style="background:var(--soft);border-color:transparent">${tag("איך להתחיל להבין אותה", "var(--c-stock)")}<ol class="steps3">${s.how_to_start.map(h => `<li>${esc(h)}</li>`).join("")}</ol></div>` : ""}
+    <details class="band"><summary>מקורות${s.unverified && s.unverified.length ? " ומה עוד לא אומת" : ""}</summary><div class="small">${Object.entries(s.sources || {}).map(([k, v]) => `<div><b>${esc(k)}</b> · <a href="${esc(safe(v[1]))}" target="_blank" rel="noopener noreferrer">${esc(v[0])}</a></div>`).join("")}
+      ${s.unverified && s.unverified.length ? `<b>עוד לא אומת:</b>${s.unverified.map(u => `<div>• ${esc(u)}</div>`).join("")}` : ""}<div>נבדק ב-${hd(s.checked)}</div></div></details>`; }
+
 
 /* ---------- who works with whom ---------- */
 function netMap(n) { const sup = D.edges.filter(e => e.t === n.id).sort(byW), cus = D.edges.filter(e => e.s === n.id).sort(byW);
@@ -449,7 +479,8 @@ function nextPage() { const I = D.inference; if (!I || !I.cards.length) { $("pag
       <span class="muted" style="font-size:13px">אנחנו מציגים רק דברים שקרו לפחות ${I.rules.min_cases} פעמים בעבר, ושהתוצאה שלהם הייתה ברורה.</span></div>`; }
 function render() { document.querySelectorAll(".switch button").forEach(b => b.setAttribute("aria-selected", b.dataset.v === S.v)); if (S.v === "wallet") { go("wallet"); return; } ({ stock, heat: heatPage, event: eventPage, build: buildPage, next: nextPage })[S.v]();
  }
-document.addEventListener("click", async ev => { const t = ev.target.closest("[data-v],[data-co],[data-ev],[data-level],[data-feed],[data-more],[data-layer],[data-sum],[data-whyall]"); if (!t) return; const d = t.dataset;
+document.addEventListener("click", async ev => { const t = ev.target.closest("[data-v],[data-co],[data-ev],[data-level],[data-feed],[data-more],[data-layer],[data-sum],[data-whyall],[data-sec]"); if (!t) return; const d = t.dataset;
+  if (d.sec) { S.sec = d.sec; render(); const h = document.querySelector(".secs"); if (h) scrollTo({ top: h.offsetTop - 8 }); return; }
   if (d.layer || d.whyall) { if (d.layer) S.layers[d.layer] = !S.layers[d.layer]; else S.whyAll = true; const y = scrollY; render(); scrollTo({ top: y }); return; }
   if (d.sum) { const n = byId[S.co], m = (n.why || []).find(x => n.id + x.date === d.sum); t.disabled = true; t.textContent = "מסכם...";
     const sample = typeof claude !== "undefined" ? await claude.use("sample").catch(() => null) : null;
@@ -457,7 +488,7 @@ document.addEventListener("click", async ev => { const t = ev.target.closest("[d
     try { const { text } = await sample(`כתוב בעברית פשוטה, 2 משפטים לכל היותר, למי שלא מבין כלום בהשקעות: מה קרה לחברה ${n.name} ב-${m.date}, לפי הכותרות האלה בלבד. אל תוסיף עובדות שאינן בכותרות, ואל תמליץ לקנות או למכור. אם הכותרות לא מסבירות את התזוזה, אמור זאת.\n\n` + (m.news || []).map(h => "- " + h.t + " (" + h.src + ")").join("\n"), { modelTier: "quick" });
       S.sums[d.sum] = text.trim(); S.sumOpen = d.sum; render(); } catch (e) { t.textContent = "הסיכום לא הצליח"; } return; }
   if (d.feed || d.more) { if (d.feed) S.feed = d.feed; else S.more = true; const y = scrollY; render(); scrollTo({ top: y }); return; }
-  if (d.co) { S.feed = "all"; S.more = false; S.whyAll = false; }
+  if (d.co) { S.feed = "all"; S.more = false; S.whyAll = false; S.sec = "overview"; }
   if (d.level) { S.level = d.level; render(); return; }
   if (d.v) S.v = d.v; else if (d.co) { S.co = d.co; S.v = "stock"; } else if (d.ev) { S.ev = d.ev; S.v = "event"; } render(); scrollTo({ top: 0 }); });
 D.nodes.forEach(n => { const o = document.createElement("option"); o.value = n.name; o.label = n.ticker; $("names").appendChild(o); });

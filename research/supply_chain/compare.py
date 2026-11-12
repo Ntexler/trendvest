@@ -45,7 +45,14 @@ def one(market: str) -> dict | None:
                 base[role] = {"n": int(len(v)), "mean": round(float(v.mean()), 1), "fell": int((v < 0).sum())}
     screen = json.loads((r / "screen.json").read_text()) if (r / "screen.json").exists() else {}
     ch = m.get("changes", [])
-    return {"id": market, "name": m["name"], "intro": m["intro"], "stages": [st["stages"][t]["title"] for t in m["tiers"]],
+    hp = r / "heat.json"
+    heat = json.loads(hp.read_text()) if hp.exists() else {"companies": {}}
+    hc = heat["companies"]
+    top_hot = sorted(hc, key=lambda k: -hc[k]["heat"])[:3]
+    return {"heat": {"levels": [hc[k]["level"] for k in sorted(hc, key=lambda k: -hc[k]["heat"])],
+                     "hot": sum(1 for v in hc.values() if v["level"] in ("hot", "boiling")), "n": len(hc),
+                     "top": [chain.loc[k, "name"] for k in top_hot if k in chain.index], "bottom": heat.get("bottom", {})},
+            "id": market, "name": m["name"], "intro": m["intro"], "stages": [st["stages"][t]["title"] for t in m["tiers"]],
             "companies": int(len(chain)), "links": int(len(edges)), "countries": int(countries.size),
             "top_country": [str(countries.index[0]), int(countries.iloc[0])],
             "revenue": float(rev.sum()), "net": float(net.sum()), "net_margin": round(float(net.sum() / rev.sum() * 100), 1),
