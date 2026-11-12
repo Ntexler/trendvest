@@ -46,7 +46,7 @@ def score(ticker: str, close: pd.Series, splits: pd.Series, ud: pd.DataFrame) ->
         d = pd.Timestamp(d).tz_localize(None)
         ud.loc[ud.index < d, "currentPriceTarget"] /= ratio
     rows = []
-    last_ok = close.index[-1] - pd.Timedelta(days=365)
+    last_ok = close.index[-1]
     for d, r in ud.iterrows():
         if d > last_ok:
             continue
@@ -55,12 +55,14 @@ def score(ticker: str, close: pd.Series, splits: pd.Series, ud: pd.DataFrame) ->
             continue
         p0 = close.iloc[i]
         j = close.index.searchsorted(close.index[i] + pd.Timedelta(days=365))
-        if j >= len(close):
+        t = r["currentPriceTarget"]
+        if j >= len(close):                       # 12 months not over yet: kept for the live consensus, not scored
+            rows.append({"ticker": ticker, "date": d, "firm": r["Firm"], "target": t, "p0": p0, "implied": t / p0 - 1,
+                         "realized": np.nan, "reached": None})
             continue
         window = close.iloc[i:j + 1]
-        t = r["currentPriceTarget"]
         implied, realized = t / p0 - 1, close.iloc[j] / p0 - 1
-        rows.append({"ticker": ticker, "date": d, "firm": r["Firm"], "implied": implied, "realized": realized,
+        rows.append({"ticker": ticker, "date": d, "firm": r["Firm"], "target": t, "p0": p0, "implied": implied, "realized": realized,
                      "reached": bool((window >= t).any()) if t >= p0 else bool((window <= t).any())})
     return pd.DataFrame(rows)
 
@@ -99,7 +101,9 @@ def main() -> None:
             failed.append(t)
         time.sleep(1.5)
     d = pd.concat([f for f in frames if len(f)])
+    d.to_csv(BASE / "results" / "analyst_targets.csv", index=False)       # every scored target, for weighting()
     d["year"] = d.date.dt.year
+    d = d.dropna(subset=["realized"])
     by_co = {t: summary(g) for t, g in d.groupby("ticker") if len(g) >= 20}
     out = {"computed": str(date.today()), "method": __doc__.split("\n\n")[1], "all": summary(d),
            "by_year": {int(y): summary(g) for y, g in d.groupby("year")},
