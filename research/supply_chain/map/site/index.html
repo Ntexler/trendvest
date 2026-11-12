@@ -87,7 +87,7 @@ h1 { font-size: 40px; font-weight: 800; line-height: 1.1; margin: 0; overflow-wr
     <div style="display:flex;gap:8px;min-width:0"><input type="search" id="q" list="names" placeholder="חיפוש חברה" aria-label="חיפוש חברה" autocomplete="off"><datalist id="names"></datalist><button class="ghost" id="theme" type="button"></button></div>
   </div>
   <main id="page" class="wrap" style="gap:16px"></main>
-  <p class="foot" id="foot">סקיצה. נתונים נכון ל-11 בנובמבר 2026, מ-Yahoo Finance ומדיווחים לרשויות. "תנועה חריגה" היא התנועה של המניה אחרי שמורידים את התנועה של השוק באותם ימים. זה כלי למידה אישי, לא המלצת השקעה.</p>
+  <p class="foot" id="foot">סקיצה. הנתונים מ-Yahoo Finance ומדיווחים רשמיים של החברות. כשכתוב "מעבר למה שכל השוק זז", הכוונה שהורדנו את מה שכל המניות עשו באותם ימים, כדי לראות רק את ההשפעה של האירוע. זה כלי ללמידה אישית, לא המלצה לקנות או למכור.</p>
 </div>
 
 <script>
@@ -167,7 +167,7 @@ function stock() { const nxt = ((D.inference || {}).cards || []).filter(c => c.c
   const ch = M.changes.filter(c => c[2] === n.tier).sort((a, b) => b[5].localeCompare(a[5])).slice(0, 2), news = n.news.filter(x => x.he).slice(0, 2);
   $("page").innerHTML = `
     <div><span class="kicker">${esc(D.stages[n.tier].title)} · <span class="num">${esc(n.ticker)}</span></span><h1>${esc(n.name)}</h1>${priceLine(n)}</div>
-    <p class="lead">${esc((M.plain_co || M.plain)[n.tier])} המניה ${word(y1)} בשנה האחרונה${Math.abs(gap) > 5 ? `, ${gap > 0 ? "יותר" : "פחות"} מ${M.index_name}` : `, בדומה ל${M.index_name}`}.</p>
+    <p class="lead">${esc((M.plain_co || M.plain)[n.tier])} המניה ${word(y1)} בשנה האחרונה${Math.abs(gap) > 5 ? `, ${gap > 0 ? "יותר" : "פחות"} מרוב המניות בתחום` : `, בערך כמו רוב המניות בתחום`}.</p>
     <div class="band"><h2>המצב במספרים</h2><div class="tiles">
       <div class="tile"><span class="big ${cls(y1)}"><i class="arrow ${cls(y1)}"></i>${sg(y1)}</span><span class="w">שינוי במחיר המניה בשנה</span><span class="l">בשנתיים: ${sg(y2)}</span></div>
       <div class="tile"><span class="big num ${cls(gap)}" style="font-family:inherit">${gap > 0 ? "+" : ""}${gap.toFixed(0)}%</span><span class="w">${gap > 5 ? "יותר מהממוצע של מניות התחום" : gap < -5 ? "פחות מהממוצע של מניות התחום" : "כמו הממוצע של מניות התחום"}</span><span class="l">הממוצע בתחום: ${sg(m1)} בשנה</span></div>
@@ -186,43 +186,44 @@ function eventPage() { const e = D.events.find(x => x.id === S.ev), [name, text]
   const a = (ns, k) => mean(ns.map(n => n.ev[e.id][k])), top = ns => [...ns].sort((x, y) => x.ev[e.id].d3 - y.ev[e.id].d3).slice(0, 3).map(n => `<button class="pillbtn" data-co="${n.id}">${esc(n.name)}</button>`).join(" ");
   const bar = (label, v) => v == null ? "" : `<span>${label}</span><div class="t"><i style="${v < 0 ? `right:33.4%;width:${Math.min(66, -v / 12 * 66.6)}%;background:var(--down)` : `left:66.6%;width:${Math.min(33, v / 6 * 33.4)}%;background:var(--up)`}"></i></div><b>${sg(v, 1)}</b>`;
   const b = D.base, dots = x => x ? `<div class="dots">${Array.from({ length: x.n }, (_, k) => `<i class="${k < x.fell ? "on" : "off"}"></i>`).join("")}</div>` : "";
-  const back = v => v == null ? "" : v > -0.5 ? "חזרו לרמה שלפני האירוע" : "עדיין לא חזרו";
+  const back = v => v == null ? "" : v > -0.5 ? "המחיר חזר למה שהיה לפני" : "המחיר עדיין נמוך ממה שהיה לפני";
   $("page").innerHTML = `
-    <div><span class="kicker">מה קרה · <span class="num">${e.ts.slice(0, 10)}</span></span><h1>${esc(name)}</h1></div><p class="lead">${esc(text)}</p>
-    <div class="band"><h2>השתלשלות האירוע</h2><div class="steps">
-      <div class="step"><span class="n">1</span><b>האירוע</b><small>${esc(e.loc)}</small><small><a href="${esc(e.url)}" target="_blank" rel="noopener">למקור</a></small></div>
-      <div class="step"><span class="n">2</span><b>נפגעו ישירות</b><span class="big">${hit.length ? sg(a(hit, "d3"), 1) : "–"}</span><small>${hit.length} חברות, בממוצע אחרי 3 ימים</small><div>${top(hit)}</div></div>
-      <div class="step"><span class="n">3</span><b>הלקוחות שלהן</b><span class="big">${cus.length ? sg(a(cus, "d3"), 1) : "–"}</span><small>${cus.length ? `${cus.length} חברות שתלויות בנפגעות` : "אין במפה לקוחות תלויים"}</small><div>${top(cus)}</div></div>
-      <div class="step"><span class="n">4</span><b>אחרי 10 ימים</b><small>הנפגעות: ${hit.length ? sg(a(hit, "d10"), 1) : "–"} ${back(hit.length ? a(hit, "d10") : null)}</small><small>${cus.length ? `הלקוחות: ${sg(a(cus, "d10"), 1)} ${back(a(cus, "d10"))}` : ""}</small></div></div></div>
-    <div class="band"><h2>מי זז יותר, שלושה ימים אחרי</h2><div class="bars">${bar("נפגעו ישירות", hit.length ? a(hit, "d3") : null)}${bar("הלקוחות שלהן", cus.length ? a(cus, "d3") : null)}${bar("שאר החברות בשרשרת", rest.length ? a(rest, "d3") : null)}</div>
-      <span class="muted" style="font-size:13px">הקו האנכי הוא אפס. שמאלה ירידה, ימינה עלייה.</span></div>
-    <div class="band"><h2>האם זה קורה תמיד? מה היה באירועים דומים</h2>
-      ${b.hit ? `<p class="say">הנפגעות הישירות ירדו ב-${b.hit.fell} מתוך ${b.hit.n} אירועים.</p>${dots(b.hit)}` : ""}${b.down1 ? `<p class="say">הלקוחות שלהן ירדו ב-${b.down1.fell} מתוך ${b.down1.n} אירועים.</p>${dots(b.down1)}` : ""}
-      <span class="muted" style="font-size:13px">כל עיגול הוא אירוע אחד. עיגול מלא: ירידה. המדגם קטן, ולכן זה רמז ולא כלל.</span></div>
-    <div class="band"><h2>אירועים נוספים</h2><div class="more">${D.events.filter(x => x.id !== e.id).map(x => `<button class="pillbtn" data-ev="${x.id}">${esc(evName(x.id)[0])} <span class="num muted">${x.ts.slice(0, 4)}</span></button>`).join("")}</div></div>`; }
+    <div><span class="kicker">מה קרה · <span class="num">${hd(e.ts.slice(0, 10))}</span></span><h1>${esc(name)}</h1></div><p class="lead">${esc(text)}</p>
+    <div class="band"><h2>מה קרה, צעד אחר צעד</h2><div class="steps">
+      <div class="step"><span class="n">1</span><b>האירוע</b><small>${esc(e.loc)}</small><small><a href="${esc(e.url)}" target="_blank" rel="noopener">לידיעה המקורית</a></small></div>
+      <div class="step"><span class="n">2</span><b>החברות שנפגעו</b><span class="big">${hit.length ? sg(a(hit, "d3"), 1) : "–"}</span><small>${hit.length} חברות. כך זזה המניה שלהן בממוצע בשלושת הימים שאחרי</small><div>${top(hit)}</div></div>
+      <div class="step"><span class="n">3</span><b>מי שקונה מהן</b><span class="big">${cus.length ? sg(a(cus, "d3"), 1) : "–"}</span><small>${cus.length ? `${cus.length} חברות שצריכות את מה שהנפגעות מייצרות` : "לא מצאנו חברות שתלויות בהן"}</small><div>${top(cus)}</div></div>
+      <div class="step"><span class="n">4</span><b>שבועיים אחר כך</b><small>החברות שנפגעו: ${hit.length ? sg(a(hit, "d10"), 1) : "–"}. ${back(hit.length ? a(hit, "d10") : null)}</small><small>${cus.length ? `מי שקונה מהן: ${sg(a(cus, "d10"), 1)}. ${back(a(cus, "d10"))}` : ""}</small></div></div></div>
+    <div class="band"><h2>מי נפגע הכי הרבה?</h2><div class="bars">${bar("החברות שנפגעו", hit.length ? a(hit, "d3") : null)}${bar("מי שקונה מהן", cus.length ? a(cus, "d3") : null)}${bar("שאר החברות בתחום", rest.length ? a(rest, "d3") : null)}</div>
+      <span class="muted" style="font-size:13px">הקו הדק הוא אפס. פס אדום שמאלה: המניה ירדה. פס ירוק ימינה: עלתה. מדובר בשלושת הימים שאחרי האירוע.</span></div>
+    <div class="band"><h2>זה קורה כל פעם?</h2>
+      ${b.hit ? `<p class="say">בעבר, החברות שנפגעו ירדו ב-${b.hit.fell} מתוך ${b.hit.n} אירועים דומים.</p>${dots(b.hit)}` : ""}${b.down1 ? `<p class="say">מי שקונה מהן ירד ב-${b.down1.fell} מתוך ${b.down1.n} אירועים.</p>${dots(b.down1)}` : ""}
+      <span class="muted" style="font-size:13px">כל עיגול הוא אירוע אחד. עיגול מלא: המניה ירדה. אלה מעט אירועים, אז זה רמז ולא חוק.</span></div>
+    <div class="band"><h2>עוד אירועים שבדקנו</h2><div class="more">${D.events.filter(x => x.id !== e.id).map(x => `<button class="pillbtn" data-ev="${x.id}">${esc(evName(x.id)[0])} <span class="num muted">${x.ts.slice(0, 4)}</span></button>`).join("")}</div></div>`; }
 
 /* ---------- portfolio builder ---------- */
-function buildPage() { const B = D.baskets; if (!B) { $("page").innerHTML = '<p class="lead">עוד אין נתונים לבניית תיק בשוק הזה.</p>'; return; }
+function buildPage() { const dd = o => Math.round((Math.exp(o.max_drawdown / 100) - 1) * 100); const B = D.baskets; if (!B) { $("page").innerHTML = '<p class="lead">עוד אין נתונים לבניית תיק בשוק הזה.</p>'; return; }
   const b = B[S.level], pop = B.popular, ev = Object.values(b.events_r3), fell = ev.filter(x => x < 0).length, pev = Object.values(pop.events_r3);
   const top = o => { const [c, k] = Object.entries(o.countries).sort((x, y) => y[1] - x[1])[0]; return [c, k]; };
   const cmp = (label, mine, theirs, unit, max) => `<span>${label}</span><div class="t2"><i style="width:${Math.min(100, Math.abs(mine) / max * 100)}%;background:var(--ink)"></i><i style="width:${Math.min(100, Math.abs(theirs) / max * 100)}%;background:var(--muted);opacity:.5"></i></div><b class="num">${mine}${unit} <span class="muted" style="font-weight:400">מול ${theirs}${unit}</span></b>`;
   $("page").innerHTML = `
-    <div><span class="kicker">בונה תיק · ${esc(M.name)}</span><h1>תיק שמכסה את כל השרשרת</h1></div>
-    <p class="lead">בוחרים כמה תנודות מוכנים לספוג. הכלי לוקח חברה מכל שלב, עד שתיים מכל מדינה, ובלי שתי חברות שתלויות באותו ספק.</p>
+    <div><span class="kicker">בונה תיק · ${esc(M.name)}</span><h1>לא לשים את כל הביצים בסל אחד</h1></div>
+    <p class="lead">תיק הוא כמה מניות שקונים יחד. כאן בחרנו חברה אחת מכל שלב בשרשרת, מכמה מדינות. ככה, אם משהו רע קורה במקום אחד, לא כל התיק נפגע.</p>
     <div class="switch" style="align-self:flex-start"><button data-level="calm" aria-selected="${S.level === "calm"}">רגוע יותר</button><button data-level="bold" aria-selected="${S.level === "bold"}">נועז יותר</button></div>
-    <div class="band"><h2>מה צפוי בתיק הזה</h2><div class="tiles">
-      <div class="tile"><span class="big num">${b.vol_now}%</span><span class="w">תנודתיות בשנה האחרונה</span><span class="l">בשנה רגילה התיק יכול לעלות או לרדת בערך בשיעור הזה</span></div>
-      <div class="tile"><span class="big num down">${b.max_drawdown}%</span><span class="w">הנפילה העמוקה ביותר מאז 2016</span><span class="l">מהשיא עד התחתית, לאותן מניות</span></div></div>
-      <p class="say">${fell ? `ב-${fell} מתוך ${ev.length} אירועי עבר התיק ירד בשלושת הימים הראשונים.` : `באף אחד מ-${ev.length} אירועי העבר התיק לא ירד בשלושת הימים הראשונים.`}</p><div class="dots">${ev.map(x => `<i class="${x < 0 ? "on" : "off"}"></i>`).join("")}</div></div>
-    <div class="band"><h2>מה בתיק: ${b.members.length} חברות, משקל שווה</h2><div class="hold">${b.members.map(id => { const n = byId[id];
+    <span class="muted" style="font-size:14px;margin-top:-8px">${S.level === "calm" ? "רגוע: מניות שהמחיר שלהן זז פחות, למעלה ולמטה." : "נועז: מניות שהמחיר שלהן זז הרבה, למעלה ולמטה. יותר סיכוי, יותר סיכון."}</span>
+    <div class="band"><h2>כמה זה יכול לטלטל</h2><div class="tiles">
+      <div class="tile"><span class="big num">±${Math.round(b.vol_now)}%</span><span class="w">כמה התיק זז בשנה רגילה</span><span class="l">על כל 1,000 ₪, שנה רגילה יכולה להיגמר בערך ${(Math.round(b.vol_now) * 10).toLocaleString("en-US")} ₪ למעלה או למטה</span></div>
+      <div class="tile"><span class="big num down">${dd(b)}%</span><span class="w">הנפילה הכי גדולה מאז 2016</span><span class="l">בנקודה הכי גרועה, 1,000 ₪ היו שווים בערך ${Math.round(1000 * (1 + dd(b) / 100)).toLocaleString("en-US")} ₪</span></div></div>
+      <p class="say">${fell ? `בדקנו ${ev.length} אסונות ומשברים מהעבר. ב-${fell} מהם התיק ירד בשלושת הימים הראשונים.` : `בדקנו ${ev.length} אסונות ומשברים מהעבר. באף אחד מהם התיק לא ירד בשלושת הימים הראשונים.`}</p><div class="dots">${ev.map(x => `<i class="${x < 0 ? "on" : "off"}"></i>`).join("")}</div></div>
+    <div class="band"><h2>מה בתיק: ${b.members.length} חברות, אותו סכום בכל אחת</h2><div class="hold">${b.members.map(id => { const n = byId[id];
       return `<button data-co="${id}"><small>${esc(D.stages[n.tier].title)}</small><b>${esc(n.name)}</b><small>${CN[n.country] || n.country}</small></button>`; }).join("")}</div></div>
-    <div class="band"><h2>מול 8 המניות הגדולות בשוק</h2><div class="bars2">
-      ${cmp("תנודתיות", b.vol_now, pop.vol_now, "%", 60)}${cmp("הנפילה העמוקה ביותר", b.max_drawdown, pop.max_drawdown, "%", 70)}
-      ${cmp("אירועים שבהם ירד", fell, pev.filter(x => x < 0).length, "", 10)}${cmp("מדינות שונות", Object.keys(b.countries).length, Object.keys(pop.countries).length, "", 8)}</div>
-      <span class="muted" style="font-size:13px">הפס הכהה: התיק הזה. הפס הבהיר: 8 הגדולות (${pop.members.slice(0, 4).map(id => esc(byId[id].name)).join(", ")} ועוד). ${top(pop)[1]} מתוך 8 הגדולות הן מ${CN[top(pop)[0]] || top(pop)[0]}${pop.shared_supplier && pop.shared_supplier[1] > 1 ? `, ו-${pop.shared_supplier[1]} מהן תלויות ב-${esc(byId[pop.shared_supplier[0]].name)}` : ""}.</span></div>
-    <div class="band"><h2>ומה עם התשואה?</h2><p class="say">אי אפשר להבטיח אותה, ולא מצאנו דרך לנבא אותה.</p>
-      <span class="muted" style="font-size:14px">בעשר השנים האחרונות המניות בתיק הזה עלו בממוצע <span class="num">${b.return_year}%</span> בשנה, ו-8 הגדולות <span class="num">${pop.return_year}%</span>. המספרים האלה מוטים כלפי מעלה, כי הם כוללים רק חברות ששרדו, ואינם מעידים על העתיד. מה שהתיק הזה נותן הוא פיזור, לא תשואה גבוהה יותר.</span></div>
-    <p class="foot">איך נבחרו המניות: "רגוע יותר" לוקח מכל שלב את החברה שהתנדנדה הכי פחות בשנה האחרונה, ו"נועז יותר" את זו שהתנדנדה הכי הרבה. התשואות במטבע המקומי של כל מניה, בלי עמלות.</p>`; }
+    <div class="band"><h2>ומה אם פשוט קונים את 8 הגדולות?</h2><div class="bars2">
+      ${cmp("כמה זז בשנה", Math.round(b.vol_now), Math.round(pop.vol_now), "%", 60)}${cmp("הנפילה הכי גדולה", dd(b), dd(pop), "%", 70)}
+      ${cmp("משברים שבהם ירד", fell, pev.filter(x => x < 0).length, "", 10)}${cmp("מכמה מדינות", Object.keys(b.countries).length, Object.keys(pop.countries).length, "", 8)}</div>
+      ${b.vol_now > pop.vol_now ? `<p class="say" style="margin:0">שימו לב: בתחום הזה התיק שבנינו דווקא זז יותר מ-8 הגדולות. הפיזור לא תמיד מרגיע.</p>` : ""}<span class="muted" style="font-size:13px">הפס הכהה: התיק שבנינו. הפס הבהיר: 8 החברות הגדולות בתחום (${pop.members.slice(0, 4).map(id => esc(byId[id].name)).join(", ")} ועוד). ${top(pop)[1]} מתוך 8 הגדולות הן מ${CN[top(pop)[0]] || top(pop)[0]}${pop.shared_supplier && pop.shared_supplier[1] > 1 ? `, ו-${pop.shared_supplier[1]} מהן קונות מאותו ספק: ${esc(byId[pop.shared_supplier[0]].name)}. אם הוא נתקע, כולן נתקעות` : ""}.</span></div>
+    <div class="band"><h2>וכמה אפשר להרוויח?</h2><p class="say">אין לנו דרך לדעת, ואף אחד לא יכול להבטיח.</p>
+      <span class="muted" style="font-size:14px">בעשר השנים האחרונות המניות בתיק הזה עלו בממוצע <span class="num">${Math.round(b.return_year)}%</span> בשנה, ו-8 הגדולות <span class="num">${Math.round(pop.return_year)}%</span>. אבל זה עבר, לא עתיד. וזה גם נראה טוב יותר מהמציאות, כי בדקנו רק חברות שעדיין קיימות. מה שהתיק הזה נותן הוא פיזור של הסיכון, לא רווח גבוה יותר.</span></div>
+    <p class="foot">איך בחרנו: ב"רגוע יותר" לקחנו מכל שלב את החברה שהמחיר שלה זז הכי פחות בשנה האחרונה. ב"נועז יותר" את זו שזזה הכי הרבה. כל המספרים בלי עמלות.</p>`; }
 
 const hd = d => d ? d.split("-").reverse().map(Number).join(".") : "";
 /* ---------- the stock's feed: everything we know about it, newest first ---------- */
