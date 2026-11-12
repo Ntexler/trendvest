@@ -24,87 +24,92 @@ CACHE = G.RESULTS / "inference_text.json"
 FIELDS = ("title", "see", "past", "why", "who", "refute", "not")
 MODE = "template"
 
-STRENGTH = {"strong": "ההיסטוריה ברורה", "medium": "ההיסטוריה נוטה לכיוון הזה", "weak": "נטייה חלשה", "date": "תאריך ידוע, לא תחזית"}
+STRENGTH = {"strong": "קרה כמעט תמיד בעבר", "medium": "קרה ברוב המקרים בעבר", "weak": "נטייה חלשה", "date": "תאריך שידוע מראש"}
+
+# The reader knows nothing about investing. So: no finance terms, whole numbers, "9 out of 10" instead of
+# percentages, one idea per sentence, and every card says plainly what it does NOT mean.
 
 
 def _names(xs: list[str]) -> str:
-    return ", ".join(xs) if xs else "לא מופו"
+    return ", ".join(xs) if xs else "עוד לא מיפינו"
 
 
-def _changes(card: dict) -> str:
-    return " ".join(f"{c['title']} ({c['status']})." for c in card["refute"])
+def _of10(pct: float) -> int:
+    return round(pct / 10)
+
+
+def _more(g: float) -> str:
+    return f"פי {round(1 + g / 100, 1):g}" if g >= 100 else f"{round(g)}% יותר"
 
 
 def template(card: dict, market: dict) -> dict:
     n, s, p, d = card["name"], card["see"], card["past"], card["detector"]
     due = ".".join(str(int(x)) for x in reversed(card["claim"]["due"].split("-"))) if card["claim"] else None
-    rhythm = f" הקצב בשלב \"{card['stage']}\": {card['stage_rhythm']}." if card["stage_rhythm"] else ""
+    other = "" if market["id"] == "chips" else " את הבדיקה עשינו על חברות שבבים, כי רק עליהן יש לנו מספיק נתונים. ייתכן שבתחום הזה זה שונה."
+    slow_why = ("כשחברה מוכרת הרבה ומרוויחה הרבה, מתחרים נכנסים לשוק ומפעלים חדשים נבנים. "
+                "חוץ מזה, אחרי שנה מצוינת קשה יותר לשבור שוב את השיא.")
+    slow_not = "לגדול לאט יותר זה עדיין לגדול. זה לא אומר שהחברה בבעיה, וזה לא אומר אם המניה תעלה או תרד."
     if d == "growth":
-        other = "" if market["id"] == "chips" else " ההיסטוריה נמדדה על חברות שבבים. על השוק הזה עוד אין לנו מדידה משלו."
         return {
-            "title": f"{n}: קצב הצמיחה הזה כנראה לא יחזיק",
-            "see": f"ההכנסות של {n} גדלו ב-{s['growth_pct']}% לעומת התקופה המקבילה בשנה שעברה.",
-            "past": f"מצאנו {p['cases']} מקרים דומים בעבר, ב-{p['companies']} חברות שבבים אמריקאיות שצמחו ב-{p['bucket_lo']}% ומעלה. "
-                    f"ב-{p['slowed_pct']}% מהם הצמיחה הייתה נמוכה יותר שנה אחר כך, וב-{p['halved_pct']}% היא ירדה ליותר מחצי. "
-                    f"הצמיחה החציונית שנה אחר כך: {p['median_later']}%. להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-{p['plain_pct']}%.{other}",
-            "why": f"צמיחה חריגה מושכת מתחרים והרחבת ייצור, והשנה הבאה נמדדת מול מספר גבוה.{rhythm}",
-            "who": f"אם ההזמנות של {n} יאטו, הספקים ירגישו ראשונים: {_names(card['suppliers'])}. הלקוחות: {_names(card['customers'])}.",
-            "refute": f"צמיחה של {s['growth_pct']}% ומעלה גם בעוד שנה. " + (f"שינויים פתוחים בשלב הזה: {_changes(card)}" if card["refute"] else ""),
-            "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניה תלך. האטה בצמיחה היא עדיין צמיחה.",
-            "claim": f"עד {due}: צמיחת ההכנסות של {n} תהיה נמוכה מ-{s['growth_pct']}%.",
+            "title": f"{n} מוכרת הרבה יותר מבשנה שעברה. קצב כזה בדרך כלל לא נמשך",
+            "see": f"{n} מכרה {_more(s['growth_pct'])} לעומת אותה תקופה בשנה שעברה. זה קצב גבוה מאוד.",
+            "past": f"מצאנו {p['cases']} פעמים בעבר שבהן חברת שבבים גדלה בקצב כזה. ב-{_of10(p['slowed_pct'])} מכל 10 פעמים, "
+                    f"שנה אחר כך היא גדלה לאט יותר. בדרך כלל הקצב ירד לסביבות {round(p['median_later'])}% בשנה.{other}",
+            "why": slow_why,
+            "who": f"אם {n} תזמין פחות, מי שמוכר לה ירגיש את זה ראשון: {_names(card['suppliers'])}. מי שקונה ממנה: {_names(card['customers'])}.",
+            "refute": f"אם בעוד שנה {n} עדיין תגדל באותו קצב או מהר יותר, טעינו.",
+            "not": slow_not,
+            "claim": f"רשמנו: עד {due}, {n} תגדל לאט יותר מהיום. בתאריך הזה נבדוק אם צדקנו.",
         }
     if d == "market_growth":
-        b = " ".join(f"צמיחה של {x['lo']}%{' עד ' + str(x['hi']) + '%' if x['hi'] else ' ומעלה'} האטה שנה אחר כך ב-{x['slowed_pct']}% "
-                     f"מ-{x['cases']} המקרים, והחציון ירד ל-{x['median_later']}%." for x in reversed(p["buckets"]))
-        other = "" if market["id"] == "chips" else " ההיסטוריה נמדדה על חברות שבבים. על השוק הזה עוד אין לנו מדידה משלו."
+        b = p["buckets"][-1]
         return {
-            "title": f"{s['count']} מתוך {s['mapped']} חברות צומחות בקצב שבדרך כלל לא מחזיק",
-            "see": f"ההכנסות של {s['count']} מתוך {s['mapped']} החברות שמיפינו גדלו ב-25% ומעלה בשנה האחרונה. החציון אצלן: {s['median_growth_pct']}%. "
-                   "המהירות ביותר: " + ", ".join(f"{a} ({g}%)" for a, g in s["fastest"]) + ".",
-            "past": f"{b} להשוואה: בכל המקרים, בלי קשר לקצב, הצמיחה האטה ב-{p['plain_pct']}%.{other}",
-            "why": "כשחלק גדול מהשוק צומח מהר בבת אחת, המקור הוא בדרך כלל גל ביקוש אחד. כשהגל נחלש, הוא נחלש אצל כולם, "
-                   "והשנה הבאה נמדדת מול מספרים גבוהים.",
-            "who": "לפי שלב: " + ", ".join(f"{a} ({k})" for a, k in s["by_stage"]) + ".",
-            "refute": "אם בעוד שנה רוב החברות האלה עדיין יצמחו באותו קצב או מהר יותר.",
-            "not": "זה לא אומר שההכנסות ירדו, וזה לא אומר לאן המניות ילכו. האטה בצמיחה היא עדיין צמיחה.",
-            "claim": f"רשמנו ביומן {s['count']} טענות נפרדות, אחת לכל חברה. בעוד שנה נספור כמה התקיימו.",
+            "title": f"{s['count']} מתוך {s['mapped']} חברות בתחום גדלות מהר מאוד. בדרך כלל זה לא נמשך",
+            "see": f"{s['count']} מתוך {s['mapped']} החברות שאנחנו עוקבים אחריהן מכרו לפחות רבע יותר מבשנה שעברה. "
+                   "הבולטות: " + ", ".join(a for a, _ in s["fastest"]) + ".",
+            "past": f"מצאנו {b['cases']} פעמים בעבר שבהן חברת שבבים גדלה בקצב כזה. ב-{_of10(b['slowed_pct'])} מכל 10 פעמים, "
+                    f"שנה אחר כך היא גדלה לאט יותר.{other}",
+            "why": "כשהרבה חברות באותו תחום גדלות מהר בבת אחת, יש בדרך כלל סיבה אחת משותפת: כולם קונים עכשיו את אותו דבר. "
+                   "כשהקנייה הזאת נרגעת, היא נרגעת אצל כולן.",
+            "who": "איפה הן נמצאות בשרשרת: " + ", ".join(f"{a} ({k})" for a, k in s["by_stage"]) + ".",
+            "refute": "אם בעוד שנה רוב החברות האלה עדיין יגדלו באותו קצב או מהר יותר, טעינו.",
+            "not": slow_not,
+            "claim": f"רשמנו {s['count']} בדיקות, אחת לכל חברה. בעוד שנה נספור בכמה מהן צדקנו.",
         }
     if d.startswith("price_"):
         up = card["claim"]["op"] == ">"
-        was = "עלתה" if s["rel_year_pct"] > 0 else "ירדה"
         return {
-            "title": f"{n}: אחרי שנה כזאת, המניה נטתה {'להמשיך להוביל' if up else 'לפגר'}",
-            "see": f"בשנה האחרונה המניה של {n} {was} ב-{abs(s['rel_year_pct'])}% יותר מ{s['index'] or 'מדד השוק'}.",
-            "past": f"מצאנו {p['cases']} מקרים דומים ב-{p['companies']} חברות. ב-{p['beat_index_pct']}% מהם המניה עקפה את המדד גם בחצי השנה שאחרי. "
-                    f"להשוואה: מניה רגילה עוקפת את המדד ב-{p['plain_pct']}% מהמקרים. התוצאה החציונית מול המדד: {p['median_next']}%. "
-                    "המדידה לא כוללת חברות שנמחקו מהמסחר.",
-            "why": f"מהלך חד במחיר משקף ציפיות שכבר נכנסו למחיר.{rhythm}",
-            "who": f"ספקים: {_names(card['suppliers'])}. לקוחות: {_names(card['customers'])}.",
-            "refute": f"המניה {'תפגר אחרי' if up else 'תעקוף את'} המדד בחצי השנה הקרובה. " + _changes(card),
-            "not": "זו נטייה סטטיסטית של קבוצה, לא הבטחה על מניה אחת.",
-            "claim": f"עד {due}: המניה של {n} {'תעקוף את' if up else 'תפגר אחרי'} מדד השוק.",
+            "title": f"{n}: אחרי שנה כזאת, מניות נטו {'להמשיך לעלות יותר מהאחרות' if up else 'לעלות פחות מהאחרות'}",
+            "see": f"בשנה האחרונה המניה של {n} {'עלתה הרבה יותר' if s['rel_year_pct'] > 0 else 'ירדה הרבה יותר'} משאר המניות בתחום.",
+            "past": f"מצאנו {p['cases']} מקרים דומים. ב-{_of10(p['beat_index_pct'])} מכל 10, המניה עלתה יותר מהאחרות גם בחצי השנה שאחרי. "
+                    "הבדיקה לא כוללת חברות שנסגרו, אז התמונה קצת ורודה מדי.",
+            "why": "כשמחיר זז בחדות, הרבה מהחדשות הטובות או הרעות כבר נמצאות בתוכו.",
+            "who": f"מי שמוכר לה: {_names(card['suppliers'])}. מי שקונה ממנה: {_names(card['customers'])}.",
+            "refute": "אם בחצי השנה הקרובה יקרה ההפך, טעינו.",
+            "not": "זו נטייה של קבוצת מניות, לא הבטחה על מניה אחת.",
+            "claim": f"רשמנו: עד {due}, המניה של {n} {'תעלה יותר' if up else 'תעלה פחות'} משאר המניות בתחום. בתאריך הזה נבדוק.",
         }
     if d == "vol":
         return {
-            "title": f"{n}: המניה כנראה תישאר קופצנית",
-            "see": f"בחצי השנה האחרונה המניה של {n} זזה בקצב שנתי של {s['vol_pct']}%. החציון בשוק הזה: {s['market_median_vol_pct']}%.",
-            "past": f"בדקנו {p['cases']} מקרים של מניה שהייתה בשליש הקופצני של השוק שלה. ב-{p['stayed_pct']}% מהם היא נשארה שם גם בחצי השנה שאחרי. "
-                    f"אם זה היה מקרי, היינו מצפים ל-{p['plain_pct']}%.",
-            "why": "הסיבות שמקפיצות מניה לא נעלמות בחצי שנה: חוב, תלות בלקוח אחד, מוצר אחד, מחיר שנשען על ציפיות.",
-            "who": f"מי שמחזיק את המניה. ספקים: {_names(card['suppliers'])}. לקוחות: {_names(card['customers'])}.",
-            "refute": "חצי שנה רגועה, שבה המניה יוצאת מהשליש הקופצני של השוק.",
-            "not": "זה לא אומר אם המניה תעלה או תרד. זה אומר שהדרך תהיה סוערת.",
-            "claim": f"עד {due}: המניה של {n} תישאר בשליש הקופצני של השוק.",
+            "title": f"המחיר של {n} קופץ הרבה. כנראה שזה יימשך",
+            "see": f"בחצי השנה האחרונה המחיר של המניה עלה וירד בחדות, בערך פי {round(s['vol_pct'] / s['market_median_vol_pct'], 1):g} ממניה רגילה בתחום.",
+            "past": f"מצאנו {p['cases']} מקרים של מניות שקפצו כך. ב-{_of10(p['stayed_pct'])} מכל 10, הן המשיכו לקפוץ גם בחצי השנה שאחרי. "
+                    f"אם זה היה סתם מזל, היינו רואים רק {_of10(p['plain_pct'])} מכל 10.",
+            "why": "הסיבות שגורמות למחיר לקפוץ לא נעלמות מהר: חברה עם הרבה חובות, חברה שתלויה בלקוח אחד, או מניה שכולם מדברים עליה.",
+            "who": "מי שמחזיק במניה כזאת צריך להיות מוכן לימים של ירידות חדות, גם אם בסוף היא עולה.",
+            "refute": "אם בחצי השנה הקרובה המחיר יהיה רגוע, טעינו.",
+            "not": "זה לא אומר אם המניה תעלה או תרד. זה אומר רק שהדרך תהיה סוערת.",
+            "claim": f"רשמנו: עד {due}, המניה של {n} תמשיך להיות מהקופצניות בתחום. בתאריך הזה נבדוק אם צדקנו.",
         }
-    v = "" if s["verified"] else " הפרט הזה עוד לא אומת מול מקור שני."
+    v = "" if s["verified"] else " את הפרט הזה עוד לא בדקנו מול מקור נוסף."
     return {
         "title": s["title"],
-        "see": f"{s['detail']} מועד: {s['month']}. מצב: {s['status']}.{v}",
-        "past": "אין כאן סטטיסטיקה. זה תאריך ידוע מראש, לא תחזית.",
-        "why": f"השלב שמושפע: {card['stage']}.{rhythm}",
-        "who": f"חברות בשלב הזה: {_names(card['exposed'])}.",
+        "see": f"{s['detail']} מצב: {s['status']}.{v}",
+        "past": "כאן אין ניחוש. זה תאריך שידוע מראש.",
+        "why": f"זה נוגע לשלב \"{card['stage']}\" בשרשרת.",
+        "who": f"חברות שעובדות בשלב הזה: {_names(card['exposed'])}.",
         "refute": "",
-        "not": "אנחנו לא יודעים איך זה ייגמר. אנחנו יודעים מתי, ומי עומד ליד.",
+        "not": "אנחנו לא יודעים איך זה ייגמר. אנחנו רק יודעים מתי זה קורה ומי קרוב לזה.",
         "claim": "",
     }
 
@@ -116,8 +121,9 @@ investor with no finance background. The reader is Israeli and reads Hebrew.
 
 The tool finds unusual states with fixed rules and attaches what happened historically in similar states. \
 You receive, for each card, the facts (JSON) and a Hebrew draft built from fixed sentence patterns. Your job is \
-only to make each field read like a clear note from a knowledgeable friend: short sentences, everyday words, \
-one idea per sentence. The draft is accurate but stiff; improve the wording, keep the meaning.
+only to make each field read like a note from a friend to someone who has never invested: short sentences, everyday \
+words, no finance terms (say "sold more" not "revenue growth", "the price jumps a lot" not "volatility"), one idea per \
+sentence. The draft is already written at that level; keep it there and make it flow.
 
 Constraints, each for a reason:
 - Use only numbers that appear in that card's facts or draft, written the same way. Your text is checked by \

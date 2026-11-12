@@ -169,10 +169,10 @@ function stock() { const nxt = ((D.inference || {}).cards || []).filter(c => c.c
     <div><span class="kicker">${esc(D.stages[n.tier].title)} · <span class="num">${esc(n.ticker)}</span></span><h1>${esc(n.name)}</h1>${priceLine(n)}</div>
     <p class="lead">${esc((M.plain_co || M.plain)[n.tier])} המניה ${word(y1)} בשנה האחרונה${Math.abs(gap) > 5 ? `, ${gap > 0 ? "יותר" : "פחות"} מ${M.index_name}` : `, בדומה ל${M.index_name}`}.</p>
     <div class="band"><h2>המצב במספרים</h2><div class="tiles">
-      <div class="tile"><span class="big ${cls(y1)}"><i class="arrow ${cls(y1)}"></i>${sg(y1)}</span><span class="w">המניה בשנה האחרונה</span><span class="l">בשנתיים: ${sg(y2)}</span></div>
-      <div class="tile"><span class="big ${cls(gap)}">${gap > 0 ? "+" : ""}${gap.toFixed(0)}</span><span class="w">${gap > 5 ? "נקודות אחוז מעל " : gap < -5 ? "נקודות אחוז מתחת ל" : "נקודות אחוז, צמוד ל"}${esc(M.index_name)}</span><span class="l">המדד עשה ${sg(m1)} בשנה</span></div>
-      ${growth != null ? `<div class="tile"><span class="big ${cls(growth)}"><i class="arrow ${cls(growth)}"></i>${sg(growth)}</span><span class="w">ההכנסות ${growth > 3 ? "צומחות" : growth < -3 ? "יורדות" : "יציבות"}</span><span class="l">לעומת התקופה המקבילה אשתקד</span></div>` : ""}
-      <div class="tile"><span class="big num">${usd(i.revenueUSD)}</span><span class="w">הכנסות בשנה</span><span class="l">רווח נקי: <span class="num">${usd(i.netIncomeUSD)}</span></span></div></div></div>
+      <div class="tile"><span class="big ${cls(y1)}"><i class="arrow ${cls(y1)}"></i>${sg(y1)}</span><span class="w">שינוי במחיר המניה בשנה</span><span class="l">בשנתיים: ${sg(y2)}</span></div>
+      <div class="tile"><span class="big num ${cls(gap)}" style="font-family:inherit">${gap > 0 ? "+" : ""}${gap.toFixed(0)}%</span><span class="w">${gap > 5 ? "יותר מהממוצע של מניות התחום" : gap < -5 ? "פחות מהממוצע של מניות התחום" : "כמו הממוצע של מניות התחום"}</span><span class="l">הממוצע בתחום: ${sg(m1)} בשנה</span></div>
+      ${growth != null ? `<div class="tile"><span class="big ${cls(growth)}"><i class="arrow ${cls(growth)}"></i>${sg(growth)}</span><span class="w">${growth > 3 ? "החברה מוכרת יותר" : growth < -3 ? "החברה מוכרת פחות" : "המכירות יציבות"}</span><span class="l">לעומת התקופה המקבילה אשתקד</span></div>` : ""}
+      <div class="tile"><span class="big num">${usd(i.revenueUSD)}</span><span class="w">מכירות בשנה</span><span class="l">מזה נשאר רווח: <span class="num">${usd(i.netIncomeUSD)}</span></span></div></div></div>
     <div class="band"><h2>המניה בשנתיים האחרונות</h2><div class="pic">${picture(n)}</div></div>
     ${feed(n)}
     ${rank != null ? `<div class="band"><h2>האם המניה יקרה?</h2><p class="say">${rank > 0.66 ? "יקרה יותר מרוב החברות בשלב שלה" : rank < 0.34 ? "זולה יותר מרוב החברות בשלב שלה" : "באמצע, ביחס לחברות בשלב שלה"}.</p>
@@ -226,67 +226,67 @@ function buildPage() { const B = D.baskets; if (!B) { $("page").innerHTML = '<p 
 
 const hd = d => d ? d.split("-").reverse().map(Number).join(".") : "";
 /* ---------- the stock's feed: everything we know about it, newest first ---------- */
-const KIND = { next: "מסקנה", news: "חדשות", event: "אירוע בשרשרת", change: "שינוי בשוק", report: "דוח", short: "תחזית קצרה", check: "רשימת בדיקה" };
+const KIND = { next: "מה צפוי", news: "חדשות", event: "מה קרה בעבר", change: "חוק או שינוי בתחום", report: "דוח מכירות", short: "ניחוש לימים הקרובים", check: "שווה בדיקה" };
 function feedItems(n) { const out = [], today = new Date().toISOString().slice(0, 10), I = (D.inference || {}).cards || [], nm = id => (byId[id] || {}).name || id;
   const src = c => D.sources[c[7]] ? `<a href="${esc(D.sources[c[7]][1])}" target="_blank" rel="noopener">${esc(D.sources[c[7]][0])}</a>` : "";
-  I.filter(c => c.company === n.id).forEach(c => { out.push({ d: c.as_of > today ? today : c.as_of, k: "next", h: `<b>${esc(c.text.title.replace(n.name + ": ", ""))}.</b> ${esc(c.text.see)}`, s: `${esc(c.text.strength)} · <button class="pillbtn" data-v="next" style="font-size:12.5px;padding:0;background:none;color:var(--accent)">על מה זה נשען</button>` });
-    if (c.claim) out.push({ d: c.claim.due, k: "next", h: `ביום הזה תיבדק הטענה: ${esc(c.text.claim.replace(/^עד [\d.]+: /, ""))}`, s: "נרשמה ביומן ולא ניתנת לשינוי" }); });
-  if (D.candidates.includes(n.id)) out.push({ d: today, k: "check", h: "עוברת את ארבע הבדיקות: זולה ביחס לשלב שלה, צומחת, הלקוחות שלה צומחים, ואין סימן שהיא שבורה.", s: "זו רשימה לבדיקה, לא המלצה" });
-  D.forecasts.filter(f => f.target === n.id).forEach(f => out.push({ d: f.created_utc.slice(0, 10), k: "short", h: `תנועה חריגה אצל ${esc(nm(f.source))} ב-${hd(f.shock_date)}. נרשמה תחזית שהמניה תזוז ${f.predicted_direction === "down" ? "למטה" : "למעלה"} בחמשת ימי המסחר שאחרי.`, s: `בעבר זה קרה ב-${(f.history_same_direction_rate * 100).toFixed(0)}% מהמקרים, כמעט כמו הטלת מטבע` }));
-  D.forecasts.filter(f => f.source === n.id).slice(0, 1).forEach(f => out.push({ d: f.shock_date, k: "short", h: `תנועה חריגה במניה: ${f.shock_z > 0 ? "עלייה" : "ירידה"} חדה ביחס לשוק.`, s: "נרשמו תחזיות לחברות הקשורות" }));
+  I.filter(c => c.company === n.id).forEach(c => { out.push({ d: c.as_of > today ? today : c.as_of, k: "next", h: `<b>${esc(c.text.title)}.</b> ${esc(c.text.see)}`, s: `${esc(c.text.strength)} · <button class="pillbtn" data-v="next" style="font-size:12.5px;padding:0;background:none;color:var(--accent)">למה אנחנו חושבים ככה</button>` });
+    if (c.claim) out.push({ d: c.claim.due, k: "next", h: "בתאריך הזה נבדוק אם צדקנו.", s: esc(c.text.claim) }); });
+  if (D.candidates.includes(n.id)) out.push({ d: today, k: "check", h: "המניה נראית זולה יחסית לחברות דומות, החברה גדלה, וגם הלקוחות שלה גדלים.", s: "זה סימן ששווה לבדוק לעומק, לא המלצה לקנות" });
+  D.forecasts.filter(f => f.target === n.id).forEach(f => out.push({ d: f.created_utc.slice(0, 10), k: "short", h: `המניה של ${esc(nm(f.source))} ${f.predicted_direction === "down" ? "ירדה" : "עלתה"} בחדות ב-${hd(f.shock_date)}. שתי החברות עובדות יחד, אז רשמנו ניחוש: גם המניה הזאת ${f.predicted_direction === "down" ? "תרד" : "תעלה"} בימים הקרובים.`, s: "בעבר ניחוש כזה צדק רק בערך בחצי מהפעמים, כמו הטלת מטבע" }));
+  D.forecasts.filter(f => f.source === n.id).slice(0, 1).forEach(f => out.push({ d: f.shock_date, k: "short", h: `המחיר של המניה ${f.shock_z > 0 ? "קפץ" : "צנח"} הרבה יותר מהרגיל.`, s: "בדקנו מה זה אומר לחברות שעובדות איתה" }));
   n.news.forEach(x => out.push({ d: x.d, k: "news", h: x.he ? esc(x.he) : `<span class="raw">${esc(x.t)}</span>`, s: `${x.he ? `<span class="raw" style="font-size:12.5px">${esc(x.t)}</span> · סיכום שנכתב בבינה מלאכותית · ` : ""}${esc(x.p)} · <a href="${esc(x.u)}" target="_blank" rel="noopener">לידיעה המקורית</a>` }));
-  if (n.pulse && n.pulse.monthly) out.push({ d: n.pulse.monthly.last + "-28", k: "report", h: `הכנסות החודש: ${sg(n.pulse.monthly.yoy, 1)} לעומת אותו חודש בשנה שעברה.`, s: "דיווח חודשי לבורסה בטייוואן" });
-  M.changes.filter(c => c[2] === n.tier && /^\d{4}-\d{2}/.test(c[5])).forEach(c => out.push({ d: c[5].slice(0, 7) + "-28", m: 1, k: "change", h: `<b>${esc(c[3])}.</b> ${esc(c[4])}`, s: `${esc(c[6])}${src(c) ? " · " + src(c) : ""}${c[8] ? "" : " · לא אומת מול המקור"}` }));
+  if (n.pulse && n.pulse.monthly) out.push({ d: n.pulse.monthly.last + "-28", k: "report", h: `המכירות בחודש האחרון: ${sg(n.pulse.monthly.yoy, 0)} לעומת אותו חודש בשנה שעברה.`, s: "חברות בטייוואן מדווחות על המכירות שלהן כל חודש" });
+  M.changes.filter(c => c[2] === n.tier && /^\d{4}-\d{2}/.test(c[5])).forEach(c => out.push({ d: c[5].slice(0, 7) + "-28", m: 1, k: "change", h: `<b>${esc(c[3])}.</b> ${esc(c[4])}`, s: `${esc(c[6])}${src(c) ? " · " + src(c) : ""}${c[8] ? "" : " · עוד לא בדקנו מול מקור נוסף"}` }));
   D.events.forEach(e => { const r = roleOf(n, e.id), v = n.ev[e.id]; if (!r || r === "control" || r === "rival" || !v) return;
-    out.push({ d: v.day0, k: "event", h: `<button class="pillbtn" data-ev="${e.id}" style="padding:0;background:none;font-weight:800">${esc(evName(e.id)[0])}</button> המניה זזה ${sg(v.d3, 1)} בשלושה ימים, מעבר לתנועת השוק.`, s: r === "hit" ? "החברה נפגעה ישירות" : "ספק או לקוח שלה נפגע" }); });
+    out.push({ d: v.day0, k: "event", h: `<button class="pillbtn" data-ev="${e.id}" style="padding:0;background:none;font-weight:800">${esc(evName(e.id)[0])}</button> המניה זזה ${sg(v.d3, 1)} בשלושה ימים, מעבר למה שכל השוק זז.`, s: r === "hit" ? "החברה עצמה נפגעה" : "חברה שהיא עובדת איתה נפגעה" }); });
   return out.sort((a, b) => b.d.localeCompare(a.d)); }
 function feed(n) { const all = feedItems(n), today = new Date().toISOString().slice(0, 10), kinds = [...new Set(all.map(x => x.k))];
   const f = kinds.includes(S.feed) ? S.feed : "all", items = all.filter(x => f === "all" || x.k === f), soon = items.filter(x => x.d > today).reverse(), past = items.filter(x => x.d <= today);
   const row = (x, c = "") => `<div class="fi ${c}"><time>${x.m ? hd(x.d.slice(0, 7)) : hd(x.d)}</time><div class="b"><span class="k">${KIND[x.k]}</span><span>${x.h}</span><small>${x.s}</small></div></div>`;
   const cut = S.more ? past : past.slice(0, 8);
-  return `<div class="band" id="feed"><h2>הפיד של ${esc(n.name)}</h2>
+  return `<div class="band" id="feed"><h2>מה חדש אצל ${esc(n.name)}</h2>
     ${kinds.length > 1 ? `<div class="chips"><button data-feed="all" aria-pressed="${f === "all"}">הכול</button>${kinds.map(k => `<button data-feed="${k}" aria-pressed="${f === k}">${KIND[k]}</button>`).join("")}</div>` : ""}
     ${all.length ? "" : '<span class="muted">עוד אין פריטים על החברה הזאת.</span>'}
-    ${soon.length ? `<div><div class="fhead" style="padding-top:0">בדרך</div><div class="feed">${soon.map(x => row(x, "soon")).join("")}</div></div>` : ""}
+    ${soon.length ? `<div><div class="fhead" style="padding-top:0">מה צפוי</div><div class="feed">${soon.map(x => row(x, "soon")).join("")}</div></div>` : ""}
     ${cut.length ? `<div>${soon.length ? '<div class="fhead">מה כבר קרה</div>' : ""}<div class="feed">${cut.map(x => row(x)).join("")}</div></div>` : ""}
     ${past.length > cut.length ? `<button class="pillbtn" data-more="1" style="align-self:flex-start">עוד ${past.length - cut.length} פריטים</button>` : ""}</div>`; }
 function priceLine(n) { const L = n.last; if (!L) return ""; const cur = { ILA: "אגורות", GBp: "פני", USD: "$" }[L.cur] || L.cur;
-  return `<div class="price"><span class="p">${cur === "$" ? "$" : ""}${L.p.toLocaleString("en-US", { maximumFractionDigits: 2 })}</span>${cur === "$" ? "" : `<span>${esc(cur)}</span>`}<span>${sg(L.day, 1)} <span class="muted" style="font-size:13px">ביום המסחר האחרון</span></span><small>מחיר סגירה, <span class="num">${hd(L.d)}</span>. לא מחיר בזמן אמת.</small></div>`; }
+  return `<div class="price"><span class="p">${cur === "$" ? "$" : ""}${L.p.toLocaleString("en-US", { maximumFractionDigits: 2 })}</span>${cur === "$" ? "" : `<span>${esc(cur)}</span>`}<span>${sg(L.day, 1)} <span class="muted" style="font-size:13px">ביום האחרון</span></span><small>זה המחיר של מניה אחת, בסוף יום המסחר של <span class="num">${hd(L.d)}</span>. המחיר לא מתעדכן במהלך היום.</small></div>`; }
 /* ---------- what is likely next ---------- */
 function ten(pct) { const k = Math.round(pct / 10); return `<span class="ten" role="img" aria-label="${k} מתוך 10">${Array.from({ length: 10 }, (_, i) => `<i class="${i < k ? "on" : ""}"></i>`).join("")}</span>`; }
 function nxCard(c) { const t = c.text, p = c.past, s = c.see; let pic = "";
   if (c.detector === "growth") { const mx = Math.max(s.growth_pct, p.median_later);
-    pic = `<div class="odds">${ten(p.slowed_pct)}<span>ב-${Math.round(p.slowed_pct / 10)} מכל 10 מקרים דומים הצמיחה האטה תוך שנה</span></div>
-      <div class="then"><span>היום</span><div class="t"><i style="width:${s.growth_pct / mx * 100}%"></i></div><b class="num">${s.growth_pct}%</b>
-      <span>בעבר, שנה אחרי</span><div class="t"><i class="later" style="width:${Math.max(0, p.median_later) / mx * 100}%"></i></div><b class="num">${p.median_later}%</b></div>`; }
+    pic = `<div class="odds">${ten(p.slowed_pct)}<span>ב-${Math.round(p.slowed_pct / 10)} מכל 10 פעמים בעבר, חברה כזאת גדלה לאט יותר שנה אחר כך</span></div>
+      <div class="then"><span>קצב הגידול היום</span><div class="t"><i style="width:${s.growth_pct / mx * 100}%"></i></div><b class="num">${Math.round(s.growth_pct)}%</b>
+      <span>הקצב הרגיל שנה אחרי</span><div class="t"><i class="later" style="width:${Math.max(0, p.median_later) / mx * 100}%"></i></div><b class="num">${Math.round(p.median_later)}%</b></div>`; }
   else if (c.detector === "market_growth") { const b = p.buckets[p.buckets.length - 1];
-    pic = `<div class="odds">${ten(b.slowed_pct)}<span>בעבר, לפחות ${Math.round(b.slowed_pct / 10)} מכל 10 חברות בקצב כזה האטו תוך שנה</span></div>
-      <div class="then"><span>היום</span><div class="t"><i style="width:100%"></i></div><b class="num">${s.median_growth_pct}%</b>
-      <span>בעבר, שנה אחרי</span><div class="t"><i class="later" style="width:${b.median_later / s.median_growth_pct * 100}%"></i></div><b class="num">${b.median_later}%</b></div>`; }
-  else if (c.detector === "vol") pic = `<div class="odds">${ten(p.stayed_pct)}<span>ב-${Math.round(p.stayed_pct / 10)} מכל 10 מקרים המניה נשארה קופצנית גם בחצי השנה שאחרי</span></div>
-      <div class="odds">${ten(p.plain_pct)}<span class="muted">כך זה היה נראה אם זה היה מקרי</span></div>`;
-  else if (c.detector.startsWith("price")) pic = `<div class="odds">${ten(p.beat_index_pct)}<span>ב-${Math.round(p.beat_index_pct / 10)} מכל 10 מקרים המניה עקפה את המדד בחצי השנה שאחרי</span></div>`;
+    pic = `<div class="odds">${ten(b.slowed_pct)}<span>ב-${Math.round(b.slowed_pct / 10)} מכל 10 פעמים בעבר, חברה כזאת גדלה לאט יותר שנה אחר כך</span></div>
+      <div class="then"><span>קצב הגידול היום</span><div class="t"><i style="width:100%"></i></div><b class="num">${Math.round(s.median_growth_pct)}%</b>
+      <span>הקצב הרגיל שנה אחרי</span><div class="t"><i class="later" style="width:${b.median_later / s.median_growth_pct * 100}%"></i></div><b class="num">${Math.round(b.median_later)}%</b></div>`; }
+  else if (c.detector === "vol") pic = `<div class="odds">${ten(p.stayed_pct)}<span>ב-${Math.round(p.stayed_pct / 10)} מכל 10 פעמים, המחיר המשיך לקפוץ גם בחצי השנה שאחרי</span></div>
+      <div class="odds">${ten(p.plain_pct)}<span class="muted">אם זה היה סתם מזל: ${Math.round(p.plain_pct / 10)} מכל 10</span></div>`;
+  else if (c.detector.startsWith("price")) pic = `<div class="odds">${ten(p.beat_index_pct)}<span>ב-${Math.round(p.beat_index_pct / 10)} מכל 10 פעמים, המניה עלתה יותר מהאחרות גם אחר כך</span></div>`;
   else pic = `<div class="odds"><span class="num" style="font-size:26px;font-weight:800">${hd(s.month)}</span><span>${esc(s.status)}</span></div>`;
   const row = (k, v) => v ? `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>` : "";
   const L = c.claim && c.claim.ledger;
   return `<article class="nx"><span class="tag">${esc(t.strength)}${c.stage ? " · " + esc(c.stage) : ""}</span>
     <h3>${c.company && byId[c.company] ? `<button class="pillbtn" data-co="${c.company}" style="font:inherit;padding:0;background:none">${esc(t.title)}</button>` : esc(t.title)}</h3>
     <p style="margin:0">${esc(t.see)}</p>${pic}
-    <details><summary>על מה זה נשען, ומה יפריך את זה</summary><dl>${row("מה קרה בעבר במצב כזה", t.past)}${row("למה זה קורה", t.why)}${row("מי מושפע", t.who)}${row("מה יפריך", t.refute)}${row("מה זה לא אומר", t.not)}</dl></details>
-    ${t.claim ? `<div class="log">${esc(t.claim)}${L ? ` נרשם ביומן ב-<span class="num">${hd(L.created)}</span>, ולא ניתן לשנות אותו. מספר רישום <span class="num">${L.hash}</span>.` : ""}</div>` : ""}</article>`; }
+    <details><summary>למה אנחנו חושבים ככה</summary><dl>${row("מה קרה בעבר", t.past)}${row("למה זה קורה", t.why)}${row("על מי זה משפיע", t.who)}${row("מתי נדע שטעינו", t.refute)}${row("חשוב לא להתבלבל", t.not)}</dl></details>
+    ${t.claim ? `<div class="log">${esc(t.claim)}</div>` : ""}</article>`; }
 function nextPage() { const I = D.inference; if (!I || !I.cards.length) { $("page").innerHTML = '<p class="lead">עוד אין מסקנות לשוק הזה.</p>'; return; }
   const show = I.cards.filter(c => c.show), rest = I.cards.filter(c => !c.show), R = I.record;
   $("page").innerHTML = `<div><span class="kicker">${esc(M.name)} · נכון ל-<span class="num">${hd(I.as_of)}</span></span><h1>מה סביר שיקרה הלאה</h1></div>
-    <p class="lead">המערכת מחפשת מצבים חריגים, בודקת מה קרה בעבר במצבים כאלה, ורושמת טענה שאפשר לבדוק בתאריך ידוע. זו נטייה של קבוצה, לא תחזית למניה אחת.</p>
-    <div class="band"><h2>כמה פעמים צדקנו עד היום</h2><div class="tiles">
-      <div class="tile"><span class="big num">${R.claims}</span><span class="w">טענות רשומות ביומן</span></div>
-      <div class="tile"><span class="big num">${R.scored}</span><span class="w">כבר נבדקו</span><span class="l">${R.scored ? `${R.hit} התקיימו` : "עוד לא הגיע התאריך של אף אחת"}</span></div>
-      <div class="tile"><span class="big num">${hd(R.next_due)}</span><span class="w">הבדיקה הראשונה</span></div></div>
-      <span class="muted" style="font-size:13px">עד שלא יצטברו בדיקות, אין לנו הוכחה שהמסקנות האלה עובדות קדימה. יש רק ההיסטוריה.</span></div>
+    <p class="lead">כאן מופיעים דברים חריגים שקורים עכשיו בתחום, ומה קרה בעבר כשדבר כזה קרה. זה לא אומר מה לקנות או למכור.</p>
+    <div class="band"><h2>האם אנחנו צודקים?</h2><div class="tiles">
+      <div class="tile"><span class="big num">${R.claims}</span><span class="w">דברים שאמרנו שיקרו</span></div>
+      <div class="tile"><span class="big num">${R.scored}</span><span class="w">כבר נבדקו</span><span class="l">${R.scored ? `${R.hit} התקיימו` : "עוד מוקדם לדעת"}</span></div>
+      <div class="tile"><span class="big num">${hd(R.next_due)}</span><span class="w">הבדיקה הראשונה</span><span class="l">אז נדע בפעם הראשונה אם צדקנו</span></div></div>
+      <span class="muted" style="font-size:13px">כל דבר שאנחנו אומרים נרשם עם תאריך, ואי אפשר לשנות אותו אחר כך. כשהתאריך מגיע, בודקים. עד אז אין הוכחה שזה עובד, אז לא כדאי לסמוך על זה יותר מדי.</span></div>
     ${show.map(nxCard).join("")}
-    ${rest.length ? `<div class="band"><h2>עוד ${rest.length} טענות שנרשמו ביומן</h2><details><summary>להציג את כולן</summary><div class="rows" style="margin-top:12px">${rest.map(c => `<button data-co="${c.company}">${esc(c.name)}</button><span class="num">${c.see.growth_pct != null ? c.see.growth_pct + "%" : c.see.vol_pct != null ? c.see.vol_pct + "%" : ""}</span><span class="muted">${c.detector === "growth" ? "צמיחה שכנראה תאט" : c.detector === "vol" ? "תישאר קופצנית" : ""}</span>`).join("")}</div></details></div>` : ""}
-    <div class="band"><h2>מה בדקנו ולא מצאנו</h2><p style="margin:0">${I.checked_nothing_to_say} מצבים נוספים נבדקו ולא הוצגו, כי ההיסטוריה לא נוטה לשום כיוון. למשל: מניה שעלתה או ירדה הרבה יותר מהמדד בשנה האחרונה. בחצי השנה שאחרי היא עקפה את המדד בערך בחצי מהמקרים.</p>
-      <span class="muted" style="font-size:13px">כלל ההצגה: לפחות ${I.rules.min_cases} מקרים בעבר, ופער של ${I.rules.min_gap_points} נקודות אחוז לפחות מהממוצע הרגיל.</span></div>`; }
+    ${rest.length ? `<div class="band"><h2>עוד ${rest.length} חברות באותו מצב</h2><details><summary>להציג את כולן</summary><div class="rows" style="margin-top:12px">${rest.map(c => `<button data-co="${c.company}">${esc(c.name)}</button><span class="num">${c.see.growth_pct != null ? "+" + Math.round(c.see.growth_pct) + "% מכירות" : ""}</span><span class="muted">${c.detector === "growth" ? "כנראה תגדל לאט יותר" : c.detector === "vol" ? "המחיר כנראה ימשיך לקפוץ" : ""}</span>`).join("")}</div></details></div>` : ""}
+    <div class="band"><h2>דברים שבדקנו ואין בהם כלום</h2><p style="margin:0">בדקנו גם אם מניה שעלתה או ירדה הרבה בשנה האחרונה ממשיכה באותו כיוון. התשובה: חצי מהפעמים כן, חצי לא. כמו הטלת מטבע. לכן אנחנו לא מציגים את זה.</p>
+      <span class="muted" style="font-size:13px">אנחנו מציגים רק דברים שקרו לפחות ${I.rules.min_cases} פעמים בעבר, ושהתוצאה שלהם הייתה ברורה.</span></div>`; }
 function render() { document.querySelectorAll(".switch button").forEach(b => b.setAttribute("aria-selected", b.dataset.v === S.v)); ({ stock, event: eventPage, build: buildPage, next: nextPage })[S.v]();
  }
 document.addEventListener("click", ev => { const t = ev.target.closest("[data-v],[data-co],[data-ev],[data-level],[data-feed],[data-more]"); if (!t) return; const d = t.dataset;
