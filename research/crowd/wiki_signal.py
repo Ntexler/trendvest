@@ -2,7 +2,9 @@
 
 Spike: yesterday's page views >= 3x the median of the 56 days before (and >= 500 views). Views of day d are complete at
 midnight UTC, so the trade is at the next open after that (Asia: same calendar day d+1; US/Europe: d+1).
-Return: next open -> close 1/5/20 sessions later, minus the company's home index. t clustered by date. Both halves.
+Return: next open -> close 1/5/20 sessions later, minus the company's home index, minus that stock's own average for the
+same holding period in that half (our company lists were drawn up in 2026, so their winners would otherwise look like a
+signal). t clustered by date. Both halves. Also split by the stock's move on the attention day, and by WSB overlap.
 Literature: Da, Engelberg & Gao (2011) - attention brings a short rise that later reverses; Moat et al. (2013).
 Twin filter: twin trades (peer_trades.csv) split by the twin's own Wikipedia attention on the day before the trade.
 
@@ -21,6 +23,10 @@ from research.supply_chain import markets as MK
 D = Path(__file__).parent / "data"
 SC = Path(__file__).parents[1] / "supply_chain"
 K = (1, 5, 20)
+# Wrong page matched by the title search (checked by hand 2026-11-13): another company, a subsidiary, a person or a topic.
+BAD = {"4186.T", "NOVO-B.CO", "2382.TW", "CRDO", "ETN", "APLD", "NICE", "UCTT", "NVMI", "CAMT", "5347.TWO", "TSLA", "FLNC",
+       "DORL.TA", "OPCE.TA", "WAT", "SUNPHARMA.NS", "PODD", "INMD", "NNOX", "UNH", "CI", "INCO.JK", "300748.SZ", "6324.T",
+       "688017.SS", "601689.SS", "INVZ", "000333.SZ", "MTRN.TA", "DUE.DE", "VST", "SPCX"}
 
 
 def tday(e, dates):
@@ -36,6 +42,7 @@ def block(x, k=K):
 def main() -> None:
     import yfinance as yf
     W = pd.read_csv(D / "wiki_views.csv").dropna()
+    W = W[~W.ticker.isin(BAD)]
     W["date"] = pd.to_datetime(W.date.astype(int).astype(str))
     V = W.pivot_table(index="date", columns="ticker", values="views").sort_index()
     ratio = V / V.shift().rolling(56, min_periods=40).median()
@@ -53,18 +60,30 @@ def main() -> None:
         o, c = o[idx], c[idx]
         b = MK.benchmark(t)
         ob, cb = O[b].reindex(idx).ffill(), C[b].reindex(idx).ffill()
+        ex = {k: (c.shift(-(k - 1)) / o - 1) - (cb.shift(-(k - 1)) / ob - 1) for k in K}
+        day = (c / c.shift() - 1) - (cb / cb.shift() - 1)
+        first = idx < pd.Timestamp("2021-07-01")
         for d in spike.index[spike[t].fillna(False)]:
             i = idx.searchsorted(d + pd.Timedelta(days=1))
             if i + max(K) >= len(idx) or d < pd.Timestamp("2016-04-01"):
                 continue
-            r = {"ticker": t, "date": idx[i], "ratio": float(ratio.at[d, t])}
+            m = first if idx[i] < pd.Timestamp("2021-07-01") else ~first
+            r = {"ticker": t, "date": idx[i], "ratio": float(ratio.at[d, t]), "move": float(day.iloc[min(idx.searchsorted(d), len(idx) - 1)])}
             for k in K:
-                r[f"x{k}"] = (c.iloc[i + k - 1] / o.iloc[i] - 1) - (cb.iloc[i + k - 1] / ob.iloc[i] - 1)
+                r[f"x{k}"] = ex[k].iloc[i] - ex[k][m].mean()
             rows.append(r)
     R = pd.DataFrame(rows).dropna()
     R["half"] = np.where(R.date < "2021-07-01", "2016-2021", "2021-2026")
     res = {"spikes": block(R), **{f"spikes · {h}": block(x) for h, x in R.groupby("half")},
-           "spikes ratio >= 10": block(R[R.ratio >= 10])}
+           "spikes ratio >= 10": block(R[R.ratio >= 10]),
+           "spike on an up day (>2%)": block(R[R.move > 0.02]), "spike on a down day (<-2%)": block(R[R.move < -0.02]),
+           "spike, stock flat": block(R[R.move.abs() <= 0.02])}
+    w = pd.read_csv(D / "wsb_daily.csv", parse_dates=["date"])
+    keys = set(zip(w.ticker, w.date))
+    S = R[R.date >= "2021-04-10"].copy()
+    S["wsb"] = [any((t, d - pd.Timedelta(days=j)) in keys for j in range(1, 6)) for t, d in zip(S.ticker, S.date)]
+    res["spike + in WSB top-50 in the 5 days before"] = block(S[S.wsb])
+    res["spike, not in WSB"] = block(S[~S.wsb])
     # twin filter
     T = pd.read_csv(SC / "results" / "peer_trades.csv", parse_dates=["date"])
     T = T[T.up].copy()
