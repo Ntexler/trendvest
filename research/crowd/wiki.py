@@ -18,6 +18,10 @@ S = requests.Session()
 S.headers["User-Agent"] = "research-script/0.1 (contact: none)"
 
 
+COMPANY = __import__("re").compile(r"compan|corporat|manufactur|multinational|conglomerate|firm|bank|maker|producer|group|holding|"
+                                   r"operator|developer|provider|retailer|supplier|business|enterprise|miner|chaebol|keiretsu", 2)
+
+
 def get(url, **p):
     for a in range(5):
         try:
@@ -41,13 +45,31 @@ def main() -> None:
                     comp.setdefault(r.ticker, r.name)
     tf = D / "wiki_titles.json"
     titles = json.loads(tf.read_text()) if tf.exists() else {}
-    for t, name in comp.items():
+    names = {t: n for t, n in comp.items() if t not in titles}
+    items = list(names.items())
+    for k in range(0, len(items), 40):                      # 40 exact titles per request (redirects followed)
+        chunk = items[k:k + 40]
+        j = get("https://en.wikipedia.org/w/api.php", action="query", titles="|".join(n for _, n in chunk), redirects=1,
+                prop="pageprops", ppprop="disambiguation|wikibase-shortdesc", format="json") or {}
+        q = j.get("query", {})
+        norm = {x["from"]: x["to"] for x in q.get("normalized", [])}
+        red = {x["from"]: x["to"] for x in q.get("redirects", [])}
+        pages = {p["title"]: p for p in q.get("pages", {}).values()}
+        for t, n in chunk:
+            ti = red.get(norm.get(n, n), norm.get(n, n))
+            pg = pages.get(ti)
+            pp = (pg or {}).get("pageprops", {})
+            if pg and "missing" not in pg and "disambiguation" not in pp and COMPANY.search(pp.get("wikibase-shortdesc", "")):
+                titles[t] = ti
+        time.sleep(3)
+    for t, name in comp.items():                            # the rest: search, slowly (the API allows few quick calls)
         if t in titles:
             continue
         j = get("https://en.wikipedia.org/w/api.php", action="query", list="search", srsearch=f"{name} company", srlimit=1, format="json")
         hit = (j or {}).get("query", {}).get("search", [])
         titles[t] = hit[0]["title"] if hit else None
-        time.sleep(0.3)
+        tf.write_text(json.dumps(titles, ensure_ascii=False, indent=0))
+        time.sleep(3)
     tf.write_text(json.dumps(titles, ensure_ascii=False, indent=0))
     out = D / "wiki_views.csv"
     done = set(pd.read_csv(out).ticker) if out.exists() else set()
@@ -59,7 +81,7 @@ def main() -> None:
         items = (j or {}).get("items", [])
         rows = [{"date": i["timestamp"][:8], "ticker": t, "views": i["views"]} for i in items] or [{"date": None, "ticker": t, "views": None}]
         pd.DataFrame(rows).to_csv(out, mode="a", header=not out.exists(), index=False)
-        time.sleep(0.5)
+        time.sleep(1.0)
     print(sum(bool(v) for v in titles.values()), "titles")
 
 
