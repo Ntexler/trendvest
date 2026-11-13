@@ -1,0 +1,110 @@
+{
+ "big->small · all": {
+  "trades": 9684,
+  "excess1": 0.146,
+  "excess5": 0.24,
+  "excess10": 0.323,
+  "t1": 3.71,
+  "t5": 2.34,
+  "t10": 2.21
+ },
+ "big->small · 2017-2021": {
+  "trades": 4500,
+  "excess1": 0.132,
+  "excess5": 0.312,
+  "excess10": 0.144,
+  "t1": 2.11,
+  "t5": 1.19,
+  "t10": 1.08
+ },
+ "big->small · 2022-2026": {
+  "trades": 5184,
+  "excess1": 0.158,
+  "excess5": 0.178,
+  "excess10": 0.478,
+  "t1": 3.5,
+  "t5": 2.13,
+  "t10": 2.05
+ },
+ "customer->supplier · all": {
+  "trades": 24268,
+  "excess1": 0.046,
+  "excess5": 0.147,
+  "excess10": 0.218,
+  "t1": 2.77,
+  "t5": 1.09,
+  "t10": 0.88
+ },
+ "customer->supplier · 2017-2021": {
+  "trades": 11379,
+  "excess1": 0.041,
+  "excess5": 0.094,
+  "excess10": -0.076,
+  "t1": 2.34,
+  "t5": 0.47,
+  "t10": -0.07
+ },
+ "customer->supplier · 2022-2026": {
+  "trades": 12889,
+  "excess1": 0.051,
+  "excess5": 0.194,
+  "excess10": 0.478,
+  "t1": 1.6,
+  "t5": 1.04,
+  "t10": 1.27
+ },
+ "supplier->customer · all": {
+  "trades": 23308,
+  "excess1": 0.05,
+  "excess5": 0.155,
+  "excess10": 0.303,
+  "t1": 1.93,
+  "t5": 0.84,
+  "t10": 0.1
+ },
+ "supplier->customer · 2017-2021": {
+  "trades": 10915,
+  "excess1": 0.022,
+  "excess5": 0.119,
+  "excess10": 0.162,
+  "t1": -0.08,
+  "t5": 0.07,
+  "t10": -0.41
+ },
+ "supplier->customer · 2022-2026": {
+  "trades": 12393,
+  "excess1": 0.074,
+  "excess5": 0.186,
+  "excess10": 0.427,
+  "t1": 2.71,
+  "t5": 1.07,
+  "t10": 0.51
+ },
+ "twins · all": {
+  "trades": 20095,
+  "excess1": 0.159,
+  "excess5": 0.337,
+  "excess10": 0.585,
+  "t1": 4.78,
+  "t5": 2.33,
+  "t10": 2.83
+ },
+ "twins · 2017-2021": {
+  "trades": 9810,
+  "excess1": 0.174,
+  "excess5": 0.327,
+  "excess10": 0.448,
+  "t1": 3.06,
+  "t5": 1.2,
+  "t10": 1.56
+ },
+ "twins · 2022-2026": {
+  "trades": 10285,
+  "excess1": 0.144,
+  "excess5": 0.347,
+  "excess10": 0.715,
+  "t1": 3.82,
+  "t5": 2.08,
+  "t10": 2.4
+ }
+}

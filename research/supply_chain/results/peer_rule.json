@@ -18,11 +18,11 @@
  },
  "results": {
   "$3000 · buy after a jump · open to close · all": {
-   "trades": 20178,
-   "gross_mean_pct": 0.164,
-   "net_mean_pct": -0.296,
-   "won_pct": 39.9,
-   "t": -17.34,
+   "trades": 20016,
+   "gross_mean_pct": 0.169,
+   "net_mean_pct": -0.292,
+   "won_pct": 40.0,
+   "t": -17.0,
    "gap_paid_pct": 0.5
   },
   "$3000 · buy after a jump · open to close · 2017-2021": {
@@ -34,19 +34,19 @@
    "gap_paid_pct": 0.37
   },
   "$3000 · buy after a jump · open to close · 2022-2026": {
-   "trades": 10368,
-   "gross_mean_pct": 0.143,
-   "net_mean_pct": -0.32,
-   "won_pct": 40.3,
-   "t": -13.41,
+   "trades": 10206,
+   "gross_mean_pct": 0.152,
+   "net_mean_pct": -0.311,
+   "won_pct": 40.4,
+   "t": -12.95,
    "gap_paid_pct": 0.62
   },
   "$3000 · buy after a jump · open, hold 5 days · all": {
-   "trades": 20178,
-   "gross_mean_pct": 0.664,
-   "net_mean_pct": 0.204,
-   "won_pct": 49.8,
-   "t": 4.81,
+   "trades": 20016,
+   "gross_mean_pct": 0.676,
+   "net_mean_pct": 0.216,
+   "won_pct": 49.9,
+   "t": 5.07,
    "gap_paid_pct": 0.5
   },
   "$3000 · buy after a jump · open, hold 5 days · 2017-2021": {
@@ -58,20 +58,20 @@
    "gap_paid_pct": 0.37
   },
   "$3000 · buy after a jump · open, hold 5 days · 2022-2026": {
-   "trades": 10368,
-   "gross_mean_pct": 0.593,
-   "net_mean_pct": 0.13,
+   "trades": 10206,
+   "gross_mean_pct": 0.615,
+   "net_mean_pct": 0.152,
    "won_pct": 49.4,
-   "t": 2.14,
+   "t": 2.49,
    "gap_paid_pct": 0.62
   },
   "$3000 · sell or avoid after a drop · open to close · all": {
-   "trades": 15361,
-   "gross_mean_pct": 0.132,
-   "net_mean_pct": -0.345,
+   "trades": 15180,
+   "gross_mean_pct": 0.131,
+   "net_mean_pct": -0.346,
    "won_pct": 40.2,
-   "t": -16.96,
-   "gap_paid_pct": 0.46
+   "t": -17.13,
+   "gap_paid_pct": 0.44
   },
   "$3000 · sell or avoid after a drop · open to close · 2017-2021": {
    "trades": 7114,
@@ -82,20 +82,20 @@
    "gap_paid_pct": 0.36
   },
   "$3000 · sell or avoid after a drop · open to close · 2022-2026": {
-   "trades": 8247,
-   "gross_mean_pct": 0.169,
-   "net_mean_pct": -0.305,
-   "won_pct": 41.6,
-   "t": -11.04,
-   "gap_paid_pct": 0.54
+   "trades": 8066,
+   "gross_mean_pct": 0.168,
+   "net_mean_pct": -0.306,
+   "won_pct": 41.7,
+   "t": -11.23,
+   "gap_paid_pct": 0.5
   },
   "$3000 · sell or avoid after a drop · open, hold 5 days · all": {
-   "trades": 15361,
-   "gross_mean_pct": -0.276,
-   "net_mean_pct": -0.753,
+   "trades": 15180,
+   "gross_mean_pct": -0.246,
+   "net_mean_pct": -0.723,
    "won_pct": 43.9,
-   "t": -15.31,
-   "gap_paid_pct": 0.46
+   "t": -14.77,
+   "gap_paid_pct": 0.44
   },
   "$3000 · sell or avoid after a drop · open, hold 5 days · 2017-2021": {
    "trades": 7114,
@@ -106,19 +106,19 @@
    "gap_paid_pct": 0.36
   },
   "$3000 · sell or avoid after a drop · open, hold 5 days · 2022-2026": {
-   "trades": 8247,
-   "gross_mean_pct": -0.288,
-   "net_mean_pct": -0.762,
-   "won_pct": 45.1,
-   "t": -11.5,
-   "gap_paid_pct": 0.54
+   "trades": 8066,
+   "gross_mean_pct": -0.233,
+   "net_mean_pct": -0.706,
+   "won_pct": 45.3,
+   "t": -10.77,
+   "gap_paid_pct": 0.5
   },
   "$10000 · buy after a jump · open to close · all": {
-   "trades": 20178,
-   "gross_mean_pct": 0.164,
-   "net_mean_pct": -0.147,
-   "won_pct": 43.6,
-   "t": -8.62,
+   "trades": 20016,
+   "gross_mean_pct": 0.169,
+   "net_mean_pct": -0.142,
+   "won_pct": 43.7,
+   "t": -8.32,
    "gap_paid_pct": 0.5
   },
   "$10000 · buy after a jump · open to close · 2017-2021": {
@@ -130,19 +130,19 @@
    "gap_paid_pct": 0.37
   },
   "$10000 · buy after a jump · open to close · 2022-2026": {
-   "trades": 10368,
-   "gross_mean_pct": 0.143,
-   "net_mean_pct": -0.17,
-   "won_pct": 43.9,
-   "t": -7.13,
+   "trades": 10206,
+   "gross_mean_pct": 0.152,
+   "net_mean_pct": -0.161,
+   "won_pct": 44.1,
+   "t": -6.72,
    "gap_paid_pct": 0.62
   },
   "$10000 · buy after a jump · open, hold 5 days · all": {
-   "trades": 20178,
-   "gross_mean_pct": 0.664,
-   "net_mean_pct": 0.353,
-   "won_pct": 51.2,
-   "t": 8.33,
+   "trades": 20016,
+   "gross_mean_pct": 0.676,
+   "net_mean_pct": 0.365,
+   "won_pct": 51.3,
+   "t": 8.58,
    "gap_paid_pct": 0.5
   },
   "$10000 · buy after a jump · open, hold 5 days · 2017-2021": {
@@ -154,20 +154,20 @@
    "gap_paid_pct": 0.37
   },
   "$10000 · buy after a jump · open, hold 5 days · 2022-2026": {
-   "trades": 10368,
-   "gross_mean_pct": 0.593,
-   "net_mean_pct": 0.28,
+   "trades": 10206,
+   "gross_mean_pct": 0.615,
+   "net_mean_pct": 0.302,
    "won_pct": 50.7,
-   "t": 4.63,
+   "t": 4.95,
    "gap_paid_pct": 0.62
   },
   "$10000 · sell or avoid after a drop · open to close · all": {
-   "trades": 15361,
-   "gross_mean_pct": 0.132,
-   "net_mean_pct": -0.191,
+   "trades": 15180,
+   "gross_mean_pct": 0.131,
+   "net_mean_pct": -0.192,
    "won_pct": 44.1,
-   "t": -9.4,
-   "gap_paid_pct": 0.46
+   "t": -9.51,
+   "gap_paid_pct": 0.44
   },
   "$10000 · sell or avoid after a drop · open to close · 2017-2021": {
    "trades": 7114,
@@ -178,20 +178,20 @@
    "gap_paid_pct": 0.36
   },
   "$10000 · sell or avoid after a drop · open to close · 2022-2026": {
-   "trades": 8247,
-   "gross_mean_pct": 0.169,
+   "trades": 8066,
+   "gross_mean_pct": 0.168,
    "net_mean_pct": -0.153,
-   "won_pct": 45.0,
-   "t": -5.54,
-   "gap_paid_pct": 0.54
+   "won_pct": 45.1,
+   "t": -5.64,
+   "gap_paid_pct": 0.5
   },
   "$10000 · sell or avoid after a drop · open, hold 5 days · all": {
-   "trades": 15361,
-   "gross_mean_pct": -0.276,
-   "net_mean_pct": -0.599,
+   "trades": 15180,
+   "gross_mean_pct": -0.246,
+   "net_mean_pct": -0.569,
    "won_pct": 45.6,
-   "t": -12.18,
-   "gap_paid_pct": 0.46
+   "t": -11.63,
+   "gap_paid_pct": 0.44
   },
   "$10000 · sell or avoid after a drop · open, hold 5 days · 2017-2021": {
    "trades": 7114,
@@ -202,34 +202,34 @@
    "gap_paid_pct": 0.36
   },
   "$10000 · sell or avoid after a drop · open, hold 5 days · 2022-2026": {
-   "trades": 8247,
-   "gross_mean_pct": -0.288,
-   "net_mean_pct": -0.61,
-   "won_pct": 46.7,
-   "t": -9.2,
-   "gap_paid_pct": 0.54
+   "trades": 8066,
+   "gross_mean_pct": -0.233,
+   "net_mean_pct": -0.554,
+   "won_pct": 46.9,
+   "t": -8.44,
+   "gap_paid_pct": 0.5
   }
  },
  "by_direction_buy_day_10k": {
   "americas→asia · 2017-2021": {
-   "trades": 1761,
-   "net_mean_pct": 0.036,
-   "won_pct": 45.0
+   "trades": 1749,
+   "net_mean_pct": 0.038,
+   "won_pct": 44.7
   },
   "americas→asia · 2022-2026": {
-   "trades": 2110,
-   "net_mean_pct": -0.396,
-   "won_pct": 40.5
+   "trades": 2072,
+   "net_mean_pct": -0.402,
+   "won_pct": 40.4
   },
   "americas→europe · 2017-2021": {
-   "trades": 2185,
-   "net_mean_pct": -0.349,
+   "trades": 2161,
+   "net_mean_pct": -0.35,
    "won_pct": 38.6
   },
   "americas→europe · 2022-2026": {
-   "trades": 2247,
-   "net_mean_pct": -0.332,
-   "won_pct": 39.4
+   "trades": 2155,
+   "net_mean_pct": -0.334,
+   "won_pct": 39.3
   },
   "asia→americas · 2017-2021": {
    "trades": 2674,
@@ -237,28 +237,28 @@
    "won_pct": 47.7
   },
   "asia→americas · 2022-2026": {
-   "trades": 2718,
-   "net_mean_pct": 0.053,
-   "won_pct": 49.4
+   "trades": 2675,
+   "net_mean_pct": 0.081,
+   "won_pct": 49.8
   },
   "asia→europe · 2017-2021": {
-   "trades": 1688,
+   "trades": 1712,
    "net_mean_pct": -0.246,
-   "won_pct": 42.2
+   "won_pct": 42.1
   },
   "asia→europe · 2022-2026": {
-   "trades": 1761,
-   "net_mean_pct": -0.048,
-   "won_pct": 46.0
+   "trades": 1769,
+   "net_mean_pct": -0.039,
+   "won_pct": 46.4
   },
   "europe→asia · 2017-2021": {
-   "trades": 1502,
+   "trades": 1514,
    "net_mean_pct": -0.219,
-   "won_pct": 41.2
+   "won_pct": 41.5
   },
   "europe→asia · 2022-2026": {
-   "trades": 1532,
-   "net_mean_pct": -0.158,
+   "trades": 1535,
+   "net_mean_pct": -0.157,
    "won_pct": 43.3
   }
  }

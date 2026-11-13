@@ -35,3 +35,4 @@ frontend/node_modules/
 # Research cache
 research/news_impact/cache/
 research/supply_chain/cache/
+research/supply_chain/results/peer_trades.csv

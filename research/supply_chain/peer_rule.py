@@ -80,13 +80,26 @@ def main() -> None:
                     continue
                 pos = B["close"].searchsorted(A["close"][A["z"].index.get_indexer(sig.index)], side="right")
                 for (d, z), j in zip(sig.items(), pos):
-                    if j + 5 >= len(B["c"]) or d < pd.Timestamp("2017-01-01"):
+                    if j + 20 >= len(B["c"]) or d < pd.Timestamp("2017-01-01"):
                         continue
                     o, c1, c5 = B["o"].iloc[j], B["c"].iloc[j], B["c"].iloc[j + 4]
+                    extra = {f"h{k}": B["c"].iloc[j + k - 1] / o - 1 for k in (1, 3, 5, 10, 20)}
                     trades.append({"leader": a.name, "twin": b.name, "twin_t": b.ticker, "dir": f"{a.region}→{b.region}", "seg": seg,
-                                   "date": B["c"].index[j], "up": z > 0, "day": c1 / o - 1, "hold5": c5 / o - 1,
+                                   "date": B["c"].index[j], "up": z > 0, "z": z, "day": c1 / o - 1, "hold5": c5 / o - 1, **extra,
                                    "gap": o / B["c"].iloc[j - 1] - 1})
-    T = pd.DataFrame(trades).drop_duplicates(["twin_t", "date", "up"])   # one trade per twin per day
+    T = pd.DataFrame(trades).sort_values("z", key=abs, ascending=False).drop_duplicates(["twin_t", "date", "up"])   # one trade per twin per day
+    # per-twin baselines for every horizon, and each twin's whole-period result (to split winners from losers)
+    bl = []
+    for t in T.twin_t.unique():
+        o, c = info[t]["o"], info[t]["c"]
+        row = {"twin_t": t, "whole": float(c[c.index >= "2017-01-01"].iloc[-1] / c[c.index >= "2017-01-01"].iloc[0] - 1)}
+        for k in (1, 3, 5, 10, 20):
+            r = (c.shift(-(k - 1)) / o - 1)
+            for half, m in (("2017-2021", (c.index >= "2017-01-01") & (c.index < "2022-01-01")), ("2022-2026", c.index >= "2022-01-01")):
+                row[f"b{k}_{half}"] = float(r[m].mean())
+        bl.append(row)
+    BL = pd.DataFrame(bl)
+    T.merge(BL, on="twin_t").to_csv(BASE / "results" / "peer_trades.csv", index=False)
     T["half"] = np.where(T.date < "2022-01-01", "2017-2021", "2022-2026")
     px_usd = {t: 100.0 for t in T.twin_t.unique()}                       # share price only matters for the US per-share fee
     res = {"assumptions": {"spread_per_side": SPREAD, "trade_usd": [3000, 10000]}, "baseline_gross_pct": baseline, "results": {}}
