@@ -36,3 +36,4 @@ frontend/node_modules/
 research/news_impact/cache/
 research/supply_chain/cache/
 research/supply_chain/results/peer_trades.csv
+research/crowd/data/wsb.log
