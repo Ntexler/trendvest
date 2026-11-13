@@ -1,0 +1,884 @@
+{
+ "segments": 50,
+ "companies": 184,
+ "pairs": {},
+ "pooled": {
+  "peers": {
+   "label": "same square",
+   "obs": 774440,
+   "big_moves": 42209,
+   "corr_gap": 0.125,
+   "corr_day": 0.022,
+   "same_dir_gap": 61.7,
+   "same_dir_day": 52.8,
+   "follow_gap_pct": 0.44,
+   "follow_day_pct": 0.14
+  },
+  "strangers": {
+   "label": "stranger from the same region",
+   "obs": 759687,
+   "big_moves": 41686,
+   "corr_gap": 0.018,
+   "corr_day": -0.007,
+   "same_dir_gap": 51.0,
+   "same_dir_day": 49.7,
+   "follow_gap_pct": 0.06,
+   "follow_day_pct": -0.01
+  }
+ },
+ "by_segment": {
+  "ai:business-apps": {
+   "pairs": 5,
+   "obs": 12405,
+   "corr_gap": 0.078,
+   "corr_day": 0.024,
+   "big_moves": 708,
+   "same_dir_gap": 64.4,
+   "same_dir_day": 49.2,
+   "names": [
+    "Adobe",
+    "Intuit",
+    "SAP",
+    "Salesforce",
+    "ServiceNow",
+    "Workday"
+   ]
+  },
+  "ai:china-cloud": {
+   "pairs": 4,
+   "obs": 9818,
+   "corr_gap": 0.252,
+   "corr_day": -0.017,
+   "big_moves": 531,
+   "same_dir_gap": 73.1,
+   "same_dir_day": 44.1,
+   "names": [
+    "Alibaba",
+    "Baidu",
+    "Tencent"
+   ]
+  },
+  "ai:it-services": {
+   "pairs": 11,
+   "obs": 27161,
+   "corr_gap": 0.109,
+   "corr_day": 0.081,
+   "big_moves": 1313,
+   "same_dir_gap": 58.5,
+   "same_dir_day": 57.0,
+   "names": [
+    "Accenture",
+    "Capgemini",
+    "Cognizant",
+    "IBM",
+    "Infosys"
+   ]
+  },
+  "ai:memory": {
+   "pairs": 4,
+   "obs": 9788,
+   "corr_gap": 0.348,
+   "corr_day": -0.021,
+   "big_moves": 558,
+   "same_dir_gap": 81.9,
+   "same_dir_day": 50.2,
+   "names": [
+    "Micron",
+    "SK hynix",
+    "Samsung Electronics"
+   ]
+  },
+  "ai:power-cooling": {
+   "pairs": 5,
+   "obs": 11540,
+   "corr_gap": 0.101,
+   "corr_day": -0.026,
+   "big_moves": 708,
+   "same_dir_gap": 60.2,
+   "same_dir_day": 48.3,
+   "names": [
+    "Delta Electronics",
+    "Schneider Electric",
+    "Vertiv"
+   ]
+  },
+  "ai:power-equipment": {
+   "pairs": 2,
+   "obs": 3271,
+   "corr_gap": 0.037,
+   "corr_day": -0.019,
+   "big_moves": 180,
+   "same_dir_gap": 50.6,
+   "same_dir_day": 52.2,
+   "names": [
+    "Eaton",
+    "GE Vernova",
+    "Siemens Energy"
+   ]
+  },
+  "chips:auto-chips": {
+   "pairs": 8,
+   "obs": 19720,
+   "corr_gap": 0.232,
+   "corr_day": 0.002,
+   "big_moves": 1137,
+   "same_dir_gap": 68.2,
+   "same_dir_day": 53.0,
+   "names": [
+    "Infineon",
+    "NXP",
+    "Renesas",
+    "STMicroelectronics"
+   ]
+  },
+  "chips:automaker": {
+   "pairs": 6,
+   "obs": 14814,
+   "corr_gap": 0.104,
+   "corr_day": 0.053,
+   "big_moves": 810,
+   "same_dir_gap": 60.7,
+   "same_dir_day": 54.8,
+   "names": [
+    "Honda",
+    "Nissan",
+    "Toyota",
+    "Volkswagen"
+   ]
+  },
+  "chips:fabless": {
+   "pairs": 4,
+   "obs": 9750,
+   "corr_gap": 0.144,
+   "corr_day": -0.03,
+   "big_moves": 545,
+   "same_dir_gap": 60.9,
+   "same_dir_day": 49.0,
+   "names": [
+    "Marvell",
+    "MediaTek",
+    "Qualcomm"
+   ]
+  },
+  "chips:foundry": {
+   "pairs": 20,
+   "obs": 41327,
+   "corr_gap": 0.108,
+   "corr_day": -0.006,
+   "big_moves": 2288,
+   "same_dir_gap": 55.9,
+   "same_dir_day": 51.0,
+   "names": [
+    "GlobalFoundries",
+    "Powerchip",
+    "SMIC",
+    "TSMC",
+    "Tower Semiconductor",
+    "UMC",
+    "Vanguard International"
+   ]
+  },
+  "chips:osat": {
+   "pairs": 2,
+   "obs": 4875,
+   "corr_gap": 0.204,
+   "corr_day": -0.009,
+   "big_moves": 266,
+   "same_dir_gap": 60.2,
+   "same_dir_day": 51.1,
+   "names": [
+    "ASE Technology",
+    "Amkor"
+   ]
+  },
+  "chips:packaging-equipment": {
+   "pairs": 2,
+   "obs": 4955,
+   "corr_gap": 0.276,
+   "corr_day": 0.014,
+   "big_moves": 252,
+   "same_dir_gap": 75.0,
+   "same_dir_day": 52.4,
+   "names": [
+    "BE Semiconductor",
+    "Disco"
+   ]
+  },
+  "chips:process-chemicals": {
+   "pairs": 5,
+   "obs": 10796,
+   "corr_gap": 0.012,
+   "corr_day": 0.006,
+   "big_moves": 639,
+   "same_dir_gap": 51.8,
+   "same_dir_day": 52.6,
+   "names": [
+    "Entegris",
+    "Merck KGaA",
+    "Soulbrain"
+   ]
+  },
+  "chips:process-control": {
+   "pairs": 8,
+   "obs": 19053,
+   "corr_gap": 0.231,
+   "corr_day": 0.002,
+   "big_moves": 1105,
+   "same_dir_gap": 68.1,
+   "same_dir_day": 48.4,
+   "names": [
+    "Camtek",
+    "KLA",
+    "Lasertec",
+    "Nova",
+    "Onto Innovation"
+   ]
+  },
+  "chips:test-equipment": {
+   "pairs": 4,
+   "obs": 9820,
+   "corr_gap": 0.286,
+   "corr_day": 0.002,
+   "big_moves": 498,
+   "same_dir_gap": 69.3,
+   "same_dir_day": 49.0,
+   "names": [
+    "Advantest",
+    "FormFactor",
+    "Teradyne"
+   ]
+  },
+  "chips:wafer": {
+   "pairs": 12,
+   "obs": 29612,
+   "corr_gap": 0.157,
+   "corr_day": 0.05,
+   "big_moves": 1691,
+   "same_dir_gap": 64.5,
+   "same_dir_day": 55.7,
+   "names": [
+    "GlobalWafers",
+    "SUMCO",
+    "Shin-Etsu Chemical",
+    "Siltronic",
+    "Soitec"
+   ]
+  },
+  "chips:wafer-equipment": {
+   "pairs": 12,
+   "obs": 29460,
+   "corr_gap": 0.343,
+   "corr_day": -0.002,
+   "big_moves": 1720,
+   "same_dir_gap": 77.3,
+   "same_dir_day": 51.0,
+   "names": [
+    "Applied Materials",
+    "Axcelis",
+    "Lam Research",
+    "Screen Holdings",
+    "Tokyo Electron"
+   ]
+  },
+  "energy:developer": {
+   "pairs": 1,
+   "obs": 2481,
+   "corr_gap": 0.047,
+   "corr_day": 0.061,
+   "big_moves": 132,
+   "same_dir_gap": 53.8,
+   "same_dir_day": 55.3,
+   "names": [
+    "Brookfield Renewable Partners",
+    "Orsted"
+   ]
+  },
+  "energy:distribution": {
+   "pairs": 1,
+   "obs": 2481,
+   "corr_gap": 0.037,
+   "corr_day": 0.013,
+   "big_moves": 120,
+   "same_dir_gap": 64.2,
+   "same_dir_day": 51.7,
+   "names": [
+    "E.ON",
+    "PG&E"
+   ]
+  },
+  "energy:inverter": {
+   "pairs": 4,
+   "obs": 9744,
+   "corr_gap": 0.042,
+   "corr_day": 0.048,
+   "big_moves": 569,
+   "same_dir_gap": 56.6,
+   "same_dir_day": 55.0,
+   "names": [
+    "Enphase Energy",
+    "SolarEdge",
+    "Sungrow Power Supply"
+   ]
+  },
+  "energy:oil-gas-major": {
+   "pairs": 4,
+   "obs": 9924,
+   "corr_gap": 0.171,
+   "corr_day": 0.004,
+   "big_moves": 610,
+   "same_dir_gap": 65.4,
+   "same_dir_day": 50.7,
+   "names": [
+    "Chevron",
+    "Equinor",
+    "ExxonMobil",
+    "Shell",
+    "TotalEnergies"
+   ]
+  },
+  "energy:solar-module": {
+   "pairs": 4,
+   "obs": 9744,
+   "corr_gap": 0.143,
+   "corr_day": 0.042,
+   "big_moves": 555,
+   "same_dir_gap": 61.8,
+   "same_dir_day": 55.0,
+   "names": [
+    "First Solar",
+    "JinkoSolar",
+    "LONGi Green Energy"
+   ]
+  },
+  "energy:transmission": {
+   "pairs": 3,
+   "obs": 7443,
+   "corr_gap": 0.116,
+   "corr_day": 0.068,
+   "big_moves": 417,
+   "same_dir_gap": 61.9,
+   "same_dir_day": 58.3,
+   "names": [
+    "American Electric Power",
+    "National Grid",
+    "Redeia (Red Electrica)",
+    "Terna"
+   ]
+  },
+  "energy:utility-renewables": {
+   "pairs": 2,
+   "obs": 4962,
+   "corr_gap": 0.114,
+   "corr_day": 0.029,
+   "big_moves": 270,
+   "same_dir_gap": 62.2,
+   "same_dir_day": 45.9,
+   "names": [
+    "Iberdrola",
+    "NextEra Energy",
+    "RWE"
+   ]
+  },
+  "medical:bioprocess": {
+   "pairs": 2,
+   "obs": 4962,
+   "corr_gap": 0.055,
+   "corr_day": 0.069,
+   "big_moves": 251,
+   "same_dir_gap": 55.4,
+   "same_dir_day": 56.2,
+   "names": [
+    "Danaher (Cytiva; Pall; Beckman)",
+    "Repligen",
+    "Sartorius"
+   ]
+  },
+  "medical:cdmo": {
+   "pairs": 8,
+   "obs": 19265,
+   "corr_gap": 0.016,
+   "corr_day": 0.03,
+   "big_moves": 992,
+   "same_dir_gap": 53.4,
+   "same_dir_day": 54.5,
+   "names": [
+    "Fujifilm (Fujifilm Biotechnologies)",
+    "Lonza",
+    "Samsung Biologics",
+    "WuXi AppTec",
+    "WuXi Biologics"
+   ]
+  },
+  "medical:generics": {
+   "pairs": 4,
+   "obs": 9836,
+   "corr_gap": 0.014,
+   "corr_day": 0.028,
+   "big_moves": 444,
+   "same_dir_gap": 52.3,
+   "same_dir_day": 52.3,
+   "names": [
+    "Dr. Reddy's",
+    "Sun Pharma (owns Taro)",
+    "Viatris"
+   ]
+  },
+  "medical:medical-devices": {
+   "pairs": 4,
+   "obs": 9924,
+   "corr_gap": 0.058,
+   "corr_day": -0.002,
+   "big_moves": 499,
+   "same_dir_gap": 59.3,
+   "same_dir_day": 50.1,
+   "names": [
+    "Boston Scientific",
+    "Medtronic",
+    "Philips",
+    "ResMed",
+    "Stryker"
+   ]
+  },
+  "medical:obesity-drugs": {
+   "pairs": 1,
+   "obs": 2481,
+   "corr_gap": 0.035,
+   "corr_day": 0.044,
+   "big_moves": 130,
+   "same_dir_gap": 58.5,
+   "same_dir_day": 52.3,
+   "names": [
+    "Eli Lilly",
+    "Novo Nordisk"
+   ]
+  },
+  "medical:pharma": {
+   "pairs": 74,
+   "obs": 182646,
+   "corr_gap": 0.088,
+   "corr_day": 0.055,
+   "big_moves": 9763,
+   "same_dir_gap": 59.4,
+   "same_dir_day": 55.1,
+   "names": [
+    "AbbVie",
+    "AstraZeneca",
+    "Bayer",
+    "Bristol Myers Squibb",
+    "Daiichi Sankyo",
+    "GSK",
+    "Johnson & Johnson",
+    "Merck & Co",
+    "Novartis",
+    "Pfizer",
+    "Roche",
+    "Sanofi",
+    "Takeda"
+   ]
+  },
+  "minerals:automaker": {
+   "pairs": 8,
+   "obs": 19672,
+   "corr_gap": 0.069,
+   "corr_day": 0.038,
+   "big_moves": 1096,
+   "same_dir_gap": 58.4,
+   "same_dir_day": 54.1,
+   "names": [
+    "BMW",
+    "Ford",
+    "General Motors",
+    "Hyundai Motor"
+   ]
+  },
+  "minerals:battery-materials": {
+   "pairs": 2,
+   "obs": 4917,
+   "corr_gap": 0.056,
+   "corr_day": 0.025,
+   "big_moves": 286,
+   "same_dir_gap": 54.2,
+   "same_dir_day": 55.6,
+   "names": [
+    "Umicore",
+    "Zhejiang Huayou Cobalt"
+   ]
+  },
+  "minerals:copper": {
+   "pairs": 17,
+   "obs": 41627,
+   "corr_gap": 0.192,
+   "corr_day": 0.018,
+   "big_moves": 2338,
+   "same_dir_gap": 67.4,
+   "same_dir_day": 50.7,
+   "names": [
+    "Antofagasta",
+    "First Quantum Minerals",
+    "Freeport-McMoRan",
+    "Ivanhoe Mines",
+    "Southern Copper",
+    "Teck Resources",
+    "Zijin Mining"
+   ]
+  },
+  "minerals:copper-smelting": {
+   "pairs": 4,
+   "obs": 9838,
+   "corr_gap": 0.138,
+   "corr_day": 0.049,
+   "big_moves": 571,
+   "same_dir_gap": 63.4,
+   "same_dir_day": 52.2,
+   "names": [
+    "Aurubis",
+    "Jiangxi Copper",
+    "Mitsubishi Materials"
+   ]
+  },
+  "minerals:diversified-miner": {
+   "pairs": 8,
+   "obs": 19854,
+   "corr_gap": 0.268,
+   "corr_day": 0.003,
+   "big_moves": 1056,
+   "same_dir_gap": 69.6,
+   "same_dir_day": 52.3,
+   "names": [
+    "Anglo American",
+    "BHP",
+    "Rio Tinto",
+    "Vale"
+   ]
+  },
+  "minerals:lithium": {
+   "pairs": 2,
+   "obs": 4979,
+   "corr_gap": 0.295,
+   "corr_day": 0.045,
+   "big_moves": 295,
+   "same_dir_gap": 71.2,
+   "same_dir_day": 55.6,
+   "names": [
+    "Albemarle",
+    "Pilbara Minerals (PLS)",
+    "SQM"
+   ]
+  },
+  "minerals:mining-trucks": {
+   "pairs": 2,
+   "obs": 4910,
+   "corr_gap": 0.199,
+   "corr_day": 0.024,
+   "big_moves": 260,
+   "same_dir_gap": 71.9,
+   "same_dir_day": 55.0,
+   "names": [
+    "Caterpillar",
+    "Komatsu"
+   ]
+  },
+  "minerals:rare-earths": {
+   "pairs": 4,
+   "obs": 8358,
+   "corr_gap": 0.161,
+   "corr_day": 0.039,
+   "big_moves": 458,
+   "same_dir_gap": 57.6,
+   "same_dir_day": 50.9,
+   "names": [
+    "China Northern Rare Earth",
+    "Lynas Rare Earths",
+    "MP Materials"
+   ]
+  },
+  "minerals:steel": {
+   "pairs": 13,
+   "obs": 31968,
+   "corr_gap": 0.117,
+   "corr_day": 0.051,
+   "big_moves": 1864,
+   "same_dir_gap": 62.1,
+   "same_dir_day": 52.8,
+   "names": [
+    "ArcelorMittal",
+    "Baoshan Iron & Steel (China Baowu)",
+    "Nippon Steel",
+    "Nucor",
+    "POSCO Holdings"
+   ]
+  },
+  "robotics:controllers-software": {
+   "pairs": 5,
+   "obs": 12329,
+   "corr_gap": 0.05,
+   "corr_day": -0.012,
+   "big_moves": 557,
+   "same_dir_gap": 54.0,
+   "same_dir_day": 48.7,
+   "names": [
+    "Mitsubishi Electric",
+    "Rockwell Automation",
+    "Siemens"
+   ]
+  },
+  "robotics:driver-assist-tier1": {
+   "pairs": 1,
+   "obs": 2481,
+   "corr_gap": 0.083,
+   "corr_day": 0.047,
+   "big_moves": 131,
+   "same_dir_gap": 59.5,
+   "same_dir_day": 59.5,
+   "names": [
+    "Aptiv",
+    "Valeo"
+   ]
+  },
+  "robotics:industrial-robots": {
+   "pairs": 12,
+   "obs": 29334,
+   "corr_gap": 0.057,
+   "corr_day": -0.013,
+   "big_moves": 1727,
+   "same_dir_gap": 57.7,
+   "same_dir_day": 50.1,
+   "names": [
+    "ABB",
+    "Estun Automation",
+    "Fanuc",
+    "Kawasaki Heavy Industries",
+    "Midea Group (Kuka)",
+    "Siasun Robot",
+    "Yaskawa Electric"
+   ]
+  },
+  "robotics:line-integrator": {
+   "pairs": 1,
+   "obs": 2477,
+   "corr_gap": -0.006,
+   "corr_day": 0.007,
+   "big_moves": 128,
+   "same_dir_gap": 44.5,
+   "same_dir_day": 53.1,
+   "names": [
+    "ATS Corporation",
+    "Durr"
+   ]
+  },
+  "robotics:sensors-vision": {
+   "pairs": 4,
+   "obs": 9820,
+   "corr_gap": 0.087,
+   "corr_day": 0.023,
+   "big_moves": 421,
+   "same_dir_gap": 59.4,
+   "same_dir_day": 55.3,
+   "names": [
+    "Cognex",
+    "Keyence",
+    "Omron"
+   ]
+  },
+  "robotics:warehouse-operator": {
+   "pairs": 2,
+   "obs": 4962,
+   "corr_gap": -0.052,
+   "corr_day": 0.043,
+   "big_moves": 265,
+   "same_dir_gap": 47.2,
+   "same_dir_day": 54.0,
+   "names": [
+    "DHL Group",
+    "Kroger",
+    "Walmart"
+   ]
+  },
+  "robotics:warehouse-systems": {
+   "pairs": 11,
+   "obs": 22856,
+   "corr_gap": 0.035,
+   "corr_day": 0.009,
+   "big_moves": 1055,
+   "same_dir_gap": 54.4,
+   "same_dir_day": 50.7,
+   "names": [
+    "AutoStore",
+    "Daifuku",
+    "Kardex",
+    "Kion (Dematic)",
+    "Ocado",
+    "Symbotic"
+   ]
+  }
+ },
+ "by_direction": {
+  "americas→asia": {
+   "label": "americas→asia",
+   "obs": 165908,
+   "big_moves": 8832,
+   "corr_gap": 0.2,
+   "corr_day": -0.005,
+   "same_dir_gap": 71.6,
+   "same_dir_day": 51.4,
+   "follow_gap_pct": 0.98,
+   "follow_day_pct": 0.01
+  },
+  "americas→europe": {
+   "label": "americas→europe",
+   "obs": 192926,
+   "big_moves": 10318,
+   "corr_gap": 0.069,
+   "corr_day": 0.019,
+   "same_dir_gap": 58.7,
+   "same_dir_day": 52.7,
+   "follow_gap_pct": 0.17,
+   "follow_day_pct": 0.12
+  },
+  "asia→americas": {
+   "label": "asia→americas",
+   "obs": 170446,
+   "big_moves": 9591,
+   "corr_gap": 0.103,
+   "corr_day": 0.039,
+   "same_dir_gap": 57.9,
+   "same_dir_day": 53.1,
+   "follow_gap_pct": 0.4,
+   "follow_day_pct": 0.25
+  },
+  "asia→europe": {
+   "label": "asia→europe",
+   "obs": 119527,
+   "big_moves": 6679,
+   "corr_gap": 0.085,
+   "corr_day": 0.049,
+   "same_dir_gap": 58.2,
+   "same_dir_day": 54.0,
+   "follow_gap_pct": 0.21,
+   "follow_day_pct": 0.19
+  },
+  "europe→asia": {
+   "label": "europe→asia",
+   "obs": 125633,
+   "big_moves": 6789,
+   "corr_gap": 0.108,
+   "corr_day": 0.024,
+   "same_dir_gap": 62.2,
+   "same_dir_day": 53.0,
+   "follow_gap_pct": 0.45,
+   "follow_day_pct": 0.13
+  }
+ },
+ "by_year_peers": {
+  "2017": {
+   "label": "2017",
+   "obs": 72215,
+   "big_moves": 2929,
+   "corr_gap": 0.092,
+   "corr_day": 0.025,
+   "same_dir_gap": 59.3,
+   "same_dir_day": 51.0,
+   "follow_gap_pct": 0.23,
+   "follow_day_pct": 0.11
+  },
+  "2018": {
+   "label": "2018",
+   "obs": 74019,
+   "big_moves": 4929,
+   "corr_gap": 0.108,
+   "corr_day": 0.04,
+   "same_dir_gap": 57.7,
+   "same_dir_day": 53.1,
+   "follow_gap_pct": 0.23,
+   "follow_day_pct": 0.11
+  },
+  "2019": {
+   "label": "2019",
+   "obs": 73623,
+   "big_moves": 2986,
+   "corr_gap": 0.092,
+   "corr_day": 0.044,
+   "same_dir_gap": 60.0,
+   "same_dir_day": 55.4,
+   "follow_gap_pct": 0.27,
+   "follow_day_pct": 0.21
+  },
+  "2020": {
+   "label": "2020",
+   "obs": 81047,
+   "big_moves": 5735,
+   "corr_gap": 0.055,
+   "corr_day": 0.028,
+   "same_dir_gap": 57.7,
+   "same_dir_day": 52.6,
+   "follow_gap_pct": 0.33,
+   "follow_day_pct": 0.2
+  },
+  "2021": {
+   "label": "2021",
+   "obs": 84255,
+   "big_moves": 3502,
+   "corr_gap": 0.162,
+   "corr_day": 0.025,
+   "same_dir_gap": 60.9,
+   "same_dir_day": 52.7,
+   "follow_gap_pct": 0.39,
+   "follow_day_pct": 0.28
+  },
+  "2022": {
+   "label": "2022",
+   "obs": 79982,
+   "big_moves": 4369,
+   "corr_gap": 0.135,
+   "corr_day": 0.031,
+   "same_dir_gap": 65.0,
+   "same_dir_day": 55.3,
+   "follow_gap_pct": 0.45,
+   "follow_day_pct": 0.2
+  },
+  "2023": {
+   "label": "2023",
+   "obs": 79737,
+   "big_moves": 3159,
+   "corr_gap": 0.101,
+   "corr_day": 0.028,
+   "same_dir_gap": 61.3,
+   "same_dir_day": 53.3,
+   "follow_gap_pct": 0.28,
+   "follow_day_pct": 0.15
+  },
+  "2024": {
+   "label": "2024",
+   "obs": 80107,
+   "big_moves": 4638,
+   "corr_gap": 0.133,
+   "corr_day": 0.007,
+   "same_dir_gap": 63.2,
+   "same_dir_day": 52.4,
+   "follow_gap_pct": 0.53,
+   "follow_day_pct": 0.04
+  },
+  "2025": {
+   "label": "2025",
+   "obs": 79842,
+   "big_moves": 4425,
+   "corr_gap": 0.139,
+   "corr_day": 0.011,
+   "same_dir_gap": 63.6,
+   "same_dir_day": 50.6,
+   "follow_gap_pct": 0.56,
+   "follow_day_pct": 0.11
+  },
+  "2026": {
+   "label": "2026",
+   "obs": 69613,
+   "big_moves": 5537,
+   "corr_gap": 0.234,
+   "corr_day": 0.007,
+   "same_dir_gap": 66.9,
+   "same_dir_day": 51.9,
+   "follow_gap_pct": 0.91,
+   "follow_day_pct": 0.06
+  }
+ }
+}
