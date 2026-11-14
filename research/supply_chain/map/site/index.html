@@ -1,0 +1,503 @@
+<title>TrendVest</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap">
+<style>
+/* Layout: a poster. One narrow column, one idea per band, a big number or a picture in each,
+   very few words. No tables, no tabs, no settings. */
+:root { --bg: #ffffff; --surface: #ffffff; --fg: #1A1446; --muted: #4B5070; --line: #E2E4EE; --ink: #1A1446; --soft: #F5F6FA;
+  --up: #2F55C9; --down: #B4532A; --flat: #6B6F86; --accent: #4A3FB0;
+  --t-stock: #E8ECFF; --t-next: #FFE4E0; --t-value: #FFF3D1; --t-chain: #DDF7EC; --t-news: #EFEAFF;
+  --c-stock: #1A1446; --c-next: #5B6B8C; --c-value: #74664A; --c-chain: #4F7A78; --c-news: #7A6488;
+  --font: "Rubik", "Segoe UI", Arial, sans-serif; --mono: "Rubik", ui-monospace, Menlo, monospace }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #121426; --surface: #1B1E33; --fg: #EDEEF7; --muted: #B3B6CC; --line: #33375A; --ink: #EDEEF7; --soft: #24284A;
+  --up: #8EA8FF; --down: #F29A73; --flat: #B3B6CC; --accent: #B5ACFF; --t-stock: #252B55; --t-next: #3A2830; --t-value: #39331F; --t-chain: #1E3A33; --t-news: #2E2748;
+  --c-stock: #3A3F75; --c-next: #5B6B8C; --c-value: #74664A; --c-chain: #4F7A78; --c-news: #7A6488; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #121426; --surface: #1B1E33; --fg: #EDEEF7; --muted: #B3B6CC; --line: #33375A; --ink: #EDEEF7; --soft: #24284A;
+  --up: #8EA8FF; --down: #F29A73; --flat: #B3B6CC; --accent: #B5ACFF; --t-stock: #252B55; --t-next: #3A2830; --t-value: #39331F; --t-chain: #1E3A33; --t-news: #2E2748;
+  --c-stock: #3A3F75; color-scheme: dark }
+* { box-sizing: border-box } [hidden] { display: none !important }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 16px; line-height: 1.5; direction: rtl;
+  padding-block: 16px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px } .wrap > * { min-width: 0 }
+button, input { font-family: inherit } :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px } a { color: var(--accent) }
+.num { font-family: var(--mono); direction: ltr; unicode-bidi: isolate } .up { color: var(--up) } .down { color: var(--down) } .flat { color: var(--flat) } .muted { color: var(--muted) }
+.mk { display: flex; gap: 6px; flex-wrap: wrap }
+.mk button { font-size: 14px; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 5px 13px; cursor: pointer }
+.mk button[aria-current=true] { color: var(--bg); background: var(--ink); border-color: var(--ink) }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px }
+.mcard { background: var(--surface); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 10px; text-align: start; border: 0; cursor: pointer; color: var(--fg); font-family: inherit }
+.mcard:hover { outline: 2px solid var(--accent) } .mcard h3 { font-size: 26px; font-weight: 800; margin: 0 } .mcard p { margin: 0; font-size: 14.5px; color: var(--muted) }
+.mcard .flow { font-size: 12.5px; color: var(--accent) } .mcard .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px } .mcard .three b { display: block; font-size: 19px } .mcard .three span { font-size: 12px; color: var(--muted) }
+.cmp { display: grid; grid-template-columns: minmax(90px, auto) 1fr auto; gap: 8px 12px; align-items: center; font-size: 15px } .cmp .t { height: 14px; direction: ltr; background: none } .cmp .t i { display: block; height: 100%; border-radius: 7px; min-width: 3px; background: var(--ink) }
+.cmp button { font: inherit; font-weight: 500; color: var(--fg); background: none; border: 0; padding: 0; cursor: pointer; text-align: start } .cmp button:hover { color: var(--accent) }
+.wide { max-width: 1000px }
+.top { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between }
+.switch { display: flex; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 3px }
+.switch button { font-size: 15px; font-weight: 500; color: var(--muted); background: none; border: 0; border-radius: 999px; padding: 6px 16px; cursor: pointer }
+.switch button[aria-selected=true] { background: var(--ink); color: var(--bg) }
+input[type=search] { font-size: 15px; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; width: 170px; min-width: 0 }
+.ghost { font-size: 13px; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer }
+h1 { font-size: 40px; font-weight: 800; line-height: 1.1; margin: 0; overflow-wrap: anywhere } .kicker { font-size: 14px; color: var(--muted) }
+.lead { font-size: 20px; font-weight: 500; margin: 0; text-wrap: balance }
+.band { background: var(--surface); border: 1.5px solid var(--line); border-radius: 24px; padding: 20px; display: flex; flex-direction: column; gap: 12px }
+.band h2 { font-size: 14px; font-weight: 500; color: var(--muted); margin: 0 }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px }
+.tile { display: flex; flex-direction: column; gap: 2px } .tile .big { font-size: 34px; font-weight: 800; line-height: 1.1 } .tile .w { font-size: 15px; font-weight: 500 } .tile .l { font-size: 13px; color: var(--muted) }
+.arrow { display: inline-block; width: 0; height: 0; border-inline: 9px solid transparent; margin-inline-end: 6px; vertical-align: middle }
+.arrow.up { border-bottom: 14px solid var(--up) } .arrow.down { border-top: 14px solid var(--down) } .arrow.flat { width: 16px; height: 4px; border: 0; background: var(--flat); border-radius: 2px }
+.pic svg { display: block; width: 100%; height: auto; direction: ltr } .pic text { font: 500 12.5px var(--font); fill: var(--fg) } .pic .s { font-size: 11px; fill: var(--muted) }
+.meter { position: relative; height: 10px; background: var(--line); border-radius: 5px; direction: ltr; margin: 8px 0 2px } .meter i { position: absolute; top: -4px; width: 18px; height: 18px; border-radius: 50%; background: var(--ink); margin-left: -9px }
+.ends { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted) }
+.chain3 { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: center }
+.chain3 .col { display: flex; flex-direction: column; gap: 6px; min-width: 0 } .chain3 .col span { font-size: 12.5px; color: var(--muted) }
+.chain3 button, .pillbtn { font-size: 14.5px; font-weight: 500; color: var(--fg); background: var(--bg); border: 0; border-radius: 10px; padding: 6px 10px; cursor: pointer; text-align: start; overflow-wrap: anywhere }
+.chain3 .me { background: var(--ink); color: var(--bg); border-radius: 12px; padding: 14px 10px; text-align: center; font-weight: 800 }
+.chain3 .to { font-size: 22px; color: var(--muted) }
+@media (max-width: 520px) { .chain3 { grid-template-columns: 1fr } .chain3 .to { transform: rotate(-90deg); justify-self: center } h1 { font-size: 32px } }
+.dots { display: flex; gap: 6px; flex-wrap: wrap; direction: ltr; justify-content: flex-end } .dots i { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--down); display: block } .dots i.on { background: var(--down) } .dots i.off { border-color: var(--line) }
+.say { font-size: 18px; font-weight: 500 }
+.now { display: flex; flex-direction: column; gap: 14px } .now div { border-inline-start: 4px solid var(--accent); padding-inline-start: 12px; display: flex; flex-direction: column; gap: 2px } .now small { color: var(--muted); font-size: 12.5px; overflow-wrap: anywhere }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; align-items: stretch }
+.step { padding: 4px 12px; border-inline-start: 2px dashed var(--line); display: flex; flex-direction: column; gap: 4px } .step:first-child { border: 0; padding-inline-start: 0 }
+.step .n { width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center; font: 500 13px var(--mono) }
+.step b { font-size: 15px } .step .big { font-size: 30px; font-weight: 800; line-height: 1.1 } .step small { font-size: 12.5px; color: var(--muted) }
+@media (max-width: 620px) { .steps { grid-template-columns: 1fr; gap: 14px } .step { border: 0; padding: 0; border-top: 2px dashed var(--line); padding-top: 12px } .step:first-child { border: 0; padding-top: 0 } }
+.bars { display: grid; grid-template-columns: auto 1fr auto; gap: 8px 12px; align-items: center; font-size: 14.5px } .bars .t { height: 18px; background: none; position: relative; direction: ltr }
+.bars .t::before { content: ""; position: absolute; left: 66.6%; top: -3px; bottom: -3px; width: 1px; background: var(--muted) } .bars .t i { position: absolute; top: 0; bottom: 0; border-radius: 4px }
+.hold { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px }
+.hold button { display: flex; flex-direction: column; gap: 1px; text-align: start; background: var(--bg); border: 0; border-radius: 12px; padding: 10px 12px; cursor: pointer; color: var(--fg) } .hold b { font-size: 15.5px } .hold small { font-size: 12px; color: var(--muted) }
+.bars2 { display: grid; grid-template-columns: auto 1fr auto; gap: 10px 12px; align-items: center; font-size: 14.5px } .bars2 .t2 { display: flex; flex-direction: column; gap: 3px; direction: ltr } .bars2 .t2 i { display: block; height: 9px; border-radius: 5px; min-width: 3px }
+@media (max-width: 520px) { .bars2 { grid-template-columns: 1fr } }
+.switch button[data-level] { font-size: 15px }
+.more { display: flex; flex-wrap: wrap; gap: 8px } .foot { font-size: 12.5px; color: var(--muted) }
+.ten { display: flex; gap: 5px; direction: rtl } .ten i { width: 16px; height: 16px; border-radius: 50%; background: var(--line); display: block } .ten i.on { background: var(--accent) }
+.nx { background: var(--surface); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 12px } .nx h3 { font-size: 22px; font-weight: 800; margin: 0; line-height: 1.2; text-wrap: balance }
+.nx .tag { font-size: 12.5px; color: var(--accent); font-weight: 500 } .nx .odds { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; font-size: 15px; font-weight: 500 }
+.nx .then { display: grid; grid-template-columns: auto 1fr auto; gap: 6px 10px; align-items: center; font-size: 14px } .nx .then .t { height: 14px; direction: ltr } .nx .then .t i { display: block; height: 100%; border-radius: 7px; background: var(--ink); min-width: 3px } .nx .then .t i.later { background: var(--accent) }
+.nx details { font-size: 14.5px } .nx summary { cursor: pointer; color: var(--accent); font-size: 14px } .nx dl { margin: 10px 0 0; display: grid; gap: 10px } .nx dt { font-size: 12.5px; color: var(--muted) } .nx dd { margin: 0 }
+.nx .log { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px }
+.rows { display: grid; grid-template-columns: 1fr auto auto; gap: 6px 14px; font-size: 14px; align-items: baseline } .rows button { font: inherit; color: var(--fg); background: none; border: 0; padding: 0; cursor: pointer; text-align: start }
+.price { display: flex; gap: 10px 14px; align-items: baseline; flex-wrap: wrap } .price .p { font: 800 34px var(--mono); direction: ltr; unicode-bidi: isolate } .price small { color: var(--muted); font-size: 13px }
+.chips { display: flex; gap: 6px; flex-wrap: wrap } .chips button { font-size: 13.5px; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer } .chips button[aria-pressed=true] { color: var(--bg); background: var(--ink); border-color: var(--ink) }
+.feed { display: flex; flex-direction: column } .fi { display: grid; grid-template-columns: 78px 1fr; gap: 4px 12px; padding: 14px 0; border-top: 1px solid var(--line) } .fi:first-child { border-top: 0; padding-top: 0 }
+.fi time { font: 500 12.5px var(--mono); color: var(--muted); direction: ltr; text-align: end; padding-top: 2px } .fi .k { font-size: 12.5px; font-weight: 500; color: var(--accent) } .fi .b { display: flex; flex-direction: column; gap: 3px; min-width: 0 }
+.fi .raw { direction: ltr; text-align: left; unicode-bidi: plaintext; font-size: 14.5px } .fi small { font-size: 12.5px; color: var(--muted); overflow-wrap: anywhere } .fi.soon .k { color: var(--flat) } .fhead { font-size: 13px; color: var(--muted); padding: 14px 0 0 }
+.tint-stock { background: var(--t-stock); border-color: transparent } .tint-next { background: var(--t-next); border-color: transparent } .tint-value { background: var(--t-value); border-color: transparent }
+.tint-chain { background: var(--t-chain); border-color: transparent } .tint-news { background: var(--t-news); border-color: transparent }
+.tag { align-self: flex-start; color: #fff; border-radius: 999px; padding: 3px 12px; font-size: 12.5px; font-weight: 700 }
+.small { font-size: 13px; color: var(--muted) } .linkbtn { font: inherit; font-size: 13px; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline }
+.hero { border-radius: 0 0 32px 32px; margin: -16px -16px 0; padding: 22px 20px; display: flex; flex-direction: column; gap: 8px; color: #1A1446 }
+.hero .kicker, .hero .price small, .hero .muted, .hero .small { color: #1A1446 } .hero .one { margin: 0; font-size: 16.5px; line-height: 1.5 }
+.hero .price .num { color: #1A1446 } .heatbox { background: rgba(255,255,255,.62); border-radius: 18px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px }
+.hrow { display: flex; justify-content: space-between; align-items: baseline; gap: 10px } .hl { font-size: 22px } .hscale { display: grid; grid-template-columns: repeat(5, 1fr); height: 12px; border-radius: 6px; overflow: hidden; direction: rtl }
+.hscale .on { box-shadow: inset 0 0 0 2.5px #1A1446 } .hb { display: grid; grid-template-columns: 52px 1fr auto; gap: 8px; align-items: center; font-size: 13.5px }
+.hb .t { height: 8px; background: rgba(26,20,70,.12); border-radius: 4px; direction: rtl } .hb .t i { display: block; height: 100%; background: #1A1446; border-radius: 4px }
+.dir { font-weight: 700 } .chips .lay { display: flex; gap: 6px; align-items: center } .lay i { width: 10px; height: 10px; border-radius: 50%; display: inline-block }
+.chart { position: relative } .chart svg { display: block; width: 100%; height: auto; direction: ltr } .chart .mk { font: 700 15px var(--font); fill: var(--fg) } .chart .mk.w { fill: #fff }
+.chart .lbl { position: absolute; font-size: 12px; color: var(--muted) } .flag { position: absolute; transform: translateX(-50%); font-size: 11px; font-weight: 700; background: var(--t-news); border: 1.5px solid var(--c-news); border-radius: 5px; padding: 0 5px; direction: ltr }
+.yrs { position: relative; height: 18px; direction: ltr } .yr { position: absolute; transform: translateX(-50%); font-size: 12px; color: var(--muted) } .sales { display: block; width: 100%; height: auto; direction: ltr }
+.why { background: var(--surface); border-radius: 18px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px } .why.unk { border: 1.5px dashed var(--muted); background: transparent }
+.wh { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: 13.5px } .wn { width: 22px; height: 22px; border-radius: 50%; color: #fff; font-size: 11.5px; font-weight: 700; display: grid; place-items: center; border: 1.5px dashed var(--muted) }
+.why .wn[style*="--c"] { border: 0 } .why time { font-size: 12.5px; color: var(--muted) } .raw { direction: ltr; text-align: left; unicode-bidi: plaintext; font-size: 14px }
+.sum { background: var(--soft); border-radius: 12px; padding: 8px 10px; font-size: 14.5px } .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px }
+.box { background: var(--surface); border-radius: 14px; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px } .kv { display: flex; justify-content: space-between; gap: 10px; font-size: 14.5px }
+.kv2 { display: flex; flex-direction: column; font-size: 14.5px } .tl { display: flex; flex-direction: column; gap: 8px } .tl div { display: grid; grid-template-columns: 46px 1fr; gap: 8px; font-size: 14.5px; line-height: 1.5 }
+sup a { font-size: 10px; color: var(--accent); text-decoration: none; margin-inline-start: 2px } .dash { border: 1.5px dashed var(--muted); border-radius: 12px; padding: 8px 10px; font-size: 14px }
+.steps3 { margin: 0; padding-inline-start: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 14.5px } details summary { cursor: pointer; color: var(--accent); font-size: 14px }
+.net { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: center } .net .col { display: flex; flex-direction: column; gap: 6px; min-width: 0 } .net .to { color: var(--muted); font-size: 20px }
+.nn { font: inherit; text-align: start; border: 0; border-radius: 14px; padding: 8px 10px; cursor: pointer; color: #1A1446; display: flex; flex-direction: column; gap: 1px; min-width: 0 } .nn b { font-size: 14px; overflow-wrap: anywhere } .nn span { font-size: 11.5px }
+.nn.strong { box-shadow: inset 0 0 0 2.5px #1A1446 } .mid .nn { padding: 14px 12px } .mid .nn b { font-size: 17px }
+@media (max-width: 560px) { .net { grid-template-columns: 1fr } .net .to { transform: rotate(-90deg); justify-self: center } }
+.bottom { background: var(--surface); border-radius: 14px; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; font-size: 14.5px }
+.hmap { display: flex; flex-wrap: wrap; gap: 6px } .ht { font: inherit; flex-grow: 1; border: 0; border-radius: 14px; min-height: 66px; padding: 10px; color: #1A1446; cursor: pointer; text-align: start; display: flex; flex-direction: column; justify-content: space-between } .ht b { font-size: 14px } .ht span { font-size: 12px }
+.wform { display: flex; flex-direction: column; gap: 10px } .fl { display: flex; flex-direction: column; gap: 4px; font-size: 13.5px; color: var(--muted) }
+.fl input, .fl select { font: inherit; font-size: 16px; color: var(--fg); background: var(--surface); border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 12px; min-width: 0 }
+.fl select, .fl input { width: 100%; max-width: 100% } .band, .why, .box, .kv span { min-width: 0; overflow-wrap: anywhere } .kv { min-width: 0 }
+.switch { max-width: 100%; min-width: 0; flex: 0 1 auto; overflow-x: auto; scrollbar-width: none } .top > * { min-width: 0 } .secs { max-width: 100% } #page, .wrap { width: 100% } .switch button { white-space: nowrap; flex: none }
+.ck { display: flex; gap: 8px; align-items: center; font-size: 14px } .go { align-self: flex-start; font: inherit; font-size: 15px; font-weight: 700; background: var(--ink); color: var(--bg); border: 0; border-radius: 999px; padding: 10px 22px; cursor: pointer }
+.mk .wbtn { color: var(--ink); border-color: var(--ink); font-weight: 700 } .box.tint-chain, .box.tint-stock, .box.tint-value { border: 0 }
+.secs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 8px 0; margin-top: -4px }
+.secs button { flex: none; font: inherit; font-size: 14.5px; color: var(--fg); background: var(--soft); border: 0; border-radius: 999px; padding: 8px 16px; cursor: pointer; white-space: nowrap }
+.secs button[aria-current=true] { background: var(--ink); color: var(--bg); font-weight: 700 }
+.big2 { font-size: 24px; font-weight: 800 } .rowlink { font: inherit; text-align: start; cursor: pointer; color: var(--fg) } .rowlink:hover { outline: 2px solid var(--accent) }
+.ytk { position: absolute; left: 0; transform: translateY(-50%); font-size: 11.5px; color: var(--muted); direction: ltr } .salesbox { display: flex; flex-direction: column; gap: 2px }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 13px } .legend i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; margin-inline-end: 5px; vertical-align: middle } .legend i.unk { border: 1.5px dashed var(--muted) }
+.hl2 { display: flex; flex-direction: column; gap: 1px; padding: 6px 0; border-top: 1px solid var(--line) } .dashband { background: transparent; border: 1.5px dashed var(--muted) }
+.clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden } .strip { display: flex; gap: 2px; height: 14px } .strip i { flex: 1; border-radius: 3px }
+.mcard.tint-stock, .mcard.tint-value, .mcard.tint-chain, .mcard.tint-news, .mcard.tint-next { border: 0 } .wcard { background: var(--ink); color: var(--bg) } .wcard p, .wcard .small { color: var(--bg); opacity: .85 }
+.cmp .t i { background: var(--c-next) }
+</style>
+
+<div class="wrap">
+  <nav class="mk" id="mk" aria-label="שווקים"></nav>
+  <div class="top" id="top" hidden>
+    <div class="switch" role="tablist"><button role="tab" data-v="stock">מניה</button><button role="tab" data-v="heat">מפת חום</button><button role="tab" data-v="event">מה קרה</button><button role="tab" data-v="next">מה הלאה</button><button role="tab" data-v="build">בונה תיק</button><button role="tab" data-v="wallet">הארנק</button></div>
+    <div style="display:flex;gap:8px;min-width:0"><input type="search" id="q" list="names" placeholder="חיפוש חברה" aria-label="חיפוש חברה" autocomplete="off"><datalist id="names"></datalist><button class="ghost" id="theme" type="button"></button></div>
+  </div>
+  <main id="page" class="wrap" style="gap:16px"></main>
+  <p class="foot" id="foot">סקיצה. הנתונים מ-Yahoo Finance ומדיווחים רשמיים של החברות. כשכתוב "מעבר למה שכל השוק זז", הכוונה שהורדנו את מה שכל המניות עשו באותם ימים, כדי לראות רק את ההשפעה של האירוע. זה כלי ללמידה אישית, לא המלצה לקנות או למכור.</p>
+</div>
+
+<script>
+const CN = { US: "ארה\"ב", JP: "יפן", TW: "טייוואן", KR: "קוריאה", DE: "גרמניה", NL: "הולנד", IL: "ישראל", CN: "סין", FR: "צרפת", CH: "שווייץ", GB: "בריטניה", AU: "אוסטרליה", CA: "קנדה", DK: "דנמרק", ES: "ספרד", IT: "איטליה", BR: "ברזיל", CL: "צ'ילה", IN: "הודו", NO: "נורווגיה", SE: "שוודיה", HK: "הונג קונג", IE: "אירלנד" };
+const go = id => { location.hash = id; location.reload(); };
+function nav(C, cur) { const el = document.getElementById("mk");
+  el.innerHTML = `<button data-m="" aria-current="${!C.markets[cur] && cur !== "wallet"}">כל השווקים</button>` + C.order.map(m => `<button data-m="${m}" aria-current="${m === cur}">${C.markets[m].name}</button>`).join("") + `<button data-m="wallet" aria-current="${cur === "wallet"}" class="wbtn">הארנק שלי</button>`;
+  el.addEventListener("click", e => { const b = e.target.closest("button"); if (b) go(b.dataset.m); }); }
+/* ---------- the opening page ---------- */
+function hub(C) { const HEATC = { frozen: "#ECE9E7", cool: "#F3DCCB", mild: "#F9C29A", hot: "#FF9A52", boiling: "#FF5A1F" };
+  const esc = x => String(x ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])), tag = (t, c) => `<span class="tag" style="background:${c}">${t}</span>`; const ms = C.order.map(m => C.markets[m]), page = document.getElementById("page"), big = v => "$" + (v >= 1e12 ? (v / 1e12).toFixed(1) + "T" : (v / 1e9).toFixed(0) + "B");
+  document.querySelector(".wrap").classList.add("wide"); page.classList.add("wide");
+  const hot = ms.reduce((a, m) => a + (m.heat ? m.heat.hot : 0), 0), n = ms.reduce((a, m) => a + (m.heat ? m.heat.n : 0), 0);
+  const hottest = [...ms].filter(m => m.heat && m.heat.n).sort((a, b) => b.heat.hot / b.heat.n - a.heat.hot / a.heat.n)[0];
+  const tints = ["tint-stock", "tint-value", "tint-chain", "tint-news", "tint-next", "tint-stock"];
+  const s = (v, d = 0) => `<span class="num">${v >= 0 ? "▲" : "▼"} ${Math.abs(v).toFixed(d)}%</span>`;
+  const band = (title, key, fmt, note) => { const vals = ms.map(m => typeof key === "function" ? key(m) : m[key]), mx = Math.max(...vals.filter(v => v != null).map(Math.abs)) || 1;
+    return `<div class="band"><h2>${title}</h2><div class="cmp">${ms.map((m, i) => vals[i] == null ? "" : `<button data-m="${m.id}">${m.name}</button><div class="t"><i style="width:${Math.abs(vals[i]) / mx * 100}%"></i></div><b>${fmt(vals[i], m)}</b>`).join("")}</div>${note ? `<span class="small">${note}</span>` : ""}</div>`; };
+  page.innerHTML = `<div><span class="kicker">TrendVest · ${ms.length} שווקים · ${n} חברות</span><h1>השווקים</h1></div>
+    <div class="band tint-stock">${tag("השורה התחתונה", "var(--c-stock)")}<b class="say" style="margin:0">${hot} מתוך ${n} חברות חמות עכשיו. הכי חם: ${hottest ? esc(hottest.name) : ""}.</b>
+      <span>חם אומר שהרבה קורה: המכירות רצות או שהמחיר עלה. זה לא סימן לקנות. בכל שוק אפשר לראות מי חם, למה מניות זזו, ומי עובד עם מי.</span></div>
+    <div class="cards">${ms.map((m, k) => `<button class="mcard ${tints[k % tints.length]}" data-m="${m.id}"><h3>${m.name}</h3><p class="clamp">${m.intro}</p>
+      ${m.heat ? `<div class="strip">${m.heat.levels.map(l => `<i style="background:${HEATC[l]}"></i>`).join("")}</div><span class="small">${m.heat.hot} מתוך ${m.heat.n} חמות. הכי חמות: ${m.heat.top.map(esc).join(", ")}</span>` : ""}
+      <div class="three"><div><b class="num">${m.companies}</b><span>חברות</span></div><div><b class="num">${big(m.revenue)}</b><span>מכירות בשנה</span></div><div><b>${s(m.price_1y_med)}</b><span>מניה חציונית בשנה</span></div></div></button>`).join("")}
+      <button class="mcard wcard" data-m="wallet"><h3>הארנק שלי</h3><p>כסף וירטואלי במניות אמיתיות, עם פקודות שקובעים מראש, עמלות ומס אמיתיים.</p><span class="small">לפתוח את הארנק ←</span></button></div>
+    <details class="band"><summary>השוואה מפורטת בין השווקים</summary><div class="wrap" style="gap:12px;margin-top:12px">
+      ${band("מכירות בשנה של כל החברות במפה", "revenue", v => `<span class="num">${big(v)}</span>`, "כולל את כל הפעילות של כל חברה, גם מה שאינו שייך לשוק הזה.")}
+      ${band("כמה נשאר כרווח מכל 100 של מכירות", "net_margin", v => `<span class="num">${v}</span>`, "")}
+      ${band("כמה המכירות גדלו, בחברה החציונית", "growth_med", v => s(v), "לעומת שנה שעברה.")}
+      ${band("מה עשו המניות בשנה האחרונה", "price_1y_med", v => s(v), "המניה החציונית בכל שוק, במטבע המקומי.")}
+      ${band("כמה המחירים קופצים", "vol_1y", v => `<span class="num">${v}%</span>`, "ככל שהמספר גבוה יותר, המחירים קופצים יותר.")}
+      ${band("כמה יקר: כמה משלמים על כל 1 של רווח", "pe_med", v => `<span class="num">${v}</span>`, "החברה החציונית בכל שוק.")}</div></details>`;
+  page.addEventListener("click", e => { const b = e.target.closest("[data-m]"); if (b) go(b.dataset.m); }); }
+
+(async () => {
+const CMP = await (await fetch("data/compare.json")).json(), market = location.hash.slice(1);
+nav(CMP, market);
+if (market === "wallet") { const sc = document.createElement("script"); sc.src = "engine.js"; sc.onload = () => { const w = document.createElement("script"); w.src = "wallet.js"; document.body.appendChild(w); }; document.body.appendChild(sc); return; }
+if (!CMP.markets[market]) { hub(CMP); return; }
+document.getElementById("top").hidden = false;
+const D = await (await fetch(`data/${market}.json`)).json(), M = D.market;
+const $ = id => document.getElementById(id), byId = Object.fromEntries(D.nodes.map(n => [n.id, n]));
+const safe = u => /^https?:\/\//i.test(String(u || "")) ? u : "#";   // links from data: web addresses only
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const cls = (v, t = 0.5) => v > t ? "up" : v < -t ? "down" : "flat";
+const sg = (v, d = 0) => `<span class="num ${cls(v)}">${v > 0 ? "+" : ""}${v.toFixed(d)}%</span>`;
+const usd = v => !v ? "–" : "$" + (v >= 1e12 ? (v / 1e12).toFixed(2) + "T" : v >= 1e9 ? (v / 1e9).toFixed(v >= 1e11 ? 0 : 1) + "B" : (v / 1e6).toFixed(0) + "M");
+const mean = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
+const chg = (a, k) => { const v = a.filter(x => x != null); return v.length < 2 ? null : (v[v.length - 1] / v[Math.max(0, v.length - 1 - k)] - 1) * 100; };
+const evName = id => { const h = M.history.find(x => x[5] === id); return h ? [h[1], h[2]] : M.event_he[id] || [D.events.find(e => e.id === id).name, ""]; };
+const roleOf = (n, id) => n.ev[id] && (n.ev[id].w || n.ev[id].role);
+D.edges.forEach(e => { e.material = e.crit || Number(e.share) >= 10; });
+const byW = (a, b) => (b.material - a.material) || (Number(b.share || 0) - Number(a.share || 0));
+let S = { sec: "overview", sums: {}, whyAll: false, layers: { index: true, why: true, sales: true, events: false, changes: false, next: false }, feed: "all", more: false, v: "stock", co: D.nodes.some(n => n.id === "TSMC") ? "TSMC" : D.nodes[0].id, ev: (D.events.find(e => e.id === "HUALIEN2024") || D.events[0] || {}).id, level: "calm" };
+
+/* ---------- the stock in one picture ---------- */
+function picture(n) { const K = 104, W = 680, H = 250, X0 = 14, X1 = W - 14, Y0 = 62, Y1 = H - 30;
+  const px = n.px.slice(-K), dates = D.dates.slice(-K), v = px.filter(x => x != null), lo = Math.min(...v), hi = Math.max(...v);
+  const t0 = Date.parse(dates[0]), t1 = Date.parse(dates[dates.length - 1]), X = d => X0 + (Date.parse(d) - t0) / (t1 - t0) * (X1 - X0), Y = p => Y1 - (p - lo) / (hi - lo || 1) * (Y1 - Y0);
+  const pts = px.map((p, i) => p == null ? null : [X(dates[i]), Y(p)]).filter(Boolean), up = v[v.length - 1] >= v[0], col = up ? "var(--up)" : "var(--down)";
+  const at = d => { let b = 0; dates.forEach((x, i) => { if (Date.parse(x) <= Date.parse(d) && px[i] != null) b = i; }); return [X(dates[b]), Y(px[b])]; };
+  const evs = D.events.filter(e => Date.parse(e.ts) > t0 && Date.parse(e.ts) < t1 && roleOf(n, e.id) && roleOf(n, e.id) !== "control").slice(-3);
+  const notes = evs.map((e, i) => { const [x, y] = at(e.ts), ty = 16 + i * 17, r = n.ev[e.id];
+    return `<line x1="${x}" x2="${x}" y1="${ty + 5}" y2="${y}" stroke="var(--muted)" stroke-dasharray="3 3"/><circle cx="${x}" cy="${y}" r="5" fill="var(--surface)" stroke="var(--fg)" stroke-width="2"/>
+      <text x="${x > W / 2 ? x - 8 : x + 8}" y="${ty}" text-anchor="${x > W / 2 ? "start" : "end"}" direction="rtl">${esc(evName(e.id)[0])}: ${r.d3 > 0 ? "+" : ""}${r.d3}% בשלושה ימים</text>`; }).join("");
+  const yr = [...new Set(dates.map(d => d.slice(0, 4)))].slice(1).filter(y => X(y + "-01-01") > X0 + 90 && X(y + "-01-01") < X1 - 50).map(y => `<text class="s" x="${X(y + "-01-01")}" y="${H - 8}" text-anchor="middle">${y}</text>`).join("");
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="מחיר המניה בשנתיים האחרונות"><path d="M${pts.map(p => p.join(" ")).join("L")}L${X1} ${Y1}L${X0} ${Y1}Z" fill="${col}" opacity=".12"/>
+    <path d="M${pts.map(p => p.join(" ")).join("L")}" fill="none" stroke="${col}" stroke-width="2.6" stroke-linejoin="round"/><line x1="${X0}" x2="${X1}" y1="${Y1}" y2="${Y1}" stroke="var(--line)"/>
+    <circle cx="${pts[pts.length - 1][0]}" cy="${pts[pts.length - 1][1]}" r="5" fill="${col}"/>${notes}${yr}<text class="s" x="${X0}" y="${H - 8}">לפני שנתיים</text><text class="s" x="${X1}" y="${H - 8}" text-anchor="end">היום</text></svg>`; }
+
+/* ---------- shared pieces of the soft style ---------- */
+const HEATC = { frozen: "#ECE9E7", cool: "#F3DCCB", mild: "#F9C29A", hot: "#FF9A52", boiling: "#FF5A1F" };
+const HEATS = [["frozen", "קפואה"], ["cool", "קרירה"], ["mild", "פושרת"], ["hot", "חמה"], ["boiling", "רותחת"]];
+const WHYK = { report: ["דוח רבעוני", "var(--c-next)"], analyst: ["המלצת אנליסט", "var(--c-value)"], deal: ["עסקה או חוזה", "var(--c-chain)"],
+  regulation: ["רגולציה או חוק", "var(--c-chain)"], news: ["כותרות מאותו יום", "var(--c-news)"], event: ["אירוע בשרשרת", "var(--c-chain)"] };
+const tag = (txt, c) => `<span class="tag" style="background:${c}">${txt}</span>`;
+const arrowTxt = v => `<span class="dir">${v >= 0 ? "▲ עלתה" : "▼ ירדה"} <span class="num">${Math.abs(v).toFixed(1)}%</span></span>`;
+function heatScale(level) { return `<div class="hscale" aria-hidden="true">${HEATS.map(([k]) => `<span style="background:${HEATC[k]}" class="${k === level ? "on" : ""}"></span>`).join("")}</div>`; }
+function heatBox(n) { const h = n.heat; if (!h) return "";
+  const bar = (label, pct, rank, unit) => rank == null ? `<div class="hb"><span>${label}</span><span class="muted">אין נתון</span></div>` :
+    `<div class="hb"><span>${label}</span><div class="t"><i style="width:${Math.max(3, rank)}%"></i></div><span><span class="num">${pct > 0 ? "+" : ""}${Math.round(pct)}%</span> ${unit}</span></div>`;
+  return `<div class="heatbox"><div class="hrow"><b class="hl">${h.level_he}</b><span class="muted">${h.heat} מתוך 100</span></div>${heatScale(h.level)}
+    ${bar("מכירות", h.sales_pct, h.sales_rank, "בשנה")}${bar("מחיר", h.price_pct, h.price_rank, "מעבר למדד, חצי שנה")}
+    <span class="small">הפס מראה איפה החברה ביחס לשאר החברות בשוק. חם לא אומר לקנות: חם אומר שהרבה קורה עכשיו.</span></div>`; }
+
+/* ---------- the stock page: hero on top, then one focused screen at a time (as in the approved sketches) ---------- */
+const SECS = [["overview", "בקצרה"], ["chart", "הגרף ולמה"], ["company", "החברה"], ["links", "מי עובד עם מי"], ["news", "חדשות"]];
+const WHYS = { report: "לפי הכותרות מאותו יום: נראה שקשור לדוח של החברה.", analyst: "לפי הכותרות מאותו יום: נראה שקשור להמלצה של אנליסט.",
+  deal: "לפי הכותרות מאותו יום: נראה שקשור לעסקה או חוזה.", regulation: "לפי הכותרות מאותו יום: נראה שקשור לרגולציה או חוק.",
+  news: "יש כותרות מאותו יום, אבל לא ברור מהן מה הסיבה.", event: "באותו יום היה אירוע בשרשרת שהחברה קשורה אליו." };
+function whyReason(m) { return m.earnings ? "יום הדוח הרבעוני של החברה." : m.kind ? WHYS[m.kind] : m.searched ? "לא מצאנו סיבה." : "עוד לא חיפשנו חדשות לחברה הזאת."; }
+function stock() { const n = byId[S.co], i = n.info, st = n.story;
+  const bg = n.heat ? HEATC[n.heat.level] : "var(--t-stock)";
+  const body = { overview, chart: () => layers(n) + whyList(n), company: () => storyCard(n), links: () => netMap(n), news: () => feed(n) }[S.sec] || overview;
+  $("page").innerHTML = `
+    <section class="hero" style="background:${bg}">
+      <span class="kicker">${esc(D.stages[n.tier].title)} · <span class="num">${esc(n.ticker)}</span></span><h1>${esc(n.name)}</h1>
+      <p class="one">${esc(st && st.one_liner ? st.one_liner : (M.plain_co || M.plain)[n.tier])}</p>
+      ${priceLine(n)}${heatBox(n)}</section>
+    <nav class="secs" aria-label="חלקי הדף">${SECS.map(([k, t]) => `<button data-sec="${k}" aria-current="${S.sec === k}">${t}</button>`).join("")}</nav>
+    ${body(n)}`;
+  function overview() { const y1 = chg(n.px, 52), growth = n.pulse && n.pulse.monthly ? n.pulse.monthly.yoy : i.revenueGrowth != null ? i.revenueGrowth * 100 : null;
+    const nxt = ((D.inference || {}).cards || []).filter(c => c.company === S.co), lastWhy = (n.why || []).slice(-1)[0];
+    const peers = D.nodes.filter(x => x.tier === n.tier && x.info.trailingPE > 0).map(x => x.info.trailingPE).sort((a, b) => a - b), pe = i.trailingPE > 0 ? i.trailingPE : null;
+    const rank = pe && peers.length > 2 ? peers.filter(p => p <= pe).length / peers.length : null;
+    const sup = D.edges.filter(e => e.t === n.id).sort(byW), cus = D.edges.filter(e => e.s === n.id).sort(byW);
+    return `
+      ${nxt.length ? `<div class="band tint-next">${tag("מה צפוי", "var(--c-next)")}${nxt.map(c => `<b class="say" style="margin:0">${esc(c.text.title)}</b><span>${esc(c.text.see)}</span><span class="small">${esc(c.text.claim)} <button class="linkbtn" data-v="next">למה אנחנו חושבים ככה</button></span>`).join("")}</div>` : ""}
+      <div class="grid2">
+        <div class="box tint-stock"><span class="small">המחיר בשנה האחרונה</span><b class="big2">${y1 == null ? "–" : `${y1 >= 0 ? "▲" : "▼"} ${Math.abs(Math.round(y1))}%`}</b></div>
+        <div class="box tint-value"><span class="small">המכירות לעומת שנה שעברה</span><b class="big2">${growth == null ? "–" : `${growth >= 0 ? "▲" : "▼"} ${Math.abs(Math.round(growth))}%`}</b></div>
+        <div class="box tint-chain"><span class="small">מכירות בשנה</span><b class="big2">${usd(i.revenueUSD)}</b><span class="small">נשאר רווח: ${usd(i.netIncomeUSD)}</span></div>
+        <div class="box tint-news"><span class="small">זולה או יקרה</span><b class="big2">${rank == null ? (i.netIncomeUSD < 0 ? "מפסידה" : "–") : rank > 0.66 ? "יקרה" : rank < 0.34 ? "זולה" : "באמצע"}</b><span class="small">${rank == null ? (i.netIncomeUSD < 0 ? "בלי רווח אין למה להשוות" : "") : `לעומת ${peers.length} חברות דומות`}</span></div></div>
+      ${lastWhy ? `<button class="band rowlink" data-sec="chart">${tag("למה זז לאחרונה", "var(--c-news)")}<span><b>${hd(lastWhy.date)}: ${lastWhy.ret >= 0 ? "▲ עלתה" : "▼ ירדה"} ${Math.abs(lastWhy.ret).toFixed(1)}% ביום אחד.</b> ${esc(whyReason(lastWhy))}</span><span class="small">לגרף ולכל הימים החזקים ←</span></button>` : ""}
+      <button class="band rowlink tint-chain" data-sec="links">${tag("מי עובד עם מי", "var(--c-chain)")}<span>${sup.length ? `מוכרות לה: ${sup.slice(0, 3).map(e => esc(byId[e.s].name)).join(", ")}${sup.length > 3 ? ` ועוד ${sup.length - 3}` : ""}.` : ""} ${cus.length ? `קונות ממנה: ${cus.slice(0, 3).map(e => esc(byId[e.t].name)).join(", ")}${cus.length > 3 ? ` ועוד ${cus.length - 3}` : ""}.` : ""}</span><span class="small">למפה ←</span></button>
+      <button class="band rowlink tint-value" data-sec="company">${tag("החברה", "var(--c-value)")}<span>${st ? `${esc(st.hq ? st.hq.city + ", " + st.hq.country : "")}${st.founded ? `, נוסדה ב-${st.founded}` : ""}. ${st.leaders && st.leaders[0] ? `מנהל: ${esc(st.leaders[0].name)}.` : ""}` : "עוד לא חקרנו את הסיפור שלה. יש נתונים בסיסיים."}</span><span class="small">לכרטיס המלא ←</span></button>`; } }
+
+/* ---------- one chart, several layers ---------- */
+function layers(n) { const L = S.layers, K = 104, W = 700, H = 240, padT = 30, padB = 10, padL = 46, future = L.next ? 52 : 0;
+  const dates = D.dates.slice(-K), px = n.px.slice(-K), mk = D.mkt.slice(-K), p0 = px.find(v => v != null), m0 = mk.find(v => v != null);
+  if (!p0) return "";
+  const vp = px.map(v => v == null ? null : v / p0 * 100), vm = mk.map(v => v == null ? null : v / m0 * 100);
+  const all = vp.concat(L.index ? vm : []).filter(v => v != null), lo = Math.min(...all), hi = Math.max(...all);
+  const t0 = Date.parse(dates[0]), tl = Date.parse(dates[dates.length - 1]), t1 = tl + future * 7 * 864e5;
+  const X = d => padL + (Date.parse(d) - t0) / (t1 - t0) * (W - padL), Y = v => padT + (1 - (v - lo) / (hi - lo || 1)) * (H - padT - padB);
+  const path = arr => "M" + arr.map((v, k) => v == null ? null : `${X(dates[k]).toFixed(1)} ${Y(v).toFixed(1)}`).filter(Boolean).join("L");
+  const near = d => { let b = 0; dates.forEach((x, k) => { if (x <= d && vp[k] != null) b = k; }); return b; };
+  const step = [10, 20, 50, 100, 200, 500, 1000].find(s => (hi - lo) / s <= 4) || 2000;
+  let g = "", html = "";
+  for (let v = Math.ceil(lo / step) * step; v <= hi; v += step) { g += `<line x1="${padL}" x2="${W}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/>`;
+    html += `<span class="ytk" style="top:${Y(v) / H * 100}%">${Math.round(v)} ₪</span>`; }
+  if (L.next) { const card = ((D.inference || {}).cards || []).find(c => c.company === n.id && c.claim), xs = X(dates[dates.length - 1]);
+    g += `<rect x="${xs}" y="0" width="${W - xs}" height="${H}" fill="var(--soft)"/>`;
+    html += `<div class="lbl" style="right:6px;top:2px">השנה הבאה${card ? ` · נבדוק ב-${hd(card.claim.due)}` : ""}</div>`; }
+  const chs = M.changes.filter(c => c[2] === n.tier && /^\d{4}-\d{2}/.test(c[5]) && c[5] >= dates[0].slice(0, 7)).slice(0, 4);
+  if (L.changes) chs.forEach((c, k) => { const x = X(c[5].slice(0, 7) + "-15"); g += `<line x1="${x}" x2="${x}" y1="${padT - 4}" y2="${H}" stroke="var(--c-news)" stroke-dasharray="3 4"/>`;
+    html += `<span class="flag" style="left:${x / W * 100}%;top:${2 + (k % 2) * 15}px">${"אבגד"[k]}</span>`; });
+  if (L.index) g += `<path d="${path(vm)}" fill="none" stroke="var(--c-next)" stroke-width="2.2"/>`;
+  g += `<path d="${path(vp)}" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>`;
+  if (L.events) D.events.forEach(e => { const r = roleOf(n, e.id), v = n.ev[e.id]; if (!v || v.day0 < dates[0] || !r || r === "control") return;
+    const j = near(v.day0); g += `<rect x="${X(dates[j]) - 8}" y="${Y(vp[j]) - 8}" width="16" height="16" rx="4" fill="var(--t-chain)" stroke="var(--c-chain)" stroke-width="2"/>`; });
+  if (L.why) { const placed = []; (n.why || []).forEach((m, k) => { if (m.date < dates[0]) return; const j = near(m.date), x = X(dates[j]); let y = Y(vp[j]);
+    for (let t = 0, dir = -1; t < 8 && placed.some(p => Math.abs(p[0] - x) < 30 && Math.abs(p[1] - y) < 30); t++) { if (y - 32 < 16) dir = 1; y += dir * 32; }
+    y = Math.max(16, y);
+    placed.push([x, y]); const c = m.kind || m.earnings ? WHYK[m.earnings ? "report" : m.kind][1] : "var(--surface)";
+    g += `${y !== Y(vp[j]) ? `<line x1="${x}" x2="${x}" y1="${y}" y2="${Y(vp[j])}" stroke="var(--muted)"/>` : ""}<circle cx="${x}" cy="${y}" r="14" fill="${c}" stroke="${m.kind ? "var(--surface)" : "var(--muted)"}" stroke-width="2" ${m.kind ? "" : 'stroke-dasharray="3 2"'}/><text x="${x}" y="${y + 5}" text-anchor="middle" class="mk ${m.kind ? "w" : ""}">${k + 1}</text>`; }); }
+  const yr = [...new Set(dates.map(d => d.slice(0, 4)))].slice(1).concat(future ? [String(+dates[dates.length - 1].slice(0, 4) + 1)] : [])
+    .filter(y => X(y + "-01-01") > padL + 20 && X(y + "-01-01") < W - 20).map(y => `<span class="yr" style="left:${X(y + "-01-01") / W * 100}%">${y}</span>`).join("");
+  let sales = "";
+  if (L.sales && n.pulse && n.pulse.rev) { const rv = n.pulse.rev.filter(r => r[0] >= dates[0]), mx = Math.max(...rv.map(r => r[1]));
+    sales = `<div class="salesbox"><span class="small">${n.pulse.rev_unit === "TWD" ? "מכירות בכל חודש" : "מכירות בכל רבעון"}</span><svg viewBox="0 0 ${W} 70" class="sales" role="img" aria-label="מכירות">${rv.map(r => { const x = X(r[0]), h = Math.max(2, r[1] / mx * 56); return `<rect x="${x - 7}" y="${66 - h}" width="14" height="${h}" rx="3" fill="var(--t-value)" stroke="var(--c-value)" stroke-width="1.5"/>`; }).join("")}</svg>
+      <span class="small">מ-<span class="num">${rv[0][1].toFixed(1)}</span> ל-<span class="num">${rv[rv.length - 1][1].toFixed(1)}</span> ${n.pulse.rev_unit === "TWD" ? "מיליארד דולר טייוואני" : "מיליארד דולר"}</span></div>`; }
+  const endP = vp[vp.length - 1], endM = vm[vm.length - 1], peakK = vp.indexOf(Math.max(...vp.filter(v => v != null))), fromPeak = (endP / vp[peakK] - 1) * 100;
+  const chip = (k, t, c) => `<button class="lay" data-layer="${k}" aria-pressed="${!!L[k]}"><i style="background:${c}"></i>${t}</button>`;
+  return `<div class="band tint-stock">${tag("השורה התחתונה", "var(--c-stock)")}<span class="say" style="margin:0">100 ₪ שהושקעו לפני שנתיים שווים היום <b>${Math.round(endP)} ₪</b>, לעומת ${Math.round(endM)} ₪ בממוצע השוק.${fromPeak < -10 ? ` מאז השיא ב-${hd(dates[peakK])} המחיר ירד ב-${Math.round(-fromPeak)}%.` : ""}</span></div>
+    <div class="band"><div class="chips">${chip("index", "ממוצע השוק", "var(--c-next)")}${chip("why", "קפיצות ולמה", "var(--c-news)")}${n.pulse && n.pulse.rev ? chip("sales", "מכירות", "var(--c-value)") : ""}${chip("events", "אירועים בשרשרת", "var(--c-chain)")}${chip("changes", "שינויים בתחום", "var(--c-news)")}${chip("next", "שנה קדימה", "var(--muted)")}</div>
+    <div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="שווי 100 שקלים שהושקעו לפני שנתיים">${g}</svg>${html}<div class="yrs">${yr}</div></div>${sales}
+    ${L.why ? `<div class="legend">${["report", "news", "event"].map(k => `<span><i style="background:${WHYK[k][1]}"></i>${k === "report" ? "דוח" : k === "news" ? "כותרות" : "אירוע"}</span>`).join("")}<span><i class="unk"></i>לא ידוע</span><span class="small">המספרים: הימים שבהם המחיר זז הכי חזק. ההסבר למטה.</span></div>` : ""}
+    ${L.changes && chs.length ? `<div class="small">${chs.map((c, k) => `<b>${"אבגד"[k]}</b> ${esc(c[3])} (${hd(c[5].slice(0, 7))})`).join(" · ")}</div>` : ""}</div>`; }
+
+/* ---------- why it moved: Hebrew first, the raw headlines behind a click ---------- */
+function whyList(n) { const ms = (n.why || []).map((m, k) => ({ ...m, k: k + 1 })).reverse();
+  if (!ms.length) return "";
+  const rep = ms.filter(m => m.earnings || m.kind === "report").length, ev = ms.filter(m => !m.earnings && m.kind === "event").length,
+    other = ms.filter(m => !m.earnings && ["analyst", "deal", "regulation"].includes(m.kind)).length, vague = ms.filter(m => !m.earnings && m.kind === "news").length, unk = ms.filter(m => !m.kind && !m.earnings).length;
+  const card = m => { const key = n.id + m.date, sum = S.sums[key], k = m.earnings ? "report" : m.kind;
+    return `<div class="why ${k ? "" : "unk"}" id="why-${m.k}"><div class="wh"><span class="wn" style="background:${k ? WHYK[k][1] : "var(--surface)"}">${m.k}</span><time>${hd(m.date)}</time>${arrowTxt(m.ret)}<span class="small">ביום אחד. השוק: <span class="num">${m.index > 0 ? "+" : ""}${m.index}%</span></span></div>
+      <b>${whyReason(m)}</b>${m.event && !m.event.linked ? `<span class="small">באותו יום: ${esc(m.event.name)}. החברה לא קשורה אליו, ייתכן שזה צירוף מקרים.</span>` : m.event ? `<span class="small">${esc(m.event.name)}</span>` : ""}
+      ${sum ? `<div class="sum">${esc(sum)}<span class="small"> · סיכום שנכתב בבינה מלאכותית מהכותרות</span></div>` : ""}
+      ${m.news && m.news.length ? `<details><summary>${m.news.length} כותרות מאותו יום (באנגלית)</summary>${m.news.slice(0, 5).map(h => `<div class="hl2"><span class="raw">${esc(h.t)}</span><span class="small">${esc(h.src)} · <a href="${esc(safe(h.u))}" target="_blank" rel="noopener noreferrer">לידיעה</a></span></div>`).join("")}
+        ${sum ? "" : `<button class="linkbtn" data-sum="${key}">לסכם בעברית</button>`}</details>` : ""}</div>`; };
+  const shown = S.whyAll ? ms : ms.slice(0, 4);
+  return `<div class="band tint-news" id="whyband">${tag("למה המחיר זז", "var(--c-news)")}
+    <b class="say" style="margin:0">ב-${ms.length} הימים שבהם המחיר זז הכי חזק: ${[rep ? `${rep} סביב דוח` : "", ev ? `${ev} באירוע בשרשרת` : "", other ? `${other} סביב המלצה, עסקה או חוק` : "", vague ? `${vague} עם כותרות שלא מסבירות` : "", unk ? `${unk} בלי שום מידע` : ""].filter(Boolean).join(", ")}.</b>
+    ${shown.map(card).join("")}${ms.length > shown.length ? `<button class="pillbtn" data-whyall="1" style="align-self:flex-start">עוד ${ms.length - shown.length} ימים</button>` : ""}
+    <span class="small">איך קובעים: תאריך הדוח הרשמי, אירועים שמיפינו, וכותרות שפורסמו ביום שלפני או ביום עצמו. כותרת מאותו יום לא בהכרח היא הסיבה. אנחנו לא ממציאים סיבה.</span></div>`; }
+
+/* ---------- the company card: one colored block per question, as in the sketch ---------- */
+function storyCard(n) { const s = n.story, i = n.info;
+  const src = ids => (ids || []).map(k => s && s.sources && s.sources[k] ? `<a href="${esc(safe(s.sources[k][1]))}" target="_blank" rel="noopener noreferrer" title="${esc(s.sources[k][0])}">${esc(k)}</a>` : "").filter(Boolean).join(" ");
+  const holders = (n.holders || []).some(h => h.p > 50) ? "" : (n.holders || []).slice(0, 3).map(h => `<div class="kv"><span>${esc(h.n)}</span><b class="num">${h.p}%</b></div>`).join("");
+  const insiders = i.heldPercentInsiders != null ? `<div class="kv"><span>המנהלים והדירקטורים, ביחד</span><b class="num">${(i.heldPercentInsiders * 100).toFixed(1)}%</b></div>` : "";
+  const where = `<div class="band tint-stock">${tag("איפה היא", "var(--c-stock)")}<div class="grid2">
+      <div class="box"><span class="small">המטה</span><b>${esc(s && s.hq ? s.hq.city + ", " + s.hq.country : (i.city || "") + (i.country ? ", " + i.country : ""))}</b></div>
+      <div class="box"><span class="small">עובדים</span><b class="num">${s && s.employees ? Number(s.employees.value).toLocaleString("en-US") : i.fullTimeEmployees ? i.fullTimeEmployees.toLocaleString("en-US") : "–"}</b></div>
+      ${s && s.founded ? `<div class="box"><span class="small">נוסדה</span><b class="num">${s.founded}</b></div>` : ""}
+      <div class="box"><span class="small">מפעלים ואתרים</span><b style="font-size:13.5px">${esc(n.sites || "–")}</b></div></div></div>`;
+  if (!s) return where + `<div class="band tint-chain">${tag("מי מנהל", "var(--c-chain)")}${n.people.slice(0, 4).map(p => `<div class="kv"><span>${esc(p.n)}</span><span class="small">${esc(p.t)}</span></div>`).join("") || '<span class="small">אין נתון</span>'}</div>
+    ${holders ? `<div class="band tint-news">${tag("של מי החברה", "var(--c-news)")}${holders}${insiders}</div>` : ""}
+    <div class="band dashband">עוד לא חקרנו את הסיפור של ${esc(n.name)}. המחקר נעשה קודם לחברות הגדולות ולשווקים החמים. מקור הנתונים כאן: Yahoo Finance.</div>`;
+  return where + `
+    ${s.timeline && s.timeline.length ? `<div class="band tint-value">${tag("הסיפור", "var(--c-value)")}<div class="tl">${s.timeline.map(t => `<div><b class="num">${t[0]}</b><span>${esc(t[1])} <sup>${src(t[2])}</sup></span></div>`).join("")}</div>
+      ${s.founders && s.founders.length ? `<b>המייסדים</b>${s.founders.map(f => `<div class="kv2"><b>${esc(f.name)}</b><span>${esc(f.story || "")} <sup>${src(f.src)}</sup></span></div>`).join("")}` : ""}</div>` : ""}
+    ${s.leaders && s.leaders.length ? `<div class="band tint-chain">${tag("מי מנהל", "var(--c-chain)")}${s.leaders.map(l => `<div class="box"><b>${esc(l.name)}</b><span class="small">${esc(l.role || "")}${l.since ? `, מאז ${l.since}` : ""}${l.background ? `. ${esc(l.background)}` : ""} <sup>${src(l.src)}</sup></span></div>`).join("")}
+      ${s.governance && s.governance.length ? `<b>שימו לב</b>${s.governance.map(g => `<span>• ${esc(g.text)} <sup>${src(g.src)}</sup></span>`).join("")}` : ""}</div>` : ""}
+    <div class="band tint-news">${tag("של מי החברה", "var(--c-news)")}${s.owners ? `<span>${esc(s.owners.text)} <sup>${src(s.owners.src)}</sup></span>` : ""}${holders}${insiders}</div>
+    <div class="band dashband">${tag("איך עובדים שם", "var(--muted)")}${s.approach ? `<span>${esc(s.approach.text)} <sup>${src(s.approach.src)}</sup></span>` : `<span>עוד אין לנו מקור אמין לזה.</span>`}</div>
+    ${s.how_to_start ? `<div class="band" style="background:var(--soft);border-color:transparent">${tag("איך להתחיל להבין אותה", "var(--c-stock)")}<ol class="steps3">${s.how_to_start.map(h => `<li>${esc(h)}</li>`).join("")}</ol></div>` : ""}
+    <details class="band"><summary>מקורות${s.unverified && s.unverified.length ? " ומה עוד לא אומת" : ""}</summary><div class="small">${Object.entries(s.sources || {}).map(([k, v]) => `<div><b>${esc(k)}</b> · <a href="${esc(safe(v[1]))}" target="_blank" rel="noopener noreferrer">${esc(v[0])}</a></div>`).join("")}
+      ${s.unverified && s.unverified.length ? `<b>עוד לא אומת:</b>${s.unverified.map(u => `<div>• ${esc(u)}</div>`).join("")}` : ""}<div>נבדק ב-${hd(s.checked)}</div></div></details>`; }
+
+
+/* ---------- who works with whom ---------- */
+function netMap(n) { const sup = D.edges.filter(e => e.t === n.id).sort(byW), cus = D.edges.filter(e => e.s === n.id).sort(byW);
+  const riv = D.nodes.filter(x => x.segment === n.segment && x.id !== n.id).slice(0, 4);
+  const node = (id, sub, strong) => { const x = byId[id]; if (!x) return ""; const c = x.heat ? HEATC[x.heat.level] : "var(--soft)";
+    return `<button class="nn ${strong ? "strong" : ""}" data-co="${id}" style="background:${c}"><b>${esc(x.name)}</b><span>${esc(sub || "")}</span><span>${x.heat ? x.heat.level_he + " · " + x.heat.heat : ""}</span></button>`; };
+  const crit = sup.find(e => e.crit), bigc = cus.find(e => e.material);
+  const bl = [crit ? `אם ${esc(byId[crit.s].name)} נתקעת, ${esc(n.name)} מרגישה ראשונה: היא תלויה בה מאוד.` : sup.length ? `${esc(n.name)} קונה מ-${sup.length} ספקים במפה, ואף אחד מהם לא סומן כתלות גדולה.` : "",
+    bigc ? `${esc(byId[bigc.t].name)} היא לקוחה גדולה במיוחד: ${bigc.share ? `כ-${esc(bigc.share)}% מהמכירות של ${esc(n.name)}` : "תלות גדולה"}.` : cus.length ? `היא מוכרת ל-${cus.length} חברות במפה.` : "",
+    riv.length ? `המתחרות הקרובות: ${riv.map(r => esc(r.name)).join(", ")}.` : ""].filter(Boolean).join(" ");
+  return `<div class="band tint-chain">${tag("מי עובד עם מי", "var(--c-chain)")}<span class="small">הסחורה זורמת מימין לשמאל. הצבע של כל חברה הוא כמה היא חמה עכשיו. מסגרת עבה: תלות גדולה.</span>
+    <div class="net"><div class="col"><span class="small">מוכרות לה</span>${sup.slice(0, 6).map(e => node(e.s, e.what, e.material)).join("") || '<span class="small">לא מיפינו</span>'}</div>
+      <span class="to">←</span><div class="col mid">${node(n.id, D.stages[n.tier].title, true)}</div><span class="to">←</span>
+      <div class="col"><span class="small">קונות ממנה</span>${cus.slice(0, 6).map(e => node(e.t, e.what, e.material)).join("") || '<span class="small">לא מיפינו</span>'}</div></div>
+    ${riv.length ? `<div><span class="small">מתחרות באותו מוצר</span><div class="more">${riv.map(r => node(r.id, "", false)).join("")}</div></div>` : ""}
+    ${bl ? `<div class="bottom"><b>השורה התחתונה</b><span>${bl}</span></div>` : ""}</div>`; }
+
+/* ---------- the market as a heat map ---------- */
+function heatPage() { const H = D.heat || {}, B = H.bottom || {};
+  const order = D.tiers.filter(t => D.nodes.some(x => x.tier === t && x.heat));
+  const capMax = Math.max(...D.nodes.map(x => (x.heat && x.heat.cap) || 0));
+  const tile = x => { const w = Math.round(96 + Math.sqrt((x.heat.cap || 0) / capMax) * 120);
+    return `<button class="ht" data-co="${x.id}" style="background:${HEATC[x.heat.level]};flex-basis:${w}px"><b>${esc(x.name)}</b><span>${x.heat.level_he} · ${x.heat.heat}</span></button>`; };
+  $("page").innerHTML = `<div><span class="kicker">${esc(M.name)} · נכון ל-<span class="num">${hd(H.as_of)}</span></span><h1>מי חם עכשיו</h1></div>
+    <div class="band tint-stock"><span class="tag" style="background:var(--surface);color:var(--ink)">השורה התחתונה</span><b class="say" style="margin:0">${esc(B.count || "")} חם זה לא סימן לקנות.</b>
+      <span>${esc((B.not_buy || "").replace(/^חם זה לא סימן לקנות\. /, ""))}</span><span>${esc(B.where || "")}</span><div class="box">${esc(B.check || "")}</div></div>
+    ${order.map(t => { const xs = D.nodes.filter(x => x.tier === t && x.heat).sort((a, b) => b.heat.heat - a.heat.heat);
+      return `<div class="band"><div class="hrow"><b>${esc(D.stages[t].title)}</b><span class="small">חום חציוני: ${H.stage_heat ? H.stage_heat[t] : ""}</span></div><div class="hmap">${xs.map(tile).join("")}</div></div>`; }).join("")}
+    <div class="band"><div class="hrow"><span>קפואה</span><div class="hscale" style="flex:1">${HEATS.map(([k]) => `<span style="background:${HEATC[k]}"></span>`).join("")}</div><span>רותחת</span></div>
+      <span class="small">${esc(H.method || "")} גודל הריבוע: שווי החברה בבורסה.</span></div>`; }
+
+
+/* ---------- what happened, as a four-step strip ---------- */
+function eventPage() { const e = D.events.find(x => x.id === S.ev), [name, text] = evName(e.id);
+  const grp = r => D.nodes.filter(n => roleOf(n, e.id) === r), hit = grp("hit"), cus = grp("down1"), rest = grp("control");
+  const a = (ns, k) => mean(ns.map(n => n.ev[e.id][k])), top = ns => [...ns].sort((x, y) => x.ev[e.id].d3 - y.ev[e.id].d3).slice(0, 3).map(n => `<button class="pillbtn" data-co="${n.id}">${esc(n.name)}</button>`).join(" ");
+  const bar = (label, v) => v == null ? "" : `<span>${label}</span><div class="t"><i style="${v < 0 ? `right:33.4%;width:${Math.min(66, -v / 12 * 66.6)}%;background:var(--down)` : `left:66.6%;width:${Math.min(33, v / 6 * 33.4)}%;background:var(--up)`}"></i></div><b>${sg(v, 1)}</b>`;
+  const b = D.base, dots = x => x ? `<div class="dots">${Array.from({ length: x.n }, (_, k) => `<i class="${k < x.fell ? "on" : "off"}"></i>`).join("")}</div>` : "";
+  const back = v => v == null ? "" : v > -0.5 ? "המחיר חזר למה שהיה לפני" : "המחיר עדיין נמוך ממה שהיה לפני";
+  $("page").innerHTML = `
+    <div><span class="kicker">מה קרה · <span class="num">${hd(e.ts.slice(0, 10))}</span></span><h1>${esc(name)}</h1></div><p class="lead">${esc(text)}</p>
+    <div class="band"><h2>מה קרה, צעד אחר צעד</h2><div class="steps">
+      <div class="step"><span class="n">1</span><b>האירוע</b><small>${esc(e.loc)}</small><small><a href="${esc(safe(e.url))}" target="_blank" rel="noopener noreferrer">לידיעה המקורית</a></small></div>
+      <div class="step"><span class="n">2</span><b>החברות שנפגעו</b><span class="big">${hit.length ? sg(a(hit, "d3"), 1) : "–"}</span><small>${hit.length} חברות. כך זזה המניה שלהן בממוצע בשלושת הימים שאחרי</small><div>${top(hit)}</div></div>
+      <div class="step"><span class="n">3</span><b>מי שקונה מהן</b><span class="big">${cus.length ? sg(a(cus, "d3"), 1) : "–"}</span><small>${cus.length ? `${cus.length} חברות שצריכות את מה שהנפגעות מייצרות` : "לא מצאנו חברות שתלויות בהן"}</small><div>${top(cus)}</div></div>
+      <div class="step"><span class="n">4</span><b>שבועיים אחר כך</b><small>החברות שנפגעו: ${hit.length ? sg(a(hit, "d10"), 1) : "–"}. ${back(hit.length ? a(hit, "d10") : null)}</small><small>${cus.length ? `מי שקונה מהן: ${sg(a(cus, "d10"), 1)}. ${back(a(cus, "d10"))}` : ""}</small></div></div></div>
+    <div class="band"><h2>מי נפגע הכי הרבה?</h2><div class="bars">${bar("החברות שנפגעו", hit.length ? a(hit, "d3") : null)}${bar("מי שקונה מהן", cus.length ? a(cus, "d3") : null)}${bar("שאר החברות בתחום", rest.length ? a(rest, "d3") : null)}</div>
+      <span class="muted" style="font-size:13px">הקו הדק הוא אפס. פס אדום שמאלה: המניה ירדה. פס ירוק ימינה: עלתה. מדובר בשלושת הימים שאחרי האירוע.</span></div>
+    <div class="band"><h2>זה קורה כל פעם?</h2>
+      ${b.hit ? `<p class="say">בעבר, החברות שנפגעו ירדו ב-${b.hit.fell} מתוך ${b.hit.n} אירועים דומים.</p>${dots(b.hit)}` : ""}${b.down1 ? `<p class="say">מי שקונה מהן ירד ב-${b.down1.fell} מתוך ${b.down1.n} אירועים.</p>${dots(b.down1)}` : ""}
+      <span class="muted" style="font-size:13px">כל עיגול הוא אירוע אחד. עיגול מלא: המניה ירדה. אלה מעט אירועים, אז זה רמז ולא חוק.</span></div>
+    <div class="band"><h2>עוד אירועים שבדקנו</h2><div class="more">${D.events.filter(x => x.id !== e.id).map(x => `<button class="pillbtn" data-ev="${x.id}">${esc(evName(x.id)[0])} <span class="num muted">${x.ts.slice(0, 4)}</span></button>`).join("")}</div></div>`; }
+
+/* ---------- portfolio builder ---------- */
+function buildPage() { const dd = o => Math.round((Math.exp(o.max_drawdown / 100) - 1) * 100); const B = D.baskets; if (!B) { $("page").innerHTML = '<p class="lead">עוד אין נתונים לבניית תיק בשוק הזה.</p>'; return; }
+  const b = B[S.level], pop = B.popular, ev = Object.values(b.events_r3), fell = ev.filter(x => x < 0).length, pev = Object.values(pop.events_r3);
+  const top = o => { const [c, k] = Object.entries(o.countries).sort((x, y) => y[1] - x[1])[0]; return [c, k]; };
+  const cmp = (label, mine, theirs, unit, max) => `<span>${label}</span><div class="t2"><i style="width:${Math.min(100, Math.abs(mine) / max * 100)}%;background:var(--ink)"></i><i style="width:${Math.min(100, Math.abs(theirs) / max * 100)}%;background:var(--muted);opacity:.5"></i></div><b class="num">${mine}${unit} <span class="muted" style="font-weight:400">מול ${theirs}${unit}</span></b>`;
+  $("page").innerHTML = `
+    <div><span class="kicker">בונה תיק · ${esc(M.name)}</span><h1>לא לשים את כל הביצים בסל אחד</h1></div>
+    <p class="lead">תיק הוא כמה מניות שקונים יחד. כאן בחרנו חברה אחת מכל שלב בשרשרת, מכמה מדינות. ככה, אם משהו רע קורה במקום אחד, לא כל התיק נפגע.</p>
+    <div class="switch" style="align-self:flex-start"><button data-level="calm" aria-selected="${S.level === "calm"}">רגוע יותר</button><button data-level="bold" aria-selected="${S.level === "bold"}">נועז יותר</button></div>
+    <span class="muted" style="font-size:14px;margin-top:-8px">${S.level === "calm" ? "רגוע: מניות שהמחיר שלהן זז פחות, למעלה ולמטה." : "נועז: מניות שהמחיר שלהן זז הרבה, למעלה ולמטה. יותר סיכוי, יותר סיכון."}</span>
+    <div class="band"><h2>כמה זה יכול לטלטל</h2><div class="tiles">
+      <div class="tile"><span class="big num">±${Math.round(b.vol_now)}%</span><span class="w">כמה התיק זז בשנה רגילה</span><span class="l">על כל 1,000 ₪, שנה רגילה יכולה להיגמר בערך ${(Math.round(b.vol_now) * 10).toLocaleString("en-US")} ₪ למעלה או למטה</span></div>
+      <div class="tile"><span class="big num down">${dd(b)}%</span><span class="w">הנפילה הכי גדולה מאז 2016</span><span class="l">בנקודה הכי גרועה, 1,000 ₪ היו שווים בערך ${Math.round(1000 * (1 + dd(b) / 100)).toLocaleString("en-US")} ₪</span></div></div>
+      <p class="say">${fell ? `בדקנו ${ev.length} אסונות ומשברים מהעבר. ב-${fell} מהם התיק ירד בשלושת הימים הראשונים.` : `בדקנו ${ev.length} אסונות ומשברים מהעבר. באף אחד מהם התיק לא ירד בשלושת הימים הראשונים.`}</p><div class="dots">${ev.map(x => `<i class="${x < 0 ? "on" : "off"}"></i>`).join("")}</div></div>
+    <div class="band"><h2>מה בתיק: ${b.members.length} חברות, אותו סכום בכל אחת</h2><div class="hold">${b.members.map(id => { const n = byId[id];
+      return `<button data-co="${id}"><small>${esc(D.stages[n.tier].title)}</small><b>${esc(n.name)}</b><small>${CN[n.country] || n.country}</small></button>`; }).join("")}</div></div>
+    <div class="band"><h2>ומה אם פשוט קונים את 8 הגדולות?</h2><div class="bars2">
+      ${cmp("כמה זז בשנה", Math.round(b.vol_now), Math.round(pop.vol_now), "%", 60)}${cmp("הנפילה הכי גדולה", dd(b), dd(pop), "%", 70)}
+      ${cmp("משברים שבהם ירד", fell, pev.filter(x => x < 0).length, "", 10)}${cmp("מכמה מדינות", Object.keys(b.countries).length, Object.keys(pop.countries).length, "", 8)}</div>
+      ${b.vol_now > pop.vol_now ? `<p class="say" style="margin:0">שימו לב: בתחום הזה התיק שבנינו דווקא זז יותר מ-8 הגדולות. הפיזור לא תמיד מרגיע.</p>` : ""}<span class="muted" style="font-size:13px">הפס הכהה: התיק שבנינו. הפס הבהיר: 8 החברות הגדולות בתחום (${pop.members.slice(0, 4).map(id => esc(byId[id].name)).join(", ")} ועוד). ${top(pop)[1]} מתוך 8 הגדולות הן מ${CN[top(pop)[0]] || top(pop)[0]}${pop.shared_supplier && pop.shared_supplier[1] > 1 ? `, ו-${pop.shared_supplier[1]} מהן קונות מאותו ספק: ${esc(byId[pop.shared_supplier[0]].name)}. אם הוא נתקע, כולן נתקעות` : ""}.</span></div>
+    <div class="band"><h2>וכמה אפשר להרוויח?</h2><p class="say">אין לנו דרך לדעת, ואף אחד לא יכול להבטיח.</p>
+      <span class="muted" style="font-size:14px">בעשר השנים האחרונות המניות בתיק הזה עלו בממוצע <span class="num">${Math.round(b.return_year)}%</span> בשנה, ו-8 הגדולות <span class="num">${Math.round(pop.return_year)}%</span>. אבל זה עבר, לא עתיד. וזה גם נראה טוב יותר מהמציאות, כי בדקנו רק חברות שעדיין קיימות. מה שהתיק הזה נותן הוא פיזור של הסיכון, לא רווח גבוה יותר.</span></div>
+    <p class="foot">איך בחרנו: ב"רגוע יותר" לקחנו מכל שלב את החברה שהמחיר שלה זז הכי פחות בשנה האחרונה. ב"נועז יותר" את זו שזזה הכי הרבה. כל המספרים בלי עמלות.</p>`; }
+
+const hd = d => d ? d.split("-").reverse().map(Number).join(".") : "";
+/* ---------- the stock's feed: everything we know about it, newest first ---------- */
+const KIND = { next: "מה צפוי", news: "חדשות", event: "מה קרה בעבר", change: "חוק או שינוי בתחום", report: "דוח מכירות", short: "ניחוש לימים הקרובים", check: "שווה בדיקה" };
+function feedItems(n) { const out = [], today = new Date().toISOString().slice(0, 10), I = (D.inference || {}).cards || [], nm = id => (byId[id] || {}).name || id;
+  const src = c => D.sources[c[7]] ? `<a href="${esc(safe(D.sources[c[7]][1]))}" target="_blank" rel="noopener noreferrer">${esc(D.sources[c[7]][0])}</a>` : "";
+  I.filter(c => c.company === n.id).forEach(c => { out.push({ d: c.as_of > today ? today : c.as_of, k: "next", h: `<b>${esc(c.text.title)}.</b> ${esc(c.text.see)}`, s: `${esc(c.text.strength)} · <button class="pillbtn" data-v="next" style="font-size:12.5px;padding:0;background:none;color:var(--accent)">למה אנחנו חושבים ככה</button>` });
+    if (c.claim) out.push({ d: c.claim.due, k: "next", h: "בתאריך הזה נבדוק אם צדקנו.", s: esc(c.text.claim) }); });
+  if (D.candidates.includes(n.id)) out.push({ d: today, k: "check", h: "המניה נראית זולה יחסית לחברות דומות, החברה גדלה, וגם הלקוחות שלה גדלים.", s: "זה סימן ששווה לבדוק לעומק, לא המלצה לקנות" });
+  D.forecasts.filter(f => f.target === n.id).forEach(f => out.push({ d: f.created_utc.slice(0, 10), k: "short", h: `המניה של ${esc(nm(f.source))} ${f.predicted_direction === "down" ? "ירדה" : "עלתה"} בחדות ב-${hd(f.shock_date)}. שתי החברות עובדות יחד, אז רשמנו ניחוש: גם המניה הזאת ${f.predicted_direction === "down" ? "תרד" : "תעלה"} בימים הקרובים.`, s: "בעבר ניחוש כזה צדק רק בערך בחצי מהפעמים, כמו הטלת מטבע" }));
+  D.forecasts.filter(f => f.source === n.id).slice(0, 1).forEach(f => out.push({ d: f.shock_date, k: "short", h: `המחיר של המניה ${f.shock_z > 0 ? "קפץ" : "צנח"} הרבה יותר מהרגיל.`, s: "בדקנו מה זה אומר לחברות שעובדות איתה" }));
+  n.news.forEach(x => out.push({ d: x.d, k: "news", h: x.he ? esc(x.he) : `<span class="raw">${esc(x.t)}</span>`, s: `${x.he ? `<span class="raw" style="font-size:12.5px">${esc(x.t)}</span> · סיכום שנכתב בבינה מלאכותית · ` : ""}${esc(x.p)} · <a href="${esc(safe(x.u))}" target="_blank" rel="noopener noreferrer">לידיעה המקורית</a>` }));
+  if (n.pulse && n.pulse.monthly) out.push({ d: n.pulse.monthly.last + "-28", k: "report", h: `המכירות בחודש האחרון: ${sg(n.pulse.monthly.yoy, 0)} לעומת אותו חודש בשנה שעברה.`, s: "חברות בטייוואן מדווחות על המכירות שלהן כל חודש" });
+  M.changes.filter(c => c[2] === n.tier && /^\d{4}-\d{2}/.test(c[5])).forEach(c => out.push({ d: c[5].slice(0, 7) + "-28", m: 1, k: "change", h: `<b>${esc(c[3])}.</b> ${esc(c[4])}`, s: `${esc(c[6])}${src(c) ? " · " + src(c) : ""}${c[8] ? "" : " · עוד לא בדקנו מול מקור נוסף"}` }));
+  D.events.forEach(e => { const r = roleOf(n, e.id), v = n.ev[e.id]; if (!r || r === "control" || r === "rival" || !v) return;
+    out.push({ d: v.day0, k: "event", h: `<button class="pillbtn" data-ev="${e.id}" style="padding:0;background:none;font-weight:800">${esc(evName(e.id)[0])}</button> המניה זזה ${sg(v.d3, 1)} בשלושה ימים, מעבר למה שכל השוק זז.`, s: r === "hit" ? "החברה עצמה נפגעה" : "חברה שהיא עובדת איתה נפגעה" }); });
+  return out.sort((a, b) => b.d.localeCompare(a.d)); }
+function feed(n) { const all = feedItems(n), today = new Date().toISOString().slice(0, 10), kinds = [...new Set(all.map(x => x.k))];
+  const f = kinds.includes(S.feed) ? S.feed : "all", items = all.filter(x => f === "all" || x.k === f), soon = items.filter(x => x.d > today).reverse(), past = items.filter(x => x.d <= today);
+  const row = (x, c = "") => `<div class="fi ${c}"><time>${x.m ? hd(x.d.slice(0, 7)) : hd(x.d)}</time><div class="b"><span class="k">${KIND[x.k]}</span><span>${x.h}</span><small>${x.s}</small></div></div>`;
+  const cut = S.more ? past : past.slice(0, 8);
+  return `<div class="band" id="feed"><h2>מה חדש אצל ${esc(n.name)}</h2>
+    ${kinds.length > 1 ? `<div class="chips"><button data-feed="all" aria-pressed="${f === "all"}">הכול</button>${kinds.map(k => `<button data-feed="${k}" aria-pressed="${f === k}">${KIND[k]}</button>`).join("")}</div>` : ""}
+    ${all.length ? "" : '<span class="muted">עוד אין פריטים על החברה הזאת.</span>'}
+    ${soon.length ? `<div><div class="fhead" style="padding-top:0">מה צפוי</div><div class="feed">${soon.map(x => row(x, "soon")).join("")}</div></div>` : ""}
+    ${cut.length ? `<div>${soon.length ? '<div class="fhead">מה כבר קרה</div>' : ""}<div class="feed">${cut.map(x => row(x)).join("")}</div></div>` : ""}
+    ${past.length > cut.length ? `<button class="pillbtn" data-more="1" style="align-self:flex-start">עוד ${past.length - cut.length} פריטים</button>` : ""}</div>`; }
+function priceLine(n) { const L = n.last; if (!L) return ""; const cur = { ILA: "אגורות", GBp: "פני", USD: "$" }[L.cur] || L.cur;
+  return `<div class="price"><span class="p">${cur === "$" ? "$" : ""}${L.p.toLocaleString("en-US", { maximumFractionDigits: 2 })}</span>${cur === "$" ? "" : `<span>${esc(cur)}</span>`}<span>${sg(L.day, 1)} <span class="muted" style="font-size:13px">ביום האחרון</span></span><small>זה המחיר של מניה אחת, בסוף יום המסחר של <span class="num">${hd(L.d)}</span>. המחיר לא מתעדכן במהלך היום.</small></div>`; }
+/* ---------- what is likely next ---------- */
+function ten(pct) { const k = Math.round(pct / 10); return `<span class="ten" role="img" aria-label="${k} מתוך 10">${Array.from({ length: 10 }, (_, i) => `<i class="${i < k ? "on" : ""}"></i>`).join("")}</span>`; }
+function nxCard(c) { const t = c.text, p = c.past, s = c.see; let pic = "";
+  if (c.detector === "growth") { const mx = Math.max(s.growth_pct, p.median_later);
+    pic = `<div class="odds">${ten(p.slowed_pct)}<span>ב-${Math.round(p.slowed_pct / 10)} מכל 10 פעמים בעבר, חברה כזאת גדלה לאט יותר שנה אחר כך</span></div>
+      <div class="then"><span>קצב הגידול היום</span><div class="t"><i style="width:${s.growth_pct / mx * 100}%"></i></div><b class="num">${Math.round(s.growth_pct)}%</b>
+      <span>הקצב הרגיל שנה אחרי</span><div class="t"><i class="later" style="width:${Math.max(0, p.median_later) / mx * 100}%"></i></div><b class="num">${Math.round(p.median_later)}%</b></div>`; }
+  else if (c.detector === "market_growth") { const b = p.buckets[p.buckets.length - 1];
+    pic = `<div class="odds">${ten(b.slowed_pct)}<span>ב-${Math.round(b.slowed_pct / 10)} מכל 10 פעמים בעבר, חברה כזאת גדלה לאט יותר שנה אחר כך</span></div>
+      <div class="then"><span>קצב הגידול היום</span><div class="t"><i style="width:100%"></i></div><b class="num">${Math.round(s.median_growth_pct)}%</b>
+      <span>הקצב הרגיל שנה אחרי</span><div class="t"><i class="later" style="width:${b.median_later / s.median_growth_pct * 100}%"></i></div><b class="num">${Math.round(b.median_later)}%</b></div>`; }
+  else if (c.detector === "vol") pic = `<div class="odds">${ten(p.stayed_pct)}<span>ב-${Math.round(p.stayed_pct / 10)} מכל 10 פעמים, המחיר המשיך לקפוץ גם בחצי השנה שאחרי</span></div>
+      <div class="odds">${ten(p.plain_pct)}<span class="muted">אם זה היה סתם מזל: ${Math.round(p.plain_pct / 10)} מכל 10</span></div>`;
+  else if (c.detector.startsWith("price")) pic = `<div class="odds">${ten(p.beat_index_pct)}<span>ב-${Math.round(p.beat_index_pct / 10)} מכל 10 פעמים, המניה עלתה יותר מהאחרות גם אחר כך</span></div>`;
+  else pic = `<div class="odds"><span class="num" style="font-size:26px;font-weight:800">${hd(s.month)}</span><span>${esc(s.status)}</span></div>`;
+  const row = (k, v) => v ? `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>` : "";
+  const L = c.claim && c.claim.ledger;
+  return `<article class="nx"><span class="tag">${esc(t.strength)}${c.stage ? " · " + esc(c.stage) : ""}</span>
+    <h3>${c.company && byId[c.company] ? `<button class="pillbtn" data-co="${c.company}" style="font:inherit;padding:0;background:none">${esc(t.title)}</button>` : esc(t.title)}</h3>
+    <p style="margin:0">${esc(t.see)}</p>${pic}
+    <details><summary>למה אנחנו חושבים ככה</summary><dl>${row("מה קרה בעבר", t.past)}${row("למה זה קורה", t.why)}${row("על מי זה משפיע", t.who)}${row("מתי נדע שטעינו", t.refute)}${row("חשוב לא להתבלבל", t.not)}</dl></details>
+    ${t.claim ? `<div class="log">${esc(t.claim)}</div>` : ""}</article>`; }
+function nextPage() { const I = D.inference; if (!I || !I.cards.length) { $("page").innerHTML = '<p class="lead">עוד אין מסקנות לשוק הזה.</p>'; return; }
+  const show = I.cards.filter(c => c.show), rest = I.cards.filter(c => !c.show), R = I.record;
+  $("page").innerHTML = `<div><span class="kicker">${esc(M.name)} · נכון ל-<span class="num">${hd(I.as_of)}</span></span><h1>מה סביר שיקרה הלאה</h1></div>
+    <p class="lead">כאן מופיעים דברים חריגים שקורים עכשיו בתחום, ומה קרה בעבר כשדבר כזה קרה. זה לא אומר מה לקנות או למכור.</p>
+    <div class="band"><h2>האם אנחנו צודקים?</h2><div class="tiles">
+      <div class="tile"><span class="big num">${R.claims}</span><span class="w">דברים שאמרנו שיקרו</span></div>
+      <div class="tile"><span class="big num">${R.scored}</span><span class="w">כבר נבדקו</span><span class="l">${R.scored ? `${R.hit} התקיימו` : "עוד מוקדם לדעת"}</span></div>
+      <div class="tile"><span class="big num">${hd(R.next_due)}</span><span class="w">הבדיקה הראשונה</span><span class="l">אז נדע בפעם הראשונה אם צדקנו</span></div></div>
+      <span class="muted" style="font-size:13px">כל דבר שאנחנו אומרים נרשם עם תאריך, ואי אפשר לשנות אותו אחר כך. כשהתאריך מגיע, בודקים. עד אז אין הוכחה שזה עובד, אז לא כדאי לסמוך על זה יותר מדי.</span></div>
+    ${show.map(nxCard).join("")}
+    ${rest.length ? `<div class="band"><h2>עוד ${rest.length} חברות באותו מצב</h2><details><summary>להציג את כולן</summary><div class="rows" style="margin-top:12px">${rest.map(c => `<button data-co="${c.company}">${esc(c.name)}</button><span class="num">${c.see.growth_pct != null ? "+" + Math.round(c.see.growth_pct) + "% מכירות" : ""}</span><span class="muted">${c.detector === "growth" ? "כנראה תגדל לאט יותר" : c.detector === "vol" ? "המחיר כנראה ימשיך לקפוץ" : ""}</span>`).join("")}</div></details></div>` : ""}
+    <div class="band"><h2>דברים שבדקנו ואין בהם כלום</h2><p style="margin:0">בדקנו גם אם מניה שעלתה או ירדה הרבה בשנה האחרונה ממשיכה באותו כיוון. התשובה: חצי מהפעמים כן, חצי לא. כמו הטלת מטבע. לכן אנחנו לא מציגים את זה.</p>
+      <span class="muted" style="font-size:13px">אנחנו מציגים רק דברים שקרו לפחות ${I.rules.min_cases} פעמים בעבר, ושהתוצאה שלהם הייתה ברורה.</span></div>`; }
+function render() { document.querySelectorAll(".switch button").forEach(b => b.setAttribute("aria-selected", b.dataset.v === S.v)); if (S.v === "wallet") { go("wallet"); return; } ({ stock, heat: heatPage, event: eventPage, build: buildPage, next: nextPage })[S.v]();
+ }
+document.addEventListener("click", async ev => { const t = ev.target.closest("[data-v],[data-co],[data-ev],[data-level],[data-feed],[data-more],[data-layer],[data-sum],[data-whyall],[data-sec]"); if (!t) return; const d = t.dataset;
+  if (d.sec) { S.sec = d.sec; render(); const h = document.querySelector(".secs"); if (h) scrollTo({ top: h.offsetTop - 8 }); return; }
+  if (d.layer || d.whyall) { if (d.layer) S.layers[d.layer] = !S.layers[d.layer]; else S.whyAll = true; const y = scrollY; render(); scrollTo({ top: y }); return; }
+  if (d.sum) { const n = byId[S.co], m = (n.why || []).find(x => n.id + x.date === d.sum); t.disabled = true; t.textContent = "מסכם...";
+    const sample = typeof claude !== "undefined" ? await claude.use("sample").catch(() => null) : null;
+    if (!sample) { t.textContent = "הסיכום לא זמין כאן"; return; }
+    try { const { text } = await sample(`כתוב בעברית פשוטה, 2 משפטים לכל היותר, למי שלא מבין כלום בהשקעות: מה קרה לחברה ${n.name} ב-${m.date}, לפי הכותרות האלה בלבד. אל תוסיף עובדות שאינן בכותרות, ואל תמליץ לקנות או למכור. אם הכותרות לא מסבירות את התזוזה, אמור זאת.\n\n` + (m.news || []).map(h => "- " + h.t + " (" + h.src + ")").join("\n"), { modelTier: "quick" });
+      S.sums[d.sum] = text.trim(); S.sumOpen = d.sum; render(); } catch (e) { t.textContent = "הסיכום לא הצליח"; } return; }
+  if (d.feed || d.more) { if (d.feed) S.feed = d.feed; else S.more = true; const y = scrollY; render(); scrollTo({ top: y }); return; }
+  if (d.co) { S.feed = "all"; S.more = false; S.whyAll = false; S.sec = "overview"; }
+  if (d.level) { S.level = d.level; render(); return; }
+  if (d.v) S.v = d.v; else if (d.co) { S.co = d.co; S.v = "stock"; } else if (d.ev) { S.ev = d.ev; S.v = "event"; } render(); scrollTo({ top: 0 }); });
+D.nodes.forEach(n => { const o = document.createElement("option"); o.value = n.name; o.label = n.ticker; $("names").appendChild(o); });
+$("q").addEventListener("change", e => { const v = e.target.value.trim().toLowerCase(); if (!v) return;
+  const n = D.nodes.find(n => n.name.toLowerCase() === v || n.ticker.toLowerCase() === v) || D.nodes.find(n => n.name.toLowerCase().includes(v)); if (n) { e.target.value = ""; S.co = n.id; S.v = "stock"; render(); } });
+const root = document.documentElement, isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+const label = () => { $("theme").textContent = isDark() ? "בהיר" : "כהה"; };
+try { const t = localStorage.getItem("story-theme"); if (t) root.dataset.theme = t; } catch (e) {}
+$("theme").addEventListener("click", () => { root.dataset.theme = isDark() ? "light" : "dark"; try { localStorage.setItem("story-theme", root.dataset.theme); } catch (e) {} label(); }); label();
+render();
+})();
+</script>

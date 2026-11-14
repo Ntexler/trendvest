@@ -1,0 +1,826 @@
+{
+ "sources": {
+  "IFR26": [
+   "IFR, World Robotics 2026, תקציר מנהלים, ספטמבר 2026",
+   "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2026_-_Industrial_Robots.pdf"
+  ],
+  "IFR26PR": [
+   "IFR, הודעה לעיתונות, 24 בספטמבר 2026",
+   "https://ifr.org/ifr-press-releases/news/five-million-robots-now-operate-in-factories-globally"
+  ],
+  "IFR-DENS": [
+   "IFR דרך All About Industries, אפריל 2026 (נתוני 2024)",
+   "https://www.all-about-industries.com/europe-leads-in-regional-comparison-of-robot-density-a-ae0dde081d2752dd25b04af0b5c4bfcd/"
+  ],
+  "IFR-SVC": [
+   "IFR, רובוטי שירות, 30 בספטמבר 2026 (עותק ב-iConnect007)",
+   "https://iconnect007.com/article/151793/global-sales-of-professional-service-robots-surge-24/151790/aep"
+  ],
+  "FANUC": [
+   "Fanuc, תוצאות חצי שנה, 23 באוקטובר 2026",
+   "https://www.fanuc.co.jp/en/ir/announce/pdf/2026/reference202609_e.pdf"
+  ],
+  "FANUC-QA": [
+   "Fanuc, שאלות ותשובות למשקיעים, רבעון אפריל עד יוני 2026",
+   "https://www.fanuc.co.jp/en/ir/announce/pdf/2026/qasummary202606_e.pdf"
+  ],
+  "YASK-QA": [
+   "Yaskawa, שאלות ותשובות למשקיעים, אוקטובר 2025",
+   "https://www.yaskawa-global.com/wp-content/uploads/2025/10/252Q_QA_EN.pdf"
+  ],
+  "JARA": [
+   "איגוד הרובוטים של יפן (JARA), אפריל עד יוני 2026",
+   "https://www.jara.jp/e/data/dl/quarter/April-June-2026.pdf"
+  ],
+  "A3": [
+   "A3, הזמנות רובוטים בצפון אמריקה, רבעון שלישי 2026 (נראה רק בתקציר חיפוש)",
+   "https://www.automate.org/robotics/news/north-american-robot-orders-increase-24-8-in-third-quarter-of-2026"
+  ],
+  "NBS": [
+   "הלשכה לסטטיסטיקה של סין, הודעה חודשית על הייצור התעשייתי (נראה רק בתקציר חיפוש)",
+   "https://www.stats.gov.cn/english/PressRelease/202511/t20251117_1961875.html"
+  ],
+  "BBG-JP": [
+   "Bloomberg, כתבה ממומנת של ממשלת יפן, מרץ 2021",
+   "https://sponsored.bloomberg.com/article/japangov/japan-innovating-the-future-industrial-robots"
+  ],
+  "HG-LEADER": [
+   "Humanoid.guide, אפריל 2026",
+   "https://humanoid.guide/leaderdrive-harmonic-reducers-surge-as-humanoid-demand-lifts-shares/"
+  ],
+  "HDS": [
+   "Harmonic Drive Systems, סיכום תוצאות באתר Envalith (נראה רק בתקציר חיפוש)",
+   "https://envalith.com/en/companies/6324/overview"
+  ],
+  "COST": [
+   "Borunte, פירוק עלות של רובוט (נראה רק בתקציר חיפוש)",
+   "https://www.borunte.net/news/why-are-robot-costs-transparent-84971313.html"
+  ],
+  "CP-TSLA": [
+   "Counterpoint Research, יוני 2026",
+   "https://counterpointresearch.com/cn/insights/blog-tesla-to-leverage-ev-experience-and-chinese-partners-to-ace-humanoids-market-unlock-huge-revenue-potential"
+  ],
+  "TF-RE": [
+   "TrendForce, אפריל 2025",
+   "https://www.trendforce.com/news/2025/04/23/news-teslas-robot-plans-stumble-amid-chinas-rare-earth-export-curbs/"
+  ],
+  "KEY": [
+   "Keyence, תוצאות שנתיות, אפריל 2026",
+   "https://www.keyence.co.jp/pdf/FinancialResults_202604_en.pdf"
+  ],
+  "CGNX": [
+   "Cognex, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/851205/000085120526000012/cgnx-20251231.htm"
+  ],
+  "MBLY": [
+   "Mobileye, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1910139/000110465926014300/mbly-20251227x10k.htm"
+  ],
+  "CNBC-MBLY": [
+   "CNBC, 4 בינואר 2024",
+   "https://www.cnbc.com/2024/01/04/mobileye-shares-plunge-after-chipmaker-warns-of-order-pullback.html"
+  ],
+  "INVZ": [
+   "Innoviz, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1835654/000117891326000724/zk2634434.htm"
+  ],
+  "HSAI": [
+   "Hesai, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1861737/000110465926048025/hsai-20251231x20f.htm"
+  ],
+  "NV-GROOT": [
+   "Nvidia, הודעה לעיתונות, 18 במרץ 2025",
+   "http://nvidianews.nvidia.com/news/nvidia-isaac-gr00t-n1-open-humanoid-robot-foundation-model-simulation-frameworks"
+  ],
+  "NV-HYU": [
+   "Nvidia, הודעה לעיתונות, 30 באוקטובר 2025",
+   "https://nvidianews.nvidia.com/news/hyundai-motor-group-ai-factory"
+  ],
+  "NV-GM": [
+   "Nvidia ו-GM, הודעה לעיתונות, 18 במרץ 2025",
+   "https://investor.nvidia.com/news/press-release-details/2025/General-Motors-and-NVIDIA-Collaborate-on-AI-for-Next-Generation-Vehicle-Experience-and-Manufacturing/default.aspx"
+  ],
+  "NV-TOY": [
+   "Nvidia, הודעה לעיתונות, 6 בינואר 2025",
+   "https://investor.nvidia.com/news/press-release-details/2025/Toyota-Aurora-and-Continental-Join-Growing-List-of-NVIDIA-Partners-Rolling-Out-Next-Generation-Highly-Automated-and-Autonomous-Vehicle-Fleets/default.aspx"
+  ],
+  "ROK": [
+   "Rockwell Automation, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1024478/000102447825000116/rok-20250930.htm"
+  ],
+  "SB-ABB": [
+   "SoftBank, הודעה לעיתונות, 8 באוקטובר 2025",
+   "https://group.softbank/en/news/press/20251008"
+  ],
+  "VW20": [
+   "Volkswagen, הודעה לעיתונות, 14 באוקטובר 2020",
+   "https://www.volkswagen-group.com/en/press-releases/volkswagen-group-invests-in-automation-for-emden-hanover-and-chattanooga-plants-17101"
+  ],
+  "KUKA-BMW": [
+   "Kuka, הודעה לעיתונות, אפריל 2020",
+   "https://www.kuka.com/en-my/company/press/news/2020/03/major-order-bmw"
+  ],
+  "ISRG": [
+   "Intuitive Surgical, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm"
+  ],
+  "TER": [
+   "Teradyne, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/97210/000119312526059002/ter-20251231.htm"
+  ],
+  "AVAV": [
+   "AeroVironment, דוח שנתי 2026",
+   "https://www.sec.gov/Archives/edgar/data/1368622/000110465926078906/avav-20260430x10k.htm"
+  ],
+  "UBT": [
+   "UBTech, הודעה לעיתונות, 17 בנובמבר 2025",
+   "https://kyodonewsprwire.jp/release/202511179261"
+  ],
+  "ELECTREK": [
+   "Electrek, 22 באפריל 2026",
+   "https://electrek.co/2026/04/22/tesla-optimus-production/"
+  ],
+  "AJ-UNITREE": [
+   "Al Jazeera, 19 באוגוסט 2026",
+   "https://www.aljazeera.com/economy/2026/8/19/chinas-unitree-soars-in-market-debut-as-investors-bet-on-humanoid-robots"
+  ],
+  "CAIXIN-FCC": [
+   "Caixin, 24 בדצמבר 2025",
+   "https://www.caixinglobal.com/2025-12-24/us-regulator-targets-foreign-drones-threatening-future-dji-models-102396575.html"
+  ],
+  "SYM": [
+   "Symbotic, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm"
+  ],
+  "AUTOSTORE-P": [
+   "AutoStore, רשימת השותפים באתר החברה",
+   "https://www.autostoresystem.com/partners"
+  ],
+  "AUTOSTORE-Q4": [
+   "AutoStore, תוצאות רבעון רביעי 2025 (נראה רק בתקציר חיפוש)",
+   "https://www.autostoresystem.com/investors-press-releases/autostore-q4-2025-financial-results"
+  ],
+  "STAR-OCADO": [
+   "Reuters דרך The Star, 19 בנובמבר 2025",
+   "https://www.thestar.com.my/tech/tech-news/2025/11/19/ocado-slides-17-as-us-partner-kroger-closes-robotic-warehouses"
+  ],
+  "KR": [
+   "Kroger, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/56873/000110465926037723/kr-20260131x10k.htm"
+  ],
+  "TRR-AUTOSTORE": [
+   "The Robot Report, 24 ביולי 2023",
+   "https://www.therobotreport.com/autostore-to-pay-ocado-256m-in-patent-lawsuit-settlement/"
+  ],
+  "DHL-BD": [
+   "Boston Dynamics ו-DHL, הודעה לעיתונות, 13 במאי 2025",
+   "https://bostondynamics.com/news/dhl-signs-mou-for-additional-1000-robot-deployment/"
+  ],
+  "STAR-FOX": [
+   "Reuters דרך The Star, 29 באוקטובר 2025",
+   "https://www.thestar.com.my/tech/tech-news/2025/10/29/foxconn-to-deploy-humanoid-robots-at-houston-ai-server-plant"
+  ],
+  "MI24": [
+   "Manufacturing Institute ו-Deloitte, אפריל 2024",
+   "https://www.themanufacturinginstitute.org/manufacturers-need-as-many-as-3-8-million-new-employees-by-2033/"
+  ],
+  "WH232": [
+   "הבית הלבן, דף מידע, 28 באוקטובר 2026",
+   "https://www.whitehouse.gov/fact-sheets/2026/10/fact-sheet-president-donald-j-trump-adjusts-imports-of-robotics-industrial-machinery-and-their-parts-and-components-into-the-united-states/"
+  ],
+  "TRR232": [
+   "The Robot Report, 29 באוקטובר 2026",
+   "https://www.therobotreport.com/white-house-makes-section-232-determination-regarding-foreign-made-robots/"
+  ],
+  "ISO": [
+   "Control Engineering, תקן ISO 10218 המעודכן (נראה רק בתקציר חיפוש)",
+   "https://www.controleng.com/revised-industrial-robot-safety-standards-now-available/"
+  ]
+ },
+ "stages": {
+  "parts": {
+   "title": "חלקי ליבה: גירים ומנועים",
+   "badge": "הזמנות שוטפות מיצרני הרובוטים · כשהביקוש קופץ, זמני האספקה מתארכים",
+   "what": "השלב הזה מייצר את החלקים שמזיזים את הרובוט: גירים מדויקים (תמסורות שמאטות את המנוע ומגדילות את הכוח), מנועי סרוו (מנועים שעוצרים בזווית מדויקת) ובוכנות אוויר. בלי גיר מדויק בכל מפרק, הזרוע לא חוזרת לאותה נקודה פעם אחר פעם. קשה להחליף ספק, כי הרובוט מתוכנן סביב גיר מסוים.",
+   "facts": [
+    [
+     "Nabtesco מחזיקה כ-60% מהשוק העולמי של גירים מדויקים למפרקים של רובוטים בינוניים וגדולים (לפי כתבה ממומנת משנת 2021)",
+     "BBG-JP"
+    ],
+    [
+     "כמעט כל יצרני הרובוטים ביפן תלויים בגירים האלה, בהם Fanuc, Yaskawa ו-Kawasaki",
+     "BBG-JP"
+    ],
+    [
+     "Leaderdrive הסינית מחזיקה 30% עד 40% משוק הגירים ההרמוניים בסין, לפי הערכה של J.P. Morgan",
+     "HG-LEADER"
+    ],
+    [
+     "לפי הערכה מקובלת בענף, הגירים, מנועי הסרוו והבקר הם כ-70% מעלות הרובוט. הנתון נראה רק בתקציר חיפוש",
+     "COST"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "Fanuc דיווחה ב-2026 שזמני האספקה של רכיבים התארכו: לא רק שבבים ורכיבי חשמל, גם חלקים מכניים. היא עוברת לספק שני ושלישי",
+     "FANUC-QA"
+    ],
+    [
+     "report",
+     "כשזמני האספקה מתארכים, לקוחות מזמינים מוקדם מהרגיל. לכן קשה לדעת אם רמת ההזמנות הגבוהה תימשך",
+     "FANUC-QA"
+    ],
+    [
+     "industry",
+     "Harmonic Drive: הזמנות של כ-61.6 מיליארד ין בשנה שהסתיימה במרץ 2026 (עלייה של כ-16%), וצבר של כ-21.9 מיליארד ין. הנתון נראה רק בתקציר חיפוש",
+     "HDS"
+    ],
+    [
+     "report",
+     "Fanuc מציינת שחלקים לרובוטים דמויי אדם הם אחד ממקורות הביקוש למכונות עיבוד בסין",
+     "FANUC"
+    ],
+    [
+     "press",
+     "מאפריל 2025 נדרש רישיון יצוא מסין למגנטים מאדמות נדירות, שמשמשים במנועים. Tesla אמרה שהייצור של הרובוט שלה נפגע",
+     "TF-RE"
+    ]
+   ],
+   "choke": [
+    [
+     "גירים למפרקים של רובוטים בינוניים וגדולים: כ-60% מחברה אחת, Nabtesco",
+     "BBG-JP"
+    ],
+    [
+     "מגנטים מאדמות נדירות למנועים: היצוא מסין מחייב רישיון מאפריל 2025",
+     "TF-RE"
+    ],
+    [
+     "הידיים של רובוט דמוי אדם: כמעט 20% מעלות החלקים של Optimus V3, לפי Counterpoint",
+     "CP-TSLA"
+    ]
+   ]
+  },
+  "sensing": {
+   "title": "חיישנים, ראייה ושבבים",
+   "badge": "חיישנים למפעל נמכרים מהמדף · בשבבים לרכב עוברות שנים מהבחירה בספק ועד ההכנסות",
+   "what": "השלב הזה נותן לרובוט עיניים ומוח: חיישנים, מצלמות שבודקות מוצרים (ראייה ממוחשבת), חיישני לייזר שמודדים מרחק (לידאר) ושבבים שמריצים את התוכנה. בלי חיישנים הרובוט לא יודע איפה החלק ואיפה האדם שלידו. במכוניות, ספק שנבחר לדגם מסוים מספק לו שנים.",
+   "facts": [
+    [
+     "Keyence: מכירות של 1,169 מיליארד ין ורווח תפעולי של 596 מיליארד ין בשנה שהסתיימה במרץ 2026, כלומר שיעור רווח של כ-51%",
+     "KEY"
+    ],
+    [
+     "Cognex: לוגיסטיקה, אריזה, אלקטרוניקה ורכב הם כ-85% מההכנסות. לקוח אחד היה 15% מההכנסות ב-2025",
+     "CGNX"
+    ],
+    [
+     "Mobileye: שבבי EyeQ הם כ-91% מההכנסות. שלוש לקוחות גדולות: ZF (30%), Valeo (17%) ו-Aptiv (15%)",
+     "MBLY"
+    ],
+    [
+     "לפי IFR, ראייה ממוחשבת להכוונת רובוטים כבר בשלה לתעשייה. בינה מלאכותית כללית לרובוטים עדיין לא",
+     "IFR26"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "Mobileye מוכרת בהזמנות רכש רגילות, בלי חוזה כתוב עם הלקוחות הגדולות ובלי התחייבות לכמות, גם אחרי שנבחרה לדגם",
+     "MBLY"
+    ],
+    [
+     "press",
+     "בינואר 2024 Mobileye הזהירה שלקוחות יקטינו הזמנות כי צברו מלאי. המניה ירדה עד 25% ביום אחד",
+     "CNBC-MBLY"
+    ],
+    [
+     "report",
+     "Cognex קונה מלאי מראש, לפני שהגיעה הזמנה מלקוח גדול, כי זמני האספקה של הספקים שלה ארוכים",
+     "CGNX"
+    ],
+    [
+     "report",
+     "Innoviz נבחרה לספק לידאר ל-Volkswagen אחרי יותר משנתיים של בדיקות והסמכה",
+     "INVZ"
+    ],
+    [
+     "report",
+     "Hyundai תקנה 50,000 שבבי Blackwell של Nvidia, בהשקעה משותפת של כ-3 מיליארד דולר",
+     "NV-HYU"
+    ],
+    [
+     "report",
+     "Hesai הסינית נמצאת מ-31 בינואר 2024 ברשימת החברות שהפנטגון מקשר לצבא סין. בית משפט אישר את ההחלטה ביולי 2025",
+     "HSAI"
+    ]
+   ],
+   "choke": [
+    [
+     "כל שבבי EyeQ של Mobileye מיוצרים דרך חברה אחת, STMicroelectronics",
+     "MBLY"
+    ],
+    [
+     "מפתחי רובוטים דמויי אדם רבים נשענים על המודלים והשבבים של Nvidia, בהם Boston Dynamics, Agility ו-Mentee",
+     "NV-GROOT"
+    ],
+    [
+     "Mobileye תלויה במעט לקוחות: שלוש חברות הן 62% מההכנסות",
+     "MBLY"
+    ]
+   ]
+  },
+  "automation": {
+   "title": "בקרים ותוכנת אוטומציה",
+   "badge": "מכירה דרך מפיצים · צבר הזמנות של חודשים · תלוי בהשקעות של המפעלים",
+   "what": "השלב הזה מספק את המחשבים התעשייתיים שמנהלים קו ייצור (בקרים) ואת התוכנה שמתכננת אותו. הבקר מתאם בין הרובוטים, המסועים והחיישנים. מפעל שבחר יצרן בקרים נשאר איתו שנים, כי התוכנה והעובדים מותאמים אליו.",
+   "facts": [
+    [
+     "Rockwell: כ-65% מהמכירות בעולם עוברות דרך מפיצים עצמאיים",
+     "ROK"
+    ],
+    [
+     "צבר ההזמנות של Rockwell: 2.88 מיליארד דולר בסוף ספטמבר 2025, לעומת 3.09 מיליארד שנה קודם",
+     "ROK"
+    ],
+    [
+     "בין המתחרות ש-Rockwell מונה: Mitsubishi Electric, Honeywell ו-Dassault Systemes",
+     "ROK"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "המפיצים מנהלים מלאי משלהם. כשהם מקטינים מלאי, ההזמנות של Rockwell תנודתיות",
+     "ROK"
+    ],
+    [
+     "report",
+     "הביקוש תלוי ברמת הייצור וברווחיות של הענפים שקונים, ונחלש כשהכלכלה מאטה",
+     "ROK"
+    ],
+    [
+     "report",
+     "Rockwell צופה שהמכסים לא ישפיעו על הרווח למניה בשנת הכספים 2026, אחרי צעדים שנקטה",
+     "ROK"
+    ],
+    [
+     "report",
+     "GM בונה עם Nvidia העתק ממוחשב של קווי ההרכבה, כדי לבדוק שינויים לפני שעוצרים קו אמיתי",
+     "NV-GM"
+    ]
+   ],
+   "choke": [
+    [
+     "שני המפיצים הגדולים הם כ-20% מהמכירות של Rockwell",
+     "ROK"
+    ]
+   ]
+  },
+  "robots": {
+   "title": "יצרני רובוטים תעשייתיים",
+   "badge": "הזמנות לפי פרויקט · דיווח על הזמנות כל רבעון · 2025 הייתה שנת שיא",
+   "what": "החברות האלה בונות את זרועות הרובוט שעובדות במפעלים: ריתוך, הרכבה, העמסה ואריזה. הן קונות גירים, מנועים וחיישנים, ומרכיבות מהם רובוט עם בקר ותוכנה. אם האספקה שלהן מתעכבת, מפעל חדש לא מתחיל לייצר בזמן.",
+   "facts": [
+    [
+     "ב-2025 הותקנו 603,307 רובוטים תעשייתיים בעולם, עלייה של 11%. שווי השוק: 18.6 מיליארד דולר",
+     "IFR26"
+    ],
+    [
+     "סין: 354,226 רובוטים, 59% מהעולם. ארה\"ב: 38,428. יפן: 36,219. קוריאה: כ-30,000. גרמניה: פחות מ-25,000",
+     "IFR26PR"
+    ],
+    [
+     "יצרנים סיניים סיפקו 55% מהרובוטים שהותקנו בסין ב-2025. בשנים 2019 עד 2021 הם סיפקו כ-30%",
+     "IFR26PR"
+    ],
+    [
+     "Fanuc: מכירות של 473.7 מיליארד ין בחצי השנה שהסתיימה בספטמבר 2026, ושיעור רווח תפעולי של 24.6%",
+     "FANUC"
+    ],
+    [
+     "חטיבת הרובוטים של ABB: הכנסות של 2.28 מיליארד דולר ב-2024 וכ-7,000 עובדים",
+     "SB-ABB"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "Fanuc מדווחת כל רבעון על הזמנות. ביולי עד ספטמבר 2026: 306 מיליארד ין (עלייה של 49%), מהם 103.4 מיליארד ין לרובוטים (עלייה של 12.6%)",
+     "FANUC"
+    ],
+    [
+     "report",
+     "Yaskawa: בפרויקטים גדולים של יצרני רכב, מספר הרובוטים מתברר רק כשהפרויקט מתגבש, ולוחות האספקה שנדרשו היו קצרים מהצפוי",
+     "YASK-QA"
+    ],
+    [
+     "press",
+     "Volkswagen הזמינה באוקטובר 2020 יותר מ-2,200 רובוטים (1,400 מ-Fanuc ו-800 מ-ABB) לדגמים שהייצור שלהם התחיל ב-2022",
+     "VW20"
+    ],
+    [
+     "press",
+     "Kuka חתמה עם BMW על הסכם מסגרת לכ-5,000 רובוטים לקווים ולמפעלים חדשים. BMW קונה מ-Kuka יותר מ-40 שנה",
+     "KUKA-BMW"
+    ],
+    [
+     "report",
+     "בסין זמני האספקה של Fanuc התארכו, וחלק מהלקוחות עברו למתחרים",
+     "FANUC-QA"
+    ],
+    [
+     "industry",
+     "יפן: היצרנים קיבלו באפריל עד יוני 2026 הזמנות ל-57,695 רובוטים בשווי 312.7 מיליארד ין, עלייה של 40% בשווי",
+     "JARA"
+    ],
+    [
+     "industry",
+     "צפון אמריקה: 10,989 רובוטים הוזמנו ברבעון השלישי של 2026, בשווי 723.5 מיליון דולר. הנתון נראה רק בתקציר חיפוש",
+     "A3"
+    ],
+    [
+     "industry",
+     "התחזית של IFR: 655,000 התקנות ב-2026 ו-806,000 ב-2029",
+     "IFR26"
+    ]
+   ],
+   "choke": [
+    [
+     "הביקוש מרוכז: 59% מהרובוטים החדשים מותקנים בסין, ו-76% באסיה",
+     "IFR26"
+    ],
+    [
+     "יפן סיפקה 52% מהרובוטים התעשייתיים בעולם ב-2018, לפי IFR",
+     "BBG-JP"
+    ],
+    [
+     "גירים: יצרני הרובוטים היפניים תלויים ב-Nabtesco",
+     "BBG-JP"
+    ]
+   ]
+  },
+  "service": {
+   "title": "רובוטים מחוץ למפעל: ניתוח, דמויי אדם, רחפנים ורכב",
+   "badge": "רובוט ניתוחי: מכירה אחת ואחריה הכנסה קבועה · רובוטים דמויי אדם: עדיין בשלב ניסוי",
+   "what": "כאן נמצאות החברות שבונות רובוטים לעבודה מחוץ לקו הייצור: רובוטים לחדר ניתוח, רובוטים דמויי אדם, רחפנים ומערכות נהיגה עצמית. אלה מוצרים שדורשים אישור של רגולטור או שנים של ניסויים. אם האישור או הניסוי נכשלים, המוצר לא מגיע לשוק.",
+   "facts": [
+    [
+     "ב-2025 נמכרו כמעט 250,000 רובוטי שירות מקצועיים, עלייה של 24%. כמעט מחצית מהם (117,500) לשינוע ולוגיסטיקה",
+     "IFR-SVC"
+    ],
+    [
+     "רובוטים לניתוחים: 8,400 יחידות ב-2025, עלייה של 57%. רובוטים דמויי אדם בגודל מלא: כ-7,000",
+     "IFR-SVC"
+    ],
+    [
+     "Intuitive: 11,106 מערכות da Vinci מותקנות בסוף 2025, ו-3.15 מיליון ניתוחים בשנה, עלייה של 18%",
+     "ISRG"
+    ],
+    [
+     "84% מההכנסות של Intuitive חוזרות מדי שנה: מכשירים מתכלים, שירות וחכירה",
+     "ISRG"
+    ],
+    [
+     "לפי IFR, רוב הרובוטים דמויי האדם הם אבות-טיפוס או ניסויים, ורובוט תעשייתי רגיל עדיין משתלם יותר בייצור",
+     "IFR26"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "מערכת da Vinci נמכרת ב-0.7 עד 3.1 מיליון דולר. תהליך המכירה ארוך, ויותר מערכות נמכרות ברבעון הרביעי, כשתקציבי בתי החולים מסתיימים",
+     "ISRG"
+    ],
+    [
+     "report",
+     "בתי החולים מזמינים מכשירים מתכלים באופן שוטף, וההזמנה נשלחת בדרך כלל בתוך יום עסקים אחד",
+     "ISRG"
+    ],
+    [
+     "report",
+     "מ-2013 Intuitive גם מחכירה מערכות, כולל חכירה שבה התשלום לפי שימוש",
+     "ISRG"
+    ],
+    [
+     "report",
+     "AeroVironment: כ-25% מההכנסות בשנה שהסתיימה באפריל 2026 הגיעו מצבא ארה\"ב",
+     "AVAV"
+    ],
+    [
+     "press",
+     "UBTech: הזמנות של יותר מ-800 מיליון יואן לרובוטים דמויי אדם מתחילת 2025, ויעד של 500 מסירות באותה שנה",
+     "UBT"
+    ],
+    [
+     "press",
+     "Tesla: ייצור הרובוט Optimus היה אמור להתחיל ביולי או באוגוסט 2026, בקצב איטי. היעד של 10,000 רובוטים ב-2025 לא הושג",
+     "ELECTREK"
+    ],
+    [
+     "press",
+     "Unitree הסינית מסרה יותר מ-5,500 רובוטים דמויי אדם ב-2025",
+     "AJ-UNITREE"
+    ],
+    [
+     "industry",
+     "בארה\"ב רוב רובוטי השירות נמכרים במודל של שכירות חודשית (רובוט כשירות)",
+     "IFR-SVC"
+    ]
+   ],
+   "choke": [
+    [
+     "Intuitive קונה חלק מהרכיבים מספק יחיד, בהזמנות רכש ולא בחוזים ארוכים",
+     "ISRG"
+    ],
+    [
+     "רוב המכשירים המתכלים של Intuitive מיוצרים במקסיקו, ולכן הם חשופים למכסים",
+     "ISRG"
+    ],
+    [
+     "רחפנים: ארה\"ב חסמה בדצמבר 2025 אישור לדגמים חדשים מתוצרת חוץ. DJI הסינית שולטת בשוק האמריקאי",
+     "CAIXIN-FCC"
+    ]
+   ]
+  },
+  "integrators": {
+   "title": "אינטגרטורים ומערכות מחסן",
+   "badge": "פרויקטים שנמשכים שנים · צבר הזמנות גדול · ההכנסה מוכרת לפי ההתקדמות",
+   "what": "אינטגרטור הוא חברה שמחברת רובוטים, מסועים ותוכנה למערכת אחת שעובדת אצל הלקוח. כאן נמצאות גם החברות שבונות מחסנים אוטומטיים שלמים. רובוט בלי חיבור לקו לא עושה עבודה, ואם הפרויקט מתעכב הלקוח לא מקבל את הקיבולת שתכנן.",
+   "facts": [
+    [
+     "צבר ההזמנות של Symbotic: 22.5 מיליארד דולר בסוף ספטמבר 2025. רק כ-12% ממנו יוכרו כהכנסה בשנה שאחריה",
+     "SYM"
+    ],
+    [
+     "Walmart היא כ-85% מההכנסות של Symbotic",
+     "SYM"
+    ],
+    [
+     "AutoStore מוכרת דרך שותפים שמתקינים ונותנים שירות, בהם Dematic, Swisslog, Element Logic ו-Kardex",
+     "AUTOSTORE-P"
+    ],
+    [
+     "צבר ההזמנות של AutoStore: 557 מיליון דולר בסוף 2025. הנתון נראה רק בתקציר חיפוש",
+     "AUTOSTORE-Q4"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "ההסכם של Symbotic עם Walmart התחיל ב-2017 עם 25 מרכזי הפצה, והורחב ב-2022 לכל 42 המרכזים האזוריים",
+     "SYM"
+    ],
+    [
+     "report",
+     "GreenBox, מיזם משותף עם SoftBank, התחייב לקנות מערכות ב-7.5 מיליארד דולר לפחות לאורך 6 שנים",
+     "SYM"
+    ],
+    [
+     "report",
+     "ברוב החוזים של Symbotic, עלייה במחיר הפלדה מגולגלת ללקוח",
+     "SYM"
+    ],
+    [
+     "report",
+     "ההסכם מ-2025 כולל 400 מערכות קטנות לחנויות של Walmart, בתנאי ש-Symbotic תעמוד ביעדי ביצוע",
+     "SYM"
+    ],
+    [
+     "press",
+     "Kroger סגרה 3 מתוך 8 המחסנים הרובוטיים שהפעילה עם Ocado. בתחילה תוכננו 20. Ocado צפויה לקבל פיצוי של יותר מ-250 מיליון דולר",
+     "STAR-OCADO"
+    ],
+    [
+     "press",
+     "AutoStore שילמה ל-Ocado 200 מיליון ליש\"ט בתשלומים על פני שנתיים, כדי לסיים סכסוך פטנטים שהתחיל ב-2020",
+     "TRR-AUTOSTORE"
+    ]
+   ],
+   "choke": [
+    [
+     "תלות בלקוח אחד: Walmart היא כ-85% מההכנסות של Symbotic",
+     "SYM"
+    ],
+    [
+     "בארה\"ב Ocado תלויה ב-Kroger, שנשארה עם 5 מחסנים פעילים",
+     "STAR-OCADO"
+    ]
+   ]
+  },
+  "users": {
+   "title": "המשתמשים: מפעלים, מחסנים ובתי חולים",
+   "badge": "השקעה לפי דגם חדש או אתר חדש · ההחלטה מתקבלת כשנתיים מראש",
+   "what": "אלה החברות שקונות רובוטים ומפעילות אותם: יצרני רכב, מרכיבי אלקטרוניקה, מחסנים של מסחר מקוון ובתי חולים. הן מזמינות רובוטים כשהן מקימות קו חדש או משיקות דגם חדש. כשהן דוחות השקעות, כל השרשרת שלפניהן מרגישה את זה.",
+   "facts": [
+    [
+     "ענף האלקטרוניקה התקין 142,235 רובוטים ב-2025, ענף הרכב 138,429, וענף המתכת והמכונות 108,571",
+     "IFR26"
+    ],
+    [
+     "צפיפות רובוטים ל-10,000 עובדי תעשייה (נתוני 2024): קוריאה 1,220, סינגפור 818, גרמניה 449, יפן 446, ארה\"ב 307, סין 166. הממוצע בעולם: 132",
+     "IFR-DENS"
+    ],
+    [
+     "DHL מפעילה יותר מ-7,500 רובוטים, והשקיעה יותר ממיליארד אירו באוטומציה בשלוש שנים",
+     "DHL-BD"
+    ],
+    [
+     "מחסור בעובדים: התעשייה בארה\"ב עשויה להזדקק ל-3.8 מיליון עובדים בין 2024 ל-2033, ו-1.9 מיליון משרות עלולות להישאר ריקות",
+     "MI24"
+    ]
+   ],
+   "pulse": [
+    [
+     "press",
+     "יצרן רכב מזמין רובוטים כשנתיים לפני תחילת הייצור: Volkswagen הזמינה ב-2020 לדגמים של 2022",
+     "VW20"
+    ],
+    [
+     "press",
+     "DHL חתמה על מזכר הבנות ליותר מ-1,000 רובוטים נוספים של Boston Dynamics. השותפות קיימת מ-2018",
+     "DHL-BD"
+    ],
+    [
+     "report",
+     "Yaskawa: יצרני רכב בקוריאה הקדימו פרויקטים מהחצי השני של השנה לחצי הראשון",
+     "YASK-QA"
+    ],
+    [
+     "report",
+     "Fanuc: ההשקעות של ענף הרכב ביבשת אמריקה מתחילות לעלות ב-2026",
+     "FANUC"
+    ],
+    [
+     "press",
+     "Foxconn מתכננת להפעיל רובוטים דמויי אדם במפעל השרתים שלה ביוסטון. ההפעלה בפועל לא אומתה",
+     "STAR-FOX"
+    ],
+    [
+     "report",
+     "Kroger רשמה ב-2025 תשלום ל-Ocado על סיום מוקדם של חוזים",
+     "KR"
+    ]
+   ],
+   "choke": [
+    [
+     "אלקטרוניקה ורכב יחד הם כ-47% מההתקנות (חישוב מנתוני IFR), ולכן האטה באחד מהם מורגשת מיד",
+     "IFR26"
+    ],
+    [
+     "מעט קונים גדולים: Walmart לבדה היא כ-85% מההכנסות של Symbotic",
+     "SYM"
+    ]
+   ]
+  }
+ },
+ "clock": [
+  [
+   "מהזמנת רובוטים ועד תחילת הייצור של דגם רכב",
+   "כשנתיים",
+   "VW20"
+  ],
+  [
+   "בדיקות והסמכה של ספק חיישנים לרכב",
+   "יותר משנתיים",
+   "INVZ"
+  ],
+  [
+   "התחייבות רכישה של לקוח מחסנים גדול (GreenBox)",
+   "6 שנים",
+   "SYM"
+  ],
+  [
+   "צבר ההזמנות של Symbotic",
+   "כ-12% מוכרים בשנה, השאר בשנים שאחריה",
+   "SYM"
+  ],
+  [
+   "אספקת מכשירים מתכלים לרובוט ניתוחי",
+   "יום עסקים אחד",
+   "ISRG"
+  ],
+  [
+   "עסקת SoftBank ו-ABB: מהחתימה ועד ההשלמה הצפויה",
+   "כשנה",
+   "SB-ABB"
+  ],
+  [
+   "משא ומתן על יבוא רובוטים לארה\"ב אחרי קביעת הנשיא",
+   "כ-6 חודשים",
+   "TRR232"
+  ],
+  [
+   "עדכון תקן הבטיחות לרובוטים ISO 10218",
+   "14 שנה בין המהדורות (2011 עד 2025); לא אומת מול המקור",
+   "ISO"
+  ]
+ ],
+ "calendar": [
+  [
+   "כל חודש",
+   "אמצע החודש",
+   "תפוקת הרובוטים התעשייתיים בסין",
+   "הלשכה לסטטיסטיקה של סין",
+   "NBS",
+   0
+  ],
+  [
+   "כל רבעון",
+   "אחרי סוף הרבעון",
+   "הזמנות, ייצור ומשלוחים של רובוטים ביפן",
+   "JARA",
+   "JARA",
+   1
+  ],
+  [
+   "כל רבעון",
+   "אחרי סוף הרבעון",
+   "הזמנות רובוטים בצפון אמריקה",
+   "A3",
+   "A3",
+   0
+  ],
+  [
+   "כל רבעון",
+   "סוף אוקטובר (נראה); שאר הרבעונים לא אומתו",
+   "תוצאות Fanuc, כולל הזמנות לפי חטיבה ואזור",
+   "Fanuc",
+   "FANUC",
+   1
+  ],
+  [
+   "כל רבעון",
+   "אוקטובר (נראה); שנת הכספים מסתיימת בפברואר",
+   "תוצאות Yaskawa ושאלות ותשובות על ההזמנות",
+   "Yaskawa",
+   "YASK-QA",
+   1
+  ],
+  [
+   "כל רבעון",
+   "עם הדוח הרבעוני",
+   "מספר הניתוחים והמערכות המותקנות של da Vinci",
+   "Intuitive Surgical",
+   "ISRG",
+   1
+  ],
+  [
+   "כל רבעון",
+   "עם הדוח הרבעוני",
+   "הזמנות וצבר של AutoStore",
+   "AutoStore",
+   "AUTOSTORE-Q4",
+   0
+  ],
+  [
+   "פעם בשנה",
+   "סוף ספטמבר",
+   "World Robotics: התקנות רובוטים תעשייתיים לפי מדינה וענף",
+   "IFR",
+   "IFR26PR",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "סוף ספטמבר",
+   "World Robotics: רובוטי שירות",
+   "IFR",
+   "IFR-SVC",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "אפריל",
+   "צפיפות הרובוטים לפי מדינה",
+   "IFR",
+   "IFR-DENS",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "נובמבר",
+   "הדוח השנתי של Symbotic, כולל צבר ההזמנות",
+   "Symbotic",
+   "SYM",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "מרץ",
+   "כנס GTC: מודלים ושבבים לרובוטים",
+   "Nvidia",
+   "NV-GROOT",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "ינואר",
+   "תערוכת CES: הכרזות על רובוטים ומערכות נהיגה",
+   "Nvidia, Hyundai ואחרות",
+   "NV-TOY",
+   1
+  ]
+ ]
+}

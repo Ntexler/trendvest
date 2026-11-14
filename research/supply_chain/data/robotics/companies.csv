@@ -1,0 +1,87 @@
+# id,name,ticker (Yahoo, home market),country,segment (what it makes; rivals share a segment),tier (map column),sites (robotics-relevant production sites or operations)
+id,name,ticker,country,segment,tier,sites
+NABTESCO,Nabtesco,6268.T,JP,precision-reducer,parts,Tsu (Mie); Changzhou China
+HDS,Harmonic Drive Systems,6324.T,JP,precision-reducer,parts,Hotaka (Nagano); Limburg Germany
+LEADERDRIVE,Leader Harmonious Drive,688017.SS,CN,precision-reducer,parts,Suzhou
+SHUANGHUAN,Zhejiang Shuanghuan Driveline,002472.SZ,CN,precision-reducer,parts,Zhejiang
+SMC,SMC,6273.T,JP,pneumatics,parts,Japan; China; Vietnam
+THK,THK,6481.T,JP,linear-motion,parts,Japan; China; US
+NIDEC,Nidec,6594.T,JP,motors,parts,Japan; China
+INOVANCE,Shenzhen Inovance,300124.SZ,CN,servo-drives,parts,Shenzhen; Suzhou
+SANHUA,Zhejiang Sanhua,002050.SZ,CN,actuators,parts,Zhejiang; Mexico; Thailand
+TUOPU,Ningbo Tuopu,601689.SS,CN,actuators,parts,Ningbo; Mexico; Thailand
+KEYENCE,Keyence,6861.T,JP,sensors-vision,sensing,Osaka (production outsourced)
+COGNEX,Cognex,CGNX,US,sensors-vision,sensing,Natick Massachusetts (contract manufacturing)
+OMRON,Omron,6645.T,JP,sensors-vision,sensing,Japan; China
+HESAI,Hesai,HSAI,CN,lidar,sensing,Shanghai; Hangzhou
+INNOVIZ,Innoviz,INVZ,IL,lidar,sensing,Rosh HaAyin (contract manufacturing)
+NVDA,Nvidia,NVDA,US,robot-computing,sensing,-
+MOBILEYE,Mobileye,MBLY,IL,driver-assist-chips,sensing,Jerusalem (chips made via STMicroelectronics)
+STM,STMicroelectronics,STM,CH,chip-maker,sensing,Italy; France; Singapore
+VALEO,Valeo,FR.PA,FR,driver-assist-tier1,sensing,France; Germany; China
+APTIV,Aptiv,APTV,CH,driver-assist-tier1,sensing,Mexico; China; Europe
+SIEMENS,Siemens,SIE.DE,DE,controllers-software,automation,Amberg; Erlangen; Chengdu
+ROCKWELL,Rockwell Automation,ROK,US,controllers-software,automation,Milwaukee; Mexico; Singapore
+SCHNEIDER,Schneider Electric,SU.PA,FR,controllers-software,automation,France; China; US
+MITSUBISHI,Mitsubishi Electric,6503.T,JP,controllers-software,automation,Nagoya
+PTC,PTC,PTC,US,design-software,automation,-
+FANUC,Fanuc,6954.T,JP,industrial-robots,robots,Oshino (Yamanashi); Tsukuba
+YASKAWA,Yaskawa Electric,6506.T,JP,industrial-robots,robots,Kitakyushu; Changzhou China; Slovenia
+ABB,ABB,ABBN.SW,CH,industrial-robots,robots,Vasteras Sweden; Shanghai; Auburn Hills Michigan
+MIDEA,Midea Group (Kuka),000333.SZ,CN,industrial-robots,robots,Augsburg Germany (Kuka); Shunde China
+KAWASAKI,Kawasaki Heavy Industries,7012.T,JP,industrial-robots,robots,Akashi; Nishi-Kobe
+ESTUN,Estun Automation,002747.SZ,CN,industrial-robots,robots,Nanjing
+SIASUN,Siasun Robot,300024.SZ,CN,industrial-robots,robots,Shenyang
+TERADYNE,Teradyne (Universal Robots),TER,US,cobots,robots,Odense Denmark
+DOOSANROBOTICS,Doosan Robotics,454910.KS,KR,cobots,robots,Suwon
+RAINBOW,Rainbow Robotics,277810.KQ,KR,cobots,robots,Daejeon
+SOFTBANK,SoftBank Group,9984.T,JP,robot-holding,robots,- (agreed to buy ABB Robotics; owns 65% of GreenBox)
+ISRG,Intuitive Surgical,ISRG,US,surgical-robots,service,Sunnyvale California; Mexicali Mexico; Germany
+STRYKER,Stryker,SYK,US,surgical-robots,service,US
+MEDTRONIC,Medtronic,MDT,US,surgical-robots,service,US; Israel (Mazor)
+TESLA,Tesla,TSLA,US,humanoids-selfdriving,service,Fremont California; Austin Texas
+HYUNDAI,Hyundai Motor (Boston Dynamics),005380.KS,KR,humanoids-selfdriving,service,Waltham Massachusetts (Boston Dynamics); Ulsan; Georgia US
+UBTECH,UBTech Robotics,9880.HK,CN,humanoids,service,Shenzhen
+UNITREE,Unitree Robotics,688836.SS,CN,humanoids,service,Hangzhou
+GOOGL,Alphabet (Waymo),GOOGL,US,selfdriving,service,-
+AEROVIRONMENT,AeroVironment,AVAV,US,drones,service,California; Alabama
+ELBIT,Elbit Systems,ESLT.TA,IL,drones,service,Haifa; Rehovot
+ONDAS,Ondas,ONDS,US,drones,service,US; Israel (Airobotics)
+MAYTRONICS,Maytronics,MTRN.TA,IL,consumer-robots,service,Kibbutz Yizre'el
+SYMBOTIC,Symbotic,SYM,US,warehouse-systems,integrators,Wilmington Massachusetts
+AUTOSTORE,AutoStore,AUTO.OL,NO,warehouse-systems,integrators,Nedre Vats Norway; Poland
+OCADO,Ocado,OCDO.L,GB,warehouse-systems,integrators,Hatfield UK
+DAIFUKU,Daifuku,6383.T,JP,warehouse-systems,integrators,Shiga
+KION,Kion (Dematic),KGX.DE,DE,warehouse-systems,integrators,Frankfurt; Atlanta (Dematic)
+KARDEX,Kardex,KARN.SW,CH,warehouse-systems,integrators,Zurich; Germany
+DURR,Durr,DUE.DE,DE,line-integrator,integrators,Bietigheim-Bissingen
+ATS,ATS Corporation,ATS.TO,CA,line-integrator,integrators,Cambridge Ontario
+TOYOTA,Toyota,7203.T,JP,automaker,users,Japan
+VW,Volkswagen,VOW3.DE,DE,automaker,users,Wolfsburg; Emden; Hanover; Chattanooga
+BMW,BMW,BMW.DE,DE,automaker,users,Munich; Dingolfing; Spartanburg
+GM,General Motors,GM,US,automaker,users,US; Mexico
+BYD,BYD,1211.HK,CN,automaker,users,Shenzhen; Xi'an
+HONHAI,Hon Hai (Foxconn),2317.TW,TW,electronics-assembler,users,Taiwan; China; Houston Texas
+SAMSUNG,Samsung Electronics,005930.KS,KR,electronics-maker,users,Korea; Taylor Texas
+AMZN,Amazon,AMZN,US,warehouse-operator,users,more than 300 sites with robots
+WALMART,Walmart,WMT,US,warehouse-operator,users,42 regional distribution centers (US)
+KROGER,Kroger,KR,US,warehouse-operator,users,US (Ocado-run fulfillment centers)
+DHL,DHL Group,DHL.DE,DE,warehouse-operator,users,global contract logistics sites
+HCA,HCA Healthcare,HCA,US,hospital-operator,users,US hospitals
+# --- unrelated large companies in the same markets: the control group ---
+PG,Procter & Gamble,PG,US,control,control,-
+JPM,JPMorgan,JPM,US,control,control,-
+NTT,NTT,9432.T,JP,control,control,-
+MUFG,Mitsubishi UFJ,8306.T,JP,control,control,-
+TAKEDA,Takeda,4502.T,JP,control,control,-
+NESTLE,Nestle,NESN.SW,CH,control,control,-
+ALLIANZ,Allianz,ALV.DE,DE,control,control,-
+SANOFI,Sanofi,SAN.PA,FR,control,control,-
+LEUMI,Bank Leumi,LUMI.TA,IL,control,control,-
+TEVA,Teva,TEVA.TA,IL,control,control,-
+KBFIN,KB Financial,105560.KS,KR,control,control,-
+PINGAN,Ping An Insurance,601318.SS,CN,control,control,-
+MOUTAI,Kweichow Moutai,600519.SS,CN,control,control,-
+CATHAY,Cathay Financial,2882.TW,TW,control,control,-
+UNILEVER,Unilever,ULVR.L,GB,control,control,-
+EQUINOR,Equinor,EQNR.OL,NO,control,control,-

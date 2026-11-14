@@ -1,0 +1,792 @@
+{
+ "sources": {
+  "IQVIA26": [
+   "IQVIA Institute, מרץ 2026",
+   "https://www.iqvia.com/en-gb/blogs/2026/03/iqvia-institutes-2026-forecast-global-medicine-use-stays-strong-despite-headwinds"
+  ],
+  "NHE": [
+   "Drug Channels על נתוני CMS, פברואר 2026",
+   "https://www.drugchannels.net/2026/02/latest-cms-data-reveal-six-trends.html"
+  ],
+  "ME-NHE": [
+   "Medical Economics, ינואר 2026",
+   "https://www.medicaleconomics.com/view/health-care-spending-reaches-5-3-trillion-or-18-of-u-s-economy-in-2024"
+  ],
+  "FTC": [
+   "FTC, יולי 2024",
+   "https://www.ftc.gov/news-events/news/press-releases/2024/07/ftc-releases-interim-staff-report-prescription-drug-middlemen"
+  ],
+  "USP": [
+   "USP, מפת אספקת התרופות",
+   "https://qualitymatters.usp.org/over-half-active-pharmaceutical-ingredients-api-prescription-medicines-us-come-india-and-european"
+  ],
+  "FDA-CT": [
+   "FDA, שלבי הניסויים בבני אדם",
+   "https://www.fda.gov/patients/drug-development-process/step-3-clinical-research"
+  ],
+  "FDA-PR": [
+   "FDA, מסלול בדיקה מועדף",
+   "https://www.fda.gov/patients/fast-track-breakthrough-therapy-accelerated-approval-priority-review/priority-review"
+  ],
+  "FDA-PAT": [
+   "FDA, שאלות ותשובות על פטנטים ובלעדיות",
+   "https://www.fda.gov/drugs/development-approval-process-drugs/frequently-asked-questions-patents-and-exclusivity"
+  ],
+  "FDA-510K": [
+   "FDA, אישור מכשירים במסלול 510(k)",
+   "https://www.fda.gov/medical-devices/premarket-submissions-selecting-and-preparing-correct-submission/premarket-notification-510k"
+  ],
+  "CSIS": [
+   "CSIS, תהליך פיתוח תרופה",
+   "https://www.csis.org/blogs/perspectives-innovation/rai-explainer-drug-development-process"
+  ],
+  "KFF-NEG": [
+   "KFF, מרץ 2026",
+   "https://www.kff.org/medicare/key-facts-about-medicare-drug-price-negotiation/"
+  ],
+  "GEN-CDMO": [
+   "GEN, ספטמבר 2025",
+   "https://www.genengnews.com/topics/bioprocessing/top-10-contract-development-and-manufacturing-organizations-2025/"
+  ],
+  "PM-CAP": [
+   "Pharma Manufacturing, 2026",
+   "https://www.pharmamanufacturing.com/editors-review/article/55413955/lonza-might-not-be-in-a-capacity-race-but-samsung-biologics-is-another-case"
+  ],
+  "PM-FUJI": [
+   "Pharma Manufacturing, ספטמבר 2025",
+   "https://www.pharmamanufacturing.com/facilities/article/55319056/fujifilm-biotechnologies-opens-32b-cell-culture-manufacturing-site-in-north-carolina"
+  ],
+  "KED": [
+   "Korea Economic Daily, יולי 2023",
+   "https://www.kedglobal.com/bio-pharma/newsView/ked202307040017"
+  ],
+  "LONZA-MOD": [
+   "Manufacturing Chemist, מאי 2020",
+   "https://manufacturingchemist.com/moderna-and-lonza-collaborate-to-manufacture-mrna-1273-vaccine-against-coronavirus-164625"
+  ],
+  "W-BAX": [
+   "ויקיפדיה: Baxter International",
+   "https://en.wikipedia.org/wiki/Baxter_International"
+  ],
+  "W-CHANGE": [
+   "ויקיפדיה: מתקפת הסייבר על Change Healthcare",
+   "https://en.wikipedia.org/wiki/2024_Change_Healthcare_ransomware_attack"
+  ],
+  "W-BIO": [
+   "ויקיפדיה: Biosecure Act",
+   "https://en.wikipedia.org/wiki/Biosecure_Act"
+  ],
+  "SYK8K": [
+   "Stryker, דיווח מיידי, 12 במרץ 2026",
+   "https://www.sec.gov/Archives/edgar/data/310764/000119312526104431/d101097d8k.htm"
+  ],
+  "ASCO": [
+   "ASCO, אתר הכנס השנתי",
+   "https://www.asco.org/annual-meeting"
+  ],
+  "JPM": [
+   "J.P. Morgan, אתר כנס הבריאות",
+   "https://www.jpmorgan.com/about-us/events-conferences/health-care-conference"
+  ],
+  "B46": [
+   "46brooklyn, מעקב אחר מחירי מחירון",
+   "https://www.46brooklyn.com/branddrug-boxscore"
+  ],
+  "RGEN20": [
+   "Repligen, דוח שנתי 2020",
+   "https://www.sec.gov/Archives/edgar/data/730272/000119312521054675/d105808d10k.htm"
+  ],
+  "TMO": [
+   "Thermo Fisher, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/97745/000009774526000018/tmo-20251231.htm"
+  ],
+  "DHR": [
+   "Danaher, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/313616/000031361626000062/dhr-20251231.htm"
+  ],
+  "WST": [
+   "West, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/105770/000010577026000010/wst-20251231.htm"
+  ],
+  "RGEN": [
+   "Repligen, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/730272/000119312526076528/rgen-20251231.htm"
+  ],
+  "WAT": [
+   "Waters, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1000697/000119312526062604/d778470d10k.htm"
+  ],
+  "STVN": [
+   "Stevanato, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1849853/000119312526091540/stvn-20251231.htm"
+  ],
+  "IQV": [
+   "IQVIA, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1478242/000162828026008322/iqv-20251231.htm"
+  ],
+  "LLY": [
+   "Eli Lilly, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm"
+  ],
+  "PFE": [
+   "Pfizer, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/78003/000007800326000026/pfe-20251231.htm"
+  ],
+  "AMGN": [
+   "Amgen, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/318154/000031815426000010/amgn-20251231.htm"
+  ],
+  "BMY": [
+   "Bristol Myers Squibb, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/14272/000001427226000004/bmy-20251231.htm"
+  ],
+  "ABBV": [
+   "AbbVie, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1551152/000155115226000008/abbv-20251231.htm"
+  ],
+  "JNJ": [
+   "Johnson & Johnson, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm"
+  ],
+  "REGN": [
+   "Regeneron, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/872589/000087258926000008/regn-20251231.htm"
+  ],
+  "TEVA": [
+   "Teva, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/818686/000119312526034532/d93612d10k.htm"
+  ],
+  "MRK": [
+   "Merck & Co, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/310158/000031015826000063/mrk-20251231.htm"
+  ],
+  "NVO": [
+   "Novo Nordisk, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/353278/000035327826000012/nvo-20251231.htm"
+  ],
+  "GSK": [
+   "GSK, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1131399/000113139926000004/gsk-20251231.htm"
+  ],
+  "MDT": [
+   "Medtronic, דוח שנתי 2026",
+   "https://www.sec.gov/Archives/edgar/data/1613103/000162828026044354/mdt-20260424.htm"
+  ],
+  "ISRG": [
+   "Intuitive Surgical, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm"
+  ],
+  "DXCM": [
+   "Dexcom, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1093557/000109355726000027/dxcm-20251231.htm"
+  ],
+  "PODD": [
+   "Insulet, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1145197/000114519726000028/podd-20251231.htm"
+  ],
+  "TNDM": [
+   "Tandem, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1438133/000143813326000010/tndm-20251231.htm"
+  ],
+  "BAX": [
+   "Baxter, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/10456/000162828026007733/bax-20251231.htm"
+  ],
+  "MCK": [
+   "McKesson, דוח שנתי 2026",
+   "https://www.sec.gov/Archives/edgar/data/927653/000092765326000069/mck-20260331.htm"
+  ],
+  "COR": [
+   "Cencora, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1140859/000114085925000131/cor-20250930.htm"
+  ],
+  "CAH": [
+   "Cardinal Health, דוח שנתי 2026",
+   "https://www.sec.gov/Archives/edgar/data/721371/000072137126000038/cah-20260630.htm"
+  ],
+  "CVS": [
+   "CVS Health, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm"
+  ],
+  "CI": [
+   "Cigna, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1739940/000173994026000006/ci-20251231.htm"
+  ],
+  "ELV": [
+   "Elevance Health, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1156039/000115603926000013/elv-20251231.htm"
+  ],
+  "HUM": [
+   "Humana, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm"
+  ],
+  "HCA": [
+   "HCA Healthcare, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/860730/000119312526044769/hca-20251231.htm"
+  ],
+  "THC": [
+   "Tenet, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/70318/000007031826000012/thc-20251231.htm"
+  ]
+ },
+ "stages": {
+  "tools": {
+   "title": "כלי מחקר וציוד למעבדה",
+   "badge": "רוב המכירות הן חומרים מתכלים ושירות שנקנים שוב ושוב · מכשירים נקנים פעם בכמה שנים",
+   "what": "השלב הזה מוכר למעבדות ולמפעלי התרופות את מה שהם צורכים: מכשירי מדידה, מסננים, חומרים לגידול תאים ופקקים ומזרקים לאריזת התרופה. בלי החומרים האלה אי אפשר לפתח תרופה ואי אפשר לייצר אותה. קשה להחליף ספק, כי כל שינוי בחומר דורש אישור מחדש מהרגולטור.",
+   "facts": [
+    [
+     "Thermo Fisher, הגדולה בשלב: הכנסות של 44.6 מיליארד דולר ב-2025, עלייה של 4%",
+     "TMO"
+    ],
+    [
+     "West (פקקים ורכיבי אריזה לזריקות): עשרת הלקוחות הגדולים הם 47.6% מהמכירות, ולקוח אחד לבדו 15.8%",
+     "WST"
+    ],
+    [
+     "Stevanato (מזרקים ובקבוקוני זכוכית): עשרת הלקוחות הגדולים הם 53.6% מההכנסות",
+     "STVN"
+    ],
+    [
+     "Repligen: ב-2019 שני לקוחות היו 25% מההכנסות. מ-2023 אין לקוח מעל 10%",
+     "RGEN"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "Danaher מחלקת את המכירות לשני סוגים: מוצרים שנקנים שוב ושוב (חומרים מתכלים ושירות) ומוצרים שנקנים פעם אחת (מכשירים)",
+     "DHR"
+    ],
+    [
+     "report",
+     "Waters: המכירות החוזרות (חומרים מתכלים ושירות) עלו ב-8% ב-2025",
+     "WAT"
+    ],
+    [
+     "report",
+     "Repligen מוכרת גם ליצרני ציוד גדולים ממנה: MilliporeSigma הייתה 11% מההכנסות ב-2020",
+     "RGEN20"
+    ],
+    [
+     "report",
+     "West קונה חלק מחומרי הגלם הקריטיים מספק יחיד, בגלל דרישות האיכות והרגולציה",
+     "WST"
+    ]
+   ],
+   "choke": [
+    [
+     "ארבע חברות גדולות מתחרות בציוד לייצור תרופות ביולוגיות: Danaher (Cytiva), Thermo Fisher, MilliporeSigma ו-Sartorius",
+     "RGEN"
+    ],
+    [
+     "לקוח אחד הוא 15.8% מהמכירות של West",
+     "WST"
+    ]
+   ]
+  },
+  "contract": {
+   "title": "חומרים פעילים וייצור בקבלנות",
+   "badge": "חוזי ייצור של עד 10 שנים · מפעל חדש נבנה בכחמש שנים",
+   "what": "השלב הזה מייצר את החומר הפעיל של התרופה ואת התרופה עצמה בשביל חברות אחרות, וגם מנהל בשבילן ניסויים. חברות תרופות רבות אינן מייצרות לבד את כל מה שהן מוכרות. אם מפעל כזה נסגר או נכשל בביקורת, התרופה מתעכבת או חסרה.",
+   "facts": [
+    [
+     "Lonza היא הגדולה בייצור בקבלנות: 6.574 מיליארד פרנק שווייצרי ב-2024. אחריה Thermo Fisher (כ-7 מיליארד דולר בשירותי תרופות), Catalent ו-Samsung Biologics",
+     "GEN-CDMO"
+    ],
+    [
+     "Samsung Biologics: קיבולת ייצור של 784,000 ליטר, כמעט כולה באתר אחד בקוריאה",
+     "PM-CAP"
+    ],
+    [
+     "חומרים פעילים לתרופות מרשם בארה\"ב: רוב החומר לתרופות גנריות מגיע מהודו. סין מספקת 8% מהכמות, וארה\"ב עצמה כ-12%",
+     "USP"
+    ],
+    [
+     "IQVIA (ניהול ניסויים): עבודה חתומה שטרם בוצעה בהיקף 34.2 מיליארד דולר",
+     "IQV"
+    ]
+   ],
+   "pulse": [
+    [
+     "press",
+     "Fujifilm ו-Regeneron: הסכם ייצור ל-10 שנים בשווי יותר מ-3 מיליארד דולר",
+     "PM-FUJI"
+    ],
+    [
+     "press",
+     "Samsung Biologics ו-Pfizer: חוזה של 704.4 מיליון דולר, עם ייצור עד 2029",
+     "KED"
+    ],
+    [
+     "press",
+     "Moderna ו-Lonza: הסכם שיתוף פעולה ל-10 שנים לייצור חיסונים",
+     "LONZA-MOD"
+    ],
+    [
+     "report",
+     "Merck קנתה מ-WuXi את המפעל שייצר בשבילה חיסונים באירלנד, ושילמה 437 מיליון דולר במועד הסגירה",
+     "MRK"
+    ],
+    [
+     "report",
+     "ביקורת של FDA במפעל מילוי אחד עיכבה אישורים של Regeneron",
+     "REGN"
+    ],
+    [
+     "report",
+     "IQVIA: אין לקוח שמהווה 10% מההכנסות, אבל רוב ההכנסות מגיעות ממספר קטן של לקוחות גדולים",
+     "IQV"
+    ]
+   ],
+   "choke": [
+    [
+     "רוב החומרים הפעילים לתרופות גנריות בארה\"ב מיוצרים בהודו",
+     "USP"
+    ],
+    [
+     "החוק האמריקאי Biosecure מגביל עבודה עם חברות ביוטכנולוגיה סיניות, ו-WuXi AppTec נכנסה לרשימה של משרד ההגנה ביוני 2026",
+     "W-BIO"
+    ],
+    [
+     "מפעל מילוי אחד שנכשל בביקורת עיכב תרופה של חברה אחרת",
+     "REGN"
+    ],
+    [
+     "קיבולת של 784,000 ליטר מרוכזת אצל Samsung Biologics בעיר אחת",
+     "PM-CAP"
+    ]
+   ]
+  },
+  "drugmakers": {
+   "title": "חברות התרופות",
+   "badge": "פיתוח של 10 עד 15 שנים · הגנת פטנט של 20 שנה · מחירי מחירון מתעדכנים בדרך כלל בינואר",
+   "what": "אלה החברות שמפתחות תרופה, מקבלות עליה אישור ומוכרות אותה. תרופה חדשה מוגנת בפטנט, וכשהוא פוקע נכנסות חברות התרופות הגנריות (העתקים זולים). אם ניסוי נכשל או הפטנט פוקע, ההכנסות מהתרופה נעלמות מהר.",
+   "facts": [
+    [
+     "שוק התרופות העולמי צפוי להגיע לכ-2.6 טריליון דולר ב-2030, בצמיחה של 5% עד 8% בשנה",
+     "IQVIA26"
+    ],
+    [
+     "בארה\"ב ההנחות וההחזרים מקזזים כ-46% ממחיר המחירון",
+     "IQVIA26"
+    ],
+    [
+     "כ-70% מהתרופות עוברות את שלב הניסוי הראשון, וכ-33% את השני",
+     "FDA-CT"
+    ],
+    [
+     "Eli Lilly: הכנסות של 65.2 מיליארד דולר ב-2025, עלייה של 45%",
+     "LLY"
+    ],
+    [
+     "Johnson & Johnson: תרופה אחת, Darzalex, היא כ-15% מההכנסות",
+     "JNJ"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "בארה\"ב כמעט כל המכירות עוברות דרך שלוש מפיצות. אצל Amgen הן 77% מההכנסות ברוטו",
+     "AMGN"
+    ],
+    [
+     "report",
+     "AbbVie: שלוש המפיצות אחראיות כמעט לכל המכירות בארה\"ב",
+     "ABBV"
+    ],
+    [
+     "report",
+     "Eli Lilly: הלקוחות משלמים בתוך 30 עד 70 יום מהמשלוח",
+     "LLY"
+    ],
+    [
+     "report",
+     "Bristol Myers Squibb: המפיצות מחזיקות מלאי של חודש לכל היותר, וההסכמים איתן מסתיימים ביוני 2027",
+     "BMY"
+    ],
+    [
+     "report",
+     "המפיצה מחויבת במחיר המחירון. ההנחות וההחזרים למבטחים מחושבים אחר כך",
+     "BMY"
+    ],
+    [
+     "report",
+     "Regeneron: 41% מההכנסות ב-2025 הגיעו משיתוף הפעולה עם Sanofi",
+     "REGN"
+    ],
+    [
+     "industry",
+     "המשא ומתן על מחירים עם Medicare (הביטוח הממשלתי לקשישים בארה\"ב) חוזר כל שנה: רשימת התרופות עד 1 בפברואר, והמחירים עד 30 בנובמבר",
+     "KFF-NEG"
+    ],
+    [
+     "report",
+     "Teva: McKesson היא 13% מהמכירות ו-Cencora היא 11%",
+     "TEVA"
+    ]
+   ],
+   "choke": [
+    [
+     "שלוש מפיצות קונות כמעט את כל התרופות בארה\"ב",
+     "ABBV"
+    ],
+    [
+     "40 התרופות שנבחרו עד כה למשא ומתן הן 36% מהוצאות התרופות של Medicare",
+     "KFF-NEG"
+    ],
+    [
+     "הפטנט נמשך 20 שנה מיום הגשת הבקשה, ורוב הזמן הזה עובר עוד לפני שהתרופה נמכרת",
+     "FDA-PAT"
+    ],
+    [
+     "תלות בתרופה אחת: Darzalex היא כ-15% מההכנסות של Johnson & Johnson",
+     "JNJ"
+    ]
+   ]
+  },
+  "devices": {
+   "title": "מכשור רפואי",
+   "badge": "המכשיר נמכר פעם אחת · החלקים המתכלים והשירות נמכרים כל הזמן · אישור FDA למכשיר פשוט: כ-90 יום",
+   "what": "השלב הזה מייצר את הציוד שהרופאים והחולים משתמשים בו: משאבות אינסולין, חיישני סוכר, רובוטים לניתוחים, שתלים ושקיות עירוי. בתי חולים אינם יכולים לנתח או לטפל בלי הציוד הזה. חלק מהמוצרים מיוצרים במפעל אחד בלבד.",
+   "facts": [
+    [
+     "Medtronic: מכירות של 36.4 מיליארד דולר בשנת הכספים 2026",
+     "MDT"
+    ],
+    [
+     "Intuitive Surgical: הכנסות של 10.1 מיליארד דולר ב-2025, וכ-3.15 מיליון ניתוחים ברובוט da Vinci, עלייה של 18%",
+     "ISRG"
+    ],
+    [
+     "Dexcom (חיישני סוכר): הכנסות של 4.66 מיליארד דולר ב-2025, עלייה של 16%",
+     "DXCM"
+    ],
+    [
+     "Insulet (משאבות אינסולין): שלוש מפיצות הן 78% מההכנסות",
+     "PODD"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "Intuitive מוכרת או משכירה את הרובוט, ואחר כך מרוויחה באופן קבוע ממכשירי הניתוח, מהאביזרים ומהשירות",
+     "ISRG"
+    ],
+    [
+     "report",
+     "Medtronic מנהלת משא ומתן עם ארגוני רכש שקונים בשביל הרבה בתי חולים יחד",
+     "MDT"
+    ],
+    [
+     "report",
+     "Medtronic משלמת לספקים שלה בתוך 90 יום",
+     "MDT"
+    ],
+    [
+     "report",
+     "Insulet: 86% מהמכירות עוברות דרך מפיצים ובתי מרקחת, לא ישירות לחולה",
+     "PODD"
+    ],
+    [
+     "report",
+     "Baxter: Cardinal Health ו-Medline מאחסנות ושולחות חלק גדול מהמוצרים שלה בארה\"ב",
+     "BAX"
+    ],
+    [
+     "industry",
+     "FDA מחליט בדרך כלל בתוך 90 יום על מכשיר שדומה למכשיר שכבר אושר",
+     "FDA-510K"
+    ]
+   ],
+   "choke": [
+    [
+     "מפעל אחד של Baxter בצפון קרוליינה ייצר כ-60% מנוזלי העירוי בארה\"ב",
+     "W-BAX"
+    ],
+    [
+     "משאבות האינסולין של Insulet ושל Tandem עובדות רק עם חיישנים של Dexcom או של Abbott",
+     "TNDM"
+    ],
+    [
+     "Dexcom קונה חלק מהרכיבים, ובהם שבבים, מספק יחיד",
+     "DXCM"
+    ],
+    [
+     "מתקפת סייבר על Stryker במרץ 2026 שיבשה הזמנות, ייצור ומשלוחים",
+     "SYK8K"
+    ]
+   ]
+  },
+  "distribution": {
+   "title": "הפצה, בתי מרקחת ומנהלות מרשמים",
+   "badge": "רווח גולמי של כ-3.6% · חוזים של כשלוש שנים · המלאי מתחלף בתוך כחודש",
+   "what": "המפיצות קונות תרופות מהיצרנים ומביאות אותן לבתי המרקחת ולבתי החולים. מנהלות המרשמים (PBM) מנהלות בשביל המבטחים את רשימת התרופות המכוסות ואת ההנחות. מעט חברות שולטות בשלב הזה, ולכן תקלה אצל אחת מהן מורגשת בכל המדינה.",
+   "facts": [
+    [
+     "McKesson: הכנסות של 403.4 מיליארד דולר בשנת הכספים 2026, ורווח גולמי של 3.61% בלבד",
+     "MCK"
+    ],
+    [
+     "Cencora: הכנסות של 321.3 מיליארד דולר. Cardinal Health: 254.2 מיליארד דולר",
+     "COR"
+    ],
+    [
+     "שלוש מנהלות המרשמים הגדולות טיפלו בכמעט 80% מ-6.6 מיליארד המרשמים בארה\"ב ב-2023. שש הגדולות: יותר מ-90%",
+     "FTC"
+    ],
+    [
+     "בתי מרקחת של שלוש מנהלות המרשמים הגדולות מקבלים כמעט 70% מההכנסות מתרופות מיוחדות",
+     "FTC"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "McKesson: לקוח אחד, CVS, הוא 24% מההכנסות, וההסכם איתו בתוקף עד יוני 2027",
+     "MCK"
+    ],
+    [
+     "report",
+     "Cencora: Walgreens ו-Boots הן כ-25% מההכנסות, ו-Evernorth (של Cigna) כ-13%",
+     "COR"
+    ],
+    [
+     "report",
+     "Cardinal Health: CVS היא 28% מההכנסות. החוזים עם OptumRx, שהיו 17%, הסתיימו ביוני 2024",
+     "CAH"
+    ],
+    [
+     "report",
+     "המפיצות מרוויחות כשיצרן מעלה מחיר, כי הן מוכרות את המלאי הקיים במחיר החדש",
+     "MCK"
+    ],
+    [
+     "report",
+     "חוזה של מנהלת מרשמים עם לקוח נמשך כשלוש שנים, והלקוחות מבקשים הצעות מתחרות לפני כל חידוש",
+     "CVS"
+    ],
+    [
+     "report",
+     "CVS ו-Cardinal Health קונות תרופות גנריות יחד, דרך חברה משותפת בבעלות שווה",
+     "CVS"
+    ],
+    [
+     "report",
+     "Elevance קונה שירותי בית מרקחת מ-CVS בהסכם שבתוקף עד סוף 2027",
+     "ELV"
+    ]
+   ],
+   "choke": [
+    [
+     "שלוש מפיצות: McKesson, Cencora ו-Cardinal Health. אצל AbbVie הן כמעט כל המכירות בארה\"ב",
+     "ABBV"
+    ],
+    [
+     "שלוש מנהלות מרשמים מטפלות בכמעט 80% מהמרשמים",
+     "FTC"
+    ],
+    [
+     "עשרת הלקוחות הגדולים של McKesson הם כ-73% מההכנסות",
+     "MCK"
+    ]
+   ]
+  },
+  "care": {
+   "title": "מבטחים ובתי חולים",
+   "badge": "המדינה משלמת חלק גדול מהחשבון · התעריפים והפרמיות נקבעים פעם בשנה",
+   "what": "המבטחים גובים פרמיה ומשלמים על הטיפול. בתי החולים נותנים את הטיפול ומקבלים את התשלום מהמבטחים ומהמדינה. אם מערכת התשלומים נעצרת, בתי החולים ובתי המרקחת נשארים בלי כסף.",
+   "facts": [
+    [
+     "הוצאות הבריאות בארה\"ב: כמעט 5.3 טריליון דולר ב-2024, עלייה של 7.2%",
+     "NHE"
+    ],
+    [
+     "תרופות מרשם: 467 מיליארד דולר, שהם 8.8% מהוצאות הבריאות",
+     "NHE"
+    ],
+    [
+     "HCA, רשת בתי החולים הגדולה: הכנסות של 75.6 מיליארד דולר ו-190 בתי חולים",
+     "HCA"
+    ],
+    [
+     "Humana: 90.4% מהפרמיות בביטוח הוצאו על טיפול רפואי ב-2025",
+     "HUM"
+    ],
+    [
+     "Elevance מבטחת כ-45.2 מיליון איש",
+     "ELV"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "HCA: 43% מההכנסות מאשפוז מגיעות ממבטחים פרטיים, 40% מ-Medicare (כולל התוכניות שמנהלים מבטחים פרטיים), ו-17% מ-Medicaid",
+     "HCA"
+    ],
+    [
+     "industry",
+     "Medicare ו-Medicaid, הביטוחים הממשלתיים, שילמו יותר מ-46% מההוצאה על תרופות מרשם",
+     "NHE"
+    ],
+    [
+     "report",
+     "חוזה של Express Scripts (של Cigna) עם לקוח נמשך בדרך כלל שלוש שנים",
+     "CI"
+    ],
+    [
+     "press",
+     "אחרי מתקפת הסייבר על Change Healthcare ב-2024 העבירה UnitedHealth יותר מ-9 מיליארד דולר במקדמות לנותני שירות",
+     "W-CHANGE"
+    ]
+   ],
+   "choke": [
+    [
+     "מערכת אחת, Change Healthcare, מעבדת חלק גדול מתביעות הביטוח. המתקפה עליה פגעה במידע של כ-192.7 מיליון איש",
+     "W-CHANGE"
+    ],
+    [
+     "המדינה היא המשלם הגדול: שינוי בתעריף של Medicare משפיע על כל בתי החולים והמבטחים",
+     "HCA"
+    ]
+   ]
+  }
+ },
+ "clock": [
+  [
+   "מגילוי במעבדה ועד אישור התרופה",
+   "10 עד 15 שנים",
+   "CSIS"
+  ],
+  [
+   "ניסוי שלב 1 (בטיחות)",
+   "כמה חודשים",
+   "FDA-CT"
+  ],
+  [
+   "ניסוי שלב 2 (יעילות)",
+   "כמה חודשים עד שנתיים",
+   "FDA-CT"
+  ],
+  [
+   "ניסוי שלב 3 (מאות עד אלפי חולים)",
+   "שנה עד 4 שנים",
+   "FDA-CT"
+  ],
+  [
+   "בדיקת הבקשה ב-FDA",
+   "10 חודשים, או 6 חודשים במסלול מועדף",
+   "FDA-PR"
+  ],
+  [
+   "הגנת פטנט",
+   "20 שנה מיום הגשת הבקשה",
+   "FDA-PAT"
+  ],
+  [
+   "בניית מפעל גדול לתרופות ביולוגיות",
+   "כ-5 שנים ו-3.2 מיליארד דולר",
+   "PM-FUJI"
+  ],
+  [
+   "אישור מכשיר רפואי פשוט",
+   "כ-90 יום",
+   "FDA-510K"
+  ],
+  [
+   "חוזה של מנהלת מרשמים",
+   "כשלוש שנים",
+   "CVS"
+  ]
+ ],
+ "calendar": [
+  [
+   "פעם בשנה",
+   "ינואר (11 עד 14 בינואר 2027)",
+   "כנס הבריאות של J.P. Morgan: חברות מציגות תחזיות ועסקאות",
+   "J.P. Morgan",
+   "JPM",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "תחילת יוני (4 עד 8 ביוני 2027)",
+   "כנס ASCO: תוצאות ניסויים בתרופות לסרטן",
+   "ASCO",
+   "ASCO",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "עד 1 בפברואר",
+   "רשימת התרופות שנבחרו למשא ומתן על המחיר",
+   "CMS",
+   "KFF-NEG",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "עד 30 בנובמבר",
+   "המחירים שסוכמו במשא ומתן",
+   "CMS",
+   "KFF-NEG",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "1 בינואר",
+   "מחירי המשא ומתן נכנסים לתוקף: 10 תרופות ב-2026, עוד 15 ב-2027",
+   "CMS",
+   "KFF-NEG",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "ינואר",
+   "עונת העלאות מחירי המחירון של תרופות בארה\"ב",
+   "46brooklyn",
+   "B46",
+   0
+  ],
+  [
+   "פעם בשנה",
+   "ינואר",
+   "נתוני הוצאות הבריאות של ארה\"ב לשנה שלפני הקודמת",
+   "CMS",
+   "ME-NHE",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "מרץ",
+   "תחזית השימוש העולמי בתרופות",
+   "IQVIA Institute",
+   "IQVIA26",
+   1
+  ],
+  [
+   "שוטף",
+   "10 חודשים אחרי הגשת הבקשה, או 6 במסלול מועדף",
+   "מועד היעד להחלטת FDA על תרופה חדשה",
+   "FDA",
+   "FDA-PR",
+   1
+  ],
+  [
+   "כל רבעון",
+   "שנות הכספים שונות: McKesson מסיימת במרץ, Cardinal ביוני, Cencora בספטמבר",
+   "דוחות המפיצות: הכנסות ושיעור הרווח",
+   "McKesson, Cardinal Health, Cencora",
+   "MCK",
+   1
+  ],
+  [
+   "כל רבעון",
+   "",
+   "מספר התרופות שבמחסור בארה\"ב",
+   "ASHP",
+   "",
+   0
+  ]
+ ]
+}

@@ -1,0 +1,188 @@
+<title>מצב מניה במבט אחד</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;800&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a poster. One narrow column, one idea per band, a big number or a picture in each,
+   very few words. No tables, no tabs, no settings. */
+:root { --bg: #f5f3ee; --surface: #ffffff; --fg: #1a2228; --muted: #66727c; --line: #dcd8cf; --ink: #14323a;
+  --up: #1c8048; --down: #c23b2c; --flat: #8a6a12; --accent: #0b6b7d; --soft: #e3f0f2;
+  --font: "Heebo", "Segoe UI", Arial, sans-serif; --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #10161a; --surface: #182128; --fg: #ebf0f2; --muted: #9aa8b2; --line: #313e47; --ink: #d7ecef;
+  --up: #63d48f; --down: #ff8372; --flat: #e6b54a; --accent: #5ac8da; --soft: #143740; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #10161a; --surface: #182128; --fg: #ebf0f2; --muted: #9aa8b2; --line: #313e47; --ink: #d7ecef;
+  --up: #63d48f; --down: #ff8372; --flat: #e6b54a; --accent: #5ac8da; --soft: #143740; color-scheme: dark }
+* { box-sizing: border-box } [hidden] { display: none !important }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 16px; line-height: 1.5; direction: rtl;
+  padding-block: 16px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px } .wrap > * { min-width: 0 }
+button, input { font-family: inherit } :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px } a { color: var(--accent) }
+.num { font-family: var(--mono); direction: ltr; unicode-bidi: isolate } .up { color: var(--up) } .down { color: var(--down) } .flat { color: var(--flat) } .muted { color: var(--muted) }
+.top { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between }
+.switch { display: flex; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 3px }
+.switch button { font-size: 15px; font-weight: 500; color: var(--muted); background: none; border: 0; border-radius: 999px; padding: 6px 16px; cursor: pointer }
+.switch button[aria-selected=true] { background: var(--ink); color: var(--bg) }
+input[type=search] { font-size: 15px; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; width: 170px; min-width: 0 }
+.ghost { font-size: 13px; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer }
+h1 { font-size: 40px; font-weight: 800; line-height: 1.1; margin: 0; overflow-wrap: anywhere } .kicker { font-size: 14px; color: var(--muted) }
+.lead { font-size: 20px; font-weight: 500; margin: 0; text-wrap: balance }
+.band { background: var(--surface); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 14px }
+.band h2 { font-size: 14px; font-weight: 500; color: var(--muted); margin: 0 }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px }
+.tile { display: flex; flex-direction: column; gap: 2px } .tile .big { font-size: 34px; font-weight: 800; line-height: 1.1 } .tile .w { font-size: 15px; font-weight: 500 } .tile .l { font-size: 13px; color: var(--muted) }
+.arrow { display: inline-block; width: 0; height: 0; border-inline: 9px solid transparent; margin-inline-end: 6px; vertical-align: middle }
+.arrow.up { border-bottom: 14px solid var(--up) } .arrow.down { border-top: 14px solid var(--down) } .arrow.flat { width: 16px; height: 4px; border: 0; background: var(--flat); border-radius: 2px }
+.pic svg { display: block; width: 100%; height: auto; direction: ltr } .pic text { font: 500 12.5px var(--font); fill: var(--fg) } .pic .s { font-size: 11px; fill: var(--muted) }
+.meter { position: relative; height: 10px; background: var(--line); border-radius: 5px; direction: ltr; margin: 8px 0 2px } .meter i { position: absolute; top: -4px; width: 18px; height: 18px; border-radius: 50%; background: var(--ink); margin-left: -9px }
+.ends { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted) }
+.chain3 { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: center }
+.chain3 .col { display: flex; flex-direction: column; gap: 6px; min-width: 0 } .chain3 .col span { font-size: 12.5px; color: var(--muted) }
+.chain3 button, .pillbtn { font-size: 14.5px; font-weight: 500; color: var(--fg); background: var(--bg); border: 0; border-radius: 10px; padding: 6px 10px; cursor: pointer; text-align: start; overflow-wrap: anywhere }
+.chain3 .me { background: var(--ink); color: var(--bg); border-radius: 12px; padding: 14px 10px; text-align: center; font-weight: 800 }
+.chain3 .to { font-size: 22px; color: var(--muted) }
+@media (max-width: 520px) { .chain3 { grid-template-columns: 1fr } .chain3 .to { transform: rotate(-90deg); justify-self: center } h1 { font-size: 32px } }
+.dots { display: flex; gap: 6px; flex-wrap: wrap; direction: ltr; justify-content: flex-end } .dots i { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--down); display: block } .dots i.on { background: var(--down) } .dots i.off { border-color: var(--line) }
+.say { font-size: 18px; font-weight: 500 }
+.now { display: flex; flex-direction: column; gap: 14px } .now div { border-inline-start: 4px solid var(--accent); padding-inline-start: 12px; display: flex; flex-direction: column; gap: 2px } .now small { color: var(--muted); font-size: 12.5px; overflow-wrap: anywhere }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; align-items: stretch }
+.step { padding: 4px 12px; border-inline-start: 2px dashed var(--line); display: flex; flex-direction: column; gap: 4px } .step:first-child { border: 0; padding-inline-start: 0 }
+.step .n { width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center; font: 500 13px var(--mono) }
+.step b { font-size: 15px } .step .big { font-size: 30px; font-weight: 800; line-height: 1.1 } .step small { font-size: 12.5px; color: var(--muted) }
+@media (max-width: 620px) { .steps { grid-template-columns: 1fr; gap: 14px } .step { border: 0; padding: 0; border-top: 2px dashed var(--line); padding-top: 12px } .step:first-child { border: 0; padding-top: 0 } }
+.bars { display: grid; grid-template-columns: auto 1fr auto; gap: 8px 12px; align-items: center; font-size: 14.5px } .bars .t { height: 18px; background: none; position: relative; direction: ltr }
+.bars .t::before { content: ""; position: absolute; left: 66.6%; top: -3px; bottom: -3px; width: 1px; background: var(--muted) } .bars .t i { position: absolute; top: 0; bottom: 0; border-radius: 4px }
+.hold { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px }
+.hold button { display: flex; flex-direction: column; gap: 1px; text-align: start; background: var(--bg); border: 0; border-radius: 12px; padding: 10px 12px; cursor: pointer; color: var(--fg) } .hold b { font-size: 15.5px } .hold small { font-size: 12px; color: var(--muted) }
+.bars2 { display: grid; grid-template-columns: auto 1fr auto; gap: 10px 12px; align-items: center; font-size: 14.5px } .bars2 .t2 { display: flex; flex-direction: column; gap: 3px; direction: ltr } .bars2 .t2 i { display: block; height: 9px; border-radius: 5px; min-width: 3px }
+@media (max-width: 520px) { .bars2 { grid-template-columns: 1fr } }
+.switch button[data-level] { font-size: 15px }
+.more { display: flex; flex-wrap: wrap; gap: 8px } .foot { font-size: 12.5px; color: var(--muted) }
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <div class="switch" role="tablist"><button role="tab" data-v="stock">מצב המניה</button><button role="tab" data-v="event">מה קרה</button><button role="tab" data-v="build">בונה תיק</button></div>
+    <div style="display:flex;gap:8px;min-width:0"><input type="search" id="q" list="names" placeholder="חיפוש חברה" aria-label="חיפוש חברה" autocomplete="off"><datalist id="names"></datalist><button class="ghost" id="theme" type="button"></button></div>
+  </div>
+  <main id="page" class="wrap" style="gap:16px"></main>
+  <p class="foot">סקיצה. נתונים נכון ל-11 בנובמבר 2026, מ-Yahoo Finance ומדיווחים לרשויות. "תנועה חריגה" היא התנועה של המניה אחרי שמורידים את התנועה של השוק באותם ימים. זה כלי למידה אישי, לא המלצת השקעה.</p>
+</div>
+
+<script>
+const D = /*__DATA__*/null, M = D.market;
+const $ = id => document.getElementById(id), byId = Object.fromEntries(D.nodes.map(n => [n.id, n]));
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const cls = (v, t = 0.5) => v > t ? "up" : v < -t ? "down" : "flat";
+const sg = (v, d = 0) => `<span class="num ${cls(v)}">${v > 0 ? "+" : ""}${v.toFixed(d)}%</span>`;
+const usd = v => !v ? "–" : "$" + (v >= 1e12 ? (v / 1e12).toFixed(2) + "T" : v >= 1e9 ? (v / 1e9).toFixed(v >= 1e11 ? 0 : 1) + "B" : (v / 1e6).toFixed(0) + "M");
+const mean = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
+const chg = (a, k) => { const v = a.filter(x => x != null); return v.length < 2 ? null : (v[v.length - 1] / v[Math.max(0, v.length - 1 - k)] - 1) * 100; };
+const evName = id => { const h = M.history.find(x => x[5] === id); return h ? [h[1], h[2]] : M.event_he[id] || [D.events.find(e => e.id === id).name, ""]; };
+const roleOf = (n, id) => n.ev[id] && (n.ev[id].w || n.ev[id].role);
+D.edges.forEach(e => { e.material = e.crit || Number(e.share) >= 10; });
+const byW = (a, b) => (b.material - a.material) || (Number(b.share || 0) - Number(a.share || 0));
+let S = { v: "stock", co: D.nodes.some(n => n.id === "TSMC") ? "TSMC" : D.nodes[0].id, ev: (D.events.find(e => e.id === "HUALIEN2024") || D.events[0] || {}).id, level: "calm" };
+
+/* ---------- the stock in one picture ---------- */
+function picture(n) { const K = 104, W = 680, H = 250, X0 = 14, X1 = W - 14, Y0 = 62, Y1 = H - 30;
+  const px = n.px.slice(-K), dates = D.dates.slice(-K), v = px.filter(x => x != null), lo = Math.min(...v), hi = Math.max(...v);
+  const t0 = Date.parse(dates[0]), t1 = Date.parse(dates[dates.length - 1]), X = d => X0 + (Date.parse(d) - t0) / (t1 - t0) * (X1 - X0), Y = p => Y1 - (p - lo) / (hi - lo || 1) * (Y1 - Y0);
+  const pts = px.map((p, i) => p == null ? null : [X(dates[i]), Y(p)]).filter(Boolean), up = v[v.length - 1] >= v[0], col = up ? "var(--up)" : "var(--down)";
+  const at = d => { let b = 0; dates.forEach((x, i) => { if (Date.parse(x) <= Date.parse(d) && px[i] != null) b = i; }); return [X(dates[b]), Y(px[b])]; };
+  const evs = D.events.filter(e => Date.parse(e.ts) > t0 && Date.parse(e.ts) < t1 && roleOf(n, e.id) && roleOf(n, e.id) !== "control").slice(-3);
+  const notes = evs.map((e, i) => { const [x, y] = at(e.ts), ty = 16 + i * 17, r = n.ev[e.id];
+    return `<line x1="${x}" x2="${x}" y1="${ty + 5}" y2="${y}" stroke="var(--muted)" stroke-dasharray="3 3"/><circle cx="${x}" cy="${y}" r="5" fill="var(--surface)" stroke="var(--fg)" stroke-width="2"/>
+      <text x="${x > W / 2 ? x - 8 : x + 8}" y="${ty}" text-anchor="${x > W / 2 ? "start" : "end"}" direction="rtl">${esc(evName(e.id)[0])}: ${r.d3 > 0 ? "+" : ""}${r.d3}% בשלושה ימים</text>`; }).join("");
+  const yr = [...new Set(dates.map(d => d.slice(0, 4)))].slice(1).filter(y => X(y + "-01-01") > X0 + 90 && X(y + "-01-01") < X1 - 50).map(y => `<text class="s" x="${X(y + "-01-01")}" y="${H - 8}" text-anchor="middle">${y}</text>`).join("");
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="מחיר המניה בשנתיים האחרונות"><path d="M${pts.map(p => p.join(" ")).join("L")}L${X1} ${Y1}L${X0} ${Y1}Z" fill="${col}" opacity=".12"/>
+    <path d="M${pts.map(p => p.join(" ")).join("L")}" fill="none" stroke="${col}" stroke-width="2.6" stroke-linejoin="round"/><line x1="${X0}" x2="${X1}" y1="${Y1}" y2="${Y1}" stroke="var(--line)"/>
+    <circle cx="${pts[pts.length - 1][0]}" cy="${pts[pts.length - 1][1]}" r="5" fill="${col}"/>${notes}${yr}<text class="s" x="${X0}" y="${H - 8}">לפני שנתיים</text><text class="s" x="${X1}" y="${H - 8}" text-anchor="end">היום</text></svg>`; }
+
+function stock() { const n = byId[S.co], i = n.info, y1 = chg(n.px, 52), m1 = chg(D.mkt, 52), gap = y1 - m1, y2 = chg(n.px, 104);
+  const growth = n.pulse && n.pulse.monthly ? n.pulse.monthly.yoy : i.revenueGrowth != null ? i.revenueGrowth * 100 : null;
+  const peers = D.nodes.filter(x => x.tier === n.tier && x.info.trailingPE > 0).map(x => x.info.trailingPE).sort((a, b) => a - b), pe = i.trailingPE > 0 ? i.trailingPE : null;
+  const rank = pe && peers.length > 2 ? peers.filter(p => p <= pe).length / peers.length : null;
+  const word = v => v > 10 ? "עולה" : v < -10 ? "יורדת" : "כמעט בלי שינוי";
+  const sup = D.edges.filter(e => e.t === n.id).sort(byW), cus = D.edges.filter(e => e.s === n.id).sort(byW);
+  const col = (es, f, t) => `<div class="col"><span>${t}</span>${es.slice(0, 3).map(e => `<button data-co="${f(e)}">${esc(byId[f(e)].name)}</button>`).join("") || '<span>לא נמצאו</span>'}${es.length > 3 ? `<span>ועוד ${es.length - 3}</span>` : ""}</div>`;
+  const mine = D.events.filter(e => roleOf(n, e.id) && roleOf(n, e.id) !== "control" && roleOf(n, e.id) !== "rival"), hit = mine.filter(e => roleOf(n, e.id) === "hit"), use = hit.length ? hit : mine;
+  const d3 = use.map(e => n.ev[e.id].d3), d10 = use.map(e => n.ev[e.id].d10), fell = d3.filter(x => x < 0).length;
+  const ch = M.changes.filter(c => c[2] === n.tier).sort((a, b) => b[5].localeCompare(a[5])).slice(0, 2), news = n.news.filter(x => x.he).slice(0, 2);
+  $("page").innerHTML = `
+    <div><span class="kicker">${esc(D.stages[n.tier].title)} · <span class="num">${esc(n.ticker)}</span></span><h1>${esc(n.name)}</h1></div>
+    <p class="lead">${esc((M.plain_co || M.plain)[n.tier])} המניה ${word(y1)} בשנה האחרונה${Math.abs(gap) > 5 ? `, ${gap > 0 ? "יותר" : "פחות"} מ${M.index_name}` : `, בדומה ל${M.index_name}`}.</p>
+    <div class="band"><h2>המצב במספרים</h2><div class="tiles">
+      <div class="tile"><span class="big ${cls(y1)}"><i class="arrow ${cls(y1)}"></i>${sg(y1)}</span><span class="w">המניה בשנה האחרונה</span><span class="l">בשנתיים: ${sg(y2)}</span></div>
+      <div class="tile"><span class="big ${cls(gap)}">${gap > 0 ? "+" : ""}${gap.toFixed(0)}</span><span class="w">${gap > 5 ? "נקודות אחוז מעל " : gap < -5 ? "נקודות אחוז מתחת ל" : "נקודות אחוז, צמוד ל"}${esc(M.index_name)}</span><span class="l">המדד עשה ${sg(m1)} בשנה</span></div>
+      ${growth != null ? `<div class="tile"><span class="big ${cls(growth)}"><i class="arrow ${cls(growth)}"></i>${sg(growth)}</span><span class="w">ההכנסות ${growth > 3 ? "צומחות" : growth < -3 ? "יורדות" : "יציבות"}</span><span class="l">לעומת התקופה המקבילה אשתקד</span></div>` : ""}
+      <div class="tile"><span class="big num">${usd(i.revenueUSD)}</span><span class="w">הכנסות בשנה</span><span class="l">רווח נקי: <span class="num">${usd(i.netIncomeUSD)}</span></span></div></div></div>
+    <div class="band"><h2>המניה בשנתיים האחרונות</h2><div class="pic">${picture(n)}</div></div>
+    ${rank != null ? `<div class="band"><h2>האם המניה יקרה?</h2><p class="say">${rank > 0.66 ? "יקרה יותר מרוב החברות בשלב שלה" : rank < 0.34 ? "זולה יותר מרוב החברות בשלב שלה" : "באמצע, ביחס לחברות בשלב שלה"}.</p>
+      <div><div class="meter"><i style="left:${(rank * 100).toFixed(0)}%"></i></div><div class="ends"><span>יקרה</span><span>זולה</span></div></div>
+      <span class="muted" style="font-size:13px">המשקיעים משלמים <span class="num">${pe.toFixed(0)}</span> שקלים על כל שקל של רווח שנתי. ההשוואה היא ל-${peers.length} חברות בשלב "${esc(D.stages[n.tier].title)}".</span></div>` : ""}
+    <div class="band"><h2>מי תלוי במי</h2><div class="chain3">${col(sup, e => e.s, "מספקים לה")}<span class="to">←</span><div class="me">${esc(n.name)}</div><span class="to">←</span>${col(cus, e => e.t, "קונים ממנה")}</div></div>
+    ${use.length ? `<div class="band"><h2>${hit.length ? "מה קרה למניה כשהיא נפגעה" : "מה קרה למניה כשספק או לקוח שלה נפגע"}</h2>
+      <p class="say">${fell ? `ב-${fell} מתוך ${use.length} אירועים המניה ירדה בשלושת הימים הראשונים.` : `באף אחד מ-${use.length} האירועים המניה לא ירדה בשלושת הימים הראשונים.`}</p><div class="dots">${d3.map(x => `<i class="${x < 0 ? "on" : "off"}"></i>`).join("")}</div>
+      <div class="tiles"><div class="tile"><span class="big">${sg(mean(d3), 1)}</span><span class="w">בממוצע אחרי 3 ימים</span></div><div class="tile"><span class="big">${sg(mean(d10), 1)}</span><span class="w">בממוצע אחרי 10 ימים</span></div></div>
+      <div class="more">${use.map(e => `<button class="pillbtn" data-ev="${e.id}">${esc(evName(e.id)[0])}</button>`).join("")}</div><span class="muted" style="font-size:13px">מדגם קטן. לחיצה על אירוע מראה מה קרה בו.</span></div>` : ""}
+    ${ch.length + news.length ? `<div class="band"><h2>מה קורה עכשיו</h2><div class="now">${news.map(x => `<div><span>${esc(x.he)}</span><small>${esc(x.p)} · <span class="num">${esc(x.d)}</span> · <a href="${esc(x.u)}" target="_blank" rel="noopener">לידיעה המקורית</a> · סיכום שנכתב בבינה מלאכותית</small></div>`).join("")}
+      ${ch.map(c => `<div><span><b>${esc(c[3])}.</b> ${esc(c[4])}</span><small>${D.sources[c[7]] ? `<a href="${esc(D.sources[c[7]][1])}" target="_blank" rel="noopener">${esc(D.sources[c[7]][0])}</a>` : ""}${c[8] ? "" : " · לא אומת מול המקור"}</small></div>`).join("")}</div></div>` : ""}`; }
+
+/* ---------- what happened, as a four-step strip ---------- */
+function eventPage() { const e = D.events.find(x => x.id === S.ev), [name, text] = evName(e.id);
+  const grp = r => D.nodes.filter(n => roleOf(n, e.id) === r), hit = grp("hit"), cus = grp("down1"), rest = grp("control");
+  const a = (ns, k) => mean(ns.map(n => n.ev[e.id][k])), top = ns => [...ns].sort((x, y) => x.ev[e.id].d3 - y.ev[e.id].d3).slice(0, 3).map(n => `<button class="pillbtn" data-co="${n.id}">${esc(n.name)}</button>`).join(" ");
+  const bar = (label, v) => v == null ? "" : `<span>${label}</span><div class="t"><i style="${v < 0 ? `right:33.4%;width:${Math.min(66, -v / 12 * 66.6)}%;background:var(--down)` : `left:66.6%;width:${Math.min(33, v / 6 * 33.4)}%;background:var(--up)`}"></i></div><b>${sg(v, 1)}</b>`;
+  const b = D.base, dots = x => x ? `<div class="dots">${Array.from({ length: x.n }, (_, k) => `<i class="${k < x.fell ? "on" : "off"}"></i>`).join("")}</div>` : "";
+  const back = v => v == null ? "" : v > -0.5 ? "חזרו לרמה שלפני האירוע" : "עדיין לא חזרו";
+  $("page").innerHTML = `
+    <div><span class="kicker">מה קרה · <span class="num">${e.ts.slice(0, 10)}</span></span><h1>${esc(name)}</h1></div><p class="lead">${esc(text)}</p>
+    <div class="band"><h2>השתלשלות האירוע</h2><div class="steps">
+      <div class="step"><span class="n">1</span><b>האירוע</b><small>${esc(e.loc)}</small><small><a href="${esc(e.url)}" target="_blank" rel="noopener">למקור</a></small></div>
+      <div class="step"><span class="n">2</span><b>נפגעו ישירות</b><span class="big">${hit.length ? sg(a(hit, "d3"), 1) : "–"}</span><small>${hit.length} חברות, בממוצע אחרי 3 ימים</small><div>${top(hit)}</div></div>
+      <div class="step"><span class="n">3</span><b>הלקוחות שלהן</b><span class="big">${cus.length ? sg(a(cus, "d3"), 1) : "–"}</span><small>${cus.length ? `${cus.length} חברות שתלויות בנפגעות` : "אין במפה לקוחות תלויים"}</small><div>${top(cus)}</div></div>
+      <div class="step"><span class="n">4</span><b>אחרי 10 ימים</b><small>הנפגעות: ${hit.length ? sg(a(hit, "d10"), 1) : "–"} ${back(hit.length ? a(hit, "d10") : null)}</small><small>${cus.length ? `הלקוחות: ${sg(a(cus, "d10"), 1)} ${back(a(cus, "d10"))}` : ""}</small></div></div></div>
+    <div class="band"><h2>מי זז יותר, שלושה ימים אחרי</h2><div class="bars">${bar("נפגעו ישירות", hit.length ? a(hit, "d3") : null)}${bar("הלקוחות שלהן", cus.length ? a(cus, "d3") : null)}${bar("שאר החברות בשרשרת", rest.length ? a(rest, "d3") : null)}</div>
+      <span class="muted" style="font-size:13px">הקו האנכי הוא אפס. שמאלה ירידה, ימינה עלייה.</span></div>
+    <div class="band"><h2>האם זה קורה תמיד? מה היה באירועים דומים</h2>
+      ${b.hit ? `<p class="say">הנפגעות הישירות ירדו ב-${b.hit.fell} מתוך ${b.hit.n} אירועים.</p>${dots(b.hit)}` : ""}${b.down1 ? `<p class="say">הלקוחות שלהן ירדו ב-${b.down1.fell} מתוך ${b.down1.n} אירועים.</p>${dots(b.down1)}` : ""}
+      <span class="muted" style="font-size:13px">כל עיגול הוא אירוע אחד. עיגול מלא: ירידה. המדגם קטן, ולכן זה רמז ולא כלל.</span></div>
+    <div class="band"><h2>אירועים נוספים</h2><div class="more">${D.events.filter(x => x.id !== e.id).map(x => `<button class="pillbtn" data-ev="${x.id}">${esc(evName(x.id)[0])} <span class="num muted">${x.ts.slice(0, 4)}</span></button>`).join("")}</div></div>`; }
+
+/* ---------- portfolio builder ---------- */
+function buildPage() { const B = D.baskets; if (!B) { $("page").innerHTML = '<p class="lead">עוד אין נתונים לבניית תיק בשוק הזה.</p>'; return; }
+  const b = B[S.level], pop = B.popular, ev = Object.values(b.events_r3), fell = ev.filter(x => x < 0).length, pev = Object.values(pop.events_r3);
+  const top = o => { const [c, k] = Object.entries(o.countries).sort((x, y) => y[1] - x[1])[0]; return [c, k]; };
+  const CN = { US: "ארה\"ב", JP: "יפן", TW: "טייוואן", KR: "קוריאה", DE: "גרמניה", NL: "הולנד", IL: "ישראל", CN: "סין", FR: "צרפת", CH: "שווייץ", GB: "בריטניה", AU: "אוסטרליה", CA: "קנדה", DK: "דנמרק", ES: "ספרד", IT: "איטליה", BR: "ברזיל", CL: "צ'ילה" };
+  const cmp = (label, mine, theirs, unit, max) => `<span>${label}</span><div class="t2"><i style="width:${Math.min(100, Math.abs(mine) / max * 100)}%;background:var(--ink)"></i><i style="width:${Math.min(100, Math.abs(theirs) / max * 100)}%;background:var(--muted);opacity:.5"></i></div><b class="num">${mine}${unit} <span class="muted" style="font-weight:400">מול ${theirs}${unit}</span></b>`;
+  $("page").innerHTML = `
+    <div><span class="kicker">בונה תיק · ${esc(M.name)}</span><h1>תיק שמכסה את כל השרשרת</h1></div>
+    <p class="lead">בוחרים כמה תנודות מוכנים לספוג. הכלי לוקח חברה מכל שלב, עד שתיים מכל מדינה, ובלי שתי חברות שתלויות באותו ספק.</p>
+    <div class="switch" style="align-self:flex-start"><button data-level="calm" aria-selected="${S.level === "calm"}">רגוע יותר</button><button data-level="bold" aria-selected="${S.level === "bold"}">נועז יותר</button></div>
+    <div class="band"><h2>מה צפוי בתיק הזה</h2><div class="tiles">
+      <div class="tile"><span class="big num">${b.vol_now}%</span><span class="w">תנודתיות בשנה האחרונה</span><span class="l">בשנה רגילה התיק יכול לעלות או לרדת בערך בשיעור הזה</span></div>
+      <div class="tile"><span class="big num down">${b.max_drawdown}%</span><span class="w">הנפילה העמוקה ביותר מאז 2016</span><span class="l">מהשיא עד התחתית, לאותן מניות</span></div></div>
+      <p class="say">${fell ? `ב-${fell} מתוך ${ev.length} אירועי עבר התיק ירד בשלושת הימים הראשונים.` : `באף אחד מ-${ev.length} אירועי העבר התיק לא ירד בשלושת הימים הראשונים.`}</p><div class="dots">${ev.map(x => `<i class="${x < 0 ? "on" : "off"}"></i>`).join("")}</div></div>
+    <div class="band"><h2>מה בתיק: ${b.members.length} חברות, משקל שווה</h2><div class="hold">${b.members.map(id => { const n = byId[id];
+      return `<button data-co="${id}"><small>${esc(D.stages[n.tier].title)}</small><b>${esc(n.name)}</b><small>${CN[n.country] || n.country}</small></button>`; }).join("")}</div></div>
+    <div class="band"><h2>מול 8 המניות הגדולות בשוק</h2><div class="bars2">
+      ${cmp("תנודתיות", b.vol_now, pop.vol_now, "%", 60)}${cmp("הנפילה העמוקה ביותר", b.max_drawdown, pop.max_drawdown, "%", 70)}
+      ${cmp("אירועים שבהם ירד", fell, pev.filter(x => x < 0).length, "", 10)}${cmp("מדינות שונות", Object.keys(b.countries).length, Object.keys(pop.countries).length, "", 8)}</div>
+      <span class="muted" style="font-size:13px">הפס הכהה: התיק הזה. הפס הבהיר: 8 הגדולות (${pop.members.slice(0, 4).map(id => esc(byId[id].name)).join(", ")} ועוד). ${top(pop)[1]} מתוך 8 הגדולות הן מ${CN[top(pop)[0]] || top(pop)[0]}${pop.shared_supplier && pop.shared_supplier[1] > 1 ? `, ו-${pop.shared_supplier[1]} מהן תלויות ב-${esc(byId[pop.shared_supplier[0]].name)}` : ""}.</span></div>
+    <div class="band"><h2>ומה עם התשואה?</h2><p class="say">אי אפשר להבטיח אותה, ולא מצאנו דרך לנבא אותה.</p>
+      <span class="muted" style="font-size:14px">בעשר השנים האחרונות המניות בתיק הזה עלו בממוצע <span class="num">${b.return_year}%</span> בשנה, ו-8 הגדולות <span class="num">${pop.return_year}%</span>. המספרים האלה מוטים כלפי מעלה, כי הם כוללים רק חברות ששרדו, ואינם מעידים על העתיד. מה שהתיק הזה נותן הוא פיזור, לא תשואה גבוהה יותר.</span></div>
+    <p class="foot">איך נבחרו המניות: "רגוע יותר" לוקח מכל שלב את החברה שהתנדנדה הכי פחות בשנה האחרונה, ו"נועז יותר" את זו שהתנדנדה הכי הרבה. התשואות במטבע המקומי של כל מניה, בלי עמלות.</p>`; }
+
+function render() { document.querySelectorAll(".switch button").forEach(b => b.setAttribute("aria-selected", b.dataset.v === S.v)); ({ stock, event: eventPage, build: buildPage })[S.v]();
+  if (location.hash.slice(1) !== S.v) history.replaceState(null, "", "#" + S.v); }
+document.addEventListener("click", ev => { const t = ev.target.closest("[data-v],[data-co],[data-ev],[data-level]"); if (!t) return; const d = t.dataset;
+  if (d.level) { S.level = d.level; render(); return; }
+  if (d.v) S.v = d.v; else if (d.co) { S.co = d.co; S.v = "stock"; } else if (d.ev) { S.ev = d.ev; S.v = "event"; } render(); scrollTo({ top: 0 }); });
+D.nodes.forEach(n => { const o = document.createElement("option"); o.value = n.name; o.label = n.ticker; $("names").appendChild(o); });
+$("q").addEventListener("change", e => { const v = e.target.value.trim().toLowerCase(); if (!v) return;
+  const n = D.nodes.find(n => n.name.toLowerCase() === v || n.ticker.toLowerCase() === v) || D.nodes.find(n => n.name.toLowerCase().includes(v)); if (n) { e.target.value = ""; S.co = n.id; S.v = "stock"; render(); } });
+const root = document.documentElement, isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+const label = () => { $("theme").textContent = isDark() ? "בהיר" : "כהה"; };
+try { const t = localStorage.getItem("story-theme"); if (t) root.dataset.theme = t; } catch (e) {}
+$("theme").addEventListener("click", () => { root.dataset.theme = isDark() ? "light" : "dark"; try { localStorage.setItem("story-theme", root.dataset.theme); } catch (e) {} label(); }); label();
+if (["stock", "event", "build"].includes(location.hash.slice(1))) S.v = location.hash.slice(1); render();
+</script>

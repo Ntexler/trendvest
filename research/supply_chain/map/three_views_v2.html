@@ -1,0 +1,398 @@
+<title>מפת שרשרת השבבים</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: three views of one dataset. Story = the chain as seven stages read top to bottom.
+   Map = columns per stage, supply flows right to left. Pulses = how often things happen. */
+:root {
+  --bg: #f3f5f7; --surface: #ffffff; --raised: #eef2f5; --fg: #13202b; --muted: #586877; --line: #cdd6dd;
+  --accent: #0a6f82; --accent-soft: #d6edf1; --link: #8e9ba8;
+  --down: #c0392b; --up: #1b7f45; --warn: #946200; --hit: #7b2cbf;
+  --t1: #8a5a00; --t2: #6b6f00; --t3: #2e7d32; --t4: #0a6f82; --t5: #2f5fb3; --t6: #6a3fb5; --t7: #a03573;
+  --font: "Heebo", "Segoe UI", Arial, sans-serif; --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0d141a; --surface: #161f27; --raised: #1e2933; --fg: #e7eef3; --muted: #9babb9; --line: #34434f;
+  --accent: #56c7d9; --accent-soft: #123a43; --link: #5d707f;
+  --down: #ff8171; --up: #62d48e; --warn: #e6b54a; --hit: #c9a0f5;
+  --t1: #e0a94a; --t2: #c9cc5a; --t3: #7fd08a; --t4: #56c7d9; --t5: #86aef2; --t6: #b59af0; --t7: #e58bbd; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0d141a; --surface: #161f27; --raised: #1e2933; --fg: #e7eef3; --muted: #9babb9; --line: #34434f;
+  --accent: #56c7d9; --accent-soft: #123a43; --link: #5d707f;
+  --down: #ff8171; --up: #62d48e; --warn: #e6b54a; --hit: #c9a0f5;
+  --t1: #e0a94a; --t2: #c9cc5a; --t3: #7fd08a; --t4: #56c7d9; --t5: #86aef2; --t6: #b59af0; --t7: #e58bbd; color-scheme: dark }
+* { box-sizing: border-box }
+[hidden] { display: none !important }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 15px; line-height: 1.55;
+  direction: rtl; padding-block: 18px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.wrap { max-width: 1480px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px }
+section.wrap { width: 100%; max-width: none }
+.top { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: flex-end; justify-content: space-between }
+h1 { font-size: 26px; font-weight: 700; margin: 0; letter-spacing: -.01em; text-wrap: balance }
+.lead { color: var(--muted); margin: 2px 0 0; max-width: 68ch }
+.draft { font-size: 12px; font-weight: 500; color: var(--warn); border: 1px solid var(--warn); border-radius: 4px; padding: 0 6px;
+  margin-inline-start: 8px; vertical-align: middle; white-space: nowrap }
+button { font-family: inherit }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.views { display: flex; gap: 4px; background: var(--raised); border-radius: 10px; padding: 4px }
+.views button { font-size: 15px; font-weight: 500; color: var(--muted); background: none; border: 0; border-radius: 7px; padding: 7px 16px; cursor: pointer }
+.views button[aria-selected=true] { background: var(--surface); color: var(--fg); box-shadow: 0 1px 2px rgb(0 0 0 / .12) }
+.theme { font-size: 13px; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 7px; padding: 6px 10px; cursor: pointer }
+.tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap }
+h2 { font-size: 20px; margin: 0; text-wrap: balance } h3 { font-size: 13px; font-weight: 700; color: var(--muted); margin: 0 }
+a { color: var(--accent) } .src { font-size: 12px }
+.num { font-family: var(--mono); direction: ltr; unicode-bidi: isolate; font-variant-numeric: tabular-nums }
+.neg { color: var(--down) } .pos { color: var(--up) }
+.pill { font-size: 11px; border-radius: 10px; padding: 0 7px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap }
+.pill.high, .pill.report { color: var(--up); border-color: var(--up) } .pill.medium, .pill.press { color: var(--warn); border-color: var(--warn) }
+.pill.low { color: var(--down); border-color: var(--down) } .pill.industry { color: var(--accent); border-color: var(--accent) }
+.pill.crit { color: var(--hit); border-color: var(--hit) }
+button.go { font-size: inherit; font-weight: 500; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-align: start }
+button.go:hover { text-decoration: underline }
+.note { font-size: 12.5px; color: var(--muted); border-inline-start: 3px solid var(--line); padding-inline-start: 8px; margin: 0; max-width: 90ch }
+ul.rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px }
+ul.rows li { font-size: 14px; overflow-wrap: anywhere }
+.r1 { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline } .r2 { font-size: 12.5px; color: var(--muted) }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px }
+th, td { text-align: start; padding: 5px 8px; border-bottom: 1px solid var(--line); vertical-align: top }
+th { color: var(--muted); font-weight: 500; font-size: 12.5px }
+.scroll { overflow-x: auto; min-width: 0 }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; min-width: 0 }
+
+/* ---- story ---- */
+.clock { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px }
+.clock div { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; background: var(--raised); border-radius: 8px }
+.clock b { font-size: 17px } .clock span { font-size: 12.5px; color: var(--muted) }
+.stage { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; border-inline-start: 4px solid var(--tc); border-radius: 0 12px 12px 0 }
+.stage header { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline }
+.stage .no { font: 500 13px var(--mono); color: var(--tc) }
+.badge { font-size: 13px; color: var(--fg); background: var(--raised); border-radius: 6px; padding: 3px 10px }
+.what { margin: 0; max-width: 72ch; font-size: 16px }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 12px 16px; padding: 12px 0; border-block: 1px solid var(--line) }
+.stats div { display: flex; flex-direction: column } .stats span { font-size: 12px; color: var(--muted) } .stats b { font-size: 17px; font-weight: 500 }
+.chips { display: flex; flex-wrap: wrap; gap: 6px }
+.chips button { font-size: 13px; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 2px 11px; cursor: pointer }
+.chips button:hover { border-color: var(--accent); color: var(--accent) }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px 28px }
+.cols > div { display: flex; flex-direction: column; gap: 8px; min-width: 0 }
+.arrow { text-align: center; color: var(--muted); font-size: 13px; margin: -8px 0 }
+
+/* ---- map ---- */
+.bar { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; font-size: 14px }
+.bar label { display: inline-flex; gap: 6px; align-items: center; cursor: pointer; max-width: 100%; min-width: 0 }
+select, input[type=search] { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 7px; padding: 5px 8px; min-width: 0; max-width: 100% }
+.bar select { flex: 0 1 auto; max-width: 210px } .bar input[type=search] { width: 190px; flex: 0 1 190px }
+.count { color: var(--muted); font-size: 13px }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--muted) } .legend svg { vertical-align: middle }
+.main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start }
+@media (min-width: 1100px) { .main { grid-template-columns: minmax(0, 1fr) 410px } }
+.mapbox { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow-x: auto; min-width: 0 }
+.mapbox svg { display: block; min-width: 940px; width: 100%; height: auto; direction: ltr }
+.tier-name { font: 500 12.5px var(--font) }
+.node rect.box { fill: var(--surface); stroke: var(--line); stroke-width: 1; rx: 6 }
+.node text { font: 500 11.5px var(--font); fill: var(--fg); pointer-events: none } .node .cc { font: 400 9.5px var(--mono); fill: var(--muted) }
+.node { cursor: pointer } .node:hover rect.box { stroke: var(--accent) }
+.node.sel rect.box { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2 } .node.n1 rect.box { stroke: var(--accent); stroke-width: 1.5 }
+.node.dim { opacity: .25 } .node.off { opacity: .08; pointer-events: none } .node.hit rect.box { stroke: var(--hit); stroke-width: 2.5 }
+.edge { fill: none; stroke: var(--link); opacity: .32 } .edge.medium { stroke-dasharray: 5 3 } .edge.low { stroke-dasharray: 1.5 3 }
+.edge.on { stroke: var(--accent); opacity: .95 } .edge.dim { opacity: .05 }
+.edge.people { stroke: var(--warn); stroke-dasharray: 3 3; opacity: .9; stroke-width: 1.4 }
+.card { display: flex; flex-direction: column; gap: 12px }
+.card h2 { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline }
+.tk { font: 500 13px var(--mono); color: var(--muted); direction: ltr } .sub { color: var(--muted); font-size: 13.5px; margin: 0 }
+.tabs { display: flex; flex-wrap: wrap; gap: 2px; border-bottom: 1px solid var(--line) }
+.tabs button { font-size: 14px; font-weight: 500; color: var(--muted); background: none; border: 0; border-bottom: 2px solid transparent; padding: 6px 9px; cursor: pointer }
+.tabs button[aria-selected=true] { color: var(--accent); border-bottom-color: var(--accent) }
+.kv { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px }
+.kv div { display: flex; flex-direction: column } .kv span { font-size: 12px; color: var(--muted) }
+.kv b { font: 500 15px var(--mono); direction: ltr; text-align: right; font-variant-numeric: tabular-nums }
+.card h3 { margin-top: 6px }
+
+/* ---- pulses ---- */
+.dur { display: grid; grid-template-columns: minmax(120px, 230px) minmax(0, 1fr) auto; gap: 6px 12px; align-items: center; font-size: 14px }
+@media (max-width: 640px) { .dur { grid-template-columns: minmax(0, 1fr) } .dur .track { margin-bottom: 0 } .dur > span:nth-child(3n) { margin-bottom: 10px } }
+.dur .track { height: 12px; background: var(--raised); border-radius: 6px; position: relative; direction: ltr }
+.dur .track i { position: absolute; top: 0; bottom: 0; background: var(--accent); border-radius: 6px; min-width: 6px }
+.heat td.c { text-align: center; font: 500 12.5px var(--mono); direction: ltr; min-width: 52px }
+.spark { display: block; width: 100%; height: 70px }
+.qbars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; align-items: end; height: 96px; direction: ltr }
+.qbars div { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 2px; height: 100%; font: 400 11.5px var(--mono); color: var(--muted) }
+.qbars i { display: block; width: 100%; background: var(--accent); border-radius: 4px 4px 0 0; opacity: .85 }
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>מפת שרשרת השבבים <span class="draft">סקיצה לאישור</span></h1>
+      <p class="lead">איך שבב נולד, מי מספק למי, ובאיזה קצב זזים הכסף והסחורה. 77 חברות, 132 קשרים, ולכל טענה מקור.</p>
+    </div>
+    <div class="tools">
+      <div class="views" role="tablist" aria-label="מבטים">
+        <button role="tab" data-view="story">הסיפור</button>
+        <button role="tab" data-view="map">המפה</button>
+        <button role="tab" data-view="pulses">הפעימות</button>
+      </div>
+      <button class="theme" id="theme" type="button">מצב כהה</button>
+    </div>
+  </div>
+
+  <section id="v-story" class="wrap" style="gap:16px"></section>
+
+  <section id="v-map" class="wrap" style="gap:12px" hidden>
+    <div class="bar">
+      <label for="q">חיפוש <input type="search" id="q" list="names" placeholder="שם חברה או סימול" autocomplete="off"></label><datalist id="names"></datalist>
+      <label for="f-country">מדינה <select id="f-country"><option value="">הכול</option></select></label>
+      <label for="f-tier">שלב <select id="f-tier"><option value="">הכול</option></select></label>
+      <label for="f-seg">סוג מוצר <select id="f-seg"><option value="">הכול</option></select></label>
+      <label for="f-size">שווי שוק <select id="f-size"><option value="0">הכול</option><option value="1e10">מעל 10 מיליארד דולר</option><option value="1e11">מעל 100 מיליארד דולר</option><option value="1e12">מעל טריליון דולר</option></select></label>
+      <label for="f-emp">עובדים <select id="f-emp"><option value="0">הכול</option><option value="10000">מעל 10 אלף</option><option value="50000">מעל 50 אלף</option><option value="100000">מעל 100 אלף</option></select></label>
+      <label for="f-conf">ביטחון בקשר <select id="f-conf"><option value="low">כל הקשרים</option><option value="medium">בלי היסקים</option><option value="high">מאומתים בלבד</option></select></label>
+      <label for="f-mat">מהותיות <select id="f-mat"><option value="">כל הקשרים</option><option value="1">קשרים מהותיים בלבד</option></select></label>
+      <label for="ev">אירוע עבר <select id="ev"><option value="">בלי אירוע</option></select></label>
+      <label for="f-role">תפקיד באירוע <select id="f-role"><option value="">הכול</option></select></label>
+      <label><input type="checkbox" id="f-il"> אתר בישראל</label>
+      <label><input type="checkbox" id="ppl"> קשרי אנשים של הנבחרת</label>
+      <button class="theme" id="reset" type="button">ניקוי פילטרים</button>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="legend">
+      <span><svg width="34" height="8"><line x1="0" y1="4" x2="34" y2="4" stroke="currentColor" stroke-width="1.5"/></svg> מאומת מדוח או מרשימה רשמית</span>
+      <span><svg width="34" height="8"><line x1="0" y1="4" x2="34" y2="4" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 3"/></svg> עיתונות</span>
+      <span><svg width="34" height="8"><line x1="0" y1="4" x2="34" y2="4" stroke="currentColor" stroke-width="1.5" stroke-dasharray="1.5 3"/></svg> היסק או מקור משני</span>
+      <span><svg width="34" height="8"><line x1="0" y1="4" x2="34" y2="4" stroke="currentColor" stroke-width="3.5"/></svg> קו עבה: קשר מהותי</span>
+      <span id="evlegend" hidden>צבע החברה: תנועה חריגה ב-3 ימים אחרי האירוע. מסגרת סגולה: נפגעה ישירות.</span>
+    </div>
+    <div class="main">
+      <div class="mapbox"><svg id="map" role="img" aria-label="מפת קשרי ספק ולקוח בשרשרת השבבים"></svg></div>
+      <aside class="panel card" id="card" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="v-pulses" class="wrap" style="gap:16px" hidden></section>
+
+  <p class="note">הנתונים נאספו ב-11 בנובמבר 2026. מספרים על חברות מגיעים מ-Yahoo Finance, מדיווחי SEC ומהדיווחים החודשיים של חברות טייוואניות. ההסברים מגיעים מדוחות שנתיים וממקורות ענפיים, והמקור מקושר ליד כל טענה. התאמה של אדם בין שתי חברות נעשתה לפי שם בלבד ולא אומתה. זה כלי מחקר ולמידה אישי, לא המלצת השקעה.</p>
+</div>
+
+<script>
+const D = /*__DATA__*/null;
+const HE = { tiers: { materials: "חומרי גלם", subsystems: "תת-מערכות", equipment: "ציוד ייצור", manufacturing: "ייצור שבבים",
+  packaging: "אריזה ובדיקה", design: "תכנון שבבים", systems: "מערכות ולקוחות קצה" },
+  roles: { hit: "נפגעה ישירות", down1: "לקוחה של נפגעת", down2: "לקוחה של לקוחה", up1: "ספקית של נפגעת", up2: "ספקית של ספקית",
+    rival: "מתחרה של נפגעת", control: "לא קשורה" },
+  conf: { high: "מאומת", medium: "עיתונות", low: "לא מאומת" },
+  kind: { report: "מהדוח של החברה", industry: "מקור ענפי", press: "עיתונות" },
+  type: { filing: "דוח שנתי", "official-list": "רשימת ספקים רשמית", "annual-report": "דוח שנתי", "press-release": "הודעה לעיתונות",
+    press: "עיתונות", aggregator: "אתר מרכז נתונים", inferred: "היסק", "search-snippet": "תקציר חיפוש" },
+  country: { US: "ארה\"ב", JP: "יפן", TW: "טייוואן", KR: "קוריאה", DE: "גרמניה", NL: "הולנד", IL: "ישראל", CN: "סין", FR: "צרפת", CH: "שווייץ" } };
+const $ = id => document.getElementById(id);
+const byId = Object.fromEntries(D.nodes.map(n => [n.id, n]));
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const usd = v => !v ? "–" : (v < 0 ? "-" : "") + "$" + (Math.abs(v) >= 1e12 ? (Math.abs(v) / 1e12).toFixed(2) + "T" : Math.abs(v) >= 1e9 ? (Math.abs(v) / 1e9).toFixed(Math.abs(v) >= 1e11 ? 0 : 1) + "B" : (Math.abs(v) / 1e6).toFixed(0) + "M");
+const f1 = (v, m = 1, s = "") => v == null ? "–" : (v * m).toFixed(1) + s;
+const pct = v => v == null ? "–" : `<span class="num ${v < 0 ? "neg" : v > 0 ? "pos" : ""}">${v > 0 ? "+" : ""}${v}%</span>`;
+const src = k => k && D.sources[k] ? ` <a class="src" href="${esc(D.sources[k][1])}" target="_blank" rel="noopener" title="${esc(D.sources[k][0])}">${esc(D.sources[k][0])}</a>` : "";
+const go = id => `<button class="go" data-go="${id}">${esc(byId[id].name)}</button>`;
+const tcol = t => `var(--t${D.tiers.indexOf(t) + 1})`;
+
+/* ---------------- views + theme ---------------- */
+let view = "story";
+function show(v) { view = ["story", "map", "pulses"].includes(v) ? v : "story";
+  for (const k of ["story", "map", "pulses"]) $("v-" + k).hidden = k !== view;
+  document.querySelectorAll(".views button").forEach(b => b.setAttribute("aria-selected", b.dataset.view === view));
+  if (location.hash.slice(1) !== view) history.replaceState(null, "", "#" + view); }
+document.querySelector(".views").addEventListener("click", e => { const b = e.target.closest("button"); if (b) show(b.dataset.view); });
+addEventListener("hashchange", () => show(location.hash.slice(1)));
+const root = document.documentElement;
+const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+const themeLabel = () => { $("theme").textContent = isDark() ? "מצב בהיר" : "מצב כהה"; };
+try { const t = localStorage.getItem("chipmap-theme"); if (t) root.dataset.theme = t; } catch (e) {}
+$("theme").addEventListener("click", () => { root.dataset.theme = isDark() ? "light" : "dark";
+  try { localStorage.setItem("chipmap-theme", root.dataset.theme); } catch (e) {} themeLabel(); });
+themeLabel();
+
+/* ---------------- story ---------------- */
+function story() {
+  const clock = `<div class="panel"><h2>שעון השרשרת</h2><p class="sub" style="margin:4px 0 12px">כמה זמן לוקח כל דבר. אלה המספרים שקובעים מתי זעזוע בחוליה אחת מגיע לבאה.</p>
+    <div class="clock">${D.clock.map(c => `<div><b>${esc(c[1])}</b><span>${esc(c[0])}${src(c[2])}</span></div>`).join("")}</div></div>`;
+  const stages = D.tiers.map((t, i) => { const s = D.stages[t], a = D.agg[t];
+    const li = (items, withKind) => `<ul class="rows">${items.map(it => withKind
+      ? `<li><span class="pill ${it[0]}">${HE.kind[it[0]]}</span> ${esc(it[1])}${src(it[2])}</li>` : `<li>${esc(it[0])}${src(it[1])}</li>`).join("")}</ul>`;
+    return `<article class="panel stage" style="--tc:${tcol(t)}">
+      <header><span class="no">שלב ${i + 1} מתוך 7</span><h2>${esc(s.title)}</h2><span class="badge">${esc(s.badge)}</span></header>
+      <p class="what">${esc(s.what)}</p>
+      <div class="stats">
+        <div><span>חברות במפה</span><b class="num">${a.n}</b></div>
+        <div><span>איפה הן יושבות</span><b style="font-size:14px">${a.countries.slice(0, 4).map(c => `${HE.country[c[0]] || c[0]} ${c[1]}`).join(" · ")}</b></div>
+        <div><span>עובדים, סך הכול</span><b class="num">${Math.round(a.employees / 1000).toLocaleString("en")}K</b></div>
+        <div><span>הכנסות שנתיות, סך הכול</span><b class="num">${usd(a.revenue)}</b></div>
+        <div><span>רווח נקי, סך הכול</span><b class="num">${usd(a.net)}</b></div>
+        <div><span>רווח גולמי חציוני</span><b class="num">${f1(a.gm, 100, "%")}</b></div>
+      </div>
+      <div><h3 style="margin-bottom:6px">השחקניות הגדולות במפה, לפי הכנסות</h3><div class="chips">${a.top.map(id => `<button data-go="${id}">${esc(byId[id].name)} <span class="num" style="color:var(--muted)">${usd(byId[id].info.revenueUSD)}</span></button>`).join("")}</div></div>
+      <div class="cols">
+        <div><h3>הפעימה: איך מזמינים, כל כמה זמן ובאיזה גודל</h3>${li(s.pulse, true)}</div>
+        <div><h3>מה כדאי לדעת</h3>${li(s.facts)}<h3 style="margin-top:8px">נקודות חנק</h3>${li(s.choke)}</div>
+      </div></article>`; });
+  $("v-story").innerHTML = clock + stages.join('<div class="arrow" aria-hidden="true">▼</div>') +
+    `<p class="note">שורת המספרים בכל שלב מחושבת מהחברות שבמפה בלבד, לא מכל הענף. בשלב האחרון ההכנסות כוללות את כל הפעילות של חברות כמו אפל ומיקרוסופט, לא רק שבבים.</p>`;
+}
+$("v-story").addEventListener("click", e => { const b = e.target.closest("[data-go]"); if (b) { show("map"); select(b.dataset.go); } });
+
+/* ---------------- map ---------------- */
+const W = 1180, NW = 118, NH = 22, GAP = 7, TOP = 44;
+const cols = D.tiers.map(t => D.nodes.filter(n => n.tier === t));
+const colX = i => W - 40 - NW - i * ((W - 80 - NW) / (D.tiers.length - 1));
+const H = TOP + Math.max(...cols.map(c => c.length)) * (NH + GAP) + 16;
+cols.forEach((c, i) => { const off = (H - TOP - 16 - c.length * (NH + GAP)) / 2;
+  c.forEach((n, j) => { n.x = colX(i); n.y = TOP + off + j * (NH + GAP); n.col = i; }); });
+const svg = $("map"), NS = "http://www.w3.org/2000/svg";
+svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+const el = (tag, attrs, parent, text) => { const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; parent.appendChild(e); return e; };
+D.tiers.forEach((t, i) => el("text", { x: colX(i) + NW / 2, y: 24, "text-anchor": "middle", class: "tier-name", direction: "rtl", style: `fill:${tcol(t)}` }, svg, HE.tiers[t]));
+const gE = el("g", {}, svg), gP = el("g", {}, svg), gN = el("g", {}, svg);
+function path(a, b) {
+  if (a.col === b.col) { const x = a.x + NW, bend = 26 + Math.abs(a.y - b.y) * 0.12;
+    return `M${x} ${a.y + NH / 2}C${x + bend} ${a.y + NH / 2},${x + bend} ${b.y + NH / 2},${x} ${b.y + NH / 2}`; }
+  const left = b.x < a.x, x1 = left ? a.x : a.x + NW, x2 = left ? b.x + NW : b.x, m = (x1 + x2) / 2;
+  return `M${x1} ${a.y + NH / 2}C${m} ${a.y + NH / 2},${m} ${b.y + NH / 2},${x2} ${b.y + NH / 2}`; }
+D.edges.forEach(e => { e.material = e.crit || Number(e.share) >= 10;
+  e.el = el("path", { d: path(byId[e.s], byId[e.t]), class: "edge " + e.conf, "stroke-width": e.material ? 2.4 : 1 }, gE); });
+D.nodes.forEach(n => { const g = el("g", { class: "node", tabindex: 0, role: "button", "aria-label": n.name }, gN);
+  n.rect = el("rect", { x: n.x, y: n.y, width: NW, height: NH, class: "box" }, g);
+  el("rect", { x: n.x, y: n.y + 3, width: 3, height: NH - 6, rx: 1.5, style: `fill:${tcol(n.tier)}` }, g);
+  el("text", { x: n.x + 9, y: n.y + 15 }, g, n.name.length > 16 ? n.name.slice(0, 15) + "…" : n.name);
+  el("text", { x: n.x + NW - 5, y: n.y + 15, "text-anchor": "end", class: "cc" }, g, n.country);
+  n.g = g; g.addEventListener("click", () => select(n.id));
+  g.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); select(n.id); } }); });
+
+let cur = "TSMC", tab = "links", evId = "";
+const RANK = { low: 0, medium: 1, high: 2 };
+const edgeOk = e => RANK[e.conf] >= RANK[$("f-conf").value] && (!$("f-mat").value || e.material);
+function nodeOk(n) { const i = n.info;
+  return (!$("f-country").value || n.country === $("f-country").value) && (!$("f-tier").value || n.tier === $("f-tier").value)
+    && (!$("f-seg").value || n.segment === $("f-seg").value) && (i.marketCapUSD || 0) >= Number($("f-size").value)
+    && (i.fullTimeEmployees || 0) >= Number($("f-emp").value) && (!$("f-il").checked || n.israel)
+    && (!$("f-role").value || !evId || (n.ev[evId] && n.ev[evId].role === $("f-role").value)); }
+function paint() {
+  const ok = new Set(D.nodes.filter(nodeOk).map(n => n.id)), n1 = new Set(), n2 = new Set();
+  const vis = e => edgeOk(e) && ok.has(e.s) && ok.has(e.t);
+  D.edges.forEach(e => { e.v = vis(e); e.el.style.display = e.v ? "" : "none"; e.on = e.v && (e.s === cur || e.t === cur);
+    if (e.on) n1.add(e.s === cur ? e.t : e.s); });
+  D.edges.forEach(e => { if (e.v && !e.on && (n1.has(e.s) || n1.has(e.t))) { n2.add(e.s); n2.add(e.t); } });
+  D.edges.forEach(e => e.el.setAttribute("class", "edge " + e.conf + (e.on ? " on" : " dim")));
+  const ev = D.events.find(x => x.id === evId);
+  D.nodes.forEach(n => { const c = ["node"];
+    if (!ok.has(n.id)) c.push("off"); else if (n.id === cur) c.push("sel"); else if (n1.has(n.id)) c.push("n1"); else if (!n2.has(n.id)) c.push("dim");
+    if (ev && ev.hit.includes(n.id)) c.push("hit");
+    n.g.setAttribute("class", c.join(" "));
+    let fill = "";
+    if (ev && n.ev[evId]) { const v = Math.max(-10, Math.min(10, n.ev[evId].d3)), a = Math.round(Math.abs(v) / 10 * 70);
+      fill = `color-mix(in srgb, var(${v < 0 ? "--down" : "--up"}) ${a}%, var(--surface))`; }
+    n.rect.style.fill = fill; });
+  gP.replaceChildren();
+  if ($("ppl").checked) { const seen = new Set();
+    byId[cur].people.forEach(p => p.also.forEach(o => { if (!seen.has(o) && byId[o]) { seen.add(o);
+      el("path", { d: path(byId[cur], byId[o]), class: "edge people" }, gP); byId[o].g.classList.remove("dim"); } })); }
+  $("evlegend").hidden = !ev; $("f-role").disabled = !ev;
+  $("count").textContent = `מוצגות ${ok.size} מתוך ${D.nodes.length} חברות, ${D.edges.filter(e => e.v).length} קשרים`;
+}
+function qbars(s) { const v = ["Q1", "Q2", "Q3", "Q4"].map(k => s[k]), lo = Math.min(...v, 90) - 4, hi = Math.max(...v, 110);
+  return `<div class="qbars">${v.map((x, i) => `<div><span class="num">${x.toFixed(0)}</span><i style="height:${Math.max(6, (x - lo) / (hi - lo) * 100)}%"></i><span>Q${i + 1}</span></div>`).join("")}</div>`; }
+function spark(a) { const lo = Math.min(...a), hi = Math.max(...a), w = 300, h = 70;
+  const pts = a.map((v, i) => `${(i / (a.length - 1) * w).toFixed(1)},${(h - 6 - (v - lo) / (hi - lo || 1) * (h - 12)).toFixed(1)}`).join(" ");
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="הכנסות חודשיות"><polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>`; }
+function pulseHtml(n) { const p = n.pulse || {}, out = [];
+  if (p.monthly) out.push(`<h3>הכנסות חודשיות, 36 חודשים אחרונים (מיליארדי דולר טייוואני)</h3>${spark(p.monthly.series)}
+    <p class="sub">החודש האחרון: ${esc(p.monthly.last)}, ${pct(p.monthly.yoy)} לעומת אותו חודש אשתקד. מתפרסם עד ה-10 בכל חודש.</p>`);
+  if (p.seasonality) out.push(`<h3>עונתיות לפי רבעון קלנדרי (100 = רבעון רגיל)</h3>${qbars(p.seasonality)}`);
+  const kv = [];
+  if (p.inventory_days) kv.push(["ימי מלאי", p.inventory_days.latest + ""], ["ימי מלאי, חציון 5 שנים", p.inventory_days.median_5y + ""]);
+  if (p.purchase_obligation) kv.push(["התחייבויות רכש לספקים", usd(p.purchase_obligation.value)]);
+  if (p.purchase_obligation_next_12m) kv.push(["מתוכן בתוך 12 חודשים", usd(p.purchase_obligation_next_12m.value)]);
+  if (p.remaining_performance_obligation) kv.push(["התחייבויות של לקוחות", usd(p.remaining_performance_obligation.value)]);
+  if (p.customer_prepayments) kv.push(["מקדמות מלקוחות", usd(p.customer_prepayments.value)]);
+  if (kv.length) out.push(`<div class="kv">${kv.map(k => `<div><span>${k[0]}</span><b>${k[1]}</b></div>`).join("")}</div>`);
+  const st = D.stages[n.tier];
+  out.push(`<h3>מה נהוג בשלב הזה</h3><p class="sub">${esc(st.badge)}</p>`);
+  if (!p.monthly && !p.seasonality) out.unshift(`<p class="sub">לחברה הזאת אין נתוני קצב ממקור חינמי. נתונים רבעוניים זמינים רק לחברות שמדווחות ל-SEC בפורמט אמריקאי, וחודשיים רק לחברות טייוואניות.</p>`);
+  return out.join(""); }
+function card() { const n = byId[cur], i = n.info;
+  const ins = D.edges.filter(e => e.t === cur && edgeOk(e)), outs = D.edges.filter(e => e.s === cur && edgeOk(e));
+  const row = (e, other) => `<li><div class="r1">${go(other)}<span class="pill ${e.conf}">${HE.conf[e.conf]}</span>${e.crit ? '<span class="pill crit">הלקוח תלוי בספק</span>' : ""}${
+    e.share ? `<span class="num">${e.share}%</span><span class="r2">מהכנסות הספק (${e.year})</span>` : ""}</div>
+    <div class="r2">${esc(e.what)} · ${HE.type[e.type] || e.type}${e.url ? ` · <a href="${esc(e.url)}" target="_blank" rel="noopener">מקור</a>` : ""}${e.note ? " · " + esc(e.note) : ""}</div></li>`;
+  const tabs = { links: "אספקה", stats: "נתונים", pulse: "פעימה", people: "אנשים ובעלים", events: "אירועים" };
+  let body = "";
+  if (tab === "links") body = `<h3>לקוחות (${outs.length})</h3><ul class="rows">${outs.map(e => row(e, e.t)).join("") || "<li class='r2'>לא נמצאו לקוחות מתועדים</li>"}</ul>
+    <h3>ספקים (${ins.length})</h3><ul class="rows">${ins.map(e => row(e, e.s)).join("") || "<li class='r2'>לא נמצאו ספקים מתועדים</li>"}</ul>`;
+  if (tab === "stats") body = `<div class="kv">
+    <div><span>הכנסות שנתיות</span><b>${usd(i.revenueUSD)}</b></div><div><span>רווח נקי</span><b>${usd(i.netIncomeUSD)}</b></div>
+    <div><span>שווי שוק</span><b>${usd(i.marketCapUSD)}</b></div><div><span>עובדים</span><b>${i.fullTimeEmployees ? i.fullTimeEmployees.toLocaleString("en") : "–"}</b></div>
+    <div><span>רווח גולמי</span><b>${f1(i.grossMargins, 100, "%")}</b></div><div><span>רווח תפעולי</span><b>${f1(i.operatingMargins, 100, "%")}</b></div>
+    <div><span>מכפיל רווח</span><b>${f1(i.trailingPE)}</b></div><div><span>צמיחת הכנסות</span><b>${f1(i.revenueGrowth, 100, "%")}</b></div>
+    <div><span>שינוי ב-52 שבועות</span><b>${f1(i.fiftyTwoWeekChange, 100, "%")}</b></div><div><span>בטא</span><b>${f1(i.beta)}</b></div>
+    <div><span>מוחזק בידי מוסדיים</span><b>${f1(i.heldPercentInstitutions, 100, "%")}</b></div><div><span>מוחזק בידי בעלי עניין</span><b>${f1(i.heldPercentInsiders, 100, "%")}</b></div></div>
+    <h3>מטה</h3><p class="sub">${esc([i.city, i.country].filter(Boolean).join(", ") || "–")}</p><h3>אתרי ייצור</h3><p class="sub">${esc(n.sites)}</p>`;
+  if (tab === "pulse") body = pulseHtml(n);
+  if (tab === "people") body = `<h3>נושאי משרה ודירקטורים</h3><ul class="rows">${n.people.map(p => `<li><div class="r1"><span>${esc(p.n)}</span></div>
+      <div class="r2">${esc(p.t)}${p.also.length ? ` · אותו שם מופיע גם ב: ${p.also.filter(o => byId[o]).map(go).join(", ")}` : ""}</div></li>`).join("") || "<li class='r2'>אין נתונים</li>"}</ul>
+    <h3>מחזיקים מוסדיים גדולים</h3><ul class="rows">${n.holders.map(h => `<li><div class="r1"><span>${esc(h.n)}</span><span class="num">${h.p}%</span>${
+      h.giant ? '<span class="pill">מנהל מדדים</span>' : ""}</div><div class="r2">מופיע בעשרת הגדולים של ${h.also} חברות נוספות במפה</div></li>`).join("") || "<li class='r2'>אין נתונים ממקור חינמי לחברה הזאת</li>"}</ul>`;
+  if (tab === "events") { const rows = D.events.filter(e => n.ev[e.id]).map(e => { const r = n.ev[e.id];
+      return `<tr><td><button class="go" data-ev="${e.id}">${esc(e.name)}</button></td><td>${HE.roles[r.role]}</td><td>${pct(r.d0)}</td><td>${pct(r.d3)}</td><td>${pct(r.d10)}</td></tr>`; }).join("");
+    body = `<p class="sub">תנועה חריגה של המניה, אחרי ניכוי תנועת השוק המקומי, מיום המסחר הראשון שנסגר אחרי האירוע.</p>
+      <div class="scroll"><table><thead><tr><th>אירוע</th><th>התפקיד</th><th>יום 0</th><th>3 ימים</th><th>10 ימים</th></tr></thead><tbody>${rows}</tbody></table></div>`; }
+  $("card").innerHTML = `<div><h2>${esc(n.name)} <span class="tk">${esc(n.ticker)}</span></h2>
+    <p class="sub"><span style="color:${tcol(n.tier)}">●</span> ${HE.tiers[n.tier]} · ${esc(n.segment)} · ${HE.country[n.country] || n.country}</p></div>
+    <div class="tabs" role="tablist">${Object.entries(tabs).map(([k, v]) => `<button role="tab" aria-selected="${k === tab}" data-tab="${k}">${v}</button>`).join("")}</div>
+    <div>${body}</div>`; }
+function select(id) { cur = id; paint(); card(); }
+$("card").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.tab) { tab = b.dataset.tab; card(); } else if (b.dataset.go) select(b.dataset.go);
+  else if (b.dataset.ev) { evId = b.dataset.ev; $("ev").value = evId; paint(); } });
+const opt = (sel, v, t) => { const o = document.createElement("option"); o.value = v; o.textContent = t; $(sel).appendChild(o); };
+D.events.forEach(e => opt("ev", e.id, `${e.name} (${e.ts.slice(0, 10)})`));
+[...new Set(D.nodes.map(n => n.country))].sort().forEach(c => opt("f-country", c, HE.country[c] || c));
+D.tiers.forEach(t => opt("f-tier", t, HE.tiers[t]));
+[...new Set(D.nodes.map(n => n.segment))].sort().forEach(s => opt("f-seg", s, s));
+Object.entries(HE.roles).forEach(([k, v]) => opt("f-role", k, v));
+D.nodes.forEach(n => { const o = document.createElement("option"); o.value = n.name; o.label = n.ticker; $("names").appendChild(o); });
+const FILTERS = ["f-country", "f-tier", "f-seg", "f-size", "f-emp", "f-conf", "f-mat", "f-role", "f-il", "ppl"];
+FILTERS.forEach(id => $(id).addEventListener("change", () => { paint(); card(); }));
+$("ev").addEventListener("change", e => { evId = e.target.value; paint(); });
+$("reset").addEventListener("click", () => { FILTERS.forEach(id => { const x = $(id); if (x.type === "checkbox") x.checked = false; else x.selectedIndex = 0; });
+  $("ev").value = ""; evId = ""; $("q").value = ""; paint(); card(); });
+$("q").addEventListener("change", e => { const v = e.target.value.trim().toLowerCase();
+  const n = D.nodes.find(n => n.name.toLowerCase() === v || n.ticker.toLowerCase() === v) || D.nodes.find(n => v && n.name.toLowerCase().includes(v));
+  if (n) select(n.id); });
+
+/* ---------------- pulses ---------------- */
+const WEEKS = [[156, 260], [52, 78], [104, 208], [52, 104], [12, 20], [6, 6], [18, 26], [208, 208]];
+function pulses() {
+  const lg = w => Math.log(w) / Math.log(300) * 100;
+  const dur = D.clock.map((c, i) => ({ c, w: WEEKS[i] })).sort((a, b) => a.w[0] - b.w[0]).map(({ c, w }) =>
+    `<span>${esc(c[0])}</span><div class="track"><i style="left:${lg(w[0]).toFixed(1)}%;width:${Math.max(1.5, lg(w[1]) - lg(w[0])).toFixed(1)}%"></i></div><span><b>${esc(c[1])}</b>${src(c[2])}</span>`).join("");
+  const heatRows = D.tiers.flatMap(t => D.nodes.filter(n => n.tier === t && n.pulse && n.pulse.seasonality).map(n => { const s = n.pulse.seasonality;
+    const cell = k => { const v = s[k], a = Math.min(60, Math.abs(v - 100) * 4);
+      return `<td class="c" style="background:color-mix(in srgb, var(${v >= 100 ? "--up" : "--down"}) ${a.toFixed(0)}%, transparent)">${v.toFixed(0)}</td>`; };
+    return `<tr><td><span style="color:${tcol(t)}">●</span> ${go(n.id)}</td><td class="r2">${HE.tiers[t]}</td>${["Q1", "Q2", "Q3", "Q4"].map(cell).join("")}
+      <td class="num">${n.pulse.inventory_days ? n.pulse.inventory_days.latest : "–"}</td><td class="num">${n.pulse.purchase_obligation ? usd(n.pulse.purchase_obligation.value) : "–"}</td>
+      <td class="num">${n.pulse.remaining_performance_obligation ? usd(n.pulse.remaining_performance_obligation.value) : "–"}</td></tr>`; }));
+  const monthly = D.nodes.filter(n => n.pulse && n.pulse.monthly).map(n => `<tr><td>${go(n.id)}</td><td class="r2">${HE.tiers[n.tier]}</td>
+    <td style="min-width:140px">${spark(n.pulse.monthly.series)}</td><td>${pct(n.pulse.monthly.yoy)}</td><td class="num">${esc(n.pulse.monthly.last)}</td></tr>`).join("");
+  $("v-pulses").innerHTML = `
+  <div class="panel"><h2>כמה זמן כל דבר לוקח</h2><p class="sub" style="margin:4px 0 14px">מהקצר לארוך, בסולם לוגריתמי: כל צעד ימינה הוא בערך פי שלושה יותר זמן.</p><div class="dur">${dur}</div></div>
+  <div class="panel"><h2>הפעימה של כל שלב</h2><div class="scroll" style="margin-top:10px"><table><thead><tr><th>שלב</th><th>הקצב בקצרה</th><th>איך מזמינים</th></tr></thead><tbody>${
+    D.tiers.map(t => `<tr><td style="white-space:nowrap"><span style="color:${tcol(t)}">●</span> ${HE.tiers[t]}</td><td>${esc(D.stages[t].badge)}</td><td>${(it => esc(it[1]) + src(it[2]))(D.stages[t].pulse.find(it => /מזמינ|הזמנ|חוז|התחייבו/.test(it[1])) || D.stages[t].pulse[0])}</td></tr>`).join("")}</tbody></table></div></div>
+  <div class="panel"><h2>לוח השנה: מה מתפרסם ומתי</h2><p class="sub" style="margin:4px 0 10px">אלה הנתונים שמאפשרים לעקוב אחרי השרשרת בזמן אמת, מהתדיר לנדיר.</p><div class="scroll"><table><thead><tr><th>תדירות</th><th>מתי</th><th>מה</th><th>מי מפרסם</th></tr></thead><tbody>${
+    D.calendar.map(c => `<tr><td style="white-space:nowrap">${esc(c[0])}</td><td>${esc(c[1]) || "–"}</td><td>${esc(c[2])}${src(c[4])}${c[5] ? "" : ' <span class="pill low">לא אומת</span>'}</td><td>${esc(c[3])}</td></tr>`).join("")}</tbody></table></div></div>
+  <div class="panel"><h2>הכנסות חודשיות של חברות טייוואניות</h2><p class="sub" style="margin:4px 0 10px">זה הדופק המהיר ביותר בשרשרת: 36 החודשים האחרונים לכל חברה.</p><div class="scroll"><table><thead><tr><th>חברה</th><th>שלב</th><th>מגמה</th><th>לעומת אשתקד</th><th>חודש אחרון</th></tr></thead><tbody>${monthly}</tbody></table></div></div>
+  <div class="panel"><h2>עונתיות, מלאי והתחייבויות לפי חברה</h2><p class="sub" style="margin:4px 0 10px">מחושב מהדוחות הרבעוניים ב-SEC. עונתיות: 100 הוא רבעון רגיל, אחרי ניכוי מגמת הצמיחה. זמין רק לחברות שמדווחות בפורמט אמריקאי.</p>
+    <div class="scroll"><table class="heat"><thead><tr><th>חברה</th><th>שלב</th><th>רבעון 1</th><th>רבעון 2</th><th>רבעון 3</th><th>רבעון 4</th><th>ימי מלאי</th><th>התחייבויות רכש</th><th>התחייבויות של לקוחות</th></tr></thead><tbody>${heatRows.join("")}</tbody></table></div></div>`;
+}
+$("v-pulses").addEventListener("click", e => { const b = e.target.closest("[data-go]"); if (b) { show("map"); tab = "pulse"; select(b.dataset.go); } });
+
+story(); pulses(); select(cur); show(location.hash.slice(1) || "story");
+</script>

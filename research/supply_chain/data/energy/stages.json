@@ -1,0 +1,975 @@
+{
+ "sources": {
+  "IEA-WEI26": [
+   "IEA, דוח ההשקעות באנרגיה 2026, דרך Balkan Green Energy News (מקור משני)",
+   "https://balkangreenenergynews.com/iea-middle-east-conflict-is-reinforcing-shift-towards-security-trust-diversity-in-energy-sector/"
+  ],
+  "IGU26": [
+   "IGU, דוח ה-LNG העולמי, יולי 2026",
+   "https://igu.org/press-releases/world-lng-report-2026"
+  ],
+  "WNA-U": [
+   "World Nuclear Association, ייצור אורניום בעולם",
+   "https://world-nuclear.org/information-library/nuclear-fuel-cycle/mining-of-uranium/world-uranium-mining-production"
+  ],
+  "CSIS-PV": [
+   "CSIS, נתוני איגוד התעשייה הסיני ל-2024",
+   "https://www.csis.org/analysis/chinas-solar-industry-upheaval-effects-will-be-global"
+  ],
+  "WM-INV": [
+   "Wood Mackenzie, יולי 2025",
+   "https://www.woodmac.com/es/press-releases/global-pv-inverter-shipments-grew-by-10-in-2024-to-589-gwac/"
+  ],
+  "GWEC26": [
+   "GWEC, אפריל 2026",
+   "https://www.gwec.net/news/global-wind-installations-rise-record-40-as-industry-charts-way-out-of-energy-crisis"
+  ],
+  "EMBER26": [
+   "Ember, סקירת החשמל העולמית, אפריל 2026",
+   "https://ember-energy.org/latest-insights/global-electricity-review-2026/"
+  ],
+  "IEA-GRID": [
+   "IEA, דוח על רשת ההולכה, דרך T&D World, פברואר 2025",
+   "https://tdworld.com/grid-innovations/transmission/news/55271204/iea-report-rising-component-prices-and-supply-chain-pressures-obstruct-development-of-transmission-grid-infrastructure"
+  ],
+  "TNW": [
+   "The Next Web, 2026 (מקור משני)",
+   "https://thenextweb.com/news/us-power-companies-scramble-data-centre-equipment"
+  ],
+  "ST": [
+   "Simple Thread, ספטמבר 2026 (מקור משני)",
+   "https://www.simplethread.com/the-equipment-doesnt-wait-for-the-approval/"
+  ],
+  "LBNL26": [
+   "Berkeley Lab, Queued Up 2026, דרך APPA, יולי 2026",
+   "https://www.publicpower.org/node/30574"
+  ],
+  "IEA-AI": [
+   "IEA, Energy and AI, דרך Scientific American, אפריל 2025",
+   "https://scientificamerican.com/article/ai-will-drive-doubling-of-data-center-energy-demand-by-2030"
+  ],
+  "PJM26": [
+   "PJM, יולי 2026",
+   "https://insidelines.pjm.com/pjm-capacity-auction-procures-138318-mw-of-generation-resources-as-work-continues-to-address-growing-electricity-demand/"
+  ],
+  "UD-MHI": [
+   "Utility Dive, אוגוסט 2025",
+   "https://utilitydive.com/news/georgia-power-natural-gas-turbine-delivery-delays-mitsubishi/758252"
+  ],
+  "TERNA-PRY": [
+   "Prysmian, הודעה לעיתונות, נובמבר 2021",
+   "https://www.prysmian.com/en/media/press-releases/prysmian-awarded-framework-contract-by-terna"
+  ],
+  "NEX-TERNA": [
+   "Offshore Engineer, 2022",
+   "https://www.oedigital.com/news/492468-nexans-wins-738m-italian-subsea-power-cable-contract"
+  ],
+  "EGL3": [
+   "T&D World, מרץ 2026",
+   "https://tdworld.com/overhead-transmission/article/55361768/uk-eastern-green-link-3-transmission-project-signs-contracts"
+  ],
+  "OP-LNG": [
+   "OilPrice, 2026 (מקור משני)",
+   "https://oilprice.com/Energy/Natural-Gas/LNG-Supply-Crisis-Pushes-Buyers-Toward-Coal-and-Oil.html"
+  ],
+  "WO-QATAR": [
+   "World Oil / Bloomberg, מרץ 2026",
+   "https://worldoil.com/news/2026/3/2/qatar-shuts-ras-laffan-lng-plant-after-iranian-drone-strike/"
+  ],
+  "NESO": [
+   "NESO, דוח על תחנת North Hyde, 2025",
+   "https://www.neso.energy/national-energy-system-operator-publishes-final-report-review-north-hyde-substation-outage"
+  ],
+  "ORSTED-RW": [
+   "Ørsted, הודעת חברה, אוגוסט 2025",
+   "https://orsted.com/en/company-announcement-list/2025/08/revolution-wind-receives-offshore-stop-work-order--145387701"
+  ],
+  "MINING-U": [
+   "Mining.com / Bloomberg, נובמבר 2024",
+   "https://www.mining.com/web/russia-temporarily-limits-nuclear-fuel-shipments-to-us/"
+  ],
+  "OBBBA-PF": [
+   "Norton Rose Fulbright, יולי 2025",
+   "https://www.projectfinance.law/publications/2025/july/effects-of-one-big-beautiful-bill-on-projects/"
+  ],
+  "HS3": [
+   "Hornsea 3, אתר הפרויקט, ספטמבר 2026",
+   "https://hornseaproject3.co.uk/news/2026/08/first-uk-blades-produced-for-orsteds-hornsea-3-offshore-wind-farm"
+  ],
+  "TN-ENRG": [
+   "TaiyangNews, יולי 2023",
+   "https://taiyangnews.info/business/big-order-for-first-solar-modules"
+  ],
+  "ENRG-G": [
+   "Energix, הודעה לעיתונות, אוגוסט 2024",
+   "https://new.energix-group.com/?p=1161"
+  ],
+  "OW-TSMC": [
+   "offshoreWIND.biz, יולי 2020",
+   "https://offshorewind.biz/2020/07/08/worlds-largest-renewable-energy-corporate-power-purchase-agreement-signed-in-taiwan"
+  ],
+  "PVM-LG": [
+   "pv magazine, אוגוסט 2025",
+   "https://www.pv-magazine.com/2025/08/01/tesla-taps-lg-energy-for-us-storage-batteries-in-4-3-billion-deal/"
+  ],
+  "NEE-PR": [
+   "NextEra, הודעה לעיתונות, אוקטובר 2025",
+   "https://investor.nexteraenergy.com/news-and-events/news-releases/2025/10-27-2025-203948689"
+  ],
+  "EIA-NG": [
+   "EIA, לוח הפרסום של דוח מלאי הגז",
+   "https://ir.eia.gov/ngs/schedule.html"
+  ],
+  "EIA-WPSR": [
+   "EIA, לוח הפרסום של דוח מלאי הנפט",
+   "https://www.eia.gov/petroleum/supply/weekly/schedule.php"
+  ],
+  "EIA-EPM": [
+   "EIA, Electric Power Monthly",
+   "https://www.eia.gov/electricity/monthly/"
+  ],
+  "EIA-STEO": [
+   "EIA, Short-Term Energy Outlook",
+   "https://www.eia.gov/outlooks/steo/"
+  ],
+  "W-VINE": [
+   "ויקיפדיה: Vineyard Wind",
+   "https://en.wikipedia.org/wiki/Vineyard_Wind"
+  ],
+  "W-MOSS": [
+   "ויקיפדיה: Moss Landing Power Plant",
+   "https://en.wikipedia.org/wiki/Moss_Landing_Power_Plant"
+  ],
+  "W-IBERIA": [
+   "ויקיפדיה: ההחשכה בחצי האי האיברי 2025",
+   "https://en.wikipedia.org/wiki/2025_Iberian_Peninsula_blackout"
+  ],
+  "W-CAMP": [
+   "ויקיפדיה: Camp Fire (2018)",
+   "https://en.wikipedia.org/wiki/Camp_Fire_(2018)"
+  ],
+  "LNG": [
+   "Cheniere, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/3570/000000357026000005/lng-20251231.htm"
+  ],
+  "SPL": [
+   "Sabine Pass Liquefaction, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1499200/000149920026000002/spl-20251231.htm"
+  ],
+  "DQ": [
+   "Daqo, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1477641/000110465926045134/dq-20251231x20f.htm"
+  ],
+  "FSLR": [
+   "First Solar, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1274494/000127449426000021/fslr-20251231.htm"
+  ],
+  "ENPH": [
+   "Enphase, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1463101/000146310126000013/enph-20251231.htm"
+  ],
+  "SEDG": [
+   "SolarEdge, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1419612/000117891326000632/zk2634374.htm"
+  ],
+  "NXT": [
+   "Nextpower, דוח שנתי לשנה שהסתיימה במרץ 2026",
+   "https://www.sec.gov/Archives/edgar/data/1852131/000185213126000017/nxt-20260331.htm"
+  ],
+  "TSLA": [
+   "Tesla, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm"
+  ],
+  "FLNC": [
+   "Fluence, דוח שנתי לשנה שהסתיימה בספטמבר 2025",
+   "https://www.sec.gov/Archives/edgar/data/1868941/000186894125000081/flnc-20250930.htm"
+  ],
+  "GEV": [
+   "GE Vernova, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1996810/000199681026000015/gev-20251231.htm"
+  ],
+  "GEV-Q3": [
+   "GE Vernova, דוח רבעון שלישי 2026",
+   "https://www.sec.gov/Archives/edgar/data/1996810/000199681026000163/gev-20260930.htm"
+  ],
+  "ETN": [
+   "Eaton, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1551182/000155118226000007/etn-20251231.htm"
+  ],
+  "BE": [
+   "Bloom Energy, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1664703/000162828026006516/be-20251231.htm"
+  ],
+  "PWR": [
+   "Quanta, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1050915/000105091526000006/pwr-20251231.htm"
+  ],
+  "ENLT": [
+   "Enlight, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1922641/000117891326001828/zk2634901.htm"
+  ],
+  "ORA": [
+   "Ormat, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1296445/000129644526000006/ora-20251231.htm"
+  ],
+  "NEE": [
+   "NextEra, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/753308/000075330826000015/nee-20251231.htm"
+  ],
+  "AES": [
+   "AES, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/874761/000087476126000063/aes-20251231.htm"
+  ],
+  "CEG": [
+   "Constellation, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1868275/000186827526000032/ceg-20251231.htm"
+  ],
+  "VST": [
+   "Vistra, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm"
+  ],
+  "TLN": [
+   "Talen, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1622536/000162253626000017/tln-20251231.htm"
+  ],
+  "D": [
+   "Dominion, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/715957/000119312526063120/d-20251231.htm"
+  ],
+  "AEP": [
+   "AEP, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/4904/000000490426000013/aep-20251231.htm"
+  ],
+  "ETR": [
+   "Entergy, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/65984/000006598426000174/etr-20251231.htm"
+  ],
+  "BEP": [
+   "Brookfield Renewable, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1533232/000153323226000011/bep-20251231.htm"
+  ],
+  "KENON": [
+   "Kenon (החברה האם של OPC), דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1611005/000117891326001842/zk2634883.htm"
+  ],
+  "EQIX": [
+   "Equinix, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1101239/000110123926000032/eqix-20251231.htm"
+  ],
+  "MSFT": [
+   "Microsoft, דוח שנתי 2026",
+   "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm"
+  ]
+ },
+ "stages": {
+  "fuels": {
+   "title": "דלקים וחומרי גלם",
+   "badge": "חוזי גז ל-20 שנה · מחירי הנפט והגז משתנים כל יום · דוחות מלאי כל שבוע",
+   "what": "כאן מפיקים את מה שתחנות הכוח והמפעלים צריכים: נפט, גז טבעי, גז נוזלי (LNG), אורניום וסיליקון לפנלים. אם האספקה נעצרת, מחירי החשמל והדלק קופצים בתוך ימים. קשה להחליף ספק מהר, כי מתקן להנזלת גז או מכרה נבנים במשך שנים.",
+   "facts": [
+    [
+     "סחר ה-LNG בעולם: 437 מיליון טונות ב-2025, עלייה של 6.3%. ארה\"ב היא היצואנית הגדולה",
+     "IGU26"
+    ],
+    [
+     "אורניום ב-2024: קזחסטן הפיקה 39% מהכמות בעולם, קנדה 24%, נמיביה 12%",
+     "WNA-U"
+    ],
+    [
+     "שתי חברות, Kazatomprom ו-Cameco, הפיקו יחד 38% מהאורניום בעולם ב-2024",
+     "WNA-U"
+    ],
+    [
+     "סיליקון לפנלים (פוליסיליקון): 93.2% יוצר בסין ב-2024",
+     "CSIS-PV"
+    ],
+    [
+     "השקעה עולמית באנרגיה ב-2026: 3.4 טריליון דולר, מתוכם כ-2.2 טריליון ברשתות, אגירה, גרעין, מתחדשות והתייעלות",
+     "IEA-WEI26"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "Cheniere מכרה מראש כ-90% מהתפוקה הצפויה עד אמצע שנות ה-2030. לחוזים נשארו כ-15 שנה בממוצע",
+     "LNG"
+    ],
+    [
+     "report",
+     "ארבעה לקוחות נותנים 68% מההכנסות של מתקן Sabine Pass: Shell 23%, Korea Gas 16%, GAIL 15%, Naturgy 14%",
+     "SPL"
+    ],
+    [
+     "report",
+     "הלקוח משלם דמי קיבולת קבועים גם אם לא השתמש במתקן. TotalEnergies משלמת כ-125 מיליון דולר בשנה בחוזה של 20 שנה",
+     "LNG"
+    ],
+    [
+     "report",
+     "פוליסיליקון נמכר בחוזי מסגרת: הכמות מחייבת, והמחיר נקבע בכל הזמנה לפי מחיר השוק",
+     "DQ"
+    ],
+    [
+     "report",
+     "Daqo: שלושת הלקוחות הגדולים נתנו 63.5% מההכנסות ב-2025",
+     "DQ"
+    ],
+    [
+     "report",
+     "Constellation: כ-35% מהאורניום שהיא צריכה לשנים 2026 עד 2030 מגיע משלושה ספקים",
+     "CEG"
+    ],
+    [
+     "industry",
+     "דוח מלאי הגז בארה\"ב יוצא כל יום חמישי ב-10:30 שעון החוף המזרחי. דוח מלאי הנפט יוצא כל יום רביעי",
+     "EIA-NG"
+    ],
+    [
+     "industry",
+     "ב-2025 אושרו להקמה מתקני הנזלה של 68.4 מיליון טונות בשנה, הכי הרבה מאז 2019",
+     "IGU26"
+    ]
+   ],
+   "choke": [
+    [
+     "מתקן אחד בקטאר, Ras Laffan, מספק כחמישית מה-LNG בעולם",
+     "WO-QATAR"
+    ],
+    [
+     "שתי יחידות הנזלה ב-Ras Laffan נפגעו ב-2026: 12.8 מיליון טונות בשנה מושבתות ל-3 עד 5 שנים",
+     "OP-LNG"
+    ],
+    [
+     "קזחסטן: 39% מהאורניום בעולם",
+     "WNA-U"
+    ],
+    [
+     "סין: 93.2% מהפוליסיליקון ו-96.6% מפרוסות הסיליקון לפנלים",
+     "CSIS-PV"
+    ],
+    [
+     "ישראל: מאגרי תמר, לוויתן וכריש מספקים את הגז לתחנות הכוח. במלחמות של 2025 ו-2026 הם הושבתו לפרקי זמן",
+     "KENON"
+    ]
+   ]
+  },
+  "components": {
+   "title": "רכיבים: פנלים, ממירים וסוללות",
+   "badge": "יצרנים גדולים מוכרים שנים מראש · מחיר לוואט · פרויקט אגירה: 12 עד 18 חודשים",
+   "what": "כאן מייצרים את החלקים של תחנות שמש ומתקני אגירה: פנלים, ממירים (מכשיר שמתאים את הזרם מהפנל לרשת), סוללות ומערכות מעקב אחרי השמש. בלי הרכיבים האלה אי אפשר לבנות תחנה חדשה. רוב הייצור נמצא בסין, ולכן מכסים ואיסורי יבוא משפיעים מהר על המחיר ועל הזמינות.",
+   "facts": [
+    [
+     "סין ייצרה ב-2024 86.4% מהפנלים, 92.3% מהתאים ו-96.6% מפרוסות הסיליקון",
+     "CSIS-PV"
+    ],
+    [
+     "ממירים: 589 ג'יגה-ואט נמכרו ב-2024. Huawei ו-Sungrow מחזיקות יחד 55% מהשוק",
+     "WM-INV"
+    ],
+    [
+     "Tesla התקינה 46.7 ג'יגה-ואט-שעה של אגירה ב-2025",
+     "TSLA"
+    ],
+    [
+     "First Solar: 96% מהמכירות ב-2025 היו בארה\"ב",
+     "FSLR"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "First Solar: חוזים למכירת 50.1 ג'יגה-ואט פנלים ב-15.0 מיליארד דולר, לאספקה עד 2030",
+     "FSLR"
+    ],
+    [
+     "report",
+     "גם חוזה חתום מתבטל: אצל First Solar בוטלו חוזים של 6.6 ג'יגה-ואט בשווי 1.9 מיליארד דולר",
+     "FSLR"
+    ],
+    [
+     "report",
+     "Fluence: צבר של 5.3 מיליארד דולר. מחתימת החוזה עד סיום הפרויקט עוברים 12 עד 18 חודשים",
+     "FLNC"
+    ],
+    [
+     "report",
+     "הלקוחות מעטים: שני לקוחות נתנו 41% מההכנסות של Fluence, ו-AES לבדה 24%",
+     "FLNC"
+    ],
+    [
+     "report",
+     "Enphase: לקוח אחד נתן 39% מההכנסות ב-2025",
+     "ENPH"
+    ],
+    [
+     "report",
+     "SolarEdge מוכרת דרך מפיצים: מפיץ אחד נתן 18.6% מההכנסות ב-2025",
+     "SEDG"
+    ],
+    [
+     "report",
+     "Nextpower (מערכות מעקב): חמשת הלקוחות הגדולים נתנו 34.3% מההכנסות",
+     "NXT"
+    ],
+    [
+     "press",
+     "LG Energy Solution חתמה על חוזה של 4.3 מיליארד דולר לסוללות אגירה בארה\"ב. לפי הדיווחים הלקוח הוא Tesla",
+     "PVM-LG"
+    ]
+   ],
+   "choke": [
+    [
+     "סין: יותר מ-86% מהפנלים ויותר מ-92% מהתאים",
+     "CSIS-PV"
+    ],
+    [
+     "שתי חברות סיניות מחזיקות 55% משוק הממירים",
+     "WM-INV"
+    ],
+    [
+     "Tesla תלויה במעט ספקי תאים, בהם Panasonic ו-CATL, ומתקשה להחליף ספק",
+     "TSLA"
+    ],
+    [
+     "First Solar: חומרי גלם מרכזיים, כמו טלוריום וזכוכית, מגיעים מספק יחיד או ממעט ספקים",
+     "FSLR"
+    ]
+   ]
+  },
+  "equipment": {
+   "title": "ציוד כבד: טורבינות, שנאים וכבלים",
+   "badge": "הזמנה, מקדמה, צבר · המתנה של שנתיים עד שבע שנים · המחירים עולים",
+   "what": "כאן בונים את המכונות הגדולות: טורבינות גז, טורבינות רוח, שנאים (מכשיר שמשנה את מתח החשמל) וכבלי מתח גבוה. בלי הציוד הזה אי אפשר להקים תחנת כוח או לחבר אותה לרשת. המפעלים מעטים והביקוש גדול מכושר הייצור, ולכן לקוחות משלמים מקדמה רק כדי לשמור מקום בתור.",
+   "facts": [
+    [
+     "GE Vernova: צבר הזמנות של 196.7 מיליארד דולר בסוף ספטמבר 2026, לעומת 135.3 מיליארד שנה קודם",
+     "GEV-Q3"
+    ],
+    [
+     "רוח: 165 ג'יגה-ואט הותקנו בעולם ב-2025, שיא ועלייה של 40%. 80% מזה באסיה",
+     "GWEC26"
+    ],
+    [
+     "מחירי השנאים עלו בכ-75% מאז 2019, ומחירי הכבלים כמעט הוכפלו",
+     "IEA-GRID"
+    ],
+    [
+     "Eaton: צבר של 19.8 מיליארד דולר בסוף 2025",
+     "ETN"
+    ],
+    [
+     "בעולם הוזמנו טורבינות גז ל-110 ג'יגה-ואט, מול כושר ייצור של 60 עד 70 ג'יגה-ואט",
+     "ST"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "לקוחות משלמים מקדמה כדי לשמור מקום בתור הייצור, עוד לפני הזמנה מחייבת. GE Vernova מזהירה שחלק מהשמירות לא יהפכו להזמנות",
+     "GEV"
+    ],
+    [
+     "report",
+     "GE Vernova: מצבר הציוד, 104.1 מיליארד דולר, 33% יוכרו כהכנסה בתוך שנה ו-60% בתוך שנתיים",
+     "GEV-Q3"
+    ],
+    [
+     "report",
+     "שירות ותחזוקה הם כמעט חצי מהצבר של GE Vernova: 92.7 מיליארד דולר, שנפרסים על 15 שנה ויותר",
+     "GEV-Q3"
+    ],
+    [
+     "industry",
+     "זמן רכישה: שנתיים עד שלוש לכבלים, עד ארבע שנים לשנאי גדול, ויותר מחמש שנים לכבלי זרם ישר",
+     "IEA-GRID"
+    ],
+    [
+     "press",
+     "שנאי גדול בארה\"ב: כ-128 שבועות בממוצע מההזמנה עד האספקה",
+     "TNW"
+    ],
+    [
+     "press",
+     "טורבינת גז: ההמתנה הגיעה עד שבע שנים. Georgia Power הזמינה שלוש טורבינות מ-Mitsubishi ב-2023, והראשונה הגיעה באוגוסט 2025",
+     "UD-MHI"
+    ],
+    [
+     "press",
+     "כבלים נמכרים בחוזי מסגרת גדולים: Prysmian קיבלה מ-Terna חוזה של 1.71 מיליארד אירו ל-1,500 ק\"מ כבל תת-ימי",
+     "TERNA-PRY"
+    ],
+    [
+     "report",
+     "Bloom Energy: שלושה לקוחות נתנו 43%, 13% ו-12% מההכנסות ב-2025",
+     "BE"
+    ]
+   ],
+   "choke": [
+    [
+     "טורבינות גז: כושר ייצור של 60 עד 70 ג'יגה-ואט, מול הזמנות של 110 ג'יגה-ואט",
+     "ST"
+    ],
+    [
+     "מפעל שנאים חדש נבנה בשלוש עד חמש שנים",
+     "ST"
+    ],
+    [
+     "ציוד מיתוג לרשת מכור אצל חלק מהספקים עד 2028",
+     "TNW"
+    ],
+    [
+     "פגם ייצור אחד עוצר פרויקט: להב של GE Vernova נשבר ב-Vineyard Wind ביולי 2024 בגלל הדבקה לא מספקת",
+     "W-VINE"
+    ]
+   ]
+  },
+  "builders": {
+   "title": "יזמים וקבלני הקמה",
+   "badge": "יותר מחמש שנים מבקשת החיבור עד ההפעלה · רוב הבקשות מבוטלות · תלוי בהטבות מס",
+   "what": "היזם מוצא קרקע, משיג היתרים וחיבור לרשת, קונה ציוד וחותם על חוזה למכירת החשמל. הקבלן בונה את התחנה ואת קווי החשמל. אם אין חיבור לרשת או שהטבת המס מתבטלת, הפרויקט נעצר גם כשהציוד כבר הוזמן.",
+   "facts": [
+    [
+     "בארה\"ב מחכים לחיבור לרשת פרויקטים של 2,061 ג'יגה-ואט (סוף 2025). בסוף 2023 היו כמעט 2,600",
+     "LBNL26"
+    ],
+    [
+     "רק 13% מההספק שביקש חיבור בשנים 2000 עד 2020 הוקם עד סוף 2025. 75% בוטלו",
+     "LBNL26"
+    ],
+    [
+     "בתור: שמש 773 ג'יגה-ואט, אגירה 749, גז 253 (עלייה של 86% בשנה), רוח 220",
+     "LBNL26"
+    ],
+    [
+     "Enlight: פרויקטים של 20.6 ג'יגה-ואט ו-61.0 ג'יגה-ואט-שעה אגירה בכל השלבים. מתוכם 6.4 ג'יגה-ואט פועלים, בבנייה או לקראת בנייה",
+     "ENLT"
+    ]
+   ],
+   "pulse": [
+    [
+     "industry",
+     "מבקשת החיבור עד הסכם החיבור: יותר משלוש שנים. עד ההפעלה: יותר מחמש שנים",
+     "LBNL26"
+    ],
+    [
+     "report",
+     "Quanta: עשרת הלקוחות הגדולים נותנים 30% מההכנסות. 44% מהצבר הם הסכמי מסגרת, שהלקוח יכול לבטל בהתראה קצרה",
+     "PWR"
+    ],
+    [
+     "report",
+     "Enlight קונה טורבינות מכל היצרנים הגדולים, פנלים מ-LONGi ומ-Jinko, וסוללות מ-Tesla, מ-CATL ומ-Sungrow",
+     "ENLT"
+    ],
+    [
+     "report",
+     "כשטורבינה מייצרת פחות מהמובטח, היצרן משלם פיצוי: Siemens Gamesa שילמה ל-Enlight 12.5 מיליון דולר ב-2025",
+     "ENLT"
+    ],
+    [
+     "press",
+     "יזם מבטיח לעצמו פנלים שנים מראש: Energix הזמינה מ-First Solar עוד 5 ג'יגה-ואט, אחרי 3.5 ג'יגה-ואט מאז 2017",
+     "TN-ENRG"
+    ],
+    [
+     "press",
+     "חוות רוח ימית נבנית שנים: ב-Hornsea 3 של Ørsted יותקנו 197 טורבינות, יותר מ-2.9 ג'יגה-ואט",
+     "HS3"
+    ],
+    [
+     "industry",
+     "הטבת המס בארה\"ב: פרויקט שמש או רוח שמתחיל בנייה אחרי 4 ביולי 2026 חייב לפעול עד סוף 2027",
+     "OBBBA-PF"
+    ]
+   ],
+   "choke": [
+    [
+     "החיבור לרשת: יותר מחמש שנים המתנה, ו-75% מהבקשות מבוטלות",
+     "LBNL26"
+    ],
+    [
+     "החלטת ממשלה יכולה לעצור אתר בנייה: Revolution Wind נעצר באוגוסט 2025 כשהיה בנוי ב-80%",
+     "ORSTED-RW"
+    ],
+    [
+     "תלות בספק פנלים אחד: Energix קנתה מ-First Solar יותר מ-3.5 ג'יגה-ואט מאז 2017",
+     "TN-ENRG"
+    ]
+   ]
+  },
+  "producers": {
+   "title": "יצרני חשמל וחברות חשמל",
+   "badge": "חוזי מכירה ל-10 עד 25 שנים · מכרז קיבולת פעם בשנה · תוצאות כל רבעון",
+   "what": "כאן מפעילים את תחנות הכוח ומוכרים את החשמל: לחברת חלוקה, לשוק הסיטונאי או ישירות ללקוח גדול. אם תחנה נופלת בשעת שיא, המחיר בשוק קופץ ולפעמים מנתקים צרכנים. חלק מהחברות מחזיקות גם רשת, ומוכרות לבתים במחיר שהרגולטור קובע.",
+   "facts": [
+    [
+     "ב-2025 ייצרו המתחדשות 33.8% מהחשמל בעולם, ולראשונה יותר מהפחם. השמש סיפקה 75% מהגידול בביקוש",
+     "EMBER26"
+    ],
+    [
+     "מחיר הקיבולת ב-PJM, שוק חשמל שמכסה 13 מדינות בארה\"ב, ל-2028/29: 325 דולר למגה-ואט ליום. זו התקרה שנקבעה",
+     "PJM26"
+    ],
+    [
+     "באותו מכרז חסרו 6,831 מגה-ואט כדי לעמוד ביעד האמינות",
+     "PJM26"
+    ],
+    [
+     "NextEra הוסיפה ב-2025 1,604 מגה-ואט רוח, 2,859 מגה-ואט שמש ו-1,799 מגה-ואט אגירה",
+     "NEE"
+    ],
+    [
+     "AES: 12.0 ג'יגה-ואט של פרויקטים עם חוזה חתום שעוד לא פועלים",
+     "AES"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "חוזי גרעין עם חברות הטכנולוגיה נחתמים ל-20 שנה. Vistra תמכור ל-Meta 2,609 מגה-ואט",
+     "VST"
+    ],
+    [
+     "report",
+     "Constellation חתמה ל-20 שנה עם Microsoft וגם עם Meta. החוזה עם Meta מתחיל ביוני 2027",
+     "CEG"
+    ],
+    [
+     "report",
+     "Talen תמכור ל-Amazon עד 1,920 מגה-ואט מתחנת הגרעין Susquehanna, במחיר קבוע עד 2042",
+     "TLN"
+    ],
+    [
+     "report",
+     "החשמל מתחיל לזרום שנים אחרי החתימה: Vistra ו-Amazon חתמו ב-2025, האספקה מתחילה בסוף 2027 ומגיעה למלוא ההיקף ב-2032",
+     "VST"
+    ],
+    [
+     "report",
+     "Enlight: לחוזים של התחנות הפועלות נשארו 5 עד 25 שנים",
+     "ENLT"
+    ],
+    [
+     "report",
+     "Ormat: לחוזים נשארו כ-14 שנה בממוצע. חוזים חדשים נחתמים מעל 100 דולר למגה-ואט-שעה, לעומת 60 עד 80 דולר בחמש השנים הקודמות",
+     "ORA"
+    ],
+    [
+     "report",
+     "OPC קונה גז מתמר, מ-Energean ומלוויתן. את תחנת רותם מתחזקת Mitsubishi בחוזה של כ-67 מיליון אירו",
+     "KENON"
+    ],
+    [
+     "industry",
+     "מכרז הקיבולת של PJM קובע חלק מההכנסה של התחנות לשנים קדימה. הבא: דצמבר 2026",
+     "PJM26"
+    ]
+   ],
+   "choke": [
+    [
+     "סופת חורף: בפברואר 2021 נותקו צרכנים בטקסס, ו-Vistra דיווחה על הפסד גדול בגלל מחסור בדלק",
+     "VST"
+    ],
+    [
+     "אספקת הגז בישראל: כשהמאגרים הושבתו במלחמה, OPC נערכה להפעיל תחנות בסולר",
+     "KENON"
+    ],
+    [
+     "דלק גרעיני: רוסיה הגבילה בנובמבר 2024 את יצוא האורניום המועשר לארה\"ב",
+     "MINING-U"
+    ]
+   ]
+  },
+  "grid": {
+   "title": "רשת החשמל ואגירה",
+   "badge": "תוכניות השקעה לחמש שנים · מחיר שהרגולטור קובע · קו חדש נבנה שנים",
+   "what": "הרשת מעבירה את החשמל מהתחנות לצרכנים, בקווי מתח גבוה ובקווי חלוקה. היא חייבת לאזן בכל רגע בין ייצור לצריכה, ומתקני אגירה עוזרים בזה. תקלה בנקודה אחת יכולה להחשיך אזור שלם.",
+   "facts": [
+    [
+     "Dominion מתכננת להשקיע בווירג'יניה כ-55 מיליארד דולר בשנים 2026 עד 2030. הסיבה העיקרית: מרכזי נתונים",
+     "D"
+    ],
+    [
+     "בבריטניה נחתמו במרץ 2026 חוזים של יותר מ-4 מיליארד דולר לקו תת-ימי אחד, Eastern Green Link 3",
+     "EGL3"
+    ],
+    [
+     "AEP פרסמה מכרזים ל-12,700 מגה-ואט של כושר ייצור חדש",
+     "AEP"
+    ],
+    [
+     "הביקוש בארה\"ב לשנאים של תחנות כוח עלה ב-274% בין 2019 ל-2025",
+     "TNW"
+    ]
+   ],
+   "pulse": [
+    [
+     "industry",
+     "חברת רשת צריכה להזמין כבלים ושנאים שנתיים עד ארבע שנים מראש",
+     "IEA-GRID"
+    ],
+    [
+     "press",
+     "קו תת-ימי אחד מחולק בין ספקים: ב-Tyrrhenian Link של Terna קיבלה Prysmian חוזה של 1.71 מיליארד אירו",
+     "TERNA-PRY"
+    ],
+    [
+     "press",
+     "Nexans קיבלה באותו פרויקט חוזה של יותר מ-650 מיליון אירו",
+     "NEX-TERNA"
+    ],
+    [
+     "press",
+     "Eastern Green Link 3: Hitachi Energy תספק את תחנות ההמרה ו-NKT את הכבל",
+     "EGL3"
+    ],
+    [
+     "report",
+     "חברת רשת קונה גם ייצור מקומי: AEP קנתה מ-Bloom Energy תאי דלק של 100 מגה-ואט",
+     "AEP"
+    ],
+    [
+     "report",
+     "Quanta מונה בין לקוחותיה את AEP, National Grid, Duke, PG&E ו-Entergy",
+     "PWR"
+    ]
+   ],
+   "choke": [
+    [
+     "שנאי אחד: שריפה בתחנת המשנה North Hyde במרץ 2025 סגרה את נמל התעופה Heathrow",
+     "NESO"
+    ],
+    [
+     "מתח לא יציב: ב-28 באפריל 2025 קרסה הרשת של ספרד ופורטוגל. הסיבה: מתח יתר",
+     "W-IBERIA"
+    ],
+    [
+     "ציוד ישן: תקלה בקו של PG&E ב-2018 הציתה את השריפה בקמפ, והחברה נכנסה לפשיטת רגל",
+     "W-CAMP"
+    ],
+    [
+     "אש בסוללות: בינואר 2025 נשרף ב-Moss Landing מבנה אגירה של 300 מגה-ואט",
+     "W-MOSS"
+    ]
+   ]
+  },
+  "buyers": {
+   "title": "צרכנים גדולים ומרכזי נתונים",
+   "badge": "חוזים ל-10 עד 25 שנים · תקציב השקעות מתעדכן כל רבעון · חיבור לרשת לוקח שנים",
+   "what": "כאן נמצאים הקונים הגדולים של חשמל: מרכזי הנתונים של חברות הטכנולוגיה ומפעלים גדולים. הם חותמים על חוזים ארוכים ישירות עם יצרני החשמל, ולפעמים מממנים תחנה שלמה. כשאין חשמל זמין באתר, הם דוחים את הבנייה או מקימים ייצור משלהם.",
+   "facts": [
+    [
+     "מרכזי הנתונים צרכו 415 טרה-ואט-שעה ב-2024, כ-1.5% מהחשמל בעולם. התחזית ל-2030: 945 טרה-ואט-שעה",
+     "IEA-AI"
+    ],
+    [
+     "Google תקנה במשך 25 שנה חשמל מתחנת הגרעין Duane Arnold, 615 מגה-ואט, שתופעל מחדש",
+     "NEE-PR"
+    ],
+    [
+     "Equinix חתמה על 29 חוזי חשמל ב-12 מדינות, 1,472 מגה-ואט",
+     "EQIX"
+    ],
+    [
+     "TSMC קונה את כל החשמל מחוות רוח ימית של 920 מגה-ואט בטייוואן, בחוזה ל-20 שנה",
+     "OW-TSMC"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "הקונה מממן גם הפעלה מחדש של תחנה שנסגרה: Microsoft חתמה ל-20 שנה כדי להחזיר לפעולה את Three Mile Island 1",
+     "CEG"
+    ],
+    [
+     "report",
+     "הסכמי מסגרת גדולים: Brookfield תספק ל-Google עד 3,000 מגה-ואט כוח מים בארה\"ב עד סוף 2032",
+     "BEP"
+    ],
+    [
+     "press",
+     "Energix תפתח ל-Google 1.5 ג'יגה-ואט שמש עד 2030, ו-Google גם משקיעה בפרויקטים",
+     "ENRG-G"
+    ],
+    [
+     "report",
+     "חברת החשמל בונה תחנות במיוחד ללקוח: Entergy ביקשה אישור לשלוש תחנות גז בשביל מרכז נתונים של Meta בלואיזיאנה",
+     "ETR"
+    ],
+    [
+     "report",
+     "כשהרשת לא מספיקה, מייצרים באתר: Oracle קונה תאי דלק מ-Bloom Energy למרכזי נתונים",
+     "BE"
+    ],
+    [
+     "report",
+     "Ormat תספק ל-Google עד 150 מגה-ואט חשמל גיאותרמי, דרך חברת החשמל של נבדה",
+     "ORA"
+    ]
+   ],
+   "choke": [
+    [
+     "זמינות חשמל: במכרז של PJM חסרו 6,831 מגה-ואט, והמחיר הגיע לתקרה",
+     "PJM26"
+    ],
+    [
+     "הביקוש תלוי בתקציבים של מעט חברות. Microsoft כותבת שההשקעה במרכזי נתונים ובאנרגיה נעשית לפני שיש הכנסות",
+     "MSFT"
+    ]
+   ]
+  }
+ },
+ "clock": [
+  [
+   "בקשת חיבור לרשת עד הפעלה (ארה\"ב)",
+   "יותר מ-5 שנים",
+   "LBNL26"
+  ],
+  [
+   "שנאי גדול: מהזמנה עד אספקה",
+   "כ-128 שבועות בארה\"ב",
+   "TNW"
+  ],
+  [
+   "כבל מתח גבוה: רכישה",
+   "שנתיים עד 3 שנים; זרם ישר: יותר מ-5 שנים",
+   "IEA-GRID"
+  ],
+  [
+   "טורבינת גז: המתנה",
+   "עד 7 שנים",
+   "UD-MHI"
+  ],
+  [
+   "תחנת גז במחזור משולב: עד ההפעלה",
+   "כ-5 שנים (3.5 שנים ב-2023)",
+   "ST"
+  ],
+  [
+   "פרויקט אגירה: מחוזה עד השלמה",
+   "12 עד 18 חודשים",
+   "FLNC"
+  ],
+  [
+   "חוזה למכירת חשמל",
+   "10 עד 25 שנים",
+   "ENLT"
+  ],
+  [
+   "חוזה LNG",
+   "כ-20 שנה",
+   "LNG"
+  ],
+  [
+   "תיקון יחידת הנזלה שנפגעה",
+   "3 עד 5 שנים",
+   "OP-LNG"
+  ]
+ ],
+ "calendar": [
+  [
+   "כל שבוע",
+   "יום רביעי, 10:30 שעון החוף המזרחי",
+   "מלאי הנפט בארה\"ב",
+   "EIA",
+   "EIA-WPSR",
+   1
+  ],
+  [
+   "כל שבוע",
+   "יום חמישי, 10:30 שעון החוף המזרחי",
+   "מלאי הגז הטבעי בארה\"ב",
+   "EIA",
+   "EIA-NG",
+   1
+  ],
+  [
+   "כל חודש",
+   "בשבוע השני של החודש",
+   "תחזית קצרת טווח למחירי האנרגיה (STEO)",
+   "EIA",
+   "EIA-STEO",
+   1
+  ],
+  [
+   "כל חודש",
+   "סביב ה-24",
+   "ייצור החשמל בארה\"ב לפי מקור",
+   "EIA",
+   "EIA-EPM",
+   1
+  ],
+  [
+   "כל רבעון",
+   "סוף ינואר, אפריל, יולי, אוקטובר",
+   "צבר ההזמנות של GE Vernova",
+   "GE Vernova",
+   "GEV-Q3",
+   1
+  ],
+  [
+   "כל רבעון",
+   "סוף ינואר, אפריל, יולי, אוקטובר",
+   "תקציבי ההשקעה של חברות הטכנולוגיה",
+   "Microsoft, Alphabet, Amazon, Meta",
+   "",
+   0
+  ],
+  [
+   "פעם בשנה",
+   "פברואר",
+   "דוחות שנתיים של חברות האנרגיה בארה\"ב, כולל לקוחות גדולים וצבר",
+   "SEC",
+   "FSLR",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "אפריל",
+   "סקירת החשמל העולמית",
+   "Ember",
+   "EMBER26",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "אפריל",
+   "דוח הרוח העולמי",
+   "GWEC",
+   "GWEC26",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "מאי",
+   "דוח ההשקעות באנרגיה",
+   "IEA",
+   "IEA-WEI26",
+   0
+  ],
+  [
+   "פעם בשנה",
+   "יוני או יולי",
+   "התור לחיבור לרשת בארה\"ב",
+   "Berkeley Lab",
+   "LBNL26",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "יולי",
+   "דוח ה-LNG העולמי",
+   "IGU",
+   "IGU26",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "המכרז הבא: דצמבר 2026",
+   "מכרז הקיבולת של PJM",
+   "PJM",
+   "PJM26",
+   1
+  ]
+ ]
+}

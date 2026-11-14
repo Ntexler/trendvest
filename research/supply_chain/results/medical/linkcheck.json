@@ -1,0 +1,19 @@
+{
+  "pair_comovement": {
+    "linked_pairs": 70,
+    "unlinked_pairs": 2141,
+    "mean_corr_linked": 0.060740637980496184,
+    "mean_corr_unlinked": -0.012518384606326333,
+    "share_of_unlinked_below_linked_mean": 0.8122372723026623
+  },
+  "customer_momentum": {
+    "weeks": 608,
+    "customers_lead_suppliers_corr": -0.0035567512764819675,
+    "customers_lead_suppliers_t": -0.40220176643267463,
+    "suppliers_lead_customers_corr": 0.004085230066968977,
+    "suppliers_lead_customers_t": 0.44127944914788747,
+    "random_links_corr_mean": 0.0004738057871252456,
+    "random_links_corr_sd": 0.00766815915231173,
+    "share_of_random_maps_beating_real": 0.695
+  }
+}
