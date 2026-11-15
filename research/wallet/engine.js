@@ -43,7 +43,16 @@
     };
     const fx = (cur, i) => (cur === "ILS" ? 1 : px.fx[cur] ? px.fx[cur][i] : NaN);
     const price = (t, i) => { const c = px.co[t]; return c ? c.px[i] : null; };
-    return { px, at, fx, price, n: px.dates.length };
+    // Israel's "known index" on a date: the CBS publishes month M's index on the 15th of M+1, in the evening.
+    const months = px.cpi_il ? Object.keys(px.cpi_il).sort() : [];
+    const cpi = (i) => {
+      if (!months.length) return null;
+      const [y, m, d] = px.dates[i].split("-").map(Number), back = d > 15 ? 1 : 2;
+      const k = new Date(Date.UTC(y, m - 1 - back, 1)).toISOString().slice(0, 7);
+      let best = null; for (const x of months) if (x <= k) best = x;
+      return best ? px.cpi_il[best] : null;
+    };
+    return { px, at, fx, price, cpi, n: px.dates.length };
   }
 
   function commission(fees, t, sharesN, valueLocal, cur, i, ctx) {
@@ -65,12 +74,15 @@
       .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : a._k - b._k));
     const S = { cash: 0, principal: 0, profits: 0, deposited: 0, withdrawn: 0,
       fee: { commission: 0, fx: 0, market: 0, custody: 0, service: 0 }, taxPaid: 0, divTax: 0, pos: {}, rules: {}, log: [] };
-    const year = {};                       // calendar year -> {gain, paid}: losses offset gains in the same year
+    const year = {};                       // calendar year -> {gain, paid}: losses offset gains in the same year,
+                                           // and a year that ends in a loss carries it into the next year
     const log = (i, kind, text, extra) => S.log.push(Object.assign({ date: px.dates[i], kind, text }, extra || {}));
     const posValue = (t, i) => { const p = S.pos[t]; const pr = ctx.price(t, i); return p && pr != null ? p.shares * pr * ctx.fx(p.cur, i) : 0; };
 
     function settleTax(i, gain) {         // returns shekels charged (+) or refunded (-) for this sale
-      const y = px.dates[i].slice(0, 4), Y = year[y] || (year[y] = { gain: 0, paid: 0 });
+      const y = px.dates[i].slice(0, 4);
+      if (!year[y]) { const prev = Object.keys(year).filter((k) => k < y).sort().pop(); year[y] = { gain: prev ? Math.min(0, year[prev].gain) : 0, paid: 0 }; }
+      const Y = year[y];
       Y.gain += gain;
       const due = Math.max(0, Y.gain) * tax.rate, delta = due - Y.paid;
       Y.paid = due; S.taxPaid += delta;
@@ -92,8 +104,10 @@
         shares = Math.max(0, (amountIls - fxFee - com) / (pr * fx * (1 + mk)));
       }
       const com = commission(fees, t, shares, shares * pr, c.cur, i, ctx) * fx, mkt = shares * pr * fx * mk;
-      const p = S.pos[t] || (S.pos[t] = { t, name: c.name, cur: c.cur, shares: 0, costIls: 0, costLocal: 0, invested: 0, returned: 0, peak: 0 });
-      p.shares += shares; p.costIls += amountIls; p.costLocal += shares * pr + (com + mkt + fxFee) / fx; p.invested += amountIls;
+      const p = S.pos[t] || (S.pos[t] = { t, name: c.name, cur: c.cur, shares: 0, costIls: 0, costLocal: 0, costCpi: 0, invested: 0, returned: 0, peak: 0 });
+      const k0 = ctx.cpi(i);
+      if (p.shares <= 1e-9) p.costCpi = 0;
+      p.shares += shares; p.costIls += amountIls; p.costCpi = k0 && p.costCpi != null ? p.costCpi + amountIls / k0 : null; p.costLocal += shares * pr + (com + mkt + fxFee) / fx; p.invested += amountIls;
       S.cash -= amountIls;
       S.fee.commission += com; S.fee.fx += fxFee; S.fee.market += mkt;
       log(i, "buy", why || `קנית ${c.name}`, { ticker: t, amount: round2(amountIls), shares: +shares.toFixed(4), price: pr, cur: c.cur,
@@ -111,15 +125,19 @@
       const fxFee = p.cur === "ILS" ? 0 : netLocal * fx * (fees.fx_pct || 0);
       const netIls = netLocal * fx - fxFee;
       const part = shares / p.shares, costIls = p.costIls * part, costLocal = p.costLocal * part;
-      // Israeli rule for foreign securities (simplified): the part of the gain that only reflects the shekel/currency
-      // change is not taxed. Real gain = gain in the trade currency at today's rate; a nominal shekel loss is never a gain.
-      const nominal = netIls - costIls;
-      const real = p.cur === "ILS" || tax.foreign_rule !== "real_fx" ? nominal : (netLocal - costLocal) * fx - fxFee;
+      // Israeli rules (simplified): only the real gain is taxed. Foreign shares: the part of the gain that only reflects
+      // the shekel/currency change is not taxed (gain in the trade currency at today's rate). Israeli shares: the part
+      // that only reflects inflation (the known consumer price index at sale vs. at purchase) is not taxed.
+      // A nominal loss stays a loss; a gain is never taxed beyond the nominal gain.
+      const nominal = netIls - costIls, k1 = ctx.cpi(i);
+      const costCpi = p.costCpi != null ? p.costCpi * part : null;
+      const infl = p.cur === "ILS" && costCpi != null && k1 ? Math.max(0, costCpi * k1 - costIls) : 0;
+      const real = p.cur === "ILS" ? nominal - infl : tax.foreign_rule !== "real_fx" ? nominal : (netLocal - costLocal) * fx - fxFee;
       const taxable = nominal > 0 ? Math.max(0, Math.min(nominal, real)) : nominal;   // fees_il.json: foreign_currency_rule
       const taxIls = settleTax(i, taxable);
       const svc = isRule ? serviceFee : 0;
       let back = netIls - taxIls - svc;
-      p.shares -= shares; p.costIls -= costIls; p.costLocal -= costLocal;
+      p.shares -= shares; p.costIls -= costIls; p.costLocal -= costLocal; if (p.costCpi != null) p.costCpi -= costCpi;
       const toPrincipal = Math.max(0, Math.min(back, p.invested - p.returned));
       p.returned += toPrincipal;
       const toProfit = back - toPrincipal;

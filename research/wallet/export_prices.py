@@ -37,6 +37,24 @@ def companies() -> dict[str, dict]:
     return out
 
 
+def cpi(start: date) -> dict[str, float]:
+    """Israel's consumer price index (CBS series 120010), month -> index, chained across base changes.
+    Needed for the tax on Israeli shares: only the gain beyond inflation is taxed."""
+    import requests
+    url = ("https://api.cbs.gov.il/index/data/price?id=120010&format=json&download=false&PageSize=500"
+           f"&startPeriod={start.month:02d}-{start.year - 1}&endPeriod=12-{date.today().year}")
+    rows = requests.get(url, timeout=60).json()["month"][0]["date"]
+    rows = sorted(rows, key=lambda r: (r["year"], r["month"]))
+    out, prev, lvl = {}, None, 100.0
+    for r in rows:
+        if prev is not None:
+            same = r["currBase"]["baseDesc"] == prev["currBase"]["baseDesc"]
+            lvl *= r["currBase"]["value"] / prev["currBase"]["value"] if same else 1 + r["percent"] / 100
+        out[f"{r['year']}-{r['month']:02d}"] = round(lvl, 4)
+        prev = r
+    return out
+
+
 def main(years: int = 2) -> None:
     import yfinance as yf
     cos = companies()
@@ -70,6 +88,13 @@ def main(years: int = 2) -> None:
         out["co"][t] = {"name": cos[t]["name"], "cur": cur, "unit": div, "markets": cos[t]["markets"],
                         "px": [None if pd.isna(v) else round(float(v) / div, 4) for v in s.ffill()],
                         "div": [[str(i.date()), round(float(v) / div, 4)] for i, v in dv[dv > 0].items()]}
+    try:
+        out["cpi_il"] = cpi(start)
+    except Exception as e:  # noqa: BLE001  keep the last good series rather than none
+        old = json.loads(OUT.read_text()).get("cpi_il") if OUT.exists() else None
+        print("CPI fetch failed:", e, "- keeping the previous series" if old else "- no series")
+        if old:
+            out["cpi_il"] = old
     OUT.write_text(json.dumps(out, separators=(",", ":")))
     print(f"{len(out['co'])} companies, {len(days)} days, {len(out['fx'])} currencies, "
           f"{OUT.stat().st_size // 1024} KB; missing: {missing}")

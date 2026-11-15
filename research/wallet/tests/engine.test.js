@@ -44,6 +44,36 @@ ok(nr.summary.principal === 0 && nr.positions[0].shares > 0, "rules off: nothing
   const gains = pr.log.filter((l) => l.kind === "sell").reduce((a, l) => a + l.gain, 0);
   ok(Math.abs(pr.summary.capital_tax - Math.max(0, gains) * 0.25) < 1, `year tax on net gain ${pr.summary.tax_paid} vs ${gains * 0.25}`);
 }
+// 7. Israeli shares: only the gain beyond inflation (known CPI at sale vs. purchase) is taxed.
+{
+  const t = "ESLT.TA", c = px.co[t], ctx = E._ctx ? null : null;
+  const b = px.dates.findIndex((d) => d >= "2024-11-22"), e = px.dates.findIndex((d) => d >= "2026-10-20");
+  const known = (d) => { const [y, m, dd] = d.split("-").map(Number); const k = new Date(Date.UTC(y, m - 1 - (dd > 15 ? 1 : 2), 1)).toISOString().slice(0, 7);
+    return px.cpi_il[Object.keys(px.cpi_il).filter((x) => x <= k).sort().pop()]; };
+  const r7 = E.replay({ events: [{ type: "deposit", date: px.dates[b], amount: 10000 }, { type: "buy", date: px.dates[b], ticker: t, amount: 10000 },
+    { type: "sell", date: px.dates[e], ticker: t, fraction: 1 }] }, px, { fees: free, tax: { rate: 0.25, dividend_total: 0 } });
+  const s7 = r7.log.find((l) => l.kind === "sell");
+  const nominal = 10000 * (c.px[e] / c.px[b]) - 10000, infl = Math.max(0, 10000 * (known(px.dates[e]) / known(px.dates[b]) - 1));
+  const expect = nominal > 0 ? Math.max(0, nominal - infl) : nominal;
+  ok(infl > 0, "inflation over the holding period is positive");
+  ok(Math.abs(s7.gain - expect) < 1, `Israeli real gain ${s7.gain} vs ${expect.toFixed(2)} (nominal ${nominal.toFixed(2)})`);
+  ok(Math.abs(s7.tax - Math.max(0, expect) * 0.25) < 1, "tax on the real gain only");
+}
+// 8. A loss carries into the next year and offsets that year's gain.
+{
+  const t = "ESLT.TA", c = px.co[t];
+  const y1 = px.dates.findIndex((d) => d >= "2025-12-29"), y2 = px.dates.findIndex((d) => d >= "2026-03-02");
+  const sells = [], evs8 = [{ type: "deposit", date: px.dates[0], amount: 40000 }];
+  // pick a stock that lost in 2025 (bought early, sold late Dec), and one that gained in early 2026
+  const loser = Object.keys(px.co).find((k) => { const p = px.co[k]; return p.cur === "USD" && p.px[y1] && p.px[5] && p.px[y1] / p.px[5] < 0.8; });
+  const winner = Object.keys(px.co).find((k) => { const p = px.co[k]; return p.cur === "USD" && p.px[y1 + 2] && p.px[y2] && p.px[y2] / p.px[y1 + 2] > 1.15; });
+  evs8.push({ type: "buy", date: px.dates[5], ticker: loser, amount: 10000 }, { type: "sell", date: px.dates[y1], ticker: loser, fraction: 1 },
+    { type: "buy", date: px.dates[y1 + 2], ticker: winner, amount: 10000 }, { type: "sell", date: px.dates[y2], ticker: winner, fraction: 1 });
+  const r8 = E.replay({ events: evs8 }, px, { fees: free, tax: { rate: 0.25, dividend_total: 0 } });
+  const [l1, l2] = r8.log.filter((l) => l.kind === "sell");
+  ok(l1.gain < 0 && l2.gain > 0, `a loss in ${l1.date} (${loser}) then a gain in ${l2.date} (${winner})`);
+  ok(Math.abs(l2.tax - Math.max(0, l2.gain + l1.gain) * 0.25) < 1, `next year's tax ${l2.tax} offset by last year's loss`);
+}
 // 6. Two portfolios do not affect each other (pure function).
 const a = E.replay({ events: evs }, px, { fees }), b = E.replay({ events: evs }, px, { fees });
 ok(JSON.stringify(a.summary) === JSON.stringify(b.summary), "deterministic");

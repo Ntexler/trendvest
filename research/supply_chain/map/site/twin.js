@@ -54,12 +54,17 @@
 
   const rules = `<div class="band"><div style="display:flex;justify-content:space-between;align-items:center"><h2>הכללים · נעולים מ־${hd(D.start)}.${D.start.slice(0, 4)}</h2><span class="muted">${lock}</span></div>
     <ol style="margin:0;padding-inline-start:20px;display:flex;flex-direction:column;gap:8px">${D.rules_he.map((r) => `<li>${esc(r)}</li>`).join("")}</ol>
-    <p class="small" style="margin:0;background:var(--soft);border-radius:14px;padding:10px 14px">שינוי כלל מתחיל ניסוי חדש מאפס. ככה אי אפשר ״לתקן״ אחרי שרואים תוצאות. מזהה הניסוי: <span class="num">${esc(D.id)} · ${esc(D.hash)}</span></p></div>`;
+    <p class="small" style="margin:0;background:var(--soft);border-radius:14px;padding:10px 14px">שינוי כלל מתחיל ניסוי חדש מאפס. ככה אי אפשר ״לתקן״ אחרי שרואים תוצאות.</p>
+    <p class="small" style="margin:0;background:var(--t-value);border-radius:14px;padding:10px 14px;color:var(--fg)"><b>חשוב לפני כסף אמיתי:</b> העלויות כאן הן של חשבון שמחזיק דולרים (ממירים פעם אחת). בברוקר ישראלי שממיר שקלים לדולרים בכל עסקה, ההמרה הלוך וחזור עולה 0.8%–1.4% — כמעט כל הרווח הצפוי.</p><p class="small" style="margin:0"> מזהה הניסוי: <span class="num">${esc(D.id)} · ${esc(D.hash)}</span></p></div>`;
 
   const closed = `<div class="band"><h2>נסגרו · ${D.closed.length}</h2>
     ${D.closed.length ? `<div class="cmp" style="grid-template-columns:auto minmax(0,1fr) auto">${D.closed.map((c) => `<span class="small num">${hd(c.exit)}</span><span><b>${esc(c.twin)}</b> <span class="small">בעקבות ${esc(c.leader)}</span></span><b>${pct(c.net_pct)}</b>`).join("")}</div>` : '<span class="small">עוד לא נסגרה אף עסקה.</span>'}</div>`;
 
-  page.innerHTML = `<div style="display:flex;flex-direction:column;gap:8px"><a class="kicker" href="#wallet" id="back">הארנק שלי ›</a><h1>ניסוי התאום</h1>
+  // stale data: more than 2 business days since the last New York session in the file
+  const bdays = (a, b) => { let n = 0; for (let d = new Date(a + "T12:00:00Z"); d < b; d.setUTCDate(d.getUTCDate() + 1)) { const w = d.getUTCDay(); if (w && w !== 6) n++; } return n - 1; };
+  const late = D.last_us_session ? bdays(D.last_us_session, new Date()) : 99;
+  const stale = late > 2 ? `<div class="band tint-next" style="border:0"><b class="say" style="margin:0">הנתונים לא התעדכנו כבר ${late} ימי מסחר.</b><span>הריצה היומית כנראה נכשלה. העסקאות עדיין נמדדות נכון כשהיא תחזור לרוץ, אבל מה שרואים כאן לא עדכני.</span></div>` : "";
+  page.innerHTML = `${stale}<div style="display:flex;flex-direction:column;gap:8px"><a class="kicker" href="#wallet" id="back">הארנק שלי ›</a><h1>ניסוי התאום</h1>
     <p class="lead">כשחברה באסיה קופצת בגלל חדשות שלה, קונים בכסף וירטואלי את ״התאום״ שלה בניו יורק — אם הוא עוד לא זז — ומוכרים אחרי 10 ימי מסחר.</p>
     <span class="small">ניסוי מכאן והלאה, על ימים שעוד לא ראינו. רץ לבד כל יום; אין מה ללחוץ.</span></div>
     ${status}${today}${open}${compare}${rules}${closed}`;
