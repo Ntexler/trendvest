@@ -142,7 +142,7 @@ sup a { font-size: 10px; color: var(--accent); text-decoration: none; margin-inl
 const CN = { US: "ארה\"ב", JP: "יפן", TW: "טייוואן", KR: "קוריאה", DE: "גרמניה", NL: "הולנד", IL: "ישראל", CN: "סין", FR: "צרפת", CH: "שווייץ", GB: "בריטניה", AU: "אוסטרליה", CA: "קנדה", DK: "דנמרק", ES: "ספרד", IT: "איטליה", BR: "ברזיל", CL: "צ'ילה", IN: "הודו", NO: "נורווגיה", SE: "שוודיה", HK: "הונג קונג", IE: "אירלנד" };
 const go = id => { location.hash = id; location.reload(); };
 function nav(C, cur) { const el = document.getElementById("mk");
-  el.innerHTML = `<button data-m="" aria-current="${!C.markets[cur] && cur !== "wallet"}">כל השווקים</button>` + C.order.map(m => `<button data-m="${m}" aria-current="${m === cur}">${C.markets[m].name}</button>`).join("") + `<button data-m="wallet" aria-current="${cur === "wallet"}" class="wbtn">הארנק שלי</button>`;
+  el.innerHTML = `<button data-m="" aria-current="${!C.markets[cur] && cur !== "wallet" && cur !== "twin"}">כל השווקים</button>` + C.order.map(m => `<button data-m="${m}" aria-current="${m === cur}">${C.markets[m].name}</button>`).join("") + `<button data-m="wallet" aria-current="${cur === "wallet"}" class="wbtn">הארנק שלי</button><button data-m="twin" aria-current="${cur === "twin"}">ניסוי התאום</button>`;
   el.addEventListener("click", e => { const b = e.target.closest("button"); if (b) go(b.dataset.m); }); }
 /* ---------- the opening page ---------- */
 function hub(C) { const HEATC = { frozen: "#ECE9E7", cool: "#F3DCCB", mild: "#F9C29A", hot: "#FF9A52", boiling: "#FF5A1F" };
@@ -160,7 +160,8 @@ function hub(C) { const HEATC = { frozen: "#ECE9E7", cool: "#F3DCCB", mild: "#F9
     <div class="cards">${ms.map((m, k) => `<button class="mcard ${tints[k % tints.length]}" data-m="${m.id}"><h3>${m.name}</h3><p class="clamp">${m.intro}</p>
       ${m.heat ? `<div class="strip">${m.heat.levels.map(l => `<i style="background:${HEATC[l]}"></i>`).join("")}</div><span class="small">${m.heat.hot} מתוך ${m.heat.n} חמות. הכי חמות: ${m.heat.top.map(esc).join(", ")}</span>` : ""}
       <div class="three"><div><b class="num">${m.companies}</b><span>חברות</span></div><div><b class="num">${big(m.revenue)}</b><span>מכירות בשנה</span></div><div><b>${s(m.price_1y_med)}</b><span>מניה חציונית בשנה</span></div></div></button>`).join("")}
-      <button class="mcard wcard" data-m="wallet"><h3>הארנק שלי</h3><p>כסף וירטואלי במניות אמיתיות, עם פקודות שקובעים מראש, עמלות ומס אמיתיים.</p><span class="small">לפתוח את הארנק ←</span></button></div>
+      <button class="mcard wcard" data-m="wallet"><h3>הארנק שלי</h3><p>כסף וירטואלי במניות אמיתיות, עם פקודות שקובעים מראש, עמלות ומס אמיתיים.</p><span class="small">לפתוח את הארנק ←</span></button>
+      <button class="mcard tint-chain" data-m="twin"><h3>ניסוי התאום</h3><p>הכלל שמצאנו במחקר, רץ לבד כל יום על ימים שעוד לא ראינו, בכסף וירטואלי ובכללים נעולים.</p><span class="small">לראות איך הוא מתקדם ←</span></button></div>
     <details class="band"><summary>השוואה מפורטת בין השווקים</summary><div class="wrap" style="gap:12px;margin-top:12px">
       ${band("מכירות בשנה של כל החברות במפה", "revenue", v => `<span class="num">${big(v)}</span>`, "כולל את כל הפעילות של כל חברה, גם מה שאינו שייך לשוק הזה.")}
       ${band("כמה נשאר כרווח מכל 100 של מכירות", "net_margin", v => `<span class="num">${v}</span>`, "")}
@@ -173,6 +174,7 @@ function hub(C) { const HEATC = { frozen: "#ECE9E7", cool: "#F3DCCB", mild: "#F9
 (async () => {
 const CMP = await (await fetch("data/compare.json")).json(), market = location.hash.slice(1);
 nav(CMP, market);
+if (market === "twin") { const sc = document.createElement("script"); sc.src = "twin.js"; sc.charset = "utf-8"; document.body.appendChild(sc); return; }
 if (market === "wallet") { const sc = document.createElement("script"); sc.src = "engine.js"; sc.onload = () => { const w = document.createElement("script"); w.src = "wallet.js"; document.body.appendChild(w); }; document.body.appendChild(sc); return; }
 if (!CMP.markets[market]) { hub(CMP); return; }
 document.getElementById("top").hidden = false;
