@@ -5,4 +5,4 @@ set -euo pipefail
 cd "$(dirname "$0")/../.."
 python -m research.twin_live.live
 python -m research.wallet.export_prices
-python -m research.macro.collect
+python -m research.macro.collect || echo "economic calendar failed; keeping the previous macro.json"
