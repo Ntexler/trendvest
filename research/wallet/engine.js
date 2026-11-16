@@ -145,7 +145,7 @@
       S.fee.commission += com * fx; S.fee.market += mkt * fx; S.fee.fx += fxFee; S.fee.service += svc;
       log(i, isRule ? "rule" : "sell", why || `מכרת ${p.name}`, { ticker: t, shares: +shares.toFixed(4), price: pr, cur: p.cur,
         gross: round2(grossLocal * fx), fees: round2((com + mkt) * fx + fxFee), tax: round2(taxIls), service: round2(svc),
-        toPrincipal: round2(toPrincipal), toProfit: round2(toProfit), gain: round2(taxable) });
+        toPrincipal: round2(toPrincipal), toProfit: round2(toProfit), gain: round2(taxable), infl: round2(nominal > 0 ? Math.min(nominal, infl) : 0) });
       return back;
     }
 
@@ -261,7 +261,8 @@
     const positions = Object.values(S.pos).filter((p) => p.shares > 1e-9 || p.returned > 0).map((p) => {
       const v = posValue(p.t, last);
       return { ticker: p.t, name: p.name, cur: p.cur, shares: +p.shares.toFixed(4), value: round2(v), invested: round2(p.invested),
-        returned: round2(p.returned), cost_left: round2(p.costIls), unrealized: round2(v - p.costIls) };
+        returned: round2(p.returned), cost_left: round2(p.costIls), unrealized: round2(v - p.costIls),
+        infl_exempt: p.cur === "ILS" && p.costCpi != null && ctx.cpi(last) ? round2(Math.max(0, p.costCpi * ctx.cpi(last) - p.costIls)) : 0 };
     });
     const holdings = positions.reduce((s, p) => s + p.value, 0);
     // tax still owed if everything were sold today (shown, not charged)

@@ -142,7 +142,7 @@ sup a { font-size: 10px; color: var(--accent); text-decoration: none; margin-inl
 const CN = { US: "ארה\"ב", JP: "יפן", TW: "טייוואן", KR: "קוריאה", DE: "גרמניה", NL: "הולנד", IL: "ישראל", CN: "סין", FR: "צרפת", CH: "שווייץ", GB: "בריטניה", AU: "אוסטרליה", CA: "קנדה", DK: "דנמרק", ES: "ספרד", IT: "איטליה", BR: "ברזיל", CL: "צ'ילה", IN: "הודו", NO: "נורווגיה", SE: "שוודיה", HK: "הונג קונג", IE: "אירלנד" };
 const go = id => { location.hash = id; location.reload(); };
 function nav(C, cur) { const el = document.getElementById("mk");
-  el.innerHTML = `<button data-m="" aria-current="${!C.markets[cur] && cur !== "wallet" && cur !== "twin"}">כל השווקים</button>` + C.order.map(m => `<button data-m="${m}" aria-current="${m === cur}">${C.markets[m].name}</button>`).join("") + `<button data-m="wallet" aria-current="${cur === "wallet"}" class="wbtn">הארנק שלי</button><button data-m="twin" aria-current="${cur === "twin"}">ניסוי התאום</button>`;
+  el.innerHTML = `<button data-m="" aria-current="${!C.markets[cur] && cur !== "wallet" && cur !== "twin" && cur !== "macro"}">כל השווקים</button>` + C.order.map(m => `<button data-m="${m}" aria-current="${m === cur}">${C.markets[m].name}</button>`).join("") + `<button data-m="wallet" aria-current="${cur === "wallet"}" class="wbtn">הארנק שלי</button><button data-m="twin" aria-current="${cur === "twin"}">ניסוי התאום</button><button data-m="macro" aria-current="${cur === "macro"}">הבנקים והמחירים</button>`;
   el.addEventListener("click", e => { const b = e.target.closest("button"); if (b) go(b.dataset.m); }); }
 /* ---------- the opening page ---------- */
 function hub(C) { const HEATC = { frozen: "#ECE9E7", cool: "#F3DCCB", mild: "#F9C29A", hot: "#FF9A52", boiling: "#FF5A1F" };
@@ -157,6 +157,7 @@ function hub(C) { const HEATC = { frozen: "#ECE9E7", cool: "#F3DCCB", mild: "#F9
   page.innerHTML = `<div><span class="kicker">TrendVest · ${ms.length} שווקים · ${n} חברות</span><h1>השווקים</h1></div>
     <div class="band tint-stock">${tag("השורה התחתונה", "var(--c-stock)")}<b class="say" style="margin:0">${hot} מתוך ${n} חברות חמות עכשיו. הכי חם: ${hottest ? esc(hottest.name) : ""}.</b>
       <span>חם אומר שהרבה קורה: המכירות רצות או שהמחיר עלה. זה לא סימן לקנות. בכל שוק אפשר לראות מי חם, למה מניות זזו, ומי עובד עם מי.</span></div>
+    <div id="macroband"></div>
     <div class="cards">${ms.map((m, k) => `<button class="mcard ${tints[k % tints.length]}" data-m="${m.id}"><h3>${m.name}</h3><p class="clamp">${m.intro}</p>
       ${m.heat ? `<div class="strip">${m.heat.levels.map(l => `<i style="background:${HEATC[l]}"></i>`).join("")}</div><span class="small">${m.heat.hot} מתוך ${m.heat.n} חמות. הכי חמות: ${m.heat.top.map(esc).join(", ")}</span>` : ""}
       <div class="three"><div><b class="num">${m.companies}</b><span>חברות</span></div><div><b class="num">${big(m.revenue)}</b><span>מכירות בשנה</span></div><div><b>${s(m.price_1y_med)}</b><span>מניה חציונית בשנה</span></div></div></button>`).join("")}
@@ -169,16 +170,28 @@ function hub(C) { const HEATC = { frozen: "#ECE9E7", cool: "#F3DCCB", mild: "#F9
       ${band("מה עשו המניות בשנה האחרונה", "price_1y_med", v => s(v), "המניה החציונית בכל שוק, במטבע המקומי.")}
       ${band("כמה המחירים קופצים", "vol_1y", v => `<span class="num">${v}%</span>`, "ככל שהמספר גבוה יותר, המחירים קופצים יותר.")}
       ${band("כמה יקר: כמה משלמים על כל 1 של רווח", "pe_med", v => `<span class="num">${v}</span>`, "החברה החציונית בכל שוק.")}</div></details>`;
-  page.addEventListener("click", e => { const b = e.target.closest("[data-m]"); if (b) go(b.dataset.m); }); }
+  page.addEventListener("click", e => { const b = e.target.closest("[data-m]"); if (b) go(b.dataset.m); });
+  fetch("data/macro.json").then(r => r.json()).then(M => {   // "this week in the economy": hidden in a week with no events
+    const t0 = new Date().toISOString().slice(0, 10), t7 = new Date(Date.now() + 7 * 864e5).toISOString().slice(0, 10), wk = ["א׳", "ב׳", "ג׳", "ד׳", "ה׳", "ו׳", "ש׳"];
+    const U = M.upcoming.filter(u => u.date >= t0 && u.date <= t7).slice(0, 3), il = M.cpi.il.months[M.cpi.il.months.length - 1];
+    if (!U.length) return;
+    document.getElementById("macroband").innerHTML = `<button class="band rowlink tint-stock" data-m="macro" style="border:0;text-align:start">${tag("השבוע בכלכלה", "var(--c-stock)")}
+      <div style="display:grid;grid-template-columns:repeat(${U.length},minmax(0,1fr));gap:10px">${U.map(u => `<div class="box"><span class="small">יום ${wk[new Date(u.date + "T12:00:00Z").getUTCDay()]} · ${u.date.slice(8)}.${u.date.slice(5, 7)}</span><b>${esc(u.title.split(" · ")[0])}</b><span class="small" style="color:${u.loud ? "var(--down)" : "var(--muted)"}">${u.loud ? "יום רועש" : "רגיל"}</span></div>`).join("")}</div>
+      <span>אינפלציה בישראל: <b class="num">${il.yoy.toFixed(1)}%</b> בשנה · ריבית בנק ישראל: <b class="num">${M.rates.boi.rate.toFixed(2)}%</b></span><span class="small">ליומן הכלכלי ←</span></button>`; }).catch(() => {}); }
 
 (async () => {
 const CMP = await (await fetch("data/compare.json")).json(), market = location.hash.slice(1);
 nav(CMP, market);
+if (market === "macro") { const sc = document.createElement("script"); sc.src = "macro.js"; sc.charset = "utf-8"; document.body.appendChild(sc); return; }
 if (market === "twin") { const sc = document.createElement("script"); sc.src = "twin.js"; sc.charset = "utf-8"; document.body.appendChild(sc); return; }
 if (market === "wallet") { const sc = document.createElement("script"); sc.src = "engine.js"; sc.onload = () => { const w = document.createElement("script"); w.src = "wallet.js"; document.body.appendChild(w); }; document.body.appendChild(sc); return; }
 if (!CMP.markets[market]) { hub(CMP); return; }
 document.getElementById("top").hidden = false;
 const D = await (await fetch(`data/${market}.json`)).json(), M = D.market;
+let MAC = null; fetch("data/macro.json").then(r => r.json()).then(x => { MAC = x; if (S.v === "stock" && S.sec === "chart") render(); }).catch(() => {});
+const regionOf = t => { const x = t.includes(".") ? t.split(".").pop() : ""; return ["", "TO", "SA", "SN"].includes(x) ? "us" : x === "TA" ? "il" : x === "T" ? "jp" : ["TW", "TWO", "KS", "KQ", "HK", "SS", "SZ", "NS", "JK", "AX"].includes(x) ? "asia" : "eu"; };
+const REL = { us: ["fed", "uscpi"], il: ["fed", "uscpi", "ilcpi", "boi"], jp: ["fed", "boj"], asia: ["fed"], eu: ["fed", "ecb", "uscpi"] };   // events that matter for each home market
+const macroOn = (t, d) => MAC ? MAC.events.filter(e => REL[regionOf(t)].includes(e.kind) && e.react[regionOf(t)] && e.react[regionOf(t)][0] === d) : [];
 const $ = id => document.getElementById(id), byId = Object.fromEntries(D.nodes.map(n => [n.id, n]));
 const safe = u => /^https?:\/\//i.test(String(u || "")) ? u : "#";   // links from data: web addresses only
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -191,7 +204,7 @@ const evName = id => { const h = M.history.find(x => x[5] === id); return h ? [h
 const roleOf = (n, id) => n.ev[id] && (n.ev[id].w || n.ev[id].role);
 D.edges.forEach(e => { e.material = e.crit || Number(e.share) >= 10; });
 const byW = (a, b) => (b.material - a.material) || (Number(b.share || 0) - Number(a.share || 0));
-let S = { sec: "overview", sums: {}, whyAll: false, layers: { index: true, why: true, sales: true, events: false, changes: false, next: false }, feed: "all", more: false, v: "stock", co: D.nodes.some(n => n.id === "TSMC") ? "TSMC" : D.nodes[0].id, ev: (D.events.find(e => e.id === "HUALIEN2024") || D.events[0] || {}).id, level: "calm" };
+let S = { sec: "overview", sums: {}, whyAll: false, layers: { index: true, why: true, sales: true, events: false, changes: false, macro: false, next: false }, feed: "all", more: false, v: "stock", co: D.nodes.some(n => n.id === "TSMC") ? "TSMC" : D.nodes[0].id, ev: (D.events.find(e => e.id === "HUALIEN2024") || D.events[0] || {}).id, level: "calm" };
 
 /* ---------- the stock in one picture ---------- */
 function picture(n) { const K = 104, W = 680, H = 250, X0 = 14, X1 = W - 14, Y0 = 62, Y1 = H - 30;
@@ -273,6 +286,9 @@ function layers(n) { const L = S.layers, K = 104, W = 700, H = 240, padT = 30, p
     g += `<rect x="${xs}" y="0" width="${W - xs}" height="${H}" fill="var(--soft)"/>`;
     html += `<div class="lbl" style="right:6px;top:2px">השנה הבאה${card ? ` · נבדוק ב-${hd(card.claim.due)}` : ""}</div>`; }
   const chs = M.changes.filter(c => c[2] === n.tier && /^\d{4}-\d{2}/.test(c[5]) && c[5] >= dates[0].slice(0, 7)).slice(0, 4);
+  if (L.macro && MAC) { const rg = regionOf(n.ticker); MAC.events.filter(e => REL[rg].includes(e.kind) && e.react[rg] && Math.abs(e.react[rg][1]) >= 1.5 && e.react[rg][0] >= dates[0]).forEach((e, k) => {
+    const x = X(e.react[rg][0]); g += `<line x1="${x}" x2="${x}" y1="${padT - 4}" y2="${H}" stroke="${e.kind.endsWith("cpi") ? "var(--down)" : "var(--accent)"}" stroke-width="1.5" stroke-dasharray="4 4"/>`;
+    html += `<span class="flag" style="left:${x / W * 100}%;top:${2 + (k % 2) * 15}px;background:${e.kind.endsWith("cpi") ? "var(--t-next)" : "var(--t-news)"}" title="${esc(e.label)}">${e.kind.endsWith("cpi") ? "מדד" : "ריבית"}</span>`; }); }
   if (L.changes) chs.forEach((c, k) => { const x = X(c[5].slice(0, 7) + "-15"); g += `<line x1="${x}" x2="${x}" y1="${padT - 4}" y2="${H}" stroke="var(--c-news)" stroke-dasharray="3 4"/>`;
     html += `<span class="flag" style="left:${x / W * 100}%;top:${2 + (k % 2) * 15}px">${"אבגד"[k]}</span>`; });
   if (L.index) g += `<path d="${path(vm)}" fill="none" stroke="var(--c-next)" stroke-width="2.2"/>`;
@@ -293,9 +309,10 @@ function layers(n) { const L = S.layers, K = 104, W = 700, H = 240, padT = 30, p
   const endP = vp[vp.length - 1], endM = vm[vm.length - 1], peakK = vp.indexOf(Math.max(...vp.filter(v => v != null))), fromPeak = (endP / vp[peakK] - 1) * 100;
   const chip = (k, t, c) => `<button class="lay" data-layer="${k}" aria-pressed="${!!L[k]}"><i style="background:${c}"></i>${t}</button>`;
   return `<div class="band tint-stock">${tag("השורה התחתונה", "var(--c-stock)")}<span class="say" style="margin:0">100 ₪ שהושקעו לפני שנתיים שווים היום <b>${Math.round(endP)} ₪</b>, לעומת ${Math.round(endM)} ₪ בממוצע השוק.${fromPeak < -10 ? ` מאז השיא ב-${hd(dates[peakK])} המחיר ירד ב-${Math.round(-fromPeak)}%.` : ""}</span></div>
-    <div class="band"><div class="chips">${chip("index", "ממוצע השוק", "var(--c-next)")}${chip("why", "קפיצות ולמה", "var(--c-news)")}${n.pulse && n.pulse.rev ? chip("sales", "מכירות", "var(--c-value)") : ""}${chip("events", "אירועים בשרשרת", "var(--c-chain)")}${chip("changes", "שינויים בתחום", "var(--c-news)")}${chip("next", "שנה קדימה", "var(--muted)")}</div>
+    <div class="band"><div class="chips">${chip("index", "ממוצע השוק", "var(--c-next)")}${chip("why", "קפיצות ולמה", "var(--c-news)")}${n.pulse && n.pulse.rev ? chip("sales", "מכירות", "var(--c-value)") : ""}${chip("events", "אירועים בשרשרת", "var(--c-chain)")}${chip("changes", "שינויים בתחום", "var(--c-news)")}${chip("macro", "בנקים ומחירים", "var(--accent)")}${chip("next", "שנה קדימה", "var(--muted)")}</div>
     <div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="שווי 100 שקלים שהושקעו לפני שנתיים">${g}</svg>${html}<div class="yrs">${yr}</div></div>${sales}
-    ${L.why ? `<div class="legend">${["report", "news", "event"].map(k => `<span><i style="background:${WHYK[k][1]}"></i>${k === "report" ? "דוח" : k === "news" ? "כותרות" : "אירוע"}</span>`).join("")}<span><i class="unk"></i>לא ידוע</span><span class="small">המספרים: הימים שבהם המחיר זז הכי חזק. ההסבר למטה.</span></div>` : ""}
+    ${L.why ? `<div class="legend">${["report", "news", "event"].map(k => `<span><i style="background:${WHYK[k][1]}"></i>${k === "report" ? "דוח" : k === "news" ? "כותרות" : "אירוע"}</span>`).join("")}${MAC ? '<span><i style="background:var(--accent)"></i>אירוע כלכלי</span>' : ""}<span><i class="unk"></i>לא ידוע</span><span class="small">המספרים: הימים שבהם המחיר זז הכי חזק. ההסבר למטה.</span></div>` : ""}
+    ${L.macro ? `<span class="small">${MAC ? "קווים מקווקווים: ימי ריבית או מדד מחירים שבהם הבורסה של המניה זזה יותר מ־1.5%. לחיצה ארוכה על התווית מראה מה הוחלט." : "היומן הכלכלי עוד נטען..."}</span>` : ""}
     ${L.changes && chs.length ? `<div class="small">${chs.map((c, k) => `<b>${"אבגד"[k]}</b> ${esc(c[3])} (${hd(c[5].slice(0, 7))})`).join(" · ")}</div>` : ""}</div>`; }
 
 /* ---------- why it moved: Hebrew first, the raw headlines behind a click ---------- */
@@ -304,8 +321,11 @@ function whyList(n) { const ms = (n.why || []).map((m, k) => ({ ...m, k: k + 1 }
   const rep = ms.filter(m => m.earnings || m.kind === "report").length, ev = ms.filter(m => !m.earnings && m.kind === "event").length,
     other = ms.filter(m => !m.earnings && ["analyst", "deal", "regulation"].includes(m.kind)).length, vague = ms.filter(m => !m.earnings && m.kind === "news").length, unk = ms.filter(m => !m.kind && !m.earnings).length;
   const card = m => { const key = n.id + m.date, sum = S.sums[key], k = m.earnings ? "report" : m.kind;
-    return `<div class="why ${k ? "" : "unk"}" id="why-${m.k}"><div class="wh"><span class="wn" style="background:${k ? WHYK[k][1] : "var(--surface)"}">${m.k}</span><time>${hd(m.date)}</time>${arrowTxt(m.ret)}<span class="small">ביום אחד. השוק: <span class="num">${m.index > 0 ? "+" : ""}${m.index}%</span></span></div>
-      <b>${whyReason(m)}</b>${m.event && !m.event.linked ? `<span class="small">באותו יום: ${esc(m.event.name)}. החברה לא קשורה אליו, ייתכן שזה צירוף מקרים.</span>` : m.event ? `<span class="small">${esc(m.event.name)}</span>` : ""}
+    const mac = macroOn(n.ticker, m.date)[0], macro = mac && Math.abs(m.index) >= 1 && Math.sign(m.index) === Math.sign(m.ret) && Math.abs(m.index) >= Math.abs(m.ret) / 2, own = (m.ret - m.index).toFixed(1);
+    const macTxt = !mac ? "" : macro && !k ? `<span>מעבר לשוק, המניה זזה <span class="num">${own > 0 ? "+" : ""}${own}%</span>${Math.abs(own) < Math.abs(m.ret) / 2 ? " — כנראה לא סיבה מיוחדת לחברה" : ""}. איך קובעים: יום האירוע הרשמי ותנועת השוק כולו; זו לא הוכחה שהוא הסיבה.</span>`
+      : `<span class="small">באותו יום גם: ${esc(mac.label)}. השוק כולו: <span class="num">${m.index > 0 ? "+" : ""}${m.index}%</span>.</span>`;
+    return `<div class="why ${k || macro ? "" : "unk"}" id="why-${m.k}"><div class="wh"><span class="wn" style="background:${k ? WHYK[k][1] : macro ? "var(--accent)" : "var(--surface)"}">${m.k}</span><time>${hd(m.date)}</time>${arrowTxt(m.ret)}<span class="small">ביום אחד. השוק: <span class="num">${m.index > 0 ? "+" : ""}${m.index}%</span></span></div>
+      <b>${macro && !k ? `רוב התנועה הייתה של כל השוק: באותו יום ${esc(mac.label)}.` : whyReason(m)}</b>${macTxt}${m.event && !m.event.linked ? `<span class="small">באותו יום: ${esc(m.event.name)}. החברה לא קשורה אליו, ייתכן שזה צירוף מקרים.</span>` : m.event ? `<span class="small">${esc(m.event.name)}</span>` : ""}
       ${sum ? `<div class="sum">${esc(sum)}<span class="small"> · סיכום שנכתב בבינה מלאכותית מהכותרות</span></div>` : ""}
       ${m.news && m.news.length ? `<details><summary>${m.news.length} כותרות מאותו יום (באנגלית)</summary>${m.news.slice(0, 5).map(h => `<div class="hl2"><span class="raw">${esc(h.t)}</span><span class="small">${esc(h.src)} · <a href="${esc(safe(h.u))}" target="_blank" rel="noopener noreferrer">לידיעה</a></span></div>`).join("")}
         ${sum ? "" : `<button class="linkbtn" data-sum="${key}">לסכם בעברית</button>`}</details>` : ""}</div>`; };

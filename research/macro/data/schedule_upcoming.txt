@@ -1,0 +1,34 @@
+# Upcoming decision days not available from a page this server can read (fetched 2026-11-16 through a web reader).
+# kind,date   kinds: boi (Bank of Israel, 16:00 Israel), ecb (decision day, 15:15 Israel), boj (decision day, ~05:00 Israel)
+# Bank of Israel 2027-Apr 2028: boi.org.il/bank-of-israel/2027-2028-interest-rate-dates/ . The remaining 2026 dates were not found.
+boi,2027-01-04
+boi,2027-02-22
+boi,2027-04-05
+boi,2027-05-24
+boi,2027-07-05
+boi,2027-08-18
+boi,2027-09-27
+boi,2027-11-22
+boi,2028-01-03
+boi,2028-02-21
+boi,2028-04-03
+# ECB: ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+ecb,2026-12-17
+ecb,2027-02-04
+ecb,2027-03-18
+ecb,2027-04-29
+ecb,2027-06-10
+ecb,2027-07-22
+ecb,2027-09-09
+ecb,2027-10-28
+ecb,2027-12-16
+# BoJ: boj.or.jp/en/mopo/mpmsche_minu/index.htm (last day of each meeting)
+boj,2026-12-18
+boj,2027-01-22
+boj,2027-03-18
+boj,2027-04-28
+boj,2027-06-11
+boj,2027-07-22
+boj,2027-09-22
+boj,2027-10-29
+boj,2027-12-17
