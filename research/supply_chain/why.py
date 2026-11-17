@@ -5,7 +5,8 @@
 For each company: daily return minus its home index (the "extra" move), the 8 largest days, and for each day:
   * a chain event from our event list on that day (and whether the company is actually linked to it)
   * news headlines published from the day before to the day after (Google News search by date), with links
-  * a kind, read from the headlines' words: report, analyst, deal, regulation, other news
+  * a kind: report, analyst, deal, regulation, other news - asked of Jev (research/decide) when it is configured and
+    sure enough, otherwise read from the headlines' words; the source is kept with the day ("kind_by")
 Days with nothing found are kept and marked unknown. Nothing is invented.
 
     MARKET=chips python -m research.supply_chain.why            # news for the companies in stories/targets.json
@@ -30,6 +31,9 @@ import requests
 from . import graph as G
 from . import markets as MK
 from .run import all_prices
+from research.decide.why_kind import classify
+
+c_name = lambda c: re.sub(r"\s*\(.*?\)", "", c["name"])   # noqa: E731
 
 TOP, YEARS, MIN_ABN = 8, 2, 4.0         # moves per company, look-back, smallest extra move worth explaining (%)
 UA = {"User-Agent": "Mozilla/5.0 (research script)"}
@@ -124,14 +128,22 @@ def main() -> None:
                     m["news"] = h[:5]
             if any(0 <= (d.normalize() - e).days <= 1 for e in earn.get(cid, [])):
                 m["earnings"] = True           # report published that day or the evening before (official calendar)
-            m["kind"] = ("report" if m.get("earnings") else None) or ("event" if m.get("event", {}).get("linked") else None) \
-                or kind(m.get("news", []))
+            m["kind"] = ("report" if m.get("earnings") else None) or ("event" if m.get("event", {}).get("linked") else None)
+            if not m["kind"]:           # only the headlines can tell: Jev when available and sure, else the keyword rules
+                cl = classify(c_name(c), m.get("news", []), kind(m.get("news", [])))
+                m["kind"] = cl["kind"]
+                if cl["source"] == "jev":
+                    m["kind_by"] = {k: cl[k] for k in ("source", "confidence", "about", "tone", "rules_kind")}
             m["searched"] = "news" in m or every or c["ticker"] in targets
         out[cid] = moves
     G.RESULTS.mkdir(parents=True, exist_ok=True)
     (G.RESULTS / "why.json").write_text(json.dumps(out, ensure_ascii=False))
     allm = [m for v in out.values() for m in v]
     known = sum(1 for m in allm if m.get("kind"))
+    from research.decide.why_kind import client
+    j = client()
+    print(f"Jev: {'on' if j.enabled else 'off'}, {j.calls} answers, median {sorted(j.ms)[len(j.ms) // 2] if j.ms else '-'} ms"
+          f"{', stopped after failures' if j.tripped else ''}")
     print(f"{G.MARKET}: {len(allm)} big moves in {len(out)} companies; {n_news} news searches; "
           f"{known} with a documented reason, {len(allm) - known} unknown")
 
