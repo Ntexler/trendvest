@@ -1,6 +1,6 @@
 {
- "updated_utc": "2026-11-15 07:51",
- "last_us_session": "2026-11-13",
+ "updated_utc": "2026-11-17 12:41",
+ "last_us_session": "2026-11-16",
  "start": "2026-11-16",
  "id": "twin-ny-1",
  "hash": "11981f45fa20",
@@ -27,7 +27,34 @@
  "control": {
   "closed": 0
  },
- "pending": [],
+ "pending": [
+  {
+   "leader": "SMIC",
+   "leader_t": "0981.HK",
+   "city": "הונג קונג",
+   "leader_date": "2026-11-17",
+   "jump": 7.8,
+   "z": 2.4,
+   "twin": "GlobalFoundries",
+   "twin_t": "GFS",
+   "seg": "foundry",
+   "us": true,
+   "holding": false
+  },
+  {
+   "leader": "SMIC",
+   "leader_t": "0981.HK",
+   "city": "הונג קונג",
+   "leader_date": "2026-11-17",
+   "jump": 7.8,
+   "z": 2.4,
+   "twin": "Tower Semiconductor",
+   "twin_t": "TSEM",
+   "seg": "foundry",
+   "us": true,
+   "holding": false
+  }
+ ],
  "recent": [],
  "open": [],
  "closed": []
