@@ -1,0 +1,515 @@
+{
+ "id": "medical",
+ "name": "רפואה: תרופות ומכשור רפואי",
+ "definition": "שוק הרפואה הוא שרשרת של שישה שלבים, מהמעבדה ועד החולה: ציוד למעבדות, ייצור בקבלנות, חברות התרופות, מכשור רפואי, הפצה ובתי מרקחת, ולבסוף המבטחים ובתי החולים שמשלמים ומטפלים.",
+ "checked": "2026-11-11",
+ "intro": "תרופה או מכשיר רפואי עוברים דרך ארוכה מהמעבדה ועד החולה. חברה אחת מפתחת, אחרת מייצרת, שלישית מפיצה, ובסוף מבטח או המדינה משלמים. פיתוח של תרופה חדשה נמשך 10 עד 15 שנים, ורוב הניסיונות נכשלים בדרך.",
+ "chain_title": "איך תרופה מגיעה לחולה: שישה שלבים",
+ "index_name": "מדד מניות הבריאות בארה\"ב (תעודת הסל XLV)",
+ "index_ticker": "XLV",
+ "plain": {
+  "tools": "מוכרים למעבדות ולמפעלים מכשירים, חומרים ואריזות.",
+  "contract": "מייצרים חומרים פעילים ותרופות בשביל חברות אחרות ומנהלים בשבילן ניסויים.",
+  "drugmakers": "מפתחים תרופות, מקבלים עליהן אישור ומוכרים אותן.",
+  "devices": "מייצרים מכשור רפואי: משאבות, חיישנים, רובוטים לניתוחים ושקיות עירוי.",
+  "distribution": "מביאים את התרופות לבתי המרקחת ומנהלים את המרשמים בשביל המבטחים.",
+  "care": "מבטחים את החולים, משלמים על הטיפול ומטפלים בבתי החולים."
+ },
+ "plain_co": {
+  "tools": "מוכרת למעבדות ולמפעלים מכשירים, חומרים ואריזות.",
+  "contract": "מייצרת חומרים פעילים ותרופות בשביל חברות אחרות, או מנהלת בשבילן ניסויים.",
+  "drugmakers": "מפתחת תרופות, מקבלת עליהן אישור ומוכרת אותן.",
+  "devices": "מייצרת מכשור רפואי לבתי חולים ולחולים.",
+  "distribution": "מביאה תרופות לבתי המרקחת, או מנהלת מרשמים בשביל מבטחים.",
+  "care": "מבטחת חולים ומשלמת על הטיפול, או מפעילה בתי חולים."
+ },
+ "time": {
+  "tools": "הזמנות חוזרות כל הזמן",
+  "contract": "חוזים של עד 10 שנים",
+  "drugmakers": "10 עד 15 שנות פיתוח",
+  "devices": "אישור בכ-90 יום למכשיר פשוט",
+  "distribution": "מלאי של כחודש",
+  "care": "תעריפים פעם בשנה"
+ },
+ "kpis": [
+  [
+   "הוצאות הבריאות בארה\"ב ב-2024",
+   "$5.3T",
+   "NHE"
+  ],
+  [
+   "מגילוי ועד אישור תרופה",
+   "10 עד 15 שנים",
+   "CSIS"
+  ],
+  [
+   "הנחות והחזרים ממחיר המחירון בארה\"ב",
+   "כ-46%",
+   "IQVIA26"
+  ],
+  [
+   "חלקן של שלוש מנהלות המרשמים הגדולות",
+   "כמעט 80%",
+   "FTC"
+  ]
+ ],
+ "tiers": [
+  "tools",
+  "contract",
+  "drugmakers",
+  "devices",
+  "distribution",
+  "care"
+ ],
+ "lifecycle": [
+  [
+   "מחקר וניסויים בבני אדם",
+   "10 עד 15 שנים עד האישור",
+   "drugmakers",
+   "התרופה נבדקת בשלושה שלבי ניסוי. כ-70% עוברות את הראשון וכ-33% את השני.",
+   "FDA-CT"
+  ],
+  [
+   "בדיקה ואישור של FDA",
+   "10 חודשים, או 6 במסלול מועדף",
+   "drugmakers",
+   "הרגולטור בודק את תוצאות הניסויים ואת מפעל הייצור.",
+   "FDA-PR"
+  ],
+  [
+   "הקמת הייצור",
+   "מפעל חדש: כ-5 שנים; חוזה ייצור: עד 10 שנים",
+   "contract",
+   "החברה בונה מפעל או שוכרת קיבולת אצל יצרן בקבלנות.",
+   "PM-FUJI"
+  ],
+  [
+   "הפצה לבתי המרקחת",
+   "מלאי של עד חודש; תשלום בתוך 30 עד 90 יום",
+   "distribution",
+   "שלוש מפיצות קונות את התרופה מהיצרן ומביאות אותה לבתי המרקחת ולבתי החולים.",
+   "BMY"
+  ],
+  [
+   "תשלום וכיסוי ביטוחי",
+   "חוזים של כשלוש שנים",
+   "care",
+   "מנהלות המרשמים והמבטחים קובעים אילו תרופות מכוסות ובאיזו הנחה.",
+   "CVS"
+  ],
+  [
+   "סוף הפטנט",
+   "20 שנה מיום הגשת הבקשה",
+   "drugmakers",
+   "כשהפטנט פוקע נכנסות תרופות גנריות זולות, וההכנסות של התרופה המקורית יורדות.",
+   "FDA-PAT"
+  ]
+ ],
+ "lifecycle_total": [
+  "מגילוי במעבדה ועד אישור התרופה",
+  "10 עד 15 שנים",
+  "CSIS"
+ ],
+ "history": [
+  [
+   "2017",
+   "מתקפת הסייבר NotPetya",
+   "המתקפה פגעה במחשבים של Merck. החברה העריכה את הנזק בכ-1.4 מיליארד דולר.",
+   "drugmakers",
+   "W-NOTP",
+   "NOTPETYA2017",
+   1
+  ],
+  [
+   "2017",
+   "הוריקן מריה בפוארטו ריקו",
+   "הסופה פגעה באי שבו מפעלים רבים של תרופות וציוד רפואי. הפגיעה במפעלי שקיות העירוי של Baxter לא אומתה מול מקור.",
+   "devices",
+   "W-MARIA",
+   "MARIA2017",
+   0
+  ],
+  [
+   "2018",
+   "Amazon קנתה את בית המרקחת המקוון PillPack",
+   "מניות בתי המרקחת והמפיצות ירדו ביום ההודעה. שלוש רשתות בתי המרקחת איבדו יחד כ-11 מיליארד דולר משוויין.",
+   "distribution",
+   "PILL",
+   "PILLPACK2018",
+   1
+  ],
+  [
+   "2020",
+   "החיסון של Pfizer ו-BioNTech לקורונה",
+   "החברות הודיעו שהחיסון יעיל ביותר מ-90%. שעת ההודעה המדויקת לא אומתה.",
+   "drugmakers",
+   "BNTX6K",
+   "VACCINE2020",
+   0
+  ],
+  [
+   "2023",
+   "טורנדו פגע במפעל של Pfizer",
+   "המפעל ברוקי מאונט מייצר כמעט 25% מהתרופות הסטריליות להזרקה של Pfizer. נוצר מחסור בבתי החולים.",
+   "drugmakers",
+   "PFE",
+   "ROCKYMOUNT2023",
+   1
+  ],
+  [
+   "2023",
+   "ניסוי SELECT של Novo Nordisk",
+   "התרופה להשמנה Wegovy הפחיתה ב-20% את הסיכון לאירועי לב. הניסוי כלל 17,604 משתתפים.",
+   "drugmakers",
+   "NVO-SEL",
+   "SELECT2023",
+   1
+  ],
+  [
+   "2024",
+   "הצעת החוק Biosecure בארה\"ב",
+   "ההצעה כוונה נגד חברות ביוטכנולוגיה סיניות. מניות WuXi AppTec ו-WuXi Biologics ירדו ביותר מ-20% ביום אחד.",
+   "contract",
+   "AF-WUXI",
+   "BIOSECURE2024",
+   1
+  ],
+  [
+   "2024",
+   "מתקפת הסייבר על Change Healthcare",
+   "מערכת התביעות של UnitedHealth הושבתה. בתי מרקחת ובתי חולים לא קיבלו תשלומים במשך שבועות.",
+   "care",
+   "W-CHANGE",
+   "CHANGE2024",
+   1
+  ],
+  [
+   "2024",
+   "הוריקן הלן הציף מפעל של Baxter",
+   "המפעל בצפון קרוליינה ייצר כ-60% מנוזלי העירוי בארה\"ב. המחסור נמשך עד סוף 2024.",
+   "devices",
+   "W-BAX",
+   "HELENE2024",
+   1
+  ],
+  [
+   "2025",
+   "צו המחירים של טראמפ",
+   "הצו דרש מחברות התרופות להשוות את המחיר בארה\"ב למחיר הנמוך במדינות עשירות אחרות. המניות ירדו ואז התאוששו.",
+   "drugmakers",
+   "BREW",
+   "MFN2025",
+   1
+  ],
+  [
+   "2026",
+   "מתקפת סייבר על Stryker",
+   "המתקפה שיבשה הזמנות, ייצור ומשלוחים בכל העולם. החברה חזרה לפעילות מלאה בתחילת אפריל.",
+   "devices",
+   "W-SYK",
+   "STRYKER2026",
+   1
+  ],
+  [
+   "2026",
+   "מכס אמריקאי על תרופות מוגנות פטנט",
+   "צו מ-2 באפריל 2026 קבע מכס של עד 100%. תרופות גנריות פטורות.",
+   "drugmakers",
+   "EY232",
+   "TARIFF232_2026",
+   1
+  ]
+ ],
+ "changes": [
+  [
+   "regulation",
+   "other",
+   "drugmakers",
+   "מכס של עד 100% על תרופות מוגנות פטנט שמיובאות לארה\"ב",
+   "הצו נחתם ב-2 באפריל 2026. המכס מתחיל בהדרגה מ-31 ביולי 2026 לחברות הגדולות. לא אומת אם לוח הזמנים נשמר.",
+   "2026-04",
+   "בתוקף בהדרגה",
+   "EY232",
+   1
+  ],
+  [
+   "regulation",
+   "other",
+   "drugmakers",
+   "מחירי Medicare ל-15 תרופות נוספות, ובהן Ozempic ו-Wegovy",
+   "המחירים שסוכמו ייכנסו לתוקף בינואר 2027.",
+   "2027-01",
+   "מתוכנן",
+   "KFF-NEG",
+   1
+  ],
+  [
+   "regulation",
+   "other",
+   "drugmakers",
+   "עוד 15 תרופות נבחרו למשא ומתן על המחיר",
+   "הרשימה פורסמה בינואר 2026 והמחירים ייכנסו לתוקף ב-2028. לראשונה היא כוללת תרופות שניתנות במרפאה.",
+   "2026-01",
+   "במשא ומתן",
+   "KFF-NEG",
+   1
+  ],
+  [
+   "regulation",
+   "other",
+   "drugmakers",
+   "בית המשפט העליון בארה\"ב דחה את ערעורי חברות התרופות",
+   "ב-18 במאי 2026 סירב בית המשפט לדון בערעורים נגד תוכנית המשא ומתן, והיא נשארת בתוקף.",
+   "2026-05",
+   "הוכרע",
+   "W-NEG",
+   1
+  ],
+  [
+   "regulation",
+   "delays",
+   "drugmakers",
+   "הרחבת הפטור לתרופות למחלות נדירות",
+   "חוק מיולי 2025 דוחה או מבטל את המשא ומתן על חלק מהתרופות, ובהן Keytruda ו-Opdivo.",
+   "2025-07",
+   "בתוקף",
+   "W-NEG",
+   1
+  ],
+  [
+   "regulation",
+   "blocks",
+   "contract",
+   "חוק Biosecure והרשימה של משרד ההגנה",
+   "החוק עבר ב-2025. ביוני 2026 הוסיף משרד ההגנה האמריקאי את WuXi AppTec לרשימת החברות הקשורות לצבא הסיני.",
+   "2026-06",
+   "בתוקף",
+   "W-BIO",
+   1
+  ],
+  [
+   "regulation",
+   "delays",
+   "contract",
+   "ביקורת FDA במפעל מילוי עיכבה תרופה של Regeneron",
+   "ליקויים שנמצאו ביולי 2025 במפעל באינדיאנה, שעבר לבעלות Novo Nordisk, עיכבו החלטות על Eylea HD.",
+   "2025-07",
+   "לא אומת אם נפתר",
+   "REGN",
+   1
+  ],
+  [
+   "move",
+   "adds",
+   "contract",
+   "Samsung Biologics קנתה מפעל של GSK בארה\"ב",
+   "המפעל ברוקוויל, מרילנד, הוא האתר הראשון שלה בארה\"ב, עם קיבולת של 60,000 ליטר.",
+   "2026",
+   "הושלם",
+   "PM-CAP",
+   1
+  ],
+  [
+   "move",
+   "adds",
+   "contract",
+   "Fujifilm פתחה מפעל גדול בצפון קרוליינה",
+   "המפעל נפתח בספטמבר 2025 אחרי חמש שנות בנייה. שלב שני יכפיל את הקיבולת עד 2028.",
+   "2025-09",
+   "בהרחבה",
+   "PM-FUJI",
+   1
+  ],
+  [
+   "move",
+   "adds",
+   "contract",
+   "Lonza קנתה מ-Roche מפעל בקליפורניה",
+   "המפעל בווקוויל נקנה ב-2024 ב-1.2 מיליארד דולר, עם קיבולת של 332,000 ליטר.",
+   "2024",
+   "הושלם",
+   "PM-CAP",
+   1
+  ],
+  [
+   "move",
+   "other",
+   "contract",
+   "Catalent עברה לבעלות Novo Holdings",
+   "העסקה הושלמה בדצמבר 2024. Novo Nordisk קנתה שלושה ממפעלי המילוי ב-11.7 מיליארד דולר.",
+   "2024-12",
+   "הושלם",
+   "NVO",
+   1
+  ],
+  [
+   "move",
+   "other",
+   "contract",
+   "Merck קנתה מ-WuXi מפעל חיסונים באירלנד",
+   "העסקה במרץ 2025 סיימה את הסכם הייצור בין החברות במפעל הזה.",
+   "2025-03",
+   "הושלם",
+   "MRK",
+   1
+  ],
+  [
+   "move",
+   "other",
+   "distribution",
+   "OptumRx עברה מ-Cardinal Health ל-McKesson",
+   "החוזים, שהיו 17% מההכנסות של Cardinal, הסתיימו ביוני 2024.",
+   "2024-06",
+   "הושלם",
+   "CAH",
+   1
+  ],
+  [
+   "move",
+   "other",
+   "distribution",
+   "Walgreens נמחקה מהבורסה",
+   "קרן Sycamore השלימה את הרכישה באוגוסט 2025 ופיצלה את החברה לחמש.",
+   "2025-08",
+   "הושלם",
+   "W-WBA",
+   1
+  ],
+  [
+   "move",
+   "other",
+   "distribution",
+   "חוזי הפצה גדולים מסתיימים ב-2027",
+   "ההסכם של McKesson עם CVS והסכמי ההפצה של Bristol Myers Squibb מסתיימים ביוני 2027. ההסכם של Elevance עם CVS מסתיים בסוף 2027.",
+   "2027-06",
+   "מתקרב",
+   "MCK",
+   1
+  ]
+ ],
+ "event_he": {
+  "ACA2018": [
+   "פסק דין בטקסס נגד חוק הבריאות האמריקאי",
+   "שופט פסל את החוק שמרחיב את ביטוח הבריאות. מניות בתי החולים והמבטחים ירדו, ובית המשפט העליון הפך את ההחלטה ב-2021."
+  ],
+  "INDIA_API2020": [
+   "הודו הגבילה יצוא חומרים פעילים",
+   "בתחילת הקורונה נדרש רישיון ליצוא של 26 חומרים ותרופות, ובהם פרצטמול."
+  ],
+  "PHILIPS2021": [
+   "Philips החזירה מכשירי נשימה ושינה",
+   "החברה הודיעה על החזרה מהשוק בגלל ספוג בידוד שעלול להתפרק ולהזיק."
+  ],
+  "IRA_LIST2023": [
+   "עשר התרופות הראשונות למשא ומתן עם Medicare",
+   "הממשל פרסם את הרשימה הראשונה, ובה Eliquis ו-Xarelto. התאריך המדויק לא אומת מול מקור."
+  ],
+  "OPTUM_CAH2024": [
+   "Cardinal Health איבדה את החוזים עם OptumRx",
+   "החברה הודיעה שהחוזים, כ-17% מההכנסות, לא יחודשו. McKesson קיבלה אותם."
+  ],
+  "CAGRISEMA2024": [
+   "ניסוי CagriSema של Novo Nordisk",
+   "התרופה החדשה להשמנה עמדה ביעד הניסוי. לפי הדיווחים התוצאה הייתה נמוכה מהציפיות, אך הפרט הזה לא אומת מול מקור."
+  ],
+  "UNH_CUT2025": [
+   "UnitedHealth פרסמה תוצאות לרבעון הראשון של 2025",
+   "לפי הדיווחים החברה הורידה את תחזית הרווח בגלל עלויות טיפול גבוהות. הפרט הזה לא אומת מול מקור."
+  ],
+  "TARIFF100_2025": [
+   "טראמפ הודיע על מכס של 100% על תרופות ממותגות",
+   "המכס נקבע מ-1 באוקטובר 2025, עם פטור לחברות שבונות מפעלים בארה\"ב."
+  ]
+ },
+ "sources": {
+  "EY232": [
+   "EY, אפריל 2026",
+   "https://taxnews.ey.com/news/2026-0787-us-section-232-proclamation-imposes-up-to-100-percent-tariffs-on-patented-pharmaceuticals-and-active-pharmaceutical-ingredients"
+  ],
+  "W-NEG": [
+   "ויקיפדיה: Medicare Drug Price Negotiation Program",
+   "https://en.wikipedia.org/wiki/Medicare_Drug_Price_Negotiation_Program"
+  ],
+  "W-WBA": [
+   "ויקיפדיה: Walgreens Boots Alliance",
+   "https://en.wikipedia.org/wiki/Walgreens_Boots_Alliance"
+  ],
+  "W-SYK": [
+   "ויקיפדיה: Stryker Corporation",
+   "https://en.wikipedia.org/wiki/Stryker_Corporation"
+  ],
+  "W-NOTP": [
+   "ויקיפדיה: מתקפת NotPetya",
+   "https://en.wikipedia.org/wiki/2017_Ukraine_ransomware_attacks"
+  ],
+  "W-MARIA": [
+   "ויקיפדיה: Hurricane Maria",
+   "https://en.wikipedia.org/wiki/Hurricane_Maria"
+  ],
+  "PILL": [
+   "Healthcare Innovation, יוני 2018",
+   "https://www.hcinnovationgroup.com/finance-revenue-cycle/article/13010186/walgreens-cvs-and-rite-aid-lose-11-billion-in-value-after-amazon-buys-online-pharmacy-pillpack"
+  ],
+  "BNTX6K": [
+   "BioNTech, דיווח ל-SEC, נובמבר 2020",
+   "https://www.sec.gov/Archives/edgar/data/1776985/000156459020052228/bntx-6k_20201109.htm"
+  ],
+  "FORTUNE": [
+   "Fortune ו-AP, יולי 2023",
+   "https://fortune.com/2023/07/20/pfizer-plant-north-carolina-heavily-damaged-tornado-lead-long-term-shortages-drugs/"
+  ],
+  "NVO-SEL": [
+   "Novo Nordisk, הודעה, אוגוסט 2023",
+   "https://www.sec.gov/Archives/edgar/data/353278/000117184323005056/f6k_080823.htm"
+  ],
+  "NVO-CAG": [
+   "Novo Nordisk, הודעה, דצמבר 2024",
+   "https://www.sec.gov/Archives/edgar/data/353278/000117184324007023/f6k_122024.htm"
+  ],
+  "UNH8K": [
+   "UnitedHealth, דיווח מיידי, פברואר 2024",
+   "https://www.sec.gov/Archives/edgar/data/731766/000073176624000045/unh-20240221.htm"
+  ],
+  "UNH8K25": [
+   "UnitedHealth, דיווח מיידי, אפריל 2025",
+   "https://www.sec.gov/Archives/edgar/data/731766/000073176625000123/unh-20250417.htm"
+  ],
+  "BAX8K": [
+   "Baxter, דיווח מיידי, ספטמבר 2024",
+   "https://www.sec.gov/Archives/edgar/data/10456/000162828024041545/bax-20240929.htm"
+  ],
+  "CAH8K": [
+   "Cardinal Health, דיווח מיידי, אפריל 2024",
+   "https://www.sec.gov/Archives/edgar/data/721371/000072137124000026/cah-20240422.htm"
+  ],
+  "AF-WUXI": [
+   "Asia Financial, פברואר 2024",
+   "https://www.asiafinancial.com/chinas-wuxi-stocks-plunge-on-fears-over-us-biotech-bill"
+  ],
+  "BREW": [
+   "Healthcare Brew, מאי 2025",
+   "https://www.healthcare-brew.com/stories/2025/05/12/trump-eo-lower-drug-prices-industry-response-mixed"
+  ],
+  "CNN": [
+   "CNN, ספטמבר 2025",
+   "https://www.cnn.com/2025/09/25/business/imported-pharmaceuticals-tariff-trump"
+  ],
+  "KFFH": [
+   "KFF Health News, דצמבר 2018",
+   "https://kffhealthnews.org/morning-breakout/health-insurers-hospitals-and-health-care-companies-tumble-on-stock-market-after-judges-health-law-ruling/"
+  ],
+  "TRIB": [
+   "The Tribune, מרץ 2020",
+   "https://www.tribuneindia.com/news/business/india-curbs-export-of-drugs-as-coronavirus-threat-rises-50613"
+  ],
+  "PHIL": [
+   "Philips, הודעה לעיתונות, יוני 2021",
+   "https://www.usa.philips.com/a-w/about/news/archive/standard/news/press/2021/20210614-philips-issues-recall-notification-to-mitigate-potential-health-risks-related-to-the-sound-abatement-foam-component-in-certain-sleep-and-respiratory-care-devices.html"
+  ],
+  "TARO": [
+   "SEC, מסמכי המיזוג של Taro עם Sun Pharma, יוני 2024",
+   "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000906338&type=SC+13E3"
+  ]
+ },
+ "news_he": {}
+}

@@ -1,0 +1,265 @@
+{
+ "assumptions": {
+  "spread_per_side": 0.0005,
+  "trade_usd": [
+   3000,
+   10000
+  ]
+ },
+ "baseline_gross_pct": {
+  "2017-2021": {
+   "day": 0.012,
+   "hold5": 0.436
+  },
+  "2022-2026": {
+   "day": 0.006,
+   "hold5": 0.251
+  }
+ },
+ "results": {
+  "$3000 · buy after a jump · open to close · all": {
+   "trades": 20016,
+   "gross_mean_pct": 0.169,
+   "net_mean_pct": -0.292,
+   "won_pct": 40.0,
+   "t": -17.0,
+   "gap_paid_pct": 0.5
+  },
+  "$3000 · buy after a jump · open to close · 2017-2021": {
+   "trades": 9810,
+   "gross_mean_pct": 0.187,
+   "net_mean_pct": -0.271,
+   "won_pct": 39.5,
+   "t": -11.08,
+   "gap_paid_pct": 0.37
+  },
+  "$3000 · buy after a jump · open to close · 2022-2026": {
+   "trades": 10206,
+   "gross_mean_pct": 0.152,
+   "net_mean_pct": -0.311,
+   "won_pct": 40.4,
+   "t": -12.95,
+   "gap_paid_pct": 0.62
+  },
+  "$3000 · buy after a jump · open, hold 5 days · all": {
+   "trades": 20016,
+   "gross_mean_pct": 0.676,
+   "net_mean_pct": 0.216,
+   "won_pct": 49.9,
+   "t": 5.07,
+   "gap_paid_pct": 0.5
+  },
+  "$3000 · buy after a jump · open, hold 5 days · 2017-2021": {
+   "trades": 9810,
+   "gross_mean_pct": 0.74,
+   "net_mean_pct": 0.282,
+   "won_pct": 50.3,
+   "t": 4.75,
+   "gap_paid_pct": 0.37
+  },
+  "$3000 · buy after a jump · open, hold 5 days · 2022-2026": {
+   "trades": 10206,
+   "gross_mean_pct": 0.615,
+   "net_mean_pct": 0.152,
+   "won_pct": 49.4,
+   "t": 2.49,
+   "gap_paid_pct": 0.62
+  },
+  "$3000 · sell or avoid after a drop · open to close · all": {
+   "trades": 15180,
+   "gross_mean_pct": 0.131,
+   "net_mean_pct": -0.346,
+   "won_pct": 40.2,
+   "t": -17.13,
+   "gap_paid_pct": 0.44
+  },
+  "$3000 · sell or avoid after a drop · open to close · 2017-2021": {
+   "trades": 7114,
+   "gross_mean_pct": 0.09,
+   "net_mean_pct": -0.391,
+   "won_pct": 38.6,
+   "t": -13.03,
+   "gap_paid_pct": 0.36
+  },
+  "$3000 · sell or avoid after a drop · open to close · 2022-2026": {
+   "trades": 8066,
+   "gross_mean_pct": 0.168,
+   "net_mean_pct": -0.306,
+   "won_pct": 41.7,
+   "t": -11.23,
+   "gap_paid_pct": 0.5
+  },
+  "$3000 · sell or avoid after a drop · open, hold 5 days · all": {
+   "trades": 15180,
+   "gross_mean_pct": -0.246,
+   "net_mean_pct": -0.723,
+   "won_pct": 43.9,
+   "t": -14.77,
+   "gap_paid_pct": 0.44
+  },
+  "$3000 · sell or avoid after a drop · open, hold 5 days · 2017-2021": {
+   "trades": 7114,
+   "gross_mean_pct": -0.261,
+   "net_mean_pct": -0.742,
+   "won_pct": 42.4,
+   "t": -10.12,
+   "gap_paid_pct": 0.36
+  },
+  "$3000 · sell or avoid after a drop · open, hold 5 days · 2022-2026": {
+   "trades": 8066,
+   "gross_mean_pct": -0.233,
+   "net_mean_pct": -0.706,
+   "won_pct": 45.3,
+   "t": -10.77,
+   "gap_paid_pct": 0.5
+  },
+  "$10000 · buy after a jump · open to close · all": {
+   "trades": 20016,
+   "gross_mean_pct": 0.169,
+   "net_mean_pct": -0.142,
+   "won_pct": 43.7,
+   "t": -8.32,
+   "gap_paid_pct": 0.5
+  },
+  "$10000 · buy after a jump · open to close · 2017-2021": {
+   "trades": 9810,
+   "gross_mean_pct": 0.187,
+   "net_mean_pct": -0.123,
+   "won_pct": 43.2,
+   "t": -5.02,
+   "gap_paid_pct": 0.37
+  },
+  "$10000 · buy after a jump · open to close · 2022-2026": {
+   "trades": 10206,
+   "gross_mean_pct": 0.152,
+   "net_mean_pct": -0.161,
+   "won_pct": 44.1,
+   "t": -6.72,
+   "gap_paid_pct": 0.62
+  },
+  "$10000 · buy after a jump · open, hold 5 days · all": {
+   "trades": 20016,
+   "gross_mean_pct": 0.676,
+   "net_mean_pct": 0.365,
+   "won_pct": 51.3,
+   "t": 8.58,
+   "gap_paid_pct": 0.5
+  },
+  "$10000 · buy after a jump · open, hold 5 days · 2017-2021": {
+   "trades": 9810,
+   "gross_mean_pct": 0.74,
+   "net_mean_pct": 0.431,
+   "won_pct": 51.8,
+   "t": 7.26,
+   "gap_paid_pct": 0.37
+  },
+  "$10000 · buy after a jump · open, hold 5 days · 2022-2026": {
+   "trades": 10206,
+   "gross_mean_pct": 0.615,
+   "net_mean_pct": 0.302,
+   "won_pct": 50.7,
+   "t": 4.95,
+   "gap_paid_pct": 0.62
+  },
+  "$10000 · sell or avoid after a drop · open to close · all": {
+   "trades": 15180,
+   "gross_mean_pct": 0.131,
+   "net_mean_pct": -0.192,
+   "won_pct": 44.1,
+   "t": -9.51,
+   "gap_paid_pct": 0.44
+  },
+  "$10000 · sell or avoid after a drop · open to close · 2017-2021": {
+   "trades": 7114,
+   "gross_mean_pct": 0.09,
+   "net_mean_pct": -0.235,
+   "won_pct": 42.9,
+   "t": -7.84,
+   "gap_paid_pct": 0.36
+  },
+  "$10000 · sell or avoid after a drop · open to close · 2022-2026": {
+   "trades": 8066,
+   "gross_mean_pct": 0.168,
+   "net_mean_pct": -0.153,
+   "won_pct": 45.1,
+   "t": -5.64,
+   "gap_paid_pct": 0.5
+  },
+  "$10000 · sell or avoid after a drop · open, hold 5 days · all": {
+   "trades": 15180,
+   "gross_mean_pct": -0.246,
+   "net_mean_pct": -0.569,
+   "won_pct": 45.6,
+   "t": -11.63,
+   "gap_paid_pct": 0.44
+  },
+  "$10000 · sell or avoid after a drop · open, hold 5 days · 2017-2021": {
+   "trades": 7114,
+   "gross_mean_pct": -0.261,
+   "net_mean_pct": -0.586,
+   "won_pct": 44.2,
+   "t": -8.0,
+   "gap_paid_pct": 0.36
+  },
+  "$10000 · sell or avoid after a drop · open, hold 5 days · 2022-2026": {
+   "trades": 8066,
+   "gross_mean_pct": -0.233,
+   "net_mean_pct": -0.554,
+   "won_pct": 46.9,
+   "t": -8.44,
+   "gap_paid_pct": 0.5
+  }
+ },
+ "by_direction_buy_day_10k": {
+  "americas→asia · 2017-2021": {
+   "trades": 1749,
+   "net_mean_pct": 0.038,
+   "won_pct": 44.7
+  },
+  "americas→asia · 2022-2026": {
+   "trades": 2072,
+   "net_mean_pct": -0.402,
+   "won_pct": 40.4
+  },
+  "americas→europe · 2017-2021": {
+   "trades": 2161,
+   "net_mean_pct": -0.35,
+   "won_pct": 38.6
+  },
+  "americas→europe · 2022-2026": {
+   "trades": 2155,
+   "net_mean_pct": -0.334,
+   "won_pct": 39.3
+  },
+  "asia→americas · 2017-2021": {
+   "trades": 2674,
+   "net_mean_pct": 0.09,
+   "won_pct": 47.7
+  },
+  "asia→americas · 2022-2026": {
+   "trades": 2675,
+   "net_mean_pct": 0.081,
+   "won_pct": 49.8
+  },
+  "asia→europe · 2017-2021": {
+   "trades": 1712,
+   "net_mean_pct": -0.246,
+   "won_pct": 42.1
+  },
+  "asia→europe · 2022-2026": {
+   "trades": 1769,
+   "net_mean_pct": -0.039,
+   "won_pct": 46.4
+  },
+  "europe→asia · 2017-2021": {
+   "trades": 1514,
+   "net_mean_pct": -0.219,
+   "won_pct": 41.5
+  },
+  "europe→asia · 2022-2026": {
+   "trades": 1535,
+   "net_mean_pct": -0.157,
+   "won_pct": 43.3
+  }
+ }
+}

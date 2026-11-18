@@ -1,0 +1,198 @@
+{
+ "failed": [
+  "CYBR"
+ ],
+ "accuracy": {
+  "all": {
+   "targets": 4214,
+   "companies": 48,
+   "implied_median": 19.8,
+   "realized_median": 1.4,
+   "gap_median": 19.0,
+   "gap_mean": 11.3,
+   "too_high_pct": 63.2,
+   "reached_pct": 56.9,
+   "abs_error_median": 41.0
+  },
+  "asia_other": {
+   "targets": 138,
+   "companies": 6,
+   "implied_median": 13.4,
+   "realized_median": 19.1,
+   "gap_median": -8.4,
+   "gap_mean": 20.9,
+   "too_high_pct": 44.9,
+   "reached_pct": 78.4,
+   "abs_error_median": 23.9
+  },
+  "china": {
+   "targets": 1640,
+   "companies": 14,
+   "implied_median": 26.5,
+   "realized_median": -3.7,
+   "gap_median": 31.6,
+   "gap_mean": 17.7,
+   "too_high_pct": 69.3,
+   "reached_pct": 50.3,
+   "abs_error_median": 45.6
+  },
+  "europe": {
+   "targets": 439,
+   "companies": 14,
+   "implied_median": 15.0,
+   "realized_median": 10.8,
+   "gap_median": 4.9,
+   "gap_mean": 6.7,
+   "too_high_pct": 57.2,
+   "reached_pct": 59.7,
+   "abs_error_median": 20.9
+  },
+  "israel": {
+   "targets": 1997,
+   "companies": 14,
+   "implied_median": 17.6,
+   "realized_median": 0.4,
+   "gap_median": 16.7,
+   "gap_mean": 6.4,
+   "too_high_pct": 60.7,
+   "reached_pct": 60.7,
+   "abs_error_median": 44.3
+  }
+ },
+ "promise_60plus": {
+  "china": {
+   "targets": 216,
+   "companies": 12,
+   "implied_median": 77.7,
+   "realized_median": -10.4,
+   "gap_median": 88.2,
+   "gap_mean": 90.8,
+   "too_high_pct": 94.0,
+   "reached_pct": 12.0,
+   "abs_error_median": 88.8
+  },
+  "israel": {
+   "targets": 120,
+   "companies": 9,
+   "implied_median": 75.1,
+   "realized_median": -10.1,
+   "gap_median": 83.0,
+   "gap_mean": 68.5,
+   "too_high_pct": 88.3,
+   "reached_pct": 15.8,
+   "abs_error_median": 96.6
+  }
+ },
+ "changes": {
+  "all · raise alone": {
+   "n": 737,
+   "day0_mean": 0.57,
+   "day0_t": 3.7,
+   "after5_mean": 0.37,
+   "after5_t": 1.1,
+   "after20_mean": -0.28,
+   "after20_t": -0.7,
+   "after60_mean": 0.88,
+   "after60_t": 1.0
+  },
+  "all · cut alone": {
+   "n": 549,
+   "day0_mean": -0.48,
+   "day0_t": -2.8,
+   "after5_mean": 0.12,
+   "after5_t": -0.6,
+   "after20_mean": -0.39,
+   "after20_t": -1.4,
+   "after60_mean": -2.45,
+   "after60_t": -3.3
+  },
+  "asia_other · raise alone": {
+   "n": 43,
+   "day0_mean": -0.59,
+   "day0_t": -1.5,
+   "after5_mean": -0.29,
+   "after5_t": -0.4,
+   "after20_mean": -0.1,
+   "after20_t": 0.0,
+   "after60_mean": 0.52,
+   "after60_t": 0.3
+  },
+  "china · raise alone": {
+   "n": 201,
+   "day0_mean": 0.58,
+   "day0_t": 2.1,
+   "after5_mean": 0.53,
+   "after5_t": 0.3,
+   "after20_mean": -0.54,
+   "after20_t": -0.7,
+   "after60_mean": 1.44,
+   "after60_t": 0.5
+  },
+  "china · cut alone": {
+   "n": 221,
+   "day0_mean": -0.61,
+   "day0_t": -2.3,
+   "after5_mean": 0.06,
+   "after5_t": -0.6,
+   "after20_mean": -0.95,
+   "after20_t": -1.2,
+   "after60_mean": -2.91,
+   "after60_t": -3.2
+  },
+  "europe · raise alone": {
+   "n": 134,
+   "day0_mean": 0.05,
+   "day0_t": 0.1,
+   "after5_mean": 0.16,
+   "after5_t": -0.4,
+   "after20_mean": -0.46,
+   "after20_t": -1.1,
+   "after60_mean": -0.83,
+   "after60_t": -0.2
+  },
+  "europe · cut alone": {
+   "n": 77,
+   "day0_mean": 0.46,
+   "day0_t": 1.2,
+   "after5_mean": 0.74,
+   "after5_t": 1.0,
+   "after20_mean": 1.16,
+   "after20_t": 1.1,
+   "after60_mean": 2.1,
+   "after60_t": 1.1
+  },
+  "israel · raise alone": {
+   "n": 359,
+   "day0_mean": 0.89,
+   "day0_t": 3.5,
+   "after5_mean": 0.44,
+   "after5_t": 1.2,
+   "after20_mean": -0.08,
+   "after20_t": -0.2,
+   "after60_mean": 1.19,
+   "after60_t": 0.9
+  },
+  "israel · cut alone": {
+   "n": 235,
+   "day0_mean": -0.68,
+   "day0_t": -2.5,
+   "after5_mean": 0.01,
+   "after5_t": -0.4,
+   "after20_mean": -0.29,
+   "after20_t": -0.5,
+   "after60_mean": -3.28,
+   "after60_t": -1.7
+  }
+ },
+ "us_for_comparison": {
+  "targets": 42894,
+  "companies": 172,
+  "implied_median": 14.6,
+  "realized_median": 15.3,
+  "gap_median": -1.1,
+  "gap_mean": -12.7,
+  "too_high_pct": 48.7,
+  "reached_pct": 70.3,
+  "abs_error_median": 26.8
+ }
+}

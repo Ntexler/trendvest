@@ -1,0 +1,169 @@
+{
+ "calm": {
+  "members": [
+   "FNV",
+   "EPIROC",
+   "VALE",
+   "HKEX",
+   "AURUBIS",
+   "BAOSTEEL",
+   "AAPL",
+   "RIO"
+  ],
+  "vol_now": 18.9,
+  "vol_hist": 18.6,
+  "max_drawdown": -31.3,
+  "return_year": 14.5,
+  "events_r3": {
+   "MCARTHUR2017": -0.7,
+   "BRUMADINHO2019": 0.6,
+   "JADAR2022": -5.1,
+   "LME_NICKEL2022": -0.6,
+   "CHILE_LITHIUM2023": -3.4,
+   "COBRE_PANAMA2023": -0.1,
+   "DRC_COBALT2025": -0.6,
+   "KAKULA2025": -1.5,
+   "US_COPPER_TARIFF2025": -1.0,
+   "GRASBERG2025": 0.2,
+   "GRASBERG_FM2025": 2.1,
+   "CHINA_REE_OCT2025": -1.1,
+   "ICL_DEADSEA2025": 1.2
+  },
+  "countries": {
+   "CA": 1,
+   "SE": 1,
+   "BR": 1,
+   "HK": 1,
+   "DE": 1,
+   "CN": 1,
+   "US": 1,
+   "GB": 1
+  },
+  "shared_supplier": null
+ },
+ "steady": {
+  "members": [
+   "WPM",
+   "CAT",
+   "RIO",
+   "GLENCORE",
+   "JIANGXI",
+   "CATL",
+   "AAPL",
+   "BHP"
+  ],
+  "vol_now": 22.8,
+  "vol_hist": 20.8,
+  "max_drawdown": -33.8,
+  "return_year": 19.0,
+  "events_r3": {
+   "MCARTHUR2017": -2.2,
+   "BRUMADINHO2019": 4.1,
+   "JADAR2022": -3.3,
+   "LME_NICKEL2022": -0.5,
+   "CHILE_LITHIUM2023": -2.7,
+   "COBRE_PANAMA2023": 1.1,
+   "DRC_COBALT2025": -2.2,
+   "KAKULA2025": -0.4,
+   "US_COPPER_TARIFF2025": -1.4,
+   "GRASBERG2025": 1.2,
+   "GRASBERG_FM2025": 5.9,
+   "CHINA_REE_OCT2025": 0.4,
+   "ICL_DEADSEA2025": 2.8
+  },
+  "countries": {
+   "US": 2,
+   "CN": 2,
+   "CA": 1,
+   "GB": 1,
+   "CH": 1,
+   "AU": 1
+  },
+  "shared_supplier": [
+   "VALE",
+   1
+  ]
+ },
+ "bold": {
+  "members": [
+   "WPM",
+   "CAT",
+   "INCO",
+   "MITSUI",
+   "KOREAZINC",
+   "SDI",
+   "TSLA",
+   "IVN"
+  ],
+  "vol_now": 29.9,
+  "vol_hist": 24.5,
+  "max_drawdown": -45.1,
+  "return_year": 18.4,
+  "events_r3": {
+   "MCARTHUR2017": -2.8,
+   "BRUMADINHO2019": 3.2,
+   "JADAR2022": -5.2,
+   "LME_NICKEL2022": 1.9,
+   "CHILE_LITHIUM2023": -2.2,
+   "COBRE_PANAMA2023": 2.6,
+   "DRC_COBALT2025": -5.2,
+   "KAKULA2025": 2.3,
+   "US_COPPER_TARIFF2025": -0.2,
+   "GRASBERG2025": 3.6,
+   "GRASBERG_FM2025": 2.3,
+   "CHINA_REE_OCT2025": 5.9,
+   "ICL_DEADSEA2025": 1.6
+  },
+  "countries": {
+   "CA": 2,
+   "US": 2,
+   "KR": 2,
+   "ID": 1,
+   "JP": 1
+  },
+  "shared_supplier": [
+   "CATL",
+   1
+  ]
+ },
+ "popular": {
+  "members": [
+   "AAPL",
+   "TSLA",
+   "CAT",
+   "BHP",
+   "CATL",
+   "SCCO",
+   "NEM",
+   "ZIJIN"
+  ],
+  "vol_now": 24.4,
+  "vol_hist": 22.0,
+  "max_drawdown": -36.8,
+  "return_year": 22.9,
+  "events_r3": {
+   "MCARTHUR2017": -1.2,
+   "BRUMADINHO2019": 3.6,
+   "JADAR2022": -3.1,
+   "LME_NICKEL2022": -0.7,
+   "CHILE_LITHIUM2023": -3.3,
+   "COBRE_PANAMA2023": 2.7,
+   "DRC_COBALT2025": -5.4,
+   "KAKULA2025": -0.1,
+   "US_COPPER_TARIFF2025": -1.7,
+   "GRASBERG2025": 1.5,
+   "GRASBERG_FM2025": 4.7,
+   "CHINA_REE_OCT2025": -1.2,
+   "ICL_DEADSEA2025": 3.6
+  },
+  "countries": {
+   "US": 5,
+   "CN": 2,
+   "AU": 1
+  },
+  "shared_supplier": [
+   "CATL",
+   1
+  ]
+ }
+}

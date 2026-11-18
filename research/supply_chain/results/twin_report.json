@@ -1,0 +1,56 @@
+{
+ "twin reports within 2 weeks \u00b7 all": {
+  "trades": 252,
+  "excess1": 0.476,
+  "excess5": 1.695,
+  "excess10": 2.401,
+  "t1": 2.03,
+  "t5": 2.87,
+  "t10": 3.26
+ },
+ "twin reports within 2 weeks \u00b7 2017-2021": {
+  "trades": 118,
+  "excess1": 0.297,
+  "excess5": 1.274,
+  "excess10": 0.943,
+  "t1": 1.04,
+  "t5": 1.23,
+  "t10": 1.2
+ },
+ "twin reports within 2 weeks \u00b7 2022-2026": {
+  "trades": 134,
+  "excess1": 0.634,
+  "excess5": 2.066,
+  "excess10": 3.685,
+  "t1": 1.82,
+  "t5": 2.82,
+  "t10": 3.25
+ },
+ "twin reports later \u00b7 all": {
+  "trades": 541,
+  "excess1": 0.303,
+  "excess5": 1.109,
+  "excess10": 0.653,
+  "t1": 2.18,
+  "t5": 2.96,
+  "t10": 0.58
+ },
+ "twin reports later \u00b7 2017-2021": {
+  "trades": 250,
+  "excess1": 0.572,
+  "excess5": 0.793,
+  "excess10": -0.773,
+  "t1": 2.28,
+  "t5": 0.89,
+  "t10": -1.45
+ },
+ "twin reports later \u00b7 2022-2026": {
+  "trades": 291,
+  "excess1": 0.072,
+  "excess5": 1.38,
+  "excess10": 1.878,
+  "t1": 0.96,
+  "t5": 3.18,
+  "t10": 2.18
+ }
+}

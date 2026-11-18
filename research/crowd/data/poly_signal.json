@@ -1,0 +1,47 @@
+{
+ "markets": 1547,
+ "companies": 413,
+ "period": [
+  "2025-06-05",
+  "2026-11-11"
+ ],
+ "yes_rate": 73.5,
+ "brier_market": 0.1458,
+ "brier_always_average": 0.1948,
+ "by_bucket": {
+  "<50%": {
+   "n": 306,
+   "avg_price": 31.2,
+   "beat_rate": 35.9,
+   "reaction_mean": -0.29
+  },
+  "50-70%": {
+   "n": 261,
+   "avg_price": 62.0,
+   "beat_rate": 65.5,
+   "reaction_mean": 0.55
+  },
+  "70-85%": {
+   "n": 422,
+   "avg_price": 78.7,
+   "beat_rate": 79.6,
+   "reaction_mean": -0.0
+  },
+  "85-95%": {
+   "n": 469,
+   "avg_price": 90.5,
+   "beat_rate": 92.3,
+   "reaction_mean": 0.67
+  },
+  "95%+": {
+   "n": 89,
+   "avg_price": 97.1,
+   "beat_rate": 97.8,
+   "reaction_mean": -0.43
+  }
+ },
+ "reaction_if_beat": 1.31,
+ "reaction_if_miss": -2.84,
+ "corr_price_vs_reaction": 0.029,
+ "corr_surprise_vs_reaction": 0.192
+}

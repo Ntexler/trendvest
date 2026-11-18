@@ -1,0 +1,231 @@
+{
+ "period": [
+  "2023-12-14 02:30:00+00:00",
+  "2026-11-13 09:00:00+00:00"
+ ],
+ "threshold_z": 2.5,
+ "families": {
+  "competitor, same region": {
+   "trades": 58752,
+   "days": 761,
+   "follow_next_hour_pct": 0.016,
+   "t_hour": 1.62,
+   "follow_to_close_pct": 0.028,
+   "t_close": 1.79,
+   "cost_pct": 0.243,
+   "net_to_close_pct": -0.215,
+   "won_after_cost_pct": 39.6
+  },
+  "same company, two listings": {
+   "trades": 2264,
+   "days": 582,
+   "follow_next_hour_pct": 0.027,
+   "t_hour": 2.14,
+   "follow_to_close_pct": 0.023,
+   "t_close": 0.92,
+   "cost_pct": 0.367,
+   "net_to_close_pct": -0.343,
+   "won_after_cost_pct": 25.0
+  },
+  "twin, other region": {
+   "trades": 12671,
+   "days": 726,
+   "follow_next_hour_pct": -0.0,
+   "t_hour": 1.03,
+   "follow_to_close_pct": 0.016,
+   "t_close": 1.57,
+   "cost_pct": 0.321,
+   "net_to_close_pct": -0.306,
+   "won_after_cost_pct": 26.1
+  }
+ },
+ "by_direction": {
+  "competitor, same region · americas→americas": {
+   "trades": 33302,
+   "days": 713,
+   "follow_next_hour_pct": 0.01,
+   "t_hour": 0.53,
+   "follow_to_close_pct": 0.016,
+   "t_close": 0.71,
+   "cost_pct": 0.13,
+   "net_to_close_pct": -0.113,
+   "won_after_cost_pct": 44.5
+  },
+  "competitor, same region · asia→asia": {
+   "trades": 15843,
+   "days": 751,
+   "follow_next_hour_pct": 0.03,
+   "t_hour": 3.03,
+   "follow_to_close_pct": 0.06,
+   "t_close": 4.09,
+   "cost_pct": 0.364,
+   "net_to_close_pct": -0.304,
+   "won_after_cost_pct": 35.5
+  },
+  "competitor, same region · europe→europe": {
+   "trades": 8775,
+   "days": 696,
+   "follow_next_hour_pct": 0.016,
+   "t_hour": 2.33,
+   "follow_to_close_pct": 0.022,
+   "t_close": 0.4,
+   "cost_pct": 0.454,
+   "net_to_close_pct": -0.432,
+   "won_after_cost_pct": 28.4
+  },
+  "competitor, same region · israel→israel": {
+   "trades": 832,
+   "days": 329,
+   "follow_next_hour_pct": -0.038,
+   "t_hour": -1.74,
+   "follow_to_close_pct": -0.076,
+   "t_close": -1.51,
+   "cost_pct": 0.24,
+   "net_to_close_pct": -0.316,
+   "won_after_cost_pct": 39.5
+  },
+  "same company, two listings · americas→europe": {
+   "trades": 1105,
+   "days": 460,
+   "follow_next_hour_pct": 0.009,
+   "t_hour": 0.66,
+   "follow_to_close_pct": 0.012,
+   "t_close": 0.77,
+   "cost_pct": 0.618,
+   "net_to_close_pct": -0.606,
+   "won_after_cost_pct": 5.4
+  },
+  "same company, two listings · americas→israel": {
+   "trades": 45,
+   "days": 30,
+   "follow_next_hour_pct": 0.005,
+   "t_hour": 0.2,
+   "follow_to_close_pct": 0.005,
+   "t_close": 0.2,
+   "cost_pct": 0.24,
+   "net_to_close_pct": -0.235,
+   "won_after_cost_pct": 37.8
+  },
+  "same company, two listings · europe→americas": {
+   "trades": 695,
+   "days": 358,
+   "follow_next_hour_pct": 0.044,
+   "t_hour": 0.99,
+   "follow_to_close_pct": 0.034,
+   "t_close": 0.05,
+   "cost_pct": 0.122,
+   "net_to_close_pct": -0.088,
+   "won_after_cost_pct": 43.9
+  },
+  "same company, two listings · israel→americas": {
+   "trades": 419,
+   "days": 271,
+   "follow_next_hour_pct": 0.049,
+   "t_hour": 1.65,
+   "follow_to_close_pct": 0.037,
+   "t_close": 0.64,
+   "cost_pct": 0.122,
+   "net_to_close_pct": -0.085,
+   "won_after_cost_pct": 43.9
+  },
+  "twin, other region · americas→europe": {
+   "trades": 6890,
+   "days": 698,
+   "follow_next_hour_pct": 0.004,
+   "t_hour": 0.61,
+   "follow_to_close_pct": 0.003,
+   "t_close": 0.26,
+   "cost_pct": 0.437,
+   "net_to_close_pct": -0.433,
+   "won_after_cost_pct": 11.3
+  },
+  "twin, other region · americas→israel": {
+   "trades": 65,
+   "days": 28,
+   "follow_next_hour_pct": -0.015,
+   "t_hour": -0.28,
+   "follow_to_close_pct": -0.015,
+   "t_close": -0.28,
+   "cost_pct": 0.24,
+   "net_to_close_pct": -0.255,
+   "won_after_cost_pct": 35.4
+  },
+  "twin, other region · asia→europe": {
+   "trades": 188,
+   "days": 118,
+   "follow_next_hour_pct": -0.047,
+   "t_hour": 0.29,
+   "follow_to_close_pct": 0.018,
+   "t_close": 0.54,
+   "cost_pct": 0.362,
+   "net_to_close_pct": -0.344,
+   "won_after_cost_pct": 42.6
+  },
+  "twin, other region · asia→israel": {
+   "trades": 37,
+   "days": 32,
+   "follow_next_hour_pct": -0.045,
+   "t_hour": -0.85,
+   "follow_to_close_pct": -0.109,
+   "t_close": -0.45,
+   "cost_pct": 0.24,
+   "net_to_close_pct": -0.349,
+   "won_after_cost_pct": 37.8
+  },
+  "twin, other region · europe→americas": {
+   "trades": 3846,
+   "days": 525,
+   "follow_next_hour_pct": 0.0,
+   "t_hour": 0.11,
+   "follow_to_close_pct": 0.046,
+   "t_close": 0.86,
+   "cost_pct": 0.132,
+   "net_to_close_pct": -0.086,
+   "won_after_cost_pct": 46.1
+  },
+  "twin, other region · europe→asia": {
+   "trades": 95,
+   "days": 93,
+   "follow_next_hour_pct": 0.032,
+   "t_hour": 0.97,
+   "follow_to_close_pct": 0.022,
+   "t_close": 0.7,
+   "cost_pct": 0.24,
+   "net_to_close_pct": -0.218,
+   "won_after_cost_pct": 16.8
+  },
+  "twin, other region · europe→israel": {
+   "trades": 603,
+   "days": 210,
+   "follow_next_hour_pct": -0.006,
+   "t_hour": 0.15,
+   "follow_to_close_pct": 0.063,
+   "t_close": 1.15,
+   "cost_pct": 0.24,
+   "net_to_close_pct": -0.177,
+   "won_after_cost_pct": 45.4
+  },
+  "twin, other region · israel→americas": {
+   "trades": 430,
+   "days": 229,
+   "follow_next_hour_pct": -0.009,
+   "t_hour": 0.31,
+   "follow_to_close_pct": -0.103,
+   "t_close": -0.58,
+   "cost_pct": 0.136,
+   "net_to_close_pct": -0.239,
+   "won_after_cost_pct": 42.6
+  },
+  "twin, other region · israel→europe": {
+   "trades": 503,
+   "days": 326,
+   "follow_next_hour_pct": -0.03,
+   "t_hour": -0.74,
+   "follow_to_close_pct": 0.011,
+   "t_close": 0.22,
+   "cost_pct": 0.459,
+   "net_to_close_pct": -0.448,
+   "won_after_cost_pct": 34.4
+  }
+ }
+}

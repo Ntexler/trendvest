@@ -1,0 +1,168 @@
+{
+ "volume_cutoffs": [
+  0.83,
+  1.17
+ ],
+ "busy twin (high volume) \u00b7 all": {
+  "trades": 6314,
+  "excess1": 0.075,
+  "excess5": 0.278,
+  "excess10": 0.705,
+  "t1": 0.83,
+  "t5": 0.47,
+  "t10": 1.11
+ },
+ "busy twin (high volume) \u00b7 2017-2021": {
+  "trades": 3121,
+  "excess1": 0.114,
+  "excess5": 0.179,
+  "excess10": 0.445,
+  "t1": 1.15,
+  "t5": -0.25,
+  "t10": 0.14
+ },
+ "busy twin (high volume) \u00b7 2022-2026": {
+  "trades": 3193,
+  "excess1": 0.036,
+  "excess5": 0.375,
+  "excess10": 0.959,
+  "t1": 0.12,
+  "t5": 0.83,
+  "t10": 1.36
+ },
+ "middle \u00b7 all": {
+  "trades": 6312,
+  "excess1": 0.199,
+  "excess5": 0.423,
+  "excess10": 0.6,
+  "t1": 4.65,
+  "t5": 3.34,
+  "t10": 3.44
+ },
+ "middle \u00b7 2017-2021": {
+  "trades": 3089,
+  "excess1": 0.173,
+  "excess5": 0.288,
+  "excess10": 0.304,
+  "t1": 2.12,
+  "t5": 0.7,
+  "t10": 1.1
+ },
+ "middle \u00b7 2022-2026": {
+  "trades": 3223,
+  "excess1": 0.223,
+  "excess5": 0.552,
+  "excess10": 0.884,
+  "t1": 4.2,
+  "t5": 3.74,
+  "t10": 3.54
+ },
+ "quiet twin (low volume) \u00b7 all": {
+  "trades": 6314,
+  "excess1": 0.168,
+  "excess5": 0.196,
+  "excess10": 0.368,
+  "t1": 3.81,
+  "t5": 1.26,
+  "t10": 1.95
+ },
+ "quiet twin (low volume) \u00b7 2017-2021": {
+  "trades": 3096,
+  "excess1": 0.17,
+  "excess5": 0.381,
+  "excess10": 0.553,
+  "t1": 3.34,
+  "t5": 1.46,
+  "t10": 1.63
+ },
+ "quiet twin (low volume) \u00b7 2022-2026": {
+  "trades": 3218,
+  "excess1": 0.167,
+  "excess5": 0.018,
+  "excess10": 0.19,
+  "t1": 2.18,
+  "t5": 0.37,
+  "t10": 1.18
+ },
+ "twin opened flat/down \u00b7 all": {
+  "trades": 7132,
+  "excess1": 0.144,
+  "excess5": 0.291,
+  "excess10": 0.672,
+  "t1": 5.65,
+  "t5": 4.39,
+  "t10": 4.65
+ },
+ "twin opened flat/down \u00b7 2017-2021": {
+  "trades": 3637,
+  "excess1": 0.123,
+  "excess5": 0.338,
+  "excess10": 0.559,
+  "t1": 3.96,
+  "t5": 3.76,
+  "t10": 3.47
+ },
+ "twin opened flat/down \u00b7 2022-2026": {
+  "trades": 3495,
+  "excess1": 0.166,
+  "excess5": 0.242,
+  "excess10": 0.79,
+  "t1": 4.03,
+  "t5": 2.48,
+  "t10": 3.13
+ },
+ "twin opened up 0-2% \u00b7 all": {
+  "trades": 9440,
+  "excess1": 0.152,
+  "excess5": 0.298,
+  "excess10": 0.367,
+  "t1": 2.18,
+  "t5": 0.89,
+  "t10": 0.85
+ },
+ "twin opened up 0-2% \u00b7 2017-2021": {
+  "trades": 4639,
+  "excess1": 0.126,
+  "excess5": 0.254,
+  "excess10": 0.207,
+  "t1": 1.3,
+  "t5": 0.48,
+  "t10": 0.29
+ },
+ "twin opened up 0-2% \u00b7 2022-2026": {
+  "trades": 4801,
+  "excess1": 0.178,
+  "excess5": 0.339,
+  "excess10": 0.522,
+  "t1": 1.75,
+  "t5": 0.77,
+  "t10": 0.9
+ },
+ "twin opened up >2% \u00b7 all": {
+  "trades": 2368,
+  "excess1": 0.137,
+  "excess5": 0.33,
+  "excess10": 0.973,
+  "t1": 0.75,
+  "t5": 0.94,
+  "t10": 1.03
+ },
+ "twin opened up >2% \u00b7 2017-2021": {
+  "trades": 1030,
+  "excess1": 0.374,
+  "excess5": 0.215,
+  "excess10": 1.017,
+  "t1": 0.95,
+  "t5": 0.3,
+  "t10": 0.42
+ },
+ "twin opened up >2% \u00b7 2022-2026": {
+  "trades": 1338,
+  "excess1": -0.046,
+  "excess5": 0.419,
+  "excess10": 0.938,
+  "t1": 0.19,
+  "t5": 0.95,
+  "t10": 0.98
+ }
+}

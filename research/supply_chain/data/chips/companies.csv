@@ -1,0 +1,96 @@
+# id,name,ticker (Yahoo, home market),country,segment (what it makes; rivals share a segment),tier (map column),sites (chip-relevant production sites)
+id,name,ticker,country,segment,tier,sites
+SHINETSU,Shin-Etsu Chemical,4063.T,JP,wafer,materials,Japan; US (Washington; Arizona)
+SUMCO,SUMCO,3436.T,JP,wafer,materials,Japan; US (New Mexico)
+GLOBALWAFERS,GlobalWafers,6488.TWO,TW,wafer,materials,Taiwan; O'Fallon Missouri
+SILTRONIC,Siltronic,WAF.DE,DE,wafer,materials,Burghausen; Freiberg; Portland Oregon; Singapore
+SOITEC,Soitec,SOI.PA,FR,wafer,materials,France; Singapore
+WACKER,Wacker Chemie,WCH.DE,DE,polysilicon,materials,Burghausen
+TOK,Tokyo Ohka Kogyo,4186.T,JP,photoresist,materials,Japan
+MERCK,Merck KGaA,MRK.DE,DE,process-chemicals,materials,Germany
+ENTEGRIS,Entegris,ENTG,US,process-chemicals,materials,US; Taiwan (Kaohsiung); Korea; Japan; Malaysia
+SOULBRAIN,Soulbrain,357780.KQ,KR,process-chemicals,materials,Korea
+LINDE,Linde,LIN,US,gases,materials,On-site plants incl. Pyeongtaek Korea
+AIRPRODUCTS,Air Products,APD,US,gases,materials,On-site plants incl. Pyeongtaek Korea
+AGC,AGC,5201.T,JP,mask-blank,materials,Japan
+AJINOMOTO,Ajinomoto,2802.T,JP,substrate-film,materials,Kawasaki; Gunma
+IBIDEN,Ibiden,4062.T,JP,substrate,materials,Ogaki Gifu
+UNIMICRON,Unimicron,3037.TW,TW,substrate,materials,Taiwan
+UCTT,Ultra Clean,UCTT,US,subsystem,subsystems,US; Israel; China; Malaysia; Singapore
+ICHOR,Ichor,ICHR,US,subsystem,subsystems,US; Malaysia; Singapore
+AEIS,Advanced Energy,AEIS,US,subsystem,subsystems,US; Asia
+MKS,MKS Instruments,MKSI,US,subsystem,subsystems,18 countries incl. Israel; Germany; Japan
+AMAT,Applied Materials,AMAT,US,wafer-equipment,equipment,US; Singapore; Taiwan; Israel
+LAM,Lam Research,LRCX,US,wafer-equipment,equipment,California; Oregon; Korea; Austria; Malaysia; Taiwan
+KLA,KLA,KLAC,US,process-control,equipment,US; Singapore; Israel
+ASML,ASML,ASML.AS,NL,lithography,equipment,Veldhoven; Berlin; San Diego; Wilton CT; Taiwan; Korea
+TEL,Tokyo Electron,8035.T,JP,wafer-equipment,equipment,Japan (incl. Kyushu)
+SCREEN,Screen Holdings,7735.T,JP,wafer-equipment,equipment,Hikone
+LASERTEC,Lasertec,6920.T,JP,process-control,equipment,Japan
+ADVANTEST,Advantest,6857.T,JP,test-equipment,equipment,Gunma
+TERADYNE,Teradyne,TER,US,test-equipment,equipment,Outsourced: Malaysia; Thailand
+DISCO,Disco,6146.T,JP,packaging-equipment,equipment,Hiroshima; Nagano
+BESI,BE Semiconductor,BESI.AS,NL,packaging-equipment,equipment,Duiven; Austria; Malaysia; China
+ONTO,Onto Innovation,ONTO,US,process-control,equipment,US
+FORMFACTOR,FormFactor,FORM,US,test-equipment,equipment,US
+AXCELIS,Axcelis,ACLS,US,wafer-equipment,equipment,US
+NOVA,Nova,NVMI,IL,process-control,equipment,Rehovot; Nes Ziona; Germany
+CAMTEK,Camtek,CAMT,IL,process-control,equipment,Migdal HaEmek; Germany
+TSMC,TSMC,2330.TW,TW,foundry,manufacturing,Hsinchu; Taichung; Tainan; Kaohsiung; Kumamoto (JASM); Arizona
+SAMSUNG,Samsung Electronics,005930.KS,KR,foundry-memory,manufacturing,Giheung; Hwaseong; Pyeongtaek; Austin; Taylor Texas
+INTEL,Intel,INTC,US,foundry-idm,manufacturing,Oregon; Arizona; Ireland; Kiryat Gat Israel
+SKHYNIX,SK hynix,000660.KS,KR,memory,manufacturing,Icheon; Cheongju; Wuxi China
+MICRON,Micron,MU,US,memory,manufacturing,Idaho; Taiwan (Taichung); Hiroshima; Singapore
+GFS,GlobalFoundries,GFS,US,foundry,manufacturing,Malta NY; Essex Junction VT; Dresden; Singapore
+UMC,UMC,2303.TW,TW,foundry,manufacturing,Hsinchu; Tainan; Singapore
+SMIC,SMIC,0981.HK,CN,foundry,manufacturing,Shanghai; Beijing
+TOWER,Tower Semiconductor,TSEM,IL,foundry,manufacturing,Migdal HaEmek; US; Japan
+VIS,Vanguard International,5347.TWO,TW,foundry,manufacturing,Hsinchu; Taoyuan
+PSMC,Powerchip,6770.TW,TW,foundry,manufacturing,Hsinchu; Miaoli
+RENESAS,Renesas,6723.T,JP,auto-chips,manufacturing,Naka; Kawashiri; Nishiki (Kumamoto)
+INFINEON,Infineon,IFX.DE,DE,auto-chips,manufacturing,Dresden; Villach; Austin; Kulim
+NXP,NXP,NXPI,NL,auto-chips,manufacturing,Austin; Nijmegen
+STM,STMicroelectronics,STM,CH,auto-chips,manufacturing,Italy; France; Singapore
+TI,Texas Instruments,TXN,US,analog,manufacturing,Texas; Utah
+SONY,Sony,6758.T,JP,image-sensor,manufacturing,Kumamoto; Nagasaki
+KIOXIA,Kioxia,285A.T,JP,memory,manufacturing,Yokkaichi (Mie); Kitakami (Iwate)
+MURATA,Murata,6981.T,JP,passives,manufacturing,Japan (Tohoku; Hokuriku)
+WINGTECH,Wingtech (Nexperia),600745.SS,CN,discretes,manufacturing,Dongguan; Hamburg; Manchester
+ASE,ASE Technology,3711.TW,TW,osat,packaging,Kaohsiung; Chungli
+AMKOR,Amkor,AMKR,US,osat,packaging,Korea; Vietnam; Taiwan; Portugal
+NVDA,Nvidia,NVDA,US,fabless,design,-
+AMD,AMD,AMD,US,fabless,design,-
+AAPL,Apple,AAPL,US,fabless-system,design,-
+QCOM,Qualcomm,QCOM,US,fabless,design,-
+AVGO,Broadcom,AVGO,US,fabless,design,-
+MRVL,Marvell,MRVL,US,fabless,design,-
+MEDIATEK,MediaTek,2454.TW,TW,fabless,design,-
+HONHAI,Hon Hai (Foxconn),2317.TW,TW,ems,systems,Taiwan; China; Vietnam; Mexico
+QUANTA,Quanta,2382.TW,TW,ems,systems,Taiwan; China
+SMCI,Super Micro,SMCI,US,server,systems,San Jose; Taiwan
+DELL,Dell,DELL,US,server,systems,-
+MSFT,Microsoft,MSFT,US,hyperscaler,systems,-
+GOOGL,Alphabet,GOOGL,US,hyperscaler,systems,-
+AMZN,Amazon,AMZN,US,hyperscaler,systems,-
+META,Meta,META,US,hyperscaler,systems,-
+TOYOTA,Toyota,7203.T,JP,automaker,systems,Japan
+HONDA,Honda,7267.T,JP,automaker,systems,Japan
+NISSAN,Nissan,7201.T,JP,automaker,systems,Japan
+VW,Volkswagen,VOW3.DE,DE,automaker,systems,Germany
+# --- unrelated large companies in the same markets: the control group ---
+JNJ,Johnson & Johnson,JNJ,US,control,control,-
+PG,Procter & Gamble,PG,US,control,control,-
+KO,Coca-Cola,KO,US,control,control,-
+JPM,JPMorgan,JPM,US,control,control,-
+NTT,NTT,9432.T,JP,control,control,-
+MUFG,Mitsubishi UFJ,8306.T,JP,control,control,-
+TAKEDA,Takeda,4502.T,JP,control,control,-
+CATHAY,Cathay Financial,2882.TW,TW,control,control,-
+FORMOSA,Formosa Plastics,1301.TW,TW,control,control,-
+KBFIN,KB Financial,105560.KS,KR,control,control,-
+KT,KT Corp,030200.KS,KR,control,control,-
+NESTLE,Nestle,NESN.SW,CH,control,control,-
+SANOFI,Sanofi,SAN.PA,FR,control,control,-
+ALLIANZ,Allianz,ALV.DE,DE,control,control,-
+LEUMI,Bank Leumi,LUMI.TA,IL,control,control,-
+TEVA,Teva,TEVA.TA,IL,control,control,-

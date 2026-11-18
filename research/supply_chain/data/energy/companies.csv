@@ -1,0 +1,88 @@
+# id,name,ticker (Yahoo, home market),country,segment (what it makes; rivals share a segment),tier (map column),sites (main production or operating locations)
+id,name,ticker,country,segment,tier,sites
+XOM,ExxonMobil,XOM,US,oil-gas-major,fuels,Permian Basin; Guyana; US Gulf Coast refineries
+CVX,Chevron,CVX,US,oil-gas-major,fuels,Permian Basin; Kazakhstan (Tengiz); Australia LNG; Israel (Leviathan; Tamar)
+SHELL,Shell,SHEL.L,GB,oil-gas-major,fuels,LNG worldwide; Qatar (Pearl GTL); Gulf of Mexico; Nigeria
+TOTAL,TotalEnergies,TTE.PA,FR,oil-gas-major,fuels,Africa; North Sea; LNG worldwide; US (regas capacity at Sabine Pass)
+EQUINOR,Equinor,EQNR.OL,NO,oil-gas-major,fuels,Norwegian continental shelf; Empire Wind (New York)
+CHENIERE,Cheniere Energy,LNG,US,lng,fuels,Sabine Pass Louisiana; Corpus Christi Texas
+NEWMED,NewMed Energy,NWMD.TA,IL,gas-producer,fuels,Leviathan field offshore Israel (45.34%)
+DELEK,Delek Group,DLEKG.TA,IL,gas-producer,fuels,Israel (parent of NewMed Energy); North Sea (Ithaca Energy)
+ENERGEAN,Energean,ENOG.L,GB,gas-producer,fuels,Karish field offshore Israel (Energean Power FPSO); Egypt; Italy
+CAMECO,Cameco,CCJ,CA,uranium,fuels,Saskatchewan (McArthur River; Cigar Lake); Kazakhstan (JV Inkai); Westinghouse stake
+CENTRUS,Centrus Energy,LEU,US,uranium,fuels,Piketon Ohio (enrichment); Oak Ridge Tennessee
+DAQO,Daqo New Energy,DQ,CN,polysilicon,fuels,Xinjiang; Inner Mongolia
+FSLR,First Solar,FSLR,US,solar-module,components,Ohio; Alabama; Louisiana; India; Malaysia; Vietnam
+JINKO,JinkoSolar,JKS,CN,solar-module,components,China; Vietnam; Malaysia; US (Florida)
+LONGI,LONGi Green Energy,601012.SS,CN,solar-module,components,China (Shaanxi; Yunnan; Ningxia); Malaysia; Vietnam
+ENPH,Enphase Energy,ENPH,US,inverter,components,Contract manufacturing: US (South Carolina; Texas); Mexico; India
+SEDG,SolarEdge,SEDG,IL,inverter,components,Israel (Sella 1 plant); US (Texas; Florida)
+SUNGROW,Sungrow Power Supply,300274.SZ,CN,inverter,components,Hefei China; India; Thailand
+NXT,Nextpower (Nextracker),NXT,US,tracker,components,Outsourced steel and assembly in US; India; Brazil
+CATL,CATL,300750.SZ,CN,battery,components,Ningde and other China sites; Germany; Hungary
+LGES,LG Energy Solution,373220.KS,KR,battery,components,Korea (Ochang); Michigan; Poland; China
+TSLA,Tesla (energy storage),TSLA,US,storage-system,components,Lathrop California; Shanghai; Houston Texas (Megapack)
+FLUENCE,Fluence Energy,FLNC,US,storage-system,components,Contract manufacturing: Utah; Arizona; Vietnam
+GEV,GE Vernova,GEV,US,gas-turbine,equipment,Greenville South Carolina; Schenectady New York; Belfort France; Pensacola (wind)
+SIEMENSENERGY,Siemens Energy (incl. Siemens Gamesa),ENR.DE,DE,gas-turbine,equipment,Berlin; Muelheim; Charlotte; Hull and Cuxhaven (wind)
+MHI,Mitsubishi Heavy Industries,7011.T,JP,gas-turbine,equipment,Takasago Japan; Savannah Georgia
+VESTAS,Vestas,VWS.CO,DK,wind-turbine,equipment,Denmark; Germany; Poland; Colorado; India; China
+NORDEX,Nordex,NDX1.DE,DE,wind-turbine,equipment,Rostock Germany; Spain; Brazil; India
+HITACHI,Hitachi (Hitachi Energy),6501.T,JP,grid-equipment,equipment,Hitachi Energy: Sweden (Ludvika); Switzerland; US; Japan
+EATON,Eaton,ETN,US,grid-equipment,equipment,US; Mexico; Europe
+HDHE,HD Hyundai Electric,267260.KS,KR,grid-equipment,equipment,Ulsan Korea; Alabama
+PRYSMIAN,Prysmian,PRY.MI,IT,cable,equipment,Arco Felice (Naples); Pikkala Finland; Massachusetts
+NEXANS,Nexans,NEX.PA,FR,cable,equipment,Halden Norway; Charleston South Carolina
+NKT,NKT,NKT.CO,DK,cable,equipment,Karlskrona Sweden; Cologne Germany
+BLOOM,Bloom Energy,BE,US,fuel-cell,equipment,Fremont California; Newark Delaware
+QUANTA,Quanta Services,PWR,US,contractor,builders,US; Canada; Australia (field crews)
+ENLIGHT,Enlight Renewable Energy,ENLT.TA,IL,developer,builders,Israel; US (Clenera: Arizona; New Mexico; California); Europe
+ENERGIX,Energix Renewable Energies,ENRG.TA,IL,developer,builders,Israel; US (Virginia; Pennsylvania); Poland
+DORAL,Doral Group Renewable Energy,DORL.TA,IL,developer,builders,Israel; US (Mammoth Solar Indiana); Europe
+ORSTED,Orsted,ORSTED.CO,DK,developer,builders,North Sea (Hornsea); Germany; Taiwan (Changhua); US East Coast
+BEP,Brookfield Renewable Partners,BEP,CA,developer,builders,Hydro in North America; wind and solar worldwide
+SUNRUN,Sunrun,RUN,US,rooftop-installer,builders,US residential rooftops (California largest)
+NEE,NextEra Energy,NEE,US,utility-renewables,producers,Florida (FPL); wind; solar and storage across the US; Duane Arnold Iowa
+CEG,Constellation Energy,CEG,US,nuclear-ipp,producers,Illinois; Pennsylvania (Crane); New York; Maryland nuclear plants
+VST,Vistra,VST,US,nuclear-ipp,producers,Texas (Comanche Peak); Ohio (Perry; Davis-Besse); Moss Landing California
+TLN,Talen Energy,TLN,US,nuclear-ipp,producers,Susquehanna Pennsylvania
+AES,AES,AES,US,renewables-ipp,producers,US; Chile; Colombia; Panama; Dominican Republic
+NRG,NRG Energy,NRG,US,gas-ipp,producers,Texas; US Northeast
+DUK,Duke Energy,DUK,US,regulated-utility,producers,North Carolina; South Carolina; Florida; Indiana
+SO,Southern Company,SO,US,regulated-utility,producers,Georgia (Vogtle; Plant Yates); Alabama; Mississippi
+DOMINION,Dominion Energy,D,US,regulated-utility,producers,Virginia; North Carolina; South Carolina; Coastal Virginia Offshore Wind
+ETR,Entergy,ETR,US,regulated-utility,producers,Louisiana; Arkansas; Mississippi; Texas
+IBERDROLA,Iberdrola,IBE.MC,ES,utility-renewables,producers,Spain; UK (ScottishPower; East Anglia); US (Avangrid); Brazil; Germany (Baltic Eagle)
+RWE,RWE,RWE.DE,DE,utility-renewables,producers,Germany; UK (Sofia); Netherlands; US
+ORMAT,Ormat Technologies,ORA,US,geothermal,producers,Nevada; California; Hawaii; Kenya (Olkaria III); Yavne Israel (equipment plant)
+OPC,OPC Energy,OPCE.TA,IL,gas-ipp,producers,Israel (Rotem; Hadera; Zomet; Sorek 2); US (CPV plants)
+NG,National Grid,NG.L,GB,transmission,grid,England and Wales transmission; New York; Massachusetts
+TERNA,Terna,TRN.MI,IT,transmission,grid,Italy (Tyrrhenian Link)
+REDEIA,Redeia (Red Electrica),RED.MC,ES,transmission,grid,Spain
+EON,E.ON,EOAN.DE,DE,distribution,grid,Germany; Sweden; Central Europe distribution grids
+AEP,American Electric Power,AEP,US,transmission,grid,Ohio; Texas; Indiana; West Virginia and 7 more states
+PCG,PG&E,PCG,US,distribution,grid,Northern and central California
+MSFT,Microsoft,MSFT,US,hyperscaler,buyers,-
+GOOGL,Alphabet,GOOGL,US,hyperscaler,buyers,-
+AMZN,Amazon,AMZN,US,hyperscaler,buyers,-
+META,Meta,META,US,hyperscaler,buyers,-
+ORCL,Oracle,ORCL,US,hyperscaler,buyers,-
+EQIX,Equinix,EQIX,US,data-centre-operator,buyers,-
+TSMC,TSMC,2330.TW,TW,industrial-buyer,buyers,Hsinchu; Taichung; Tainan
+# --- unrelated large companies in the same markets: the control group ---
+JNJ,Johnson & Johnson,JNJ,US,control,control,-
+PG,Procter & Gamble,PG,US,control,control,-
+KO,Coca-Cola,KO,US,control,control,-
+JPM,JPMorgan,JPM,US,control,control,-
+UNILEVER,Unilever,ULVR.L,GB,control,control,-
+HSBC,HSBC,HSBA.L,GB,control,control,-
+SANOFI,Sanofi,SAN.PA,FR,control,control,-
+ALLIANZ,Allianz,ALV.DE,DE,control,control,-
+NOVO,Novo Nordisk,NOVO-B.CO,DK,control,control,-
+INTESA,Intesa Sanpaolo,ISP.MI,IT,control,control,-
+INDITEX,Inditex,ITX.MC,ES,control,control,-
+LEUMI,Bank Leumi,LUMI.TA,IL,control,control,-
+TEVA,Teva,TEVA.TA,IL,control,control,-
+KBFIN,KB Financial,105560.KS,KR,control,control,-
+NTT,NTT,9432.T,JP,control,control,-
+MOUTAI,Kweichow Moutai,600519.SS,CN,control,control,-

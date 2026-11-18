@@ -1,0 +1,59 @@
+{
+ "computed": "2026-11-12",
+ "growth": {
+  "source": "SEC quarterly revenue, 30 US-listed chip companies",
+  "cases_all": 899,
+  "slowed_all_pct": 46.2,
+  "buckets": [
+   {
+    "lo": 50,
+    "hi": null,
+    "cases": 85,
+    "companies": 18,
+    "median_now": 68.3,
+    "median_later": 27.6,
+    "slowed_pct": 92.9,
+    "halved_pct": 63.5
+   },
+   {
+    "lo": 25,
+    "hi": 50,
+    "cases": 140,
+    "companies": 26,
+    "median_now": 32.5,
+    "median_later": 16.0,
+    "slowed_pct": 81.4,
+    "halved_pct": 52.1
+   }
+  ]
+ },
+ "price": {
+  "source": "weekly prices, six markets, five years; today's company list (companies that vanished are missing)",
+  "all": {
+   "cases": 2823,
+   "companies": 360,
+   "beat_index_pct": 49.0,
+   "median_next": -0.5
+  },
+  "run_up": {
+   "threshold": 100.0,
+   "cases": 123,
+   "companies": 69,
+   "beat_index_pct": 56.1,
+   "median_next": 6.2
+  },
+  "drop": {
+   "threshold": -40.0,
+   "cases": 221,
+   "companies": 124,
+   "beat_index_pct": 48.0,
+   "median_next": -1.7
+  }
+ },
+ "vol": {
+  "source": "weekly prices, six markets, five years",
+  "cases": 1147,
+  "stayed_pct": 71.6,
+  "plain_pct": 33.3
+ }
+}

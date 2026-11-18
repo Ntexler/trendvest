@@ -31,3 +31,9 @@ frontend/node_modules/
 # Misc
 *.log
 *.sqlite3
+
+# Research cache
+research/news_impact/cache/
+research/supply_chain/cache/
+research/supply_chain/results/peer_trades.csv
+research/crowd/data/wsb.log

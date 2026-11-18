@@ -1,0 +1,117 @@
+{
+ "earnings_vs_other": {
+  "leaders_with_calendar_pct": 26.1,
+  "leader jumped on its earnings report · all": {
+   "trades": 799,
+   "excess1": 0.361,
+   "excess5": 1.281,
+   "excess10": 1.178,
+   "t1": 2.1,
+   "t5": 3.29,
+   "t10": 1.87
+  },
+  "leader jumped on its earnings report · 2017-2021": {
+   "trades": 373,
+   "excess1": 0.489,
+   "excess5": 0.934,
+   "excess10": -0.261,
+   "t1": 2.18,
+   "t5": 1.37,
+   "t10": -0.24
+  },
+  "leader jumped on its earnings report · 2022-2026": {
+   "trades": 426,
+   "excess1": 0.248,
+   "excess5": 1.585,
+   "excess10": 2.438,
+   "t1": 0.95,
+   "t5": 3.25,
+   "t10": 2.76
+  },
+  "leader jumped on other news · all": {
+   "trades": 4419,
+   "excess1": 0.23,
+   "excess5": 0.679,
+   "excess10": 1.146,
+   "t1": 3.46,
+   "t5": 1.25,
+   "t10": 2.55
+  },
+  "leader jumped on other news · 2017-2021": {
+   "trades": 1889,
+   "excess1": 0.267,
+   "excess5": 0.787,
+   "excess10": 0.855,
+   "t1": 1.78,
+   "t5": 0.61,
+   "t10": 1.06
+  },
+  "leader jumped on other news · 2022-2026": {
+   "trades": 2530,
+   "excess1": 0.202,
+   "excess5": 0.599,
+   "excess10": 1.364,
+   "t1": 3.23,
+   "t5": 1.13,
+   "t10": 2.44
+  }
+ },
+ "same_company_two_listings": {
+  "all": {
+   "events": 2623,
+   "gap_in_direction_pct": 1.168,
+   "after_open1_pct": 0.036,
+   "after_open5_pct": -0.288,
+   "after_open10_pct": -0.196,
+   "t1": 0.6,
+   "t5": -2.06,
+   "t10": -0.46,
+   "cost_pct": 0.344
+  },
+  "2017-2021": {
+   "events": 1264,
+   "gap_in_direction_pct": 1.028,
+   "after_open1_pct": 0.161,
+   "after_open5_pct": -0.251,
+   "after_open10_pct": -0.087,
+   "t1": 2.2,
+   "t5": -1.43,
+   "t10": 0.44,
+   "cost_pct": 0.34
+  },
+  "2022-2026": {
+   "events": 1359,
+   "gap_in_direction_pct": 1.298,
+   "after_open1_pct": -0.08,
+   "after_open5_pct": -0.323,
+   "after_open10_pct": -0.297,
+   "t1": -1.11,
+   "t5": -1.5,
+   "t10": -0.91,
+   "cost_pct": 0.348
+  },
+  "by_pair_after_open5": {
+   "ASML/ASML.AS": -0.14,
+   "AZN/AZN.L": 0.06,
+   "BABA/9988.HK": -0.36,
+   "BIDU/9888.HK": -0.05,
+   "ESLT/ESLT.TA": -0.6,
+   "HDB/HDFCBANK.NS": -0.17,
+   "HMC/7267.T": 0.15,
+   "IBN/ICICIBANK.NS": -0.08,
+   "ICL/ICL.TA": -0.16,
+   "INFY/INFY.NS": 0.11,
+   "JD/9618.HK": -1.08,
+   "MUFG/8306.T": -0.4,
+   "NICE/NICE.TA": -1.44,
+   "NVO/NOVO-B.CO": -0.16,
+   "SAP/SAP.DE": -0.57,
+   "SHEL/SHEL.L": 0.11,
+   "SONY/6758.T": -0.06,
+   "TEVA/TEVA.TA": 0.57,
+   "TM/7203.T": -0.62,
+   "TSEM/TSEM.TA": -0.82,
+   "TSM/2330.TW": -0.55
+  }
+ }
+}

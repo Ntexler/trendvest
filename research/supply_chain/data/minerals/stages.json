@@ -1,0 +1,833 @@
+{
+ "sources": {
+  "USGS-CU": [
+   "USGS, סיכומי המחצבים 2026: נחושת (פברואר 2026)",
+   "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-copper.pdf"
+  ],
+  "USGS-CO": [
+   "USGS, סיכומי המחצבים 2026: קובלט",
+   "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cobalt.pdf"
+  ],
+  "USGS-LI": [
+   "USGS, סיכומי המחצבים 2026: ליתיום",
+   "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf"
+  ],
+  "USGS-NI": [
+   "USGS, סיכומי המחצבים 2026: ניקל",
+   "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-nickel.pdf"
+  ],
+  "USGS-REE": [
+   "USGS, סיכומי המחצבים 2026: עפרות נדירות",
+   "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-rare-earths.pdf"
+  ],
+  "USGS-HREE": [
+   "USGS, סיכומי המחצבים 2026: עפרות נדירות כבדות",
+   "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-rare-earths-heavy.pdf"
+  ],
+  "USGS-K": [
+   "USGS, סיכומי המחצבים 2026: אשלג",
+   "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-potash.pdf"
+  ],
+  "USGS-FE": [
+   "USGS, סיכומי המחצבים 2026: עפרת ברזל",
+   "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-iron-ore.pdf"
+  ],
+  "USGS-GA": [
+   "USGS, סיכומי המחצבים 2026: גליום",
+   "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-gallium.pdf"
+  ],
+  "USGS-GR": [
+   "USGS, סיכומי המחצבים 2026: גרפיט",
+   "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-graphite.pdf"
+  ],
+  "FCX": [
+   "Freeport-McMoRan, דוח שנתי 2025",
+   "https://s22.q4cdn.com/529358580/files/doc_financials/10-K/10_k2025.pdf"
+  ],
+  "MP": [
+   "MP Materials, דוח שנתי 2025",
+   "https://s25.q4cdn.com/570172628/files/doc_financials/2025/q4/MP-Materials-2025-10K-FINAL.pdf"
+  ],
+  "ALB": [
+   "Albemarle, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/915913/000091591326000018/alb-20251231.htm"
+  ],
+  "CAT": [
+   "Caterpillar, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm"
+  ],
+  "NUE": [
+   "Nucor, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/73309/000119312526071575/nue-20251231.htm"
+  ],
+  "SQM": [
+   "SQM, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/909037/000090903726000023/sqm-20251231.htm"
+  ],
+  "ICL": [
+   "ICL Group, דוח שנתי 2025 (מרץ 2026)",
+   "https://www.sec.gov/Archives/edgar/data/941221/000117891326000817/zk2634483.htm"
+  ],
+  "TSLA": [
+   "Tesla, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm"
+  ],
+  "GM": [
+   "General Motors, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1467858/000146785826000013/gm-20251231.htm"
+  ],
+  "SCCO": [
+   "Southern Copper, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1001838/000110465926021492/scco-20251231x10k.htm"
+  ],
+  "MOS": [
+   "Mosaic, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1285785/000128578526000017/mos-20251231.htm"
+  ],
+  "VALE": [
+   "Vale, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/917851/000129281426001844/valeform20f_2025.htm"
+  ],
+  "BHP": [
+   "BHP, דוח שנתי לשנה שהסתיימה ביוני 2026",
+   "https://www.sec.gov/Archives/edgar/data/811809/000119312526354647/bhp-20260630.htm"
+  ],
+  "RIO": [
+   "Rio Tinto, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/863064/000162828026009531/rio-20251231.htm"
+  ],
+  "POSCO": [
+   "POSCO Holdings, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/889132/000119312526188766/d26797d20f.htm"
+  ],
+  "CEG": [
+   "Constellation Energy, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/1868275/000186827526000032/ceg-20251231.htm"
+  ],
+  "RGLD": [
+   "Royal Gold, דוח שנתי 2025",
+   "https://www.sec.gov/Archives/edgar/data/85535/000008553526000008/rgld-20251231.htm"
+  ],
+  "FNV": [
+   "Franco-Nevada, תוצאות 2025 (מרץ 2026)",
+   "https://www.sec.gov/Archives/edgar/data/1456346/000110465926025955/fnv-20251231xex99d1.htm"
+  ],
+  "WPM": [
+   "Wheaton Precious Metals, מצגת למשקיעים, יולי 2026",
+   "https://s203.q4cdn.com/976005377/files/doc_presentations/2026/Jul/20/26-07-20-Corporate-Presentation.pdf"
+  ],
+  "CCO": [
+   "Cameco, דוח הנהלה לרבעון הרביעי 2025",
+   "https://www.cameco.com/sites/default/files/documents/CCO-2025-Q4-MDA-FS-Notes.pdf"
+  ],
+  "WNN": [
+   "World Nuclear News, אוגוסט 2026",
+   "https://world-nuclear-news.org/articles/mid-year-updates-from-major-uranium-producers"
+  ],
+  "GMR": [
+   "Global Mining Review על דוח IEA למינרלים קריטיים 2026, יולי 2026 (אתר IEA חסום)",
+   "https://www.globalminingreview.com/mining/17072026/supply-concentration-export-restrictions-and-declining-investment-put-critical-mineral-security-at-risk/"
+  ],
+  "BOFIT": [
+   "בנק פינלנד (BOFIT), סקירה שבועית 32/2026, לפי IEA",
+   "https://www.bofit.fi/en/monitoring/weekly/2026/vw202632_2/"
+  ],
+  "PWC": [
+   "PwC, דוח Mine 2026, כפי שפורסם באתר Mining Indaba",
+   "https://miningindaba.com/articles/mine-2026-ambition-to-action"
+  ],
+  "SP-LEAD": [
+   "S&P Global, מחקר זמני פיתוח מכרות (נראה בתקציר חיפוש בלבד, האתר חסום)",
+   "https://www.spglobal.com/market-intelligence/en/news-insights/research/from-6years-to-18years-the-increasing-trend-of-mine-lead-times"
+  ],
+  "SMM-TC": [
+   "Shanghai Metals Market (SMM), דצמבר 2025",
+   "https://news.metal.com/newscontent/103693560/Chinese-Domestic-Copper-Cathode-Premium-Has-Began-to-Widely-Offer"
+  ],
+  "SMM-ZN": [
+   "Shanghai Metals Market (SMM), מרץ 2026",
+   "https://news.metal.com/en/newscontent/103793178-2026-Zinc-Concentrates-Benchmark-Released"
+  ],
+  "FD-K": [
+   "Fertilizer Daily, מאי 2026",
+   "https://www.fertilizerdaily.com/20260520-bpc-settles-new-india-potash-contract-at-383-t-cfr-35-t-above-chinas-2026-benchmark/"
+  ],
+  "EPI-AR": [
+   "Epiroc, דוח שנתי 2025",
+   "https://reports.epirocgroup.com/annual-and-sustainability-report-2025/the-business/value-creating-strategy/high-proportion-of-recurring-business/"
+  ],
+  "EPI-FMG": [
+   "Global Mining Review על הודעת Epiroc, אפריל 2025",
+   "https://www.globalminingreview.com/finance-business/17042025/epiroc-wins-its-largest-contract-ever/"
+  ],
+  "SNE": [
+   "CnEVPost לפי SNE Research, פברואר 2026",
+   "https://cnevpost.com/2026/2/4/global-ev-battery-market-share-2025/"
+  ],
+  "GLEN": [
+   "Nasdaq/RTTNews על תוצאות Glencore ל-2025 (נראה בתקציר חיפוש בלבד)",
+   "https://www.nasdaq.com/articles/glencore-turns-net-profit-fy25-adj-ebitda-down"
+  ],
+  "ARG": [
+   "Argus Media, מרץ 2023",
+   "https://www.argusmedia.com/en/news-and-insights/latest-market-news/2427079-japan-s-sojitz-jogmec-secure-lynas-rare-earth-supplies"
+  ],
+  "RIOB": [
+   "Rio Tinto, הודעה לעיתונות, ספטמבר 2022",
+   "https://www.riotinto.com/news/releases/2022/rio-tinto-and-baowu-agree-to-form-joint-venture-to-develop-western-range"
+  ],
+  "MT-UMI": [
+   "Mining Technology, מאי 2019",
+   "https://www.mining-technology.com/news/glencore-cobalt-umicore/"
+  ],
+  "MT-SDI": [
+   "Mining Technology, פברואר 2020",
+   "https://www.mining-technology.com/news/glencore-samsung-cobalt-supply-deal"
+  ],
+  "FMVW": [
+   "Fastmarkets, אפריל 2019",
+   "https://www.fastmarkets.com/insights/volkswagen-ganfeng-sign-lithium-supply-mou"
+  ],
+  "YIC": [
+   "Yicai Global, דצמבר 2019",
+   "https://yicaiglobal.com/news/ganfeng-lithium-bmw-sign-five-year-supply-deal"
+  ],
+  "MUG": [
+   "Mugglehead, ינואר 2024",
+   "https://mugglehead.com/ganfeng-lithium-inks-4-year-battery-material-supply-agreement-with-hyundai/"
+  ],
+  "BMF": [
+   "Benchmark Source, מאי 2023",
+   "https://source.benchmarkminerals.com/article/ford-signs-five-lithium-deals-to-secure-north-american-and-ira-compliant-supply"
+  ],
+  "IEV": [
+   "InsideEVs על דוח ההשפעה של Tesla ל-2021, מאי 2022",
+   "https://insideevs.com/news/584422/tesla-confirms-vale-nickel-deal-lists-battery-material-suppliers/"
+  ],
+  "W-LME": [
+   "ויקיפדיה: London Metal Exchange",
+   "https://en.wikipedia.org/wiki/London_Metal_Exchange"
+  ],
+  "W-COBRE": [
+   "ויקיפדיה: Cobre mine, Panama",
+   "https://en.wikipedia.org/wiki/Cobre_mine,_Panama"
+  ],
+  "ING": [
+   "ING Think, יולי 2025",
+   "https://think.ing.com/articles/comex-copper-plunges-as-trumps-tariff-exclude-refined-metal-a"
+  ]
+ },
+ "stages": {
+  "royalty": {
+   "title": "תמלוגים ומימון מכרות",
+   "badge": "הסכם לכל חיי המכרה · תשלום גדול מראש, אחר כך מתכת במחיר קבוע · דיווח כל רבעון",
+   "what": "חברות התמלוגים נותנות למכרה כסף מראש, בדרך כלל כדי לבנות אותו. בתמורה הן מקבלות חלק מהמתכת שהמכרה יפיק, במחיר נמוך שנקבע בחוזה. אם המכרה נעצר, גם ההכנסה שלהן ממנו נעצרת, אבל אין להן הוצאות תפעול.",
+   "facts": [
+    [
+     "ההכנסות של Franco-Nevada ב-2025: 1.82 מיליארד דולר",
+     "FNV"
+    ],
+    [
+     "ההכנסות של Royal Gold ב-2025: 1.03 מיליארד דולר. עלות המכר הייתה כ-13% מההכנסות",
+     "RGLD"
+    ],
+    [
+     "ל-Royal Gold יש זכויות ב-81 נכסים מפיקים, ועוד 254 נכסים בשלב חיפוש",
+     "RGLD"
+    ],
+    [
+     "שלושה מכרות נתנו 65% מההפקה של Wheaton ב-2025: Salobo 37%, Peñasquito 16%, Antamina 12%",
+     "WPM"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "כך עובד הסכם כזה (stream): החברה משלמת מקדמה, ומקבלת זכות לקנות מתכת במחיר קבוע או באחוז קבוע ממחיר השוק, לכל חיי ההסכם",
+     "RGLD"
+    ],
+    [
+     "report",
+     "Vale מכרה ל-Wheaton 75% מהזהב שמופק במכרה הנחושת Salobo, לכל חיי המכרה",
+     "VALE"
+    ],
+    [
+     "report",
+     "Royal Gold שילמה באוגוסט 2025 מקדמה של מיליארד דולר על זהב ממכרה Kansanshi בזמביה",
+     "RGLD"
+    ],
+    [
+     "report",
+     "בהסכם חדש של Franco-Nevada (Casa Berardi) התשלום השוטף הוא 20% ממחיר השוק לכל אונקיה",
+     "FNV"
+    ],
+    [
+     "report",
+     "BHP חתמה בפברואר 2026 על הסכם כזה עם Wheaton על הכסף ממכרה Antamina",
+     "BHP"
+    ]
+   ],
+   "choke": [
+    [
+     "ההכנסה תלויה במעט מכרות: מכרה אחד (Salobo) נותן 37% מההפקה של Wheaton",
+     "WPM"
+    ],
+    [
+     "מכרה Cobre Panama מושבת מנובמבר 2023. Franco-Nevada קיבלה ממנו ב-2025 כ-11 אלף אונקיות, לעומת 150 עד 175 אלף בשנה בתפוקה מלאה",
+     "FNV"
+    ],
+    [
+     "חמישה נכסים נתנו 53% מההכנסות של Royal Gold ב-2025, ואחד מהם (Mount Milligan) 22%",
+     "RGLD"
+    ]
+   ]
+  },
+  "equipment": {
+   "title": "ציוד ושירותים למכרות",
+   "badge": "הזמנות שנפרסות על כמה שנים · רוב ההכנסה מחלפים ושירות שוטף",
+   "what": "השלב הזה בונה את המשאיות, המקדחות והמגרסות שהמכרה עובד איתן, ומספק להן חלפים ושירות. מכרה לא יכול לעבוד בלי חלפים, ולכן הביקוש לשירות יציב יותר מהביקוש למכונות חדשות.",
+   "facts": [
+    [
+     "המכירות של חטיבת הכרייה של Caterpillar ב-2025: 12.47 מיליארד דולר, בלי שינוי לעומת 2024",
+     "CAT"
+    ],
+    [
+     "צבר ההזמנות של Caterpillar (כל החטיבות) בסוף 2025: 51.2 מיליארד דולר, לעומת 30.0 מיליארד שנה קודם",
+     "CAT"
+    ],
+    [
+     "אצל Epiroc, 66% מההכנסות ב-2025 באו משירות, חלפים וכלים מתכלים",
+     "EPI-AR"
+    ]
+   ],
+   "pulse": [
+    [
+     "press",
+     "ההזמנה הגדולה בתולדות Epiroc: מקדחות חשמליות בלי מפעיל ל-Fortescue, 350 מיליון דולר אוסטרלי על פני 5 שנים",
+     "EPI-FMG"
+    ],
+    [
+     "report",
+     "Caterpillar צופה ב-2026 עלייה במכירות למכרות, בעיקר בגלל הביקוש לנחושת ולזהב",
+     "CAT"
+    ],
+    [
+     "report",
+     "BHP ו-Rio Tinto בודקות יחד שתי משאיות חשמליות של Caterpillar במכרה Jimblebar. ניסוי דומה עם Komatsu מתוכנן ל-2029",
+     "RIO"
+    ],
+    [
+     "report",
+     "אצל Epiroc שירות ותוכנה הם 42% מההכנסות, וכלים מתכלים עוד 24%",
+     "EPI-AR"
+    ]
+   ],
+   "choke": [
+    [
+     "מעט יצרנים של משאיות ענק למכרות: Caterpillar מונה בין המתחרות את Komatsu, Hitachi ו-Liebherr",
+     "CAT"
+    ],
+    [
+     "המעבר למשאיות חשמליות איטי: הניסויים הראשונים התחילו רק ב-2025",
+     "RIO"
+    ]
+   ]
+  },
+  "mining": {
+   "title": "כרייה",
+   "badge": "דוח הפקה כל רבעון · מכרה חדש נבנה 15 שנה ויותר · המחיר נקבע בבורסה או בחוזה שנתי",
+   "what": "החברות האלה מוציאות את העפרה מהאדמה ומרכזות אותה לחומר שאפשר לשלוח. כל המפעלים בהמשך תלויים בהן. כשמכרה גדול נעצר, אין לו תחליף מהיר, כי מכרה חדש נבנה שנים רבות.",
+   "facts": [
+    [
+     "40 חברות הכרייה הגדולות: הכנסות של 909 מיליארד דולר ב-2025, עלייה של 3.3%. הרווח התפעולי (EBITDA) היה 248 מיליארד דולר",
+     "PWC"
+    ],
+    [
+     "נחושת: 23 מיליון טון ב-2025. צ'ילה 5.3 מיליון, קונגו 3.2 מיליון, פרו 2.7 מיליון",
+     "USGS-CU"
+    ],
+    [
+     "קובלט: קונגו מפיקה 73% מהעולם, ואינדונזיה 14%",
+     "USGS-CO"
+    ],
+    [
+     "ניקל: אינדונזיה מפיקה 2.6 מיליון טון מתוך 3.9 מיליון בעולם",
+     "USGS-NI"
+    ],
+    [
+     "אשלג: קנדה מפיקה 15 מיליון טון מתוך 49 מיליון בעולם. ישראל מפיקה 2.0 מיליון טון",
+     "USGS-K"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "נחושת: המחיר הסופי של משלוח נקבע חודש עד 4 חודשים אחרי המשלוח, לפי הממוצע החודשי בבורסת LME",
+     "FCX"
+    ],
+    [
+     "report",
+     "Southern Copper מוכרת 80% עד 90% מהמתכת בחוזים של שנה ויותר",
+     "SCCO"
+    ],
+    [
+     "report",
+     "עפרת ברזל: Vale מוכרת לפי מדדי מחיר בשוק. 63% מהמשלוחים שלה ב-2025 הלכו לסין",
+     "VALE"
+    ],
+    [
+     "report",
+     "אשלג: ICL חותמת כל שנה על כמות ומחיר עם סין ועם הודו. לסין ב-2026: 750 אלף טון ב-348 דולר לטון",
+     "ICL"
+    ],
+    [
+     "press",
+     "חוזה האשלג של הודו ל-2026 נסגר במאי ב-383 דולר לטון, לעומת 349 דולר בחוזה הקודם",
+     "FD-K"
+    ],
+    [
+     "report",
+     "אורניום: Cameco התחייבה למסור כ-230 מיליון ליברות בחוזים ארוכים, כ-28 מיליון בשנה בחמש השנים הקרובות",
+     "CCO"
+    ],
+    [
+     "report",
+     "ליתיום: רוב החוזים של Albemarle צמודים למדד מחיר. המחיר ירד ב-85% עד 95% מהשיא של ינואר 2023",
+     "ALB"
+    ],
+    [
+     "report",
+     "Mosaic ו-Nutrien מוכרות אשלג מחוץ לצפון אמריקה דרך חברה משותפת, Canpotex. החלק של Mosaic: 36.2%",
+     "MOS"
+    ]
+   ],
+   "choke": [
+    [
+     "קובלט: 73% ממדינה אחת, קונגו. מאוקטובר 2025 היא מגבילה את היצוא ל-96,600 טון בשנה",
+     "USGS-CO"
+    ],
+    [
+     "עפרות נדירות: סין מפיקה 270 אלף טון מתוך 390 אלף בעולם",
+     "USGS-REE"
+    ],
+    [
+     "ניקל: כשני שלישים מההפקה באינדונזיה",
+     "USGS-NI"
+    ],
+    [
+     "מכרה אחד יכול לזעזע שוק: Grasberg נעצר בספטמבר 2025, והחזרה ההדרגתית תוכננה רק לרבעון השני של 2026",
+     "FCX"
+    ],
+    [
+     "מכרה Cobre Panama, כ-1.5% מהנחושת בעולם, מושבת מסוף 2023 בגלל פסיקת בית משפט",
+     "W-COBRE"
+    ]
+   ]
+  },
+  "trading": {
+   "title": "סחר ובורסות",
+   "badge": "מחיר חדש כל יום בבורסה · חוזי אספקה לשנה עד חמש שנים",
+   "what": "הסוחרים קונים מהמכרות, משנעים ומממנים את המשלוח, ומוכרים למפעלי ההתכה ולתעשייה. הבורסות קובעות את המחיר שלפיו כמעט כל החוזים מחושבים. אם המסחר נעצר, לחוזים אין מחיר ייחוס.",
+   "facts": [
+    [
+     "זרוע הסחר של Glencore הרוויחה 2.9 מיליארד דולר ב-2025 (רווח תפעולי מתואם)",
+     "GLEN"
+    ],
+    [
+     "בורסת המתכות של לונדון (LME) שייכת מאז 2012 לבורסת הונג קונג, HKEX",
+     "W-LME"
+    ],
+    [
+     "בית הסחר היפני Mitsui מחזיק 6.7% מהמניות של Vale",
+     "VALE"
+    ],
+    [
+     "Sojitz וגוף ממשלתי יפני השקיעו 200 מיליון דולר אוסטרלי ב-Lynas, וקיבלו זכות לעד 65% משתי עפרות נדירות כבדות שהיא מפיקה",
+     "ARG"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "חוזי הנחושת של Freeport מתומחרים לפי הממוצע החודשי בבורסת LME",
+     "FCX"
+    ],
+    [
+     "press",
+     "Glencore חתמה ב-2019 על הסכם ארוך לאספקת קובלט ל-Umicore, מהמכרות שלה בקונגו",
+     "MT-UMI"
+    ],
+    [
+     "press",
+     "Glencore חתמה ב-2020 על הסכם של 5 שנים לאספקת קובלט ל-Samsung SDI",
+     "MT-SDI"
+    ],
+    [
+     "press",
+     "ביולי 2025 מחיר הנחושת בבורסת ניו יורק ירד ביותר מ-19% בתוך דקות, אחרי שהמכס האמריקאי לא הוחל על נחושת מזוקקת",
+     "ING"
+    ]
+   ],
+   "choke": [
+    [
+     "בורסה אחת קובעת את מחיר הייחוס. ב-8 במרץ 2022 LME ביטלה את כל עסקאות הניקל של אותו יום, ונתבעה על 456 מיליון דולר",
+     "W-LME"
+    ]
+   ]
+  },
+  "refining": {
+   "title": "התכה וזיקוק",
+   "badge": "דמי העיבוד נקבעים פעם בשנה · תחזוקה גדולה כל שנתיים · רוב הקיבולת בסין",
+   "what": "המפעלים האלה הופכים את התרכיז מהמכרה למתכת נקייה או לכימיקל שהתעשייה יכולה להשתמש בו. המכרה משלם להם דמי עיבוד. בלי השלב הזה העפרה לא שווה הרבה, ורוב הקיבולת שלו נמצאת במדינה אחת.",
+   "facts": [
+    [
+     "נחושת מזוקקת: סין ייצרה 14 מיליון טון מתוך 29 מיליון בעולם ב-2025",
+     "USGS-CU"
+    ],
+    [
+     "החלק של סין בזיקוק: ליתיום 74%, קובלט 76%, גרפיט לסוללות 94%, נחושת 47%, ניקל 31%",
+     "BOFIT"
+    ],
+    [
+     "זיקוק עפרות נדירות: החלק של המדינה המובילה ירד מיותר מ-90% ב-2023 ל-85% ב-2025",
+     "GMR"
+    ],
+    [
+     "המדינות המובילות בזיקוק (אינדונזיה בניקל, סין בשאר) היו אחראיות ליותר משלושה רבעים מהגידול בהיצע בשנתיים האחרונות",
+     "GMR"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "דמי העיבוד (הסכום שהמכרה משלם למתיך) נקבעים במשא ומתן פעם בשנה",
+     "FCX"
+    ],
+    [
+     "press",
+     "נחושת: דמי העיבוד לשנת 2026 נקבעו ב-19 בדצמבר 2025 על אפס דולר לטון, לעומת 21.25 דולר ב-2025. זה השפל של כל הזמנים",
+     "SMM-TC"
+    ],
+    [
+     "press",
+     "אבץ: דמי העיבוד ל-2026 נקבעו על 85 דולר לטון, לעומת 80 דולר ב-2025",
+     "SMM-ZN"
+    ],
+    [
+     "report",
+     "מפעל ההתכה PT Smelting באינדונזיה מעבד כ-1.3 מיליון טון תרכיז בשנה. תחזוקה גדולה של כ-30 יום נעשית כל שנתיים",
+     "FCX"
+    ],
+    [
+     "report",
+     "מפעל ההתכה של Freeport בספרד קנה ב-2025 77% מהתרכיז שלו מחברות אחרות",
+     "FCX"
+    ],
+    [
+     "report",
+     "MP Materials מכרה את התרכיז שלה לחברה סינית, Shenghe, עד יולי 2025. המחיר נגזר ממה ש-Shenghe קיבלה מהלקוחות שלה",
+     "MP"
+    ]
+   ],
+   "choke": [
+    [
+     "גליום: 99% מהייצור הראשוני בסין",
+     "USGS-GA"
+    ],
+    [
+     "גרפיט: סין מפיקה 82% מהגרפיט הטבעי, ומעבדת 94% מהגרפיט לסוללות",
+     "USGS-GR"
+    ],
+    [
+     "עפרות נדירות: 85% מהזיקוק במדינה אחת",
+     "GMR"
+    ],
+    [
+     "דמי עיבוד של אפס פוגעים ברווח של מפעלי ההתכה, ואחרי אסון Grasberg שני מפעלים באינדונזיה נעצרו מחוסר תרכיז",
+     "FCX"
+    ]
+   ]
+  },
+  "makers": {
+   "title": "יצרני סוללות, מגנטים ופלדה",
+   "badge": "חוזים של חצי שנה עד עשר שנים · המחיר מתעדכן כל חודש או רבעון",
+   "what": "המפעלים האלה קונים מתכות וכימיקלים והופכים אותם לחומר תעשייתי: תאי סוללה, מגנטים ופלדה. הם הלקוחות הישירים של המזקקים. אם חומר אחד חסר, קו הייצור שלהם נעצר, וגם קו הייצור של יצרן הרכב.",
+   "facts": [
+    [
+     "סוללות לרכב חשמלי ב-2025: CATL 39.2%, BYD 16.4%, LG Energy Solution 9.2%, Panasonic 3.7%, Samsung SDI 2.4%",
+     "SNE"
+    ],
+    [
+     "המינרלים הם כרבע מעלות תא הסוללה, אבל רק כ-3% ממחיר רכב חשמלי",
+     "GMR"
+    ],
+    [
+     "עפרות נדירות הן כ-40% מעלות מגנט קבוע, ופחות מ-1% משווי הרכב",
+     "GMR"
+    ],
+    [
+     "Nucor מייצרת פלדה מגרוטאות: כ-20 מיליון טון גרוטאות ב-2025",
+     "NUE"
+    ],
+    [
+     "POSCO קנתה ב-2025 37% מעפרת הברזל המיובאת שלה ממכרות שהיא שותפה בהם",
+     "POSCO"
+    ]
+   ],
+   "pulse": [
+    [
+     "report",
+     "POSCO קונה עפרת ברזל ופחם בחוזים של 3 עד 10 שנים. המחיר מתעדכן כל רבעון, והמלאי מספיק לכחודש",
+     "POSCO"
+    ],
+    [
+     "report",
+     "Nucor: כ-85% ממכירות הפח ב-2025 היו בחוזים של 6 עד 12 חודשים, עם עדכון מחיר כל חודש או רבעון",
+     "NUE"
+    ],
+    [
+     "report",
+     "Tesla נשענת על Panasonic ועל CATL לתאי סוללה, ואישרה רק מספר קטן מאוד של ספקים",
+     "TSLA"
+    ],
+    [
+     "report",
+     "GM מקבלת תאי סוללה ממיזם משותף עם LG Energy Solution, Ultium Cells",
+     "GM"
+    ],
+    [
+     "report",
+     "MP Materials חתמה על הסכמים ארוכים למגנטים עם GM ועם Apple. Apple משלמת מקדמות של 200 מיליון דולר",
+     "MP"
+    ]
+   ],
+   "choke": [
+    [
+     "שתי חברות סיניות, CATL ו-BYD, מייצרות 55.6% מהסוללות לרכב חשמלי",
+     "SNE"
+    ],
+    [
+     "מגנטים: 85% מזיקוק העפרות הנדירות במדינה אחת",
+     "GMR"
+    ],
+    [
+     "קשה להחליף ספק תאים: ל-Tesla יש גמישות מוגבלת בהחלפת ספקים",
+     "TSLA"
+    ]
+   ]
+  },
+  "buyers": {
+   "title": "הקונים הגדולים: רכב, אלקטרוניקה וחשמל",
+   "badge": "הסכמי אספקה של 4 עד 13 שנים · המחיר לפי נוסחה או לפי השוק",
+   "what": "יצרני הרכב והאלקטרוניקה הם סוף השרשרת. בשנים האחרונות הם חותמים ישירות עם מכרות ומזקקים כדי להבטיח לעצמם חומר. אם הם קונים פחות, כל השרשרת מרגישה את זה, אבל רק אחרי חודשים.",
+   "facts": [
+    [
+     "Ford חתמה במאי 2023 על חמישה הסכמי ליתיום, בהם עם SQM ועם Albemarle",
+     "BMF"
+    ],
+    [
+     "Ganfeng ו-BMW: הסכם ל-5 שנים, 2020 עד 2024, בהיקף צפוי של 540 מיליון אירו",
+     "YIC"
+    ],
+    [
+     "Rio Tinto ו-Baowu: עד 126.5 מיליון טון עפרת ברזל על פני כ-13 שנה, במחירי שוק",
+     "RIOB"
+    ],
+    [
+     "צריכת האשלג בדשנים בעולם: 41.6 מיליון טון ב-2025, וצפויה לעלות ל-45.3 מיליון ב-2029",
+     "USGS-K"
+    ]
+   ],
+   "pulse": [
+    [
+     "press",
+     "Volkswagen חתמה ב-2019 על מזכר הבנות עם Ganfeng לאספקת ליתיום ל-10 שנים",
+     "FMVW"
+    ],
+    [
+     "press",
+     "Hyundai חתמה עם Ganfeng על אספקת ליתיום עד סוף 2027, במחיר לפי נוסחה",
+     "MUG"
+    ],
+    [
+     "press",
+     "Tesla פרסמה בדוח ל-2021 רשימה של 12 ספקים ישירים של חומרי סוללה, בהם Vale, Ganfeng ו-Huayou",
+     "IEV"
+    ],
+    [
+     "report",
+     "חברות החשמל קונות דלק גרעיני בעיקר בחוזים ארוכים. ב-2025 הן חתמו על כ-116 מיליון ליברות אורניום",
+     "CCO"
+    ],
+    [
+     "report",
+     "Constellation קונה אורניום ושירותי העשרה בחוזים ארוכים, חלקם מרוסיה",
+     "CEG"
+    ]
+   ],
+   "choke": [
+    [
+     "מאפריל 2025 סין דורשת רישיון ליצוא של עפרות נדירות כבדות, שנדרשות למגנטים של מנועים חשמליים",
+     "USGS-HREE"
+    ],
+    [
+     "אורניום: תחזית ההפקה של Kazatomprom ל-2026, 27,500 עד 29,000 טון, תלויה באספקה של חומצה גופרתית",
+     "CCO"
+    ]
+   ]
+  }
+ },
+ "clock": [
+  [
+   "מגילוי מרבץ עד מכרה פעיל",
+   "15.7 שנה בממוצע; 17.8 שנה במכרות שנפתחו בין 2020 ל-2024",
+   "SP-LEAD"
+  ],
+  [
+   "קביעת המחיר הסופי של משלוח נחושת",
+   "חודש עד 4 חודשים אחרי המשלוח",
+   "FCX"
+  ],
+  [
+   "דמי העיבוד לתרכיז נחושת ואבץ",
+   "נקבעים פעם בשנה",
+   "FCX"
+  ],
+  [
+   "חוזה מכירה של יצרן פלדה (Nucor)",
+   "6 עד 12 חודשים",
+   "NUE"
+  ],
+  [
+   "חוזה לעפרת ברזל ופחם (POSCO)",
+   "3 עד 10 שנים, מחיר מתעדכן כל רבעון",
+   "POSCO"
+  ],
+  [
+   "הסכם מסגרת לאשלג (ICL עם סין והודו)",
+   "3 עד 5 שנים; כמות ומחיר נקבעים כל שנה",
+   "ICL"
+  ],
+  [
+   "הסכם רכישה ארוך לעפרת ברזל (Rio Tinto ו-Baowu)",
+   "כ-13 שנה",
+   "RIOB"
+  ],
+  [
+   "תחזוקה גדולה במפעל התכה",
+   "כ-30 יום, כל שנתיים",
+   "FCX"
+  ],
+  [
+   "חזרה לייצור אחרי אסון במכרה (Grasberg)",
+   "7 עד 9 חודשים עד תחילת ההפעלה ההדרגתית",
+   "FCX"
+  ]
+ ],
+ "calendar": [
+  [
+   "פעם בשנה",
+   "פברואר",
+   "סיכומי המחצבים: הפקה ורזרבות לפי מדינה, לכל מחצב",
+   "USGS",
+   "USGS-CU",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "מאי עד יולי",
+   "תחזית המינרלים הקריטיים",
+   "IEA",
+   "GMR",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "יוני (לא אומת)",
+   "דוח Mine על 40 חברות הכרייה הגדולות",
+   "PwC",
+   "PWC",
+   0
+  ],
+  [
+   "פעם בשנה",
+   "סוף נובמבר עד דצמבר",
+   "דמי העיבוד השנתיים לתרכיז נחושת",
+   "Antofagasta ומפעלי ההתכה בסין",
+   "SMM-TC",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "פברואר עד אפריל",
+   "דמי העיבוד השנתיים לתרכיז אבץ",
+   "Teck ו-Korea Zinc",
+   "SMM-ZN",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "נובמבר עד דצמבר",
+   "חוזה האשלג השנתי של סין",
+   "יצרני האשלג והקונים בסין",
+   "ICL",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "מאי עד יוני",
+   "חוזה האשלג השנתי של הודו",
+   "IPL ויצרני האשלג",
+   "FD-K",
+   1
+  ],
+  [
+   "כל רבעון",
+   "כחודש אחרי סוף הרבעון (נבדק לרבעון השני של 2026)",
+   "עדכון הפקה ומכירות של אורניום",
+   "Kazatomprom",
+   "WNN",
+   1
+  ],
+  [
+   "כל רבעון",
+   "",
+   "תוצאות, חוזים ומחירי אורניום",
+   "Cameco",
+   "CCO",
+   1
+  ],
+  [
+   "כל רבעון",
+   "ינואר, אפריל, יולי, אוקטובר (לא אומת)",
+   "דוחות הפקה של חברות הכרייה",
+   "BHP, Rio Tinto, Vale ואחרות",
+   "",
+   0
+  ],
+  [
+   "כל חודש",
+   "",
+   "נתוני סוללות לרכב חשמלי ונתחי שוק",
+   "SNE Research",
+   "SNE",
+   1
+  ],
+  [
+   "פעם בשנה",
+   "אוקטובר (לא אומת)",
+   "שבוע LME בלונדון: מפגש השנה של סוחרי המתכות",
+   "LME",
+   "",
+   0
+  ],
+  [
+   "לא קבוע",
+   "10 בינואר 2027 (לפי דיווח שלא אומת)",
+   "פקיעת ההשעיה של מגבלות היצוא הסיניות מאוקטובר 2025",
+   "משרד המסחר של סין",
+   "",
+   0
+  ]
+ ]
+}

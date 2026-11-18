@@ -1,0 +1,173 @@
+{
+ "calm": {
+  "members": [
+   "INOVANCE",
+   "NVDA",
+   "SIEMENS",
+   "MIDEA",
+   "MEDTRONIC",
+   "KARDEX",
+   "DHL",
+   "TOYOTA"
+  ],
+  "vol_now": 15.0,
+  "vol_hist": 18.6,
+  "max_drawdown": -45.7,
+  "return_year": 16.6,
+  "events_r3": {
+   "MIDEA_KUKA2016": 0.6,
+   "OCADO_KROGER2018": -0.8,
+   "AUTOSTORE_ITC2021": -2.1,
+   "AUTOSTORE_SETTLE2023": 2.3,
+   "CRUISE2023": -2.0,
+   "HESAI2024": 3.2,
+   "MOBILEYE2024": 2.2,
+   "DAVINCI5_2024": -0.5,
+   "SYMBOTIC2024": 2.3,
+   "GM_CRUISE2024": -1.6,
+   "SAMSUNG_TESLA2025": -1.6,
+   "SEC232_2025": -1.3,
+   "SOFTBANK_ABB2025": -1.7,
+   "OCADO_KROGER2025": -0.4,
+   "FCC_DRONES2025": 0.5,
+   "HYUNDAI_CES2026": 1.0
+  },
+  "countries": {
+   "CN": 2,
+   "US": 2,
+   "DE": 2,
+   "CH": 1,
+   "JP": 1
+  },
+  "shared_supplier": null
+ },
+ "steady": {
+  "members": [
+   "NIDEC",
+   "NVDA",
+   "SIEMENS",
+   "MIDEA",
+   "GOOGL",
+   "KION",
+   "SAMSUNG",
+   "TOYOTA"
+  ],
+  "vol_now": 21.1,
+  "vol_hist": 20.6,
+  "max_drawdown": -57.6,
+  "return_year": 16.0,
+  "events_r3": {
+   "MIDEA_KUKA2016": 1.1,
+   "OCADO_KROGER2018": -0.2,
+   "AUTOSTORE_ITC2021": -0.8,
+   "AUTOSTORE_SETTLE2023": 3.1,
+   "CRUISE2023": -5.2,
+   "HESAI2024": 2.4,
+   "MOBILEYE2024": 2.7,
+   "DAVINCI5_2024": 3.1,
+   "SYMBOTIC2024": 1.0,
+   "GM_CRUISE2024": -0.6,
+   "SAMSUNG_TESLA2025": 0.3,
+   "SEC232_2025": -1.5,
+   "SOFTBANK_ABB2025": -0.0,
+   "OCADO_KROGER2025": -1.4,
+   "FCC_DRONES2025": 1.8,
+   "HYUNDAI_CES2026": 0.4
+  },
+  "countries": {
+   "JP": 2,
+   "US": 2,
+   "DE": 2,
+   "CN": 1,
+   "KR": 1
+  },
+  "shared_supplier": null
+ },
+ "bold": {
+  "members": [
+   "HDS",
+   "INNOVIZ",
+   "PTC",
+   "RAINBOW",
+   "ONDAS",
+   "OCADO",
+   "SAMSUNG",
+   "HONHAI"
+  ],
+  "vol_now": 38.1,
+  "vol_hist": 28.4,
+  "max_drawdown": -92.8,
+  "return_year": 9.6,
+  "events_r3": {
+   "MIDEA_KUKA2016": 1.0,
+   "OCADO_KROGER2018": 12.4,
+   "AUTOSTORE_ITC2021": -0.2,
+   "AUTOSTORE_SETTLE2023": -0.1,
+   "CRUISE2023": -1.5,
+   "HESAI2024": -1.9,
+   "MOBILEYE2024": -2.8,
+   "DAVINCI5_2024": 5.1,
+   "SYMBOTIC2024": -1.6,
+   "GM_CRUISE2024": 14.6,
+   "SAMSUNG_TESLA2025": -1.8,
+   "SEC232_2025": -0.6,
+   "SOFTBANK_ABB2025": 1.5,
+   "OCADO_KROGER2025": -1.9,
+   "FCC_DRONES2025": -2.2,
+   "HYUNDAI_CES2026": 0.6
+  },
+  "countries": {
+   "US": 2,
+   "KR": 2,
+   "JP": 1,
+   "IL": 1,
+   "GB": 1,
+   "TW": 1
+  },
+  "shared_supplier": null
+ },
+ "popular": {
+  "members": [
+   "NVDA",
+   "GOOGL",
+   "AMZN",
+   "TESLA",
+   "SAMSUNG",
+   "WALMART",
+   "TOYOTA",
+   "SIEMENS"
+  ],
+  "vol_now": 20.8,
+  "vol_hist": 21.1,
+  "max_drawdown": -46.8,
+  "return_year": 22.6,
+  "events_r3": {
+   "MIDEA_KUKA2016": 2.3,
+   "OCADO_KROGER2018": -0.9,
+   "AUTOSTORE_ITC2021": -0.8,
+   "AUTOSTORE_SETTLE2023": 1.8,
+   "CRUISE2023": -3.0,
+   "HESAI2024": 3.8,
+   "MOBILEYE2024": 1.9,
+   "DAVINCI5_2024": 2.9,
+   "SYMBOTIC2024": 1.9,
+   "GM_CRUISE2024": 3.0,
+   "SAMSUNG_TESLA2025": 0.6,
+   "SEC232_2025": 0.0,
+   "SOFTBANK_ABB2025": 0.2,
+   "OCADO_KROGER2025": -1.0,
+   "FCC_DRONES2025": 0.9,
+   "HYUNDAI_CES2026": 1.5
+  },
+  "countries": {
+   "US": 5,
+   "KR": 1,
+   "JP": 1,
+   "DE": 1
+  },
+  "shared_supplier": [
+   "SYMBOTIC",
+   1
+  ]
+ }
+}

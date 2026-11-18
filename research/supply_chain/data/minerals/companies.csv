@@ -1,0 +1,84 @@
+# id,name,ticker (Yahoo, home market),country,segment (what it makes; rivals share a segment),tier (map column),sites (main mines or plants)
+id,name,ticker,country,segment,tier,sites
+FNV,Franco-Nevada,FNV.TO,CA,royalty-streaming,royalty,Streams on Cobre Panama (Panama); Antapaccay and Antamina (Peru); Candelaria (Chile)
+WPM,Wheaton Precious Metals,WPM.TO,CA,royalty-streaming,royalty,Streams on Salobo (Brazil); Penasquito (Mexico); Antamina (Peru); 22 operating mines
+RGLD,Royal Gold,RGLD,US,royalty-streaming,royalty,Streams and royalties on Mount Milligan (Canada); Pueblo Viejo (Dominican Republic); Cortez (Nevada); Andacollo (Chile); Kansanshi (Zambia)
+CAT,Caterpillar,CAT,US,mining-trucks,equipment,US (Illinois; Arizona proving ground); global dealer network
+KOMATSU,Komatsu,6301.T,JP,mining-trucks,equipment,Japan; US (Illinois; Wisconsin)
+SANDVIK,Sandvik,SAND.ST,SE,drilling-equipment,equipment,Sweden (Sandviken); Finland (Tampere; Turku)
+EPIROC,Epiroc,EPI-A.ST,SE,drilling-equipment,equipment,Sweden (Orebro); US; China; India
+METSO,Metso,METSO.HE,FI,processing-equipment,equipment,Finland; Brazil; China; India
+BHP,BHP,BHP.AX,AU,diversified-miner,mining,Pilbara iron ore (Australia); Escondida (Chile); Olympic Dam (Australia); BMA coal (Australia); Jansen potash (Canada)
+RIO,Rio Tinto,RIO.L,GB,diversified-miner,mining,Pilbara iron ore (Australia); Simandou (Guinea); Oyu Tolgoi (Mongolia); Kennecott (US); Escondida 30% (Chile)
+VALE,Vale,VALE3.SA,BR,diversified-miner,mining,Carajas and Minas Gerais iron ore (Brazil); Salobo copper (Brazil); Sudbury and Voisey's Bay nickel (Canada)
+ANGLO,Anglo American,AAL.L,GB,diversified-miner,mining,Quellaveco (Peru); Los Bronces and Collahuasi (Chile); Minas-Rio (Brazil); Kumba (South Africa)
+FCX,Freeport-McMoRan,FCX,US,copper,mining,Grasberg (Indonesia); Morenci (Arizona); Cerro Verde (Peru)
+SCCO,Southern Copper,SCCO,US,copper,mining,Buenavista and La Caridad (Mexico); Toquepala and Cuajone (Peru)
+FM,First Quantum Minerals,FM.TO,CA,copper,mining,Kansanshi and Sentinel (Zambia); Cobre Panama (Panama - halted since Nov 2023)
+ANTO,Antofagasta,ANTO.L,GB,copper,mining,Los Pelambres; Centinela; Antucoya; Zaldivar (Chile)
+TECK,Teck Resources,TECK-B.TO,CA,copper,mining,Quebrada Blanca and Andacollo (Chile); Highland Valley (Canada); Red Dog zinc (Alaska); Trail smelter (Canada)
+IVN,Ivanhoe Mines,IVN.TO,CA,copper,mining,Kamoa-Kakula (DR Congo); Kipushi (DR Congo); Platreef (South Africa)
+ZIJIN,Zijin Mining,601899.SS,CN,copper,mining,Kamoa-Kakula JV partner (DR Congo); Julong (Tibet); Cukaru Peki (Serbia)
+CMOC,CMOC Group,603993.SS,CN,cobalt,mining,Tenke Fungurume and Kisanfu (DR Congo)
+FMG,Fortescue,FMG.AX,AU,iron-ore,mining,Chichester; Solomon; Western Hub; Iron Bridge (Pilbara - Australia)
+ALB,Albemarle,ALB,US,lithium,mining,Salar de Atacama (Chile); Greenbushes JV and Wodgina (Australia); Silver Peak (Nevada); Kemerton refinery (Australia)
+SQM,SQM,SQM-B.SN,CL,lithium,mining,Salar de Atacama (Chile); Mt Holland 50% (Australia)
+PLS,Pilbara Minerals (PLS),PLS.AX,AU,lithium,mining,Pilgangoora (Western Australia)
+MP,MP Materials,MP,US,rare-earths,mining,Mountain Pass mine (California); Independence magnet plant (Texas)
+LYNAS,Lynas Rare Earths,LYC.AX,AU,rare-earths,mining,Mt Weld mine (Australia); Kuantan separation plant (Malaysia); Kalgoorlie (Australia)
+NORTHERN,China Northern Rare Earth,600111.SS,CN,rare-earths,mining,Baotou - Bayan Obo ore (Inner Mongolia)
+CAMECO,Cameco,CCO.TO,CA,uranium,mining,McArthur River/Key Lake and Cigar Lake (Saskatchewan); JV Inkai 40% (Kazakhstan)
+KAP,Kazatomprom,KAP.IL,KZ,uranium,mining,In-situ recovery mines in Kazakhstan (incl. JV Inkai 60%)
+NEM,Newmont,NEM,US,gold,mining,Penasquito (Mexico); Cadia and Boddington (Australia); Nevada Gold Mines JV; Yanacocha (Peru)
+BARRICK,Barrick Mining,ABX.TO,CA,gold,mining,Nevada Gold Mines JV (US); Pueblo Viejo (Dominican Republic); Lumwana (Zambia); Reko Diq project (Pakistan)
+NUTRIEN,Nutrien,NTR.TO,CA,potash-phosphate,mining,Six potash mines in Saskatchewan (Canada)
+MOSAIC,Mosaic,MOS,US,potash-phosphate,mining,Esterhazy and Belle Plaine potash (Canada); Florida phosphate rock; Brazil
+ICL,ICL Group,ICL.TA,IL,potash-phosphate,mining,Dead Sea Works - potash and bromine (Israel); Rotem phosphate (Negev - Israel); Boulby polyhalite (UK); Haikou phosphate (China)
+INCO,Vale Indonesia,INCO.JK,ID,nickel,mining,Sorowako; Pomalaa; Bahodopi (Sulawesi - Indonesia)
+GLENCORE,Glencore,GLEN.L,CH,trader-miner,trading,Trading from Baar (Switzerland); KCC and Mutanda cobalt-copper (DR Congo); Antamina 33.75% (Peru); Elk Valley coal 77% (Canada)
+MITSUI,Mitsui & Co,8031.T,JP,trading-house,trading,Minority stakes: Vale 6.7%; Robe River and West Angelas JV (Australia); Collahuasi (Chile)
+SOJITZ,Sojitz,2768.T,JP,trading-house,trading,Japan Australia Rare Earths (JARE) with JOGMEC - Lynas supply
+HKEX,Hong Kong Exchanges (owner of the LME),0388.HK,HK,metals-exchange,trading,London Metal Exchange (London)
+JIANGXI,Jiangxi Copper,600362.SS,CN,copper-smelting,refining,Guixi smelter (Jiangxi - China)
+AURUBIS,Aurubis,NDA.DE,DE,copper-smelting,refining,Hamburg and Lunen (Germany); Pirdop (Bulgaria)
+MITSUMAT,Mitsubishi Materials,5711.T,JP,copper-smelting,refining,Naoshima and Onahama (Japan); PT Smelting partner at Gresik (Indonesia)
+KOREAZINC,Korea Zinc,010130.KS,KR,zinc-smelting,refining,Onsan (Korea); Sun Metals (Australia)
+UMICORE,Umicore,UMI.BR,BE,battery-materials,refining,Hoboken and Olen (Belgium); Nysa (Poland); Cheonan (Korea)
+GANFENG,Ganfeng Lithium,002460.SZ,CN,lithium-chemicals,refining,Xinyu and Ningdu (Jiangxi - China); Cauchari-Olaroz (Argentina)
+TIANQI,Tianqi Lithium,002466.SZ,CN,lithium-chemicals,refining,Shehong and Zhangjiagang (China); Kwinana (Australia); Greenbushes JV (Australia); SQM 21.9% stake
+HUAYOU,Zhejiang Huayou Cobalt,603799.SS,CN,battery-materials,refining,Quzhou (China); HPAL plants in Sulawesi (Indonesia); DR Congo
+SHENGHE,Shenghe Resources,600392.SS,CN,rare-earth-processing,refining,Leshan (Sichuan); Ganzhou (China)
+CATL,CATL,300750.SZ,CN,battery,makers,Ningde (China); Erfurt (Germany); Debrecen (Hungary)
+LGES,LG Energy Solution,373220.KS,KR,battery,makers,Ochang (Korea); Wroclaw (Poland); Michigan; Ultium Cells in Ohio and Tennessee (US)
+PANASONIC,Panasonic,6752.T,JP,battery,makers,Gigafactory Nevada; De Soto Kansas (US); Osaka (Japan)
+SDI,Samsung SDI,006400.KS,KR,battery,makers,Ulsan and Cheonan (Korea); God (Hungary)
+JLMAG,JL MAG Rare-Earth,300748.SZ,CN,magnets,makers,Ganzhou; Baotou; Ningbo (China)
+POSCO,POSCO Holdings,005490.KS,KR,steel,makers,Pohang and Gwangyang (Korea)
+NIPPONSTEEL,Nippon Steel,5401.T,JP,steel,makers,Kimitsu; Kashima; Nagoya; Kyushu works (Japan)
+ARCELOR,ArcelorMittal,MT.AS,LU,steel,makers,Europe; Brazil; North America; India (AM/NS)
+NUCOR,Nucor,NUE,US,steel,makers,Electric-arc furnace mills across the US (scrap based)
+BAOSTEEL,Baoshan Iron & Steel (China Baowu),600019.SS,CN,steel,makers,Shanghai Baoshan; Zhanjiang; Wuhan (China)
+TSLA,Tesla,TSLA,US,automaker,buyers,Fremont; Nevada; Texas (US); Shanghai; Berlin
+GM,General Motors,GM,US,automaker,buyers,US; Mexico; Canada; Korea
+FORD,Ford,F,US,automaker,buyers,US; Mexico; Germany; Turkey
+VW,Volkswagen,VOW3.DE,DE,automaker,buyers,Germany; China; Salzgitter cells (PowerCo)
+BMW,BMW,BMW.DE,DE,automaker,buyers,Germany; Spartanburg (US); Shenyang (China)
+HYUNDAI,Hyundai Motor,005380.KS,KR,automaker,buyers,Ulsan (Korea); Georgia (US)
+AAPL,Apple,AAPL,US,electronics,buyers,-
+# --- unrelated large companies in the same markets: the control group ---
+JNJ,Johnson & Johnson,JNJ,US,control,control,-
+PG,Procter & Gamble,PG,US,control,control,-
+JPM,JPMorgan,JPM,US,control,control,-
+CBA,Commonwealth Bank,CBA.AX,AU,control,control,-
+WOW,Woolworths Group,WOW.AX,AU,control,control,-
+CSL,CSL,CSL.AX,AU,control,control,-
+ULVR,Unilever,ULVR.L,GB,control,control,-
+AZN,AstraZeneca,AZN.L,GB,control,control,-
+RY,Royal Bank of Canada,RY.TO,CA,control,control,-
+NTT,NTT,9432.T,JP,control,control,-
+TAKEDA,Takeda,4502.T,JP,control,control,-
+MOUTAI,Kweichow Moutai,600519.SS,CN,control,control,-
+ICBC,ICBC,601398.SS,CN,control,control,-
+ITAU,Itau Unibanco,ITUB4.SA,BR,control,control,-
+LEUMI,Bank Leumi,LUMI.TA,IL,control,control,-
+TEVA,Teva,TEVA.TA,IL,control,control,-

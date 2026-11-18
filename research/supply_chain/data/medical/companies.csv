@@ -1,0 +1,86 @@
+# id,name,ticker (Yahoo, home market),country,segment (what it makes or does; rivals share a segment),tier (map column),sites (main plants or operations)
+id,name,ticker,country,segment,tier,sites
+TMO,Thermo Fisher Scientific,TMO,US,lab-tools,tools,US (Massachusetts; North Carolina); Germany; Italy; Singapore
+DHR,Danaher (Cytiva; Pall; Beckman),DHR,US,bioprocess,tools,US; Sweden (Uppsala); Germany; UK; Singapore
+SARTORIUS,Sartorius,SRT3.DE,DE,bioprocess,tools,Goettingen; Aubagne France; Yauco Puerto Rico
+MERCKKGAA,Merck KGaA (MilliporeSigma),MRK.DE,DE,bioprocess,tools,Darmstadt; US (Massachusetts; Missouri); Ireland (Cork)
+REPLIGEN,Repligen,RGEN,US,bioprocess,tools,Massachusetts; Sweden (Lund); Netherlands
+WATERS,Waters,WAT,US,lab-tools,tools,Massachusetts; Ireland (Wexford); UK (Wilmslow); Singapore
+ILLUMINA,Illumina,ILMN,US,sequencing,tools,San Diego; Singapore
+WEST,West Pharmaceutical Services,WST,US,drug-packaging,tools,Pennsylvania; Ireland (Waterford; Dublin); Germany; Singapore
+LONZA,Lonza,LONN.SW,CH,cdmo,contract,Visp; Basel; Portsmouth New Hampshire; Vacaville California; Singapore
+SAMSUNGBIO,Samsung Biologics,207940.KS,KR,cdmo,contract,Songdo Incheon; Rockville Maryland
+WUXIBIO,WuXi Biologics,2269.HK,CN,cdmo,contract,Wuxi; Shanghai; Ireland; Germany; US; Singapore
+WUXIAPPTEC,WuXi AppTec,2359.HK,CN,cdmo,contract,Shanghai; Wuxi; Changzhou; Taixing
+FUJIFILM,Fujifilm (Fujifilm Biotechnologies),4901.T,JP,cdmo,contract,Hillerod Denmark; Holly Springs North Carolina; Teesside UK; Toyama Japan
+DIVIS,Divi's Laboratories,DIVISLAB.NS,IN,api,contract,Hyderabad; Visakhapatnam; Kakinada
+IQVIA,IQVIA,IQV,US,cro,contract,-
+CRL,Charles River Laboratories,CRL,US,cro,contract,US; Canada; Europe (research sites)
+LLY,Eli Lilly,LLY,US,obesity-drugs,drugmakers,Indianapolis; North Carolina; Puerto Rico; Ireland (Kinsale; Limerick); France
+NOVO,Novo Nordisk,NOVO-B.CO,DK,obesity-drugs,drugmakers,Kalundborg; Hillerod; Clayton North Carolina; Bloomington Indiana; Chartres France
+PFE,Pfizer,PFE,US,pharma,drugmakers,Rocky Mount NC; Kalamazoo Michigan; Puurs Belgium; Ireland; Puerto Rico
+MERCK,Merck & Co,MRK,US,pharma,drugmakers,Pennsylvania; North Carolina; Ireland (incl. Dundalk); Netherlands; Singapore
+JNJ,Johnson & Johnson,JNJ,US,pharma,drugmakers,US; Puerto Rico; Ireland (Cork); Belgium; Netherlands (Leiden)
+ROCHE,Roche,RO.SW,CH,pharma,drugmakers,Basel; Kaiseraugst; Penzberg and Mannheim Germany; South San Francisco
+NOVARTIS,Novartis,NOVN.SW,CH,pharma,drugmakers,Basel; Stein; Austria (Kundl); Slovenia; US
+AZN,AstraZeneca,AZN.L,GB,pharma,drugmakers,UK (Macclesfield); Sweden (Sodertalje); US; China (Wuxi)
+GSK,GSK,GSK.L,GB,pharma,drugmakers,UK; Belgium (Wavre); US; Singapore
+SANOFI,Sanofi,SAN.PA,FR,pharma,drugmakers,France; Germany (Frankfurt); US; Ireland; Visp (BioAtrium JV)
+BAYER,Bayer,BAYN.DE,DE,pharma,drugmakers,Leverkusen; Berlin; Wuppertal; US
+ABBV,AbbVie,ABBV,US,pharma,drugmakers,North Chicago; Puerto Rico; Ireland; Germany (Ludwigshafen); Singapore
+BMY,Bristol Myers Squibb,BMY,US,pharma,drugmakers,US; Puerto Rico; Ireland (Cruiserath); Switzerland
+AMGN,Amgen,AMGN,US,biotech,drugmakers,Thousand Oaks; Puerto Rico (Juncos); Rhode Island; Ohio; Ireland; Singapore
+GILD,Gilead Sciences,GILD,US,biotech,drugmakers,California; Ireland (Cork); Canada (Edmonton)
+VRTX,Vertex Pharmaceuticals,VRTX,US,biotech,drugmakers,Boston
+REGN,Regeneron,REGN,US,biotech,drugmakers,Rensselaer New York; Limerick Ireland
+MRNA,Moderna,MRNA,US,vaccines,drugmakers,Norwood Massachusetts
+BNTX,BioNTech,BNTX,DE,vaccines,drugmakers,Mainz; Marburg
+TAKEDA,Takeda,4502.T,JP,pharma,drugmakers,Japan (Osaka; Hikari); US; Ireland; Austria; Belgium
+DAIICHI,Daiichi Sankyo,4568.T,JP,pharma,drugmakers,Japan (Onahama; Hiratsuka); Germany (Pfaffenhofen); US
+TEVA,Teva,TEVA.TA,IL,generics,drugmakers,Israel (Kfar Saba; Jerusalem; Neot Hovav); Croatia; Germany (Ulm); Czechia; US
+VTRS,Viatris,VTRS,US,generics,drugmakers,India; US (Morgantown); Ireland; Puerto Rico
+SUNPHARMA,Sun Pharma (owns Taro),SUNPHARMA.NS,IN,generics,drugmakers,India (Gujarat; Punjab); Israel (Haifa Bay; via Taro); US
+DRREDDY,Dr. Reddy's,DRREDDY.NS,IN,generics,drugmakers,Hyderabad; Visakhapatnam; US (Louisiana)
+PRGO,Perrigo,PRGO,IE,otc-drugs,drugmakers,US (Michigan); Europe; Israel business divested
+KAMADA,Kamada,KMDA.TA,IL,plasma-drugs,drugmakers,Beit Kama Israel
+MDT,Medtronic,MDT,IE,medical-devices,devices,US; Puerto Rico; Ireland (Galway); Mexico; Israel
+ABT,Abbott,ABT,US,diabetes-devices,devices,US; Ireland (Kilkenny; Donegal); Puerto Rico
+DXCM,Dexcom,DXCM,US,diabetes-devices,devices,San Diego; Mesa Arizona; Penang Malaysia; Ireland
+PODD,Insulet,PODD,US,diabetes-devices,devices,Acton Massachusetts; Malaysia; China (contract)
+TNDM,Tandem Diabetes Care,TNDM,US,diabetes-devices,devices,San Diego
+ISRG,Intuitive Surgical,ISRG,US,surgical-robots,devices,Sunnyvale California; Georgia; Mexicali Mexico; Germany; Bulgaria
+SYK,Stryker,SYK,US,medical-devices,devices,Michigan; Ireland (Cork; Limerick); Puerto Rico; Germany
+BSX,Boston Scientific,BSX,US,medical-devices,devices,Minnesota; Ireland (Galway; Cork; Clonmel); Costa Rica; Malaysia
+BAX,Baxter,BAX,US,hospital-supplies,devices,North Cove North Carolina; Puerto Rico (Aibonito; Jayuya); Belgium; Spain; Mexico
+PHILIPS,Philips,PHIA.AS,NL,medical-devices,devices,Best Netherlands; US (Pennsylvania); Germany; China
+RMD,ResMed,RMD,US,medical-devices,devices,Sydney; Singapore; US (Atlanta)
+INMODE,InMode,INMD,IL,aesthetic-devices,devices,Yokneam Israel
+NANOX,Nano-X Imaging,NNOX,IL,imaging,devices,Petah Tikva Israel; Korea (chip plant)
+MCK,McKesson,MCK,US,wholesale,distribution,27 US distribution centres; Canada
+COR,Cencora (formerly AmerisourceBergen),COR,US,wholesale,distribution,US distribution centres; Europe (Alliance Healthcare)
+CAH,Cardinal Health,CAH,US,wholesale,distribution,US distribution centres
+CVS,CVS Health (Caremark; Aetna),CVS,US,pharmacy-pbm,distribution,about 9000 US pharmacies
+UNH,UnitedHealth Group (Optum; Change Healthcare),UNH,US,insurer,care,-
+CI,Cigna (Express Scripts; Accredo),CI,US,insurer-pbm,care,-
+ELV,Elevance Health,ELV,US,insurer,care,-
+HUM,Humana,HUM,US,insurer,care,-
+CNC,Centene,CNC,US,insurer,care,-
+HCA,HCA Healthcare,HCA,US,hospitals,care,190 hospitals; mostly Florida and Texas; UK
+THC,Tenet Healthcare,THC,US,hospitals,care,50 hospitals in eight US states
+# --- unrelated large companies in the same markets: the control group ---
+AAPL,Apple,AAPL,US,control,control,-
+MSFT,Microsoft,MSFT,US,control,control,-
+XOM,Exxon Mobil,XOM,US,control,control,-
+JPM,JPMorgan,JPM,US,control,control,-
+NESTLE,Nestle,NESN.SW,CH,control,control,-
+ALLIANZ,Allianz,ALV.DE,DE,control,control,-
+SAP,SAP,SAP.DE,DE,control,control,-
+LVMH,LVMH,MC.PA,FR,control,control,-
+SHELL,Shell,SHEL.L,GB,control,control,-
+HSBC,HSBC,HSBA.L,GB,control,control,-
+TOYOTA,Toyota,7203.T,JP,control,control,-
+KBFIN,KB Financial,105560.KS,KR,control,control,-
+TENCENT,Tencent,0700.HK,CN,control,control,-
+LEUMI,Bank Leumi,LUMI.TA,IL,control,control,-
+RELIANCE,Reliance Industries,RELIANCE.NS,IN,control,control,-
+DSV,DSV,DSV.CO,DK,control,control,-
