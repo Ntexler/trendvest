@@ -1,6 +1,6 @@
 {
- "updated_utc": "2026-11-19 12:41",
- "last_us_session": "2026-11-18",
+ "updated_utc": "2026-11-20 12:41",
+ "last_us_session": "2026-11-19",
  "start": "2026-11-16",
  "id": "twin-ny-1",
  "hash": "11981f45fa20",
@@ -27,7 +27,73 @@
  "control": {
   "closed": 0
  },
- "pending": [],
+ "pending": [
+  {
+   "leader": "Takeda",
+   "leader_t": "4502.T",
+   "city": "טוקיו",
+   "leader_date": "2026-11-20",
+   "jump": 5.4,
+   "z": 2.24,
+   "twin": "Pfizer",
+   "twin_t": "PFE",
+   "seg": "pharma",
+   "us": true,
+   "holding": false
+  },
+  {
+   "leader": "Takeda",
+   "leader_t": "4502.T",
+   "city": "טוקיו",
+   "leader_date": "2026-11-20",
+   "jump": 5.4,
+   "z": 2.24,
+   "twin": "Merck & Co",
+   "twin_t": "MRK",
+   "seg": "pharma",
+   "us": true,
+   "holding": false
+  },
+  {
+   "leader": "Takeda",
+   "leader_t": "4502.T",
+   "city": "טוקיו",
+   "leader_date": "2026-11-20",
+   "jump": 5.4,
+   "z": 2.24,
+   "twin": "Johnson & Johnson",
+   "twin_t": "JNJ",
+   "seg": "pharma",
+   "us": true,
+   "holding": false
+  },
+  {
+   "leader": "Takeda",
+   "leader_t": "4502.T",
+   "city": "טוקיו",
+   "leader_date": "2026-11-20",
+   "jump": 5.4,
+   "z": 2.24,
+   "twin": "AbbVie",
+   "twin_t": "ABBV",
+   "seg": "pharma",
+   "us": true,
+   "holding": false
+  },
+  {
+   "leader": "Takeda",
+   "leader_t": "4502.T",
+   "city": "טוקיו",
+   "leader_date": "2026-11-20",
+   "jump": 5.4,
+   "z": 2.24,
+   "twin": "Bristol Myers Squibb",
+   "twin_t": "BMY",
+   "seg": "pharma",
+   "us": true,
+   "holding": false
+  }
+ ],
  "recent": [
   {
    "leader": "SMIC",
